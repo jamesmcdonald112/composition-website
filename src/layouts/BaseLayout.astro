@@ -26,6 +26,7 @@ import '@fontsource/dm-sans/700.css';
 import "../styles/global.css";
 import { firm } from "../config/firm";
 import Intro from "../components/Intro/Intro.astro";
+import Navbar from "../components/navbar/Navbar.astro";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -115,6 +116,10 @@ const isArticle = ogType === "article";
 	</head>
 	<body>
 		<Intro />
+		<header role="banner">
+			<Navbar />
+		</header>
 		<main><slot /></main>
+		<footer></footer>
 	</body>
 </html>
