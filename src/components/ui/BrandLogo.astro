@@ -1,0 +1,61 @@
+---
+import logo from "../../assets/logo/companyLogo.svg?raw";
+import { firm } from "../../config/firm";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a
+  href="/"
+  class:list={["brand-logo", className]}
+  aria-label={`${firm.companyName} — home`}
+>
+  <span class="brand-logo__img" aria-hidden="true" set:html={logo} />
+</a>
+
+<style>
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: transform var(--duration-slow) var(--ease-smooth);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .brand-logo__img {
+    transition: filter var(--duration-slow) var(--ease-smooth);
+    filter:
+      brightness(0)
+      invert(1)
+      sepia(0)
+      saturate(1)
+      hue-rotate(0deg)
+      brightness(1)
+      drop-shadow(0 0 0px color-mix(in srgb, var(--color-accent-light) 0%, transparent));
+
+    .brand-logo:hover & {
+      filter:
+        brightness(0)
+        invert(1)
+        sepia(1)
+        saturate(3)
+        hue-rotate(5deg)
+        brightness(1.1)
+        drop-shadow(0 0 var(--space-md) color-mix(in srgb, var(--color-accent-light) 80%, transparent));
+    }
+  }
+
+  .brand-logo__img :global(svg) {
+    display: block;
+    height: var(--size-14);
+    width: auto;
+  }
+</style>
