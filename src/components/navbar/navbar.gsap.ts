@@ -16,6 +16,28 @@ if (navbar) {
 	handleScroll();
 }
 
+// ── CTA entrance + hover ───────────────────────────────────────────────────
+const cta = document.querySelector<HTMLAnchorElement>("[data-navbar-cta]");
+
+if (cta && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+	gsap.from(cta, {
+		opacity: 0,
+		x: 16,
+		duration: 0.7,
+		ease: "power3.out",
+		delay: 0.5,
+		onComplete: () => { gsap.set(cta, { clearProps: "transform" }); },
+	});
+
+	cta.addEventListener("mouseenter", () => {
+		gsap.to(cta, { scale: 1.02, duration: 0.2, ease: "power2.out" });
+	});
+
+	cta.addEventListener("mouseleave", () => {
+		gsap.to(cta, { scale: 1, duration: 0.2, ease: "power2.out" });
+	});
+}
+
 // ── Mobile menu ────────────────────────────────────────────────────────────
 const toggle = document.querySelector<HTMLButtonElement>("[data-navbar-toggle]");
 const dialog = document.querySelector<HTMLDialogElement>("[data-nav-mobile]");
