@@ -6,7 +6,7 @@ import BrandLogo from "../ui/BrandLogo.astro";
 const currentPath = Astro.url.pathname;
 ---
 
-<dialog class="nav-mobile" id="nav-mobile" aria-label="Navigation menu">
+<dialog class="nav-mobile" data-nav-mobile aria-label="Navigation menu">
   <div class="nav-mobile__inner">
 
     <!-- Header: logo left, close right -->
@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
 
       <button
         class="nav-mobile__close"
-        id="nav-mobile-close"
+        data-nav-mobile-close
         aria-label="Close navigation menu"
       >
         <span class="nav-mobile__close-icon" aria-hidden="true"></span>
@@ -30,6 +30,7 @@ const currentPath = Astro.url.pathname;
             <a
               href={item.href}
               class="nav-mobile__link"
+              data-nav-mobile-link
               aria-current={currentPath === item.href ? "page" : undefined}
             >
               {item.navLabel}

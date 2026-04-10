@@ -17,10 +17,10 @@ if (navbar) {
 }
 
 // ── Mobile menu ────────────────────────────────────────────────────────────
-const toggle = document.querySelector<HTMLButtonElement>("#navbar-toggle");
-const dialog = document.querySelector<HTMLDialogElement>("#nav-mobile");
-const closeBtn = document.querySelector<HTMLButtonElement>("#nav-mobile-close");
-const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-mobile__link");
+const toggle = document.querySelector<HTMLButtonElement>("[data-navbar-toggle]");
+const dialog = document.querySelector<HTMLDialogElement>("[data-nav-mobile]");
+const closeBtn = document.querySelector<HTMLButtonElement>("[data-nav-mobile-close]");
+const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-mobile-link]");
 
 if (toggle && dialog) {
 	const reducedMotion = window.matchMedia(
