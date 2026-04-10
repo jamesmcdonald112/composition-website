@@ -2,10 +2,10 @@
 import { firm } from "../../config/firm";
 import { nav } from "../../config/nav";
 import BrandLogo from "../ui/BrandLogo.astro";
-import CtaLink from "../ui/CtaLink.astro";
 import NavMobile from "./NavMobile.astro";
 import hamburgerIcon from "../../assets/navbar/hambugerMenu.svg?raw";
 import closeIcon from "../../assets/navbar/closeMenuIcon.svg?raw";
+import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -38,12 +38,15 @@ const currentPath = Astro.url.pathname;
 
 		<!-- Phone CTA — hidden on mobile -->
 		<div class="navbar__cta">
-			<CtaLink
+			<a
 				href={`tel:${firm.phone.phoneHref}`}
-				label={firm.phone.display}
-				variant="outline-light"
-				icon="phone"
-			/>
+				class="navbar__cta-link"
+				data-navbar-cta
+				aria-label={`Call us on ${firm.phone.display}`}
+			>
+				<span class="navbar__cta-icon" aria-hidden="true" set:html={phoneIcon} />
+				{firm.phone.display}
+			</a>
 		</div>
 
 		<!-- Hamburger toggle — mobile only -->
@@ -178,6 +181,65 @@ const currentPath = Astro.url.pathname;
 		@media (min-width: 1024px) {
 			display: flex;
 			justify-content: flex-end;
+		}
+	}
+
+	.navbar__cta-link {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		text-decoration: none;
+		color: var(--color-text-inverse);
+		background: color-mix(in srgb, var(--color-bg-brand) 40%, transparent);
+		padding-block: var(--space-sm);
+		padding-inline: var(--space-lg);
+		border: 1px solid var(--color-text-inverse);
+		box-shadow:
+			0 0 8px color-mix(in srgb, var(--color-accent) 40%, transparent),
+			0 0 16px color-mix(in srgb, var(--color-accent) 40%, transparent),
+			inset 0 0 8px color-mix(in srgb, var(--color-accent) 90%, transparent);
+		text-shadow:
+			0 0 8px color-mix(in srgb, var(--color-accent) 80%, transparent),
+			0 0 16px color-mix(in srgb, var(--color-accent) 80%, transparent);
+		transition:
+			box-shadow var(--duration-normal) var(--ease-out),
+			text-shadow var(--duration-normal) var(--ease-out),
+			border-color var(--duration-normal) var(--ease-out),
+			background var(--duration-normal) var(--ease-out);
+
+		&:hover {
+			color: var(--color-text-inverse);
+			border-color: var(--color-text-inverse);
+			background: color-mix(in srgb, var(--color-accent) 20%, transparent);
+			box-shadow:
+				0 0 16px color-mix(in srgb, var(--color-accent) 70%, transparent),
+				0 0 32px color-mix(in srgb, var(--color-accent) 40%, transparent),
+				0 0 48px color-mix(in srgb, var(--color-accent) 20%, transparent),
+				inset 0 0 16px color-mix(in srgb, var(--color-accent) 15%, transparent);
+			text-shadow:
+				0 0 12px color-mix(in srgb, var(--color-accent) 90%, transparent),
+				0 0 24px color-mix(in srgb, var(--color-accent) 50%, transparent);
+		}
+	}
+
+	.navbar__cta-icon {
+		display: inline-flex;
+		flex-shrink: 0;
+
+		svg {
+			width: var(--size-4);
+			height: var(--size-4);
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.navbar__cta-link:hover & {
+				animation: phone-shake var(--duration-slow) var(--ease-smooth);
+			}
 		}
 	}
 
