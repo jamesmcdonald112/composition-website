@@ -1,0 +1,109 @@
+/*
+  THEME: Slate Copper
+  ─────────────────────────────────────────────────────────────────────────────
+  LAYER 1 — PRIMITIVES ONLY.
+  These are raw values. They are never used directly in components.
+  Only semantic tokens in tokens.css consume these via var().
+
+  TO SWITCH TO THIS THEME:
+  In global.css, replace:
+    @import './themes/theme-cream-navy.css';
+  with:
+    @import './themes/theme-slate-copper.css';
+
+  Palette: warm charcoal slate brand + burnished copper accent + warm parchment surfaces.
+  Tone: authoritative, warmer, less corporate than navy — still premium solicitor.
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+:root {
+
+  /* ── COLOUR PRIMITIVES ───────────────────────────────────────────────────
+     Colour family + numeric brightness scale (50–900).
+     50  = lightest tint
+     900 = darkest shade
+  ──────────────────────────────────────────────────────────────────────── */
+
+  /* Slate — primary brand colour family (warm charcoal, not cool grey) */
+  --navy-50:  #f0efee;
+  --navy-100: #d8d5d2;
+  --navy-200: #b0aba5;
+  --navy-300: #888178;
+  --navy-400: #64594f;
+  --navy-500: #4a4039;
+  --navy-600: #37302a;
+  --navy-700: #26211c;
+  --navy-800: #1a1612;
+  --navy-900: #100d0a;
+
+  /* Copper — accent colour family */
+  --gold-50:  #fdf5f0;
+  --gold-100: #f9e4d6;
+  --gold-200: #f2c4a0;
+  --gold-300: #e8a06a;
+  --gold-400: #d4783a;
+  --gold-500: #b85c1e;
+  --gold-600: #9a4a16;
+  --gold-700: #7a3910;
+  --gold-800: #5c2a0b;
+  --gold-900: #3d1b06;
+
+  /* Parchment — neutral surface colour family (warmer than stone) */
+  --stone-50:  #faf8f5;
+  --stone-100: #f4f0ea;
+  --stone-200: #ece5dc;
+  --stone-300: #ddd3c6;
+  --stone-400: #bbb0a0;
+  --stone-500: #8c8070;
+  --stone-600: #5e5448;
+  --stone-700: #3f3830;
+
+  /* Absolute */
+  --white: #ffffff;
+  --black: #0a0806;
+
+  /* State colours — unchanged, functional */
+  --red-500:   #dc2626;
+  --red-100:   #fee2e2;
+  --green-500: #16a34a;
+  --green-100: #dcfce7;
+  --amber-500: #d97706;
+  --amber-100: #fef3c7;
+
+
+  /* ── FONT STACK PRIMITIVES ───────────────────────────────────────────────
+     Unchanged — typefaces remain the same across themes.
+  ──────────────────────────────────────────────────────────────────────── */
+
+  --font-stack-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-stack-sans:  'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-stack-mono:  'Menlo', 'Monaco', 'Courier New', monospace;
+
+
+  /* ── SIZE PRIMITIVES ─────────────────────────────────────────────────────
+     Unchanged — size scale is theme-agnostic.
+  ──────────────────────────────────────────────────────────────────────── */
+
+  --size-0-5: 0.125rem;  /*   2px */
+  --size-1:   0.25rem;   /*   4px */
+  --size-2:   0.5rem;    /*   8px */
+  --size-3:   0.75rem;   /*  12px */
+  --size-3-5: 0.875rem;  /*  14px */
+  --size-4:   1rem;      /*  16px */
+  --size-5:   1.25rem;   /*  20px */
+  --size-6:   1.5rem;    /*  24px */
+  --size-7:   1.75rem;   /*  28px */
+  --size-8:   2rem;      /*  32px */
+  --size-10:  2.5rem;    /*  40px */
+  --size-12:  3rem;      /*  48px */
+  --size-14:  3.5rem;    /*  56px */
+  --size-16:  4rem;      /*  64px */
+  --size-20:  5rem;      /*  80px */
+  --size-24:  6rem;      /*  96px */
+  --size-28:  7rem;      /* 112px */
+  --size-32:  8rem;      /* 128px */
+  --size-40:  10rem;     /* 160px */
+  --size-48:  12rem;     /* 192px */
+  --size-64:  16rem;     /* 256px */
+
+}
