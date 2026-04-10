@@ -1,0 +1,11 @@
+---
+import { complaintsPageContent } from "../config/legal/complaints";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`${complaintsPageContent.title} | ${firm.companyName}`}
+	description={complaintsPageContent.description}
+	canonicalPath="/complaints"
+/>

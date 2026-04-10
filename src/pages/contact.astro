@@ -1,0 +1,17 @@
+---
+import { contactPageContent } from "../config/contact";
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={`${contactPageContent.seo.title} | ${firm.companyName}`}
+	description={contactPageContent.seo.description}
+	canonicalPath={contactPageContent.seo.canonicalPath}
+	structuredData={structuredData}
+>
+
+</BaseLayout>

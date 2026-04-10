@@ -1,0 +1,11 @@
+---
+import { privacyPageContent } from "../config/legal/privacy";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`${privacyPageContent.title} | ${firm.companyName}`}
+	description={privacyPageContent.description}
+	canonicalPath="/privacy"
+/>

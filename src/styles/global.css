@@ -1,0 +1,30 @@
+/*
+  GLOBAL STYLESHEET — ENTRY POINT
+  ─────────────────────────────────────────────────────────────────────────────
+  Imported by BaseLayout.astro. This file controls import order.
+  Import order matters — each layer depends on the one above it.
+
+  LOAD ORDER:
+  1. reset        — browser normalisation (no tokens yet)
+  2. theme        — palette primitives (Layer 1 — swap this file to retheme)
+  3. tokens       — semantic design tokens (Layer 2 — references primitives)
+  4. compositions — CUBE CSS layout patterns (references semantic tokens)
+  5. utilities    — CUBE CSS single-job classes (references semantic tokens)
+  6. blocks       — CUBE CSS global element styles (h1-h6, a, p, lists)
+  7. exceptions   — Overrides, one-offs, last resort (keep minimal)
+
+  DO NOT:
+  - Import Tailwind or any CSS framework
+  - Add component styles here (they live in component <style> blocks)
+  - Use raw values — all values must trace to a token
+  - Add more than one theme import at a time
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+@import './reset.css';
+@import './themes/theme-cream-navy.css';
+@import './tokens.css';
+@import './compositions.css';
+@import './utilities.css';
+@import './blocks.css';
+@import './exceptions.css';

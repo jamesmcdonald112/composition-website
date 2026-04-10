@@ -1,0 +1,16 @@
+---
+import { aboutPageContent } from "../config/about";
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={`${aboutPageContent.seo.title} | ${firm.companyName}`}
+	description={aboutPageContent.seo.description}
+	canonicalPath={aboutPageContent.seo.canonicalPath}
+	ogType="website"
+	structuredData={structuredData}
+/>

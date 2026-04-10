@@ -1,0 +1,11 @@
+---
+import { termsPageContent } from "../config/legal/terms";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`${termsPageContent.title} | ${firm.companyName}`}
+	description={termsPageContent.description}
+	canonicalPath="/terms"
+/>

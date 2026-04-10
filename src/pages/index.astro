@@ -1,0 +1,15 @@
+---
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import { homePageContent } from "../config/home";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={`Solicitors in Kilkenny | ${firm.companyName}`}
+	description={homePageContent.seo.description}
+	canonicalPath={homePageContent.seo.canonicalPath}
+	structuredData={structuredData}
+/>

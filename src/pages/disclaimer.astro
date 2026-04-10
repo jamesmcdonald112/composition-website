@@ -1,0 +1,11 @@
+---
+import { disclaimerPageContent } from "../config/legal/disclaimer";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`${disclaimerPageContent.title} | ${firm.companyName}`}
+	description={disclaimerPageContent.description}
+	canonicalPath="/disclaimer"
+/>
