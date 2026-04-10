@@ -130,6 +130,7 @@ Adjust the allowed sources to match whatever is actually on the page. Test thoro
 ## TODO — Before Launch
 
 > When the project is finished, delete `TODO.md` from the root.
+> When the project is finished, delete `Markdown/things-i-learned/` — these are personal learning notes for during development only.
 
 
 
