@@ -25,6 +25,7 @@ import '@fontsource/dm-sans/500.css';
 import '@fontsource/dm-sans/700.css';
 import "../styles/global.css";
 import { firm } from "../config/firm";
+import Intro from "../components/Intro/Intro.astro";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -113,6 +114,7 @@ const isArticle = ogType === "article";
 		}
 	</head>
 	<body>
+		<Intro />
 		<main><slot /></main>
 	</body>
 </html>
