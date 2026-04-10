@@ -1,0 +1,151 @@
+---
+import arrowIcon from "../../assets/icons/chevronDownIcon.svg?raw";
+import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
+
+type Variant = "primary" | "outline-light";
+type Icon = "phone" | "arrow";
+
+interface Props {
+	href: string;
+	label: string;
+	variant?: Variant;
+	icon?: Icon;
+}
+
+const { href, label, variant = "primary", icon } = Astro.props;
+---
+
+<a href={href} class:list={["cta-link", `cta-link--${variant}`]}>
+	{
+		icon === "phone" && (
+			<span class="cta-link__icon cta-link__icon--phone" set:html={phoneIcon} aria-hidden="true" />
+		)
+	}
+	<span>{label}</span>
+	{
+		icon === "arrow" && (
+			<span class="cta-link__icon cta-link__icon--arrow" set:html={arrowIcon} aria-hidden="true" />
+		)
+	}
+</a>
+
+<style>
+	.cta-link {
+		--cta-glow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent);
+		--cta-glow-active: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-accent) 35%, transparent);
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-xs);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		text-decoration: none;
+		padding-block: var(--space-md);
+		padding-inline: var(--space-xl);
+		border: 1px solid transparent;
+		box-shadow: var(--cta-glow);
+		transition:
+			background-color var(--duration-normal) var(--ease-smooth),
+			color var(--duration-normal) var(--ease-smooth),
+			border-color var(--duration-normal) var(--ease-smooth),
+			box-shadow var(--duration-slow) var(--ease-smooth);
+
+		@media (min-width: 640px) {
+			justify-content: flex-start;
+		}
+	}
+
+	/* Primary — gold fill */
+	.cta-link--primary {
+		background-color: var(--color-accent);
+		color: var(--color-text-inverse);
+		border-color: var(--color-accent);
+	}
+
+	.cta-link--primary:hover {
+		background-color: var(--color-accent-light);
+		border-color: var(--color-accent-light);
+		box-shadow: var(--cta-glow-active);
+	}
+
+	/* Outline light — for use on dark backgrounds */
+	.cta-link--outline-light {
+		background-color: transparent;
+		color: var(--color-text-inverse);
+		border-color: color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
+	}
+
+	.cta-link--outline-light:hover {
+		border-color: var(--color-text-inverse);
+		box-shadow: var(--cta-glow-active);
+	}
+
+	.cta-link__icon {
+		width: var(--space-md);
+		height: var(--space-md);
+		flex-shrink: 0;
+	}
+
+	.cta-link__icon--phone {
+		display: inline-flex;
+	}
+
+	.cta-link__icon--phone :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
+
+	@keyframes phone-shake {
+		0% {
+			transform: rotate(0deg);
+		}
+		15% {
+			transform: rotate(15deg);
+		}
+		30% {
+			transform: rotate(-12deg);
+		}
+		45% {
+			transform: rotate(10deg);
+		}
+		60% {
+			transform: rotate(-8deg);
+		}
+		75% {
+			transform: rotate(5deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+
+	.cta-link__icon--phone {
+		@media (prefers-reduced-motion: no-preference) {
+			.cta-link:hover & {
+				animation: phone-shake var(--duration-slow) var(--ease-smooth);
+			}
+		}
+	}
+
+	/* Arrow icon is a chevron-down — rotate to point right */
+	.cta-link__icon--arrow {
+		display: inline-flex;
+		transform: rotate(-90deg);
+		transition: transform var(--duration-normal) var(--ease-spring);
+
+		@media (prefers-reduced-motion: no-preference) {
+			.cta-link:hover & {
+				transform: translateX(4px) rotate(-90deg);
+			}
+		}
+	}
+
+	.cta-link__icon--arrow :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
+</style>
