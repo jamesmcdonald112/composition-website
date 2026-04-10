@@ -54,8 +54,8 @@
   --color-brand-mid:    var(--navy-700);    /* Mid brand — hover states */
   --color-brand-light:  var(--navy-500);    /* Light brand — active states */
   --color-accent:       var(--gold-500);    /* Accent / highlight colour */
-  --color-accent-muted: var(--gold-300);    /* Softened accent */
-  --color-accent-light: var(--gold-50);     /* Very subtle accent bg */
+  --color-accent-muted: var(--gold-600);    /* Softened accent — darker than accent, used for hover states */
+  --color-accent-light: var(--gold-300);     /* Very subtle accent bg */
 
   /* Borders */
   --color-border:        var(--stone-300);  /* Default border */
