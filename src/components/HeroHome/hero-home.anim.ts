@@ -1,7 +1,10 @@
+// biome-ignore lint/correctness/noUnusedImports: ScrollTrigger import registers the plugin as a side effect
 import { gsap, ScrollTrigger } from "../../scripts/gsap.ts";
 
 /* ─ Reduced motion guard ─────────────────────────────────────────────────── */
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersReducedMotion = window.matchMedia(
+	"(prefers-reduced-motion: reduce)",
+).matches;
 
 if (prefersReducedMotion) {
 	const allAnimated = document.querySelectorAll<HTMLElement>("[data-animate]");
@@ -164,5 +167,3 @@ if (prefersReducedMotion) {
 		},
 	});
 }
-
-export {};
