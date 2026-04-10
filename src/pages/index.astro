@@ -3,8 +3,11 @@ import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
 import { homePageContent } from "../config/home";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroHome from "../components/HeroHome/HeroHome.astro";
+import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
 
 const structuredData = getLawFirmStructuredData();
+const { hero } = homePageContent;
 ---
 
 <BaseLayout
@@ -12,4 +15,14 @@ const structuredData = getLawFirmStructuredData();
 	description={homePageContent.seo.description}
 	canonicalPath={homePageContent.seo.canonicalPath}
 	structuredData={structuredData}
-/>
+>
+	<HeroHome
+		eyebrow={hero.eyebrow}
+		title={hero.title}
+		subtitle={hero.subtitle}
+		primaryCta={hero.ctas.primary}
+		secondaryCta={hero.ctas.secondary}
+		image={heroImage}
+		imageAlt="View of Kilkenny Castle from John's Bridge"
+	/>
+</BaseLayout>
