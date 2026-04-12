@@ -3,7 +3,7 @@
 // TEMPLATE: Solicitor website
 // ADAPTER: Set the deployment adapter here (Netlify, Vercel, etc.)
 // ENV: RESEND_API_KEY (contact form), GOOGLE_PLACES_API_KEY (reviews) — both server-only secrets
-// SESSION: Memory driver for PRG form pattern — swap to a persistent driver if needed
+// SESSION: Netlify adapter auto-configures Netlify Blobs as the session driver — do not override
 // VITE: No Tailwind. Plain CSS only. Do not add CSS framework plugins here.
 // ──────────────────────────────────────────────────────────────────────────────
 import netlify from "@astrojs/netlify";
@@ -18,8 +18,5 @@ export default defineConfig({
 			RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
 			GOOGLE_PLACES_API_KEY: envField.string({ context: "server", access: "secret" }),
 		},
-	},
-	session: {
-		driver: "memory",
 	},
 });
