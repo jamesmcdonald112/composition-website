@@ -1,70 +1,456 @@
 ---
 import { actions, isInputError } from "astro:actions";
-import { ClientRouter } from "astro:transitions";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_SERVICES } from "../config/contact-services";
+import arrowIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 
 const result = Astro.getActionResult(actions.contact);
 const error = result?.error;
-
 const fieldErrors = isInputError(error) ? error.fields : {};
+
+// Repopulate fields after validation error redirect (no ClientRouter needed)
+const prev = error ? await Astro.session?.get<Record<string, string>>("form-data") : null;
+if (prev) await Astro.session?.delete("form-data");
 ---
 
-<ClientRouter />
-
-<form action={actions.contact} method="POST">
-	<label for="name">Name</label>
-	<input transition:persist id="name" type="text" name="name" autocomplete="name" />
-	<p>{fieldErrors.name?.join(", ")}</p>
-
-	<label for="email">Email</label>
-	<input transition:persist id="email" type="email" name="email" autocomplete="email" />
-	<p>{fieldErrors.email?.join(", ")}</p>
-
-	<label for="phone">Phone</label>
-	<input transition:persist id="phone" type="tel" name="phone" autocomplete="tel" />
-	<p>{fieldErrors.phone?.join(", ")}</p>
-
-	<label for="service">Service</label>
-	<select transition:persist id="service" name="service">
-		<option value="">Select a legal service</option>
-		{CONTACT_SERVICES.map((area) => <option value={area}>{area}</option>)}
-	</select>
-	<p>{fieldErrors.service?.join(", ")}</p>
-
-	<label for="message">Message</label>
-	<span id="message-count">0 / {CONTACT_FIELD_LIMITS.message.max}</span>
-	<textarea
-		transition:persist
-		id="message"
-		name="message"
-		rows="4"
-		maxlength={CONTACT_FIELD_LIMITS.message.max}
-		aria-describedby="message-count"></textarea>
-	<p>{fieldErrors.message?.join(", ")}</p>
-
-	<div aria-hidden="true">
-		<label for="website">Website</label>
-		<input
-			transition:persist
-			id="website"
-			type="text"
-			name="website"
-			tabindex="-1"
-			autocomplete="off"
-		/>
-		<p>{fieldErrors.website?.join(", ")}</p>
+<div class="contact-form">
+	<div class="contact-form__header">
+		<p class="contact-form__eyebrow">Send a message</p>
+		<h2 class="contact-form__heading">How can we help?</h2>
 	</div>
 
-	{
-		result?.error && !isInputError(result.error) && (
-			<p>Something went wrong. Please try again later.</p>
-		)
-	}
+	<form class="contact-form__form" action={actions.contact} method="POST" novalidate>
+		{
+			result?.error && !isInputError(result.error) && (
+				<div class="contact-form__error-banner" role="alert">
+					Something went wrong. Please try again later.
+				</div>
+			)
+		}
 
-	<button type="submit">Send message</button>
-</form>
+		<!-- Row 1: Name + Phone -->
+		<div class="contact-form__row contact-form__row--split">
+			<div class="contact-form__field">
+				<label class="contact-form__label" for="name">Full name</label>
+				<input
+					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.name }]}
+					id="name"
+					type="text"
+					name="name"
+					autocomplete="name"
+					value={prev?.name}
+					aria-describedby={fieldErrors.name ? "name-error" : undefined}
+					required
+				/>
+				{
+					fieldErrors.name && (
+						<p class="contact-form__field-error" id="name-error" role="alert">
+							{fieldErrors.name.join(", ")}
+						</p>
+					)
+				}
+			</div>
+
+			<div class="contact-form__field">
+				<label class="contact-form__label" for="phone">Phone number</label>
+				<input
+					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.phone }]}
+					id="phone"
+					type="tel"
+					name="phone"
+					autocomplete="tel"
+					value={prev?.phone}
+					aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
+					required
+				/>
+				{
+					fieldErrors.phone && (
+						<p class="contact-form__field-error" id="phone-error" role="alert">
+							{fieldErrors.phone.join(", ")}
+						</p>
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Row 2: Email -->
+		<div class="contact-form__row">
+			<div class="contact-form__field">
+				<label class="contact-form__label" for="email">Email address</label>
+				<input
+					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.email }]}
+					id="email"
+					type="email"
+					name="email"
+					autocomplete="email"
+					value={prev?.email}
+					aria-describedby={fieldErrors.email ? "email-error" : undefined}
+					required
+				/>
+				{
+					fieldErrors.email && (
+						<p class="contact-form__field-error" id="email-error" role="alert">
+							{fieldErrors.email.join(", ")}
+						</p>
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Row 3: Service area select -->
+		<div class="contact-form__row">
+			<div class="contact-form__field">
+				<label class="contact-form__label" for="service">Area of enquiry</label>
+				<div class="contact-form__select-wrap">
+					<select
+						class:list={[
+							"contact-form__select",
+							{ "contact-form__input--error": fieldErrors.service },
+						]}
+						id="service"
+						name="service"
+						aria-describedby={fieldErrors.service ? "service-error" : undefined}
+						required
+					>
+						<option value="" disabled selected>Select a service area</option>
+						{
+							CONTACT_SERVICES.map((area: string) => (
+								<option value={area} selected={prev?.service === area}>
+									{area}
+								</option>
+							))
+						}
+					</select>
+					<svg
+						class="contact-form__select-arrow"
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path d="M7 10l5 5 5-5z" fill="currentColor"></path>
+					</svg>
+				</div>
+				{
+					fieldErrors.service && (
+						<p class="contact-form__field-error" id="service-error" role="alert">
+							{fieldErrors.service.join(", ")}
+						</p>
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Row 4: Message -->
+		<div class="contact-form__row">
+			<div class="contact-form__field">
+				<div class="contact-form__label-row">
+					<label class="contact-form__label" for="message">Message</label>
+					<span class="contact-form__counter" id="message-count" aria-live="polite">
+						0 / {CONTACT_FIELD_LIMITS.message.max}
+					</span>
+				</div>
+				<textarea
+					class:list={[
+						"contact-form__textarea",
+						{ "contact-form__input--error": fieldErrors.message },
+					]}
+					id="message"
+					name="message"
+					rows="5"
+					maxlength={CONTACT_FIELD_LIMITS.message.max}
+					aria-describedby={`message-count${fieldErrors.message ? " message-error" : ""}`}
+					>{prev?.message}</textarea
+				>
+				{
+					fieldErrors.message && (
+						<p class="contact-form__field-error" id="message-error" role="alert">
+							{fieldErrors.message.join(", ")}
+						</p>
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Honeypot (hidden from real users) -->
+		<div aria-hidden="true" class="contact-form__honeypot">
+			<label for="website">Website</label>
+			<input id="website" type="text" name="website" tabindex="-1" autocomplete="off" />
+		</div>
+
+		<!-- Bottom row: small print + submit -->
+		<div class="contact-form__bottom">
+			<p class="contact-form__small-print">
+				All enquiries are treated in strict confidence.<br />
+				We aim to respond within one business day.
+			</p>
+			<button class="contact-form__submit" type="submit">
+					Send Enquiry
+					<span class="contact-form__submit-icon" aria-hidden="true" set:html={arrowIcon} />
+				</button>
+		</div>
+	</form>
+</div>
 
 <script>
 	import "../scripts/messageCounter";
 </script>
+
+<style>
+	/* ── Header ───────────────────────────────────────────────────────────── */
+	.contact-form__header {
+		margin-block-end: var(--space-3xl);
+	}
+
+	.contact-form__eyebrow {
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-accent);
+		margin-block-end: var(--space-sm);
+	}
+
+	.contact-form__heading {
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-3xl);
+		line-height: var(--line-height-tight);
+		color: var(--color-text);
+	}
+
+	/* ── Form rows ────────────────────────────────────────────────────────── */
+	.contact-form__form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
+	.contact-form__row {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-lg);
+	}
+
+	.contact-form__row--split {
+		@media (min-width: 640px) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	/* ── Field ────────────────────────────────────────────────────────────── */
+	.contact-form__field {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	/* ── Label ────────────────────────────────────────────────────────────── */
+	.contact-form__label {
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+
+	.contact-form__label-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	/* ── Inputs ───────────────────────────────────────────────────────────── */
+	.contact-form__input,
+	.contact-form__select,
+	.contact-form__textarea {
+		width: 100%;
+		padding-block: var(--space-md);
+		padding-inline: var(--space-lg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		background: var(--color-bg);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-text);
+		outline: none;
+		transition:
+			border-color var(--duration-fast) var(--ease-out),
+			box-shadow var(--duration-fast) var(--ease-out);
+		appearance: none;
+
+		&:hover {
+			border-color: var(--color-accent-light);
+		}
+
+		&:focus {
+			border-color: var(--color-accent);
+			box-shadow: 0 0 0 2px var(--color-accent);
+		}
+
+		&::placeholder {
+			color: var(--color-text-subtle);
+		}
+	}
+
+	.contact-form__input--error {
+		border-color: var(--color-error);
+
+		&:hover {
+			border-color: var(--color-error);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 15%, transparent);
+		}
+	}
+
+	/* ── Select wrapper (custom arrow) ───────────────────────────────────── */
+	.contact-form__select-wrap {
+		position: relative;
+	}
+
+	.contact-form__select {
+		cursor: pointer;
+		padding-inline-end: var(--space-3xl);
+	}
+
+	.contact-form__select-arrow {
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-end: var(--space-md);
+		transform: translateY(-50%);
+		color: var(--color-text-subtle);
+		pointer-events: none;
+	}
+
+	/* ── Textarea ─────────────────────────────────────────────────────────── */
+	.contact-form__textarea {
+		min-height: var(--space-6xl);
+		resize: vertical;
+	}
+
+	/* ── Character counter ────────────────────────────────────────────────── */
+	.contact-form__counter {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-text-subtle);
+	}
+
+	.contact-form__counter.is-warning {
+		color: var(--color-warning);
+	}
+
+	/* ── Field error ──────────────────────────────────────────────────────── */
+	.contact-form__field-error {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-error);
+	}
+
+	/* ── Error banner ─────────────────────────────────────────────────────── */
+	.contact-form__error-banner {
+		padding-block: var(--space-md);
+		padding-inline: var(--space-lg);
+		background: var(--color-error-bg);
+		border: 1px solid var(--color-error);
+		border-radius: var(--radius-md);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-error);
+	}
+
+	/* ── Honeypot (visually hidden, accessible) ───────────────────────────── */
+	.contact-form__honeypot {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* ── Bottom row ───────────────────────────────────────────────────────── */
+	.contact-form__bottom {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		align-items: flex-start;
+		margin-block-start: var(--space-md);
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+
+	.contact-form__small-print {
+		font-size: var(--font-size-xs);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-text-subtle);
+	}
+
+	/* ── Submit button ────────────────────────────────────────────────────── */
+	.contact-form__submit {
+		--submit-glow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent);
+		--submit-glow-active: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-accent) 10%, transparent);
+
+		flex-shrink: 0;
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		background: var(--color-accent);
+		color: var(--color-text-inverse);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-semibold);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		padding-block: var(--space-md);
+		padding-inline-start: var(--space-2xl);
+		padding-inline-end: var(--space-xl);
+		border: 1px solid var(--color-accent);
+		border-radius: var(--radius-none);
+		cursor: pointer;
+		box-shadow: var(--submit-glow);
+		transition:
+			background-color var(--duration-normal) var(--ease-smooth),
+			border-color var(--duration-normal) var(--ease-smooth),
+			box-shadow var(--duration-slow) var(--ease-smooth);
+
+		&:hover {
+			background-color: var(--color-accent-light);
+			border-color: var(--color-accent-light);
+			box-shadow: var(--submit-glow-active);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--color-focus);
+			outline-offset: 2px;
+		}
+	}
+
+	.contact-form__submit-icon {
+		display: inline-flex;
+		width: var(--space-md);
+		height: var(--space-md);
+		flex-shrink: 0;
+		transform: rotate(-90deg);
+		transition: transform var(--duration-normal) var(--ease-spring);
+
+		:global(svg) {
+			width: 100%;
+			height: 100%;
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.contact-form__submit:hover & {
+				transform: translateX(4px) rotate(-90deg);
+			}
+		}
+	}
+</style>
