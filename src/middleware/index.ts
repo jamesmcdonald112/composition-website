@@ -21,8 +21,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	// to serialize/restore results for Astro.getActionResult(...).
 	const { action, setActionResult, serializeActionResult } =
 		getActionContext(context);
+
 	// Session storage is the transport layer for PRG flash data.
 	const session = context.session;
+
 	if (!session) {
 		// Sessions can be unavailable depending on adapter/runtime (e.g. edge middleware).
 		return next();
@@ -30,6 +32,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
 	// validation errors/success message via Astro.getActionResult(...).
 	const stored = await session.get<StoredActionResult>(ACTION_RESULT_KEY);
+
 	if (stored) {
 		setActionResult(stored.actionName, stored.actionResult);
 		// Flash semantics: use once, then remove.
@@ -39,6 +42,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	// Intercept HTML form action POSTs and convert flow to PRG.
 	if (action?.calledFrom === "form") {
 		const actionResult = await action.handler();
+
 		// Save serialized result so it can be shown after redirect on GET.
 		session.set(
 			ACTION_RESULT_KEY,
@@ -57,8 +61,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 			}
 		}
 
-		// Success path: redirect to the same route as a clean GET.
-		return context.redirect(context.originPathname);
+		// Success path: redirect to thank you page.
+		return context.redirect("/thank-you");
 	}
 
 	// Non-action requests continue normally.
