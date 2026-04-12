@@ -41,7 +41,7 @@
 	/* Text */
 	--color-text: var(--navy-900); /* Primary body text */
 	--color-text-muted: var(--navy-700); /* Secondary / supporting text */
-	--color-text-subtle: var(--stone-500); /* Placeholder, disabled, captions */
+	--color-text-subtle: var(--stone-600); /* Placeholder, disabled, captions */
 	--color-text-inverse: var(--white); /* Text on dark backgrounds */
 	--color-text-inverse-muted: color-mix(
 		in srgb,
@@ -61,9 +61,9 @@
 	--color-brand: var(--navy-900); /* Primary brand colour */
 	--color-brand-mid: var(--navy-700); /* Mid brand — hover states */
 	--color-brand-light: var(--navy-500); /* Light brand — active states */
-	--color-accent: var(--gold-600); /* Accent / highlight colour */
+	--color-accent: var(--gold-500); /* Accent / highlight colour */
 	--color-accent-muted: var(
-		--gold-700
+		--gold-600
 	); /* Softened accent — darker than accent, used for hover states */
 	--color-accent-light: var(--gold-400); /* Very subtle accent bg */
 
