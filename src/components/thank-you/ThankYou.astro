@@ -1,0 +1,118 @@
+---
+import checkCircleIcon from "../../assets/icons/checkCircleIcon.svg?raw";
+import { thankYouContent } from "../../config/thank-you";
+---
+
+<div class="thank-you">
+	<div class="thank-you__inner wrapper wrapper--wide">
+		<!-- Checkmark icon -->
+		<div
+			class="thank-you__icon"
+			data-thank-you-icon
+			aria-hidden="true"
+			set:html={checkCircleIcon}
+		/>
+
+		<!-- Eyebrow -->
+		<p class="thank-you__eyebrow" data-thank-you-animate>
+			{thankYouContent.heading}
+		</p>
+
+		<!-- Heading -->
+		<h1 class="thank-you__heading" data-thank-you-animate>
+			Thank you for<br />getting in touch.
+		</h1>
+
+		<!-- Body -->
+		<p class="thank-you__body" data-thank-you-animate>
+			{thankYouContent.body}
+		</p>
+
+		<!-- Return link -->
+		<a href={thankYouContent.href} class="thank-you__cta" data-thank-you-animate>
+			Return to homepage
+		</a>
+	</div>
+</div>
+
+<script>
+	import { initThankYouAnimation } from "./thank-you.gsap.ts";
+
+	initThankYouAnimation();
+</script>
+
+<style>
+	.thank-you {
+		min-height: 100vh;
+		background: var(--color-bg-brand-mid);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-block: var(--space-5xl);
+	}
+
+	.thank-you__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.thank-you__icon {
+		color: var(--color-accent);
+		margin-block-end: var(--space-2xl);
+
+		:global(svg) {
+			width: var(--size-32);
+			height: var(--size-32);
+		}
+	}
+
+	.thank-you__eyebrow {
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-accent);
+		margin-block-end: var(--space-lg);
+	}
+
+	.thank-you__heading {
+		font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light);
+		line-height: var(--line-height-tight);
+		color: var(--color-text-inverse);
+		margin-block-end: var(--space-xl);
+	}
+
+	.thank-you__body {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
+		margin-block-end: var(--space-4xl);
+	}
+
+	.thank-you__cta {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		text-decoration: none;
+		color: var(--color-text-inverse);
+		border: 1px solid color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
+		padding-block: var(--space-sm);
+		padding-inline: var(--space-2xl);
+		transition:
+			color var(--duration-fast) var(--ease-out),
+			border-color var(--duration-fast) var(--ease-out);
+
+		&:hover {
+			color: var(--color-accent);
+			border-color: var(--color-accent);
+		}
+	}
+
+</style>
