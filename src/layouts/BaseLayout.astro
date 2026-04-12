@@ -42,6 +42,7 @@ interface BaseLayoutProps {
 	author?: string;
 	section?: string;
 	tags?: string[];
+	solidNav?: boolean;
 }
 
 const {
@@ -58,6 +59,7 @@ const {
 	author,
 	section,
 	tags = [],
+	solidNav = false,
 } = Astro.props as BaseLayoutProps;
 
 const canonical = firm.siteUrl
@@ -76,11 +78,6 @@ const isArticle = ogType === "article";
 			if (sessionStorage.getItem('intro-seen')) {
 				document.documentElement.classList.add('intro-done');
 			}
-			document.addEventListener('astro:after-swap', function() {
-				if (sessionStorage.getItem('intro-seen')) {
-					document.documentElement.classList.add('intro-done');
-				}
-			});
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -127,7 +124,7 @@ const isArticle = ogType === "article";
 	<body>
 		<Intro />
 		<header role="banner">
-			<Navbar />
+			<Navbar solid={solidNav} />
 		</header>
 		<main><slot /></main>
 		<footer></footer>
