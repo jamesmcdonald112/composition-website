@@ -10,6 +10,7 @@ import ScrollIndicator from "./ScrollIndicator.astro";
 interface Props {
 	eyebrow: string;
 	title: string;
+	titleEmphasis?: string;
 	subtitle: string;
 	primaryCta?: { label: string; href: string };
 	secondaryCta?: { label: string; href: string };
@@ -17,8 +18,12 @@ interface Props {
 	imageAlt: string;
 }
 
-const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
+const { eyebrow, title, titleEmphasis, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 	Astro.props;
+
+const [titleBefore, titleAfter] = titleEmphasis
+	? title.split(titleEmphasis)
+	: [title, ""];
 ---
 
 <section class="hero-home">
@@ -52,13 +57,7 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 	<!-- Content -->
 	<div class="hero-home__inner wrapper wrapper--wide">
 
-		<!-- Child 1: Badge -->
-		<div class="hero-home__badge" data-animate="h-badge" aria-hidden="true">
-			<span class="hero-home__badge-dot"></span>
-			<span class="hero-home__badge-text">Est. {firm.established}</span>
-		</div>
-
-		<!-- Child 2: Copy -->
+		<!-- Copy -->
 		<div class="hero-home__copy">
 
 			<Eyebrow
@@ -69,7 +68,7 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 			/>
 
 			<h1 class="hero-home__title" data-animate="h-title">
-				{title}
+				{titleBefore}{titleEmphasis && <em class="hero-home__title-em" data-animate="h-title-em">{titleEmphasis}</em>}{titleAfter}
 			</h1>
 
 			<hr class="hero-home__rule" data-animate="h-rule" />
@@ -122,7 +121,7 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 	/* ── Section shell ─────────────────────────────────────────────────────── */
 	.hero-home {
 		position: relative;
-		height: 100svh;
+		min-height: 100svh;
 		display: flex;
 		align-items: stretch;
 		overflow: hidden;
@@ -246,39 +245,17 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 		display: flex;
 		flex-direction: column;
 		min-height: 100svh;
-		padding-block: var(--space-5xl) var(--space-3xl);
-	}
+		padding-block: var(--space-5xl) var(--space-2xl);
 
-	/* ── Badge ─────────────────────────────────────────────────────────────── */
-	.hero-home__badge {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		visibility: hidden;
-	}
-
-	.hero-home__badge-dot {
-		width: 5px;
-		height: 5px;
-		border-radius: var(--radius-full);
-		background-color: var(--color-accent);
-		opacity: 0.7;
-		flex-shrink: 0;
-	}
-
-	.hero-home__badge-text {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-xs);
-		font-weight: var(--font-weight-medium);
-		letter-spacing: var(--letter-spacing-wider);
-		text-transform: uppercase;
-		color: var(--color-text-inverse-muted);
+		@media (min-width: 768px) {
+			padding-block: var(--space-5xl) var(--space-3xl);
+		}
 	}
 
 	/* ── Copy block ─────────────────────────────────────────────────────────── */
 	.hero-home__copy {
 		max-width: 100%;
-		margin-block: var(--space-3xl) auto;
+		margin-block: auto;
 		display: flex;
 		flex-direction: column;
 
@@ -308,6 +285,14 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 		visibility: hidden;
 	}
 
+	/* ── Title emphasis word ────────────────────────────────────────────────── */
+	.hero-home__title-em {
+		font-style: italic;
+		color: var(--color-text-inverse);
+		display: inline-block;
+		clip-path: inset(0 100% 0 0);
+	}
+
 	/* ── Gold rule ──────────────────────────────────────────────────────────── */
 	.hero-home__rule {
 		border: none;
@@ -327,11 +312,12 @@ const { eyebrow, title, subtitle, primaryCta, secondaryCta, image, imageAlt } =
 		line-height: var(--line-height-relaxed);
 		color: color-mix(in srgb, var(--color-text-inverse) 85%, transparent);
 		max-width: 44ch;
-		margin-block-end: var(--space-3xl);
+		margin-block-end: var(--space-xl);
 		visibility: hidden;
 
 		@media (min-width: 768px) {
 			font-size: var(--font-size-base);
+			margin-block-end: var(--space-3xl);
 		}
 	}
 

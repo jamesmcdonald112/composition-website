@@ -1,10 +1,10 @@
 ---
-import { firm } from "../config/firm";
-import { getLawFirmStructuredData } from "../config/structured-data";
-import { homePageContent } from "../config/home";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroHome from "../components/HeroHome/HeroHome.astro";
 import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
+import HeroHome from "../components/HeroHome/HeroHome.astro";
+import { firm } from "../config/firm";
+import { homePageContent } from "../config/home";
+import { getLawFirmStructuredData } from "../config/structured-data";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
 const { hero } = homePageContent;
@@ -19,6 +19,7 @@ const { hero } = homePageContent;
 	<HeroHome
 		eyebrow={hero.eyebrow}
 		title={hero.title}
+		titleEmphasis={hero.titleEmphasis}
 		subtitle={hero.subtitle}
 		primaryCta={hero.ctas.primary}
 		secondaryCta={hero.ctas.secondary}

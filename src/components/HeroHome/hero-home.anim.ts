@@ -7,16 +7,19 @@ const prefersReducedMotion = window.matchMedia(
 ).matches;
 
 if (prefersReducedMotion) {
-	const allAnimated = document.querySelectorAll<HTMLElement>("[data-animate]");
-	allAnimated.forEach((el) => {
+	document.querySelectorAll<HTMLElement>("[data-animate]").forEach((el) => {
 		el.style.visibility = "visible";
 	});
+	const em = document.querySelector<HTMLElement>('[data-animate="h-title-em"]');
+	if (em) {
+		em.style.clipPath = "none";
+		em.style.color = "var(--color-accent-light)";
+	}
 } else {
 	/* ─ Make visible before animating ─ */
 	gsap.set(
 		[
 			'[data-animate="h-image"]',
-			'[data-animate="h-badge"]',
 			'[data-animate="h-eyebrow"]',
 			'[data-animate="h-title"]',
 			'[data-animate="h-rule"]',
@@ -46,14 +49,6 @@ if (prefersReducedMotion) {
 			0,
 		)
 
-		// Badge slides down
-		.fromTo(
-			'[data-animate="h-badge"]',
-			{ opacity: 0, y: -12 },
-			{ opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-			0.5,
-		)
-
 		// Eyebrow slides in from left
 		.fromTo(
 			'[data-animate="h-eyebrow"]',
@@ -68,6 +63,21 @@ if (prefersReducedMotion) {
 			{ opacity: 0, y: 36 },
 			{ opacity: 1, y: 0, duration: 1.1, ease: "power3.out" },
 			0.85,
+		)
+
+		// "Buying & Selling" — wipes in left-to-right, white then blooms to gold
+		.fromTo(
+			'[data-animate="h-title-em"]',
+			{ clipPath: "inset(0 100% 0 0)" },
+			{ clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "power3.inOut" },
+			1.05,
+		)
+
+		// Colour blooms from white to gold after the wipe completes
+		.to(
+			'[data-animate="h-title-em"]',
+			{ color: "var(--color-accent-light)", duration: 1.2, ease: "power2.inOut" },
+			2.2,
 		)
 
 		// Rule draws across

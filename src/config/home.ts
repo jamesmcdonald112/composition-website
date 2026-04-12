@@ -12,11 +12,12 @@ export const homePageContent = {
 
 	hero: {
 		eyebrow: "Solicitors in Kilkenny",
-		title: "Clear legal advice, from a firm that knows you",
+		title: "Solicitors for Buying & Selling Property",
+		titleEmphasis: "Buying & Selling",
 		// TODO: Update subtitle once fee structure is confirmed with Mary.
 		// If fixed-fee conveyancing is offered, add a line here.
 		subtitle:
-			"Whether you are buying a home, dealing with a bereavement, or facing a legal matter you have never dealt with before — we are here to help. A family firm in Kilkenny City, practising since 1979.",
+			"Clear, practical conveyancing advice and a full range of legal services for every stage of life.",
 		ctas: {
 			primary: { label: firm.phone.display, href: `tel:${firm.phone.phoneHref}` },
 			secondary: { label: "Our services", href: "/services" },
