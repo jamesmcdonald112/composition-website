@@ -21,14 +21,14 @@ const { solid = false } = Astro.props;
 	<!-- Inner container — max-width + centred via wrapper -->
 	<div class="navbar__inner wrapper wrapper--wide">
 		<!-- Logo -->
-		<BrandLogo />
+		<BrandLogo data-navbar-logo="" />
 
 		<!-- Desktop nav links — hidden on mobile -->
 		<nav class="navbar__nav" aria-label="Primary navigation">
 			<ul class="navbar__nav-list">
 				{
 					nav.map((item) => (
-						<li class="navbar__nav-item">
+						<li class="navbar__nav-item" data-navbar-nav-link>
 							<a
 								href={item.href}
 								class="navbar__nav-link"
