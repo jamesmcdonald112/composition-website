@@ -1,33 +1,71 @@
 import { gsap } from "../../scripts/gsap";
 
-// ── Scroll state ───────────────────────────────────────────────────────────
+// ── Scroll state ──────────────────────────────────────────────────────────────
 const navbar = document.querySelector<HTMLElement>("#navbar");
 
 if (navbar) {
-	const handleScroll = () => {
-		if (window.scrollY > 60) {
-			navbar.classList.add("is-scrolled");
-		} else {
-			navbar.classList.remove("is-scrolled");
-		}
-	};
+	if (navbar.hasAttribute("data-navbar-solid")) {
+		// Solid pages — lock to filled state, never go transparent
+		navbar.classList.add("is-scrolled");
+	} else {
+		// Transparent pages — fill on scroll, clear at top
+		const onScroll = () => {
+			if (window.scrollY > 60) {
+				navbar.classList.add("is-scrolled");
+			} else {
+				navbar.classList.remove("is-scrolled");
+			}
+		};
 
-	window.addEventListener("scroll", handleScroll, { passive: true });
-	handleScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		onScroll();
+	}
 }
 
-// ── CTA entrance + hover ───────────────────────────────────────────────────
+// ── Navbar entrance animations ────────────────────────────────────────────────
+const logo = document.querySelector<HTMLElement>("[data-navbar-logo]");
+const desktopNavLinks = document.querySelectorAll<HTMLElement>("[data-navbar-nav-link]");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!reducedMotion) {
+	if (logo) {
+		gsap.from(logo, {
+			opacity: 0,
+			y: 6,
+			duration: 1.4,
+			ease: "power1.out",
+			delay: 0.3,
+			onComplete: () => { gsap.set(logo, { clearProps: "transform" }); },
+		});
+	}
+
+	if (desktopNavLinks.length) {
+		gsap.from(Array.from(desktopNavLinks), {
+			opacity: 0,
+			y: 12,
+			duration: 0.8,
+			ease: "power2.out",
+			stagger: 0.1,
+			delay: 0.35,
+			onComplete: () => { gsap.set(desktopNavLinks, { clearProps: "transform" }); },
+		});
+	}
+}
+
+// ── CTA entrance + hover ──────────────────────────────────────────────────────
 const cta = document.querySelector<HTMLAnchorElement>("[data-navbar-cta]");
 
-if (cta && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-	gsap.from(cta, {
-		opacity: 0,
-		x: 16,
-		duration: 0.7,
-		ease: "power3.out",
-		delay: 0.5,
-		onComplete: () => { gsap.set(cta, { clearProps: "transform" }); },
-	});
+if (cta) {
+	if (!reducedMotion) {
+		gsap.from(cta, {
+			opacity: 0,
+			x: 16,
+			duration: 0.7,
+			ease: "power3.out",
+			delay: 0.5,
+			onComplete: () => { gsap.set(cta, { clearProps: "transform" }); },
+		});
+	}
 
 	cta.addEventListener("mouseenter", () => {
 		gsap.to(cta, { scale: 1.02, duration: 0.2, ease: "power2.out" });
@@ -38,25 +76,21 @@ if (cta && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 	});
 }
 
-// ── Mobile menu ────────────────────────────────────────────────────────────
+// ── Mobile menu ───────────────────────────────────────────────────────────────
 const toggle = document.querySelector<HTMLButtonElement>("[data-navbar-toggle]");
 const dialog = document.querySelector<HTMLDialogElement>("[data-nav-mobile]");
 const closeBtn = document.querySelector<HTMLButtonElement>("[data-nav-mobile-close]");
-const navLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-mobile-link]");
+const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-mobile-link]");
 
 if (toggle && dialog) {
-	const reducedMotion = window.matchMedia(
-		"(prefers-reduced-motion: reduce)",
-	).matches;
-
 	const openMenu = () => {
 		toggle.setAttribute("aria-expanded", "true");
 		navbar?.classList.add("is-open");
-		dialog.showModal(); // browser handles focus trap, Escape, scroll lock
+		dialog.showModal();
 
 		if (!reducedMotion) {
 			gsap.fromTo(
-				Array.from(navLinks),
+				Array.from(mobileNavLinks),
 				{ y: 40, opacity: 0 },
 				{
 					y: 0,
@@ -73,19 +107,16 @@ if (toggle && dialog) {
 	const closeMenu = () => {
 		toggle.setAttribute("aria-expanded", "false");
 		navbar?.classList.remove("is-open");
-		dialog.close(); // browser restores focus to toggle automatically
+		dialog.close();
 	};
 
 	toggle.addEventListener("click", openMenu);
 	closeBtn?.addEventListener("click", closeMenu);
 
-	// Close on nav link click
-	for (const link of navLinks) {
+	for (const link of mobileNavLinks) {
 		link.addEventListener("click", closeMenu);
 	}
 
-	// Close when clicking the ::backdrop (click lands on the dialog element
-	// outside its content bounds when showModal is used)
 	dialog.addEventListener("click", (e) => {
 		const rect = dialog.getBoundingClientRect();
 		const clickedOutside =
@@ -96,7 +127,6 @@ if (toggle && dialog) {
 		if (clickedOutside) closeMenu();
 	});
 
-	// Sync aria-expanded when browser closes via Escape key
 	dialog.addEventListener("close", () => {
 		toggle.setAttribute("aria-expanded", "false");
 		navbar?.classList.remove("is-open");
