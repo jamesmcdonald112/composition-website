@@ -42,6 +42,50 @@ Never skip a layer. Never merge layers.
 
 ---
 
+## Composition Classes — Use These First
+
+The project has pre-built CUBE CSS composition classes in `src/styles/compositions.css`.
+**Always prefer these over hand-rolling equivalent CSS in a component.**
+
+### `.wrapper` — the standard inner container
+
+```html
+<div class="wrapper">...</div>           <!-- max-width: --width-content (1152px) -->
+<div class="wrapper wrapper--wide">...</div>   <!-- max-width: --width-wide (1440px) -->
+<div class="wrapper wrapper--narrow">...</div> <!-- max-width: --width-narrow (672px) -->
+```
+
+`.wrapper` handles everything automatically:
+- `max-width` constraint
+- `margin-inline: auto` centring
+- Responsive `padding-inline` at mobile / tablet / desktop
+
+**When to use which modifier:**
+
+| Modifier | Max-width | Use for |
+|---|---|---|
+| _(none)_ | `--width-content` 1152px | Most sections |
+| `--wide` | `--width-wide` 1440px | Hero, footer, full-bleed stats |
+| `--narrow` | `--width-narrow` 672px | Article body, contact form, legal text |
+
+### `.section` — vertical rhythm on `<section>` elements
+
+```html
+<section class="section">...</section>          <!-- padding-block: --space-section -->
+<section class="section" data-size="sm">...</section>  <!-- padding-block: --space-3xl -->
+<section class="section" data-size="lg">...</section>  <!-- padding-block: --space-6xl -->
+```
+
+### Other compositions available
+
+- `.stack` — vertical flex column with spacing between children
+- `.cluster` — horizontal wrapping flex group
+- `.grid` — auto-fit responsive grid
+- `.sidebar` — two-column layout with fixed-minimum first child
+- `.flow` — prose margin rhythm
+
+---
+
 ## Container Rules — Apply Every Time
 
 Every component that contains readable content must have an inner container.
