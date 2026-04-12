@@ -72,6 +72,16 @@ const isArticle = ogType === "article";
 <!doctype html>
 <html lang="en-IE">
 	<head>
+		<script is:inline>
+			if (sessionStorage.getItem('intro-seen')) {
+				document.documentElement.classList.add('intro-done');
+			}
+			document.addEventListener('astro:after-swap', function() {
+				if (sessionStorage.getItem('intro-seen')) {
+					document.documentElement.classList.add('intro-done');
+				}
+			});
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="format-detection" content="telephone=no, address=no, email=no" />
