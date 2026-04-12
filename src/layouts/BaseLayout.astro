@@ -27,6 +27,7 @@ import "../styles/global.css";
 import { firm } from "../config/firm";
 import Intro from "../components/Intro/Intro.astro";
 import Navbar from "../components/navbar/Navbar.astro";
+import Footer from "../components/footer/Footer.astro";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -127,6 +128,6 @@ const isArticle = ogType === "article";
 			<Navbar solid={solidNav} />
 		</header>
 		<main><slot /></main>
-		<footer></footer>
+		<Footer />
 	</body>
 </html>

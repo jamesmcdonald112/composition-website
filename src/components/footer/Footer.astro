@@ -1,0 +1,305 @@
+---
+import { firm } from "../../config/firm";
+import { nav, legalNav } from "../../config/nav";
+import BrandLogo from "../ui/BrandLogo.astro";
+---
+
+<footer class="footer">
+	<div class="footer__inner">
+
+		<!-- ── Main grid row ───────────────────────────────────── -->
+		<div class="footer__grid">
+
+			<!-- Column 1 — Brand + contact -->
+			<div class="footer__col footer__col--brand">
+				<div class="footer__brand-row">
+					<BrandLogo />
+					<span class="footer__company-name">{firm.companyName}</span>
+				</div>
+
+				<address class="footer__address">
+					<span>{firm.address.line1}</span>
+					<span>{firm.address.city}</span>
+					<span>{firm.address.eircode}</span>
+					<span>{firm.address.country}</span>
+				</address>
+
+				<p class="footer__hours">
+					Opening hours: {firm.officeHours.display}
+				</p>
+
+				<div class="footer__ctas">
+					<a
+						href={firm.address.googleMapDirectionsHref}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="footer__btn footer__btn--filled"
+					>
+						Get directions
+					</a>
+					<a
+						href={`tel:${firm.phone.phoneHref}`}
+						class="footer__btn footer__btn--ghost"
+					>
+						<svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14" aria-hidden="true">
+							<path d="M3 1h3.5l1.5 3.5-1.75 1.75a9 9 0 004.5 4.5L12.5 9 16 10.5V14a1 1 0 01-1 1C7.163 15 1 8.837 1 2a1 1 0 011-1z"/>
+						</svg>
+						{firm.phone.display}
+					</a>
+				</div>
+			</div>
+
+			<!-- Column 2 — Spacer (desktop only) -->
+			<div class="footer__col footer__col--spacer" aria-hidden="true"></div>
+
+			<!-- Column 3 — Navigation -->
+			<nav class="footer__col footer__col--nav" aria-label="Footer navigation">
+				<h2 class="footer__col-heading">Navigation</h2>
+				<ul class="footer__nav-list">
+					{nav.map((item) => (
+						<li>
+							<a href={item.href} class="footer__nav-link">{item.navLabel}</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+
+			<!-- Column 4 — Legal -->
+			<nav class="footer__col footer__col--legal" aria-label="Legal pages">
+				<h2 class="footer__col-heading">Legal</h2>
+				<ul class="footer__nav-list">
+					{legalNav.map((item) => (
+						<li>
+							<a href={item.href} class="footer__nav-link">{item.label}</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+
+		</div>
+
+		<!-- ── Bottom bar ──────────────────────────────────────── -->
+		<div class="footer__bottom">
+			<a
+				href="https://www.lawsociety.ie"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="footer__regulation"
+			>
+				Regulated by the Law Society of Ireland
+			</a>
+			<p class="footer__copyright">
+				&copy; {new Date().getFullYear()} {firm.companyName}. All rights reserved.
+			</p>
+		</div>
+
+	</div>
+</footer>
+
+<style>
+	/* ── Section shell — full-bleed dark navy ───────────────── */
+	.footer {
+		background-color: var(--color-bg-brand);
+		border-top: 1px solid var(--color-accent);
+	}
+
+	/* ── Inner container ────────────────────────────────────── */
+	.footer__inner {
+		max-width: var(--width-wide);
+		margin-inline: auto;
+		padding-inline: var(--gutter);
+
+		@media (min-width: 768px) {
+			padding-inline: var(--gutter-md);
+		}
+
+		@media (min-width: 1024px) {
+			padding-inline: var(--gutter-lg);
+		}
+	}
+
+	/* ── Main grid row ──────────────────────────────────────── */
+	.footer__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-3xl);
+		padding-block: var(--space-5xl);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-4xl);
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 2fr 1fr 1fr 1fr;
+		}
+	}
+
+	/* ── Column 2 spacer — hide on mobile and tablet ────────── */
+	.footer__col--spacer {
+		display: none;
+
+		@media (min-width: 1024px) {
+			display: block;
+		}
+	}
+
+	/* ── Brand row (logo + name) ────────────────────────────── */
+	.footer__brand-row {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.footer__company-name {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-text-inverse);
+		line-height: var(--line-height-tight);
+	}
+
+	/* ── Address block ──────────────────────────────────────── */
+	.footer__address {
+		display: flex;
+		flex-direction: column;
+		margin-block-start: var(--space-2xl);
+		font-style: normal;
+	}
+
+	.footer__address span {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
+	}
+
+	/* ── Office hours ───────────────────────────────────────── */
+	.footer__hours {
+		margin-block-start: var(--space-lg);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
+	}
+
+	/* ── CTA buttons row ────────────────────────────────────── */
+	.footer__ctas {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-md);
+		margin-block-start: var(--space-xl);
+	}
+
+	.footer__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-semibold);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		text-decoration: none;
+		padding-block: var(--space-sm);
+		padding-inline: var(--space-xl);
+		border-radius: var(--radius-lg);
+		transition:
+			background-color var(--duration-fast) var(--ease-out),
+			border-color var(--duration-fast) var(--ease-out),
+			color var(--duration-fast) var(--ease-out);
+		cursor: pointer;
+	}
+
+	/* Filled accent button */
+	.footer__btn--filled {
+		background-color: var(--color-accent);
+		color: var(--color-bg-brand);
+		border: none;
+
+		&:hover {
+			background-color: color-mix(in srgb, var(--color-accent) 85%, black);
+		}
+	}
+
+	/* Ghost outline button */
+	.footer__btn--ghost {
+		background-color: transparent;
+		color: var(--color-text-inverse);
+		border: 1px solid color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
+		font-weight: var(--font-weight-medium);
+
+		&:hover {
+			border-color: var(--color-accent);
+			color: var(--color-accent);
+		}
+	}
+
+	/* ── Nav column headings ────────────────────────────────── */
+	.footer__col-heading {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-semibold);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-text-inverse);
+		margin-block-end: var(--space-xl);
+	}
+
+	/* ── Nav link lists ─────────────────────────────────────── */
+	.footer__nav-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.footer__nav-link {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-out);
+
+		&:hover {
+			color: var(--color-text-inverse);
+		}
+	}
+
+	/* ── Bottom bar ─────────────────────────────────────────── */
+	.footer__bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-md);
+		padding-block: var(--space-xl);
+		border-top: 1px solid color-mix(in srgb, var(--color-text-inverse) 15%, transparent);
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	.footer__regulation {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: color-mix(in srgb, var(--color-text-inverse) 50%, transparent);
+		text-decoration: underline;
+		text-underline-offset: var(--space-2xs);
+		transition: color var(--duration-fast) var(--ease-out);
+
+		&:hover {
+			color: color-mix(in srgb, var(--color-text-inverse) 80%, transparent);
+		}
+	}
+
+	.footer__copyright {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: color-mix(in srgb, var(--color-text-inverse) 50%, transparent);
+	}
+</style>
