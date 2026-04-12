@@ -14,7 +14,7 @@ if (prev) await Astro.session?.delete("form-data");
 ---
 
 <div class="contact-form">
-	<div class="contact-form__header">
+	<div class="contact-form__header" data-cf-animate="header">
 		<p class="contact-form__eyebrow">Send a message</p>
 		<h2 class="contact-form__heading">How can we help?</h2>
 	</div>
@@ -29,7 +29,7 @@ if (prev) await Astro.session?.delete("form-data");
 		}
 
 		<!-- Row 1: Name + Phone -->
-		<div class="contact-form__row contact-form__row--split">
+		<div class="contact-form__row contact-form__row--split" data-cf-animate="row">
 			<div class="contact-form__field">
 				<label class="contact-form__label" for="name">Full name</label>
 				<input
@@ -74,7 +74,7 @@ if (prev) await Astro.session?.delete("form-data");
 		</div>
 
 		<!-- Row 2: Email -->
-		<div class="contact-form__row">
+		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
 				<label class="contact-form__label" for="email">Email address</label>
 				<input
@@ -98,7 +98,7 @@ if (prev) await Astro.session?.delete("form-data");
 		</div>
 
 		<!-- Row 3: Service area select -->
-		<div class="contact-form__row">
+		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
 				<label class="contact-form__label" for="service">Area of enquiry</label>
 				<div class="contact-form__select-wrap">
@@ -143,7 +143,7 @@ if (prev) await Astro.session?.delete("form-data");
 		</div>
 
 		<!-- Row 4: Message -->
-		<div class="contact-form__row">
+		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
 				<div class="contact-form__label-row">
 					<label class="contact-form__label" for="message">Message</label>
@@ -180,7 +180,7 @@ if (prev) await Astro.session?.delete("form-data");
 		</div>
 
 		<!-- Bottom row: small print + submit -->
-		<div class="contact-form__bottom">
+		<div class="contact-form__bottom" data-cf-animate="bottom">
 			<p class="contact-form__small-print">
 				All enquiries are treated in strict confidence.<br />
 				We aim to respond within one business day.
@@ -195,6 +195,7 @@ if (prev) await Astro.session?.delete("form-data");
 
 <script>
 	import "../scripts/messageCounter";
+	import "../scripts/contact-form.anim";
 </script>
 
 <style>
