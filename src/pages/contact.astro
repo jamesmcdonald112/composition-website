@@ -1,10 +1,10 @@
 ---
-import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import ContactPanel from "../components/contact/ContactPanel.astro";
 import SplitPage from "../components/layout/SplitPage.astro";
 import { contactPageContent } from "../config/contact";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
+import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
@@ -22,3 +22,14 @@ const structuredData = getLawFirmStructuredData();
 		<ContactForm slot="right" />
 	</SplitPage>
 </BaseLayout>
+
+<script>
+	const hasError = document.querySelector(".contact-form__field-error, .contact-form__error-banner");
+	if (hasError) {
+		const form = document.querySelector(".contact-form");
+		if (form) {
+			history.scrollRestoration = "manual";
+			form.scrollIntoView({ behavior: "instant", block: "start" });
+		}
+	}
+</script>
