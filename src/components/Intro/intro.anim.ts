@@ -6,21 +6,25 @@ if (!intro) throw new Error("Intro: [data-intro] not found");
 if (sessionStorage.getItem("intro-seen")) {
 	intro.remove();
 } else {
+	// Any truthy value works — we only care whether the key exists
 	sessionStorage.setItem("intro-seen", "1");
 
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		intro.remove();
 	} else {
 		const overlay = intro.querySelector<HTMLElement>("[data-intro-overlay]");
-		const mark    = intro.querySelector<HTMLElement>("[data-intro-mark]");
-		const rule    = intro.querySelector<HTMLElement>("[data-intro-rule]");
-		const name    = intro.querySelector<HTMLElement>("[data-intro-name]");
-		const sub     = intro.querySelector<HTMLElement>("[data-intro-sub]");
+		const mark = intro.querySelector<HTMLElement>("[data-intro-mark]");
+		const rule = intro.querySelector<HTMLElement>("[data-intro-rule]");
+		const name = intro.querySelector<HTMLElement>("[data-intro-name]");
+		const sub = intro.querySelector<HTMLElement>("[data-intro-sub]");
 
-		// Set initial positions — CSS only carries opacity: 0
-		gsap.set(mark, { y: 10 });
-		gsap.set(name, { y: 12 });
-		gsap.set(sub,  { y: 8 });
+		// Make animated elements visible before GSAP runs to prevent FOUC
+		gsap.set([mark, name, sub], { visibility: "visible" });
+
+		// Set initial positions
+		gsap.set(mark, { y: 10, opacity: 0 });
+		gsap.set(name, { y: 12, opacity: 0 });
+		gsap.set(sub, { y: 8, opacity: 0 });
 
 		const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -40,16 +44,24 @@ if (sessionStorage.getItem("intro-seen")) {
 		tl.to({}, { duration: 0.7 });
 
 		// 6. Content fades out
-		tl.to([mark, name, sub, rule], { opacity: 0, duration: 0.35, stagger: 0.05 });
+		tl.to([mark, name, sub, rule], {
+			opacity: 0,
+			duration: 0.35,
+			stagger: 0.05,
+		});
 
-		// 7. Diagonal clip-path sweeps upward, clearing the screen
-		tl.to(overlay, {
-			clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-			duration: 1.0,
-			ease: "power4.inOut",
-		}, "-=0.05");
+		// 7. Overlay sweeps upward off screen
+		tl.to(
+			overlay,
+			{
+				clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+				duration: 1.0,
+				ease: "power4.inOut",
+			},
+			"-=0.05",
+		);
 
-		// 8. Remove
+		// 8. Remove from DOM
 		tl.call(() => intro.remove());
 	}
 }
