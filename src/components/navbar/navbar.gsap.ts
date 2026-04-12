@@ -31,11 +31,9 @@ if (!reducedMotion) {
 	if (logo) {
 		gsap.from(logo, {
 			opacity: 0,
-			y: 6,
-			duration: 1.4,
+			duration: 1.0,
 			ease: "power1.out",
 			delay: 0.3,
-			onComplete: () => { gsap.set(logo, { clearProps: "transform" }); },
 		});
 	}
 
