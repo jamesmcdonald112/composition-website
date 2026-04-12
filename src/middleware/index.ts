@@ -3,6 +3,7 @@ import { defineMiddleware } from "astro:middleware";
 
 // Session key used to carry one action result across a redirect (POST -> GET).
 const ACTION_RESULT_KEY = "action-result";
+const FORM_DATA_KEY = "form-data";
 // Keep flash data short-lived; enough time for immediate redirect round-trip.
 const ACTION_RESULT_TTL_SECONDS = 60;
 
@@ -41,6 +42,13 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
 	// Intercept HTML form action POSTs and convert flow to PRG.
 	if (action?.calledFrom === "form") {
+		// Capture raw form data before handler runs (for field repopulation on error).
+		const rawFormData = await context.request.clone().formData();
+		const formValues: Record<string, string> = {};
+		for (const [key, value] of rawFormData.entries()) {
+			if (typeof value === "string") formValues[key] = value;
+		}
+
 		const actionResult = await action.handler();
 
 		// Save serialized result so it can be shown after redirect on GET.
@@ -55,6 +63,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
 		// Redirect back to form page on validation/server errors.
 		if (actionResult.error) {
+			// Also save raw form values so the form can repopulate fields.
+			session.set(FORM_DATA_KEY, formValues, { ttl: ACTION_RESULT_TTL_SECONDS });
 			const referer = context.request.headers.get("referer");
 			if (referer) {
 				return context.redirect(referer);
