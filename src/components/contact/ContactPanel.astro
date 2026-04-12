@@ -6,22 +6,22 @@ import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 ---
 
-<div class="contact-panel">
-	<p class="contact-panel__eyebrow">
+<div class="contact-panel" data-contact-panel>
+	<p class="contact-panel__eyebrow" data-contact-panel-eyebrow>
 		<span class="contact-panel__eyebrow-icon" aria-hidden="true" set:html={mapPinIcon} />
 		Kilkenny, Ireland
 	</p>
 
-	<h1 class="contact-panel__heading">
+	<h1 class="contact-panel__heading" data-contact-panel-heading>
 		Let&rsquo;s talk about<br />your <em>matter.</em>
 	</h1>
 
-	<p class="contact-panel__intro">{contactPageContent.intro}</p>
+	<p class="contact-panel__intro" data-contact-panel-intro>{contactPageContent.intro}</p>
 
-	<hr class="contact-panel__divider" />
+	<hr class="contact-panel__divider" data-contact-panel-divider />
 
 	<ul class="contact-panel__details" role="list">
-		<li class="contact-panel__item">
+		<li class="contact-panel__item" data-contact-panel-item>
 			<span class="contact-panel__icon" aria-hidden="true" set:html={clockIcon} />
 			<div class="contact-panel__text">
 				<span class="contact-panel__label">Office Hours</span>
@@ -29,7 +29,7 @@ import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 			</div>
 		</li>
 
-		<li class="contact-panel__item">
+		<li class="contact-panel__item" data-contact-panel-item>
 			<span class="contact-panel__icon" aria-hidden="true" set:html={phoneIcon} />
 			<div class="contact-panel__text">
 				<span class="contact-panel__label">Phone</span>
@@ -38,7 +38,7 @@ import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 			</div>
 		</li>
 
-		<li class="contact-panel__item">
+		<li class="contact-panel__item" data-contact-panel-item>
 			<span class="contact-panel__icon" aria-hidden="true" set:html={mapPinIcon} />
 			<div class="contact-panel__text">
 				<span class="contact-panel__label">Address</span>
@@ -56,6 +56,10 @@ import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 		</li>
 	</ul>
 </div>
+
+<script>
+	import "./contact-panel.gsap";
+</script>
 
 <style>
 	/* ── Eyebrow ──────────────────────────────────────────────────────────── */
