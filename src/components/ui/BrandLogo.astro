@@ -4,17 +4,16 @@ import { firm } from "../../config/firm";
 
 interface Props {
   class?: string;
-  "data-navbar-logo"?: string;
 }
 
-const { class: className, "data-navbar-logo": navbarLogo } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 
 <a
   href="/"
   class:list={["brand-logo", className]}
   aria-label={`${firm.companyName} — home`}
-  data-navbar-logo={navbarLogo}
+  {...rest}
 >
   <span class="brand-logo__img" aria-hidden="true" set:html={logo} />
 </a>
