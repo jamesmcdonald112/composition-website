@@ -1,4 +1,7 @@
 ---
+import ContactForm from "../features/contact-form/components/ContactForm.astro";
+import ContactPanel from "../components/contact/ContactPanel.astro";
+import SplitPage from "../components/layout/SplitPage.astro";
 import { contactPageContent } from "../config/contact";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
@@ -8,10 +11,14 @@ const structuredData = getLawFirmStructuredData();
 ---
 
 <BaseLayout
-	title={`${contactPageContent.seo.title} | ${firm.companyName}`}
-	description={contactPageContent.seo.description}
-	canonicalPath={contactPageContent.seo.canonicalPath}
-	structuredData={structuredData}
+  title={`${contactPageContent.seo.title} | ${firm.companyName}`}
+  description={contactPageContent.seo.description}
+  canonicalPath={contactPageContent.seo.canonicalPath}
+  structuredData={structuredData}
+  solidNav
 >
-
+  <SplitPage>
+    <ContactPanel slot="left" />
+    <ContactForm slot="right" />
+  </SplitPage>
 </BaseLayout>
