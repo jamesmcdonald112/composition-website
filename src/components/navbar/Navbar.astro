@@ -8,10 +8,16 @@ import closeIcon from "../../assets/navbar/closeMenuIcon.svg?raw";
 import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 
 const currentPath = Astro.url.pathname;
+
+interface Props {
+	solid?: boolean;
+}
+
+const { solid = false } = Astro.props;
 ---
 
 <!-- Navbar shell — fixed to top, full width -->
-<div class="navbar" id="navbar">
+<div class="navbar" id="navbar" data-navbar-solid={solid ? "" : undefined}>
 	<!-- Inner container — max-width + centred via wrapper -->
 	<div class="navbar__inner wrapper wrapper--wide">
 		<!-- Logo -->
