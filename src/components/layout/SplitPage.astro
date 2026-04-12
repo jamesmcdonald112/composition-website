@@ -1,0 +1,87 @@
+---
+interface Props {
+	leftBg?: string;
+	rightBg?: string;
+}
+
+const { leftBg = "var(--color-bg-brand)", rightBg = "var(--color-bg-surface)" } = Astro.props;
+---
+
+<div class="split-page">
+	<div class="split-page__left" style={`--panel-bg: ${leftBg}`}>
+		<div class="split-page__left-inner">
+			<slot name="left" />
+		</div>
+	</div>
+
+	<div class="split-page__right" style={`--panel-bg: ${rightBg}`}>
+		<div class="split-page__right-inner">
+			<slot name="right" />
+		</div>
+	</div>
+</div>
+
+<style>
+	/* ── Outer shell — full viewport width, two columns ──────────────────── */
+	.split-page {
+		display: grid;
+		grid-template-columns: 1fr;
+		min-height: 100vh;
+
+		@media (min-width: 768px) {
+			grid-template-columns: 42fr 58fr;
+		}
+	}
+
+	/* ── Left panel — brand bg, fills its column ─────────────────────────── */
+	.split-page__left {
+		background: var(--panel-bg);
+	}
+
+	/* ── Left inner — centered mobile, wrapper-aligned start on desktop ─────── */
+	.split-page__left-inner {
+		padding-block: var(--space-5xl);
+		padding-inline: var(--gutter);
+
+		@media (min-width: 768px) {
+			padding-inline-start: max(
+				var(--gutter-md),
+				calc((100vw - var(--width-wide)) / 2 + var(--gutter-md))
+			);
+			padding-inline-end: var(--space-3xl);
+		}
+
+		@media (min-width: 1024px) {
+			padding-inline-start: max(
+				var(--gutter-lg),
+				calc((100vw - var(--width-wide)) / 2 + var(--gutter-lg))
+			);
+		}
+	}
+
+	/* ── Right panel — surface bg, fills its column ──────────────────────── */
+	.split-page__right {
+		background: var(--panel-bg);
+	}
+
+	/* ── Right inner — centered mobile, wrapper-aligned end on desktop ──────── */
+	.split-page__right-inner {
+		padding-block: var(--space-5xl);
+		padding-inline: var(--gutter);
+
+		@media (min-width: 768px) {
+			padding-inline-start: var(--space-3xl);
+			padding-inline-end: max(
+				var(--gutter-md),
+				calc((100vw - var(--width-wide)) / 2 + var(--gutter-md))
+			);
+		}
+
+		@media (min-width: 1024px) {
+			padding-inline-end: max(
+				var(--gutter-lg),
+				calc((100vw - var(--width-wide)) / 2 + var(--gutter-lg))
+			);
+		}
+	}
+</style>
