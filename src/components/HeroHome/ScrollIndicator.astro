@@ -20,7 +20,7 @@ const { label = "Scroll" } = Astro.props;
 <style>
 	.scroll-indicator {
 		/* Component-level tokens */
-		--si-text-muted: color-mix(in srgb, var(--color-text-inverse) 80%, transparent);
+		--si-text-muted: var(--color-text-inverse-muted);
 		--si-track-width: 1.75rem; /* 28px — structural geometry */
 		--si-track-height: 1px;
 
