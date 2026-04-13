@@ -81,7 +81,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 		margin-block-end: var(--space-3xl);
 	}
 
-.t-header__heading {
+	.t-header__heading {
 		font-family: var(--font-serif);
 		font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
 		font-weight: var(--font-weight-normal);
@@ -105,10 +105,9 @@ const [headingBefore, headingAfter] = headingEmphasis
 		color: var(--color-accent);
 	}
 
-/* Intro — dark variant */
+	/* Intro — dark variant */
 	.testimonials--dark .t-header__intro {
-		color: var(--color-text-inverse);
-		opacity: 0.55;
+		color: var(--color-text-inverse-muted);
 	}
 
 	/* Intro — light variant */
@@ -117,40 +116,48 @@ const [headingBefore, headingAfter] = headingEmphasis
 	}
 
 	.t-header__intro {
-		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
-		max-width: 520px;
+		max-width: 55ch;
 		line-height: var(--line-height-relaxed);
 	}
 
 	/* ── Grid ───────────────────────────────────────────────────────────────── */
 	.t-grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr;
 		gap: var(--space-lg);
 
-		/* 2-col: show 4 cards (hide cards 5 & 6) */
-		@media (max-width: 1024px) {
+		/* 2-col at tablet+ */
+		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		/* 1-col: show 3 cards (hide cards 4, 5 & 6) */
-		@media (max-width: 640px) {
-			grid-template-columns: 1fr;
+		/* 3-col at desktop+ */
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 
-	/* Hide card 5 and 6 at 2-col breakpoint */
-	@media (max-width: 1024px) {
+	/* 1-col: show only 3 cards */
+	.t-card:nth-child(n + 4) {
+		display: none;
+	}
+
+	/* 2-col: show 4 cards, hide 5 & 6 */
+	@media (min-width: 768px) {
+		.t-card:nth-child(n + 4) {
+			display: flex;
+		}
+
 		.t-card:nth-child(n + 5) {
 			display: none;
 		}
 	}
 
-	/* Hide cards 4, 5 and 6 at 1-col breakpoint */
-	@media (max-width: 640px) {
-		.t-card:nth-child(n + 4) {
-			display: none;
+	/* 3-col: show all 6 cards */
+	@media (min-width: 1024px) {
+		.t-card:nth-child(n + 5) {
+			display: flex;
 		}
 	}
 
@@ -161,7 +168,6 @@ const [headingBefore, headingAfter] = headingEmphasis
 		padding: var(--space-xl);
 		border-radius: var(--radius-lg);
 		position: relative;
-		overflow: hidden;
 		cursor: default;
 		transition:
 			transform 0.35s var(--ease-out),
@@ -183,7 +189,6 @@ const [headingBefore, headingAfter] = headingEmphasis
 			font-family: var(--font-serif);
 			font-size: 72px;
 			color: var(--color-accent);
-			opacity: 0.15;
 			position: absolute;
 			top: var(--space-sm);
 			right: var(--space-lg);
@@ -191,22 +196,18 @@ const [headingBefore, headingAfter] = headingEmphasis
 			pointer-events: none;
 			transition: opacity 0.35s var(--ease-out);
 		}
-
-		&:hover::before {
-			opacity: 0.5;
-		}
 	}
 
 	/* Card — dark variant */
 	.testimonials--dark .t-card {
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.09);
+		background: color-mix(in srgb, var(--color-text-inverse) 4%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-text-inverse) 9%, transparent);
 
 		&:hover {
-			background: rgba(255, 255, 255, 0.08);
+			background: color-mix(in srgb, var(--color-text-inverse) 8%, transparent);
 			box-shadow:
 				0 0 0 1px var(--color-accent),
-				0 24px 48px rgba(0, 0, 0, 0.4);
+				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 40%, transparent);
 		}
 	}
 
@@ -216,18 +217,18 @@ const [headingBefore, headingAfter] = headingEmphasis
 		border: 1px solid var(--color-border);
 
 		&::before {
-			opacity: 0.2;
+			opacity: 0.4;
 		}
 
 		&:hover::before {
-			opacity: 0.55;
+			opacity: 0.75;
 		}
 
 		&:hover {
 			background: var(--color-bg-surface);
 			box-shadow:
 				0 0 0 1px var(--color-accent),
-				0 24px 48px rgba(0, 0, 0, 0.08);
+				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 8%, transparent);
 		}
 	}
 
@@ -248,7 +249,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 		border: none;
 		font-family: var(--font-serif);
 		font-style: italic;
-		font-size: var(--font-size-base);
+		font-size: var(--font-size-lg);
 		line-height: 1.7;
 		margin-block-end: var(--space-lg);
 	}
@@ -256,7 +257,6 @@ const [headingBefore, headingAfter] = headingEmphasis
 	/* Quote text colour — dark */
 	.testimonials--dark .t-card__quote {
 		color: var(--color-text-inverse);
-		opacity: 0.85;
 	}
 
 	/* Quote text colour — light */
@@ -271,7 +271,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 	}
 
 	.testimonials--dark .t-card__divider {
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid color-mix(in srgb, var(--color-text-inverse) 20%, transparent);
 	}
 
 	.testimonials--light .t-card__divider {
@@ -287,8 +287,8 @@ const [headingBefore, headingAfter] = headingEmphasis
 
 	/* Avatar circle */
 	.t-card__avatar {
-		width: 38px;
-		height: 38px;
+		width: var(--size-10);
+		height: var(--size-10);
 		border-radius: var(--radius-full);
 		display: flex;
 		align-items: center;
@@ -297,11 +297,10 @@ const [headingBefore, headingAfter] = headingEmphasis
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
-		opacity: 0.6;
 	}
 
 	.testimonials--dark .t-card__avatar {
-		background: rgba(255, 255, 255, 0.1);
+		background: color-mix(in srgb, var(--color-text-inverse) 20%, transparent);
 		color: var(--color-text-inverse);
 	}
 
@@ -319,8 +318,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 	}
 
 	.testimonials--dark .t-card__name {
-		color: var(--color-text-inverse);
-		opacity: 0.9;
+		color: var(--color-text-inverse-muted);
 	}
 
 	.testimonials--light .t-card__name {
@@ -329,7 +327,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 
 	/* ── Footer link ────────────────────────────────────────────────────────── */
 	.t-footer {
-		margin-block-start: var(--space-6xl);
+		margin-block-start: var(--space-3xl);
 		display: flex;
 		justify-content: center;
 	}
@@ -344,19 +342,21 @@ const [headingBefore, headingAfter] = headingEmphasis
 		color: var(--color-accent);
 		text-decoration: none;
 		letter-spacing: var(--letter-spacing-wide);
-		transition:
-			gap 0.25s var(--ease-out),
-			opacity 0.25s var(--ease-out);
+		transition: color 0.25s var(--ease-out);
 
 		&:hover {
-			opacity: 0.75;
-			gap: var(--space-sm);
+			color: var(--color-accent-light);
+		}
+
+		&:hover .t-footer__arrow {
+			transform: translateX(var(--space-xs));
 		}
 	}
 
 	.t-footer__arrow {
 		display: inline-block;
 		font-size: var(--font-size-base);
+		transition: transform 0.25s var(--ease-out);
 	}
 </style>
 
