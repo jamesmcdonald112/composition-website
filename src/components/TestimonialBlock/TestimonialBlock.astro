@@ -1,0 +1,365 @@
+---
+import { firm } from "../../config/firm";
+import { testimonials, testimonialsSection } from "../../config/testimonials";
+import Eyebrow from "../ui/Eyebrow.astro";
+import SectionRule from "../ui/SectionRule.astro";
+
+interface Props {
+	variant?: "dark" | "light";
+}
+
+const { variant = "light" } = Astro.props;
+
+const { heading, headingEmphasis } = testimonialsSection;
+const [headingBefore, headingAfter] = headingEmphasis
+	? heading.split(headingEmphasis)
+	: [heading, ""];
+---
+
+<section class={`section ${variant === "dark" ? "testimonials--dark" : "testimonials--light"}`}>
+	<div class="wrapper wrapper--wide">
+		<header class="t-header" data-testimonial-header>
+			<Eyebrow text={testimonialsSection.eyebrow} showRule={true} />
+			<h2 class="t-header__heading">
+				{headingBefore}<em class="t-header__heading-em">{headingEmphasis}</em>{headingAfter}
+			</h2>
+			<SectionRule />
+			<p class="t-header__intro">{testimonialsSection.intro}</p>
+		</header>
+
+		<div class="t-grid">
+			{
+				testimonials.map((t, i) => (
+					<article class="t-card" data-testimonial-card data-card-index={i}>
+						<span class="t-card__stars" aria-label="Five stars">
+							★★★★★
+						</span>
+						<blockquote class="t-card__quote">{t.quote}</blockquote>
+						<hr class="t-card__divider" />
+						<div class="t-card__attribution">
+							<div class="t-card__avatar" aria-hidden="true">
+								{t.name[0]}
+								{t.name.split(" ").at(-1)![0]}
+							</div>
+							<p class="t-card__name">{t.name}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="t-footer">
+			<a
+				href={firm.address.googleMapsProfileHref}
+				class="t-footer__link"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				See all reviews on Google
+				<span class="t-footer__arrow" aria-hidden="true">→</span>
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* ── Section shell ──────────────────────────────────────────────────────── */
+	/* .section composition handles padding-block: var(--space-section) */
+
+	/* Dark variant — navy background */
+	.testimonials--dark {
+		background-color: var(--color-bg-brand);
+	}
+
+	/* Light variant — stone background so white cards pop */
+	.testimonials--light {
+		background-color: var(--color-bg-subtle);
+	}
+
+	/* ── Section header ─────────────────────────────────────────────────────── */
+	.t-header {
+		margin-block-end: var(--space-3xl);
+	}
+
+.t-header__heading {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
+		font-weight: var(--font-weight-normal);
+		margin-block: var(--space-lg);
+		line-height: 1.1;
+	}
+
+	/* Heading — dark variant */
+	.testimonials--dark .t-header__heading {
+		color: var(--color-text-inverse);
+	}
+
+	/* Heading — light variant */
+	.testimonials--light .t-header__heading {
+		color: var(--color-text);
+	}
+
+	/* Gold italic emphasis word */
+	.t-header__heading-em {
+		font-style: italic;
+		color: var(--color-accent);
+	}
+
+/* Intro — dark variant */
+	.testimonials--dark .t-header__intro {
+		color: var(--color-text-inverse);
+		opacity: 0.55;
+	}
+
+	/* Intro — light variant */
+	.testimonials--light .t-header__intro {
+		color: var(--color-text-muted);
+	}
+
+	.t-header__intro {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		max-width: 520px;
+		line-height: var(--line-height-relaxed);
+	}
+
+	/* ── Grid ───────────────────────────────────────────────────────────────── */
+	.t-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-lg);
+
+		/* 2-col: show 4 cards (hide cards 5 & 6) */
+		@media (max-width: 1024px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		/* 1-col: show 3 cards (hide cards 4, 5 & 6) */
+		@media (max-width: 640px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Hide card 5 and 6 at 2-col breakpoint */
+	@media (max-width: 1024px) {
+		.t-card:nth-child(n + 5) {
+			display: none;
+		}
+	}
+
+	/* Hide cards 4, 5 and 6 at 1-col breakpoint */
+	@media (max-width: 640px) {
+		.t-card:nth-child(n + 4) {
+			display: none;
+		}
+	}
+
+	/* ── Card base ──────────────────────────────────────────────────────────── */
+	.t-card {
+		display: flex;
+		flex-direction: column;
+		padding: var(--space-xl);
+		border-radius: var(--radius-lg);
+		position: relative;
+		overflow: hidden;
+		cursor: default;
+		transition:
+			transform 0.35s var(--ease-out),
+			box-shadow 0.35s var(--ease-out),
+			border-color 0.35s var(--ease-out),
+			background 0.35s var(--ease-out);
+
+		&:hover {
+			transform: translateY(-6px);
+			border-color: var(--color-accent);
+			box-shadow:
+				0 0 0 1px var(--color-accent),
+				0 24px 48px rgba(0, 0, 0, 0.15);
+		}
+
+		/* Quote mark — dims at rest, brightens on hover */
+		&::before {
+			content: "\201C";
+			font-family: var(--font-serif);
+			font-size: 72px;
+			color: var(--color-accent);
+			opacity: 0.15;
+			position: absolute;
+			top: var(--space-sm);
+			right: var(--space-lg);
+			line-height: 1;
+			pointer-events: none;
+			transition: opacity 0.35s var(--ease-out);
+		}
+
+		&:hover::before {
+			opacity: 0.5;
+		}
+	}
+
+	/* Card — dark variant */
+	.testimonials--dark .t-card {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.08);
+			box-shadow:
+				0 0 0 1px var(--color-accent),
+				0 24px 48px rgba(0, 0, 0, 0.4);
+		}
+	}
+
+	/* Card — light variant */
+	.testimonials--light .t-card {
+		background: var(--color-bg-surface);
+		border: 1px solid var(--color-border);
+
+		&::before {
+			opacity: 0.2;
+		}
+
+		&:hover::before {
+			opacity: 0.55;
+		}
+
+		&:hover {
+			background: var(--color-bg-surface);
+			box-shadow:
+				0 0 0 1px var(--color-accent),
+				0 24px 48px rgba(0, 0, 0, 0.08);
+		}
+	}
+
+	/* ── Card internals ─────────────────────────────────────────────────────── */
+	.t-card__stars {
+		color: var(--color-accent);
+		font-size: var(--font-size-base);
+		letter-spacing: 2px;
+		margin-block-end: var(--space-md);
+		display: block;
+	}
+
+	/* Blockquote reset + flex grow to push name to bottom */
+	.t-card__quote {
+		flex: 1;
+		margin: 0;
+		padding: 0;
+		border: none;
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-base);
+		line-height: 1.7;
+		margin-block-end: var(--space-lg);
+	}
+
+	/* Quote text colour — dark */
+	.testimonials--dark .t-card__quote {
+		color: var(--color-text-inverse);
+		opacity: 0.85;
+	}
+
+	/* Quote text colour — light */
+	.testimonials--light .t-card__quote {
+		color: var(--color-text);
+	}
+
+	/* Divider */
+	.t-card__divider {
+		border: none;
+		margin-block-end: var(--space-lg);
+	}
+
+	.testimonials--dark .t-card__divider {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.testimonials--light .t-card__divider {
+		border-top: 1px solid var(--color-border);
+	}
+
+	/* Attribution row */
+	.t-card__attribution {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	/* Avatar circle */
+	.t-card__avatar {
+		width: 38px;
+		height: 38px;
+		border-radius: var(--radius-full);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-semibold);
+		opacity: 0.6;
+	}
+
+	.testimonials--dark .t-card__avatar {
+		background: rgba(255, 255, 255, 0.1);
+		color: var(--color-text-inverse);
+	}
+
+	.testimonials--light .t-card__avatar {
+		background: var(--color-bg-brand-mid);
+		color: var(--color-text-inverse);
+		opacity: 1;
+	}
+
+	/* Name */
+	.t-card__name {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-bold);
+	}
+
+	.testimonials--dark .t-card__name {
+		color: var(--color-text-inverse);
+		opacity: 0.9;
+	}
+
+	.testimonials--light .t-card__name {
+		color: var(--color-text);
+	}
+
+	/* ── Footer link ────────────────────────────────────────────────────────── */
+	.t-footer {
+		margin-block-start: var(--space-6xl);
+		display: flex;
+		justify-content: center;
+	}
+
+	.t-footer__link {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-accent);
+		text-decoration: none;
+		letter-spacing: var(--letter-spacing-wide);
+		transition:
+			gap 0.25s var(--ease-out),
+			opacity 0.25s var(--ease-out);
+
+		&:hover {
+			opacity: 0.75;
+			gap: var(--space-sm);
+		}
+	}
+
+	.t-footer__arrow {
+		display: inline-block;
+		font-size: var(--font-size-base);
+	}
+</style>
+
+<script>
+	import "./testimonial-block.gsap";
+</script>

@@ -1,0 +1,22 @@
+---
+interface Props {
+	/** data-animate attribute for GSAP targeting. Optional. */
+	animateAttr?: string;
+}
+
+const { animateAttr } = Astro.props;
+---
+
+<hr class="section-rule" data-animate={animateAttr} aria-hidden="true" />
+
+<style>
+	.section-rule {
+		border: none;
+		width: var(--size-14);
+		height: var(--size-0-5);
+		background-color: var(--color-accent);
+		margin: 0;
+		margin-block-end: var(--space-lg);
+		transform-origin: left center;
+	}
+</style>

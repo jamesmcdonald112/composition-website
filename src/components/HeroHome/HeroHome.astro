@@ -5,6 +5,7 @@ import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 import { firm } from "../../config/firm";
 import CtaLink from "../ui/CtaLink.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
+import SectionRule from "../ui/SectionRule.astro";
 import ScrollIndicator from "./ScrollIndicator.astro";
 
 interface Props {
@@ -72,7 +73,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 				{titleBefore}{titleEmphasis && <em class="hero-home__title-em" data-animate="h-title-em">{titleEmphasis}</em>}{titleAfter}
 			</h1>
 
-			<hr class="hero-home__rule" data-animate="h-rule" />
+			<SectionRule animateAttr="h-rule" />
 
 			<p class="hero-home__subtitle" data-animate="h-subtitle">
 				{subtitle}
@@ -295,14 +296,8 @@ const [titleBefore, titleAfter] = titleEmphasis
 	}
 
 	/* ── Gold rule ──────────────────────────────────────────────────────────── */
-	.hero-home__rule {
-		border: none;
-		width: var(--size-14);
-		height: var(--size-0-5);
-		background-color: var(--color-accent);
-		margin: 0;
-		margin-block-end: var(--space-lg);
-		transform-origin: left center;
+	/* SectionRule component handles base styles — only GSAP visibility needed */
+	:global(.section-rule) {
 		visibility: hidden;
 	}
 
