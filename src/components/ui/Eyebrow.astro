@@ -14,11 +14,18 @@ const { text, colorToken, showRule = false, animateAttr, class: className } = As
 
 <div
 	class:list={["eyebrow-wrap", showRule && "eyebrow-wrap--ruled", className]}
-	style={colorToken ? `--eyebrow-color: var(${colorToken})` : undefined}
 	data-animate={animateAttr}
 >
-	{showRule && <span class="eyebrow-wrap__rule" aria-hidden="true" />}
-	<span class="eyebrow">{text}</span>
+	{
+		showRule && (
+			<span
+				class="eyebrow-wrap__rule"
+				style={colorToken ? `background-color: var(${colorToken})` : undefined}
+				aria-hidden="true"
+			/>
+		)
+	}
+	<span class="eyebrow" style={colorToken ? `color: var(${colorToken})` : undefined}>{text}</span>
 </div>
 
 <style>
