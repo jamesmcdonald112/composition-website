@@ -12,7 +12,7 @@ interface Props {
 }
 
 const {
-	variant = "dark",
+	variant = "light",
 	eyebrow = defaultCtaPanel.eyebrow,
 	heading = defaultCtaPanel.title,
 	body = defaultCtaPanel.body,
@@ -50,7 +50,7 @@ const headingColor = variant === "light" ? "--color-text" : "--color-text-invers
 <style>
 	/* ── Shell — full viewport width ────────────────────────── */
 	.cta-panel {
-		--_bg: var(--color-bg-brand);
+		--_bg: var(--color-bg-brand-mid);
 		--_text: var(--color-text-inverse);
 		--_text-muted: var(--color-text-inverse-muted);
 
