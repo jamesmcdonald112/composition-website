@@ -296,8 +296,8 @@ const [titleBefore, titleAfter] = titleEmphasis
 	}
 
 	/* ── Gold rule ──────────────────────────────────────────────────────────── */
-	/* SectionRule component handles base styles — only GSAP visibility needed */
-	:global(.section-rule) {
+	/* Target only the hero rule via its animate attribute — no global bleed */
+	[data-animate="h-rule"] {
 		visibility: hidden;
 	}
 
