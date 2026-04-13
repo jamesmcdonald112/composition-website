@@ -22,7 +22,7 @@
 */
 
 @import './reset.css';
-@import './themes/theme-cream-navy.css';
+@import './themes/theme-amber-navy.css';
 @import './tokens.css';
 @import './compositions.css';
 @import './utilities.css';

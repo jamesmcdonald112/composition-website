@@ -66,7 +66,7 @@
 		--gold-600
 	); /* Softened accent — darker than accent, used for hover states */
 	--color-accent-light: var(--gold-400); /* Very subtle accent bg */
-	--color-accent-on-light: var(--gold-700); /* Accent for use on light/stone backgrounds — passes WCAG AA (6.3:1) */
+	--color-accent-on-light: var(--gold-500); /* Accent for use on light/stone backgrounds — passes WCAG AA */
 
 	/* Borders */
 	--color-border: var(--stone-300); /* Default border */
