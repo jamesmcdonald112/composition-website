@@ -2,8 +2,7 @@
 import chevronIcon from "../../assets/icons/chevronDownIcon.svg?raw";
 import { firm } from "../../config/firm";
 import { testimonials, testimonialsSection } from "../../config/testimonials";
-import Eyebrow from "../ui/Eyebrow.astro";
-import SectionRule from "../ui/SectionRule.astro";
+import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
 
 interface Props {
 	variant?: "dark" | "light";
@@ -11,20 +10,17 @@ interface Props {
 
 const { variant = "light" } = Astro.props;
 
-const { heading, headingEmphasis } = testimonialsSection;
-const [headingBefore, headingAfter] = headingEmphasis
-	? heading.split(headingEmphasis)
-	: [heading, ""];
 ---
 
 <section class={`section ${variant === "dark" ? "testimonials--dark" : "testimonials--light"}`}>
 	<div class="wrapper wrapper--wide">
 		<header class="t-header" data-testimonial-header>
-			<Eyebrow text={testimonialsSection.eyebrow} showRule={true} />
-			<h2 class="t-header__heading">
-				{headingBefore}<em class="t-header__heading-em">{headingEmphasis}</em>{headingAfter}
-			</h2>
-			<SectionRule />
+			<SectionHeader
+				eyebrow={testimonialsSection.eyebrow}
+				heading={testimonialsSection.heading}
+				headingEmphasis={testimonialsSection.headingEmphasis}
+				headingColor={variant === "dark" ? "--color-text-inverse" : "--color-text"}
+			/>
 			<p class="t-header__intro">{testimonialsSection.intro}</p>
 		</header>
 
@@ -82,31 +78,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 		margin-block-end: var(--space-3xl);
 	}
 
-	.t-header__heading {
-		font-family: var(--font-serif);
-		font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
-		font-weight: var(--font-weight-normal);
-		margin-block: var(--space-lg);
-		line-height: 1.1;
-	}
-
-	/* Heading — dark variant */
-	.testimonials--dark .t-header__heading {
-		color: var(--color-text-inverse);
-	}
-
-	/* Heading — light variant */
-	.testimonials--light .t-header__heading {
-		color: var(--color-text);
-	}
-
-	/* Gold italic emphasis word */
-	.t-header__heading-em {
-		font-style: italic;
-		color: var(--color-accent);
-	}
-
-	/* Intro — dark variant */
+/* Intro — dark variant */
 	.testimonials--dark .t-header__intro {
 		color: var(--color-text-inverse-muted);
 	}
