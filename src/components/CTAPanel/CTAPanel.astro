@@ -21,6 +21,8 @@ const {
 const phone = firm.phone;
 const secondaryVariant = variant === "light" ? "outline-dark" : "outline-light";
 const headingColor = variant === "light" ? "--color-text" : "--color-text-inverse";
+const eyebrowColor = variant === "light" ? "--color-accent-on-light" : undefined;
+const ruleColor = variant === "light" ? "--color-accent-on-light" : undefined;
 ---
 
 <section class={`cta-panel${variant === "light" ? " cta-panel--light" : ""}`} data-cta-panel>
@@ -30,6 +32,8 @@ const headingColor = variant === "light" ? "--color-text" : "--color-text-invers
 				eyebrow={eyebrow}
 				heading={heading}
 				headingColor={headingColor}
+				eyebrowColor={eyebrowColor}
+				ruleColor={ruleColor}
 				gsapAttr="cta-panel"
 			/>
 			<p class="cta-panel__body" data-cta-body>{body}</p>

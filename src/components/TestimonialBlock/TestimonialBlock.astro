@@ -9,7 +9,6 @@ interface Props {
 }
 
 const { variant = "light" } = Astro.props;
-
 ---
 
 <section class={`section ${variant === "dark" ? "testimonials--dark" : "testimonials--light"}`}>
@@ -20,6 +19,8 @@ const { variant = "light" } = Astro.props;
 				heading={testimonialsSection.heading}
 				headingEmphasis={testimonialsSection.headingEmphasis}
 				headingColor={variant === "dark" ? "--color-text-inverse" : "--color-text"}
+				eyebrowColor={variant === "dark" ? undefined : "--color-accent-on-light"}
+				ruleColor={variant === "dark" ? undefined : "--color-accent-on-light"}
 			/>
 			<p class="t-header__intro">{testimonialsSection.intro}</p>
 		</header>
@@ -78,7 +79,7 @@ const { variant = "light" } = Astro.props;
 		margin-block-end: var(--space-3xl);
 	}
 
-/* Intro — dark variant */
+	/* Intro — dark variant */
 	.testimonials--dark .t-header__intro {
 		color: var(--color-text-inverse-muted);
 	}
