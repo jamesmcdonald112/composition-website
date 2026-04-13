@@ -31,7 +31,7 @@
 	/* Backgrounds */
 	--color-bg: var(--stone-100); /* Page background */
 	--color-bg-surface: var(--white); /* Cards, panels, raised surfaces */
-	--color-bg-subtle: var(--stone-200); /* Subtle surface (alternate rows, sidebar bg) */
+	--color-bg-subtle: var(--stone-50); /* Subtle surface (alternate rows, sidebar bg) */
 	--color-bg-muted: var(--stone-300); /* Muted surface (disabled states) */
 	--color-bg-brand: var(--navy-900); /* Dark brand background (hero, footer) */
 	--color-bg-brand-mid: var(--navy-700); /* Mid brand background */
