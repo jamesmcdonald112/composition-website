@@ -3,26 +3,45 @@ interface Props {
 	text: string;
 	/** Token name without "var()" — e.g. "--color-text-inverse". Defaults to --color-accent. */
 	colorToken?: string;
+	/** Show a gold rule to the left of the eyebrow text. Defaults to false. */
+	showRule?: boolean;
 	animateAttr?: string;
 	class?: string;
 }
 
-const { text, colorToken, animateAttr, class: className } = Astro.props;
+const { text, colorToken, showRule = false, animateAttr, class: className } = Astro.props;
 ---
 
-<span
-	class:list={["eyebrow", className]}
+<div
+	class:list={["eyebrow-wrap", showRule && "eyebrow-wrap--ruled", className]}
 	style={colorToken ? `--eyebrow-color: var(${colorToken})` : undefined}
 	data-animate={animateAttr}
-	aria-hidden="true"
 >
-	{text}
-</span>
+	{showRule && <span class="eyebrow-wrap__rule" aria-hidden="true" />}
+	<span class="eyebrow">{text}</span>
+</div>
 
 <style>
-	.eyebrow {
+	.eyebrow-wrap {
 		--eyebrow-color: var(--color-accent);
 		display: block;
+	}
+
+	.eyebrow-wrap--ruled {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.eyebrow-wrap__rule {
+		display: inline-block;
+		width: 2rem;
+		height: 2px;
+		background-color: var(--eyebrow-color);
+		flex-shrink: 0;
+	}
+
+	.eyebrow {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
 		font-weight: var(--font-weight-medium);
