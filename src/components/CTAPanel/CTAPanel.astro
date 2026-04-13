@@ -32,10 +32,10 @@ const headingColor = variant === "light" ? "--color-text" : "--color-text-invers
 				headingColor={headingColor}
 				gsapAttr="cta-panel"
 			/>
-			<p class="cta-panel__body">{body}</p>
+			<p class="cta-panel__body" data-cta-body>{body}</p>
 		</div>
 
-		<div class="cta-panel__ctas">
+		<div class="cta-panel__ctas" data-cta-ctas>
 			<CtaLink
 				href={`tel:${phone.phoneHref}`}
 				label={phone.display}
