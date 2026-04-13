@@ -2,7 +2,7 @@
 import arrowIcon from "../../assets/icons/chevronDownIcon.svg?raw";
 import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 
-type Variant = "primary" | "outline-light";
+type Variant = "primary" | "outline-light" | "outline-dark";
 type Icon = "phone" | "arrow";
 
 interface Props {
@@ -81,6 +81,19 @@ const { href, label, variant = "primary", icon } = Astro.props;
 
 	.cta-link--outline-light:hover {
 		border-color: var(--color-text-inverse);
+		box-shadow: var(--cta-glow-active);
+	}
+
+	/* Outline dark — for use on light backgrounds */
+	.cta-link--outline-dark {
+		background-color: transparent;
+		color: var(--color-text);
+		border-color: var(--color-border-strong);
+	}
+
+	.cta-link--outline-dark:hover {
+		border-color: var(--color-accent-muted);
+		color: var(--color-accent-muted);
 		box-shadow: var(--cta-glow-active);
 	}
 
