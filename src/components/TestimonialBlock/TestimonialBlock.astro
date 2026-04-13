@@ -1,4 +1,5 @@
 ---
+import chevronIcon from "../../assets/icons/chevronDownIcon.svg?raw";
 import { firm } from "../../config/firm";
 import { testimonials, testimonialsSection } from "../../config/testimonials";
 import Eyebrow from "../ui/Eyebrow.astro";
@@ -56,7 +57,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 				rel="noopener noreferrer"
 			>
 				See all reviews on Google
-				<span class="t-footer__arrow" aria-hidden="true">→</span>
+				<span class="t-footer__arrow" set:html={chevronIcon} aria-hidden="true" />
 			</a>
 		</div>
 	</div>
@@ -71,9 +72,9 @@ const [headingBefore, headingAfter] = headingEmphasis
 		background-color: var(--color-bg-brand);
 	}
 
-	/* Light variant — stone background so white cards pop */
+	/* Light variant — white background */
 	.testimonials--light {
-		background-color: var(--color-bg-subtle);
+		background-color: var(--color-bg-surface);
 	}
 
 	/* ── Section header ─────────────────────────────────────────────────────── */
@@ -213,7 +214,7 @@ const [headingBefore, headingAfter] = headingEmphasis
 
 	/* Card — light variant */
 	.testimonials--light .t-card {
-		background: var(--color-bg-surface);
+		background: var(--color-bg-subtle);
 		border: 1px solid var(--color-border);
 
 		&::before {
@@ -349,14 +350,30 @@ const [headingBefore, headingAfter] = headingEmphasis
 		}
 
 		&:hover .t-footer__arrow {
-			transform: translateX(var(--space-xs));
+			transform: translateX(var(--space-xs)) rotate(-90deg);
+		}
+	}
+
+	/* Light variant — gold fails contrast on stone bg, use muted instead */
+	.testimonials--light .t-footer__link {
+		color: var(--color-accent-muted);
+
+		&:hover {
+			color: var(--color-accent);
 		}
 	}
 
 	.t-footer__arrow {
-		display: inline-block;
-		font-size: var(--font-size-base);
+		display: inline-flex;
+		width: var(--size-4);
+		height: var(--size-4);
+		transform: rotate(-90deg);
 		transition: transform 0.25s var(--ease-out);
+	}
+
+	.t-footer__arrow :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 </style>
 
