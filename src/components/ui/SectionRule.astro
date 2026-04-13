@@ -2,12 +2,19 @@
 interface Props {
 	/** data-animate attribute for GSAP targeting. Optional. */
 	animateAttr?: string;
+	/** Token name without var() — e.g. "--color-accent-on-light". Defaults to --color-accent. */
+	colorToken?: string;
 }
 
-const { animateAttr } = Astro.props;
+const { animateAttr, colorToken } = Astro.props;
 ---
 
-<hr class="section-rule" data-animate={animateAttr} aria-hidden="true" />
+<hr
+	class="section-rule"
+	data-animate={animateAttr}
+	style={colorToken ? `background-color: var(${colorToken})` : undefined}
+	aria-hidden="true"
+/>
 
 <style>
 	.section-rule {
