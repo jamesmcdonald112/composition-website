@@ -1,6 +1,7 @@
 ---
 import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
+import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
 import { firm } from "../config/firm";
 import { homePageContent } from "../config/home";
 import { getLawFirmStructuredData } from "../config/structured-data";
@@ -26,4 +27,5 @@ const { hero } = homePageContent;
 		image={heroImage}
 		imageAlt="View of Kilkenny Castle from John's Bridge"
 	/>
+	<TestimonialBlock />
 </BaseLayout>
