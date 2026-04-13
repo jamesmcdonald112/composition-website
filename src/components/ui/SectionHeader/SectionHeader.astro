@@ -5,13 +5,11 @@ import SectionRule from "../SectionRule.astro";
 interface Props {
 	eyebrow: string;
 	heading: string;
-	/** The word or phrase within heading to italicise in accent colour. */
 	headingEmphasis?: string;
-	/** Token name without var() — e.g. "--color-text-inverse". Defaults to --color-text. */
 	headingColor?: string;
-	/** Rendered as an <h1> on unique pages (e.g. inner page heroes), h2 everywhere else. */
+	eyebrowColor?: string;
+	ruleColor?: string;
 	level?: 1 | 2 | 3;
-	/** data- attribute placed on the root <header> for GSAP targeting. e.g. "cta-panel-header" → data-cta-panel-header */
 	gsapAttr?: string;
 }
 
@@ -20,6 +18,8 @@ const {
 	heading,
 	headingEmphasis,
 	headingColor = "--color-text",
+	eyebrowColor,
+	ruleColor,
 	level = 2,
 	gsapAttr,
 } = Astro.props;
@@ -32,13 +32,13 @@ const [headingBefore, headingAfter] = headingEmphasis
 ---
 
 <header class="section-header" data-section-header={gsapAttr ?? undefined}>
-	<Eyebrow text={eyebrow} />
+	<Eyebrow text={eyebrow} colorToken={eyebrowColor} />
 	<Tag class="section-header__heading" style={`--heading-color: var(${headingColor})`}>
 		{headingBefore}{headingEmphasis && <em class="section-header__em">{headingEmphasis}</em>}{
 			headingAfter
 		}
 	</Tag>
-	<SectionRule />
+	<SectionRule colorToken={ruleColor} />
 </header>
 
 <style>
