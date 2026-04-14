@@ -1,5 +1,5 @@
 ---
-import chevronIcon from "../../assets/icons/chevronDownIcon.svg?raw";
+import chevronIcon from "../../assets/icons/chevronRightIcon.svg?raw";
 import { firm } from "../../config/firm";
 import { testimonials, testimonialsSection } from "../../config/testimonials";
 import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
@@ -323,7 +323,7 @@ const { variant = "light" } = Astro.props;
 		}
 
 		&:hover .t-footer__arrow {
-			transform: translateX(var(--space-xs)) rotate(-90deg);
+			transform: translateX(var(--space-xs));
 		}
 	}
 
@@ -340,7 +340,6 @@ const { variant = "light" } = Astro.props;
 		display: inline-flex;
 		width: var(--size-4);
 		height: var(--size-4);
-		transform: rotate(-90deg);
 		transition: transform 0.25s var(--ease-out);
 	}
 
