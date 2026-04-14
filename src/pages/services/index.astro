@@ -1,8 +1,9 @@
 ---
-import { servicesIndexContent } from "../../config/services/services-index";
 import { firm } from "../../config/firm";
+import { allServices, servicesIndexContent } from "../../config/services/services-index";
 import { getLawFirmStructuredData } from "../../config/structured-data";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceCardsGrid from "../../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
 
 const structuredData = getLawFirmStructuredData();
 ---
@@ -13,4 +14,19 @@ const structuredData = getLawFirmStructuredData();
 	canonicalPath={servicesIndexContent.seo.canonicalPath}
 	ogType="website"
 	structuredData={structuredData}
-/>
+	solidNav={true}
+>
+
+	<div class="section services-section">
+		<ServiceCardsGrid
+			services={allServices}
+		/>
+	</div>
+
+</BaseLayout>
+
+<style>
+	.services-section {
+		padding-block-start: var(--space-5xl);
+	}
+</style>
