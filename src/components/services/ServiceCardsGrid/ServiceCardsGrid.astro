@@ -6,8 +6,8 @@ interface Service {
   title: string;
   href: string;
   image: ImageMetadata;
-  imageClass?: string;
   description: string;
+  imageClass?: string;
 }
 
 interface Props {
@@ -31,20 +31,10 @@ const { services } = Astro.props;
 
 <style>
   /* ── Section shell ─────────────────────────────────────── */
-  .scg {
-    background-color: var(--color-bg-surface);
-    padding-block: var(--space-section);
-
-    @media (min-width: 1024px) {
-      padding-block: var(--space-5xl);
-    }
-  }
 
   /* ── Grid ───────────────────────────────────────────────── */
   .scg__grid {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -59,10 +49,6 @@ const { services } = Astro.props;
     }
   }
 
-  /* ── Card shell ─────────────────────────────────────────── */
-  .scg__item {
-    position: relative;
-  }
 </style>
 
 <script>
