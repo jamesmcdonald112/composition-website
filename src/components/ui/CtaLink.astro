@@ -1,5 +1,5 @@
 ---
-import arrowIcon from "../../assets/icons/chevronDownIcon.svg?raw";
+import arrowIcon from "../../assets/icons/chevronRightIcon.svg?raw";
 import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 
 type Variant = "primary" | "outline-light" | "outline-dark";
@@ -120,15 +120,13 @@ const { href, label, variant = "primary", icon } = Astro.props;
 		}
 	}
 
-	/* Arrow icon is a chevron-down — rotate to point right */
 	.cta-link__icon--arrow {
 		display: inline-flex;
-		transform: rotate(-90deg);
 		transition: transform var(--duration-normal) var(--ease-spring);
 
 		@media (prefers-reduced-motion: no-preference) {
 			.cta-link:hover & {
-				transform: translateX(4px) rotate(-90deg);
+				transform: translateX(4px);
 			}
 		}
 	}
