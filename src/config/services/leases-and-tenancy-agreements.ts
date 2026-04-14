@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const leasesAndTenancyAgreements = {
 	// --- Identity ---
 	title: "Leases & Tenancy Agreements",
-	tag: "Landlord & Tenant",
 	slug: "leases-and-tenancy-agreements",
 	href: "/services/leases-and-tenancy-agreements",
 	icon: buildingIcon,

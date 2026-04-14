@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const willsAndEstateAdministration = {
 	// --- Identity ---
 	title: "Wills & Estate Administration",
-	tag: "Probate & Trusts",
 	slug: "wills-and-estate-administration",
 	href: "/services/wills-and-estate-administration",
 	icon: documentTextIcon,

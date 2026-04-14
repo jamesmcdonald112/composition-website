@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const roadTrafficAccidents = {
 	// --- Identity ---
 	title: "Road Traffic Accidents",
-	tag: "Road Traffic Accidents",
 	slug: "road-traffic-accidents",
 	href: "/services/road-traffic-accidents",
 	icon: truckIcon,

@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const familyAndChildcareLaw = {
 	// --- Identity ---
 	title: "Family & Childcare Law",
-	tag: "Family & Child Law",
 	slug: "family-and-childcare-law",
 	href: "/services/family-and-childcare-law",
 	icon: homeIcon,

@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const personalInjuryLitigation = {
 	// --- Identity ---
 	title: "Personal Injury / Litigation",
-	tag: "Personal Injury",
 	slug: "personal-injury-litigation",
 	href: "/services/personal-injury-litigation",
 	icon: shieldExclamationIcon,

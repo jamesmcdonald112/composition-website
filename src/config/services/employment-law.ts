@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const employmentLaw = {
 	// --- Identity ---
 	title: "Employment Law",
-	tag: "Employment & Equality",
 	slug: "employment-law",
 	href: "/services/employment-law",
 	icon: briefcaseIcon,

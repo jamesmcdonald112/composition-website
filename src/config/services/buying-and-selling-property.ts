@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const buyingAndSellingProperty = {
 	// --- Identity ---
 	title: "Buying & Selling Property",
-	tag: "Conveyancing",
 	slug: "buying-and-selling-property",
 	href: "/services/buying-and-selling-property",
 	icon: homeModernIcon,

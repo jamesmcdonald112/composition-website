@@ -6,7 +6,6 @@ import { firm } from "../firm";
 export const debtCollection = {
 	// --- Identity ---
 	title: "Debt Collection",
-	tag: "Debt Recovery",
 	slug: "debt-collection",
 	href: "/services/debt-collection",
 	icon: banknotesIcon,
