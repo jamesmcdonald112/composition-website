@@ -1,0 +1,71 @@
+---
+import type { ImageMetadata } from "astro";
+import ServiceCard from "../ServiceCard/ServiceCard.astro";
+
+interface Service {
+  title: string;
+  href: string;
+  image: ImageMetadata;
+  imageClass?: string;
+  description: string;
+}
+
+interface Props {
+  services: readonly Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<section class="scg">
+  <div class="wrapper wrapper--wide">
+    <ul class="scg__grid" role="list" data-scg-grid>
+      {services.map((service) => (
+        <li class="scg__item" data-scg-card>
+          <ServiceCard {...service} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* ── Section shell ─────────────────────────────────────── */
+  .scg {
+    background-color: var(--color-bg-surface);
+    padding-block: var(--space-section);
+
+    @media (min-width: 1024px) {
+      padding-block: var(--space-5xl);
+    }
+  }
+
+  /* ── Grid ───────────────────────────────────────────────── */
+  .scg__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+
+    @media (min-width: 640px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+  }
+
+  /* ── Card shell ─────────────────────────────────────────── */
+  .scg__item {
+    position: relative;
+  }
+</style>
+
+<script>
+  import { initServiceCardsGrid } from "./service-cards-grid.gsap.ts";
+  document.addEventListener("DOMContentLoaded", () => initServiceCardsGrid());
+</script>

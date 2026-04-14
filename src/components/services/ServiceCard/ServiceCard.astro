@@ -1,0 +1,210 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import chevronIcon from "../../../assets/icons/chevronRightIcon.svg?raw";
+
+interface Props {
+	title: string;
+	href: string;
+	image: ImageMetadata;
+	imageClass?: string;
+	description: string;
+}
+
+const { title, href, image, imageClass, description } = Astro.props;
+---
+
+<a href={href} class="sc" data-sc>
+	<div class="sc__image-wrap">
+		<Image
+			src={image}
+			alt=""
+			width={640}
+			height={420}
+			class:list={["sc__image", imageClass]}
+			loading="lazy"
+			decoding="async"
+			data-sc-image
+		/>
+		<div class="sc__image-veil" aria-hidden="true"></div>
+	</div>
+
+	<div class="sc__content">
+		<h3 class="sc__title">{title}</h3>
+		<p class="sc__desc">{description}</p>
+		<span class="sc__cta" aria-hidden="true">
+			Learn more
+			<span class="sc__arrow" set:html={chevronIcon} />
+		</span>
+	</div>
+
+	<div class="sc__border-accent" aria-hidden="true"></div>
+</a>
+
+<style>
+	/* ── Card shell ─────────────────────────────────────────── */
+	.sc {
+		--card-transition-dur: var(--duration-slow);
+		--card-transition-ease: var(--ease-smooth);
+
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		text-decoration: none;
+		color: inherit;
+		background-color: var(--color-bg-subtle);
+		border: 1px solid var(--color-border);
+		position: relative;
+		transition:
+			box-shadow var(--card-transition-dur) var(--card-transition-ease),
+			border-color var(--card-transition-dur) var(--card-transition-ease);
+
+		&:hover {
+			box-shadow: var(--shadow-brand);
+			border-color: var(--color-border-strong);
+			--arrow-nudge: -4px;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--color-focus);
+			outline-offset: 3px;
+		}
+	}
+
+	/* ── Image ──────────────────────────────────────────────── */
+	.sc__image-wrap {
+		position: relative;
+		aspect-ratio: 2 / 1;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	.sc__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center bottom;
+		display: block;
+		transition: transform 0.7s var(--ease-smooth);
+	}
+
+	/* image scale + parallax handled by GSAP */
+
+	/* Veil — deepens on hover for a richer, more considered feel */
+	.sc__image-veil {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to bottom,
+			transparent 30%,
+			color-mix(in srgb, var(--color-bg-brand) 35%, transparent) 100%
+		);
+		pointer-events: none;
+		transition: opacity var(--card-transition-dur) var(--card-transition-ease);
+		opacity: 1;
+
+		.sc:hover & {
+			opacity: 0;
+		}
+	}
+
+	/* Second, deeper veil — revealed on hover */
+	.sc__image-wrap::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to bottom,
+			color-mix(in srgb, var(--color-bg-brand) 15%, transparent) 0%,
+			color-mix(in srgb, var(--color-bg-brand) 55%, transparent) 100%
+		);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity var(--card-transition-dur) var(--card-transition-ease);
+
+		.sc:hover & {
+			opacity: 1;
+		}
+	}
+
+	/* ── Content ────────────────────────────────────────────── */
+	.sc__content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		padding: var(--space-lg);
+	}
+
+	/* ── Title ──────────────────────────────────────────────── */
+	.sc__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-xl), 1.8vw, var(--font-size-2xl));
+		font-weight: var(--font-weight-light);
+		line-height: var(--line-height-snug);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-accent-on-light);
+		margin-block-end: var(--space-md);
+	}
+
+	/* ── Description ─────────────────────────────────────────── */
+	.sc__desc {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-text-muted);
+		margin-block-end: var(--space-lg);
+	}
+
+	/* ── CTA ─────────────────────────────────────────────────── */
+	.sc__cta {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-accent-on-light);
+		margin-block-start: auto;
+		align-self: flex-start;
+		transition: gap var(--card-transition-dur) var(--ease-out);
+
+		.sc:hover & {
+			gap: var(--space-sm);
+		}
+	}
+
+	.sc__arrow {
+		width: var(--size-3);
+		height: var(--size-3);
+		flex-shrink: 0;
+		transition: transform var(--card-transition-dur) var(--ease-out);
+	}
+
+	.sc__arrow :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* ── Gold accent border — bottom edge on hover ──────────── */
+	.sc__border-accent {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background-color: var(--color-accent);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform var(--card-transition-dur) var(--ease-out);
+
+		.sc:hover & {
+			transform: scaleX(1);
+		}
+	}
+</style>
+
+<script>
+	import { initServiceCards } from "./service-card.gsap.ts";
+	document.addEventListener("DOMContentLoaded", () => initServiceCards());
+</script>
