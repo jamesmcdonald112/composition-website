@@ -2,9 +2,11 @@
 import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
 import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
+import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
 import { firm } from "../config/firm";
 import { homePageContent } from "../config/home";
+import { services } from "../config/services/index";
 import { getLawFirmStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -28,6 +30,11 @@ const { hero } = homePageContent;
 		image={heroImage}
 		imageAlt="View of Kilkenny Castle from John's Bridge"
 	/>
+
+	<div class="section">
+		<ServiceCardsGrid services={services.slice(1, 4)} />
+	</div>
+
 	<TestimonialBlock />
 	<CTAPanel />
 </BaseLayout>

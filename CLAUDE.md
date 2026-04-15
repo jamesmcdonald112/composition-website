@@ -18,6 +18,8 @@ Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright
 ## Critical Rules
 - No raw CSS values anywhere — tokens only
 - Every section needs three layers: full-width shell → inner container (max-width + margin-inline: auto + responsive gutters) → content
+- The inner container is always `<div class="component-name__inner wrapper wrapper--wide">` — never hand-roll max-width or margin-inline
+- CSS class names follow BEM: `block__element--modifier` — e.g. `.service-hero__title`, `.cta-panel__inner`, `.quote-card__text`
 - Read `_system/LAYOUT-REFERENCE.md` before building any component
 - Read `_system/COMPONENT-DIRECTION-GUIDE.md` before building any component
 - Visual quality is the primary deliverable — if it looks mediocre, it is wrong
