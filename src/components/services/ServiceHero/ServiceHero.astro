@@ -47,13 +47,13 @@ const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props
 				text={firm.companyName}
 				colorToken="--color-accent"
 				showRule={false}
-				animateAttr="sh-eyebrow"
+				animateAttr="service-hero-eyebrow"
 				class="service-hero__eyebrow-wrap"
 			/>
-			<h1 class="service-hero__title" data-sh-title>{title}</h1>
-			<div class="service-hero__rule" data-sh-rule aria-hidden="true"></div>
-			<p class="service-hero__subtitle" data-sh-subtitle>{subtitle}</p>
-			<div class="service-hero__ctas" data-sh-ctas>
+			<h1 class="service-hero__title" data-service-hero-title>{title}</h1>
+			<div class="service-hero__rule" data-service-hero-rule aria-hidden="true"></div>
+			<p class="service-hero__subtitle" data-service-hero-subtitle>{subtitle}</p>
+			<div class="service-hero__ctas" data-service-hero-ctas>
 				<CtaLink
 					href={`tel:${phone.phoneHref}`}
 					label={phone.display}
@@ -65,7 +65,7 @@ const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props
 		</div>
 
 		<!-- Bottom location bar -->
-		<div class="service-hero__bottom" data-sh-bottom>
+		<div class="service-hero__bottom" data-service-hero-bottom>
 			<div class="service-hero__location">
 				<span class="service-hero__location-icon" set:html={mapPinIcon} aria-hidden="true" />
 				<span class="service-hero__location-text">
@@ -78,8 +78,7 @@ const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props
 </section>
 
 <script>
-	import { initServiceHero } from "./service-hero.gsap.ts";
-	initServiceHero();
+	import "./service-hero.gsap.ts";
 </script>
 
 <style>
@@ -201,6 +200,14 @@ const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props
 	/* ── Eyebrow ─────────────────────────────────────────────────────────────── */
 	.service-hero__eyebrow-wrap {
 		margin-block-end: var(--space-lg);
+	}
+
+	/* ── Animated elements — hidden until GSAP is ready ─────────────────────── */
+	[data-service-hero-title],
+	[data-service-hero-subtitle],
+	[data-service-hero-ctas],
+	[data-service-hero-bottom] {
+		visibility: hidden;
 	}
 
 	/* ── Title ───────────────────────────────────────────────────────────────── */
