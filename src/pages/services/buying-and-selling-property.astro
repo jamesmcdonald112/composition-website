@@ -1,0 +1,52 @@
+---
+import { buyingAndSellingProperty as service } from "../../config/services";
+import { firm } from "../../config/firm";
+import { getLawFirmStructuredData } from "../../config/structured-data";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceHero from "../../components/services/ServiceHero/ServiceHero.astro";
+import ServiceTrustStrip from "../../components/services/ServiceTrustStrip/ServiceTrustStrip.astro";
+import ServiceMidCta from "../../components/services/ServiceMidCta/ServiceMidCta.astro";
+import ServiceArticle from "../../components/services/ServiceArticle/ServiceArticle.astro";
+import ServiceProcess from "../../components/services/ServiceProcess/ServiceProcess.astro";
+import ServiceFaqs from "../../components/services/ServiceFaqs/ServiceFaqs.astro";
+import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
+
+const structuredData = getLawFirmStructuredData();
+---
+
+<BaseLayout
+	title={service.seo.title}
+	description={service.seo.description}
+	canonicalPath={service.seo.canonicalPath}
+	ogType="website"
+	structuredData={structuredData}
+>
+	<ServiceHero
+		title={service.hero.title}
+		subtitle={service.hero.subtitle}
+		image={service.image}
+		imageFocus="center 65%"
+		phone={firm.phone}
+		imageFocus={"67% 90%"}
+	/>
+	<ServiceTrustStrip
+		title={service.trustStrip.title}
+		paragraphs={service.trustStrip.paragraphs}
+		stats={service.trustStrip.stats}
+	/>
+	<ServiceMidCta lines={service.midCta} />
+	<ServiceArticle
+		eyebrow={service.article.eyebrow}
+		title={service.article.title}
+		intro={service.article.intro}
+		quote={service.article.quote}
+		blocks={service.article.blocks}
+	/>
+	<ServiceProcess steps={service.process} />
+	<ServiceFaqs faqs={service.faqs} />
+	<CTAPanel
+		variant="dark"
+		heading={service.cta.title}
+		body={service.cta.description}
+	/>
+</BaseLayout>
