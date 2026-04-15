@@ -1,5 +1,6 @@
 // biome-ignore lint/correctness/noUnusedImports: ScrollTrigger import registers the plugin as a side effect
 import { gsap, ScrollTrigger } from "../../scripts/gsap.ts";
+import { initScrollIndicator } from "../ui/ScrollIndicator/scroll-indicator.gsap.ts";
 
 /* ─ Reduced motion guard ─────────────────────────────────────────────────── */
 const prefersReducedMotion = window.matchMedia(
@@ -113,14 +114,7 @@ if (prefersReducedMotion) {
 		);
 
 	/* ─ Scroll thumb animation (repeating) ─ */
-	gsap.to(".scroll-indicator__thumb", {
-		left: "110%",
-		duration: 1.4,
-		ease: "power2.inOut",
-		repeat: -1,
-		repeatDelay: 0.8,
-		delay: 2.5,
-	});
+	initScrollIndicator();
 
 	/* ─ Scroll-driven depth effects ─ */
 	const hero = document.querySelector(".hero-home") as HTMLElement;
