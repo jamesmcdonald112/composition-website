@@ -12,23 +12,23 @@ interface Props {
 const { text, attribution, image, class: className } = Astro.props;
 ---
 
-<figure class:list={["svc-quote", className]} data-sva-quote>
-	<blockquote class="svc-quote__text">
+<figure class:list={["quote-card", className]} data-sa-quote>
+	<blockquote class="quote-card__text">
 		<p>{text}</p>
 	</blockquote>
-	<figcaption class="svc-quote__attribution">
-		<div class="svc-quote__portrait">
-			<Image src={image} alt={attribution} class="svc-quote__img" widths={[80, 160]} sizes="80px" />
+	<figcaption class="quote-card__attribution">
+		<div class="quote-card__portrait">
+			<Image src={image} alt={attribution} class="quote-card__img" widths={[80, 160]} sizes="80px" />
 		</div>
-		<p class="svc-quote__name">{attribution}</p>
+		<p class="quote-card__name">{attribution}</p>
 	</figcaption>
 </figure>
 
 <style>
-	.svc-quote {
+	.quote-card {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-xs);
+		gap: var(--space-sm);
 		padding-block: var(--space-xl);
 		padding-inline: var(--space-2xl);
 		border-radius: var(--radius-lg);
@@ -70,7 +70,7 @@ const { text, attribution, image, class: className } = Astro.props;
 		}
 	}
 
-	.svc-quote__text {
+	.quote-card__text {
 		margin: 0;
 		padding: 0;
 		border: none;
@@ -83,11 +83,11 @@ const { text, attribution, image, class: className } = Astro.props;
 		margin-block-end: var(--space-lg);
 	}
 
-	.svc-quote__text p {
+	.quote-card__text p {
 		margin: 0;
 	}
 
-	.svc-quote__attribution {
+	.quote-card__attribution {
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
@@ -95,7 +95,7 @@ const { text, attribution, image, class: className } = Astro.props;
 		border-top: 1px solid var(--color-border);
 	}
 
-	.svc-quote__portrait {
+	.quote-card__portrait {
 		width: var(--size-10);
 		height: var(--size-10);
 		flex-shrink: 0;
@@ -104,14 +104,14 @@ const { text, attribution, image, class: className } = Astro.props;
 		border: 1px solid var(--color-border);
 	}
 
-	.svc-quote__img {
+	.quote-card__img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center top;
 	}
 
-	.svc-quote__name {
+	.quote-card__name {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
