@@ -19,18 +19,18 @@ function pad(n: number) {
 
 {
 	blocks.map((block: Block) => {
-		if (block.type === "heading") return <h3 class="svc-article__subheading">{block.text}</h3>;
-		if (block.type === "paragraph") return <p class="svc-article__para">{block.text}</p>;
+		if (block.type === "heading") return <h3 class="service-article__subheading" data-sa-block>{block.text}</h3>;
+		if (block.type === "paragraph") return <p class="service-article__para" data-sa-block>{block.text}</p>;
 		if (block.type === "list")
 			return (
-				<ol class="svc-article__list" data-sva-list>
+				<ol class="service-article__list" data-sa-block data-sa-list>
 					{block.items.map((item: ListItem, i: number) => (
-						<li class="svc-article__list-item" data-sva-list-item>
-							<span class="svc-article__list-index" aria-hidden="true">
+						<li class="service-article__list-item" data-sa-list-item>
+							<span class="service-article__list-index" aria-hidden="true">
 								{pad(i)}
 							</span>
-							<span class="svc-article__list-label">{item.label}</span>
-							<span class="svc-article__list-text">{item.text}</span>
+							<span class="service-article__list-label">{item.label}</span>
+							<span class="service-article__list-text">{item.text}</span>
 						</li>
 					))}
 				</ol>
@@ -40,7 +40,7 @@ function pad(n: number) {
 
 <style>
 	/* ── Subheading ──────────────────────────────────────────────────────────── */
-	.svc-article__subheading {
+	.service-article__subheading {
 		font-family: var(--font-serif);
 		font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
 		font-weight: var(--font-weight-light);
@@ -51,7 +51,7 @@ function pad(n: number) {
 	}
 
 	/* ── Body paragraph ──────────────────────────────────────────────────────── */
-	.svc-article__para {
+	.service-article__para {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
@@ -60,13 +60,13 @@ function pad(n: number) {
 	}
 
 	/* ── Premium list ────────────────────────────────────────────────────────── */
-	.svc-article__list {
+	.service-article__list {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
 	}
 
-	.svc-article__list-item {
+	.service-article__list-item {
 		display: grid;
 		grid-template-columns: 2.5rem 1fr;
 		grid-template-rows: auto auto;
@@ -90,7 +90,7 @@ function pad(n: number) {
 	}
 
 	/* col 1, row 1 — italic gold number */
-	.svc-article__list-index {
+	.service-article__list-index {
 		grid-column: 1;
 		grid-row: 1;
 		font-family: var(--font-serif);
@@ -102,7 +102,7 @@ function pad(n: number) {
 	}
 
 	/* col 2, row 1 — navy serif label */
-	.svc-article__list-label {
+	.service-article__list-label {
 		grid-column: 2;
 		grid-row: 1;
 		font-family: var(--font-serif);
@@ -114,7 +114,7 @@ function pad(n: number) {
 	}
 
 	/* col 2, row 2 — muted body text */
-	.svc-article__list-text {
+	.service-article__list-text {
 		grid-column: 2;
 		grid-row: 2;
 		font-family: var(--font-sans);
