@@ -69,10 +69,7 @@ const { variant = "light" } = Astro.props;
 		background-color: var(--color-bg-brand);
 	}
 
-	/* Light variant — white background */
-	.testimonials--light {
-		background-color: var(--color-bg-surface);
-	}
+	/* Light variant — inherits page background */
 
 	/* ── Section header ─────────────────────────────────────────────────────── */
 	.t-header {
@@ -187,7 +184,7 @@ const { variant = "light" } = Astro.props;
 
 	/* Card — light variant */
 	.testimonials--light .t-card {
-		background: var(--color-bg-subtle);
+		background: var(--color-bg-surface);
 		border: 1px solid var(--color-border);
 
 		&::before {
