@@ -10,13 +10,12 @@ interface Props {
 	steps: readonly Step[];
 	processDescription: string;
 	heading?: string;
-	bg?: string;
 }
 
-const { steps, processDescription, heading = "How We Work", bg } = Astro.props;
+const { steps, processDescription, heading = "How We Work" } = Astro.props;
 ---
 
-<section class="service-process section" style={bg ? `background-color: ${bg}` : undefined}>
+<section class="service-process section">
 	<div class="service-process__inner wrapper wrapper--wide">
 
 		<div class="service-process__layout">
@@ -158,7 +157,7 @@ const { steps, processDescription, heading = "How We Work", bg } = Astro.props;
 		inset-block-end: 0;
 		inset-inline-start: 0;
 		width: var(--sp-circle);
-		background-color: var(--color-bg-surface);
+		background-color: inherit;
 
 		@media (min-width: 768px) {
 			inset-block-start: var(--sp-num-half-md);
@@ -176,7 +175,7 @@ const { steps, processDescription, heading = "How We Work", bg } = Astro.props;
 		flex-shrink: 0;
 		border-radius: var(--radius-full);
 		border: 1px solid var(--color-border-accent);
-		background-color: var(--color-bg-surface);
+		background-color: inherit;
 		font-family: var(--font-serif);
 		font-size: var(--font-size-base);
 		font-weight: var(--font-weight-light);
