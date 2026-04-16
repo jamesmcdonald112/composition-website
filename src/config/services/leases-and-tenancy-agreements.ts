@@ -138,6 +138,8 @@ export const leasesAndTenancyAgreements = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Whether you are a landlord or a tenant, here is how we handle your lease or tenancy matter from the initial review through to a completed agreement.",
 	process: [
 		{
 			title: "Review your agreement",

@@ -147,6 +147,8 @@ export const willsAndEstateAdministration = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Whether you are making a will or dealing with the administration of an estate, here is how we work with you from start to finish.",
 	process: [
 		{
 			title: "Initial consultation",

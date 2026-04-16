@@ -175,6 +175,8 @@ export const buyingAndSellingProperty = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Here is what happens from the moment you instruct us to the day your matter is closed — so you always know where you are in the process.",
 	process: [
 		{
 			title: "Get in touch",

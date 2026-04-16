@@ -125,6 +125,8 @@ export const employmentLaw = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Employment disputes can move quickly. Here is how we take on your matter, assess your position, and work towards the best available outcome.",
 	process: [
 		{
 			title: "Initial consultation",

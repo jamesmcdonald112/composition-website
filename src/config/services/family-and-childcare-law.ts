@@ -129,6 +129,8 @@ export const familyAndChildcareLaw = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Family law matters move at their own pace. Here is a clear picture of how we work with you — from your first conversation to a final resolution.",
 	process: [
 		{
 			title: "Initial consultation",

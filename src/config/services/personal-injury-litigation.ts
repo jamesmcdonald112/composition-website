@@ -122,6 +122,8 @@ export const personalInjuryLitigation = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"A personal injury claim has a defined legal process in Ireland. Here is how we manage it for you — clearly, carefully, and without unnecessary delay.",
 	process: [
 		{
 			title: "Initial assessment",

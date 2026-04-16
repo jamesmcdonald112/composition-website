@@ -129,6 +129,8 @@ export const roadTrafficAccidents = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"From your first call to settlement or award, here is how a road traffic accident claim progresses — and how we guide you through each stage.",
 	process: [
 		{
 			title: "Initial consultation",

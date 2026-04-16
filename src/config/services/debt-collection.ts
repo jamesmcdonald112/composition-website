@@ -114,6 +114,8 @@ export const debtCollection = {
 		],
 	},
 	// --- Process steps ---
+	processDescription:
+		"Recovering a debt follows a structured path. Here is how we move your matter forward — efficiently, proportionately, and with your interests driving every step.",
 	process: [
 		{
 			title: "Letter of demand",
