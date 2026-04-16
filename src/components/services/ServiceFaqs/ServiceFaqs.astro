@@ -1,8 +1,7 @@
 ---
-import Eyebrow from "../../ui/Eyebrow.astro";
-import { faqSection } from "../../../config/faq";
-import plusIcon from "../../../assets/icons/plusIcon.svg?raw";
 import minusIcon from "../../../assets/icons/minusIcon.svg?raw";
+import plusIcon from "../../../assets/icons/plusIcon.svg?raw";
+import Eyebrow from "../../ui/Eyebrow.astro";
 
 interface Faq {
 	question: string;
@@ -14,19 +13,17 @@ interface Props {
 	eyebrow?: string;
 	heading?: string;
 	intro?: string;
-	bg?: string;
 }
 
 const {
 	faqs,
-	eyebrow = faqSection.eyebrow,
-	heading = faqSection.heading,
-	intro = faqSection.intro,
-	bg,
+	eyebrow = "Common Questions",
+	heading = "What clients ask us most",
+	intro = "We understand that legal matters can feel daunting. Here are the questions we hear most often — answered plainly.",
 } = Astro.props;
 ---
 
-<section class="service-faqs section" aria-label="Frequently Asked Questions" style={bg ? `background-color: ${bg}` : undefined}>
+<section class="service-faqs section" aria-label="Frequently Asked Questions">
 	<div class="service-faqs__inner wrapper wrapper--wide">
 		<header class="service-faqs__header" data-sf-header>
 			<Eyebrow text={eyebrow} colorToken="--color-accent-on-light" animateAttr="sf-eyebrow" />
