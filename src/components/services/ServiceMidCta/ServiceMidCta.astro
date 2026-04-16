@@ -1,0 +1,101 @@
+---
+import CtaLink from "../../ui/CtaLink.astro";
+import { firm } from "../../../config/firm";
+
+interface Props {
+	lines: readonly string[];
+}
+
+const { lines } = Astro.props;
+---
+
+<div class="svc-mid-cta" data-service-mid-cta>
+	<div class="svc-mid-cta__inner wrapper wrapper--wide">
+		<p class="svc-mid-cta__text" data-svmc-text>
+			{lines.map((line, i) => (
+				<>
+					{i > 0 && <br />}
+					{i === lines.length - 1
+						? <em class="svc-mid-cta__em">{line}</em>
+						: line}
+				</>
+			))}
+		</p>
+		<div class="svc-mid-cta__actions" data-svmc-actions>
+			<CtaLink
+				href={`tel:${firm.phone.phoneHref}`}
+				label={firm.phone.display}
+				variant="primary"
+				icon="phone"
+			/>
+			<CtaLink
+				href="/contact"
+				label="Send a message"
+				variant="outline-dark"
+				icon="arrow"
+			/>
+		</div>
+	</div>
+</div>
+
+<script>
+	import { initServiceMidCta } from "./service-mid-cta.gsap.ts";
+	initServiceMidCta();
+</script>
+
+<style>
+	/* ── Shell ──────────────────────────────────────────────────────────────── */
+	.svc-mid-cta {
+		/* background-color set via bg prop */
+		border-block: 1px solid color-mix(in srgb, var(--color-accent-on-light) 20%, transparent);
+		padding-block: var(--space-3xl);
+	}
+
+	/* ── Inner ───────────────────────────────────────────────────────────────── */
+	.svc-mid-cta__inner {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xl);
+		align-items: center;
+		text-align: center;
+
+		@media (min-width: 1024px) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: var(--space-3xl);
+			text-align: start;
+		}
+	}
+
+	/* ── Text ────────────────────────────────────────────────────────────────── */
+	.svc-mid-cta__text {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+		line-height: var(--line-height-snug);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-text);
+		max-width: 40ch;
+	}
+
+	.svc-mid-cta__em {
+		font-style: italic;
+		color: var(--color-accent-on-light);
+	}
+
+	/* ── Actions ─────────────────────────────────────────────────────────────── */
+	.svc-mid-cta__actions {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		flex-shrink: 0;
+		width: 100%;
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			align-items: center;
+			width: auto;
+		}
+	}
+</style>
