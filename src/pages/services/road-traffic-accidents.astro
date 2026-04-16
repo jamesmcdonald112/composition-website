@@ -41,7 +41,7 @@ const structuredData = getLawFirmStructuredData();
 		quote={service.article.quote}
 		blocks={service.article.blocks}
 	/>
-	<ServiceProcess steps={service.process} />
+	<ServiceProcess steps={service.process} processDescription={service.processDescription} />
 	<ServiceFaqs faqs={service.faqs} />
 	<CTAPanel
 		variant="dark"
