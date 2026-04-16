@@ -1,0 +1,149 @@
+---
+import Eyebrow from "../../ui/Eyebrow.astro";
+
+interface Stat {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	title: string;
+	paragraphs: readonly string[];
+	stats: readonly Stat[];
+	eyebrow?: string;
+}
+
+const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.props;
+---
+
+<section class="svc-trust section" data-service-trust>
+	<div class="svc-trust__inner wrapper wrapper--wide">
+		<!-- Top: heading full width, then two-column body -->
+		<div class="svc-trust__top" data-svc-trust-text>
+			<div class="svc-trust__header">
+				<Eyebrow
+					text={eyebrow}
+					colorToken="--color-accent-on-light"
+					animateAttr="svc-trust-eyebrow"
+				/>
+				<h2 class="svc-trust__heading">{title}</h2>
+			</div>
+			<div class="svc-trust__paras">
+				{paragraphs.map((para) => <p class="svc-trust__para">{para}</p>)}
+			</div>
+		</div>
+
+		<!-- Bottom: horizontal stats strip -->
+		<aside class="svc-trust__stats" aria-label="Practice statistics" data-svc-trust-stats>
+			{
+				stats.map((stat) => (
+					<div class="svc-trust__stat">
+						<div class="svc-trust__stat-value-box">
+							<span class="svc-trust__stat-value">{stat.value}</span>
+						</div>
+						<span class="svc-trust__stat-label">{stat.label}</span>
+					</div>
+				))
+			}
+		</aside>
+	</div>
+</section>
+
+<script>
+	import "./service-trust.gsap.ts";
+</script>
+
+<style>
+	/* ── Shell ──────────────────────────────────────────────────────────────── */
+	/* background-color set via bg prop */
+
+	/* ── Inner container — stacked: top block + stats strip ─────────────────── */
+	.svc-trust__inner {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3xl);
+	}
+
+	/* ── Top block: heading full-width above, two-col paras below ───────────── */
+	.svc-trust__top {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3xl);
+	}
+
+	.svc-trust__heading {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+		line-height: var(--line-height-snug);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-text);
+		max-width: 32ch;
+	}
+
+	.svc-trust__paras {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-xl) var(--space-4xl);
+		}
+	}
+
+	.svc-trust__para {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-text-muted);
+	}
+
+	/* ── Stats strip — horizontal row along the bottom ───────────────────────── */
+	.svc-trust__stats {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-xl) var(--space-lg);
+		border-block-start: 1px solid var(--color-border);
+		padding-block-start: var(--space-3xl);
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.svc-trust__stat {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.svc-trust__stat-value-box {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 3.8rem;
+		overflow: hidden;
+	}
+
+	.svc-trust__stat-value {
+		display: block;
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
+		font-weight: var(--font-weight-light);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-accent-on-light);
+		line-height: var(--line-height-none);
+		font-variant-numeric: lining-nums tabular-nums;
+		white-space: nowrap;
+	}
+
+	.svc-trust__stat-label {
+		margin-inline-start: 1px;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-normal);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+</style>
