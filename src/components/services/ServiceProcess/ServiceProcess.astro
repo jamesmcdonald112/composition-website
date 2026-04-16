@@ -10,12 +10,13 @@ interface Props {
 	steps: readonly Step[];
 	processDescription: string;
 	heading?: string;
+	bg?: string;
 }
 
-const { steps, processDescription, heading = "How We Work" } = Astro.props;
+const { steps, processDescription, heading = "How We Work", bg } = Astro.props;
 ---
 
-<section class="service-process section">
+<section class="service-process section" style={bg ? `background-color: ${bg}` : undefined}>
 	<div class="service-process__inner wrapper wrapper--wide">
 
 		<div class="service-process__layout">
@@ -66,9 +67,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 	}
 
 	/* ── Section shell ─────────────────────────────────────── */
-	.service-process {
-		background-color: var(--color-bg-surface);
-	}
+	/* background-color set via bg prop */
 
 	/* ── Two-column layout ─────────────────────────────────── */
 	.service-process__layout {
