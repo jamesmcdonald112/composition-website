@@ -100,6 +100,31 @@ src/components/[category]/[component-name]/
 CSS lives in `<style>` inside the `.astro` file. Astro scopes it automatically.
 Do not create sibling `.css` files.
 
+## Layout Shell — Non-Negotiable
+
+Every section component must follow this three-layer pattern:
+
+```astro
+<section class="component-name">                          <!-- full-width shell -->
+  <div class="component-name__inner wrapper wrapper--wide"> <!-- inner container -->
+    <!-- content -->
+  </div>
+</section>
+```
+
+- The shell (`<section>`) handles background colour, padding-block, and full-width effects
+- The inner container always uses `.wrapper` or `.wrapper--wide` — never hand-roll `max-width`, `margin-inline`, or `padding-inline`
+- Never skip this pattern. Not for "simple" sections. Not ever.
+
+## Naming — Non-Negotiable
+
+All CSS classes follow BEM: `block__element--modifier`
+
+- Block = the component name: `.service-hero`, `.cta-panel`, `.quote-card`
+- Element = a part of the block: `.service-hero__title`, `.cta-panel__inner`
+- Modifier = a variant: `.cta-panel--dark`, `.quote-card--compact`
+- `data-` attributes are for JS/GSAP hooks only — never for styling
+
 ## What to Avoid
 
 - Raw values of any kind — hex, px, named colours, unitless numbers
@@ -122,8 +147,7 @@ A component is not done until you can answer yes to all of these:
 2. Is there one clear focal point? Does nothing compete with it?
 3. Is the spacing generous enough to signal quality?
 4. Does every value trace back to a token?
-5. Is the layout system applied — inner container, responsive
-   gutters, correct max-width, section vertical spacing?
+5. Is the layout system applied — shell → `.wrapper`/`.wrapper--wide` inner container → content, responsive gutters, correct max-width, section vertical spacing?
 6. Is the reduced-motion guard in place on every animation?
 7. Does it read from config — no hardcoded content?
 
