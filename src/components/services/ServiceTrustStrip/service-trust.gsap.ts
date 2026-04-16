@@ -1,3 +1,4 @@
+// biome-ignore lint/correctness/noUnusedImports: ScrollTrigger must be imported to register with GSAP
 import { gsap, ScrollTrigger } from "../../../scripts/gsap.ts";
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
