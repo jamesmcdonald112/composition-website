@@ -106,6 +106,8 @@
   --red-100:   oklch(0.936 0.032 17.717); /* #fee2e2 approx */
   --warn-600:  oklch(0.666 0.179 54.900); /* #d97706 approx */
   --warn-100:  oklch(0.962 0.059 95.617); /* #fef3c7 approx */
+  --green-700: oklch(0.45 0.130 145);     /* #1a6b3a — 7.21:1 on stone-100, AA PASS */
+  --green-100: oklch(0.96 0.030 145);     /* #e6f4ec — light green tint */
 
   /* Absolute */
   --white: oklch(1 0 0); /* #ffffff */
@@ -221,8 +223,8 @@
   /* ── State colours ───────────────────────────────── */
   --color-danger-fg:  var(--red-600);
   --color-danger-bg:  var(--red-100);
-  --color-success-fg: var(--charcoal-600);
-  --color-success-bg: var(--charcoal-100);
+  --color-success-fg: var(--green-700);
+  --color-success-bg: var(--green-100);
   --color-warning-fg: var(--warn-600);
   --color-warning-bg: var(--warn-100);
 
