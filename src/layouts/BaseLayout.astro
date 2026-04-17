@@ -16,18 +16,19 @@
     import "@fontsource/merriweather/700.css";
   Then define --font-sans and --font-serif in tokens.css.
 */
-import '@fontsource/cormorant-garamond/400.css';
-import '@fontsource/cormorant-garamond/400-italic.css';
-import '@fontsource/cormorant-garamond/600.css';
-import '@fontsource/cormorant-garamond/700.css';
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/500.css';
-import '@fontsource/dm-sans/700.css';
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/700.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-sans/700.css";
 import "../styles/global.css";
 import { firm } from "../config/firm";
 import Intro from "../components/Intro/Intro.astro";
 import Navbar from "../components/navbar/Navbar.astro";
 import Footer from "../components/footer/Footer.astro";
+import SkipLink from "../components/ui/SkipLink.astro";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -76,8 +77,8 @@ const isArticle = ogType === "article";
 <html lang="en-IE">
 	<head>
 		<script is:inline>
-			if (sessionStorage.getItem('intro-seen')) {
-				document.documentElement.classList.add('intro-done');
+			if (sessionStorage.getItem("intro-seen")) {
+				document.documentElement.classList.add("intro-done");
 			}
 		</script>
 		<meta charset="UTF-8" />
@@ -123,11 +124,12 @@ const isArticle = ogType === "article";
 		}
 	</head>
 	<body>
+		<SkipLink />
 		<Intro />
 		<header role="banner">
 			<Navbar solid={solidNav} />
 		</header>
-		<main><slot /></main>
+		<main id="main-content"><slot /></main>
 		<Footer />
 	</body>
 </html>
