@@ -9,9 +9,11 @@ interface Props {
 	image: ImageMetadata;
 	imageClass?: string;
 	description: string;
+	level?: 2 | 3;
 }
 
-const { title, href, image, imageClass, description } = Astro.props;
+const { title, href, image, imageClass, description, level = 2 } = Astro.props;
+const Tag = `h${level}` as "h2" | "h3";
 ---
 
 <a href={href} class="sc" data-sc>
@@ -30,7 +32,7 @@ const { title, href, image, imageClass, description } = Astro.props;
 	</div>
 
 	<div class="sc__content">
-		<h3 class="sc__title">{title}</h3>
+		<Tag class="sc__title">{title}</Tag>
 		<p class="sc__desc">{description}</p>
 		<span class="sc__cta" aria-hidden="true">
 			Learn more
@@ -168,14 +170,9 @@ const { title, href, image, imageClass, description } = Astro.props;
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-wide);
 		text-transform: uppercase;
-		color: var(--color-fg-accent-on-brand);
+		color: var(--color-fg-accent);
 		margin-block-start: auto;
 		align-self: flex-start;
-		transition: gap var(--card-transition-dur) var(--ease-out);
-
-		.sc:hover & {
-			gap: var(--space-sm);
-		}
 	}
 
 	.sc__arrow {
@@ -183,6 +180,10 @@ const { title, href, image, imageClass, description } = Astro.props;
 		height: var(--size-3);
 		flex-shrink: 0;
 		transition: transform var(--card-transition-dur) var(--ease-out);
+
+		.sc:hover & {
+			transform: translateX(4px);
+		}
 	}
 
 	.sc__arrow :global(svg) {
