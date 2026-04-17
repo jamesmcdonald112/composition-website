@@ -73,12 +73,12 @@ import { firm } from "../../config/firm";
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-accent-light);
+		color: var(--color-fg-accent-on-brand);
 	}
 
 	.contact-panel__eyebrow-icon {
 		line-height: 0;
-		color: var(--color-accent-light);
+		color: var(--color-fg-accent-on-brand);
 	}
 
 	.contact-panel__eyebrow-icon :global(svg) {
@@ -90,20 +90,20 @@ import { firm } from "../../config/firm";
 	.contact-panel__heading {
 		font-weight: var(--font-weight-light);
 		font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 		margin-block-end: var(--space-xl);
 	}
 
 	.contact-panel__heading em {
 		font-style: italic;
-		color: var(--color-accent);
+		color: var(--color-fg-accent-on-brand);
 	}
 
 	/* ── Intro paragraph ──────────────────────────────────────────────────── */
 	.contact-panel__intro {
 		font-size: var(--font-size-sm);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-inverse-muted);
+		color: var(--color-fg-on-brand-muted);
 		max-width: 38ch;
 		margin-block-end: var(--space-3xl);
 	}
@@ -111,7 +111,7 @@ import { firm } from "../../config/firm";
 	/* ── Divider ──────────────────────────────────────────────────────────── */
 	.contact-panel__divider {
 		border: none;
-		border-block-start: 1px solid color-mix(in srgb, var(--color-text-inverse) 15%, transparent);
+		border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent);
 		margin-block: var(--space-2xl);
 	}
 
@@ -132,7 +132,7 @@ import { firm } from "../../config/firm";
 	/* ── Icon ────────────────────────────────────────────────────────────── */
 	.contact-panel__icon {
 		flex-shrink: 0;
-		color: var(--color-accent);
+		color: var(--color-fg-accent-on-brand);
 		line-height: 0;
 	}
 
@@ -153,18 +153,18 @@ import { firm } from "../../config/firm";
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-subtle);
 	}
 
 	.contact-panel__value {
 		font-size: var(--font-size-sm);
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 		text-decoration: none;
 		transition: color var(--duration-fast) var(--ease-out);
 	}
 
 	a.contact-panel__value:hover {
-		color: var(--color-accent);
+		color: var(--color-fg-accent-on-brand);
 	}
 
 	.contact-panel__address-line {
