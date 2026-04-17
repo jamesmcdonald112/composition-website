@@ -149,7 +149,7 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		font-weight: var(--font-weight-semibold);
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 	}
 
 	/* ── Detail rows ────────────────────────────────────────────── */
@@ -168,9 +168,9 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 
 	.footer__detail-icon {
 		flex-shrink: 0;
-		color: var(--color-accent);
+		color: var(--color-fg-accent-on-brand);
 		display: inline-flex;
-		margin-block-start: 2px;
+		margin-block-start: var(--size-0-5);
 
 		:global(svg) {
 			width: var(--size-4);
@@ -185,14 +185,14 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-subtle);
 	}
 
 	.footer__hours {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-subtle);
 	}
 
 	/* ── CTAs ───────────────────────────────────────────────────── */
@@ -220,7 +220,7 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 		font-weight: var(--font-weight-semibold);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 		margin-block-end: var(--space-xl);
 	}
 
@@ -233,12 +233,12 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 	.footer__link {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-muted);
 		text-decoration: none;
 		transition: color var(--duration-fast) var(--ease-out);
 
 		&:hover {
-			color: var(--color-text-inverse);
+			color: var(--color-fg-on-brand);
 		}
 	}
 
@@ -260,19 +260,21 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 	.footer__regulated {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
-		color: var(--color-text-inverse-muted);
+		color: var(--color-fg-on-brand-subtle);
 		text-decoration: underline;
 		text-underline-offset: 3px;
+		border-left: 2px solid var(--color-border-accent);
+		padding-inline-start: var(--space-sm);
 		transition: color var(--duration-fast) var(--ease-out);
 
 		&:hover {
-			color: var(--color-text-inverse);
+			color: var(--color-fg-on-brand);
 		}
 	}
 
 	.footer__copyright {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
-		color: var(--color-text-inverse-muted);
+		color: var(--color-fg-on-brand-muted);
 	}
 </style>
