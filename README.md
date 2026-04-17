@@ -71,6 +71,24 @@ Reviews can be excluded by author name via `googleReviews.excludeAuthors` in `sr
 
 ---
 
+## Colour Tooling — colorjs.io
+
+`colorjs.io` is installed as a dependency. Use it to verify WCAG contrast ratios when adding or changing colours in theme files.
+
+```ts
+import Color from "colorjs.io";
+
+const fg = new Color("oklch(0.25 0.068 256)"); // e.g. navy-900
+const bg = new Color("oklch(0.97 0.012 70)");  // e.g. stone-100
+const contrast = fg.contrast(bg, "WCAG21");     // → 14.79 (AAA pass)
+```
+
+Run a quick check as a one-off script: `npx tsx check-contrast.ts`
+
+All theme files are in `src/styles/themes/`. Required minimums: 4.5:1 for normal text (AA), 3:1 for large text or UI components.
+
+---
+
 ## Going Live — Security Headers
 
 Browsers support a set of HTTP response headers that protect users from common attacks. These should be added to `netlify.toml` before the site goes live. They are free, require no code changes, and Lighthouse will flag their absence.
