@@ -33,15 +33,15 @@ const { class: className, ...rest } = Astro.props;
   }
 
   .brand-logo__img {
-    color: var(--color-accent);
+    color: var(--color-fg-on-brand);
     transition:
       color var(--duration-slow) var(--ease-smooth),
       filter var(--duration-slow) var(--ease-smooth);
-    filter: drop-shadow(0 0 0px color-mix(in srgb, var(--color-accent) 0%, transparent));
+    filter: drop-shadow(0 0 0px color-mix(in srgb, var(--color-fg-accent-on-brand) 0%, transparent));
 
     .brand-logo:hover & {
-      color: var(--color-accent-light);
-      filter: drop-shadow(0 0 var(--space-md) color-mix(in srgb, var(--color-accent) 35%, transparent));
+      color: var(--color-fg-accent-on-brand);
+      filter: drop-shadow(0 0 var(--space-md) color-mix(in srgb, var(--color-fg-accent-on-brand) 35%, transparent));
     }
   }
 
