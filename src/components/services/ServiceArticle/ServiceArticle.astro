@@ -2,7 +2,8 @@
 import type { ImageMetadata } from "astro";
 import ArticleQuote from "./ArticleQuote/ArticleQuote.astro";
 import BlockList from "./BlockList/BlockList.astro";
-import Eyebrow from "../../ui/Eyebrow.astro";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+import type { Heading } from "../../../types/heading";
 
 type Block =
 	| { type: "heading"; text: string }
@@ -17,7 +18,7 @@ interface Quote {
 
 interface Props {
 	eyebrow: string;
-	title: string;
+	title: Heading;
 	intro: string;
 	quote: Quote;
 	blocks: readonly Block[];
@@ -30,17 +31,15 @@ const { eyebrow, title, intro, quote, blocks } = Astro.props;
 	<div class="service-article__inner wrapper wrapper--wide">
 		<!-- Left: article content -->
 		<div class="service-article__content">
-			<!-- Section label -->
-			<Eyebrow text={eyebrow} colorToken="--color-accent-on-light" animateAttr="sa-eyebrow" />
+			<!-- Section header -->
+			<SectionHeader
+				eyebrow={eyebrow}
+				heading={title}
+				intro={intro}
+				gsapAttr="sa-header"
+				noMargin
+			/>
 
-			<!-- Heading -->
-			<h2 class="service-article__title" data-sa-title>{title}</h2>
-
-			<!-- Gold rule -->
-			<div class="service-article__rule" data-sa-rule aria-hidden="true"></div>
-
-			<!-- Intro paragraph -->
-			<p class="service-article__intro" data-sa-intro>{intro}</p>
 
 			<!-- Quote — mobile only (hidden on desktop) -->
 			<div class="service-article__quote-mobile">
@@ -93,35 +92,6 @@ const { eyebrow, title, intro, quote, blocks } = Astro.props;
 		}
 	}
 
-	/* ── Title ───────────────────────────────────────────────────────────────── */
-	.service-article__title {
-		font-family: var(--font-serif);
-		font-weight: var(--font-weight-light);
-		font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
-		line-height: var(--line-height-tight);
-		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text);
-		max-width: 28ch;
-		text-wrap: pretty;
-	}
-
-	/* ── Gold rule ───────────────────────────────────────────────────────────── */
-	.service-article__rule {
-		width: 0;
-		height: 1px;
-		background-color: var(--color-accent-on-light);
-		margin-block-end: var(--space-sm);
-	}
-
-	/* ── Intro ───────────────────────────────────────────────────────────────── */
-	.service-article__intro {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
-		max-width: 65ch;
-		font-weight: var(--font-weight-light);
-	}
 
 	/* ── Quote visibility ────────────────────────────────────────────────────── */
 	.service-article__quote-mobile {
