@@ -43,9 +43,5 @@ const structuredData = getLawFirmStructuredData();
 	/>
 	<ServiceProcess steps={service.process} processDescription={service.processDescription} />
 	<ServiceFaqs faqs={service.faqs} />
-	<CTAPanel
-		variant="dark"
-		heading={service.cta.title}
-		body={service.cta.description}
-	/>
+	<CTAPanel heading={service.cta.title} body={service.cta.description} />
 </BaseLayout>
