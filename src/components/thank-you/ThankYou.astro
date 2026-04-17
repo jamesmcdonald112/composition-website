@@ -20,7 +20,7 @@ import { thankYouContent } from "../../config/thank-you";
 
 		<!-- Heading -->
 		<h1 class="thank-you__heading" data-thank-you-animate>
-			Thank you for<br />getting in touch.
+			Thank you for<br /><em>reaching out to us.</em>
 		</h1>
 
 		<!-- Body -->
@@ -44,7 +44,7 @@ import { thankYouContent } from "../../config/thank-you";
 <style>
 	.thank-you {
 		min-height: 100vh;
-		background: var(--color-bg-brand-mid);
+		background: var(--color-bg-page);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -59,7 +59,7 @@ import { thankYouContent } from "../../config/thank-you";
 	}
 
 	.thank-you__icon {
-		color: var(--color-accent);
+		color: var(--color-fg-success);
 		margin-block-end: var(--space-2xl);
 
 		:global(svg) {
@@ -73,7 +73,6 @@ import { thankYouContent } from "../../config/thank-you";
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-accent-light);
 		margin-block-end: var(--space-lg);
 	}
 
@@ -81,14 +80,19 @@ import { thankYouContent } from "../../config/thank-you";
 		font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
 		font-weight: var(--font-weight-light);
 		line-height: var(--line-height-tight);
-		color: var(--color-text-inverse);
+		color: var(--color-fg-default);
 		margin-block-end: var(--space-xl);
+
+		em {
+			font-style: italic;
+			color: var(--color-fg-accent);
+		}
 	}
 
 	.thank-you__body {
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
-		color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
+		color: var(--color-fg-muted);
 		margin-block-end: var(--space-4xl);
 	}
 
@@ -101,8 +105,8 @@ import { thankYouContent } from "../../config/thank-you";
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
 		text-decoration: none;
-		color: var(--color-text-inverse);
-		border: 1px solid color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
+		color: var(--color-fg-default);
+		border: 1px solid var(--color-border-default);
 		padding-block: var(--space-sm);
 		padding-inline: var(--space-2xl);
 		transition:
@@ -110,8 +114,8 @@ import { thankYouContent } from "../../config/thank-you";
 			border-color var(--duration-fast) var(--ease-out);
 
 		&:hover {
-			color: var(--color-accent);
-			border-color: var(--color-accent);
+			color: var(--color-fg-accent);
+			border-color: var(--color-border-accent);
 		}
 	}
 
