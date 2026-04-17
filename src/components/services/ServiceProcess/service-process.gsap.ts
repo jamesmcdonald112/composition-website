@@ -2,14 +2,17 @@
 import { gsap, ScrollTrigger } from "../../../scripts/gsap.ts";
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-
 	// ── Left column — fade up on scroll ──────────────────────────────────
 	const lefts = document.querySelectorAll<HTMLElement>("[data-sp-left]");
 
 	lefts.forEach((left) => {
-		const eyebrow = left.querySelector<HTMLElement>("[data-animate='sp-eyebrow']");
+		const eyebrow = left.querySelector<HTMLElement>(
+			"[data-animate='sp-eyebrow']",
+		);
 		const heading = left.querySelector<HTMLElement>("[data-sp-heading]");
-		const description = left.querySelector<HTMLElement>("[data-sp-description]");
+		const description = left.querySelector<HTMLElement>(
+			"[data-sp-description]",
+		);
 
 		const els = [eyebrow, heading, description].filter(Boolean);
 
@@ -46,7 +49,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 					end: "bottom 20%",
 					scrub: 0.8,
 				},
-			}
+			},
 		);
 
 		// Stagger each step in from below
@@ -62,6 +65,52 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 				toggleActions: "play none none none",
 			},
 		});
-	});
 
+		// Per-step: active when in viewport center, fades when not
+		steps.forEach((step) => {
+			const body = step.querySelector<HTMLElement>("[data-sp-body]");
+			const number = step.querySelector<HTMLElement>("[data-sp-number]");
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: step,
+					start: "top 50%",
+					end: "bottom 50%",
+					scrub: 0.6,
+				},
+			});
+
+			if (body) {
+				tl.fromTo(
+					body,
+					{ borderLeftWidth: "0px", paddingLeft: "0px" },
+					{
+						borderLeftWidth: "2px",
+						paddingLeft: "1.25rem",
+						ease: "power2.out",
+						duration: 0.4,
+					},
+					0,
+				).to(
+					body,
+					{
+						borderLeftWidth: "0px",
+						paddingLeft: "0px",
+						ease: "power2.in",
+						duration: 0.4,
+					},
+					0.6,
+				);
+			}
+
+			if (number) {
+				tl.fromTo(
+					number,
+					{ scale: 0.85 },
+					{ scale: 1.1, ease: "power2.out", duration: 0.4 },
+					0,
+				).to(number, { scale: 0.85, ease: "power2.in", duration: 0.4 }, 0.6);
+			}
+		});
+	});
 }

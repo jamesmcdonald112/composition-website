@@ -1,5 +1,6 @@
 ---
-import Eyebrow from "../../ui/Eyebrow.astro";
+import type { Heading, HeadingPart } from "../../../types/heading";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
 
 interface Step {
 	title: string;
@@ -9,41 +10,46 @@ interface Step {
 interface Props {
 	steps: readonly Step[];
 	processDescription: string;
-	heading?: string;
+	heading?: Heading;
 }
 
-const { steps, processDescription, heading = "How We Work" } = Astro.props;
+const defaultHeading: HeadingPart[] = [{ text: "How We " }, { text: "Work", em: true }];
+const { steps, processDescription, heading = defaultHeading } = Astro.props;
 ---
 
 <section class="service-process section">
 	<div class="service-process__inner wrapper wrapper--wide">
-
 		<div class="service-process__layout">
-
 			<!-- Left: section header -->
 			<aside class="service-process__left" data-sp-left>
-				<Eyebrow text="Our Process" colorToken="--color-accent-on-light" animateAttr="sp-eyebrow" />
-				<h2 class="service-process__heading" data-sp-heading>{heading}</h2>
-				<p class="service-process__description" data-sp-description>{processDescription}</p>
+				<SectionHeader
+					eyebrow="Our Process"
+					heading={heading}
+					headingColor="--color-fg-on-brand"
+					eyebrowColor="--color-fg-accent-on-brand"
+					ruleColor="--color-fg-accent-on-brand"
+					intro={processDescription}
+					gsapAttr="sp-header"
+				/>
 			</aside>
 
 			<!-- Right: numbered steps -->
 			<ol class="service-process__list" data-sp-list>
-				{steps.map((step, i) => (
-					<li class="service-process__step" data-sp-step>
-						<span class="service-process__number" aria-hidden="true">
-							{String(i + 1).padStart(2, "0")}
-						</span>
-						<div class="service-process__body">
-							<h3 class="service-process__title">{step.title}</h3>
-							<p class="service-process__text">{step.description}</p>
-						</div>
-					</li>
-				))}
+				{
+					steps.map((step, i) => (
+						<li class="service-process__step" data-sp-step>
+							<span class="service-process__number" aria-hidden="true" data-sp-number>
+								{String(i + 1).padStart(2, "0")}
+							</span>
+							<div class="service-process__body" data-sp-body>
+								<h3 class="service-process__title">{step.title}</h3>
+								<p class="service-process__text">{step.description}</p>
+							</div>
+						</li>
+					))
+				}
 			</ol>
-
 		</div>
-
 	</div>
 </section>
 
@@ -52,21 +58,21 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 </script>
 
 <style>
-	/* ── Component-level tokens ────────────────────────────── */
+	/* ── Component tokens ──────────────────────────────────── */
 	.service-process {
-		/* Circle diameter — number sits inside this */
-		--sp-circle: 2.75rem;     /* mobile  44px */
-		--sp-circle-md: 3.5rem;   /* desktop 56px */
-		/* Centre of circle — where the vertical line runs */
+		--sp-circle: 2.75rem;
+		--sp-circle-md: var(--size-14);
 		--sp-line-x: calc(var(--sp-circle) / 2);
 		--sp-line-x-md: calc(var(--sp-circle-md) / 2);
-		/* Half the circle height — line starts/ends at centre */
 		--sp-num-half: calc(var(--sp-circle) / 2);
 		--sp-num-half-md: calc(var(--sp-circle-md) / 2);
+		--sp-transition: var(--duration-slow) var(--ease-out);
 	}
 
 	/* ── Section shell ─────────────────────────────────────── */
-	/* background-color set via bg prop */
+	.service-process {
+		background-color: var(--color-bg-brand-muted);
+	}
 
 	/* ── Two-column layout ─────────────────────────────────── */
 	.service-process__layout {
@@ -89,22 +95,8 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		}
 	}
 
-	.service-process__heading {
-		font-family: var(--font-serif);
-		font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
-		font-weight: var(--font-weight-light);
-		line-height: var(--line-height-tight);
-		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text);
-		margin-block-end: var(--space-xl);
-	}
-
-	.service-process__description {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-base);
-		font-weight: var(--font-weight-normal);
-		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
+	.service-process__left :global(.section-header) {
+		--section-header-em-color: var(--color-fg-accent-on-brand);
 	}
 
 	/* ── Step list ─────────────────────────────────────────── */
@@ -112,7 +104,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		position: relative;
 	}
 
-	/* Vertical line — runs from centre of circle 01 downward */
+	/* Vertical connecting line — amber */
 	.service-process__list::before {
 		content: "";
 		position: absolute;
@@ -121,7 +113,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		inset-inline-start: var(--sp-line-x);
 		width: 1px;
 		transform: translateX(-50%);
-		background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+		background-color: var(--color-bg-interactive);
 
 		@media (min-width: 768px) {
 			inset-inline-start: var(--sp-line-x-md);
@@ -149,7 +141,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		padding-block-end: 0;
 	}
 
-	/* Cover the line below the last circle's centre */
+	/* Cover the line below the last circle */
 	.service-process__step:last-child::after {
 		content: "";
 		position: absolute;
@@ -157,7 +149,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		inset-block-end: 0;
 		inset-inline-start: 0;
 		width: var(--sp-circle);
-		background-color: var(--color-bg);
+		background-color: var(--color-bg-brand-muted);
 
 		@media (min-width: 768px) {
 			inset-block-start: var(--sp-num-half-md);
@@ -165,7 +157,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		}
 	}
 
-	/* ── Step number — hollow gold circle ──────────────────── */
+	/* ── Step number — amber circle, white numeral ─────────── */
 	.service-process__number {
 		width: var(--sp-circle);
 		height: var(--sp-circle);
@@ -174,27 +166,33 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		justify-content: center;
 		flex-shrink: 0;
 		border-radius: var(--radius-full);
-		border: 1px solid var(--color-border-accent);
-		background-color: var(--color-bg);
+		background-color: var(--color-bg-interactive);
 		font-family: var(--font-serif);
 		font-size: var(--font-size-base);
 		font-weight: var(--font-weight-light);
+		font-style: italic;
 		line-height: var(--line-height-none);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-accent-on-light);
+		color: var(--color-absolute-white);
 		position: relative;
 		z-index: 1;
+		transition: background-color var(--sp-transition);
 
 		@media (min-width: 768px) {
 			width: var(--sp-circle-md);
 			height: var(--sp-circle-md);
 			font-size: var(--font-size-lg);
 		}
+
+		.service-process__step:hover & {
+			background-color: var(--color-bg-interactive-hover);
+		}
 	}
 
 	/* ── Step body ─────────────────────────────────────────── */
 	.service-process__body {
 		padding-block-start: var(--space-xs);
+		border-inline-start: 0px solid var(--color-border-accent);
 
 		@media (min-width: 768px) {
 			padding-block-start: var(--space-sm);
@@ -207,7 +205,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		font-weight: var(--font-weight-light);
 		line-height: var(--line-height-snug);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent-on-brand);
 		margin-block-end: var(--space-md);
 
 		@media (min-width: 768px) {
@@ -219,7 +217,7 @@ const { steps, processDescription, heading = "How We Work" } = Astro.props;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
+		color: var(--color-fg-on-brand-muted);
 		max-width: 55ch;
 	}
 </style>
