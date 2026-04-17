@@ -10,14 +10,21 @@ export const aboutPageContent = {
 	},
 	hero: {
 		eyebrow: "About the firm",
-		title: "A Kilkenny practice built on clear, personal advice",
+		title: [
+			{ text: "A Kilkenny practice built on " },
+			{ text: "clear, personal advice", em: true },
+		],
 		subtitle:
 			"We are a family-run firm of solicitors based in Kilkenny City. Since 1979, we have helped individuals and families across County Kilkenny with property, wills and probate, family law, personal injury, and private client matters — with straightforward advice and consistent communication throughout.",
 		image: aboutImage,
 		imageAlt: "Kilkenny Castle and the River Nore, Kilkenny City",
 	},
 	trustStrip: {
-		title: "Over 46 years of practical legal advice in Kilkenny",
+		title: [
+			{ text: "Over " },
+			{ text: "46 years", em: true },
+			{ text: " of practical legal advice in Kilkenny" },
+		],
 		paragraphs: [
 			"Mary Molloy Solicitor has been based on Rose Inn Street in Kilkenny City since 1979. What began as a sole practice has grown into a close-knit family firm, with Mary's sons Nicholas and Richard now practising alongside her — each bringing their own area of focus and a shared commitment to the values the firm was built on.",
 			"We work primarily in property, wills and probate, family law, personal injury, and private client matters — areas where getting the detail right, and keeping clients properly informed, makes a real difference to the people involved.",

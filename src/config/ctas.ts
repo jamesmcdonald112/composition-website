@@ -2,7 +2,11 @@ import { firm } from "./firm";
 
 export const defaultCtaPanel = {
 	eyebrow: "Get in touch",
-	title: "Need legal advice you can rely on?",
+	title: [
+		{ text: "Need legal advice you can " },
+		{ text: "rely on", em: true },
+		{ text: "?" },
+	],
 	body: "Our solicitors in Kilkenny are here to help. Call us or send a message and we will get back to you promptly.",
 } as const;
 

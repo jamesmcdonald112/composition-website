@@ -67,7 +67,12 @@ export const homePageContent = {
 
 	supportingServices: {
 		eyebrow: "Other services",
-		title: "We can also help with",
+		title: [
+			{ text: "We can also " },
+			{ text: "help", em: true },
+			{ text: " with" },
+		],
+		intro: "From family law and wills to employment disputes and personal injury — we handle a wide range of legal matters for individuals and families across Kilkenny.",
 	},
 
 	trustStrip: {

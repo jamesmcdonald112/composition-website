@@ -1,7 +1,10 @@
 export const testimonialsSection = {
 	eyebrow: "Client Testimonials",
-	heading: "What our clients say",
-	headingEmphasis: "clients",
+	heading: [
+		{ text: "What our " },
+		{ text: "clients", em: true },
+		{ text: " say" },
+	],
 	intro:
 		"We have been helping families and individuals across Kilkenny for over 46\u00a0years. Here is what some of them have to say.",
 } as const;
