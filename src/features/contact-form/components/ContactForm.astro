@@ -209,7 +209,7 @@ if (prev) await Astro.session?.delete("form-data");
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-text-muted);
+		color: var(--color-fg-accent);
 		margin-block-end: var(--space-sm);
 	}
 
@@ -217,7 +217,7 @@ if (prev) await Astro.session?.delete("form-data");
 		font-weight: var(--font-weight-normal);
 		font-size: var(--font-size-3xl);
 		line-height: var(--line-height-tight);
-		color: var(--color-text);
+		color: var(--color-fg-default);
 	}
 
 	/* ── Form rows ────────────────────────────────────────────────────────── */
@@ -252,7 +252,7 @@ if (prev) await Astro.session?.delete("form-data");
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-wide);
 		text-transform: uppercase;
-		color: var(--color-text-subtle);
+		color: var(--color-fg-subtle);
 	}
 
 	.contact-form__label-row {
@@ -268,12 +268,12 @@ if (prev) await Astro.session?.delete("form-data");
 		width: 100%;
 		padding-block: var(--space-md);
 		padding-inline: var(--space-lg);
-		border: 1px solid var(--color-border);
+		border: 1px solid var(--color-border-default);
 		border-radius: var(--radius-md);
-		background: var(--color-bg);
+		background: var(--color-bg-page);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
-		color: var(--color-text);
+		color: var(--color-fg-default);
 		outline: none;
 		transition:
 			border-color var(--duration-fast) var(--ease-out),
@@ -281,28 +281,28 @@ if (prev) await Astro.session?.delete("form-data");
 		appearance: none;
 
 		&:hover {
-			border-color: var(--color-accent-light);
+			border-color: var(--color-border-accent);
 		}
 
 		&:focus {
-			border-color: var(--color-accent);
-			box-shadow: 0 0 0 2px var(--color-accent);
+			border-color: var(--color-border-focus);
+			box-shadow: 0 0 0 2px var(--color-border-focus);
 		}
 
 		&::placeholder {
-			color: var(--color-text-subtle);
+			color: var(--color-fg-subtle);
 		}
 	}
 
 	.contact-form__input--error {
-		border-color: var(--color-error);
+		border-color: var(--color-fg-danger);
 
 		&:hover {
-			border-color: var(--color-error);
+			border-color: var(--color-fg-danger);
 		}
 
 		&:focus {
-			box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 15%, transparent);
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-fg-danger) 15%, transparent);
 		}
 	}
 
@@ -321,7 +321,7 @@ if (prev) await Astro.session?.delete("form-data");
 		inset-block-start: 50%;
 		inset-inline-end: var(--space-md);
 		transform: translateY(-50%);
-		color: var(--color-text-subtle);
+		color: var(--color-fg-subtle);
 		pointer-events: none;
 	}
 
@@ -335,30 +335,30 @@ if (prev) await Astro.session?.delete("form-data");
 	.contact-form__counter {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
-		color: var(--color-text-subtle);
+		color: var(--color-fg-subtle);
 	}
 
 	.contact-form__counter.is-warning {
-		color: var(--color-warning);
+		color: var(--color-fg-warning);
 	}
 
 	/* ── Field error ──────────────────────────────────────────────────────── */
 	.contact-form__field-error {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
-		color: var(--color-error);
+		color: var(--color-fg-danger);
 	}
 
 	/* ── Error banner ─────────────────────────────────────────────────────── */
 	.contact-form__error-banner {
 		padding-block: var(--space-md);
 		padding-inline: var(--space-lg);
-		background: var(--color-error-bg);
-		border: 1px solid var(--color-error);
+		background: var(--color-bg-danger);
+		border: 1px solid var(--color-fg-danger);
 		border-radius: var(--radius-md);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
-		color: var(--color-error);
+		color: var(--color-fg-danger);
 	}
 
 	/* ── Honeypot (visually hidden, accessible) ───────────────────────────── */
@@ -392,20 +392,20 @@ if (prev) await Astro.session?.delete("form-data");
 	.contact-form__small-print {
 		font-size: var(--font-size-xs);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-subtle);
+		color: var(--color-fg-subtle);
 	}
 
 	/* ── Submit button ────────────────────────────────────────────────────── */
 	.contact-form__submit {
-		--submit-glow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent);
-		--submit-glow-active: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-accent) 10%, transparent);
+		--submit-glow: 0 0 0 0 color-mix(in srgb, var(--color-fg-accent) 0%, transparent);
+		--submit-glow-active: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-fg-accent) 10%, transparent);
 
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-sm);
-		background: var(--color-accent-muted);
-		color: var(--color-text-inverse);
+		background: var(--color-bg-interactive);
+		color: var(--color-fg-interactive);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
@@ -414,7 +414,7 @@ if (prev) await Astro.session?.delete("form-data");
 		padding-block: var(--space-md);
 		padding-inline-start: var(--space-2xl);
 		padding-inline-end: var(--space-xl);
-		border: 1px solid var(--color-accent-muted);
+		border: 1px solid var(--color-border-accent);
 		border-radius: var(--radius-none);
 		cursor: pointer;
 		box-shadow: var(--submit-glow);
@@ -424,13 +424,13 @@ if (prev) await Astro.session?.delete("form-data");
 			box-shadow var(--duration-slow) var(--ease-smooth);
 
 		&:hover {
-			background-color: var(--color-accent-light);
-			border-color: var(--color-accent-light);
+			background-color: var(--color-bg-interactive-hover);
+			border-color: var(--color-border-accent);
 			box-shadow: var(--submit-glow-active);
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--color-focus);
+			outline: 2px solid var(--color-border-focus);
 			outline-offset: 2px;
 		}
 	}
