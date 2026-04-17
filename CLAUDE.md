@@ -4,19 +4,32 @@
 Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright, colorjs.io
 
 ## Colour Tooling — colorjs.io
-`colorjs.io` is available as a dependency. Use it when you need to:
-- Verify WCAG contrast ratios between two token values before committing a colour
-- Convert between colour spaces (oklch ↔ srgb ↔ hex)
-- Calculate perceptually-uniform colour scales
+`colorjs.io` is installed as a project dependency. Use it any time you need to verify WCAG contrast ratios when adding or changing colours in a theme file — especially before committing new primitive values.
+
+**How to use — write a one-off script and run it with tsx:**
 
 ```ts
+// check-contrast.ts
 import Color from "colorjs.io";
-const fg = new Color("oklch(0.25 0.068 256)"); // navy-900
-const bg = new Color("oklch(0.97 0.012 70)");  // stone-100
-const contrast = fg.contrast(bg, "WCAG21");     // → 14.79
+
+const fg = new Color("oklch(0.25 0.068 256)"); // paste the oklch value from the theme file
+const bg = new Color("oklch(0.97 0.012 70)");  // paste the background oklch value
+const ratio = fg.contrast(bg, "WCAG21");
+
+console.log(`${ratio.toFixed(2)}:1`); // needs 4.5+ for AA text, 3.0+ for UI/icons
 ```
 
-Run contrast checks in a one-off `.ts` script via `npx tsx script.ts` — no build step needed.
+Run it without any build step:
+```bash
+npx tsx check-contrast.ts
+```
+
+**WCAG thresholds:**
+- 4.5:1 — AA normal text (body copy, headings, labels)
+- 3.0:1 — AA large text or UI components (borders, icons)
+- 7.0:1 — AAA (aim for this on critical text)
+
+**When to run it:** every time you set a new oklch value for any `fg-*` token in a theme file. All theme files in `src/styles/themes/` document their verified contrast ratios in the header comment — keep these up to date.
 
 ## Commands
 - Dev: `npm run dev`
