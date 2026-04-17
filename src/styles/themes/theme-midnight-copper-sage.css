@@ -1,0 +1,260 @@
+/*
+  THEME: Midnight Copper Sage
+  ─────────────────────────────────────────────────────────────────────────────
+  LAYER 1 — PRIMITIVES AND ROLE ALIASES ONLY.
+  Primitives are raw values. They are never used directly in components.
+  Role aliases map primitives to brand/accent/tertiary/neutral slots.
+  Semantic tokens in tokens.css consume role aliases via var().
+
+  TO SWITCH TO THIS THEME:
+  In global.css, replace the current theme import with:
+    @import './themes/theme-midnight-copper-sage.css';
+
+  Palette:
+    Brand:    midnight blue (hue 240)
+    Accent:   rich copper (hue 30)
+    Tertiary: warm sage green (hue 140)
+    Neutral:  warm ivory (hue 50, low chroma) — cream surfaces, copper vibrance
+
+  All colours in oklch(lightness chroma hue).
+  Hex equivalents shown as comments for readability.
+
+  Contrast verified (WCAG 2.1):
+    fg-accent (copper-600) on bg-page (slate-100): 5.30:1    — AA Text PASS
+    fg-accent-on-brand (copper-400) on bg-brand (midnight-900): 5.79:1 — AA Text PASS
+    fg-tertiary (sage-700) on bg-page (slate-100): 8.32:1    — AA Text PASS
+    fg-interactive (white) on bg-interactive (copper-500): 4.57:1 — AA Text PASS
+
+  Adjusted from specified values:
+    copper-500: oklch(0.60 → 0.58 0.140 30) — darkened to pass white text AA (4.57:1)
+    sage: hue corrected from 110 → 140 (110 produces yellow-olive in OKLCH; 140 is true sage)
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+:root {
+
+  /* ── SECTION 1: COLOUR PRIMITIVES ─────────────────────────────────────────
+     Raw colour values. Not used directly in components or tokens.
+     Consumed only by role aliases in Section 2.
+  ──────────────────────────────────────────────────────────────────────────── */
+
+  /* Midnight blue — primary brand, hue 240 */
+  --midnight-900: oklch(0.30 0.090 240);
+  --midnight-800: oklch(0.36 0.092 240);
+  --midnight-700: oklch(0.43 0.085 240);
+  --midnight-600: oklch(0.41 0.068 240); /* #234f6b */
+  --midnight-500: oklch(0.49 0.070 240); /* #396684 */
+  --midnight-400: oklch(0.62 0.062 240); /* #638ca8 */
+  --midnight-300: oklch(0.74 0.045 240); /* #92afc5 */
+  --midnight-200: oklch(0.85 0.025 240); /* #c0d0dd */
+  --midnight-100: oklch(0.93 0.012 240); /* #e1e9ef */
+  --midnight-50:  oklch(0.97 0.006 240); /* #f2f6f9 */
+
+  /* Copper — accent, hue 30
+     copper-600 (#a44335): 5.30:1 on slate-100 — AA Text PASS
+     copper-400 (#e47863): 5.79:1 on midnight-900 — AA Text PASS
+     copper-500 (#bf5546): 4.57:1 — white text AA PASS (adjusted from 0.60 → 0.58)
+  */
+  --copper-900: oklch(0.26 0.078 30); /* #42110b */
+  --copper-800: oklch(0.33 0.098 30); /* #5e1c14 */
+  --copper-700: oklch(0.41 0.118 30); /* #7e2a20 */
+  --copper-600: oklch(0.51 0.132 30); /* #a44335 */
+  --copper-500: oklch(0.58 0.140 30); /* #bf5546 — adjusted from 0.60 to pass white AA */
+  --copper-400: oklch(0.69 0.138 32); /* #e47863 */
+  --copper-300: oklch(0.79 0.118 33); /* #fd9e89 */
+  --copper-200: oklch(0.89 0.072 35); /* #ffcbbb */
+  --copper-100: oklch(0.95 0.035 35); /* #ffe7df */
+  --copper-50:  oklch(0.98 0.015 35); /* #fff5f2 */
+
+  /* Warm sage — tertiary, hue 140
+     hue 140 produces true sage green in OKLCH (hue 110 yields yellow-olive).
+     sage-700 (#214f16): 8.32:1 on slate-100 — AA Text PASS
+  */
+  --sage-900: oklch(0.21 0.058 140); /* #071e03 */
+  --sage-800: oklch(0.29 0.080 140); /* #123409 */
+  --sage-700: oklch(0.38 0.100 140); /* #214f16 */
+  --sage-600: oklch(0.48 0.112 140); /* #386c2b */
+  --sage-500: oklch(0.58 0.118 140); /* #528b45 */
+  --sage-400: oklch(0.68 0.108 140); /* #74a968 */
+  --sage-300: oklch(0.78 0.082 140); /* #9cc593 */
+  --sage-200: oklch(0.88 0.048 140); /* #c7e0c2 */
+  --sage-100: oklch(0.94 0.024 140); /* #e3efe0 */
+  --sage-50:  oklch(0.97 0.010 140); /* #f2f7f0 */
+
+  /* Warm ivory — neutral, hue 50, low chroma
+     Warm cream surfaces maximise contrast against cool midnight blue
+     and make copper accents vibrate.
+     Note: --color-neutral-300 maps to ivory-300 at L=0.63 (not 0.85 as specified)
+     to pass 3:1 UI border contrast. ivory-300 at L=0.85 is only 1.58:1 on white.
+  */
+  --ivory-900: oklch(0.20 0.018 50); /* #1d140f */
+  --ivory-700: oklch(0.38 0.020 50); /* #4c3f39 */
+  --ivory-600: oklch(0.52 0.018 50); /* #726660 */
+  --ivory-500: oklch(0.64 0.015 50); /* #948a84 */
+  --ivory-400: oklch(0.75 0.012 50); /* #b5aca7 */
+  --ivory-300: oklch(0.63 0.009 50); /* #8e8884 — adjusted from 0.85 to pass 3:1 border contrast */
+  --ivory-200: oklch(0.91 0.007 50); /* #e5e0dd */
+  --ivory-100: oklch(0.96 0.008 50); /* #f7f0ed */
+  --ivory-50:  oklch(0.98 0.005 50); /* #fbf7f5 */
+
+  /* State colours — functional */
+  --red-600:   oklch(0.577 0.245 27.325);
+  --red-100:   oklch(0.936 0.032 17.717);
+  --amber-600: oklch(0.666 0.179 54.900);
+  --amber-100: oklch(0.962 0.059 95.617);
+  --green-600: var(--sage-600); /* success uses sage */
+  --green-100: var(--sage-100);
+
+  /* Absolute */
+  --white: oklch(1 0 0); /* #ffffff */
+  --black: oklch(0 0 0); /* #000000 */
+
+
+  /* ── SECTION 2: ROLE ALIASES ───────────────────────────────────────────────
+     Map primitives to brand/accent/tertiary/neutral slots.
+     tokens.css references these aliases, not the raw primitives above.
+     To retheme: swap the var() references here only.
+  ──────────────────────────────────────────────────────────────────────────── */
+
+  /* Brand — midnight blue */
+  --color-brand-900: var(--midnight-900);
+  --color-brand-800: var(--midnight-800);
+  --color-brand-700: var(--midnight-700);
+  --color-brand-600: var(--midnight-600);
+  --color-brand-500: var(--midnight-500);
+  --color-brand-400: var(--midnight-400);
+  --color-brand-300: var(--midnight-300);
+  --color-brand-200: var(--midnight-200);
+  --color-brand-100: var(--midnight-100);
+  --color-brand-50:  var(--midnight-50);
+
+  /* Accent — copper */
+  --color-accent-900: var(--copper-900);
+  --color-accent-800: var(--copper-800);
+  --color-accent-700: var(--copper-700);
+  --color-accent-600: var(--copper-600);
+  --color-accent-500: var(--copper-500);
+  --color-accent-400: var(--copper-400);
+  --color-accent-300: var(--copper-300);
+  --color-accent-200: var(--copper-200);
+  --color-accent-100: var(--copper-100);
+  --color-accent-50:  var(--copper-50);
+
+  /* Tertiary — warm sage */
+  --color-tertiary-900: var(--sage-900);
+  --color-tertiary-800: var(--sage-800);
+  --color-tertiary-700: var(--sage-700);
+  --color-tertiary-600: var(--sage-600);
+  --color-tertiary-500: var(--sage-500);
+  --color-tertiary-400: var(--sage-400);
+  --color-tertiary-300: var(--sage-300);
+  --color-tertiary-200: var(--sage-200);
+  --color-tertiary-100: var(--sage-100);
+  --color-tertiary-50:  var(--sage-50);
+
+  /* Neutral — warm ivory */
+  --color-neutral-900: var(--ivory-900);
+  --color-neutral-700: var(--ivory-700);
+  --color-neutral-600: var(--ivory-600);
+  --color-neutral-500: var(--ivory-500);
+  --color-neutral-400: var(--ivory-400);
+  --color-neutral-300: var(--ivory-300); /* L=0.63 — adjusted for 3:1 border contrast */
+  --color-neutral-200: var(--ivory-200);
+  --color-neutral-100: var(--ivory-100);
+  --color-neutral-50:  var(--ivory-50);
+
+  /* Absolute */
+  --color-absolute-white: var(--white);
+  --color-absolute-black: var(--black);
+
+  /* ── Foreground levels ───────────────────────────── */
+  --color-fg-level-1: var(--color-brand-900);    /* Primary body text */
+  --color-fg-level-2: var(--color-brand-800);    /* Secondary text */
+  --color-fg-level-3: var(--color-neutral-600);  /* Captions, placeholders */
+
+  /* ── On-brand foreground ─────────────────────────── */
+  --color-on-brand:        var(--color-absolute-white);
+  --color-on-brand-muted:  color-mix(in oklch, var(--color-absolute-white) 80%, transparent);
+  --color-on-brand-subtle: color-mix(in oklch, var(--color-absolute-white) 65%, transparent);
+
+  /* ── On-surface foreground (light surface = dark text) ── */
+  --color-on-surface:       var(--color-brand-900);
+  --color-on-surface-muted: var(--color-brand-800);
+
+  /* ── Accent foreground ───────────────────────────── */
+  --color-accent-fg:          var(--color-accent-600); /* On light surfaces — must pass AA */
+  --color-accent-fg-on-brand: var(--color-accent-400); /* On brand surfaces — must pass AA */
+
+  /* ── Tertiary foreground ─────────────────────────── */
+  --color-tertiary-fg:       var(--color-tertiary-700);
+  --color-tertiary-fg-hover: var(--color-tertiary-800);
+  --color-tertiary-border:   var(--color-tertiary-300);
+
+  /* ── Interactive ─────────────────────────────────── */
+  --color-interactive-bg:       var(--color-accent-500);
+  --color-interactive-bg-hover: var(--color-accent-600);
+  --color-interactive-fg:       var(--color-absolute-white);
+  --color-interactive-fg-hover: var(--color-absolute-white);
+
+  /* ── Page backgrounds ────────────────────────────── */
+  --color-page-bg:     var(--color-neutral-50);
+  --color-subtle-bg:   var(--color-neutral-100);
+  --color-surface:     var(--color-absolute-white);
+  --color-accent-bg:   var(--color-accent-50);
+  --color-tertiary-bg: var(--color-tertiary-50);
+
+  /* ── Brand backgrounds ───────────────────────────── */
+  --color-brand-bg:        var(--color-brand-900);
+  --color-brand-bg-muted:  var(--color-brand-700);
+  --color-brand-bg-subtle: var(--color-brand-100);
+
+  /* ── Borders ─────────────────────────────────────── */
+  --color-border-level-1: var(--color-neutral-300);
+  --color-border-level-2: var(--color-neutral-400);
+  --color-brand-border:    var(--color-brand-900);
+  --color-accent-border:   var(--color-accent-400);
+  --color-tertiary-border: var(--color-tertiary-300);
+  --color-focus-ring:      var(--color-accent-500);
+
+  /* ── State colours ───────────────────────────────── */
+  --color-danger-fg:  var(--red-600);
+  --color-danger-bg:  var(--red-100);
+  --color-success-fg: var(--green-600);
+  --color-success-bg: var(--green-100);
+  --color-warning-fg: var(--amber-600);
+  --color-warning-bg: var(--amber-100);
+
+
+  /* ── SECTION 3: NON-COLOUR PRIMITIVES ─────────────────────────────────────
+     Font stacks and size scale. Theme-agnostic — identical across all themes.
+  ──────────────────────────────────────────────────────────────────────────── */
+
+  /* Font stacks */
+  --font-stack-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-stack-sans:  'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-stack-mono:  'Menlo', 'Monaco', 'Courier New', monospace;
+
+  /* Size scale — base unit 0.25rem (4px) */
+  --size-0-5: 0.125rem;  /*   2px */
+  --size-1:   0.25rem;   /*   4px */
+  --size-2:   0.5rem;    /*   8px */
+  --size-3:   0.75rem;   /*  12px */
+  --size-3-5: 0.875rem;  /*  14px */
+  --size-4:   1rem;      /*  16px */
+  --size-5:   1.25rem;   /*  20px */
+  --size-6:   1.5rem;    /*  24px */
+  --size-7:   1.75rem;   /*  28px */
+  --size-8:   2rem;      /*  32px */
+  --size-10:  2.5rem;    /*  40px */
+  --size-12:  3rem;      /*  48px */
+  --size-14:  3.5rem;    /*  56px */
+  --size-16:  4rem;      /*  64px */
+  --size-20:  5rem;      /*  80px */
+  --size-24:  6rem;      /*  96px */
+  --size-28:  7rem;      /* 112px */
+  --size-32:  8rem;      /* 128px */
+  --size-40:  10rem;     /* 160px */
+  --size-48:  12rem;     /* 192px */
+  --size-64:  16rem;     /* 256px */
+
+}
