@@ -7,246 +7,247 @@ import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 const currentPath = Astro.url.pathname;
 ---
 
-<dialog class="nav-mobile" data-nav-mobile aria-label="Navigation menu">
-  <div class="nav-mobile__inner">
+<dialog open class="nav-mobile" data-nav-mobile aria-label="Navigation menu">
+	<div class="nav-mobile__inner">
+		<!-- Header: logo left, close right -->
+		<div class="nav-mobile__header">
+			<BrandLogo />
 
-    <!-- Header: logo left, close right -->
-    <div class="nav-mobile__header">
-      <BrandLogo />
+			<button class="nav-mobile__close" data-nav-mobile-close aria-label="Close navigation menu">
+				<span class="nav-mobile__close-icon" aria-hidden="true"></span>
+			</button>
+		</div>
 
-      <button
-        class="nav-mobile__close"
-        data-nav-mobile-close
-        aria-label="Close navigation menu"
-      >
-        <span class="nav-mobile__close-icon" aria-hidden="true"></span>
-      </button>
-    </div>
+		<!-- Large nav links -->
+		<nav class="nav-mobile__nav" aria-label="Mobile navigation">
+			<ul class="nav-mobile__list">
+				{
+					nav.map((item) => (
+						<li class="nav-mobile__item">
+							<a
+								href={item.href}
+								class="nav-mobile__link"
+								data-nav-mobile-link
+								aria-current={currentPath === item.href ? "page" : undefined}
+							>
+								{item.navLabel}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
 
-    <!-- Large nav links -->
-    <nav class="nav-mobile__nav" aria-label="Mobile navigation">
-      <ul class="nav-mobile__list">
-        {nav.map((item) => (
-          <li class="nav-mobile__item">
-            <a
-              href={item.href}
-              class="nav-mobile__link"
-              data-nav-mobile-link
-              aria-current={currentPath === item.href ? "page" : undefined}
-            >
-              {item.navLabel}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <!-- Contact info -->
-    <div class="nav-mobile__contact">
-      <a
-        href={`tel:${firm.phone.phoneHref}`}
-        class="nav-mobile__phone"
-        aria-label={`Call us on ${firm.phone.display}`}
-      >
-        <span class="nav-mobile__phone-icon" aria-hidden="true" set:html={phoneIcon} />
-        {firm.phone.display}
-      </a>
-    </div>
-
-  </div>
+		<!-- Contact info -->
+		<div class="nav-mobile__contact">
+			<a
+				href={`tel:${firm.phone.phoneHref}`}
+				class="nav-mobile__phone"
+				aria-label={`Call us on ${firm.phone.display}`}
+			>
+				<span class="nav-mobile__phone-icon" aria-hidden="true" set:html={phoneIcon} />
+				{firm.phone.display}
+			</a>
+		</div>
+	</div>
 </dialog>
 
 <style>
-  /* ── Dialog reset + positioning ──────────────────────────────────────────── */
-  .nav-mobile {
-    /* Reset browser dialog defaults */
-    border: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    width: 100%;
-    max-width: 100%;
+	/* ── Dialog reset + positioning ──────────────────────────────────────────── */
+	.nav-mobile {
+		/* Reset browser dialog defaults */
+		border: none;
+		padding: 0;
+		margin: 0;
+		outline: none;
+		width: 100%;
+		max-width: 100%;
 
-    /* Panel: full height, right-aligned side panel at 640px+ */
-    position: fixed;
-    inset-block: 0;
-    inset-inline-start: 0;
-    inset-inline-end: 0;
-    height: 100dvh;
-    max-height: 100dvh;
-    z-index: 101;
-    background: var(--color-bg-brand);
-    display: flex;
-    flex-direction: column;
+		/* Panel: full height, right-aligned side panel at 640px+ */
+		position: fixed;
+		inset-block: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		height: 100dvh;
+		max-height: 100dvh;
+		z-index: 101;
+		background: var(--color-bg-brand);
+		display: flex;
+		flex-direction: column;
 
-    /* Hidden by default — overridden when [open] */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition:
-      opacity var(--duration-slow) var(--ease-out),
-      visibility var(--duration-slow);
+		/* Hidden by default — overridden when [open] */
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			opacity var(--duration-slow) var(--ease-out),
+			visibility var(--duration-slow);
 
-    @media (min-width: 640px) {
-      inset-inline-start: auto;
-      width: 50vw;
-      max-width: 50vw;
-    }
+		@media (min-width: 640px) {
+			inset-inline-start: auto;
+			width: 50vw;
+			max-width: 50vw;
+		}
 
-    @media (min-width: 1024px) {
-      display: none;
-    }
+		@media (min-width: 1024px) {
+			display: none;
+		}
 
-    &[open] {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-  }
+		&[open] {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
 
-  /* ── Backdrop via ::backdrop pseudo-element ──────────────────────────────── */
-  .nav-mobile::backdrop {
-    background: color-mix(in srgb, var(--color-bg-brand) 50%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    opacity: 0;
-    transition: opacity var(--duration-slow) var(--ease-out);
-  }
+	/* ── Backdrop via ::backdrop pseudo-element ──────────────────────────────── */
+	.nav-mobile::backdrop {
+		background: color-mix(in srgb, var(--color-bg-brand) 50%, transparent);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		opacity: 0;
+		transition: opacity var(--duration-slow) var(--ease-out);
+	}
 
-  .nav-mobile[open]::backdrop {
-    opacity: 1;
-  }
+	.nav-mobile[open]::backdrop {
+		opacity: 1;
+	}
 
-  /* ── Inner ───────────────────────────────────────────────────────────────── */
-  .nav-mobile__inner {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding-inline: var(--gutter);
-    padding-block: var(--space-xl);
-    overflow-y: auto;
+	/* ── Inner ───────────────────────────────────────────────────────────────── */
+	.nav-mobile__inner {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding-inline: var(--gutter);
+		padding-block: var(--space-xl);
+		overflow-y: auto;
 
-    @media (min-width: 768px) {
-      padding-inline: var(--gutter-md);
-    }
-  }
+		@media (min-width: 768px) {
+			padding-inline: var(--gutter-md);
+		}
+	}
 
-  /* ── Header ──────────────────────────────────────────────────────────────── */
-  .nav-mobile__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-block-end: var(--space-2xl);
-  }
+	/* ── Header ──────────────────────────────────────────────────────────────── */
+	.nav-mobile__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-block-end: var(--space-2xl);
+	}
 
-  /* ── Close button ────────────────────────────────────────────────────────── */
-  .nav-mobile__close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-xs);
-    flex-shrink: 0;
-  }
+	/* ── Close button ────────────────────────────────────────────────────────── */
+	.nav-mobile__close {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: var(--space-xs);
+		flex-shrink: 0;
+		opacity: 0.7;
+		transition: opacity var(--duration-fast) var(--ease-out);
 
-  .nav-mobile__close-icon {
-    display: block;
-    position: relative;
-    width: var(--size-6);
-    height: var(--size-6);
+		&:hover {
+			opacity: 1;
+		}
+	}
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1px;
-      height: var(--size-6);
-      background: var(--color-text-inverse);
-    }
+	.nav-mobile__close-icon {
+		display: block;
+		position: relative;
+		width: var(--size-6);
+		height: var(--size-6);
 
-    &::before {
-      transform: translate(-50%, -50%) rotate(45deg);
-    }
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 1px;
+			height: var(--size-6);
+			background: var(--color-fg-on-brand);
+		}
 
-    &::after {
-      transform: translate(-50%, -50%) rotate(-45deg);
-    }
-  }
+		&::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
 
-  /* ── Nav links ───────────────────────────────────────────────────────────── */
-  .nav-mobile__nav {
-    margin-block-start: var(--space-lg);
-  }
+		&::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
 
-  .nav-mobile__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
+	/* ── Nav links ───────────────────────────────────────────────────────────── */
+	.nav-mobile__nav {
+		margin-block-start: var(--space-lg);
+	}
 
-  .nav-mobile__item {
-    overflow: hidden;
-  }
+	.nav-mobile__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
 
-  .nav-mobile__link {
-    font-family: var(--font-serif);
-    font-weight: var(--font-weight-light);
-    font-size: clamp(var(--font-size-3xl), 8vw, var(--font-size-4xl));
-    line-height: var(--line-height-tight);
-    color: var(--color-text-inverse);
-    text-decoration: none;
-    display: block;
-    transition: color var(--duration-fast) var(--ease-out);
+	.nav-mobile__item {
+		overflow: hidden;
+	}
 
-    &:hover {
-      color: var(--color-accent);
-    }
+	.nav-mobile__link {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: clamp(var(--font-size-3xl), 8vw, var(--font-size-4xl));
+		line-height: var(--line-height-tight);
+		color: var(--color-fg-on-brand);
+		text-decoration: none;
+		display: block;
+		transition: color var(--duration-fast) var(--ease-out);
 
-    &[aria-current="page"] {
-      color: var(--color-accent);
-    }
-  }
+		&:hover {
+			color: var(--color-fg-accent-on-brand);
+		}
 
-  /* ── Contact ─────────────────────────────────────────────────────────────── */
-  .nav-mobile__contact {
-    margin-block-start: var(--space-lg);
-    padding-block-start: var(--space-lg);
-    border-top: 1px solid var(--color-border-brand);
-  }
+		&[aria-current="page"] {
+			color: var(--color-fg-accent-on-brand);
+		}
+	}
 
-  .nav-mobile__phone {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-light);
-    line-height: var(--line-height-tight);
-    color: var(--color-accent);
-    text-decoration: none;
-  }
+	/* ── Contact ─────────────────────────────────────────────────────────────── */
+	.nav-mobile__contact {
+		margin-block-start: auto;
+		padding-block-start: var(--space-xl);
+		border-top: 1px solid color-mix(in srgb, var(--color-border-default) 40%, transparent);
+	}
 
-  .nav-mobile__phone-icon {
-    display: inline-flex;
-    flex-shrink: 0;
-    width: var(--size-6);
-    height: var(--size-6);
-    overflow: hidden;
+	.nav-mobile__phone {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light);
+		line-height: var(--line-height-tight);
+		color: var(--color-fg-accent-on-brand);
+		text-decoration: none;
+	}
 
-    :global(svg) {
-      width: 100%;
-      height: 100%;
-    }
+	.nav-mobile__phone-icon {
+		display: inline-flex;
+		flex-shrink: 0;
+		width: var(--size-6);
+		height: var(--size-6);
+		overflow: hidden;
 
-    @media (prefers-reduced-motion: no-preference) {
-      .nav-mobile__phone:hover & {
-        animation: phone-shake var(--duration-slow) var(--ease-smooth);
-      }
-    }
-  }
+		:global(svg) {
+			width: 100%;
+			height: 100%;
+		}
 
+		@media (prefers-reduced-motion: no-preference) {
+			.nav-mobile__phone:hover & {
+				animation: phone-shake var(--duration-slow) var(--ease-smooth);
+			}
+		}
+	}
 </style>
