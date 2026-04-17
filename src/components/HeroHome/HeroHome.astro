@@ -63,7 +63,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 
 			<Eyebrow
 				text={eyebrow}
-				colorToken="--color-accent"
+				colorToken="--color-fg-accent-on-brand"
 				showRule={true}
 				animateAttr="h-eyebrow"
 				class="hero-home__eyebrow"
@@ -73,7 +73,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 				{titleBefore}{titleEmphasis && <em class="hero-home__title-em" data-animate="h-title-em">{titleEmphasis}</em>}{titleAfter}
 			</h1>
 
-			<SectionRule animateAttr="h-rule" />
+			<SectionRule colorToken="--color-fg-accent-on-brand" animateAttr="h-rule" />
 
 			<p class="hero-home__subtitle" data-animate="h-subtitle">
 				{subtitle}
@@ -218,8 +218,8 @@ const [titleBefore, titleAfter] = titleEmphasis
 		background: linear-gradient(
 			to bottom,
 			transparent 0%,
-			color-mix(in srgb, var(--color-accent) 30%, transparent) 20%,
-			color-mix(in srgb, var(--color-accent) 30%, transparent) 80%,
+			color-mix(in srgb, var(--color-fg-accent-on-brand) 30%, transparent) 20%,
+			color-mix(in srgb, var(--color-fg-accent-on-brand) 30%, transparent) 80%,
 			transparent 100%
 		);
 	}
@@ -234,8 +234,8 @@ const [titleBefore, titleAfter] = titleEmphasis
 			0deg,
 			transparent 0px,
 			transparent 3px,
-			color-mix(in srgb, var(--color-text-inverse) 1.5%, transparent) 3px,
-			color-mix(in srgb, var(--color-text-inverse) 1.5%, transparent) 4px
+			color-mix(in srgb, var(--color-fg-on-brand) 1.5%, transparent) 3px,
+			color-mix(in srgb, var(--color-fg-on-brand) 1.5%, transparent) 4px
 		);
 	}
 
@@ -279,7 +279,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 		font-size: clamp(var(--font-size-5xl), 6vw, var(--font-size-6xl));
 		line-height: var(--line-height-tight);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 		max-width: 18ch;
 		margin-block-start: var(--space-lg);
 		margin-block-end: var(--space-xl);
@@ -290,7 +290,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 	/* ── Title emphasis word ────────────────────────────────────────────────── */
 	.hero-home__title-em {
 		font-style: italic;
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 		display: inline-block;
 		clip-path: inset(0 100% 0 0);
 	}
@@ -306,9 +306,9 @@ const [titleBefore, titleAfter] = titleEmphasis
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		line-height: var(--line-height-relaxed);
-		color: color-mix(in srgb, var(--color-text-inverse) 85%, transparent);
+		color: var(--color-fg-on-brand-muted);
 		max-width: 44ch;
-		margin-block-end: var(--space-xl);
+		margin-block: var(--space-xl);
 		visibility: hidden;
 
 		@media (min-width: 768px) {
@@ -337,7 +337,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 		justify-content: space-between;
 		align-items: center;
 		padding-block-start: var(--space-lg);
-		border-top: 1px solid color-mix(in srgb, var(--color-text-inverse) 15%, transparent);
+		border-top: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent);
 		visibility: hidden;
 	}
 
@@ -353,7 +353,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 		flex-shrink: 0;
 		width: var(--space-md);
 		height: var(--space-md);
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-subtle);
 	}
 
 	.hero-home__location-icon :global(svg) {
@@ -367,6 +367,6 @@ const [titleBefore, titleAfter] = titleEmphasis
 		font-weight: var(--font-weight-medium);
 		letter-spacing: var(--letter-spacing-wider);
 		text-transform: uppercase;
-		color: var(--color-text-inverse-subtle);
+		color: var(--color-fg-on-brand-subtle);
 	}
 </style>
