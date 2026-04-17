@@ -31,7 +31,7 @@ const { lines } = Astro.props;
 			<CtaLink
 				href="/contact"
 				label="Send a message"
-				variant="outline-dark"
+				variant="outline-light"
 				icon="arrow"
 			/>
 		</div>
@@ -46,8 +46,8 @@ const { lines } = Astro.props;
 <style>
 	/* ── Shell ──────────────────────────────────────────────────────────────── */
 	.svc-mid-cta {
-		/* background-color set via bg prop */
-		border-block: 1px solid color-mix(in srgb, var(--color-accent-on-light) 20%, transparent);
+		background-color: var(--color-bg-brand-muted);
+		border-block: 1px solid var(--color-border-brand);
 		padding-block: var(--space-3xl);
 	}
 
@@ -75,13 +75,13 @@ const { lines } = Astro.props;
 		font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
 		line-height: var(--line-height-snug);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text);
+		color: var(--color-fg-on-brand);
 		max-width: 40ch;
 	}
 
 	.svc-mid-cta__em {
 		font-style: italic;
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent-on-brand);
 	}
 
 	/* ── Actions ─────────────────────────────────────────────────────────────── */
