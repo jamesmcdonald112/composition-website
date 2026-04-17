@@ -36,8 +36,8 @@ body {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--color-fg-default);
+  background-color: var(--color-bg-page);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   min-height: 100dvh;
@@ -62,11 +62,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-text);
+  color: var(--color-fg-default);
 }
 
 a {
-  color: var(--color-text-link);
+  color: var(--color-fg-link);
   text-decoration-color: transparent;
   text-underline-offset: 0.2em;
   transition: color var(--duration-fast) var(--ease-out),
@@ -74,12 +74,12 @@ a {
 }
 
 a:hover {
-  color: var(--color-text-link-hover);
+  color: var(--color-fg-link-hover);
   text-decoration-color: currentColor;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--color-focus);
+  outline: 2px solid var(--color-border-focus);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
@@ -92,7 +92,7 @@ button {
 
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-focus);
+  outline: 2px solid var(--color-border-focus);
   outline-offset: 3px;
 }
 
@@ -106,10 +106,10 @@ table {
 
 hr {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-default);
 }
 
 ::selection {
-  background-color: var(--color-accent-light);
-  color: var(--color-text);
+  background-color: var(--color-bg-accent);
+  color: var(--color-fg-default);
 }
