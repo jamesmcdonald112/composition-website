@@ -32,22 +32,21 @@ const { text, attribution, image, class: className } = Astro.props;
 		padding-block: var(--space-xl);
 		padding-inline: var(--space-2xl);
 		border-radius: var(--radius-lg);
-		background: var(--color-bg-subtle);
-		border: 1px solid var(--color-border);
+		background: var(--color-bg-surface);
+		border: 1px solid var(--color-border-brand);
+		box-shadow: var(--shadow-sm);
 		position: relative;
 		cursor: default;
 		transition:
 			transform 0.35s var(--ease-out),
 			box-shadow 0.35s var(--ease-out),
-			border-color 0.35s var(--ease-out),
-			background 0.35s var(--ease-out);
+			border-color 0.35s var(--ease-out);
 
 		&:hover {
 			transform: translateY(-6px);
-			border-color: var(--color-accent);
-			background: var(--color-bg-surface);
+			border-color: var(--color-border-accent);
 			box-shadow:
-				0 0 0 1px var(--color-accent),
+				0 0 0 1px var(--color-border-accent),
 				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 8%, transparent);
 		}
 
@@ -55,12 +54,12 @@ const { text, attribution, image, class: className } = Astro.props;
 			content: "\201C";
 			font-family: var(--font-serif);
 			font-size: 72px;
-			color: var(--color-accent-on-light);
+			color: var(--color-fg-accent-on-brand);
 			opacity: 0.5;
 			position: absolute;
 			top: var(--space-sm);
 			right: var(--space-lg);
-			line-height: 1;
+			line-height: var(--line-height-none);
 			pointer-events: none;
 			transition: opacity 0.35s var(--ease-out);
 		}
@@ -79,7 +78,7 @@ const { text, attribution, image, class: className } = Astro.props;
 		font-style: italic;
 		font-size: var(--font-size-lg);
 		line-height: 1.7;
-		color: var(--color-text);
+		color: var(--color-fg-on-surface);
 		margin-block-end: var(--space-lg);
 	}
 
@@ -92,7 +91,7 @@ const { text, attribution, image, class: className } = Astro.props;
 		align-items: center;
 		gap: var(--space-sm);
 		padding-block-start: var(--space-lg);
-		border-top: 1px solid var(--color-border);
+		border-top: 1px solid var(--color-border-default);
 	}
 
 	.quote-card__portrait {
@@ -101,7 +100,7 @@ const { text, attribution, image, class: className } = Astro.props;
 		flex-shrink: 0;
 		overflow: hidden;
 		border-radius: var(--radius-full);
-		border: 1px solid var(--color-border);
+		border: 1px solid var(--color-border-default);
 	}
 
 	.quote-card__img {
@@ -115,6 +114,6 @@ const { text, attribution, image, class: className } = Astro.props;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
-		color: var(--color-text);
+		color: var(--color-fg-on-surface);
 	}
 </style>
