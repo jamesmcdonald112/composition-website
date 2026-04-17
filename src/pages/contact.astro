@@ -17,14 +17,16 @@ const structuredData = getLawFirmStructuredData();
 	structuredData={structuredData}
 	solidNav
 >
-	<SplitPage >
+	<SplitPage rightBg="var(--color-bg-page)">
 		<ContactPanel slot="left" />
 		<ContactForm slot="right" />
 	</SplitPage>
 </BaseLayout>
 
 <script>
-	const hasError = document.querySelector(".contact-form__field-error, .contact-form__error-banner");
+	const hasError = document.querySelector(
+		".contact-form__field-error, .contact-form__error-banner",
+	);
 	if (hasError) {
 		const form = document.querySelector(".contact-form");
 		if (form) {

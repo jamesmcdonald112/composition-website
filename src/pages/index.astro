@@ -4,6 +4,7 @@ import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
 import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
+import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
 import { firm } from "../config/firm";
 import { homePageContent } from "../config/home";
 import { services } from "../config/services/index";
@@ -11,7 +12,7 @@ import { getLawFirmStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
-const { hero } = homePageContent;
+const { hero, supportingServices } = homePageContent;
 ---
 
 <BaseLayout
@@ -31,10 +32,18 @@ const { hero } = homePageContent;
 		imageAlt="View of Kilkenny Castle from John's Bridge"
 	/>
 
-	<div class="section">
+	<section class="section">
+		<div class="wrapper wrapper--wide home-services__header">
+			<SectionHeader
+				eyebrow={supportingServices.eyebrow}
+				heading={supportingServices.title}
+				intro={supportingServices.intro}
+			/>
+		</div>
 		<ServiceCardsGrid services={services.slice(1, 4)} />
-	</div>
+	</section>
 
 	<TestimonialBlock />
 	<CTAPanel />
 </BaseLayout>
+
