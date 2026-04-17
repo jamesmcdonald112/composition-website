@@ -1,7 +1,22 @@
 # Mary Molloy Solicitor — Web Project
 
 ## Stack
-Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright
+Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright, colorjs.io
+
+## Colour Tooling — colorjs.io
+`colorjs.io` is available as a dependency. Use it when you need to:
+- Verify WCAG contrast ratios between two token values before committing a colour
+- Convert between colour spaces (oklch ↔ srgb ↔ hex)
+- Calculate perceptually-uniform colour scales
+
+```ts
+import Color from "colorjs.io";
+const fg = new Color("oklch(0.25 0.068 256)"); // navy-900
+const bg = new Color("oklch(0.97 0.012 70)");  // stone-100
+const contrast = fg.contrast(bg, "WCAG21");     // → 14.79
+```
+
+Run contrast checks in a one-off `.ts` script via `npx tsx script.ts` — no build step needed.
 
 ## Commands
 - Dev: `npm run dev`
@@ -40,3 +55,4 @@ For every component, page, or UI build task, load and follow:
 - Layout rules: `_system/LAYOUT-REFERENCE.md`
 - Component direction: `_system/COMPONENT-DIRECTION-GUIDE.md`
 - Design brief: `_system/STAGE-3-DESIGN-BRIEF.md`
+- Theme creation: `_system/THEME-CREATION-GUIDE.md` — read before writing any theme file
