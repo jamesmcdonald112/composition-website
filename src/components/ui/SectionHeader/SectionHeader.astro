@@ -2,50 +2,51 @@
 import Eyebrow from "../Eyebrow.astro";
 import SectionRule from "../SectionRule.astro";
 
+import type { Heading, HeadingPart } from "../../../types/heading";
+
 interface Props {
 	eyebrow: string;
-	heading: string;
-	headingEmphasis?: string;
+	heading: Heading;
 	headingColor?: string;
 	eyebrowColor?: string;
 	ruleColor?: string;
 	level?: 1 | 2 | 3;
 	gsapAttr?: string;
+	intro?: string;
 }
 
 const {
 	eyebrow,
 	heading,
-	headingEmphasis,
-	headingColor = "--color-text",
+	headingColor = "--color-fg-default",
 	eyebrowColor,
 	ruleColor,
 	level = 2,
 	gsapAttr,
+	intro,
 } = Astro.props;
 
 const Tag = `h${level}` as "h1" | "h2" | "h3";
 
-const [headingBefore, headingAfter] = headingEmphasis
-	? heading.split(headingEmphasis)
-	: [heading, ""];
+const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] : [...heading];
 ---
 
 <header class="section-header" data-section-header={gsapAttr ?? undefined}>
 	<Eyebrow text={eyebrow} colorToken={eyebrowColor} />
 	<Tag class="section-header__heading" style={`--heading-color: var(${headingColor})`}>
-		{headingBefore}{headingEmphasis && <em class="section-header__em">{headingEmphasis}</em>}{
-			headingAfter
-		}
+		{parts.map((part) => (part.em ? <em class="section-header__em">{part.text}</em> : part.text))}
 	</Tag>
 	<SectionRule colorToken={ruleColor} />
+	{intro && <p class="section-header__intro">{intro}</p>}
 </header>
 
 <style>
 	.section-header {
+		--section-header-em-color: var(--color-fg-accent);
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
+		margin-block-end: var(--space-3xl);
 	}
 
 	.section-header__heading {
@@ -59,6 +60,15 @@ const [headingBefore, headingAfter] = headingEmphasis
 
 	.section-header__em {
 		font-style: italic;
-		color: var(--color-accent);
+		color: var(--section-header-em-color);
+	}
+
+	.section-header__intro {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		max-width: 60ch;
+		margin-block-start: var(--space-xs);
 	}
 </style>
