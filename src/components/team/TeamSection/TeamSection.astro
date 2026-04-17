@@ -1,0 +1,63 @@
+---
+import { teamSectionContent } from "../../../config/team";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+import TeamCard from "../TeamCard/TeamCard.astro";
+
+const { members, intro } = teamSectionContent;
+
+const heading = [{ text: "Meet our " }, { text: "team", em: true }] as const;
+---
+
+<section class="team-section section" data-team-section>
+	<div class="team-section__inner wrapper wrapper--wide">
+
+		<SectionHeader
+			eyebrow="The firm"
+			heading={heading}
+			intro={intro}
+			gsapAttr="team-section"
+		/>
+
+		<ul class="team-section__grid" role="list">
+			{members.map((member) => (
+				<TeamCard
+					name={member.name}
+					role={member.role}
+					bio={member.bio}
+					photo={member.photo}
+				/>
+			))}
+		</ul>
+
+	</div>
+</section>
+
+<script>
+	import "./team-section.gsap.ts";
+</script>
+
+<style>
+	.team-section {
+		background-color: var(--color-bg-subtle);
+	}
+
+	/* 1 col → 2 col → 3 col max */
+	.team-section__grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-auto-rows: min(60vh, 550px);
+		gap: var(--space-lg);
+
+		@media (min-width: 640px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: var(--space-xl);
+		}
+	}
+</style>
