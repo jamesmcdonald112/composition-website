@@ -24,24 +24,6 @@
   border-width: 0;
 }
 
-.skip-link {
-  position: absolute;
-  top: var(--space-sm);
-  left: var(--space-sm);
-  transform: translateY(-200%);
-  transition: transform var(--duration-fast) var(--ease-out);
-  z-index: 9999;
-  padding: var(--space-sm) var(--space-md);
-  background: var(--color-brand);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-md);
-  font-weight: var(--font-weight-semibold);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
 
 /* ── TEXT UTILITIES ───────────────────────────────────────────────────── */
 
@@ -52,10 +34,10 @@
 .text-balance { text-wrap: balance; }
 .text-pretty  { text-wrap: pretty; }
 
-.text-muted   { color: var(--color-text-muted); }
-.text-subtle  { color: var(--color-text-subtle); }
-.text-accent  { color: var(--color-text-accent); }
-.text-inverse { color: var(--color-text-inverse); }
+.text-muted   { color: var(--color-fg-muted); }
+.text-subtle  { color: var(--color-fg-subtle); }
+.text-accent  { color: var(--color-fg-accent); }
+.text-inverse { color: var(--color-fg-on-brand); }
 
 .text-sm      { font-size: var(--font-size-sm); }
 .text-lg      { font-size: var(--font-size-lg); }
@@ -99,10 +81,10 @@
 
 /* ── COLOUR UTILITIES ─────────────────────────────────────────────────── */
 
-.bg-base       { background-color: var(--color-bg); }
+.bg-base       { background-color: var(--color-bg-page); }
 .bg-surface    { background-color: var(--color-bg-surface); }
 .bg-subtle     { background-color: var(--color-bg-subtle); }
-.bg-muted      { background-color: var(--color-bg-muted); }
+.bg-muted      { background-color: var(--color-bg-subtle); }
 .bg-brand      { background-color: var(--color-bg-brand); }
 .bg-inverse    { background-color: var(--color-bg-brand); }
 .bg-accent     { background-color: var(--color-bg-accent); }
@@ -117,8 +99,8 @@
 
 /* ── BORDER UTILITIES ─────────────────────────────────────────────────── */
 
-.border-top    { border-top: 1px solid var(--color-border); }
-.border-bottom { border-bottom: 1px solid var(--color-border); }
+.border-top    { border-top: 1px solid var(--color-border-default); }
+.border-bottom { border-bottom: 1px solid var(--color-border-default); }
 .rounded-md    { border-radius: var(--radius-md); }
 .rounded-lg    { border-radius: var(--radius-lg); }
 
