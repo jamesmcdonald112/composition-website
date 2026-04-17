@@ -13,6 +13,7 @@ interface Props {
 	level?: 1 | 2 | 3;
 	gsapAttr?: string;
 	intro?: string;
+	noMargin?: boolean;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
 	level = 2,
 	gsapAttr,
 	intro,
+	noMargin = false,
 } = Astro.props;
 
 const Tag = `h${level}` as "h1" | "h2" | "h3";
@@ -31,7 +33,7 @@ const Tag = `h${level}` as "h1" | "h2" | "h3";
 const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] : [...heading];
 ---
 
-<header class="section-header" data-section-header={gsapAttr ?? undefined}>
+<header class:list={["section-header", { "section-header--no-margin": noMargin }]} data-section-header={gsapAttr ?? undefined}>
 	<Eyebrow text={eyebrow} colorToken={eyebrowColor} />
 	<Tag class="section-header__heading" style={`--heading-color: var(${headingColor})`}>
 		{parts.map((part) => (part.em ? <em class="section-header__em">{part.text}</em> : part.text))}
@@ -47,6 +49,10 @@ const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] :
 		flex-direction: column;
 		gap: var(--space-sm);
 		margin-block-end: var(--space-3xl);
+
+		&.section-header--no-margin {
+			margin-block-end: 0;
+		}
 	}
 
 	.section-header__heading {
