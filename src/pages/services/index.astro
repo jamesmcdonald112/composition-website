@@ -4,6 +4,7 @@ import { allServices, servicesIndexContent } from "../../config/services/service
 import { getLawFirmStructuredData } from "../../config/structured-data";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ServiceCardsGrid from "../../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.astro";
 
 const structuredData = getLawFirmStructuredData();
 ---
@@ -17,6 +18,13 @@ const structuredData = getLawFirmStructuredData();
 	solidNav={true}
 >
 	<div class="section services-section">
+		<div class="wrapper wrapper--wide">
+			<SectionHeader
+				eyebrow={servicesIndexContent.hero.eyebrow}
+				heading={servicesIndexContent.hero.title}
+				level={1}
+			/>
+		</div>
 		<ServiceCardsGrid services={allServices} />
 	</div>
 </BaseLayout>
