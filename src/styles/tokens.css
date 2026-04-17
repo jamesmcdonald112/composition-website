@@ -24,66 +24,101 @@
 
 /* ══════════════════════════════════════════════════════════════════════════
    COLOUR TOKENS
-   Semantic colour roles. Named by WHERE they are used, not WHAT colour they are.
+
+   NAMING PATTERN: --color-[property]-[qualifier]
+   property:  bg | fg | border
+   qualifier: describes role, never appearance
+
+   GOLD RULE:
+   --color-fg-accent          → use on light/stone surfaces (bg-page, bg-surface, bg-subtle)
+   --color-fg-accent-on-brand → use on brand surfaces (bg-brand, bg-brand-muted)
+
+   These two exist because no single gold shade passes AA text on both light
+   and dark backgrounds. Physics, not preference.
+
+   Every value references an intent alias defined in the theme file.
+   Zero hardcoded scale numbers here — that makes this file truly theme-agnostic.
    ══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-	/* Backgrounds */
-	--color-bg: var(--stone-100); /* Page background */
-	--color-bg-surface: var(--white); /* Cards, panels, raised surfaces */
-	--color-bg-subtle: var(--stone-50); /* Subtle surface (alternate rows, sidebar bg) */
-	--color-bg-muted: var(--stone-300); /* Muted surface (disabled states) */
-	--color-bg-brand: var(--navy-900); /* Dark brand background (hero, footer) */
-	--color-bg-brand-mid: var(--navy-700); /* Mid brand background */
-	--color-bg-accent: var(--gold-50); /* Accent-tinted background */
-	--color-bg-overlay: var(--navy-900); /* Modal / drawer overlay */
+	/* ── Backgrounds ─────────────────────────────────────────────────────────
+	   Use bg tokens for background-color only.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-bg-page:         var(--color-page-bg);        /* Page canvas */
+	--color-bg-surface:      var(--color-surface);        /* Cards, panels, raised surfaces */
+	--color-bg-subtle:       var(--color-subtle-bg);      /* Alternate rows, inset sections */
+	--color-bg-brand:        var(--color-brand-bg);       /* Primary brand sections: nav, footer, hero */
+	--color-bg-brand-muted:  var(--color-brand-bg-muted); /* Less prominent brand sections */
+	--color-bg-brand-subtle: var(--color-brand-bg-subtle);/* Decorative tints, circle fills, section accents */
+	--color-bg-accent:       var(--color-accent-bg);      /* Accent-tinted background */
+	--color-bg-tertiary:     var(--color-tertiary-bg);    /* Tertiary-tinted background */
 
-	/* Text */
-	--color-text: var(--navy-900); /* Primary body text */
-	--color-text-muted: var(--navy-700); /* Secondary / supporting text */
-	--color-text-subtle: var(--stone-600); /* Placeholder, disabled, captions */
-	--color-text-inverse: var(--white); /* Text on dark backgrounds */
-	--color-text-inverse-muted: color-mix(
-		in srgb,
-		var(--white) 80%,
-		transparent
-	); /* Muted text on dark backgrounds */
-	--color-text-inverse-subtle: color-mix(
-		in srgb,
-		var(--white) 70%,
-		transparent
-	); /* Subtle/label text on dark backgrounds */
-	--color-text-accent: var(--gold-500); /* Accent text, pull quotes */
-	--color-text-link: var(--navy-600); /* Inline link colour */
-	--color-text-link-hover: var(--gold-500); /* Link hover */
+	/* ── Foreground — text and icons ─────────────────────────────────────────
+	   Use fg tokens for color on text and inline SVG icons.
+	   Both use the CSS color property so one token covers both.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-fg-default:          var(--color-fg-level-1);     /* Primary body text and icons on light surfaces */
+	--color-fg-muted:            var(--color-fg-level-2);     /* Secondary / supporting text on light surfaces */
+	--color-fg-subtle:           var(--color-fg-level-3);     /* Captions, placeholders, disabled text */
 
-	/* Brand */
-	--color-brand: var(--navy-900); /* Primary brand colour */
-	--color-brand-mid: var(--navy-700); /* Mid brand — hover states */
-	--color-brand-light: var(--navy-500); /* Light brand — active states */
-	--color-accent: var(--gold-500); /* Accent / highlight colour */
-	--color-accent-muted: var(
-		--gold-600
-	); /* Softened accent — darker than accent, used for hover states */
-	--color-accent-light: var(--gold-400); /* Very subtle accent bg */
-	--color-accent-on-light: var(--gold-600); /* Accent for use on light/stone backgrounds — passes WCAG AA */
+	/* Surface foreground — text on card/panel surfaces.
+	   Dark themes use light text, light themes use dark text. Defined per theme. */
+	--color-fg-on-surface:       var(--color-on-surface);      /* Primary text/icons on bg-surface */
+	--color-fg-on-surface-muted: var(--color-on-surface-muted);/* Secondary text/icons on bg-surface */
 
-	/* Borders */
-	--color-border: var(--stone-300); /* Default border */
-	--color-border-strong: var(--stone-400); /* Stronger border, dividers */
-	--color-border-brand: var(--navy-700); /* Brand-coloured border */
-	--color-border-accent: var(--gold-400); /* Accent border */
+	--color-fg-on-brand:         var(--color-on-brand);       /* Primary text/icons on bg-brand */
+	--color-fg-on-brand-muted:   var(--color-on-brand-muted); /* Less prominent text/icons on bg-brand */
+	--color-fg-on-brand-subtle:  var(--color-on-brand-subtle);/* Captions and labels on bg-brand */
+	--color-fg-link:             var(--color-tertiary-fg);    /* Inline link */
+	--color-fg-link-hover:       var(--color-tertiary-fg-hover); /* Inline link hover */
 
-	/* States */
-	--color-error: var(--red-500);
-	--color-error-bg: var(--red-100);
-	--color-success: var(--green-500);
-	--color-success-bg: var(--green-100);
-	--color-warning: var(--amber-500);
-	--color-warning-bg: var(--amber-100);
+	/* ── Tertiary foreground ─────────────────────────────────────────────────
+	   Third brand colour for links, featured callouts, and supporting accents.
+	   Use on light surfaces only — never on bg-brand or bg-brand-muted.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-fg-tertiary:         var(--color-tertiary-fg);      /* Links, callout text, supporting icons */
+	--color-fg-tertiary-hover:   var(--color-tertiary-fg-hover);/* Hover state for tertiary text */
+	--color-border-tertiary:     var(--color-tertiary-border);  /* Tertiary border, left rule on callouts */
 
-	/* Focus */
-	--color-focus: var(--gold-500); /* Focus ring colour — do not change */
+	/* ── Accent foreground ───────────────────────────────────────────────────
+	   Two tokens because no single shade passes AA text on both surfaces.
+	   Always use the correct one for your context.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-fg-accent:           var(--color-accent-fg);          /* Accent text/icons on light surfaces — must pass AA */
+	--color-fg-accent-on-brand:  var(--color-accent-fg-on-brand); /* Accent text/icons on brand surfaces — must pass AA */
+
+	/* ── Interactive ─────────────────────────────────────────────────────────
+	   Buttons and CTAs. All fg/bg interactive pairs must pass AA text (4.5:1).
+	────────────────────────────────────────────────────────────────────────── */
+	--color-bg-interactive:       var(--color-interactive-bg);       /* Button/CTA background default */
+	--color-bg-interactive-hover: var(--color-interactive-bg-hover); /* Button/CTA background hover */
+	--color-fg-interactive:       var(--color-interactive-fg);       /* Text on bg-interactive */
+	--color-fg-interactive-hover: var(--color-interactive-fg-hover); /* Text on bg-interactive-hover */
+
+	/* ── Borders ─────────────────────────────────────────────────────────────
+	   Use border tokens for border-color only.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-border-default:  var(--color-border-level-1); /* Standard border on light surfaces */
+	--color-border-strong:   var(--color-border-level-2); /* Stronger border, dividers */
+	--color-border-brand:    var(--color-brand-border);   /* Border on brand surfaces */
+	--color-border-accent:   var(--color-accent-border);  /* Accent-coloured border — UI elements only */
+
+	/* ── States ──────────────────────────────────────────────────────────────
+	   Danger, success, warning — fg for text/icons, bg for surface tints.
+	   Functional colours are universal — they do not vary by theme.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-fg-danger:   var(--color-danger-fg);
+	--color-bg-danger:   var(--color-danger-bg);
+	--color-fg-success:  var(--color-success-fg);
+	--color-bg-success:  var(--color-success-bg);
+	--color-fg-warning:  var(--color-warning-fg);
+	--color-bg-warning:  var(--color-warning-bg);
+
+	/* ── Focus ───────────────────────────────────────────────────────────────
+	   Must be visible on every surface.
+	   Applied as border-color (or outline-color) on focus rings.
+	────────────────────────────────────────────────────────────────────────── */
+	--color-border-focus:  var(--color-focus-ring);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -212,8 +247,8 @@
 	--shadow-inset-md: inset 0 2px 4px hsl(0 0% 0% / 0.1);
 
 	/* Coloured shadows for brand elements */
-	--shadow-brand: 0 8px 32px hsl(from var(--navy-900) h s l / 0.25);
-	--shadow-accent: 0 4px 16px hsl(from var(--gold-500) h s l / 0.3);
+	--shadow-brand: 0 8px 32px hsl(from var(--color-brand-900) h s l / 0.25);
+	--shadow-accent: 0 4px 16px hsl(from var(--color-accent-500) h s l / 0.3);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
