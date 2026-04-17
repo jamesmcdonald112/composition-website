@@ -1,5 +1,6 @@
 ---
-import Eyebrow from "../../ui/Eyebrow.astro";
+import type { Heading } from "../../../types/heading";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
 
 interface Stat {
 	label: string;
@@ -7,27 +8,25 @@ interface Stat {
 }
 
 interface Props {
-	title: string;
+	title: Heading;
 	paragraphs: readonly string[];
 	stats: readonly Stat[];
 	eyebrow?: string;
+	style?: string;
 }
 
-const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.props;
+const { title, paragraphs, stats, eyebrow = "Why clients choose us", style } = Astro.props;
 ---
 
-<section class="svc-trust section" data-service-trust>
+<section class="svc-trust section" data-service-trust style={style}>
 	<div class="svc-trust__inner wrapper wrapper--wide">
 		<!-- Top: heading full width, then two-column body -->
 		<div class="svc-trust__top" data-svc-trust-text>
-			<div class="svc-trust__header">
-				<Eyebrow
-					text={eyebrow}
-					colorToken="--color-accent-on-light"
-					animateAttr="svc-trust-eyebrow"
-				/>
-				<h2 class="svc-trust__heading">{title}</h2>
-			</div>
+			<SectionHeader
+				eyebrow={eyebrow}
+				heading={title}
+				gsapAttr="svc-trust-header"
+			/>
 			<div class="svc-trust__paras">
 				{paragraphs.map((para) => <p class="svc-trust__para">{para}</p>)}
 			</div>
@@ -68,18 +67,9 @@ const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.pr
 	.svc-trust__top {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-3xl);
 	}
 
-	.svc-trust__heading {
-		font-family: var(--font-serif);
-		font-weight: var(--font-weight-light);
-		font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
-		line-height: var(--line-height-snug);
-		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text);
-		max-width: 32ch;
-	}
+
 
 	.svc-trust__paras {
 		display: grid;
@@ -96,7 +86,7 @@ const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.pr
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
+		color: var(--color-fg-muted);
 	}
 
 	/* ── Stats strip — horizontal row along the bottom ───────────────────────── */
@@ -104,7 +94,7 @@ const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.pr
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: var(--space-xl) var(--space-lg);
-		border-block-start: 1px solid var(--color-border);
+		border-block-start: 1px solid var(--color-border-default);
 		padding-block-start: var(--space-3xl);
 		@media (min-width: 768px) {
 			grid-template-columns: repeat(4, 1fr);
@@ -131,7 +121,7 @@ const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.pr
 		font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
 		font-weight: var(--font-weight-light);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent);
 		line-height: var(--line-height-none);
 		font-variant-numeric: lining-nums tabular-nums;
 		white-space: nowrap;
@@ -144,6 +134,6 @@ const { title, paragraphs, stats, eyebrow = "Why clients choose us" } = Astro.pr
 		font-weight: var(--font-weight-normal);
 		letter-spacing: var(--letter-spacing-widest);
 		text-transform: uppercase;
-		color: var(--color-text-subtle);
+		color: var(--color-fg-subtle);
 	}
 </style>
