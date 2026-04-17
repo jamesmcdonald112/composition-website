@@ -30,7 +30,7 @@ const { text, colorToken, showRule = false, animateAttr, class: className } = As
 
 <style>
 	.eyebrow-wrap {
-		--eyebrow-color: var(--color-accent-muted);
+		--eyebrow-color: var(--color-fg-accent);
 		display: block;
 	}
 
@@ -42,8 +42,8 @@ const { text, colorToken, showRule = false, animateAttr, class: className } = As
 
 	.eyebrow-wrap__rule {
 		display: inline-block;
-		width: 2rem;
-		height: 2px;
+		width: var(--size-8);
+		height: var(--size-0-5);
 		background-color: var(--eyebrow-color);
 		flex-shrink: 0;
 	}
