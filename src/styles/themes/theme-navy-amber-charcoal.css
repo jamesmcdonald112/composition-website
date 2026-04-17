@@ -30,7 +30,8 @@
     fg-muted    (navy-700) on bg-page   (stone-100):  9.93:1 — AA PASS
     fg-accent   (amber-600) on bg-page  (stone-100):  5.70:1 — AA PASS
     fg-accent   (amber-600) on bg-surface (white):    6.42:1 — AA PASS
-    fg-accent-on-brand (amber-400) on bg-brand (navy-900): 5.47:1 — AA PASS
+    fg-accent-on-brand (amber-300) on bg-brand-muted (navy-700): 5.29:1 — AA PASS
+    fg-accent-on-brand (amber-300) on bg-brand (navy-900): 7.90:1 — AA PASS
     fg-tertiary (charc-700) on bg-page  (stone-100):  8.96:1 — AA PASS
     fg-on-brand (white) on bg-brand     (navy-900):  16.65:1 — AA PASS
     fg-interactive (white) on bg-interactive (amber-500): 4.56:1 — AA PASS
@@ -62,7 +63,7 @@
 
   /* Burnt Amber — accent, hue 40
      amber-600 (#a53d0f): 5.70:1 on stone-100  — AA Text PASS
-     amber-400 (#e1764b): 5.47:1 on navy-900   — AA Text PASS
+     amber-300 (#f19b73): 5.29:1 on navy-700, 7.90:1 on navy-900 — AA Text PASS
      amber-500 L=0.58 (#c0552d): 4.56:1 white  — AA Text PASS (adjusted from 0.60)
   */
   --amber-900: oklch(0.24 0.085 38); /* #380900 */
@@ -187,7 +188,7 @@
 
   /* ── Accent foreground ───────────────────────────── */
   --color-accent-fg:          var(--color-accent-600); /* amber-600 on light surfaces — must pass AA */
-  --color-accent-fg-on-brand: var(--color-accent-400); /* amber-400 on navy surfaces — must pass AA */
+  --color-accent-fg-on-brand: var(--color-accent-300); /* amber-300 on navy surfaces — 5.29:1 on navy-700, 7.90:1 on navy-900 — AA PASS */
 
   /* ── Tertiary foreground ─────────────────────────── */
   --color-tertiary-fg:       var(--color-tertiary-700);

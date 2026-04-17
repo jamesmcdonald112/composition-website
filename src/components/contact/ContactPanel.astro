@@ -12,13 +12,14 @@ import { firm } from "../../config/firm";
 		Kilkenny, Ireland
 	</p>
 
+
 	<h1 class="contact-panel__heading" data-contact-panel-heading>
 		Let&rsquo;s talk about<br />your <em>matter.</em>
 	</h1>
 
 	<p class="contact-panel__intro" data-contact-panel-intro>{contactPageContent.intro}</p>
 
-	<hr class="contact-panel__divider" data-contact-panel-divider />
+	<div class="contact-panel__divider" data-contact-panel-divider aria-hidden="true"></div>
 
 	<ul class="contact-panel__details" role="list">
 		<li class="contact-panel__item" data-contact-panel-item>
@@ -110,9 +111,11 @@ import { firm } from "../../config/firm";
 
 	/* ── Divider ──────────────────────────────────────────────────────────── */
 	.contact-panel__divider {
-		border: none;
-		border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent);
+		height: 1px;
+		background: color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent);
 		margin-block: var(--space-2xl);
+		transform-origin: left center;
+		will-change: transform;
 	}
 
 	/* ── Contact detail list ──────────────────────────────────────────────── */
