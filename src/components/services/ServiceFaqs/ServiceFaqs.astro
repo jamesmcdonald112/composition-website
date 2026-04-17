@@ -1,7 +1,7 @@
 ---
 import minusIcon from "../../../assets/icons/minusIcon.svg?raw";
 import plusIcon from "../../../assets/icons/plusIcon.svg?raw";
-import Eyebrow from "../../ui/Eyebrow.astro";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
 
 interface Faq {
 	question: string;
@@ -13,22 +13,27 @@ interface Props {
 	eyebrow?: string;
 	heading?: string;
 	intro?: string;
+	style?: string;
 }
 
 const {
 	faqs,
 	eyebrow = "Common Questions",
-	heading = "What clients ask us most",
+	heading = [{ text: "What clients " }, { text: "ask us most", em: true }] as const,
 	intro = "We understand that legal matters can feel daunting. Here are the questions we hear most often — answered plainly.",
+	style,
 } = Astro.props;
 ---
 
-<section class="service-faqs section" aria-label="Frequently Asked Questions">
+<section class="service-faqs section" aria-label="Frequently Asked Questions" style={style}>
 	<div class="service-faqs__inner wrapper wrapper--wide">
 		<header class="service-faqs__header" data-sf-header>
-			<Eyebrow text={eyebrow} colorToken="--color-accent-on-light" animateAttr="sf-eyebrow" />
-			<h2 class="service-faqs__heading" data-sf-heading>{heading}</h2>
-			<p class="service-faqs__intro" data-sf-intro>{intro}</p>
+			<SectionHeader
+				eyebrow={eyebrow}
+				heading={heading}
+				intro={intro}
+				gsapAttr="sf-header"
+			/>
 		</header>
 
 		<dl class="service-faqs__list" data-sf-list>
@@ -74,7 +79,6 @@ const {
 	.service-faqs__inner {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-4xl);
 	}
 
 	/* ── Header ──────────────────────────────────────────────────────────────── */
@@ -82,32 +86,15 @@ const {
 		max-width: 48ch;
 	}
 
-	.service-faqs__heading {
-		font-family: var(--font-serif);
-		font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
-		font-weight: var(--font-weight-light);
-		line-height: var(--line-height-tight);
-		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-text);
-		margin-block-end: var(--space-md);
-	}
-
-	.service-faqs__intro {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
-		max-width: 56ch;
-	}
 
 	/* ── FAQ list ────────────────────────────────────────────────────────────── */
 	.service-faqs__list {
-		border-block-start: 1px solid var(--color-border);
+		border-block-start: 1px solid var(--color-border-default);
 	}
 
 	/* ── Individual item ─────────────────────────────────────────────────────── */
 	.service-faqs__item {
-		border-block-end: 1px solid var(--color-border);
+		border-block-end: 1px solid var(--color-border-default);
 		position: relative;
 		/* Gold left accent — grows in when open */
 		--sf-accent-scale: 0;
@@ -120,7 +107,7 @@ const {
 		inset-block: 0;
 		inset-inline-start: 0;
 		width: 2px;
-		background-color: var(--color-accent-on-light);
+		background-color: var(--color-border-accent);
 		transform: scaleY(var(--sf-accent-scale));
 		transform-origin: top center;
 		transition: transform var(--duration-slow) var(--ease-out);
@@ -133,7 +120,7 @@ const {
 	/* ── Trigger button ──────────────────────────────────────────────────────── */
 	.service-faqs__trigger {
 		display: grid;
-		grid-template-columns: 2.5rem 1fr auto;
+		grid-template-columns: var(--size-10) 1fr auto;
 		align-items: center;
 		gap: var(--space-lg);
 		width: 100%;
@@ -143,22 +130,22 @@ const {
 		border: none;
 		cursor: pointer;
 		text-align: left;
-		color: var(--color-text);
+		color: var(--color-fg-default);
 		transition: color var(--duration-fast) var(--ease-out);
 
 		@media (min-width: 768px) {
-			grid-template-columns: 3rem 1fr auto;
+			grid-template-columns: var(--size-12) 1fr auto;
 			padding-block: var(--space-2xl);
 			padding-inline: var(--space-xl);
 		}
 	}
 
 	.service-faqs__trigger:hover {
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent);
 	}
 
 	.service-faqs__trigger:focus-visible {
-		outline: 2px solid var(--color-focus);
+		outline: 2px solid var(--color-border-focus);
 		outline-offset: -2px;
 		border-radius: var(--radius-sm);
 	}
@@ -170,7 +157,7 @@ const {
 		font-weight: var(--font-weight-light);
 		line-height: var(--line-height-none);
 		letter-spacing: var(--letter-spacing-tight);
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent);
 		opacity: 0.65;
 		transition: opacity var(--duration-fast) var(--ease-out);
 
@@ -200,7 +187,7 @@ const {
 	}
 
 	.service-faqs__item--open .service-faqs__question-text {
-		color: var(--color-text);
+		color: var(--color-fg-default);
 	}
 
 	/* ── Plus / minus icon ───────────────────────────────────────────────────── */
@@ -209,7 +196,7 @@ const {
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		color: var(--color-accent-on-light);
+		color: var(--color-fg-accent);
 	}
 
 	.service-faqs__icon-plus,
@@ -245,11 +232,11 @@ const {
 		display: block;
 		overflow: hidden;
 		padding-inline: var(--space-lg);
-		padding-inline-start: calc(var(--space-lg) + 2.5rem + var(--space-lg));
+		padding-inline-start: calc(var(--space-lg) + var(--size-10) + var(--space-lg));
 
 		@media (min-width: 768px) {
 			padding-inline: var(--space-xl);
-			padding-inline-start: calc(var(--space-xl) + 3rem + var(--space-xl));
+			padding-inline-start: calc(var(--space-xl) + var(--size-12) + var(--space-xl));
 		}
 	}
 
@@ -264,7 +251,7 @@ const {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-text-muted);
+		color: var(--color-fg-muted);
 		max-width: 72ch;
 		padding-block-end: var(--space-2xl);
 	}
