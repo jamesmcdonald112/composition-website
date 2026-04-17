@@ -14,7 +14,7 @@ if (prefersReducedMotion) {
 	const em = document.querySelector<HTMLElement>('[data-animate="h-title-em"]');
 	if (em) {
 		em.style.clipPath = "none";
-		em.style.color = "var(--color-accent-light)";
+		em.style.color = "var(--color-fg-accent-on-brand)";
 	}
 } else {
 	/* ─ Make visible before animating ─ */
@@ -77,7 +77,11 @@ if (prefersReducedMotion) {
 		// Colour blooms from white to gold after the wipe completes
 		.to(
 			'[data-animate="h-title-em"]',
-			{ color: "var(--color-accent-light)", duration: 1.2, ease: "power2.inOut" },
+			{
+				color: "var(--color-fg-accent-on-brand)",
+				duration: 1.2,
+				ease: "power2.inOut",
+			},
 			2.2,
 		)
 
