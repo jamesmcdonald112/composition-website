@@ -13,6 +13,7 @@ interface Props {
 	level?: 1 | 2 | 3;
 	gsapAttr?: string;
 	intro?: string;
+	introColor?: string;
 	noMargin?: boolean;
 }
 
@@ -25,6 +26,7 @@ const {
 	level = 2,
 	gsapAttr,
 	intro,
+	introColor = "--color-fg-muted",
 	noMargin = false,
 } = Astro.props;
 
@@ -39,7 +41,7 @@ const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] :
 		{parts.map((part) => (part.em ? <em class="section-header__em">{part.text}</em> : part.text))}
 	</Tag>
 	<SectionRule colorToken={ruleColor} />
-	{intro && <p class="section-header__intro">{intro}</p>}
+	{intro && <p class="section-header__intro" style={`--intro-color: var(${introColor})`}>{intro}</p>}
 </header>
 
 <style>
@@ -73,7 +75,7 @@ const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] :
 		font-family: var(--font-sans);
 		font-size: var(--font-size-base);
 		line-height: var(--line-height-relaxed);
-		color: var(--color-fg-muted);
+		color: var(--intro-color);
 		max-width: 60ch;
 		margin-block-start: var(--space-xs);
 	}
