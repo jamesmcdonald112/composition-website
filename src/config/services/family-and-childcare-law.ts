@@ -22,7 +22,11 @@ export const familyAndChildcareLaw = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Family & Childcare Law in Kilkenny",
+		title: [
+			{ text: "Family & " },
+			{ text: "Childcare Law", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"Family law matters are often the most personal and emotionally difficult situations a person can face. We provide clear legal advice and steady support throughout — working to help you reach a fair outcome with the minimum of conflict, while always keeping the welfare of children at the centre of every decision.",
 	},
@@ -33,13 +37,21 @@ export const familyAndChildcareLaw = {
 	],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Talk to a family law solicitor in Kilkenny",
+		title: [
+			{ text: "Talk to a " },
+			{ text: "family law", em: true },
+			{ text: " solicitor in Kilkenny" },
+		],
 		description:
 			"Family law matters require prompt, confidential advice. Contact our team to discuss your situation — we will explain your options clearly and help you decide on the right next step.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Sensitive, experienced family law advice in Kilkenny",
+		title: [
+			{ text: "Sensitive, experienced " },
+			{ text: "family law", em: true },
+			{ text: " advice in Kilkenny" },
+		],
 		paragraphs: [
 			"Family law is an area where the right legal advice — given at the right time — can make a significant difference to the outcome for you and your children. We approach every family law matter with discretion, taking the time to understand your situation before advising on the most appropriate course of action.",
 			"Our aim is always to resolve matters with as little conflict as possible. Where agreement can be reached — through negotiation or mediation — we help clients get there. Where court proceedings are unavoidable, we prepare thoroughly and represent clients clearly and effectively.",
@@ -56,7 +68,10 @@ export const familyAndChildcareLaw = {
 	// --- Article ---
 	article: {
 		eyebrow: "Family Law",
-		title: "Legal support through life's most difficult moments",
+		title: [
+			{ text: "Legal support through " },
+			{ text: "life's most difficult moments", em: true },
+		],
 		intro:
 			"Family law matters involve decisions that will shape your life and the lives of your children for years to come. Our Kilkenny solicitors provide clear legal advice and steady support throughout separation, divorce, guardianship, and childcare proceedings — always focused on helping you reach a resolution that works.",
 		quote: {

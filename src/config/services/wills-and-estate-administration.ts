@@ -22,7 +22,11 @@ export const willsAndEstateAdministration = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Wills & Estate Administration in Kilkenny",
+		title: [
+			{ text: "Wills & " },
+			{ text: "Estate Administration", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"Making a will is one of the most important steps you can take to protect your family and make sure your wishes are carried out. We also support executors and families through the full administration of an estate after bereavement — carefully, clearly, and at a pace that works for you.",
 	},
@@ -30,13 +34,21 @@ export const willsAndEstateAdministration = {
 	midCta: ["Questions about a will or estate?", "We're here to help."],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Speak to a wills and probate solicitor today",
+		title: [
+			{ text: "Speak to a " },
+			{ text: "wills and probate", em: true },
+			{ text: " solicitor today" },
+		],
 		description:
 			"Whether you need to make or update a will, or you are dealing with the administration of an estate, our Kilkenny team is here to help. Contact us for clear, sensitive advice.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Experienced wills and probate solicitors in Kilkenny",
+		title: [
+			{ text: "Experienced " },
+			{ text: "wills and probate", em: true },
+			{ text: " solicitors in Kilkenny" },
+		],
 		paragraphs: [
 			"We have been advising families in Kilkenny on wills and estate matters for over 46 years. Wills and probate are an area where getting the details right matters enormously — a poorly drafted will or a misstep in the administration process can cause significant difficulties for the people you leave behind.",
 			"We approach every wills and probate matter with care and thoroughness. Whether you are making your first will, updating an existing one, or dealing with the estate of a deceased family member, we take the time to understand your situation before advising you on the right approach.",
@@ -53,7 +65,10 @@ export const willsAndEstateAdministration = {
 	// --- Article ---
 	article: {
 		eyebrow: "Wills & Probate",
-		title: "Protecting your family's future",
+		title: [
+			{ text: "Protecting your " },
+			{ text: "family's future", em: true },
+		],
 		intro:
 			"A valid, clearly drafted will is the single most effective step you can take to ensure your assets go to the right people and your wishes are respected. Without one, Irish law decides who inherits — and the outcome may not reflect what you would have chosen. Our Kilkenny solicitors advise on all aspects of wills, enduring powers of attorney, and the administration of estates.",
 		quote: {

@@ -22,7 +22,11 @@ export const personalInjuryLitigation = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Personal Injury & Litigation in Kilkenny",
+		title: [
+			{ text: "Personal Injury & " },
+			{ text: "Litigation", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"If you have been injured through no fault of your own, you may be entitled to compensation for your pain, suffering, and financial losses. Our solicitors will assess your case honestly, explain the process clearly, and represent your interests throughout — from the initial PIAB application through to settlement or trial.",
 	},
@@ -30,13 +34,21 @@ export const personalInjuryLitigation = {
 	midCta: ["Unsure whether you have a claim?", "Get an honest assessment."],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Get an honest assessment of your claim",
+		title: [
+			{ text: "Get an " },
+			{ text: "honest assessment", em: true },
+			{ text: " of your claim" },
+		],
 		description:
 			"If you have been injured or are involved in a civil dispute, early legal advice is essential. Contact our Kilkenny litigation team to discuss your situation and find out where you stand.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Straightforward advice on personal injury claims in Kilkenny",
+		title: [
+			{ text: "Straightforward advice on " },
+			{ text: "personal injury claims", em: true },
+			{ text: " in Kilkenny" },
+		],
 		paragraphs: [
 			"Personal injury claims can feel daunting if you have never been through one before. We explain how the process works in plain, straightforward terms and give you a realistic view of your claim from the very first meeting.",
 			"We handle all aspects of your claim — gathering medical evidence, dealing with PIAB, negotiating with insurers, and, where necessary, issuing and pursuing court proceedings. You focus on your recovery; we take care of the legal side.",
@@ -53,7 +65,10 @@ export const personalInjuryLitigation = {
 	// --- Article ---
 	article: {
 		eyebrow: "Personal Injury",
-		title: "Understanding your right to compensation",
+		title: [
+			{ text: "Understanding your " },
+			{ text: "right to compensation", em: true },
+		],
 		intro:
 			"If you have been injured through the negligence of another person or organisation, Irish law entitles you to seek compensation. Understanding what you can claim for, how the process works, and what to expect at each stage makes a real difference to how a claim progresses. Our Kilkenny solicitors handle personal injury claims from initial assessment through to settlement or trial.",
 		quote: {

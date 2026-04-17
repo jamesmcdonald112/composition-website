@@ -22,7 +22,11 @@ export const roadTrafficAccidents = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Road Traffic Accident Claims in Kilkenny",
+		title: [
+			{ text: "Road Traffic " },
+			{ text: "Accident Claims", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"Being involved in a road traffic accident can be a frightening and disorienting experience. Insurers move quickly to protect their own position — you should too. Our solicitors advise injured parties on their rights, handle the PIAB process and insurer negotiations, and pursue claims to court where a fair settlement cannot be reached.",
 	},
@@ -33,13 +37,20 @@ export const roadTrafficAccidents = {
 	],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Injured in a road traffic accident? Call us today",
+		title: [
+			{ text: "Injured in a " },
+			{ text: "road traffic accident", em: true },
+			{ text: "? Call us today" },
+		],
 		description:
 			"Time limits apply to road traffic accident claims. Contact our Kilkenny team as soon as possible to protect your position and get clear advice on your next steps.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "On your side from the moment you call",
+		title: [
+			{ text: "On your side " },
+			{ text: "from the moment you call", em: true },
+		],
 		paragraphs: [
 			"After a road traffic accident, you are dealing with insurance companies that handle thousands of claims every year. They have experienced claims handlers and legal teams working to minimise their exposure. We level the playing field — giving you experienced legal representation from the start.",
 			"Early settlement offers from insurers are rarely a true reflection of the full value of your claim. They are made quickly, before the full extent of your injuries is known and before you have had the benefit of legal advice. We advise you on what a fair outcome looks like before you consider accepting anything.",
@@ -56,7 +67,10 @@ export const roadTrafficAccidents = {
 	// --- Article ---
 	article: {
 		eyebrow: "Road Traffic Accidents",
-		title: "What to do after a road traffic accident",
+		title: [
+			{ text: "What to do after a " },
+			{ text: "road traffic accident", em: true },
+		],
 		intro:
 			"The steps you take in the hours and days after a road traffic accident can have a real impact on your ability to bring a successful claim. Our Kilkenny solicitors advise injured road users on their rights and manage the full claims process — from the initial PIAB application through to settlement or court proceedings.",
 		quote: {

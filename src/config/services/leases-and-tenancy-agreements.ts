@@ -22,7 +22,11 @@ export const leasesAndTenancyAgreements = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Leases & Tenancy Agreements in Kilkenny",
+		title: [
+			{ text: "Leases & " },
+			{ text: "Tenancy Agreements", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"A well-drafted lease protects both landlord and tenant and sets clear expectations from the start. Whether you are a landlord letting a property for the first time, a tenant reviewing a proposed agreement, or either party dealing with a dispute, we provide clear, practical advice on your rights and obligations under Irish tenancy law.",
 	},
@@ -33,13 +37,21 @@ export const leasesAndTenancyAgreements = {
 	],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Need advice on a lease or tenancy matter?",
+		title: [
+			{ text: "Need advice on a " },
+			{ text: "lease or tenancy", em: true },
+			{ text: " matter?" },
+		],
 		description:
 			"Whether you are entering a new tenancy, reviewing an agreement, or dealing with a dispute, our Kilkenny solicitors can advise you on your legal position and the most effective way to proceed.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Clear advice for landlords and tenants in Kilkenny",
+		title: [
+			{ text: "Clear advice for " },
+			{ text: "landlords and tenants", em: true },
+			{ text: " in Kilkenny" },
+		],
 		paragraphs: [
 			"Irish landlord and tenant law has changed significantly in recent years — new rules on rent increases in Rent Pressure Zones, longer notice periods for terminations, and restrictions on the grounds for ending a tenancy. We keep up to date with these changes and advise clients precisely on where they stand.",
 			"Getting a lease right from the start is far less costly than dealing with a dispute afterwards. We review agreements carefully, identify problematic terms, and advise on what should be negotiated or clarified before you sign.",
@@ -56,7 +68,11 @@ export const leasesAndTenancyAgreements = {
 	// --- Article ---
 	article: {
 		eyebrow: "Landlord & Tenant",
-		title: "Know your rights before you sign",
+		title: [
+			{ text: "Know your " },
+			{ text: "rights", em: true },
+			{ text: " before you sign" },
+		],
 		intro:
 			"Whether you are letting a property for the first time or moving into a new home, getting proper legal advice before signing a lease can prevent serious problems later. Our Kilkenny solicitors advise both landlords and tenants on their rights and obligations under the Residential Tenancies Act, and represent clients in Residential Tenancies Board proceedings when disputes arise.",
 		quote: {

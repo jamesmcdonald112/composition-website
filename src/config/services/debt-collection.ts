@@ -22,7 +22,11 @@ export const debtCollection = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Debt Recovery in Kilkenny",
+		title: [
+			{ text: "Debt " },
+			{ text: "Recovery", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"Unpaid debts put real pressure on businesses and individuals. Our solicitors take a structured, efficient approach to debt recovery — starting with a formal demand letter and moving through the courts where necessary. We keep the process proportionate to the amount at stake and keep you fully informed throughout.",
 	},
@@ -30,13 +34,20 @@ export const debtCollection = {
 	midCta: ["Owed money that isn't being paid?", "We can help you recover it."],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Owed money? Let us help you recover it",
+		title: [
+			{ text: "Owed money? Let us help you " },
+			{ text: "recover it", em: true },
+		],
 		description:
 			"The sooner you act on an unpaid debt, the better your prospects of recovery. Contact our Kilkenny solicitors to discuss your situation and find out the most effective way forward.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Efficient, proportionate debt recovery in Kilkenny",
+		title: [
+			{ text: "Efficient, proportionate " },
+			{ text: "debt recovery", em: true },
+			{ text: " in Kilkenny" },
+		],
 		paragraphs: [
 			"Chasing unpaid debts consumes time and energy that most businesses cannot afford. We take that burden from you — managing correspondence, drafting demand letters, handling court filings, and advising on enforcement while you focus on running your business.",
 			"A solicitor's letter of demand carries significantly more weight than a phone call or a final invoice. In many cases, it is enough to prompt payment without any further action. Where it is not, we move promptly through the court process to secure judgment.",
@@ -53,7 +64,10 @@ export const debtCollection = {
 	// --- Article ---
 	article: {
 		eyebrow: "Debt Recovery",
-		title: "Recovering what you are owed",
+		title: [
+			{ text: "Recovering " },
+			{ text: "what you are owed", em: true },
+		],
 		intro:
 			"Unpaid invoices and outstanding debts are a serious problem — financially and operationally — for businesses and individuals alike. Our Kilkenny solicitors take a structured, prompt approach to debt recovery: formal demand letters, court proceedings where necessary, and enforcement of judgments to achieve actual payment.",
 		quote: {

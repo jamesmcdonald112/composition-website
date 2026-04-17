@@ -22,7 +22,11 @@ export const employmentLaw = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Employment Law in Kilkenny",
+		title: [
+			{ text: "Employment " },
+			{ text: "Law", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"If you have been dismissed from your job, made redundant, or treated unfairly at work, you may have important legal rights — and strict time limits apply. Our solicitors advise employees and employers on the full range of employment law matters, from understanding your options to representing you at the Workplace Relations Commission.",
 	},
@@ -33,13 +37,21 @@ export const employmentLaw = {
 	],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Facing a workplace dispute? Get advice now",
+		title: [
+			{ text: "Facing a " },
+			{ text: "workplace dispute", em: true },
+			{ text: "? Get advice now" },
+		],
 		description:
 			"Most WRC complaints must be submitted within six months of the act complained of. If you have been dismissed, made redundant, or are dealing with a workplace issue, contact our Kilkenny employment team without delay.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Employment law advice for employees and employers in Kilkenny",
+		title: [
+			{ text: "Employment law advice for " },
+			{ text: "employees and employers", em: true },
+			{ text: " in Kilkenny" },
+		],
 		paragraphs: [
 			"Employment disputes are stressful and time-sensitive. Whether you have just been dismissed, are facing a redundancy process, or have received a WRC complaint, early legal advice makes a real difference to the outcome.",
 			"Our approach is practical and direct. We assess the strength of your position honestly, advise on the most effective strategy, and move quickly given the tight time limits that apply to most employment law claims.",
@@ -56,7 +68,11 @@ export const employmentLaw = {
 	// --- Article ---
 	article: {
 		eyebrow: "Employment Law",
-		title: "Your rights in the workplace",
+		title: [
+			{ text: "Your " },
+			{ text: "rights", em: true },
+			{ text: " in the workplace" },
+		],
 		intro:
 			"Irish employment law gives employees significant protections — but knowing when those protections apply, how to use them, and how to do so before the time limit runs out is not straightforward. Our Kilkenny employment solicitors advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and WRC proceedings.",
 		quote: {

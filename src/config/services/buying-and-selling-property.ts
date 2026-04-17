@@ -22,7 +22,11 @@ export const buyingAndSellingProperty = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Buying & Selling Property in Kilkenny",
+		title: [
+			{ text: "Buying & Selling " },
+			{ text: "Property", em: true },
+			{ text: " in Kilkenny" },
+		],
 		subtitle:
 			"Buying or selling a home is one of the biggest decisions you will ever make. Our property solicitors in Kilkenny manage the full conveyancing process — from reviewing contracts and raising enquiries to handling completion and registration. We keep you informed at every step and make sure nothing is left to chance.",
 	},
@@ -33,13 +37,21 @@ export const buyingAndSellingProperty = {
 	],
 	// --- Bottom CTA ---
 	cta: {
-		title: "Ready to move your property matter forward?",
+		title: [
+			{ text: "Ready to move your " },
+			{ text: "property matter", em: true },
+			{ text: " forward?" },
+		],
 		description:
 			"Contact our Kilkenny property solicitors for clear, practical advice on buying or selling a home.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: "Kilkenny property solicitors with over 46 years of experience",
+		title: [
+			{ text: "Kilkenny property solicitors with " },
+			{ text: "over 46 years", em: true },
+			{ text: " of experience" },
+		],
 		paragraphs: [
 			"Mary Molloy Solicitor has been helping buyers and sellers in Kilkenny and across County Kilkenny since 1979. Conveyancing is at the heart of what we do — our team handles residential property transactions every day, and we understand the local market, common title issues, and what it takes to keep deals on track.",
 			"We act for first-time buyers, people moving home, investors, and those selling an inherited or investment property. Whatever your situation, you get the same thorough, careful approach — contracts reviewed in full, title investigated properly, and all lender requirements managed without delay.",
@@ -56,7 +68,11 @@ export const buyingAndSellingProperty = {
 	// --- Article ---
 	article: {
 		eyebrow: "Conveyancing in Kilkenny",
-		title: "What your property solicitor does for you",
+		title: [
+			{ text: "What your " },
+			{ text: "property solicitor", em: true },
+			{ text: " does for you" },
+		],
 		intro:
 			"Conveyancing is the legal process of transferring ownership of a property from one person to another. It involves reviewing contracts, investigating title, managing mortgage and lender requirements, and seeing the transaction through to completion and registration. Here is what we do on your behalf — and why it matters.",
 		quote: {
