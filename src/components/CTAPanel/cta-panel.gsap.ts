@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: ScrollTrigger must be imported to register with GSAP
 import { gsap, ScrollTrigger } from "../../scripts/gsap";
 
 export function initCtaPanel(): void {
@@ -9,10 +8,9 @@ export function initCtaPanel(): void {
 	panels.forEach((panel) => {
 		const header = panel.querySelector("[data-section-header]");
 		const headerChildren = header ? Array.from(header.children) : [];
-		const body = panel.querySelector("[data-cta-body]");
 		const actions = panel.querySelector("[data-cta-ctas]");
 
-		const textEls = [...headerChildren, body].filter(Boolean);
+		const textEls = [...headerChildren].filter(Boolean);
 
 		ScrollTrigger.create({
 			trigger: panel,

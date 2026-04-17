@@ -4,39 +4,34 @@ import { firm } from "../../config/firm";
 import CtaLink from "../ui/CtaLink.astro";
 import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
 
+import type { Heading } from "../../types/heading";
+
 interface Props {
-	variant?: "light" | "dark";
 	eyebrow?: string;
-	heading?: string;
+	heading?: Heading;
 	body?: string;
 }
 
 const {
-	variant = "light",
 	eyebrow = defaultCtaPanel.eyebrow,
 	heading = defaultCtaPanel.title,
 	body = defaultCtaPanel.body,
 } = Astro.props;
 
 const phone = firm.phone;
-const secondaryVariant = variant === "light" ? "outline-dark" : "outline-light";
-const headingColor = variant === "light" ? "--color-text" : "--color-text-inverse";
-const eyebrowColor = variant === "light" ? "--color-accent-on-light" : undefined;
-const ruleColor = variant === "light" ? "--color-accent-on-light" : undefined;
 ---
 
-<section class={`cta-panel${variant === "light" ? " cta-panel--light" : ""}`} data-cta-panel>
+<section class="cta-panel" data-cta-panel>
 	<div class="cta-panel__inner wrapper wrapper--wide">
 		<div class="cta-panel__text">
 			<SectionHeader
 				eyebrow={eyebrow}
 				heading={heading}
-				headingColor={headingColor}
-				eyebrowColor={eyebrowColor}
-				ruleColor={ruleColor}
+				intro={body}
+				eyebrowColor="--color-fg-accent"
+				ruleColor="--color-fg-accent"
 				gsapAttr="cta-panel"
 			/>
-			<p class="cta-panel__body" data-cta-body>{body}</p>
 		</div>
 
 		<div class="cta-panel__ctas" data-cta-ctas>
@@ -46,7 +41,7 @@ const ruleColor = variant === "light" ? "--color-accent-on-light" : undefined;
 				variant="primary"
 				icon="phone"
 			/>
-			<CtaLink href="/contact" label="Contact Us" variant={secondaryVariant} icon="arrow" />
+			<CtaLink href="/contact" label="Contact Us" variant="outline-dark" icon="arrow" />
 		</div>
 	</div>
 </section>
@@ -54,31 +49,18 @@ const ruleColor = variant === "light" ? "--color-accent-on-light" : undefined;
 <style>
 	/* ── Shell — full viewport width ────────────────────────── */
 	.cta-panel {
-		--_bg: var(--color-bg-brand-mid);
-		--_text: var(--color-text-inverse);
-		--_text-muted: var(--color-text-inverse-muted);
-
-		background-color: var(--_bg);
-		padding-block: var(--space-5xl);
-	}
-
-	/* Light variant overrides */
-	.cta-panel--light {
-		--_bg: var(--color-bg-subtle);
-		--_text: var(--color-text);
-		--_text-muted: var(--color-text-muted);
+		background-color: var(--color-bg-subtle);
+		padding-block: var(--space-4xl);
 	}
 
 	/* ── Inner container — .wrapper handles max-width, centring, gutters ── */
 	.cta-panel__inner {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: var(--space-3xl);
 
 		@media (min-width: 1024px) {
 			grid-template-columns: 1fr 1fr;
 			align-items: center;
-			gap: var(--space-4xl);
 		}
 	}
 
@@ -87,15 +69,6 @@ const ruleColor = variant === "light" ? "--color-accent-on-light" : undefined;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
-	}
-
-	.cta-panel__body {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-relaxed);
-		color: var(--_text-muted);
-		max-width: 52ch;
-		padding-block-start: var(--space-xs);
 	}
 
 	/* ── Actions column ─────────────────────────────────────── */
