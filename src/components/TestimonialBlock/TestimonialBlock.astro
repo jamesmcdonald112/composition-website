@@ -5,24 +5,23 @@ import { testimonials, testimonialsSection } from "../../config/testimonials";
 import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
 
 interface Props {
-	variant?: "dark" | "light";
+	dark?: boolean;
 }
 
-const { variant = "light" } = Astro.props;
+const { dark = false } = Astro.props;
 ---
 
-<section class={`section ${variant === "dark" ? "testimonials--dark" : "testimonials--light"}`}>
+<section class:list={["section testimonials", { "testimonials--dark": dark }]}>
 	<div class="wrapper wrapper--wide">
 		<header class="t-header" data-testimonial-header>
 			<SectionHeader
 				eyebrow={testimonialsSection.eyebrow}
 				heading={testimonialsSection.heading}
-				headingEmphasis={testimonialsSection.headingEmphasis}
-				headingColor={variant === "dark" ? "--color-text-inverse" : "--color-text"}
-				eyebrowColor={variant === "dark" ? undefined : "--color-accent-on-light"}
-				ruleColor={variant === "dark" ? undefined : "--color-accent-on-light"}
+				intro={testimonialsSection.intro}
+				headingColor={dark ? "--color-fg-on-brand" : "--color-fg-default"}
+				eyebrowColor={dark ? undefined : "--color-fg-accent"}
+				ruleColor={dark ? undefined : "--color-fg-accent"}
 			/>
-			<p class="t-header__intro">{testimonialsSection.intro}</p>
 		</header>
 
 		<div class="t-grid">
@@ -61,35 +60,15 @@ const { variant = "light" } = Astro.props;
 </section>
 
 <style>
-	/* ── Section shell ──────────────────────────────────────────────────────── */
-	/* .section composition handles padding-block: var(--space-section) */
-
-	/* Dark variant — navy background */
+	/* ── Dark variant — navy background ─────────────────────────────────────── */
 	.testimonials--dark {
 		background-color: var(--color-bg-brand);
+		--section-header-em-color: var(--color-fg-accent-on-brand);
 	}
 
-	/* Light variant — inherits page background */
-
-	/* ── Section header ─────────────────────────────────────────────────────── */
-	.t-header {
-		margin-block-end: var(--space-3xl);
-	}
-
-	/* Intro — dark variant */
-	.testimonials--dark .t-header__intro {
-		color: var(--color-text-inverse-muted);
-	}
-
-	/* Intro — light variant */
-	.testimonials--light .t-header__intro {
-		color: var(--color-text-muted);
-	}
-
-	.t-header__intro {
-		font-size: var(--font-size-base);
-		max-width: 55ch;
-		line-height: var(--line-height-relaxed);
+	/* ── Section header intro colour ────────────────────────────────────────── */
+	.testimonials--dark :global(.section-header__intro) {
+		color: var(--color-fg-on-brand-muted);
 	}
 
 	/* ── Grid ───────────────────────────────────────────────────────────────── */
@@ -98,12 +77,10 @@ const { variant = "light" } = Astro.props;
 		grid-template-columns: 1fr;
 		gap: var(--space-lg);
 
-		/* 2-col at tablet+ */
 		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		/* 3-col at desktop+ */
 		@media (min-width: 1024px) {
 			grid-template-columns: repeat(3, 1fr);
 		}
@@ -132,12 +109,15 @@ const { variant = "light" } = Astro.props;
 		}
 	}
 
-	/* ── Card base ──────────────────────────────────────────────────────────── */
+	/* ── Card base (light / default) ────────────────────────────────────────── */
 	.t-card {
 		display: flex;
 		flex-direction: column;
 		padding: var(--space-xl);
 		border-radius: var(--radius-lg);
+		background: var(--color-bg-surface);
+		border: 1px solid var(--color-border-brand);
+		box-shadow: var(--shadow-sm);
 		position: relative;
 		cursor: default;
 		transition:
@@ -148,71 +128,76 @@ const { variant = "light" } = Astro.props;
 
 		&:hover {
 			transform: translateY(-6px);
-			border-color: var(--color-accent);
+			border-color: var(--color-border-accent);
+			background: var(--color-bg-surface);
 			box-shadow:
-				0 0 0 1px var(--color-accent),
-				0 24px 48px rgba(0, 0, 0, 0.15);
+				0 0 0 1px var(--color-border-accent),
+				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 8%, transparent);
 		}
 
-		/* Quote mark — dims at rest, brightens on hover */
+		/* Decorative quote mark */
 		&::before {
 			content: "\201C";
 			font-family: var(--font-serif);
 			font-size: 72px;
-			color: var(--color-accent);
+			color: var(--color-fg-accent);
 			position: absolute;
 			top: var(--space-sm);
 			right: var(--space-lg);
 			line-height: 1;
 			pointer-events: none;
+			opacity: 0.6;
 			transition: opacity 0.35s var(--ease-out);
+		}
+
+		&:hover::before {
+			opacity: 0.8;
 		}
 	}
 
-	/* Card — dark variant */
+	/* ── Card — dark variant overrides ─────────────────────────────────────── */
 	.testimonials--dark .t-card {
-		background: color-mix(in srgb, var(--color-text-inverse) 4%, transparent);
-		border: 1px solid color-mix(in srgb, var(--color-text-inverse) 9%, transparent);
+		background: color-mix(in srgb, var(--color-fg-on-brand) 4%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 9%, transparent);
+		box-shadow: none;
+
+		&::before {
+			opacity: 1;
+		}
 
 		&:hover {
-			background: color-mix(in srgb, var(--color-text-inverse) 8%, transparent);
+			background: color-mix(in srgb, var(--color-fg-on-brand) 8%, transparent);
 			box-shadow:
-				0 0 0 1px var(--color-accent),
+				0 0 0 1px var(--color-border-accent),
 				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 40%, transparent);
 		}
 	}
 
-	/* Card — light variant */
-	.testimonials--light .t-card {
-		background: var(--color-bg-surface);
-		border: 1px solid var(--color-border);
-
-		&::before {
-			opacity: 0.4;
-		}
-
-		&:hover::before {
-			opacity: 0.75;
-		}
-
-		&:hover {
-			background: var(--color-bg-surface);
-			box-shadow:
-				0 0 0 1px var(--color-accent),
-				0 24px 48px color-mix(in srgb, var(--color-bg-brand) 8%, transparent);
-		}
-	}
-
-	/* ── Card internals ─────────────────────────────────────────────────────── */
+	/* ── Stars ──────────────────────────────────────────────────────────────── */
 	.t-card__stars {
-		color: var(--color-accent);
 		font-size: var(--font-size-base);
 		letter-spacing: 2px;
 		margin-block-end: var(--space-md);
 		display: block;
+		color: var(--color-fg-accent);
+		opacity: 0.8;
+		transition: opacity var(--duration-fast) var(--ease-out);
 	}
 
-	/* Blockquote reset + flex grow to push name to bottom */
+	.t-card:hover .t-card__stars {
+		opacity: 1;
+	}
+
+	.testimonials--dark .t-card__stars {
+		color: var(--color-fg-accent-on-brand);
+		opacity: 1;
+	}
+
+	.testimonials--dark .t-card::before {
+		color: var(--color-fg-accent-on-brand);
+	}
+
+	/* ── Quote ──────────────────────────────────────────────────────────────── */
 	.t-card__quote {
 		flex: 1;
 		margin: 0;
@@ -222,41 +207,32 @@ const { variant = "light" } = Astro.props;
 		font-style: italic;
 		font-size: var(--font-size-lg);
 		line-height: 1.7;
+		color: var(--color-fg-on-surface);
 		margin-block-end: var(--space-lg);
 	}
 
-	/* Quote text colour — dark */
 	.testimonials--dark .t-card__quote {
-		color: var(--color-text-inverse);
+		color: var(--color-fg-on-brand);
 	}
 
-	/* Quote text colour — light */
-	.testimonials--light .t-card__quote {
-		color: var(--color-text);
-	}
-
-	/* Divider */
+	/* ── Divider ────────────────────────────────────────────────────────────── */
 	.t-card__divider {
 		border: none;
+		border-top: 1px solid color-mix(in oklch, var(--color-fg-on-surface) 20%, transparent);
 		margin-block-end: var(--space-lg);
 	}
 
 	.testimonials--dark .t-card__divider {
-		border-top: 1px solid color-mix(in srgb, var(--color-text-inverse) 20%, transparent);
+		border-top: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
 	}
 
-	.testimonials--light .t-card__divider {
-		border-top: 1px solid var(--color-border);
-	}
-
-	/* Attribution row */
+	/* ── Attribution ────────────────────────────────────────────────────────── */
 	.t-card__attribution {
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
 	}
 
-	/* Avatar circle */
 	.t-card__avatar {
 		width: var(--size-10);
 		height: var(--size-10);
@@ -268,32 +244,23 @@ const { variant = "light" } = Astro.props;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
+		background: var(--color-bg-brand-muted);
+		color: var(--color-fg-on-brand);
 	}
 
 	.testimonials--dark .t-card__avatar {
-		background: color-mix(in srgb, var(--color-text-inverse) 20%, transparent);
-		color: var(--color-text-inverse);
+		background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
 	}
 
-	.testimonials--light .t-card__avatar {
-		background: var(--color-bg-brand-mid);
-		color: var(--color-text-inverse);
-		opacity: 1;
-	}
-
-	/* Name */
 	.t-card__name {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-bold);
+		color: var(--color-fg-on-surface);
 	}
 
 	.testimonials--dark .t-card__name {
-		color: var(--color-text-inverse-muted);
-	}
-
-	.testimonials--light .t-card__name {
-		color: var(--color-text);
+		color: var(--color-fg-on-brand-muted);
 	}
 
 	/* ── Footer link ────────────────────────────────────────────────────────── */
@@ -310,13 +277,13 @@ const { variant = "light" } = Astro.props;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-semibold);
-		color: var(--color-accent);
+		color: var(--color-fg-accent);
 		text-decoration: none;
 		letter-spacing: var(--letter-spacing-wide);
 		transition: color 0.25s var(--ease-out);
 
 		&:hover {
-			color: var(--color-accent-light);
+			color: var(--color-fg-accent);
 		}
 
 		&:hover .t-footer__arrow {
@@ -324,12 +291,11 @@ const { variant = "light" } = Astro.props;
 		}
 	}
 
-	/* Light variant — gold fails contrast on stone bg, use muted instead */
-	.testimonials--light .t-footer__link {
-		color: var(--color-accent-muted);
+	.testimonials--dark .t-footer__link {
+		color: var(--color-fg-accent-on-brand);
 
 		&:hover {
-			color: var(--color-accent);
+			color: var(--color-fg-on-brand);
 		}
 	}
 
