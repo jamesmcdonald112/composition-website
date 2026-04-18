@@ -193,7 +193,6 @@ const { solid = false } = Astro.props;
 	.navbar__cta-link {
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-sm);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-medium);
@@ -222,6 +221,7 @@ const { solid = false } = Astro.props;
 		display: inline-flex;
 		flex-shrink: 0;
 		line-height: 0;
+		margin-inline-end: var(--space-sm);
 
 		svg {
 			width: var(--size-4);

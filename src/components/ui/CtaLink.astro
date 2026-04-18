@@ -37,7 +37,6 @@ const { href, label, variant = "primary", icon } = Astro.props;
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		gap: var(--space-sm);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-medium);
@@ -102,6 +101,12 @@ const { href, label, variant = "primary", icon } = Astro.props;
 		height: var(--space-md);
 		flex-shrink: 0;
 		line-height: 0;
+		margin-inline-end: var(--space-sm);
+	}
+
+	.cta-link__icon--arrow {
+		margin-inline-end: 0;
+		margin-inline-start: var(--space-sm);
 	}
 
 	.cta-link__icon--phone {
