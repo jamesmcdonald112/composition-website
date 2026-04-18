@@ -36,12 +36,12 @@ export const homePageContent = {
 				"Mortgage and lender requirements managed",
 				"Completion coordinated from start to finish",
 			],
-			cta: { label: "Learn about our property service", href: "/services/buying-and-selling-property" },
+			cta: { label: "Learn more", href: "/services/buying-and-selling-property" },
 			icon: homeModernIcon,
 			image: propertyImage,
 		},
 		aside: {
-			title: "Property handled with care",
+			title: [{ text: "Property handled with " }, { text: "care", em: true }],
 			intro: "Buying or selling a home is one of the biggest decisions you will ever make. We handle the legal side thoroughly, keep you informed, and make the process as straightforward as possible.",
 			keyPoints: [
 				{

@@ -1,10 +1,11 @@
 ---
 import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
 import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
-import TeamSection from "../components/team/TeamSection/TeamSection.astro";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
-import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
+import FeaturedService from "../components/home/FeaturedService/FeaturedService.astro";
+import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
+import TeamSection from "../components/team/TeamSection/TeamSection.astro";
 import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
 import { firm } from "../config/firm";
 import { homePageContent } from "../config/home";
@@ -32,6 +33,8 @@ const { hero, supportingServices } = homePageContent;
 		image={heroImage}
 		imageAlt="View of Kilkenny Castle from John's Bridge"
 	/>
+
+	<FeaturedService />
 
 	<section class="section">
 		<div class="wrapper wrapper--wide home-services__header">
