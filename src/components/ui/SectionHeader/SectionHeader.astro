@@ -8,6 +8,7 @@ interface Props {
 	eyebrow: string;
 	heading: Heading;
 	headingColor?: string;
+	emColor?: string;
 	eyebrowColor?: string;
 	ruleColor?: string;
 	level?: 1 | 2 | 3;
@@ -21,6 +22,7 @@ const {
 	eyebrow,
 	heading,
 	headingColor = "--color-fg-default",
+	emColor,
 	eyebrowColor,
 	ruleColor,
 	level = 2,
@@ -35,13 +37,25 @@ const Tag = `h${level}` as "h1" | "h2" | "h3";
 const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] : [...heading];
 ---
 
-<header class:list={["section-header", { "section-header--no-margin": noMargin }]} data-section-header={gsapAttr ?? undefined}>
+<header
+	class:list={["section-header", { "section-header--no-margin": noMargin }]}
+	data-section-header={gsapAttr ?? undefined}
+>
 	<Eyebrow text={eyebrow} colorToken={eyebrowColor} />
-	<Tag class="section-header__heading" style={`--heading-color: var(${headingColor})`}>
+	<Tag
+		class="section-header__heading"
+		style={`--heading-color: var(${headingColor})${emColor ? `; --section-header-em-color: var(${emColor})` : ""}`}
+	>
 		{parts.map((part) => (part.em ? <em class="section-header__em">{part.text}</em> : part.text))}
 	</Tag>
 	<SectionRule colorToken={ruleColor} />
-	{intro && <p class="section-header__intro" style={`--intro-color: var(${introColor})`}>{intro}</p>}
+	{
+		intro && (
+			<p class="section-header__intro" style={`--intro-color: var(${introColor})`}>
+				{intro}
+			</p>
+		)
+	}
 </header>
 
 <style>
