@@ -13,7 +13,7 @@ const resend = new Resend(RESEND_API_KEY);
 // TEMPLATE: Replace with a verified Resend sender domain before deployment
 const FROM = "onboarding@resend.dev";
 // TEMPLATE: Replace with client email address before deployment
-const TO = "YOUR_EMAIL@YOURDOMAIN.ie";
+const TO = "jamesmcdonald112@yahoo.ie";
 
 export async function deliverContact(input: ContactInput): Promise<void> {
 	await resend.emails.send({
