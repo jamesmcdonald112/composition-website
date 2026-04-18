@@ -272,7 +272,11 @@ if (prev) await Astro.session?.delete("form-data");
 		border-radius: var(--radius-md);
 		background: var(--color-bg-page);
 		font-family: var(--font-sans);
-		font-size: var(--font-size-sm);
+		font-size: var(--font-size-base);
+
+		@media (min-width: 768px) {
+			font-size: var(--font-size-sm);
+		}
 		color: var(--color-fg-default);
 		outline: none;
 		transition:
