@@ -1,0 +1,75 @@
+---
+import { homePageContent } from "../../../config/home";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+import FeaturedServiceCard from "./FeaturedServiceCard.astro";
+import FeaturedServiceKeyPoints from "./FeaturedServiceKeyPoints/FeaturedServiceKeyPoints.astro";
+
+const { featuredService } = homePageContent;
+const { card, aside } = featuredService;
+---
+
+<section class="featured-service">
+	<div class="featured-service__inner wrapper wrapper--wide">
+
+		<div class="featured-service__left">
+			<SectionHeader
+				eyebrow={featuredService.eyebrow}
+				heading={[{ text: aside.title }]}
+				headingColor="--color-fg-on-brand"
+				eyebrowColor="--color-fg-accent-on-brand"
+				ruleColor="--color-fg-accent-on-brand"
+				introColor="--color-fg-on-brand-muted"
+				intro={aside.intro}
+				noMargin
+			/>
+
+			<FeaturedServiceKeyPoints keyPoints={aside.keyPoints} />
+		</div>
+
+		<div class="featured-service__card">
+			<FeaturedServiceCard
+				tag={card.tag}
+				title={card.title}
+				body={card.body}
+				cta={card.cta}
+				image={card.image}
+			/>
+		</div>
+
+	</div>
+</section>
+
+<style>
+	.featured-service {
+		background: var(--color-bg-brand-muted);
+		padding-block: var(--space-section);
+	}
+
+	.featured-service__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-3xl);
+		align-items: start;
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 7fr 5fr;
+			align-items: stretch;
+		}
+	}
+
+	.featured-service__left {
+		display: flex;
+		gap: var(--space-3xl);
+		flex-direction: column;
+		align-items: flex-start;
+		height: 100%;
+
+		& > :last-child {
+			flex: 1;
+		}
+	}
+
+	.featured-service__card {
+		width: 100%;
+	}
+</style>
