@@ -76,6 +76,7 @@ export const homePageContent = {
 	},
 
 	trustStrip: {
+		eyebrow: "About the practice",
 		title: "A Kilkenny solicitor practice you can rely on",
 		paragraphs: [
 			"Mary Molloy Solicitor has been practising on Rose Inn Street, Kilkenny since 1979. Mary now practises alongside her sons Nicholas and Richard — a family team with a shared commitment to thorough, personal legal work.",

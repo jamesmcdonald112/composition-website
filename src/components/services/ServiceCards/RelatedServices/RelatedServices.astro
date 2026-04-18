@@ -1,0 +1,29 @@
+---
+import { allServices } from "../../../../config/services/services-index";
+import SectionHeader from "../../../ui/SectionHeader/SectionHeader.astro";
+import ServiceCardsGrid from "../ServiceCardsGrid/ServiceCardsGrid.astro";
+
+interface Props {
+	currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+
+const related = allServices.filter((s) => s.href !== currentHref).slice(0, 3);
+---
+
+<section class="related-services section">
+	<div class="related-services__inner wrapper wrapper--wide">
+		<SectionHeader
+			eyebrow="Other services"
+			heading="We can also help with"
+		/>
+	</div>
+	<ServiceCardsGrid services={related} />
+</section>
+
+<style>
+	.related-services__inner {
+		margin-block-end: var(--space-3xl);
+	}
+</style>

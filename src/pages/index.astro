@@ -5,7 +5,7 @@ import HeroHome from "../components/HeroHome/HeroHome.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
 import FeaturedService from "../components/home/FeaturedService/FeaturedService.astro";
 import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
-import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
+import ServiceCardsGrid from "../components/services/ServiceCards/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TeamSection from "../components/team/TeamSection/TeamSection.astro";
 import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
 import { firm } from "../config/firm";
@@ -36,6 +36,7 @@ const { hero, supportingServices, trustStrip } = homePageContent;
 	/>
 
 	<TrustStrip
+		eyebrow={trustStrip.eyebrow}
 		title={trustStrip.title}
 		paragraphs={trustStrip.paragraphs}
 		stats={trustStrip.stats}

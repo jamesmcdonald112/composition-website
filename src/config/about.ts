@@ -1,5 +1,5 @@
 
-import aboutImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
+import aboutImage from "../assets/images/new/kilkenny-river-from-castle.webp";
 
 export const aboutPageContent = {
 	seo: {
@@ -37,6 +37,10 @@ export const aboutPageContent = {
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Core focus", value: "Property & Probate" },
 		],
+	},
+	cta: {
+		title: "Ready to speak with us?",
+		body: "Whether you have a specific legal matter in mind or just want to understand your options, our Kilkenny team is happy to help. Get in touch for a straightforward conversation.",
 	},
 } as const;
 

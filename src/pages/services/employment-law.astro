@@ -3,13 +3,15 @@ import { employmentLaw as service } from "../../config/services";
 import { firm } from "../../config/firm";
 import { getLawFirmStructuredData } from "../../config/structured-data";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ServiceHero from "../../components/services/ServiceHero/ServiceHero.astro";
+import ServiceHero from "../../components/shared/ServiceHero/ServiceHero.astro";
 import TrustStrip from "../../components/shared/TrustStrip/TrustStrip.astro";
 import ServiceMidCta from "../../components/services/ServiceMidCta/ServiceMidCta.astro";
 import ServiceArticle from "../../components/services/ServiceArticle/ServiceArticle.astro";
 import ServiceProcess from "../../components/services/ServiceProcess/ServiceProcess.astro";
 import ServiceFaqs from "../../components/services/ServiceFaqs/ServiceFaqs.astro";
 import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
+import TestimonialBlock from "../../components/TestimonialBlock/TestimonialBlock.astro";
+import RelatedServices from "../../components/services/ServiceCards/RelatedServices/RelatedServices.astro";
 
 const structuredData = getLawFirmStructuredData();
 ---
@@ -44,4 +46,6 @@ const structuredData = getLawFirmStructuredData();
 	<ServiceProcess steps={service.process} processDescription={service.processDescription} />
 	<ServiceFaqs faqs={service.faqs} />
 	<CTAPanel heading={service.cta.title} body={service.cta.description} />
+	<TestimonialBlock />
+	<RelatedServices currentHref={service.href} />
 </BaseLayout>

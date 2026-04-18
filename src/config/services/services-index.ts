@@ -28,6 +28,22 @@ export const servicesIndexContent = {
 		title: "Not sure which service you need?",
 		body: "Our team in Kilkenny is happy to talk through your situation and point you in the right direction — no obligation, just clear advice on where to start.",
 	},
+	trustStrip: {
+		eyebrow: "Why clients choose us",
+		title: "Experienced, personal legal advice in Kilkenny",
+		paragraphs: [
+			"Mary Molloy Solicitor has been practising on Rose Inn Street, Kilkenny since 1979. Over 46 years, we have helped thousands of clients across the county with property, family, and personal legal matters.",
+			"We are a family practice — Mary works alongside her sons Nicholas and Richard. Every client gets direct access to a qualified solicitor, not a call centre or a junior clerk.",
+			"We keep our clients informed at every stage. You will always know where your matter stands, what is happening next, and what it will cost.",
+			"All work is carried out by qualified solicitors. We are regulated by the Law Society of Ireland and proud members of the Kilkenny legal community.",
+		],
+		stats: [
+			{ label: "Years in practice", value: "46+" },
+			{ label: "Established", value: "1979" },
+			{ label: "Local base", value: "Kilkenny" },
+			{ label: "Core focus", value: "Conveyancing" },
+		],
+	},
 } as const;
 
 // --- All services (used by ServiceCardsGrid on the services index page) ---
