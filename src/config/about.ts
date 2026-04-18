@@ -35,7 +35,7 @@ export const aboutPageContent = {
 			{ label: "Years in practice", value: "46+" },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
-			{ label: "Core focus", value: "Property & Probate" },
+			{ label: "Core focus", value: "Conveyancing" },
 		],
 	},
 	cta: {
