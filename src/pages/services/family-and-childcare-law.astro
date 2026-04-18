@@ -4,7 +4,7 @@ import { firm } from "../../config/firm";
 import { getLawFirmStructuredData } from "../../config/structured-data";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ServiceHero from "../../components/services/ServiceHero/ServiceHero.astro";
-import ServiceTrustStrip from "../../components/services/ServiceTrustStrip/ServiceTrustStrip.astro";
+import TrustStrip from "../../components/shared/TrustStrip/TrustStrip.astro";
 import ServiceMidCta from "../../components/services/ServiceMidCta/ServiceMidCta.astro";
 import ServiceArticle from "../../components/services/ServiceArticle/ServiceArticle.astro";
 import ServiceProcess from "../../components/services/ServiceProcess/ServiceProcess.astro";
@@ -28,7 +28,7 @@ const structuredData = getLawFirmStructuredData();
 		imageFocus="center 50%"
 		phone={firm.phone}
 	/>
-	<ServiceTrustStrip
+	<TrustStrip
 		title={service.trustStrip.title}
 		paragraphs={service.trustStrip.paragraphs}
 		stats={service.trustStrip.stats}

@@ -4,6 +4,7 @@ import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
 import FeaturedService from "../components/home/FeaturedService/FeaturedService.astro";
+import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
 import ServiceCardsGrid from "../components/services/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TeamSection from "../components/team/TeamSection/TeamSection.astro";
 import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
@@ -14,7 +15,7 @@ import { getLawFirmStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
-const { hero, supportingServices } = homePageContent;
+const { hero, supportingServices, trustStrip } = homePageContent;
 ---
 
 <BaseLayout
@@ -34,6 +35,12 @@ const { hero, supportingServices } = homePageContent;
 		imageAlt="View of Kilkenny Castle from John's Bridge"
 	/>
 
+	<TrustStrip
+		title={trustStrip.title}
+		paragraphs={trustStrip.paragraphs}
+		stats={trustStrip.stats}
+	/>
+
 	<FeaturedService />
 
 	<section class="section">
@@ -51,4 +58,3 @@ const { hero, supportingServices } = homePageContent;
 	<TeamSection />
 	<CTAPanel />
 </BaseLayout>
-
