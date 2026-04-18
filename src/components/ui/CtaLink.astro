@@ -37,7 +37,7 @@ const { href, label, variant = "primary", icon } = Astro.props;
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		gap: var(--space-xs);
+		gap: var(--space-sm);
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-medium);
@@ -101,6 +101,7 @@ const { href, label, variant = "primary", icon } = Astro.props;
 		width: var(--space-md);
 		height: var(--space-md);
 		flex-shrink: 0;
+		line-height: 0;
 	}
 
 	.cta-link__icon--phone {
