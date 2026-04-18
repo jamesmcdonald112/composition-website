@@ -10,7 +10,6 @@ const { card, aside } = featuredService;
 
 <section class="featured-service">
 	<div class="featured-service__inner wrapper wrapper--wide">
-
 		<div class="featured-service__left">
 			<SectionHeader
 				eyebrow={featuredService.eyebrow}
@@ -35,7 +34,6 @@ const { card, aside } = featuredService;
 				image={card.image}
 			/>
 		</div>
-
 	</div>
 </section>
 
@@ -63,5 +61,12 @@ const { card, aside } = featuredService;
 		flex-direction: column;
 		align-items: stretch;
 
+		& > :last-child {
+			flex: 1;
+		}
+	}
+
+	.featured-service__card {
+		height: 100%;
 	}
 </style>
