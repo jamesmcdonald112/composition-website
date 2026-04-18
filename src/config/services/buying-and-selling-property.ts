@@ -1,6 +1,6 @@
 import homeModernIcon from "../../assets/icons/homeModernIcon.svg?raw";
 import image from "../../assets/images/new/house-key-and-figurine.webp";
-import maryImage from "../../assets/team/maryCropped.webp";
+import maryImage from "../../assets/team/maryFull.webp";
 import { firm } from "../firm";
 
 export const buyingAndSellingProperty = {

@@ -1,6 +1,6 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import image from "../../assets/images/new/envelope-with-wax-seal.webp";
-import maryImage from "../../assets/team/maryCropped.webp";
+import maryImage from "../../assets/team/maryFull.webp";
 import { firm } from "../firm";
 
 export const willsAndEstateAdministration = {

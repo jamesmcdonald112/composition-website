@@ -1,6 +1,6 @@
 import teamSectionBackground from "../assets/images/pages/property/team.webp";
 import dukePhoto from "../assets/team/duke.webp";
-import maryPhoto from "../assets/team/maryCropped.webp";
+import maryPhoto from "../assets/team/maryFull.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
 
