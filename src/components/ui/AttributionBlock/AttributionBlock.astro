@@ -9,6 +9,9 @@ interface Props {
 	reviewDate: string;
 	photo: ImageMetadata;
 	label?: "Written by" | "Reviewed by";
+	specialism?: string;
+	university?: string;
+	admissionYear?: string;
 }
 
 const {
@@ -18,22 +21,22 @@ const {
 	reviewDate,
 	photo,
 	label = "Reviewed by",
+	specialism,
+	university,
+	admissionYear,
 } = Astro.props;
 ---
 
 <div class="attribution">
-	<Image
-		class="attribution__photo"
-		src={photo}
-		alt={`${name}, ${role}`}
-		width={80}
-		height={80}
-	/>
+	<Image class="attribution__photo" src={photo} alt={`${name}, ${role}`} width={80} height={80} />
 	<div class="attribution__text">
 		<span class="attribution__label">{label}</span>
 		<span class="attribution__name">{name}</span>
 		<span class="attribution__role">{role}</span>
 		<span class="attribution__credentials">{credentials}</span>
+		{university && <span class="attribution__university">{university}</span>}
+		{admissionYear && <span class="attribution__admission">Admitted: {admissionYear}</span>}
+		{specialism && <span class="attribution__specialism">Specialises in: {specialism}</span>}
 		<span class="attribution__reviewed">Last reviewed: {reviewDate}</span>
 	</div>
 </div>
@@ -102,11 +105,21 @@ const {
 		margin-block-start: var(--space-xs);
 	}
 
+	.attribution__university,
+	.attribution__admission,
+	.attribution__specialism {
+		display: block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-fg-muted);
+		margin-block-start: var(--space-2xs);
+	}
+
 	.attribution__reviewed {
 		display: block;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
 		color: var(--color-fg-subtle);
-		margin-block-start: var(--space-2xs);
+		margin-block-start: var(--space-xs);
 	}
 </style>
