@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+	name: string;
+	role: string;
+	credentials: string;
+	reviewDate: string;
+	photo: ImageMetadata;
+	label?: "Written by" | "Reviewed by";
+}
+
+const {
+	name,
+	role,
+	credentials,
+	reviewDate,
+	photo,
+	label = "Reviewed by",
+} = Astro.props;
+---
+
+<div class="attribution">
+	<Image
+		class="attribution__photo"
+		src={photo}
+		alt={`${name}, ${role}`}
+		width={80}
+		height={80}
+	/>
+	<div class="attribution__text">
+		<span class="attribution__label">{label}</span>
+		<span class="attribution__name">{name}</span>
+		<span class="attribution__role">{role}</span>
+		<span class="attribution__credentials">{credentials}</span>
+		<span class="attribution__reviewed">Last reviewed: {reviewDate}</span>
+	</div>
+</div>
+
+<style>
+	.attribution {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xl);
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg);
+		padding-block: var(--space-xl);
+		padding-inline: var(--space-2xl);
+		box-shadow: var(--shadow-sm);
+		width: fit-content;
+	}
+
+	.attribution__photo {
+		width: var(--size-20);
+		height: var(--size-20);
+		border-radius: var(--radius-full);
+		object-fit: cover;
+		object-position: top center;
+		flex-shrink: 0;
+		outline: 2px solid var(--color-fg-accent);
+		outline-offset: 3px;
+	}
+
+	.attribution__label {
+		display: block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		color: var(--color-fg-subtle);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		margin-block-end: var(--space-xs);
+	}
+
+	.attribution__name {
+		display: block;
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-xl);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+	}
+
+	.attribution__role {
+		display: block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		color: var(--color-fg-accent);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		margin-block-start: var(--space-2xs);
+	}
+
+	.attribution__credentials {
+		display: block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-fg-muted);
+		margin-block-start: var(--space-xs);
+	}
+
+	.attribution__reviewed {
+		display: block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-fg-subtle);
+		margin-block-start: var(--space-2xs);
+	}
+</style>
