@@ -1,16 +1,19 @@
 ---
-
+import { legalCostNotice } from "../../config/legal/legal-cost-notice";
 ---
 
-<aside class="footer__legal-notice" aria-label="Legal cost notice" data-footer-animate="legal-notice">
+<aside
+	class="footer__legal-notice"
+	aria-label="Legal cost notice"
+	data-footer-animate="legal-notice"
+>
 	<p class="footer__legal-notice-label" aria-hidden="true">Legal Notice</p>
 	<p class="footer__legal-notice-text">
-		In personal injury and litigation matters, if your case is unsuccessful you may be liable for
-		the other party's legal costs. See <a
+		{legalCostNotice.text} See <a
 			class="footer__legal-notice-link"
-			href="https://www.irishstatutebook.ie/eli/2015/act/65/enacted/en/html#sec149"
+			href={legalCostNotice.linkHref}
 			target="_blank"
-			rel="noopener noreferrer">Section 149 of the Legal Services Regulation Act 2015</a
+			rel="noopener noreferrer">{legalCostNotice.linkText}</a
 		>.
 	</p>
 </aside>
