@@ -19,7 +19,7 @@ export const homePageContent = {
 		subtitle:
 			"Clear, practical conveyancing advice and a full range of legal services for every stage of life.",
 		ctas: {
-			primary: { label: firm.phone.display, href: `tel:${firm.phone.phoneHref}` },
+			primary: { label: firm.phone.display, href: `tel:${firm.phone.phoneHref}`, ariaLabel: `Call us on ${firm.phone.display}` },
 			secondary: { label: "Our services", href: "/services" },
 		},
 	},

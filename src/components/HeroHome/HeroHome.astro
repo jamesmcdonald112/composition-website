@@ -13,8 +13,8 @@ interface Props {
 	title: string;
 	titleEmphasis?: string;
 	subtitle: string;
-	primaryCta?: { label: string; href: string };
-	secondaryCta?: { label: string; href: string };
+	primaryCta?: { label: string; href: string; ariaLabel?: string };
+	secondaryCta?: { label: string; href: string; ariaLabel?: string };
 	image: ImageMetadata;
 	imageAlt: string;
 }
@@ -86,6 +86,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 						label={primaryCta.label}
 						variant="primary"
 						icon="phone"
+						ariaLabel={primaryCta.ariaLabel}
 					/>
 				)}
 				{secondaryCta && (

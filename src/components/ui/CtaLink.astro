@@ -10,12 +10,13 @@ interface Props {
 	label: string;
 	variant?: Variant;
 	icon?: Icon;
+	ariaLabel?: string;
 }
 
-const { href, label, variant = "primary", icon } = Astro.props;
+const { href, label, variant = "primary", icon, ariaLabel } = Astro.props;
 ---
 
-<a href={href} class:list={["cta-link", `cta-link--${variant}`]}>
+<a href={href} class:list={["cta-link", `cta-link--${variant}`]} aria-label={ariaLabel}>
 	{
 		icon === "phone" && (
 			<span class="cta-link__icon cta-link__icon--phone" set:html={phoneIcon} aria-hidden="true" />
