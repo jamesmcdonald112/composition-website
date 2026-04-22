@@ -10,7 +10,7 @@ function hide(id: string) {
 function show(id: string) {
 	const el = document.getElementById(id);
 	console.log(`[cookiebot] show "${id}" — element found:`, !!el);
-	if (el) el.style.removeProperty("display");
+	if (el) el.style.setProperty("display", "block", "important");
 }
 
 console.log("[cookiebot] script loaded — hiding banner");
