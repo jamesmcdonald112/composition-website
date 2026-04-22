@@ -215,6 +215,16 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 		visibility: hidden;
 	}
 
+	/* ── Reduced motion — always show content, skip animation ───────────────── */
+	@media (prefers-reduced-motion: reduce) {
+		[data-service-hero-title],
+		[data-service-hero-subtitle],
+		[data-service-hero-ctas],
+		[data-service-hero-bottom] {
+			visibility: visible;
+		}
+	}
+
 	/* ── Title ───────────────────────────────────────────────────────────────── */
 	.service-hero__title {
 		font-family: var(--font-serif);
