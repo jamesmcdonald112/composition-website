@@ -3,13 +3,13 @@ import { firm } from "../../config/firm";
 import companyLogo from "../../assets/logo/companyLogo.svg";
 ---
 
-<div data-intro class="intro">
+<div data-intro class="intro" aria-hidden="true">
 	<div data-intro-overlay class="intro__overlay"></div>
 
 	<div class="intro__stage">
-		<img data-intro-mark class="intro__mark" src={companyLogo.src} alt={firm.companyName} />
+		<img data-intro-mark class="intro__mark" src={companyLogo.src} alt="" />
 
-		<div class="intro__rule-wrap" aria-hidden="true">
+		<div class="intro__rule-wrap">
 			<div data-intro-rule class="intro__rule"></div>
 		</div>
 
