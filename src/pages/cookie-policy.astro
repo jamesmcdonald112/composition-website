@@ -13,7 +13,8 @@ const { seo } = cookiePolicyPageContent;
 	solidNav={true}
 >
 	<section class="cookie-policy">
-		<div class="cookie-policy__inner wrapper wrapper--narrow">
+		<div class="cookie-policy__inner wrapper wrapper--wide">
+			<h1 class="cookie-policy__title">Cookie Policy</h1>
 			<!-- TODO: Replace data-cbid in the script src below with the client's own CBID once
 			     Mary creates her Cookiebot account and her live domain is scanned.
 			     Current CBID (292ce5a8-ad47-4072-bf60-aebbe085521d) is the development account — must be swapped before launch.
@@ -32,5 +33,14 @@ const { seo } = cookiePolicyPageContent;
 	.cookie-policy {
 		background-color: var(--color-bg-page);
 		padding-block: var(--space-4xl);
+	}
+
+	.cookie-policy__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+		margin-block-end: var(--space-3xl);
 	}
 </style>
