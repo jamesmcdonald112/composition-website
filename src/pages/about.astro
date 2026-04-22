@@ -7,9 +7,12 @@ import ServiceHero from "../components/shared/ServiceHero/ServiceHero.astro";
 import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
 import TeamSection from "../components/team/TeamSection/TeamSection.astro";
 import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
+import AttributionBlock from "../components/ui/AttributionBlock/AttributionBlock.astro";
 import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
 
 const structuredData = getLawFirmStructuredData();
+const { hero, trustStrip, cta, attribution } = aboutPageContent;
+const { solicitor, reviewDate } = attribution;
 ---
 
 <BaseLayout
@@ -20,22 +23,47 @@ const structuredData = getLawFirmStructuredData();
 	structuredData={structuredData}
 >
 	<ServiceHero
-		title={aboutPageContent.hero.title}
-		subtitle={aboutPageContent.hero.subtitle}
-		image={aboutPageContent.hero.image}
+		title={hero.title}
+		subtitle={hero.subtitle}
+		image={hero.image}
 		phone={firm.phone}
 		imageFocus={"top center"}
-
 	/>
 	<TrustStrip
-		title={aboutPageContent.trustStrip.title}
-		paragraphs={aboutPageContent.trustStrip.paragraphs}
-		stats={aboutPageContent.trustStrip.stats}
+		title={trustStrip.title}
+		paragraphs={trustStrip.paragraphs}
+		stats={trustStrip.stats}
 	/>
 	<TeamSection />
 	<TestimonialBlock />
+	<div class="about-attribution">
+		<div class="about-attribution__inner wrapper wrapper--wide">
+			<AttributionBlock
+				name={solicitor.name}
+				role={solicitor.role}
+				credentials={solicitor.credentials}
+				university={solicitor.university}
+				admissionYear={solicitor.admissionYear}
+				specialism={solicitor.specialism}
+				reviewDate={reviewDate}
+				photo={solicitor.photo}
+			/>
+		</div>
+	</div>
 	<CTAPanel
-		heading={aboutPageContent.cta.title}
-		body={aboutPageContent.cta.body}
+		heading={cta.title}
+		body={cta.body}
 	/>
 </BaseLayout>
+
+<style>
+	.about-attribution {
+		background-color: var(--color-bg-page);
+		padding-block: var(--space-3xl);
+	}
+
+	.about-attribution__inner {
+		display: flex;
+		justify-content: flex-start;
+	}
+</style>
