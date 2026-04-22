@@ -4,6 +4,9 @@
   Overrides Cookiebot's default styling to match the site theme.
   All values reference semantic tokens — never raw primitives.
 
+  Timing: the banner starts off-screen (translateY(120%)) and slides up once
+  html.intro-done is set by intro.anim.ts after the intro animation finishes.
+
   Cookiebot element IDs:
     #CybotCookiebotDialog              — main banner container
     #CybotCookiebotDialogBodyUnderlay  — dark overlay behind the banner
@@ -17,10 +20,24 @@
   ─────────────────────────────────────────────────────────────────────────────
 */
 
-/* ── Fade-in animation ──────────────────────────────────────────────────── */
-@keyframes cookiebot-fade-in {
-	from { opacity: 0; }
-	to   { opacity: 1; }
+/* ── Slide-in timing ────────────────────────────────────────────────────── */
+#CybotCookiebotDialog {
+	transform: translate(-50%, calc(-50% + 120vh)) !important;
+	transition: transform 0.6s var(--ease-out) !important;
+}
+
+html.intro-done #CybotCookiebotDialog {
+	transform: translate(-50%, -50%) !important;
+}
+
+/* ── Underlay ────────────────────────────────────────────────────────────── */
+#CybotCookiebotDialogBodyUnderlay {
+	opacity: 0;
+	transition: opacity 0.6s var(--ease-out) !important;
+}
+
+html.intro-done #CybotCookiebotDialogBodyUnderlay {
+	opacity: 1;
 }
 
 /* ── Main dialog ────────────────────────────────────────────────────────── */
@@ -30,10 +47,9 @@
 	border-radius: var(--radius-lg) !important;
 	box-shadow: var(--shadow-lg) !important;
 	font-family: var(--font-sans) !important;
-	animation: cookiebot-fade-in 0.4s var(--ease-out) both !important;
 }
 
-/* ── Underlay ────────────────────────────────────────────────────────────── */
+/* ── Underlay colour ─────────────────────────────────────────────────────── */
 #CybotCookiebotDialogBodyUnderlay {
 	background-color: color-mix(in srgb, var(--color-bg-brand) 60%, transparent) !important;
 }

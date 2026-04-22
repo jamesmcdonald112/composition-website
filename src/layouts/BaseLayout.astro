@@ -83,13 +83,6 @@ const isArticle = ogType === "article";
 			data-cbid="292ce5a8-ad47-4072-bf60-aebbe085521d"
 			data-blockingmode="auto"
 			type="text/javascript"></script>
-		<style>
-			/* Hide Cookiebot banner until intro animation completes (cookiebot.ts removes this) */
-			#CybotCookiebotDialog,
-			#CybotCookiebotDialogBodyUnderlay {
-				display: none !important;
-			}
-		</style>
 		<script is:inline>
 			if (sessionStorage.getItem("intro-seen")) {
 				document.documentElement.classList.add("intro-done");
@@ -145,8 +138,5 @@ const isArticle = ogType === "article";
 		</header>
 		<main id="main-content"><slot /></main>
 		<Footer />
-		<script>
-			import "../scripts/cookiebot.ts";
-		</script>
 	</body>
 </html>

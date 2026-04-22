@@ -5,6 +5,7 @@ if (!intro) throw new Error("Intro: [data-intro] not found");
 
 if (sessionStorage.getItem("intro-seen")) {
 	intro.remove();
+	document.documentElement.classList.add("intro-done");
 	document.dispatchEvent(new CustomEvent("intro:complete"));
 } else {
 	// Any truthy value works — we only care whether the key exists
@@ -12,6 +13,7 @@ if (sessionStorage.getItem("intro-seen")) {
 
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		intro.remove();
+		document.documentElement.classList.add("intro-done");
 		document.dispatchEvent(new CustomEvent("intro:complete"));
 	} else {
 		const overlay = intro.querySelector<HTMLElement>("[data-intro-overlay]");
@@ -66,6 +68,7 @@ if (sessionStorage.getItem("intro-seen")) {
 		// 8. Remove from DOM and signal completion
 		tl.call(() => {
 			intro.remove();
+			document.documentElement.classList.add("intro-done");
 			document.dispatchEvent(new CustomEvent("intro:complete"));
 		});
 	}
