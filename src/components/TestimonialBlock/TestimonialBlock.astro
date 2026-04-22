@@ -1,6 +1,4 @@
 ---
-import chevronIcon from "../../assets/icons/chevronRightIcon.svg?raw";
-import { firm } from "../../config/firm";
 import { testimonials, testimonialsSection } from "../../config/testimonials";
 import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
 
@@ -45,17 +43,6 @@ const { dark = false } = Astro.props;
 			}
 		</div>
 
-		<div class="t-footer">
-			<a
-				href={firm.address.googleMapsProfileHref}
-				class="t-footer__link"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				See all reviews on Google
-				<span class="t-footer__arrow" set:html={chevronIcon} aria-hidden="true" />
-			</a>
-		</div>
 	</div>
 </section>
 
