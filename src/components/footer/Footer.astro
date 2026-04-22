@@ -5,6 +5,7 @@ import BrandLogo from "../ui/BrandLogo.astro";
 import CtaLink from "../ui/CtaLink.astro";
 import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 import clockIcon from "../../assets/icons/clockIcon.svg?raw";
+import FooterLegalNotice from "./FooterLegalNotice.astro";
 ---
 
 <footer class="footer" aria-label="Site footer">
@@ -84,6 +85,9 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 				</ul>
 			</div>
 		</div>
+
+		<!-- Legal cost notice -->
+		<FooterLegalNotice />
 
 		<!-- Bottom bar -->
 		<div class="footer__bottom" data-footer-animate="bottom">
@@ -241,6 +245,7 @@ import clockIcon from "../../assets/icons/clockIcon.svg?raw";
 			color: var(--color-fg-on-brand);
 		}
 	}
+
 
 	/* ── Bottom bar ─────────────────────────────────────────────── */
 	.footer__bottom {
