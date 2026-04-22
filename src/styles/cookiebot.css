@@ -1,0 +1,133 @@
+/*
+  COOKIEBOT BANNER STYLES
+  ─────────────────────────────────────────────────────────────────────────────
+  Overrides Cookiebot's default styling to match the site theme.
+  All values reference semantic tokens — never raw primitives.
+
+  Cookiebot element IDs:
+    #CybotCookiebotDialog              — main banner container
+    #CybotCookiebotDialogBodyUnderlay  — dark overlay behind the banner
+    #CybotCookiebotDialogHeader        — header area
+    #CybotCookiebotDialogBodyContent   — body text area
+    #CybotCookiebotDialogFooter        — buttons row
+    .CybotCookiebotDialogBodyButton    — accept / decline buttons
+    #CybotCookiebotDialogBodyButtonAccept   — accept all
+    #CybotCookiebotDialogBodyButtonDecline  — decline
+    #CybotCookiebotDialogBodyLevelButtonAccept — allow selection
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+/* ── Hide banner during intro overlay ───────────────────────────────────── */
+body:has([data-intro]) #CybotCookiebotDialog,
+body:has([data-intro]) #CybotCookiebotDialogBodyUnderlay {
+	display: none !important;
+}
+
+/* ── Fade-in animation ──────────────────────────────────────────────────── */
+@keyframes cookiebot-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ── Main dialog ────────────────────────────────────────────────────────── */
+#CybotCookiebotDialog {
+	background-color: var(--color-bg-surface) !important;
+	border: 1px solid var(--color-border-default) !important;
+	border-radius: var(--radius-lg) !important;
+	box-shadow: var(--shadow-lg) !important;
+	font-family: var(--font-sans) !important;
+	animation: cookiebot-fade-in 0.4s var(--ease-out) both !important;
+}
+
+/* ── Underlay ────────────────────────────────────────────────────────────── */
+#CybotCookiebotDialogBodyUnderlay {
+	background-color: color-mix(in srgb, var(--color-bg-brand) 60%, transparent) !important;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+#CybotCookiebotDialogHeader {
+	border-bottom: 1px solid var(--color-border-default) !important;
+	padding-block-end: var(--space-md) !important;
+}
+
+#CybotCookiebotDialogHeader .CybotCookiebotDialogBodyLinkDecoration,
+#CybotCookiebotDialogHeader * {
+	font-family: var(--font-serif) !important;
+	font-size: var(--font-size-lg) !important;
+	color: var(--color-fg-default) !important;
+	font-weight: var(--font-weight-normal) !important;
+	letter-spacing: var(--letter-spacing-tight) !important;
+}
+
+/* ── Body text ───────────────────────────────────────────────────────────── */
+#CybotCookiebotDialogBodyContent {
+	color: var(--color-fg-muted) !important;
+	font-size: var(--font-size-sm) !important;
+	line-height: var(--line-height-relaxed) !important;
+}
+
+#CybotCookiebotDialogBodyContent a {
+	color: var(--color-fg-accent) !important;
+	text-underline-offset: 0.2em !important;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.CybotCookiebotDialogBodyButton {
+	font-family: var(--font-sans) !important;
+	font-size: var(--font-size-sm) !important;
+	font-weight: var(--font-weight-semibold) !important;
+	border-radius: var(--radius-sm) !important;
+	padding: var(--space-sm) var(--space-xl) !important;
+	transition: opacity var(--duration-fast) var(--ease-out) !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+
+/* Accept all — primary amber button */
+#CybotCookiebotDialogBodyButtonAccept {
+	background-color: var(--color-bg-interactive) !important;
+	color: var(--color-fg-interactive) !important;
+}
+
+#CybotCookiebotDialogBodyButtonAccept:hover {
+	background-color: var(--color-bg-interactive-hover) !important;
+}
+
+/* Allow selection — outline style */
+#CybotCookiebotDialogBodyLevelButtonAccept {
+	background-color: transparent !important;
+	color: var(--color-fg-default) !important;
+	border: 1px solid var(--color-border-default) !important;
+}
+
+#CybotCookiebotDialogBodyLevelButtonAccept:hover {
+	border-color: var(--color-border-strong) !important;
+}
+
+/* Decline — subtle text link style */
+#CybotCookiebotDialogBodyButtonDecline {
+	background-color: transparent !important;
+	color: var(--color-fg-subtle) !important;
+	text-decoration: underline !important;
+	text-underline-offset: 0.2em !important;
+	padding-inline: var(--space-md) !important;
+}
+
+#CybotCookiebotDialogBodyButtonDecline:hover {
+	color: var(--color-fg-muted) !important;
+}
+
+/* ── Category toggles ────────────────────────────────────────────────────── */
+.CybotCookiebotDialogBodyLevelButtonSlider {
+	background-color: var(--color-border-default) !important;
+}
+
+input:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+	background-color: var(--color-bg-interactive) !important;
+}
