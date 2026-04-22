@@ -22,12 +22,12 @@
 
 /* ── Slide-in timing ────────────────────────────────────────────────────── */
 #CybotCookiebotDialog {
-	transform: translate(-50%, calc(-50% + 120vh)) !important;
-	transition: transform 0.6s var(--ease-out) !important;
+	margin-top: 120vh !important;
+	transition: margin-top 0.6s var(--ease-out) !important;
 }
 
 html.intro-done #CybotCookiebotDialog {
-	transform: translate(-50%, -50%) !important;
+	margin-top: 0 !important;
 }
 
 /* ── Underlay ────────────────────────────────────────────────────────────── */
