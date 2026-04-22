@@ -4,6 +4,47 @@ import maryPhoto from "../assets/team/maryFull.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
 
+// ── Solicitor credential records ──────────────────────────────────────────────
+// Used by AttributionBlock on every page. Fill in university and admissionYear
+// once confirmed with Mary — placeholders marked with TODO.
+
+export const solicitors = {
+	mary: {
+		name: "Mary Molloy",
+		role: "Principal Solicitor",
+		photo: maryPhoto,
+		degree: "LLB", // TODO: confirm university name
+		university: "TODO: University name",
+		admissionYear: "TODO: Year",
+		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		specialism: "Property, wills and probate, and private client matters",
+	},
+	nicholas: {
+		name: "Nicholas O'Shea",
+		role: "Solicitor",
+		photo: nicholasPhoto,
+		degree: "LLB", // TODO: confirm university name
+		university: "TODO: University name",
+		admissionYear: "TODO: Year",
+		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		specialism: "Property, conveyancing, and private client matters",
+	},
+	richard: {
+		name: "Richard O'Shea",
+		role: "Solicitor",
+		photo: richardPhoto,
+		degree: "LLB", // TODO: confirm university name
+		university: "TODO: University name",
+		admissionYear: "TODO: Year",
+		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		specialism: "Property, conveyancing, and probate matters",
+	},
+} as const;
+
+export type Solicitor = typeof solicitors[keyof typeof solicitors];
+
+// ── Team section content ──────────────────────────────────────────────────────
+
 export const teamSectionContent = {
 	title: "Meet our team",
 	backgroundImage: teamSectionBackground,
@@ -11,20 +52,20 @@ export const teamSectionContent = {
 		"Established in 1979, our family-run solicitor practice has been serving clients across Kilkenny and surrounding areas for over 46 years. We provide clear, practical legal advice in property, probate and private client matters, with a strong focus on communication, personal service and keeping clients fully informed at every stage.",
 	members: [
 		{
-			name: "Mary Molloy",
-			role: "Principal Solicitor",
+			name: solicitors.mary.name,
+			role: solicitors.mary.role,
 			bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny. She is known for her practical guidance, straightforward advice and personal approach to each case.",
 			photo: maryPhoto,
 		},
 		{
-			name: "Nicholas O'Shea",
-			role: "Solicitor",
+			name: solicitors.nicholas.name,
+			role: solicitors.nicholas.role,
 			bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression. He focuses on responsiveness, clarity and maintaining consistent contact throughout the legal process.",
 			photo: nicholasPhoto,
 		},
 		{
-			name: "Richard O'Shea",
-			role: "Solicitor",
+			name: solicitors.richard.name,
+			role: solicitors.richard.role,
 			bio: "Richard advises clients on buying and selling property, conveyancing and probate matters. He brings a steady, detail-focused approach to ensure each transaction progresses efficiently from first instruction to final completion.",
 			photo: richardPhoto,
 		},

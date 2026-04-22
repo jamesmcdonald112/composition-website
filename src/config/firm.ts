@@ -45,3 +45,7 @@ export const firm = {
 		defaultOgImageAlt: "Mary Molloy Solicitor - Legal Services in Kilkenny",
 	},
 } as const;
+
+// Completed full years in practice — always one year conservative to avoid
+// overstating before the anniversary month arrives.
+export const yearsInPractice = new Date().getFullYear() - firm.established - 1;
