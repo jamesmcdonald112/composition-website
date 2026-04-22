@@ -12,6 +12,7 @@ import ServiceFaqs from "../../components/services/ServiceFaqs/ServiceFaqs.astro
 import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
 import TestimonialBlock from "../../components/TestimonialBlock/TestimonialBlock.astro";
 import RelatedServices from "../../components/services/ServiceCards/RelatedServices/RelatedServices.astro";
+import LegalCostWarning from "../../components/ui/LegalCostWarning/LegalCostWarning.astro";
 
 const structuredData = getLawFirmStructuredData();
 ---
@@ -43,6 +44,7 @@ const structuredData = getLawFirmStructuredData();
 		quote={service.article.quote}
 		blocks={service.article.blocks}
 	/>
+	<LegalCostWarning />
 	<ServiceProcess steps={service.process} processDescription={service.processDescription} />
 	<ServiceFaqs faqs={service.faqs} />
 	<CTAPanel heading={service.cta.title} body={service.cta.description} />
