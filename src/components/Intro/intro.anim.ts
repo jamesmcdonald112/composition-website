@@ -5,12 +5,14 @@ if (!intro) throw new Error("Intro: [data-intro] not found");
 
 if (sessionStorage.getItem("intro-seen")) {
 	intro.remove();
+	document.dispatchEvent(new CustomEvent("intro:complete"));
 } else {
 	// Any truthy value works — we only care whether the key exists
 	sessionStorage.setItem("intro-seen", "1");
 
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		intro.remove();
+		document.dispatchEvent(new CustomEvent("intro:complete"));
 	} else {
 		const overlay = intro.querySelector<HTMLElement>("[data-intro-overlay]");
 		const mark = intro.querySelector<HTMLElement>("[data-intro-mark]");
@@ -61,7 +63,10 @@ if (sessionStorage.getItem("intro-seen")) {
 			"-=0.05",
 		);
 
-		// 8. Remove from DOM
-		tl.call(() => intro.remove());
+		// 8. Remove from DOM and signal completion
+		tl.call(() => {
+			intro.remove();
+			document.dispatchEvent(new CustomEvent("intro:complete"));
+		});
 	}
 }

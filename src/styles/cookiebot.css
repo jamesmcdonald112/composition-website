@@ -17,12 +17,6 @@
   ─────────────────────────────────────────────────────────────────────────────
 */
 
-/* ── Hide banner during intro overlay ───────────────────────────────────── */
-body:has([data-intro]) #CybotCookiebotDialog,
-body:has([data-intro]) #CybotCookiebotDialogBodyUnderlay {
-	display: none !important;
-}
-
 /* ── Fade-in animation ──────────────────────────────────────────────────── */
 @keyframes cookiebot-fade-in {
 	from {
