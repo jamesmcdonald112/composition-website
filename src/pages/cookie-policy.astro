@@ -12,4 +12,14 @@ const { seo } = cookiePolicyPageContent;
 	canonicalPath={seo.canonicalPath}
 	solidNav={true}
 >
+	<!-- TODO: Replace data-cbid in the script src below with the client's own CBID once
+	     Mary creates her Cookiebot account and her live domain is scanned.
+	     Current CBID (292ce5a8-ad47-4072-bf60-aebbe085521d) is the development account — must be swapped before launch.
+	     Get the replacement script from: Cookiebot dashboard → Implementation → Cookie Declaration -->
+	<script
+		is:inline
+		id="CookieDeclaration"
+		src="https://consent.cookiebot.com/292ce5a8-ad47-4072-bf60-aebbe085521d/cd.js"
+		type="text/javascript"
+		async></script>
 </BaseLayout>
