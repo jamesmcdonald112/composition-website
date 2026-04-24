@@ -3,6 +3,26 @@
 ## Stack
 Astro 6, plain CSS, GSAP, TypeScript, Zod, Resend, Biome, Vitest, Playwright, colorjs.io
 
+## Language Standard — Irish/British English
+
+All content generated for this project must use **Irish/British English** spelling and conventions. This is non-negotiable — the client is an Irish solicitor practising in Kilkenny.
+
+**Spelling:** recognise, organise, practise (verb), practice (noun), colour, labour, honour, analyse, anonymise, finalise, centre, licence (noun), license (verb), judgement, programme, travelled, cancelled, jewellery.
+
+**Never use American English spelling:** recognize, organize, labor, color, analyze, finalize, center, judgment (US legal form), program, traveled, canceled, jewelry.
+
+**Irish legal terminology — always use the Irish term:**
+- solicitor (not attorney or lawyer)
+- legal proceedings or action (not lawsuit)
+- lodging (not filing, when referring to court documents)
+- property or conveyancing (not real estate)
+- mobile (not cell phone)
+- barrister (not attorney or counsel, when referring to the Irish Bar)
+
+**Cross-reference:** `.claude/skills/ai-isms/SKILL.md` has the full Irish solicitor terminology list under "Irish English vs American legal terminology."
+
+---
+
 ## Colour Tooling — colorjs.io
 `colorjs.io` is installed as a project dependency. Use it any time you need to verify WCAG contrast ratios when adding or changing colours in a theme file — especially before committing new primitive values.
 
@@ -57,6 +77,23 @@ npx tsx check-contrast.ts
 ## Skills
 For every component, page, or UI build task, load and follow:
 `.claude/skills/frontend-design/SKILL.md`
+
+For any content generation or copywriting task, apply skills in this order:
+1. `.claude/skills/copy/SKILL.md` — voice, structure, quality
+2. `.claude/skills/ai-isms/SKILL.md` — human writing patterns
+3. `.claude/skills/irish-legal-compliance/SKILL.md` — compliance filter, applied last
+
+## Compliance Screenshots — Run After Any Content Change
+
+After completing any task that changes visible page content, remind the user to run the compliance screenshot script:
+
+```bash
+npx tsx scripts/compliance-screenshot.ts [label]
+```
+
+This is a legal requirement under Reg 11(f) of S.I. No. 644/2020 — the solicitor must keep dated records of all advertising. The script screenshots every page automatically and saves them to `legal-compliance/compliance-records/`.
+
+Always remind the user even for small changes — a component edit can affect every page.
 
 ## Do Not Touch
 - `src/features/contact-form/` — form logic is complete, style only
