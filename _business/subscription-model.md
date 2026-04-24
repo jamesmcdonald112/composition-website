@@ -133,4 +133,89 @@ The existing Irish "specialist" solicitor web agencies (Solicitor Site, Web Wiza
 - [ ] Write a simple 1-page contract template (or have a solicitor draft one — ironic but appropriate)
 - [ ] Find a commercial photographer in Kilkenny / your area to partner with
 - [ ] Set up a portfolio site showing the work once Mary's site is live
-- [ ] Identify 5 target solicitor practices with bad websites to approach first
+- [ ] Build outreach target list using Google searches for LSRA violations on Irish solicitor sites (see below)
+- [ ] Write one SEO article: "What Irish solicitors need to know about LSRA advertising compliance" — passive inbound
+- [ ] Decide annual billing incentive: 2 months free = €1,990/year vs €2,388 monthly
+
+---
+
+## Outreach System
+
+### Finding compliance-violation targets (highest conversion)
+
+Search Google for Irish sites with documentable LSRA violations:
+
+| Search | Violation found | Regulation |
+|---|---|---|
+| `site:.ie solicitor "no win no fee"` | Prohibited phrase | Reg 6(b) |
+| `site:.ie solicitor "success rate"` | Success rate claim | Reg 8 |
+| `site:.ie solicitor "have you been injured"` | Injury inducement | Reg 4(a)(vi) |
+| `site:.ie solicitor "free consultation"` | Prohibited phrase | Reg 6(b) |
+| `site:.ie solicitor "no foal no fee"` | Prohibited phrase | Reg 6(b) |
+
+Full directory of all ~2,000+ Irish practices: lawsociety.ie/find-a-solicitor
+
+### Volume
+
+- 20 targeted contacts/day × 5 days = 100/week = ~4,000/year possible
+- Targeted (site-specific violation) response rate: **15–25%**
+- Mass (awareness only) response rate: **2–5%**
+- At 2,000 contacts × 20% = 400 responses; at 5% close = **20 clients from outreach**
+
+---
+
+### The Outreach Sequence — Phone First
+
+Email alone is easy to ignore. Phone first, email same day, follow up twice. Four touches over two weeks.
+
+| Touch | Channel | When | Goal |
+|---|---|---|---|
+| 1 | Phone call | Day 1 | Live conversation or voicemail |
+| 2 | Email | Day 1 | Reference call, flag compliance issue, include mockup link |
+| 3 | Follow-up email | Day 5–7 | One-line soft bump |
+| 4 | Final email | Day 14 | Close or drop |
+
+**The phone script (60 seconds):**
+
+> *"Hi, is that [Name]? My name is James, I'm a web developer and I specialise in solicitor websites. I was looking at your site today and I spotted something worth flagging — your site has a phrase that's caught by Regulation 6(b) of the LSRA advertising regulations, the 'no win no fee' prohibition. These are actively monitored. I can send you over a quick note and show you what a compliant version could look like. Would that be useful? What's the best email?"*
+
+**The follow-up email:**
+
+Subject: *[Firm name] — LSRA Regulation 6(b) / compliance issue on your current site*
+
+> *Following on from my call today — I wanted to send you the detail as promised.*
+>
+> *Your current site uses the phrase "no win no fee" in your personal injury section. Under Regulation 6(b) of S.I. No. 644/2020, this phrase is specifically prohibited in advertisements for personal injury services. The LSRA monitors solicitor websites and this is one of the most commonly investigated violations.*
+>
+> *I've put together a quick example of what a compliant version of your homepage could look like: [link to mockup]*
+>
+> *We build solicitor websites with LSRA compliance handled from the ground up — not retrofitted. Happy to set up a 20-minute call if useful.*
+>
+> *James*
+
+---
+
+### AI-Assisted Mockups — Option B for Every Contact
+
+Previously, building a personalised mockup for each prospect took 30–45 minutes, making it viable only for high-value targets. With AI tools, a credible firm-specific mockup — their name, logo, practice areas, correct compliance elements — takes under 5 minutes.
+
+This means the personalised visual preview is now viable at full outreach volume.
+
+**What to show:**
+- The prospect's firm name and logo
+- A homepage layout with their practice areas
+- The LSRA cost warning correctly placed
+- Clearly premium — a visible step above their current site
+
+**How to produce it quickly:**
+1. Screenshot their current site
+2. Adapt the base template with their firm name, location, and colour palette using AI tools
+3. Export a single image or short Netlify preview
+4. Drop the link into the follow-up email
+
+The goal is not perfection — it's "clearly better than what they have." A rough preview beats no preview every time.
+
+**The numbers:**
+- 5 mockups/day takes ~25 minutes
+- If personalised outreach converts at 10% vs 5% for generic email, that doubles the client yield from the same volume: 40 clients instead of 20 from 2,000 contacts
+- At €240/month average × 40 clients = €115,200/year ARR vs €57,600 — the same effort, meaningfully different outcome
