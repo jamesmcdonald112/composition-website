@@ -81,10 +81,23 @@ const closeBtn = document.querySelector<HTMLButtonElement>("[data-nav-mobile-clo
 const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-mobile-link]");
 
 if (toggle && dialog) {
+	// iOS Safari doesn't block background scroll on <dialog>.showModal(),
+	// so lock the body scroll manually while the menu is open.
+	const lockScroll = () => {
+		document.documentElement.classList.add("nav-mobile-open");
+		document.body.style.overflow = "hidden";
+	};
+
+	const unlockScroll = () => {
+		document.documentElement.classList.remove("nav-mobile-open");
+		document.body.style.overflow = "";
+	};
+
 	const openMenu = () => {
 		toggle.setAttribute("aria-expanded", "true");
 		navbar?.classList.add("is-open");
 		dialog.showModal();
+		lockScroll();
 
 		if (!reducedMotion) {
 			gsap.fromTo(
@@ -106,6 +119,7 @@ if (toggle && dialog) {
 		toggle.setAttribute("aria-expanded", "false");
 		navbar?.classList.remove("is-open");
 		dialog.close();
+		unlockScroll();
 	};
 
 	toggle.addEventListener("click", openMenu);
@@ -128,5 +142,6 @@ if (toggle && dialog) {
 	dialog.addEventListener("close", () => {
 		toggle.setAttribute("aria-expanded", "false");
 		navbar?.classList.remove("is-open");
+		unlockScroll();
 	});
 }
