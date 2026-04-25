@@ -1,0 +1,38 @@
+/*
+  COOKIEBOT BANNER — INTRO TIMING ONLY
+  ─────────────────────────────────────────────────────────────────────────────
+  Hides the Cookiebot banner and its underlay until the intro animation has
+  finished. The intro script (src/components/Intro/intro.anim.ts) adds the
+  `intro-done` class to <html> on completion, which is the signal we wait for.
+
+  IMPORTANT — what this file is and is not:
+    - This file ONLY controls when the banner appears (timing/visibility).
+    - It does NOT restyle the banner. All colours, fonts, button styling and
+      layout are owned by the Cookiebot admin dashboard. Do not add visual
+      overrides here — see commit fec7dd0 for why (DPC equal-prominence rule).
+
+  Cookiebot element IDs we touch:
+    #CybotCookiebotDialog              — main banner container
+    #CybotCookiebotDialogBodyUnderlay  — dimming overlay behind the banner
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+
+/* Hide banner + underlay until the intro completes. visibility: hidden keeps
+   them off the a11y tree and out of the tab order during the intro. */
+#CybotCookiebotDialog,
+#CybotCookiebotDialogBodyUnderlay {
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.5s ease-out,
+		visibility 0s linear 0.5s;
+}
+
+html.intro-done #CybotCookiebotDialog,
+html.intro-done #CybotCookiebotDialogBodyUnderlay {
+	opacity: 1;
+	visibility: visible;
+	transition:
+		opacity 0.5s ease-out,
+		visibility 0s linear 0s;
+}
