@@ -176,7 +176,7 @@ The article on this page contains a pull quote attributed to **Richard O'Shea, S
 
 > "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope."
 
-**Action:** the pull quote attributed to Richard on this page requires prior written consent under Reg 5(a)(i). For a quote by a solicitor in the firm, a short written confirmation by email — covering the four points set out in `legal-compliance/testimonials-and-quotes-consent.md` — is sufficient, and is retained in firm records. Please let the website manager know once that confirmation is on file.
+**Action:** the page names Richard and includes a pull quote attributed to him. A signed consent form for Richard must be on file with the firm — see `legal-compliance/testimonials-and-quotes-consent.md`. The form covers his name, role, photo, biography, and any pull quotes attributed to him across the site. Please confirm to the website manager once the form is signed.
 
 ---
 
