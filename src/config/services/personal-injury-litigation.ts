@@ -12,7 +12,7 @@ export const personalInjuryLitigation = {
 	image,
 	imageClass: "object-[right_25%]",
 	description:
-		"If you have been injured through no fault of your own, we can advise you on your rights and pursue a claim on your behalf. We handle personal injury claims and civil litigation from initial assessment through to settlement or trial.",
+		"We advise on personal injury matters, including workplace accidents, public liability, and road traffic injuries, and represent clients in civil litigation from initial assessment through to settlement or trial.",
 	// --- SEO ---
 	seo: {
 		title: `Personal Injury Solicitors Kilkenny | ${firm.companyName}`,
@@ -28,10 +28,10 @@ export const personalInjuryLitigation = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"If you have been injured through no fault of your own, you may be entitled to compensation for your pain, suffering, and financial losses. Our solicitors will assess your case honestly, explain the process clearly, and represent your interests throughout — from the initial PIAB application through to settlement or trial.",
+			"We advise on personal injury and civil litigation matters from initial assessment through to settlement or trial. We assess each case honestly, explain the process clearly, and represent our clients' interests at every stage — from the initial PIAB application onwards.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Unsure whether you have a claim?", "Get an honest assessment."],
+	midCta: ["Honest advice on personal injury and civil disputes.", "Talk to us about your matter."],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -40,7 +40,7 @@ export const personalInjuryLitigation = {
 			{ text: " of your claim" },
 		],
 		description:
-			"If you have been injured or are involved in a civil dispute, early legal advice is essential. Contact our Kilkenny litigation team to discuss your situation and find out where you stand.",
+			"Where an injury has occurred or a civil dispute has arisen, early legal advice is essential. Get in touch with us in Kilkenny to discuss the matter and find out where things stand.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
@@ -70,7 +70,7 @@ export const personalInjuryLitigation = {
 			{ text: "right to compensation", em: true },
 		],
 		intro:
-			"If you have been injured through the negligence of another person or organisation, Irish law entitles you to seek compensation. Understanding what you can claim for, how the process works, and what to expect at each stage makes a real difference to how a claim progresses. Our Kilkenny solicitors handle personal injury claims from initial assessment through to settlement or trial.",
+			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through PIAB and, where necessary, the courts. Knowing what is recoverable, how the process works, and what to expect at each stage makes a real difference to how a matter progresses. We advise on personal injury matters from initial assessment through to settlement or trial.",
 		quote: {
 			text: "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope.",
 			attribution: "Richard O'Shea, Solicitor",
@@ -110,15 +110,15 @@ export const personalInjuryLitigation = {
 				items: [
 					{
 						label: "Workplace accidents",
-						text: "Employers in Ireland have a statutory duty to provide a safe place and system of work. If you were injured at work due to inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations, you may have a claim. We advise on both the personal injury claim and any related employment law rights.",
+						text: "Employers in Ireland have a statutory duty to provide a safe place and system of work. We advise where workplace injuries arise from inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations. We can advise on both the personal injury matter and any related employment law rights.",
 					},
 					{
 						label: "Public liability",
-						text: "Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. If you slipped, tripped, or were otherwise injured on someone else's property due to a hazard they failed to address, you may be entitled to compensation.",
+						text: "Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. We advise on public liability matters where injuries on premises arise from a hazard the occupier failed to address.",
 					},
 					{
 						label: "Road traffic accidents",
-						text: "If you were injured in a road traffic accident that was not your fault, you may be entitled to compensation for your injuries and related losses. Road traffic accident claims are subject to specific procedural rules and must go through PIAB before proceedings can issue. See our separate road traffic accidents page for more detail.",
+						text: "Road traffic accident matters are subject to specific procedural rules and must go through PIAB before proceedings can issue. We advise on road traffic injury claims, including how the PIAB process applies and what claimants can recover. See our separate road traffic accidents page for more detail.",
 					},
 					{
 						label: "Civil litigation",
@@ -169,29 +169,29 @@ export const personalInjuryLitigation = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "How long do I have to make a personal injury claim in Ireland?",
+			question: "What is the time limit for a personal injury claim in Ireland?",
 			answer:
-				"The general time limit is two years from the date of the accident or from the date you became aware of the injury. There are limited exceptions — for example, where the injured person is under 18, time does not begin to run until they reach adulthood. The two-year limit is strictly applied and missing it will generally prevent you from bringing a claim, so it is important to take advice as soon as possible.",
+				"The general time limit is two years from the date of the accident or from the date the injured person became aware of the injury. There are limited exceptions — for example, where the injured person is under 18, time does not begin to run until they reach adulthood. The two-year limit is strictly applied and missing it generally prevents a claim from being brought, so early legal advice is important.",
 		},
 		{
-			question: "Do I have to go through PIAB before going to court?",
+			question: "Is PIAB required before issuing court proceedings?",
 			answer:
-				"In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess your claim before you can issue court proceedings. PIAB will make an assessment of your damages. If both parties accept it, the matter is resolved without litigation. If either party rejects it, PIAB issues an authorisation and you can then proceed to court. We manage the entire PIAB process on your behalf.",
+				"In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess a claim before court proceedings can be issued. PIAB makes an assessment of damages. If both parties accept it, the matter is resolved without litigation. If either party rejects it, PIAB issues an authorisation and the claimant can then proceed to court. We manage the entire PIAB process on behalf of our clients.",
 		},
 		{
-			question: "How much compensation will I receive?",
+			question: "How is the level of compensation determined?",
 			answer:
-				"The amount of compensation depends on the nature and severity of your injuries, their impact on your daily life and ability to work, and the financial losses you have suffered. We will give you a realistic estimate based on your specific circumstances and the Personal Injuries Guidelines, which courts use as a guide to appropriate levels of general damages. We do not make promises about outcomes, but we do give you our honest assessment.",
+				"The level of compensation depends on the nature and severity of the injuries, their impact on daily life and ability to work, and the financial losses suffered. The Personal Injuries Guidelines, used by the courts as a guide to appropriate levels of general damages, are the starting point. We give clients a realistic estimate based on their specific circumstances. We do not promise outcomes, but we do give an honest assessment.",
 		},
 		{
-			question: "What if I was partly at fault for the accident?",
+			question: "What happens if a claimant was partly at fault?",
 			answer:
-				"You may still be entitled to compensation even if you were partly responsible for the accident. Under Irish law, the concept of contributory negligence allows courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, if you were 20% at fault, your award would be reduced by 20%. We will advise you on how contributory negligence might apply in your case.",
+				"A claim can still proceed even where the claimant was partly responsible for the accident. Under Irish law, the principle of contributory negligence allows the courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, where a claimant is 20% at fault, the award is reduced by 20%. We advise on how contributory negligence is likely to apply in each specific case.",
 		},
 		{
-			question: "Does it cost anything to make a personal injury claim?",
+			question: "How are the costs of a personal injury claim handled?",
 			answer:
-				"We will discuss our fees with you at the outset. In personal injury cases, costs are a legitimate element of a claim and can be recovered from the other side in many circumstances where proceedings are successful. We will explain the costs position clearly before you make any decisions.",
+				"We discuss our fees with each client at the outset. In personal injury matters, costs are a legitimate element of a claim and can be recovered from the other side in many circumstances where proceedings are successful. We explain the costs position clearly before any decisions are made.",
 		},
 	],
 } as const;
