@@ -1,0 +1,185 @@
+---
+interface Section {
+	heading: string;
+	body?: string;
+	list?: readonly string[];
+	footer?: string;
+	afterListBody?: string;
+	afterListItems?: readonly string[];
+}
+
+interface Props {
+	title: string;
+	intro?: string;
+	sections: readonly Section[];
+	footerNote?: string;
+	reviewDate?: string;
+}
+
+const { title, intro, sections, footerNote, reviewDate } = Astro.props;
+---
+
+<section class="legal-page">
+	<div class="legal-page__inner wrapper wrapper--wide">
+		<h1 class="legal-page__title">{title}</h1>
+		{intro && <p class="legal-page__intro">{intro}</p>}
+
+		{sections.map((section) => (
+			<section class="legal-page__section">
+				<h2 class="legal-page__heading">{section.heading}</h2>
+				{section.body && <p class="legal-page__paragraph">{section.body}</p>}
+				{section.list && (
+					<ul class="legal-page__list">
+						{section.list.map((item) => (
+							<li class="legal-page__list-item">{item}</li>
+						))}
+					</ul>
+				)}
+				{section.afterListBody && (
+					<p class="legal-page__paragraph">{section.afterListBody}</p>
+				)}
+				{section.afterListItems && (
+					<ul class="legal-page__list">
+						{section.afterListItems.map((item) => (
+							<li class="legal-page__list-item">{item}</li>
+						))}
+					</ul>
+				)}
+				{section.footer && <p class="legal-page__paragraph">{section.footer}</p>}
+			</section>
+		))}
+
+		{(footerNote || reviewDate) && (
+			<div class="legal-page__meta">
+				<hr class="legal-page__rule" />
+				{reviewDate && (
+					<p class="legal-page__review-date">
+						<span class="legal-page__review-label">Last reviewed</span>
+						<span class="legal-page__review-value">{reviewDate}</span>
+					</p>
+				)}
+				{footerNote && <p class="legal-page__footer-note">{footerNote}</p>}
+			</div>
+		)}
+	</div>
+</section>
+
+<style>
+	.legal-page {
+		background-color: var(--color-bg-page);
+		padding-block: var(--space-4xl);
+	}
+
+	.legal-page__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+		margin-block-end: var(--space-2xl);
+	}
+
+	.legal-page__intro {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-lg);
+		color: var(--color-fg-muted);
+		max-width: 65ch;
+		margin-block-end: var(--space-3xl);
+	}
+
+	.legal-page__section {
+		margin-block-end: var(--space-3xl);
+		max-width: 65ch;
+	}
+
+	.legal-page__heading {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-normal);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+		margin-block-end: var(--space-md);
+	}
+
+	.legal-page__paragraph {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin-block-end: var(--space-md);
+	}
+
+	.legal-page__paragraph:last-child {
+		margin-block-end: 0;
+	}
+
+	.legal-page__list {
+		list-style: none;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		padding-inline-start: 0;
+		margin-block-end: var(--space-md);
+	}
+
+	.legal-page__list-item {
+		position: relative;
+		padding-inline-start: var(--space-xl);
+		margin-block-end: var(--space-sm);
+	}
+
+	.legal-page__list-item::before {
+		content: "—";
+		position: absolute;
+		inset-inline-start: 0;
+		color: var(--color-fg-accent);
+		font-weight: var(--font-weight-medium);
+	}
+
+	.legal-page__meta {
+		max-width: 65ch;
+		margin-block-start: var(--space-3xl);
+	}
+
+	.legal-page__rule {
+		border: none;
+		border-top: 1px solid var(--color-border-default);
+		margin-block-end: var(--space-xl);
+	}
+
+	.legal-page__review-date {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+		margin-block-end: var(--space-lg);
+	}
+
+	.legal-page__review-label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		color: var(--color-fg-subtle);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+	}
+
+	.legal-page__review-value {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		color: var(--color-fg-default);
+	}
+
+	.legal-page__footer-note {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-fg-subtle);
+		line-height: var(--line-height-relaxed);
+	}
+
+	@media (min-width: 768px) {
+		.legal-page {
+			padding-block: var(--space-5xl);
+		}
+	}
+</style>
