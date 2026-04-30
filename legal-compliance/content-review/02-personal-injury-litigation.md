@@ -176,7 +176,7 @@ The article on this page contains a pull quote attributed to **Richard O'Shea, S
 
 > "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope."
 
-Reg 5(a)(i) of S.I. No. 644/2020 requires prior written consent before a quote attributed to a named person is published. Richard needs to sign a short consent letter agreeing to the publication of this quote on this specific page before the page goes live. The four points the consent letter must cover and the retention rule are in `legal-compliance/testimonials-and-quotes-consent.md`.
+**Action:** the pull quote attributed to Richard on this page requires prior written consent under Reg 5(a)(i). For a quote by a solicitor in the firm, a short written confirmation by email — covering the four points set out in `legal-compliance/testimonials-and-quotes-consent.md` — is sufficient, and is retained in firm records. Please let the website manager know once that confirmation is on file.
 
 ---
 
