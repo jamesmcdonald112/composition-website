@@ -36,34 +36,18 @@ const { solicitor, reviewDate } = attribution;
 	/>
 	<TeamSection />
 	<TestimonialBlock />
-	<div class="about-attribution">
-		<div class="about-attribution__inner wrapper wrapper--wide">
-			<AttributionBlock
-				name={solicitor.name}
-				role={solicitor.role}
-				credentials={solicitor.credentials}
-				university={solicitor.university}
-				admissionYear={solicitor.admissionYear}
-				specialism={solicitor.specialism}
-				reviewDate={reviewDate}
-				photo={solicitor.photo}
-			/>
-		</div>
-	</div>
+	<AttributionBlock
+		name={solicitor.name}
+		role={solicitor.role}
+		credentials={solicitor.credentials}
+		university={solicitor.university}
+		admissionYear={solicitor.admissionYear}
+		specialism={solicitor.specialism}
+		reviewDate={reviewDate}
+		photo={solicitor.photo}
+	/>
 	<CTAPanel
 		heading={cta.title}
 		body={cta.body}
 	/>
 </BaseLayout>
-
-<style>
-	.about-attribution {
-		background-color: var(--color-bg-page);
-		padding-block: var(--space-3xl);
-	}
-
-	.about-attribution__inner {
-		display: flex;
-		justify-content: flex-start;
-	}
-</style>

@@ -7,9 +7,11 @@ import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
 import ServiceCardsGrid from "../../components/services/ServiceCards/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TrustStrip from "../../components/shared/TrustStrip/TrustStrip.astro";
 import TestimonialBlock from "../../components/TestimonialBlock/TestimonialBlock.astro";
+import AttributionBlock from "../../components/ui/AttributionBlock/AttributionBlock.astro";
 import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.astro";
 
 const structuredData = getLawFirmStructuredData();
+const { solicitor, reviewDate } = servicesIndexContent.attribution;
 ---
 
 <BaseLayout
@@ -43,6 +45,16 @@ const structuredData = getLawFirmStructuredData();
 	<CTAPanel
 		heading={servicesIndexContent.cta.title}
 		body={servicesIndexContent.cta.body}
+	/>
+	<AttributionBlock
+		name={solicitor.name}
+		role={solicitor.role}
+		credentials={solicitor.credentials}
+		university={solicitor.university}
+		admissionYear={solicitor.admissionYear}
+		specialism={solicitor.specialism}
+		reviewDate={reviewDate}
+		photo={solicitor.photo}
 	/>
 </BaseLayout>
 

@@ -7,6 +7,7 @@ import FeaturedService from "../components/home/FeaturedService/FeaturedService.
 import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
 import ServiceCardsGrid from "../components/services/ServiceCards/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TeamSection from "../components/team/TeamSection/TeamSection.astro";
+import AttributionBlock from "../components/ui/AttributionBlock/AttributionBlock.astro";
 import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
 import { firm } from "../config/firm";
 import { homePageContent } from "../config/home";
@@ -15,7 +16,8 @@ import { getLawFirmStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
-const { hero, supportingServices, trustStrip } = homePageContent;
+const { hero, supportingServices, trustStrip, attribution } = homePageContent;
+const { solicitor, reviewDate } = attribution;
 ---
 
 <BaseLayout
@@ -57,5 +59,15 @@ const { hero, supportingServices, trustStrip } = homePageContent;
 
 	<TestimonialBlock />
 	<TeamSection />
+	<AttributionBlock
+		name={solicitor.name}
+		role={solicitor.role}
+		credentials={solicitor.credentials}
+		university={solicitor.university}
+		admissionYear={solicitor.admissionYear}
+		specialism={solicitor.specialism}
+		reviewDate={reviewDate}
+		photo={solicitor.photo}
+	/>
 	<CTAPanel />
 </BaseLayout>
