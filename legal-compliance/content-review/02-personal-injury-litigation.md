@@ -3,7 +3,7 @@ _Exported 30 April 2026 — source: `src/config/services/personal-injury-litigat
 
 This document is the full content of the Personal Injury & Litigation service page on the Mary Molloy Solicitor website. The wording has been audited against the Legal Services Regulation Act 2015 (Advertising) Regulations 2020.
 
-Please read through and let me know if you would like anything changed. A short reply by email, text, or in person is fine — there is nothing on the document for you to fill in.
+Please read through and let me know if you would like anything changed.
 
 The technical compliance summary at the end is for the website's records — you can skip it unless you want to read it.
 
