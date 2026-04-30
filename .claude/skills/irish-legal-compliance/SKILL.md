@@ -164,21 +164,29 @@ These do **not** require consent — do not flag them:
 - "Free first consultation for road traffic accident claims."
 - "Only pay if your claim is successful."
 
-### 6(c) — Compensation Amounts — PIAB Citation Only
+### 6(c) — Compensation Amounts — Authoritative Source Only
+
+**Note on the source authority:** The current authoritative reference for general damages in personal injury matters in Ireland is the **Personal Injuries Guidelines published by the Judicial Council (effective 24 April 2021)**. The Personal Injuries Guidelines superseded the PIAB Book of Quantum. Courts and PIAB use the Guidelines as the starting point for assessing general damages.
+
 **Applies to:** All advertising.
 
 **Flag — prohibited (invented or implied figures):**
-- Any Euro amount (€) not attributed to the PIAB Book of Quantum
+- Any Euro amount (€) not attributed to the Personal Injuries Guidelines (or, for historical reference, the Book of Quantum)
 - "up to €X", "average award of €X", "typical payout", "you could receive €X"
 - "Based on our experience, you could get €X"
 - "We typically secure €X for similar cases"
 
-**Permitted — PIAB-cited figures with clear attribution:**
-- "According to the PIAB Book of Quantum, [injury] ranges from €X to €X"
-- Any official PIAB range, clearly attributed
+**Permitted — properly cited figures with clear attribution:**
+- "According to the Personal Injuries Guidelines, [injury] ranges from €X to €X"
+- Any official Guidelines or Book of Quantum range, clearly attributed
 
-**Reference:** https://www.injuries.ie/eng/forms-guides/book-of-quantum.pdf
-**Local copy:** `legal-compliance/book-of-quantum.pdf`
+**Compliant alternative — referencing the framework without naming a figure:**
+- "The level of general damages is guided by the Personal Injuries Guidelines published by the Judicial Council, which courts and PIAB use as a starting point."
+
+**References:**
+- Personal Injuries Guidelines (Judicial Council, 2021): https://judicialcouncil.ie/personal-injuries-guidelines/
+- PIAB Book of Quantum (historical, superseded April 2021): https://www.injuries.ie/eng/forms-guides/book-of-quantum.pdf
+- **Local copy of historical Book of Quantum:** `legal-compliance/book-of-quantum.pdf`
 
 **Violation examples:**
 - "Road traffic accident victims can receive up to €50,000."
@@ -338,3 +346,88 @@ Three categories of record must be kept for at least 12 months from the latest d
 ### 11(e) — Partnership Liability
 **Note:** In any firm with more than one solicitor, every partner is personally liable for all advertising compliance — not just the partner who approved the content. If reviewing content for a partnership, flag this: all partners must sign off, not just one. Not applicable to sole practitioners.
 **Flag:** Any named reference to another solicitor or firm — referral arrangements, collaborations, "in association with" language, or any co-marketing. Prior written consent from that solicitor is required before publishing.
+
+---
+
+## Audit workflow — three-file pattern for config-by-config review
+
+When auditing a config file (e.g. `src/config/services/personal-injury-litigation.ts`) against this skill, use a three-file workflow inside `legal-compliance/content-review/`. The aim is to keep the user's review surface small at any one time and to preserve a clean audit trail of approved decisions.
+
+### File 1 — Scratchpad: `_scratch-[config-name].md`
+
+Findings the user has not yet replied to. Contains:
+
+- A short header reminding the user to write `yes`, `no`, or their own version under each **Your reply** box
+- One section per finding, each labelled by Reg number and severity (🔴 / 🟡 / 🟢)
+- Each finding shows: where in the config (line + field), the current text, the breach reason, the proposed fix, and an empty **Your reply** code-fence
+
+### File 2 — Approved holding file: `_approved-[config-name].md`
+
+Findings the user has already approved. Used to free up the scratchpad. Contains:
+
+- One section per approved finding with the final text to apply
+- No discussion or breach reasoning — the decision is settled
+- This file is read by the assistant when it's time to apply edits
+
+### File 3 — Mary-facing review document
+
+Produced **after** all edits are applied to the config and after the scratchpad is cleared.
+
+**Path mirrors `src/config/`.** The review document lives at the same relative path, with `.md` instead of `.ts`. So:
+
+- `src/config/about.ts` → `legal-compliance/content-review/about.md`
+- `src/config/services/personal-injury-litigation.ts` → `legal-compliance/content-review/services/personal-injury-litigation.md`
+- `src/config/legal/disclaimer.ts` → `legal-compliance/content-review/legal/disclaimer.md`
+
+No numerical prefix. No reordering by review priority. The folder structure is the index; the user navigates by config name.
+
+The `services/` and `legal/` subfolders are kept as empty directories (with `.gitkeep`) until they have review documents inside them.
+
+The barrel re-export file `src/config/services/index.ts` is excluded — it has no content of its own to review.
+
+Contains:
+
+- The new content in plain English (no code), organised by where it appears on the page
+- Section labels Mary recognises (Hero, Article intro, FAQs, etc.)
+- An **Action items** section at the bottom flagging anything Mary or another solicitor needs to do (testimonial consent under Reg 5(a)(i), missing credentials, photo permissions, etc.)
+- A short compliance summary table and an explanatory note for the website manager — Mary can skip this section
+
+### Workflow steps — 12 steps with three AI re-reads
+
+1. **Read the config file in full.**
+2. **Run all three skill passes** — legal compliance (this skill), voice/AI-isms, SEO.
+3. **AI re-read pass 1 — self-check the findings before showing the user.** Read the proposed findings as if you were the user receiving them. Catch sloppy logic, wrong line references, contradictions, AI-tells, things that won't make sense out of context. Fix anything that is half-baked. Only proceed to step 4 once the findings would survive a sceptical reading.
+4. **Write the scratchpad** at `legal-compliance/content-review/_scratch-[config-name].md`. Each finding gets a Reg reference, a current/proposed comparison, and an empty reply box. Tell the user where the file is and what to do.
+5. **Wait for the user.** They edit the file in place and write `yes`, `no`, or their own version per finding.
+6. **Iterate.** When the user has replied, move approved items to `_approved-[config-name].md` to keep the scratchpad small. For items the user wants modified, write a new proposal in the same place. The user works through smaller and smaller scratchpads until everything is settled.
+7. **Apply all edits to the config in one batch.** Type-check after applying. Fix syntax issues if any.
+8. **Build the Mary-facing review document** at the path that mirrors the config — `legal-compliance/content-review/[same-relative-path-with-.md].md` — see "File 3" above.
+9. **AI re-read pass 2 — read the review document end-to-end as if you were Mary.** Flag count errors, role references that won't make sense to her, dead-end action items, anything that doesn't read cleanly. Fix in place before showing the user.
+10. **User reviews.** They flag anything they want changed in the review document.
+11. **AI re-read pass 3 — final pass after the user's changes.** Confirm the document still flows after edits. Catch any inconsistencies the user changes introduced.
+12. **Delete `_scratch-` and `_approved-` files.** Keep the final review document and the `_pending-items-across-pages.md` updates.
+
+### Important behaviours
+
+- **Never edit the config directly until the user has approved every finding.** All audit work happens in the scratchpad first.
+- **Move approved items out of the scratchpad as soon as they're approved** — the user's working surface stays small.
+- **Page-specific action items only.** A page review document only contains action items that are about *that specific page*. Examples of page-specific items: a pull quote on this page that needs Reg 5(a)(i) consent; a specific image used on this page that needs photo licensing confirmation; a specific external link on this page that needs Reg 9 review.
+- **Cross-page items go in `legal-compliance/content-review/_pending-items-across-pages.md`** — a working file the website manager maintains. Examples: solicitor credentials placeholders that affect every page; the firm email placeholder; a future testimonial policy decision. These are addressed once, in the audit of the source config (e.g. `team.ts`, `firm.ts`, `testimonials.ts`), and removed from the pending file when resolved.
+- **No Review notes section in the page review document.** The user receives any feedback by email/text/in-person and records the sign-off and date in their own working log (e.g. `legal-compliance/content-review/_sign-offs.md`). Mary and Nick do not need to fill anything in on the PDF.
+- **The reasoning lives in the scratchpad and the skill, not in code comments.** The config gets clean strings; the audit trail lives in the review documents and git history.
+- **The 1979 Established / 46+ years reference and similar firm-wide facts** must be consistent across every reviewed config. Flag any inconsistency as a finding.
+
+### Mary-facing review document structure (in order, top to bottom)
+
+1. **Title and one-line export note** — date and source config.
+2. **Short intro** — "This is the content of the X page. Please read through and let me know if you would like anything changed."
+3. **Page content sections** — SEO, Hero, Service description, Trust strip, Article, etc., in the order they appear on the page.
+4. **Action items** — page-specific tasks that must happen before the page goes live. Pull quote consents, page-specific image licensing, external link audits.
+5. **Compliance summary — for the website's records** — a regulation-by-regulation table with a one-line note explaining that this section is technical and does not need Mary's review.
+6. **Notes on style** (only if relevant) — explains any deliberate wording choice that a regulator might question (e.g. why second-person "you" is used in some sections but not others).
+
+There is no review-notes form. There is no signature block. The PDF is read-only by design.
+
+### Why this workflow exists
+
+The user is the compliance gatekeeper, not Mary. Mary signs off on the *content*; the audit happens upstream so she doesn't see ungoverned text. The three-file pattern keeps the review small at any moment, the three AI re-reads catch quality issues that single-pass review misses, and the cross-page tracking file stops repetitive items cluttering individual reviews.
