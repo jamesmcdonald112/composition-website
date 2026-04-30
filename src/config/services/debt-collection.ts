@@ -1,7 +1,8 @@
 import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
 import image from "../../assets/images/new/calculator-and-finances.webp";
 import richardImage from "../../assets/team/richard.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const debtCollection = {
 	// --- Identity ---
@@ -55,7 +56,7 @@ export const debtCollection = {
 			"We give clear, upfront cost advice so you can make an informed decision about whether and how to pursue a debt. Our aim is to recover what you are owed as efficiently as possible, with costs that are justified by the amount at stake.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Debt Recovery" },
@@ -180,4 +181,8 @@ export const debtCollection = {
 				"In Ireland, the court in which you bring a debt claim depends on the amount owed. The District Court handles claims up to €15,000; the Circuit Court handles claims between €15,000 and €75,000; and the High Court handles claims above €75,000. The choice of court affects court fees, the speed of the process, and the procedural rules that apply. We advise you on the most appropriate court for your claim.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

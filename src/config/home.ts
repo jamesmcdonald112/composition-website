@@ -1,12 +1,12 @@
 import homeModernIcon from "../assets/icons/homeModernIcon.svg?raw";
 import propertyImage from "../assets/images/new/house-key-and-figurine.webp";
-import { firm } from "./firm";
+import { firm, yearsInPractice } from "./firm";
+import { solicitors } from "./team";
 
 export const homePageContent = {
 	seo: {
 		title: firm.companyName,
-		description:
-			"Solicitors in Kilkenny with over 46 years of experience. Clear, practical legal advice for buying and selling property, wills and probate, family law, personal injury and more. Call (056) 776 5829.",
+		description: `Solicitors in Kilkenny with over ${yearsInPractice} years of experience. Clear, practical legal advice for buying and selling property, wills and probate, family law, personal injury and more. Call (056) 776 5829.`,
 		canonicalPath: "/",
 	},
 
@@ -53,7 +53,7 @@ export const homePageContent = {
 					body: "We update you at each stage so you are never left wondering where your transaction stands.",
 				},
 				{
-					heading: "Over 46 years of Kilkenny transactions",
+					heading: `Over ${yearsInPractice} years of Kilkenny transactions`,
 					body: "We know local properties, common title issues, and how to keep deals on track.",
 				},
 				{
@@ -85,11 +85,15 @@ export const homePageContent = {
 			"We are a regulated practice and members of the Law Society of Ireland. All legal work is carried out by qualified solicitors. We are based in Kilkenny City and can assist clients remotely where needed.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Core focus", value: "Conveyancing" },
 		],
+	},
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
 	},
 } as const;
 

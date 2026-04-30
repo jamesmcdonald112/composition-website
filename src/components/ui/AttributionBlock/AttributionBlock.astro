@@ -27,21 +27,35 @@ const {
 } = Astro.props;
 ---
 
-<div class="attribution">
-	<Image class="attribution__photo" src={photo} alt={`${name}, ${role}`} width={80} height={80} />
-	<div class="attribution__text">
-		<span class="attribution__label">{label}</span>
-		<span class="attribution__name">{name}</span>
-		<span class="attribution__role">{role}</span>
-		<span class="attribution__credentials">{credentials}</span>
-		{university && <span class="attribution__university">{university}</span>}
-		{admissionYear && <span class="attribution__admission">Admitted: {admissionYear}</span>}
-		{specialism && <span class="attribution__specialism">Specialises in: {specialism}</span>}
-		<span class="attribution__reviewed">Last reviewed: {reviewDate}</span>
+<div class="attribution-section">
+	<div class="attribution-section__inner wrapper wrapper--wide">
+		<div class="attribution">
+			<Image class="attribution__photo" src={photo} alt={`${name}, ${role}`} width={80} height={80} />
+			<div class="attribution__text">
+				<span class="attribution__label">{label}</span>
+				<span class="attribution__name">{name}</span>
+				<span class="attribution__role">{role}</span>
+				<span class="attribution__credentials">{credentials}</span>
+				{university && <span class="attribution__university">{university}</span>}
+				{admissionYear && <span class="attribution__admission">Admitted: {admissionYear}</span>}
+				{specialism && <span class="attribution__specialism">Specialises in: {specialism}</span>}
+				<span class="attribution__reviewed">Last reviewed: {reviewDate}</span>
+			</div>
+		</div>
 	</div>
 </div>
 
 <style>
+	.attribution-section {
+		background-color: var(--color-bg-page);
+		padding-block: var(--space-3xl);
+	}
+
+	.attribution-section__inner {
+		display: flex;
+		justify-content: flex-start;
+	}
+
 	.attribution {
 		display: flex;
 		align-items: center;

@@ -1,7 +1,8 @@
 import truckIcon from "../../assets/icons/truckIcon.svg?raw";
 import image from "../../assets/images/new/aerial-view-of-country-road.webp";
 import nicholasImage from "../../assets/team/nicholas.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const roadTrafficAccidents = {
 	// --- Identity ---
@@ -58,7 +59,7 @@ export const roadTrafficAccidents = {
 			"We give you a realistic view of your claim from the outset. If we think a settlement offer is fair, we will tell you. If we think it undervalues your case, we will tell you that too — and explain what we think you should do about it.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Road Traffic Claims" },
@@ -205,4 +206,8 @@ export const roadTrafficAccidents = {
 				"The general time limit for personal injury claims in Ireland — including road traffic accidents — is two years from the date of the accident or from the date you became aware of the injury. Missing this deadline will generally prevent you from bringing a claim. It is important to take advice as soon as possible after an accident.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

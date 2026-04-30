@@ -1,7 +1,8 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import image from "../../assets/images/new/envelope-with-wax-seal.webp";
 import maryImage from "../../assets/team/maryFull.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const willsAndEstateAdministration = {
 	// --- Identity ---
@@ -50,13 +51,13 @@ export const willsAndEstateAdministration = {
 			{ text: " solicitors in Kilkenny" },
 		],
 		paragraphs: [
-			"We have been advising families in Kilkenny on wills and estate matters for over 46 years. Wills and probate are an area where getting the details right matters enormously — a poorly drafted will or a misstep in the administration process can cause significant difficulties for the people you leave behind.",
+			`We have been advising families in Kilkenny on wills and estate matters for over ${yearsInPractice} years. Wills and probate are an area where getting the details right matters enormously — a poorly drafted will or a misstep in the administration process can cause significant difficulties for the people you leave behind.`,
 			"We approach every wills and probate matter with care and thoroughness. Whether you are making your first will, updating an existing one, or dealing with the estate of a deceased family member, we take the time to understand your situation before advising you on the right approach.",
 			"Dealing with a bereavement is hard. We work to make the legal process as straightforward as possible for executors and beneficiaries — taking care of the paperwork, the Revenue filings, and the dealings with financial institutions so that families can focus on what matters.",
 			"We are members of the Law Society of Ireland. All wills and probate work is carried out by qualified solicitors at our office on Rose Inn Street, Kilkenny.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Wills & Probate" },
@@ -224,4 +225,8 @@ export const willsAndEstateAdministration = {
 				"An enduring power of attorney (EPA) is a legal document that allows you to appoint someone you trust — known as your attorney — to make decisions about your personal welfare and your property and financial affairs if you lose the mental capacity to do so yourself. Under the new Assisted Decision-Making (Capacity) Act framework, EPAs must be registered with the Decision Support Service. An EPA is an essential planning document — without one, your family may face significant difficulty managing your affairs if you lose capacity.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

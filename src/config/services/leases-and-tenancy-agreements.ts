@@ -1,7 +1,8 @@
 import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
 import image from "../../assets/images/new/house-key-on-wooden-table.webp";
 import richardImage from "../../assets/team/richard.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const leasesAndTenancyAgreements = {
 	// --- Identity ---
@@ -59,7 +60,7 @@ export const leasesAndTenancyAgreements = {
 			"Where disputes do occur, we take a practical approach — advising on the most cost-effective route to resolution, whether that is negotiation, RTB mediation, or formal adjudication proceedings before the Board.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Landlord & Tenant" },
@@ -211,4 +212,8 @@ export const leasesAndTenancyAgreements = {
 				"We strongly recommend it. Commercial leases are complex documents that can have significant financial consequences for years. Key terms — the rent review mechanism, the repair obligations allocated to the tenant, break clause conditions, and assignment and subletting rights — can vary enormously from lease to lease. A solicitor review before you sign can identify unfavourable terms that can often be negotiated.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

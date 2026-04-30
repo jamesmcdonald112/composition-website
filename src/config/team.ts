@@ -3,6 +3,7 @@ import dukePhoto from "../assets/team/duke.webp";
 import maryPhoto from "../assets/team/maryFull.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
+import { yearsInPractice } from "./firm";
 
 // ── Solicitor credential records ──────────────────────────────────────────────
 // Used by AttributionBlock on every page. Fill in university and admissionYear
@@ -48,8 +49,7 @@ export type Solicitor = typeof solicitors[keyof typeof solicitors];
 export const teamSectionContent = {
 	title: "Meet our team",
 	backgroundImage: teamSectionBackground,
-	intro:
-		"Established in 1979, our family-run solicitor practice has been serving clients across Kilkenny and surrounding areas for over 46 years. We provide clear, practical legal advice in property, probate and private client matters, with a strong focus on communication, personal service and keeping clients fully informed at every stage.",
+	intro: `Established in 1979, our family-run solicitor practice has been serving clients across Kilkenny and surrounding areas for over ${yearsInPractice} years. We provide clear, practical legal advice in property, probate and private client matters, with a strong focus on communication, personal service and keeping clients fully informed at every stage.`,
 	members: [
 		{
 			name: solicitors.mary.name,

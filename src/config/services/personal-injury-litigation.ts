@@ -1,7 +1,8 @@
 import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
 import image from "../../assets/images/new/lady-justice-and-gavel-on-desk.webp";
 import richardImage from "../../assets/team/richard.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const personalInjuryLitigation = {
 	// --- Identity ---
@@ -56,7 +57,7 @@ export const personalInjuryLitigation = {
 			"Our litigation team advises on all types of personal injury claims — workplace accidents, public liability, road traffic injuries, and general civil disputes. We bring the same care and thoroughness to every case, regardless of its size.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Litigation" },
@@ -194,4 +195,8 @@ export const personalInjuryLitigation = {
 				"We discuss our fees with each client at the outset. In personal injury matters, costs are a legitimate element of a claim and can be recovered from the other side in many circumstances where proceedings are successful. We explain the costs position clearly before any decisions are made.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

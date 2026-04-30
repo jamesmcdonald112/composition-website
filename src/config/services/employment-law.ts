@@ -1,7 +1,8 @@
 import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
 import image from "../../assets/images/new/person-signing-document-at-desk.webp";
 import nicholasImage from "../../assets/team/nicholas.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const employmentLaw = {
 	// --- Identity ---
@@ -59,7 +60,7 @@ export const employmentLaw = {
 			"We also advise employers on building compliant contracts and procedures that reduce the risk of disputes arising in the first place, and on managing performance, conduct, and absence issues in a way that is fair and legally defensible.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Employment Law" },
@@ -198,4 +199,8 @@ export const employmentLaw = {
 				"Take it seriously and take legal advice promptly. WRC complaints have strict response deadlines, and how you engage with the process from the outset matters. We advise employers on how to respond, what documentation to gather, and how to present their case at the hearing. We also advise on whether the matter can be resolved by agreement before a hearing takes place.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

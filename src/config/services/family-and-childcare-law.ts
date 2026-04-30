@@ -1,7 +1,8 @@
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import image from "../../assets/images/new/hands-holding-family-figurines.webp";
 import nicholasImage from "../../assets/team/nicholas.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const familyAndChildcareLaw = {
 	// --- Identity ---
@@ -59,7 +60,7 @@ export const familyAndChildcareLaw = {
 			"We understand that the decisions made in family law proceedings shape lives for years to come. We take that responsibility seriously and focus on outcomes that are fair, practical, and in the best interests of everyone involved — particularly children.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Family Law" },
@@ -201,4 +202,8 @@ export const familyAndChildcareLaw = {
 				"The family home is one of the most significant issues in any separation or divorce. The options typically include selling the property and dividing the proceeds, one party buying out the other's share, or a deferred transfer where the sale or buyout is postponed — for example, until the youngest child reaches a certain age. The right solution depends on the financial position of both parties, whether there is a mortgage, and what is in the best interests of any children. We advise on all of these options and their tax implications.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;

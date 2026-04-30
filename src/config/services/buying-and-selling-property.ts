@@ -1,7 +1,8 @@
 import homeModernIcon from "../../assets/icons/homeModernIcon.svg?raw";
 import image from "../../assets/images/new/house-key-and-figurine.webp";
 import maryImage from "../../assets/team/maryFull.webp";
-import { firm } from "../firm";
+import { firm, yearsInPractice } from "../firm";
+import { solicitors } from "../team";
 
 export const buyingAndSellingProperty = {
 	// --- Identity ---
@@ -49,7 +50,7 @@ export const buyingAndSellingProperty = {
 	trustStrip: {
 		title: [
 			{ text: "Kilkenny property solicitors with " },
-			{ text: "over 46 years", em: true },
+			{ text: `over ${yearsInPractice} years`, em: true },
 			{ text: " of experience" },
 		],
 		paragraphs: [
@@ -59,7 +60,7 @@ export const buyingAndSellingProperty = {
 			"We are a regulated solicitor's practice and members of the Law Society of Ireland. All conveyancing work is carried out by qualified solicitors. We are based on Rose Inn Street in Kilkenny City and can assist clients remotely where needed.",
 		],
 		stats: [
-			{ label: "Years in practice", value: "46+" },
+			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Core focus", value: "Conveyancing" },
@@ -284,4 +285,8 @@ export const buyingAndSellingProperty = {
 				"Solicitor's fees for conveyancing are made up of professional fees and outlays. Outlays are third-party costs such as Land Registry fees, search fees, and stamp duty — these are fixed by law or by the relevant authority. Professional fees vary depending on the complexity of the transaction. We will explain our fees clearly at the outset so you know exactly what to expect.",
 		},
 	],
+	attribution: {
+		solicitor: solicitors.mary,
+		reviewDate: "April 2026",
+	},
 } as const;
