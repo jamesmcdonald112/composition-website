@@ -13,12 +13,12 @@ export const debtCollection = {
 	image,
 	imageClass: "object-[80%_60%]",
 	description:
-		"We assist businesses and individuals in recovering money owed to them — from solicitor's demand letters through to court proceedings and enforcement. We take a structured, proportionate approach to get you paid as efficiently as possible.",
+		"Debt recovery for businesses and individuals in Kilkenny and the surrounding counties. We advise on the appropriate route for the matter — solicitor's letters of demand, negotiated settlement, court proceedings, and enforcement of any judgment obtained.",
 	// --- SEO ---
 	seo: {
 		title: `Debt Recovery Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Debt recovery solicitors in Kilkenny for businesses and individuals. We pursue outstanding debts from formal demand letter to court judgment and enforcement. Call (056) 776 5829.",
+			"Debt recovery solicitors in Kilkenny. We advise businesses and individuals on outstanding debts — assessing the matter, drafting letters of demand, and acting on the route the client wishes to take.",
 		canonicalPath: "/services/debt-collection",
 	},
 	// --- Hero ---
@@ -29,31 +29,31 @@ export const debtCollection = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Unpaid debts put real pressure on businesses and individuals. Our solicitors take a structured, efficient approach to debt recovery — starting with a formal demand letter and moving through the courts where necessary. We keep the process proportionate to the amount at stake and keep you fully informed throughout.",
+			"Debt recovery in Ireland follows a defined sequence — a formal solicitor's letter, court proceedings where the debt remains unpaid and the client wishes to proceed, and enforcement of any judgment obtained. We advise businesses and individuals in Kilkenny on each stage of that process and on what is proportionate given the size of the debt.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Owed money that isn't being paid?", "We can help you recover it."],
+	midCta: ["Debt recovery, handled with care.", "Talk to us about the matter."],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Owed money? Let us help you " },
-			{ text: "recover it", em: true },
+			{ text: "A clear assessment of your " },
+			{ text: "debt recovery matter", em: true },
 		],
 		description:
-			"The sooner you act on an unpaid debt, the better your prospects of recovery. Contact our Kilkenny solicitors to discuss your situation and find out the most effective way forward.",
+			"Get in touch with us in Kilkenny. We'll assess the debt against the relevant court jurisdictions and the limitation period, and advise on the most appropriate next step — which may be a letter of demand, a negotiated approach, or another route depending on the circumstances.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Efficient, proportionate " },
-			{ text: "debt recovery", em: true },
+			{ text: "Practical " },
+			{ text: "debt recovery advice", em: true },
 			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
-			"Chasing unpaid debts consumes time and energy that most businesses cannot afford. We take that burden from you — managing correspondence, drafting demand letters, handling court filings, and advising on enforcement while you focus on running your business.",
-			"A solicitor's letter of demand carries significantly more weight than a phone call or a final invoice. In many cases, it is enough to prompt payment without any further action. Where it is not, we move promptly through the court process to secure judgment.",
-			"We handle debt recovery for businesses and individuals across all court jurisdictions — from small District Court claims to significant High Court proceedings. Our approach is always proportionate to the size and complexity of the debt involved.",
-			"We give clear, upfront cost advice so you can make an informed decision about whether and how to pursue a debt. Our aim is to recover what you are owed as efficiently as possible, with costs that are justified by the amount at stake.",
+			"Debt recovery in Ireland is governed by two main bodies of law — the general law of contract under which most debts arise, and the procedural rules of the courts in which judgment is sought (the District Court, Circuit Court, and High Court, depending on the size of the debt). We advise businesses and individuals in Kilkenny on each stage of the recovery process.",
+			"A formal solicitor's letter of demand is usually the first step. The letter sets out the amount owed, the basis on which it is owed, and the consequences of non-payment — including that legal proceedings will follow if the debt is not discharged within a specified period. The letter is the formal pre-action notice on which any subsequent court proceedings rest.",
+			"Where the debt is not paid following the letter, the next step depends on the circumstances — the size of the debt, whether it is disputed, and the client's instructions on whether to proceed. We advise on the appropriate court for the claim, the procedural route within that court, and the cost implications of each.",
+			"Where judgment is obtained, a range of enforcement options applies — registration of a judgment mortgage, sheriff enforcement, instalment orders, examination of the debtor, or insolvency proceedings. We advise on which routes are likely to be effective given the debtor's financial position and the size of the debt.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -66,24 +66,25 @@ export const debtCollection = {
 	article: {
 		eyebrow: "Debt Recovery",
 		title: [
-			{ text: "Recovering " },
-			{ text: "what you are owed", em: true },
+			{ text: "How " },
+			{ text: "debt recovery", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"Unpaid invoices and outstanding debts are a serious problem — financially and operationally — for businesses and individuals alike. Our Kilkenny solicitors take a structured, prompt approach to debt recovery: formal demand letters, court proceedings where necessary, and enforcement of judgments to achieve actual payment.",
+			"Debt recovery in Ireland follows a defined legal process — a formal solicitor's letter of demand, court proceedings in the appropriate court if the debt remains unpaid, and enforcement of any judgment obtained. Knowing how the process is structured, what the court jurisdictions are, and what enforcement options apply makes the route from unpaid debt to recovery clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "A solicitor's letter changes the dynamic immediately. Most people who have been ignoring invoices take it seriously — and in many cases that is all it takes to get paid without any court involvement.",
+			text: "No two debtor situations are the same. Some debts are recoverable in days, some take years, and some cannot be recovered at all once the debtor's circumstances are properly understood. Knowing which is which early is what saves time and money.",
 			attribution: "Richard O'Shea, Solicitor",
 			image: richardImage,
 		},
 		blocks: [
 			{
 				type: "paragraph" as const,
-				text: "A solicitor's letter of demand carries significantly more weight than a final invoice or a direct phone call. It formally puts the debtor on notice that legal proceedings will follow if payment is not made within a specified period, and it signals clearly that the creditor is serious about pursuing what is owed. In many cases, a well-drafted demand letter from a solicitor is all that is needed to prompt payment without any further action.",
+				text: "A solicitor's letter of demand serves a specific legal function. It formally puts the debtor on notice of the debt, the basis on which it is owed, and the consequences of non-payment. It establishes a written record that legal proceedings will follow if the debt is not discharged within the period specified — and that record is what subsequent court applications rest on. Whether the letter prompts payment, prompts a dispute, or is ignored is a separate question; the legal value of the formal notice is the same in each case.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Where payment is not made following a demand, we advise on the appropriate court based on the amount of the debt. The District Court deals with claims up to €15,000; the Circuit Court with claims up to €75,000; and the High Court with larger amounts. For undisputed debts, it is often possible to obtain judgment through a summary procedure — without the need for a contested hearing — which significantly reduces the time and cost involved. Once judgment is obtained, a range of enforcement options becomes available.",
+				text: "Where the client wishes to proceed beyond the demand letter, we advise on the appropriate court for the claim. The choice of court depends on the size of the debt: the District Court handles smaller claims, the Circuit Court mid-range claims, and the High Court the largest. The specific monetary thresholds are set by statute and updated periodically. For undisputed debts, judgment can often be sought through a summary procedure — a faster procedural route that does not require a contested hearing. Once judgment is obtained, the enforcement options described below become available.",
 			},
 			{
 				type: "heading" as const,
@@ -94,11 +95,11 @@ export const debtCollection = {
 				items: [
 					{
 						label: "Judgment mortgage",
-						text: "A court judgment can be registered as a mortgage against any property owned by the debtor in Ireland. This secures the debt against the property, meaning the debtor cannot sell or refinance without discharging what they owe you. It is one of the most effective enforcement tools available where the debtor owns property.",
+						text: "A court judgment can be registered as a mortgage against any property owned by the debtor in Ireland. This secures the debt against the property: the debtor cannot sell or refinance without discharging what is owed. Where the debtor owns property, this is one of the most effective enforcement tools.",
 					},
 					{
 						label: "Sheriff enforcement",
-						text: "A County Registrar or Sheriff can be instructed to seize goods belonging to the debtor to the value of the judgment. This is a practical enforcement option where the debtor has moveable assets but is unwilling to pay voluntarily.",
+						text: "A County Registrar or Sheriff can be instructed to seize goods belonging to the debtor up to the value of the judgment. This is a practical option where the debtor has moveable assets but is unwilling to pay voluntarily.",
 					},
 					{
 						label: "Instalment orders",
@@ -106,11 +107,11 @@ export const debtCollection = {
 					},
 					{
 						label: "Examination of the debtor",
-						text: "The court can compel a debtor to attend and be examined about their financial circumstances and assets. This is useful where you are unsure what assets the debtor holds and want to identify what enforcement options are available.",
+						text: "The court can compel a debtor to attend and be examined about their financial circumstances and assets. This is useful where the debtor's assets are not known and we need to identify what enforcement options are available.",
 					},
 					{
 						label: "Insolvency proceedings",
-						text: "Where a debtor — whether an individual or a company — is genuinely unable to pay, we advise on whether bankruptcy proceedings (for individuals) or winding-up proceedings (for companies) are appropriate, and what this means for the realistic prospect of recovery.",
+						text: "Where a debtor — whether an individual or a company — is genuinely unable to pay, we advise on whether bankruptcy proceedings (for individuals) or winding-up proceedings (for companies) are appropriate, and what they are likely to mean for the realistic prospect of recovery.",
 					},
 				],
 			},
@@ -120,37 +121,37 @@ export const debtCollection = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "For businesses pursuing commercial debts, the Late Payment in Commercial Transactions Regulations 2002 (implementing the EU Late Payment Directive) give creditors the right to claim statutory interest on overdue invoices in business-to-business transactions, without needing a specific contractual provision. The rate is 8% above the ECB reference rate, and you are also entitled to claim a fixed sum to cover recovery costs. We advise businesses on these entitlements as part of the debt recovery process.",
+				text: "For businesses pursuing commercial debts, the European Communities (Late Payment in Commercial Transactions) Regulations 2012 (which superseded the 2002 Regulations and which implement the EU Late Payment Directive 2011/7/EU) give creditors the right to claim statutory interest on overdue invoices in business-to-business transactions, without needing a specific contractual provision. The creditor is also entitled to claim a fixed sum towards recovery costs. We advise businesses on these entitlements as part of the recovery process.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "We are conscious of the cost of legal action relative to the amount of the debt. For smaller debts, a demand letter and a prompt District Court application is often the most proportionate approach. For larger or more complex commercial debts, we develop a considered strategy — advising on the best route to recovery given the size of the debt, the nature of the dispute, and the financial position of the debtor.",
+				text: "The cost of legal action is always proportionate to the amount of the debt. For smaller debts, a demand letter and a District Court application is often the more cost-effective route. For larger or more complex commercial debts — particularly those involving disputes about liability or quantum — we advise on the most appropriate route to take given the size of the debt, the nature of the dispute, and the debtor's financial position.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"Recovering a debt follows a structured path. Here is how we move your matter forward — efficiently, proportionately, and with your interests driving every step.",
+		"Debt recovery moves through a defined sequence in Ireland — formal demand, court proceedings where the client wishes to proceed, judgment, and enforcement. Here is how we manage each stage for our clients.",
 	process: [
 		{
 			title: "Letter of demand",
 			description:
-				"We issue a formal solicitor's letter to the debtor, setting out the amount owed and giving a clear deadline for payment. This often prompts payment without further action and establishes a written record that legal proceedings will follow if payment is not made.",
+				"We issue a formal solicitor's letter to the debtor setting out the amount owed, the basis on which it is owed, and a clear deadline for payment. The letter establishes the formal written record on which any subsequent court proceedings rest.",
 		},
 		{
 			title: "Court proceedings",
 			description:
-				"If payment is not forthcoming, we issue proceedings in the appropriate court based on the amount of the debt. For undisputed debts, we seek judgment by summary procedure — avoiding the need for a full hearing and reducing the time to judgment.",
+				"Where the client wishes to proceed to court — typically because the debt has not been paid following the letter, or for other reasons — we issue proceedings in the appropriate court based on the size of the debt. For undisputed debts, judgment can often be sought through a summary procedure that does not require a contested hearing.",
 		},
 		{
 			title: "Judgment",
 			description:
-				"Once judgment is obtained, it is a formal court order confirming that the debt is owed. Judgment opens up a range of enforcement options and can be registered as a judgment mortgage against any property the debtor owns.",
+				"Where judgment is obtained, it is a formal court order confirming that the debt is owed. Judgment opens up the enforcement options described in the article above and can be registered as a judgment mortgage against any property the debtor owns in Ireland.",
 		},
 		{
 			title: "Enforcement",
 			description:
-				"We advise on the most effective means of enforcement given the debtor's circumstances and take the necessary steps to achieve actual payment — whether through sheriff enforcement, judgment mortgage registration, instalment orders, or other available routes.",
+				"We advise on the most appropriate enforcement route given the debtor's circumstances — judgment mortgage registration, sheriff enforcement, instalment orders, examination of the debtor, or insolvency proceedings — and act on the route the client instructs us to pursue.",
 		},
 	],
 	// --- FAQs ---
@@ -158,27 +159,27 @@ export const debtCollection = {
 		{
 			question: "How much does it cost to pursue a debt through the courts in Ireland?",
 			answer:
-				"Court fees vary depending on the amount of the debt and the court involved. We will advise you on the likely costs at the outset and discuss the most cost-effective approach given the size of the debt. In many cases where judgment is obtained, the court will order the debtor to pay your legal costs — though recovering costs from a debtor with limited means can be difficult in practice.",
+				"Court fees vary depending on the size of the debt and the court involved. We discuss the likely costs at the outset, including the basis on which we charge and the cost-proportionality issues that apply for smaller debts. Where judgment is obtained in the creditor's favour, the court may order the debtor to pay the creditor's legal costs.",
 		},
 		{
 			question: "What if the debtor says they cannot pay?",
 			answer:
-				"Even where a debtor claims to have no money, it is worth taking legal advice. Assets may exist that are not immediately apparent — property, vehicles, or business interests. An instalment arrangement may be achievable. If a debtor is genuinely insolvent, we advise on whether bankruptcy or company winding-up proceedings are appropriate and what this means for the prospect of recovery.",
+				"Even where a debtor claims to have no money, the position is worth assessing. Assets may exist that are not immediately apparent — property, vehicles, or business interests. An instalment arrangement may be achievable. Where a debtor is genuinely insolvent, we advise on whether bankruptcy proceedings (for individuals) or winding-up proceedings (for companies) are appropriate, and on what they are likely to mean for the prospect of recovery.",
 		},
 		{
 			question: "Is there a time limit for pursuing a debt in Ireland?",
 			answer:
-				"Yes. The general limitation period for contract debts in Ireland is six years from the date the debt became due. After this period, the debt may become statute-barred and unenforceable through the courts. The clock can be reset in certain circumstances — for example, by a written acknowledgement of the debt by the debtor. It is important to act promptly.",
+				"Yes. Under the Statute of Limitations 1957, the general limitation period for contract debts in Ireland is six years from the date the debt became due. After that period, the debt may become statute-barred and unenforceable through the courts. The clock can be reset in certain circumstances — for example, by a written acknowledgement of the debt by the debtor, or by part-payment.",
 		},
 		{
-			question: "Can I recover interest on an unpaid debt?",
+			question: "Can interest be claimed on an unpaid debt?",
 			answer:
-				"Possibly. If your contract includes a term providing for interest on late payments, you can claim that interest. For business-to-business debts, the Late Payment in Commercial Transactions Regulations entitle you to statutory interest at 8% above the ECB reference rate without needing a specific contract clause, as well as a fixed sum for recovery costs. We will advise you on what interest is recoverable in your specific situation.",
+				"It depends on the contract and the type of debt. Where the contract includes a term providing for interest on late payments, that interest is recoverable. For business-to-business debts in particular, the European Communities (Late Payment in Commercial Transactions) Regulations 2012 entitle the creditor to statutory interest without needing a specific contractual provision, together with a fixed sum towards recovery costs. We advise on what interest is recoverable in the specific circumstances.",
 		},
 		{
-			question: "What is the difference between the District Court, Circuit Court, and High Court for debt claims?",
+			question: "What is the difference between the District, Circuit, and High Court for debt claims?",
 			answer:
-				"In Ireland, the court in which you bring a debt claim depends on the amount owed. The District Court handles claims up to €15,000; the Circuit Court handles claims between €15,000 and €75,000; and the High Court handles claims above €75,000. The choice of court affects court fees, the speed of the process, and the procedural rules that apply. We advise you on the most appropriate court for your claim.",
+				"In Ireland, the court in which a debt claim is brought depends on the amount owed: the District Court handles smaller claims, the Circuit Court handles mid-range claims, and the High Court handles the largest. The specific monetary thresholds are set by statute and updated periodically. The choice of court affects the court fees, the speed of the process, and the procedural rules that apply. We advise on the most appropriate court for the claim.",
 		},
 	],
 	attribution: {
