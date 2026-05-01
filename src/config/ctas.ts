@@ -3,11 +3,10 @@ import { firm } from "./firm";
 export const defaultCtaPanel = {
 	eyebrow: "Get in touch",
 	title: [
-		{ text: "Need legal advice you can " },
-		{ text: "rely on", em: true },
-		{ text: "?" },
+		{ text: "A clear assessment of your " },
+		{ text: "legal matter", em: true },
 	],
-	body: "Our solicitors in Kilkenny are here to help. Call us or send a message and we will get back to you promptly.",
+	body: "Get in touch with us in Kilkenny and we'll explain how the relevant area of law applies to the specific circumstances.",
 } as const;
 
 export const globalCtas = {
