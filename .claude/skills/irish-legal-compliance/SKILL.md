@@ -91,6 +91,29 @@ Run alongside `.claude/skills/copy/SKILL.md` and `.claude/skills/ai-isms/SKILL.m
 **Compliant alternative:**
 - "We advise on personal injury matters, including road traffic accidents and workplace incidents."
 
+#### Implied-outcome phrasing (added 1 May 2026)
+
+Phrases that describe a claim by listing only its favourable outcomes — and silently omitting the unfavourable ones — risk falling under both Reg 4(a)(vi) (encouragement to claim) and Reg 4(a)(iv) (false or misleading by omission). This applies whether the phrase is structured as a *journey* (*"from first call to settlement"*) or as a *binary list* (*"either acceptance of the PIAB award or a move to court"*).
+
+**Why both regulations:**
+- **4(a)(vi):** outcome-coded phrasing reads as a sales journey or a promise rather than a description of practice — "we'll be with you the whole way to a result" is a hook, not a scope statement.
+- **4(a)(iv):** listing only favourable terminal states is misleading by omission. The real spectrum of outcomes always includes some that are not in the firm's brochure — claim not pursued, PIAB declines to make an assessment, claim withdrawn or discontinued, lost at trial, settlement on unfavourable terms. Each individual word in the phrase can be true while the overall impression remains misleading.
+
+**The general test:** does the phrasing list, imply, or arc towards only outcomes that the firm would put in a brochure? If so, rewrite it. If the wording survives the question *"would this still feel honest to a client whose claim was unsuccessful?"*, it's fine.
+
+**Surface forms to flag — any phrasing that presents only favourable outcomes:**
+- *Arc phrasing:* "from initial assessment through to settlement or trial", "from the first phone call to settlement or court", "from accident to compensation", "the route to settlement or court is clear"
+- *Binary phrasing:* "either acceptance of the PIAB award or a move to court", "settle or proceed to trial", "agreement or court", any "either X or Y" pattern where both X and Y are good outcomes
+- *Promise phrasing:* "the route to your award", "we secure compensation", "we recover your damages", "we achieve a settlement"
+- *Process-disguised-as-outcome:* "the case is resolved" used to describe a successful PIAB award only — without acknowledging that PIAB can decline to make an assessment, or that one side may reject the award and not pursue further
+
+**Compliant alternatives — describe practice area scope, or process honestly:**
+- Replace arc/binary phrasing with a description of *what we do*: "We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required."
+- Where the process genuinely has multiple branches, say so honestly: "What happens after the PIAB stage depends on whether either side accepts the PIAB assessment and on the strength of the evidence." This acknowledges that some claims do not proceed.
+- Use scope statements: "We advise clients on the conduct of personal injury claims arising from road traffic accidents."
+
+The principle: describe *what the firm does* (scope) and *how the legal process can branch* (honest process), not *what the client will get* (outcome).
+
 ---
 
 ## REG 5 — CLIENT REFERENCES AND TESTIMONIALS
@@ -392,20 +415,62 @@ Contains:
 - An **Action items** section at the bottom flagging anything Mary or another solicitor needs to do (testimonial consent under Reg 5(a)(i), missing credentials, photo permissions, etc.)
 - A short compliance summary table and an explanatory note for the website manager — Mary can skip this section
 
-### Workflow steps — 12 steps with three AI re-reads
+### Mode decision — surgical edit or full rewrite?
+
+Before starting any audit, decide which mode this page needs. **Always make this call explicitly and tell the user which mode you have chosen and why** before you start the scratchpad — they will redirect you if you have read the page wrong.
+
+**Surgical edit mode** keeps the existing copy and only changes what's needed for compliance. Each finding is a small, contained diff (replace this sentence, swap this word). The structure, frame, and information density of the page stay the same.
+
+**Full rewrite mode** treats each section as a blank page and asks "what should this section *say* given the firm, the audience, and the three skills?" The information stays roughly the same, but the frame, voice, and structure can change. SEO is designed in rather than preserved.
+
+#### When to choose surgical edit
+
+- The breaches are localised — a few specific sentences, not a structural problem.
+- The existing voice fits the firm and the surrounding pages.
+- The page makes the same emotional/structural appeal as the rest of the site.
+- Only Reg 4(a)(iv), Reg 5, Reg 6, Reg 7, Reg 8, Reg 11 issues — these are usually word-level.
+- Examples from this project: `about.ts` (no breaches at all), `personal-injury-litigation.ts` (eight Reg 4(a)(vi) breaches but the underlying voice and structure were sound).
+
+#### When to choose full rewrite
+
+- **Cumulative tone problem** — multiple sections reinforcing the same emotional frame in a way that breaches Reg 4(a)(i) (disrepute) or persistently breaches Reg 4(a)(vi) (encouragement).
+- **Multiple separate findings turn out to be the same problem expressed differently** — if you find yourself proposing the same kind of fix in 4+ places, the page is structured around the wrong frame.
+- **The user has not read the page before** — there is no incumbent attachment to the wording, so the cost of rewriting is essentially zero on the user's side.
+- **The page's voice is materially different from the rest of the site** — for example, urgent/adversarial when the rest of the site is calm/authoritative.
+- **SEO would be improved by re-anchoring** — if the existing keyword anchors are baked into the breach hooks, surgical removal weakens them; rewriting designs SEO in cleanly.
+- Examples from this project: `road-traffic-accidents.ts` was found to have a cumulative urgency/adversarial frame that surgery couldn't fix; the user had not read the page; full rewrite chosen.
+
+#### How to flag the decision to the user
+
+Open the audit response with one short paragraph:
+
+> "I'm proposing **[surgical edit / full rewrite]** mode for this page. Reasons: [one or two sentence justification]. If you'd rather I did the other mode, tell me before I start and I'll switch."
+
+Wait briefly for objection. If none, proceed.
+
+#### When the user pushes back mid-audit
+
+If the user starts asking *"is there a better thing we can say?"* or *"should this whole framing change?"* during a surgical-edit scratchpad, that is a signal that surgical mode is wrong for this page. Stop, propose switching to full rewrite, delete the surgical scratchpad, start over.
+
+Do not continue surgical edits past the point at which the user is signalling that the page's frame is broken.
+
+---
+
+### Workflow steps — 13 steps with three AI re-reads
 
 1. **Read the config file in full.**
 2. **Run all three skill passes** — legal compliance (this skill), voice/AI-isms, SEO.
-3. **AI re-read pass 1 — self-check the findings before showing the user.** Read the proposed findings as if you were the user receiving them. Catch sloppy logic, wrong line references, contradictions, AI-tells, things that won't make sense out of context. Fix anything that is half-baked. Only proceed to step 4 once the findings would survive a sceptical reading.
-4. **Write the scratchpad** at `legal-compliance/content-review/_scratch-[config-name].md`. Each finding gets a Reg reference, a current/proposed comparison, and an empty reply box. Tell the user where the file is and what to do.
-5. **Wait for the user.** They edit the file in place and write `yes`, `no`, or their own version per finding.
-6. **Iterate.** When the user has replied, move approved items to `_approved-[config-name].md` to keep the scratchpad small. For items the user wants modified, write a new proposal in the same place. The user works through smaller and smaller scratchpads until everything is settled.
-7. **Apply all edits to the config in one batch.** Type-check after applying. Fix syntax issues if any.
-8. **Build the Mary-facing review document** at the path that mirrors the config — `legal-compliance/content-review/[same-relative-path-with-.md].md` — see "File 3" above.
-9. **AI re-read pass 2 — read the review document end-to-end as if you were Mary.** Flag count errors, role references that won't make sense to her, dead-end action items, anything that doesn't read cleanly. Fix in place before showing the user.
-10. **User reviews.** They flag anything they want changed in the review document.
-11. **AI re-read pass 3 — final pass after the user's changes.** Confirm the document still flows after edits. Catch any inconsistencies the user changes introduced.
-12. **Delete `_scratch-` and `_approved-` files.** Keep the final review document and the `_pending-items-across-pages.md` updates.
+3. **Decide the mode** — surgical edit or full rewrite, per the rules above. Flag the decision to the user.
+4. **AI re-read pass 1 — self-check the findings before showing the user.** Read the proposed findings (or proposed rewrite, in full-rewrite mode) as if you were the user receiving them. Catch sloppy logic, wrong line references, contradictions, AI-tells, things that won't make sense out of context. **Specifically check: do multiple findings collapse to the same underlying problem?** If yes, the mode decision in step 3 was probably wrong — re-evaluate.
+5. **Write the scratchpad** at `legal-compliance/content-review/_scratch-[config-name].md`. In surgical-edit mode each finding gets a Reg reference, a current/proposed comparison, and an empty reply box. In full-rewrite mode the scratchpad is structured by the page's section order — for each section: a one-line note on the new frame, the proposed wording, and an empty reply box. Tell the user where the file is and what to do.
+6. **Wait for the user.** They edit the file in place and write `yes`, `no`, or their own version per finding/section.
+7. **Iterate.** When the user has replied, move approved items to `_approved-[config-name].md` to keep the scratchpad small. For items the user wants modified, write a new proposal in the same place. The user works through smaller and smaller scratchpads until everything is settled.
+8. **Apply all edits to the config in one batch.** Type-check after applying. Fix syntax issues if any.
+9. **Build the Mary-facing review document** at the path that mirrors the config — `legal-compliance/content-review/[same-relative-path-with-.md].md` — see "File 3" above.
+10. **AI re-read pass 2 — read the review document end-to-end as if you were Mary.** Flag count errors, role references that won't make sense to her, dead-end action items, anything that doesn't read cleanly. Fix in place before showing the user.
+11. **User reviews.** They flag anything they want changed in the review document.
+12. **AI re-read pass 3 — final pass after the user's changes.** Confirm the document still flows after edits. Catch any inconsistencies the user changes introduced.
+13. **Delete `_scratch-` and `_approved-` files.** Keep the final review document and the `_pending-items-across-pages.md` updates.
 
 ### Important behaviours
 
