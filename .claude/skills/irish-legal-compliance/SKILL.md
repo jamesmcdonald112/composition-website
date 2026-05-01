@@ -104,6 +104,7 @@ Phrases that describe a claim by listing only its favourable outcomes — and si
 **Surface forms to flag — any phrasing that presents only favourable outcomes:**
 - *Arc phrasing:* "from initial assessment through to settlement or trial", "from the first phone call to settlement or court", "from accident to compensation", "the route to settlement or court is clear"
 - *Binary phrasing:* "either acceptance of the PIAB award or a move to court", "settle or proceed to trial", "agreement or court", any "either X or Y" pattern where both X and Y are good outcomes
+- *Conditional disguised as binary:* "Where settlement does not produce an agreement, we issue court proceedings", "If the matter does not resolve at PIAB, we [next step]", "Where agreement cannot be reached, we issue applications". The conditional structure *looks* honest because it acknowledges X may not happen, but it implies Y *automatically follows* — when in reality the client may instruct the firm to walk away, settle on different terms, or not pursue further. **Test:** does the phrasing acknowledge the client's instruction as the trigger for the next step, or does it imply automatic progression? Rewrite as *"Where the client wishes to [next step] — either because [prior step did not work], or for other reasons — we [act on instructions]"*.
 - *Promise phrasing:* "the route to your award", "we secure compensation", "we recover your damages", "we achieve a settlement"
 - *Process-disguised-as-outcome:* "the case is resolved" used to describe a successful PIAB award only — without acknowledging that PIAB can decline to make an assessment, or that one side may reject the award and not pursue further
 
@@ -491,7 +492,17 @@ Do not continue surgical edits past the point at which the user is signalling th
 5. **Compliance summary — for the website's records** — a regulation-by-regulation table with a one-line note explaining that this section is technical and does not need Mary's review.
 6. **Notes on style** (only if relevant) — explains any deliberate wording choice that a regulator might question (e.g. why second-person "you" is used in some sections but not others).
 
-There is no review-notes form. There is no signature block. The PDF is read-only by design.
+**Do not include any of the following in the review document:**
+
+- A "Page reviewed and approved by" block
+- A "Solicitor: Mary Molloy / Date last reviewed: [month]" pre-filled approval block
+- A signature block, signature line, or initials field
+- A review-notes form for Mary or Nick to complete
+- The page's `attribution.reviewDate` value rendered as if it were sign-off (it is *not* — it is the date the assistant produced the audit, which is different from the date the solicitor approved the content)
+
+The review document is **a draft for the solicitor to read, not a sign-off form**. Pre-filling an approval block before the solicitor has signed off is misleading — it implies an approval that has not happened. The user records sign-off and date in their own working log (`legal-compliance/content-review/_sign-offs.md` or similar) once the solicitor has actually approved the content.
+
+The PDF is read-only by design. Mary and Nick do not need to fill anything in on it.
 
 ### Why this workflow exists
 
