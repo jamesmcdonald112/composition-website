@@ -16,33 +16,31 @@ export const servicesIndexContent = {
 	seo: {
 		title: `Legal Services in Kilkenny | ${firm.companyName}`,
 		description:
-			"Solicitors in Kilkenny offering property conveyancing, wills and probate, family law, personal injury, employment law, leases, and debt recovery. Contact us for clear, practical legal advice.",
+			"Solicitors in Kilkenny since 1979. We advise on property conveyancing, wills and probate, family law, personal injury and litigation, road traffic accidents, leases and tenancies, employment law, and debt recovery.",
 		canonicalPath: "/services",
 	},
 	hero: {
 		eyebrow: "Legal Services in Kilkenny",
 		title: "Services",
-		subtitle:
-			"We provide clear, practical legal advice across a wide range of personal and business matters. Whether you are buying a home, dealing with a bereavement, going through a separation, or facing a workplace dispute, our experienced Kilkenny team is here to help.",
 	},
 	cta: {
-		title: "Not sure which service you need?",
-		body: "Our team in Kilkenny is happy to talk through your situation and point you in the right direction — no obligation, just clear advice on where to start.",
+		title: "Get in touch",
+		body: "Where the area of law that applies to a matter is not clear, an initial conversation often helps to identify it. Get in touch with us in Kilkenny and we'll explain how the relevant legal framework fits the specific circumstances.",
 	},
 	trustStrip: {
 		eyebrow: "Why clients choose us",
-		title: "Experienced, personal legal advice in Kilkenny",
+		title: "A family practice in Kilkenny since 1979",
 		paragraphs: [
-			`Mary Molloy Solicitor has been practising on Rose Inn Street, Kilkenny since 1979. Over ${yearsInPractice} years, we have helped thousands of clients across the county with property, family, and personal legal matters.`,
-			"We are a family practice — Mary works alongside her sons Nicholas and Richard. Every client gets direct access to a qualified solicitor, not a call centre or a junior clerk.",
-			"We keep our clients informed at every stage. You will always know where your matter stands, what is happening next, and what it will cost.",
-			"All work is carried out by qualified solicitors. We are regulated by the Law Society of Ireland and proud members of the Kilkenny legal community.",
+			"Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny since 1979. The firm has acted for clients across County Kilkenny and the surrounding counties on property, wills, family, and litigation matters across more than four decades.",
+			"The firm is a family practice. Mary Molloy is the principal solicitor; her sons Nicholas O'Shea and Richard O'Shea are also solicitors at the firm. All client matters are handled by qualified solicitors.",
+			"Our work focuses on a defined set of practice areas across both the personal-client side (property, wills and probate, family law, personal injury) and the smaller-business and individual-disputes side (employment law, leases and tenancies, debt recovery). The legal and procedural rules differ by area; the underlying approach — clarity about the law, careful preparation, and respect for the people involved — does not.",
+			"All solicitors at the firm are admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
 			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
-			{ label: "Core focus", value: "Conveyancing" },
+			{ label: "Practice areas", value: "8" },
 		],
 	},
 	attribution: {
