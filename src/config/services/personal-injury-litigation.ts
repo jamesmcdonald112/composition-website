@@ -46,15 +46,15 @@ export const personalInjuryLitigation = {
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Straightforward advice on " },
-			{ text: "personal injury claims", em: true },
+			{ text: "Practical " },
+			{ text: "personal injury advice", em: true },
 			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
-			"Personal injury claims can feel daunting if you have never been through one before. We explain how the process works in plain, straightforward terms and give you a realistic view of your claim from the very first meeting.",
-			"We handle all aspects of your claim — gathering medical evidence, dealing with PIAB, negotiating with insurers, and, where necessary, issuing and pursuing court proceedings. You focus on your recovery; we take care of the legal side.",
-			"We approach every case with honesty. If we do not believe a claim is strong enough to pursue, we will say so clearly rather than give you false hope. That approach means our clients always know where they stand.",
-			"Our litigation team advises on all types of personal injury claims — workplace accidents, public liability, road traffic injuries, and general civil disputes. We bring the same care and thoroughness to every case, regardless of its size.",
+			"Personal injury law in Ireland gives those harmed by another person's negligence a route to seek compensation through the Personal Injuries Assessment Board (PIAB) and, where necessary, the courts. The route is the same across most accident types — workplace, public liability, and road traffic — but the procedural rules and the evidence required vary. We advise clients in Kilkenny and the surrounding counties across the full range of personal injury matters.",
+			"A claim's value is assessed against the Personal Injuries Guidelines published by the Judicial Council in 2021, which set out appropriate damages ranges for general damages by injury type. We assess each claim against those ranges, gather the medical evidence and documentation of any financial losses, and explain to the client what a reasonable outcome looks like under the Guidelines.",
+			"Where a claim is strong, we say so. Where the merits do not justify proceeding, we say that too — clearly, and at the earliest stage we can. The aim is for the client to know where the claim stands before the time and cost of formal steps is committed.",
+			"We advise on personal injury matters across the four main areas — workplace accidents, public liability, road traffic accidents, and civil litigation arising from injury or other civil wrongs. The same care and thoroughness applies to each, regardless of the size of the claim.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -67,13 +67,14 @@ export const personalInjuryLitigation = {
 	article: {
 		eyebrow: "Personal Injury",
 		title: [
-			{ text: "Understanding your " },
-			{ text: "right to compensation", em: true },
+			{ text: "How a " },
+			{ text: "personal injury claim", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through PIAB and, where necessary, the courts. Knowing what is recoverable, how the process works, and what to expect at each stage makes a real difference to how a matter progresses. The article below sets that process out in plain English.",
+			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through the Personal Injuries Assessment Board (PIAB) and, where necessary, the courts. Knowing what is recoverable, how the PIAB process works, and what the procedural rules require at each stage makes the route from accident to resolution clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope.",
+			text: "Some claims should be pursued; some shouldn't. Working out which is which is the most important thing we do at the start.",
 			attribution: "Richard O'Shea, Solicitor",
 			image: richardImage,
 		},
@@ -84,11 +85,11 @@ export const personalInjuryLitigation = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "A personal injury claim in Ireland covers two main categories of loss. General damages compensate for the pain, suffering, and loss of enjoyment of life caused by your injuries. Special damages cover your actual out-of-pocket losses — medical expenses, physiotherapy and rehabilitation costs, loss of earnings while you were unable to work, and travel costs associated with medical appointments. In serious cases, future losses — including future medical treatment and the long-term impact on your earning capacity — are also recoverable.",
+				text: "A personal injury claim in Ireland covers two main categories of loss. General damages compensate for the pain, suffering, and loss of enjoyment of life caused by the injuries. Special damages cover the financial losses arising from the accident — medical expenses, physiotherapy and rehabilitation costs, loss of earnings during recovery, and travel costs to and from medical appointments. In cases of serious injury, future losses — including the cost of future medical treatment and the long-term impact on earning capacity — are also recoverable.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "The level of general damages for common injury types is guided by the Personal Injuries Guidelines published by the Judicial Council, which replaced the Book of Quantum in 2021. These guidelines set out the range of damages appropriate for particular injuries, and courts and PIAB use them as a starting point when assessing claims. We advise you on where your injuries are likely to fall within these ranges and what a fair settlement looks like.",
+				text: "The level of general damages is guided by the Personal Injuries Guidelines published by the Judicial Council in 2021, which replaced the PIAB Book of Quantum. The Guidelines set out appropriate damages ranges for common injury types, and both PIAB and the courts use them as the starting point when assessing claims. We assess each claim against the Guidelines and explain how the injuries are likely to be valued.",
 			},
 			{
 				type: "heading" as const,
@@ -96,11 +97,11 @@ export const personalInjuryLitigation = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "In Ireland, most personal injury claims must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. PIAB is an independent body that assesses personal injury claims and makes an award without the need for litigation. If both parties accept the PIAB award, the matter is resolved without the cost and delay of court proceedings. If either party rejects the award, PIAB issues an authorisation allowing the claimant to bring court proceedings.",
+				text: "In Ireland, most personal injury claims must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. PIAB is an independent statutory body that assesses personal injury claims based on the medical evidence and the financial losses submitted. PIAB may make an assessment that either side can accept or reject; in some cases PIAB declines to make an assessment at all. Where PIAB issues an authorisation, the claim can then proceed to court if the parties choose.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "We manage the PIAB process on your behalf from start to finish — gathering the medical evidence, completing the application, responding to correspondence, and advising you on whether any award made is fair given the nature and extent of your injuries. We never advise you to accept an offer without fully explaining what we think it is worth and why.",
+				text: "We submit PIAB applications on the client's behalf — gathering the medical evidence, completing the application, and responding to correspondence — and review any settlement offer made at any stage of the process. Where an offer reflects the value of the claim under the Personal Injuries Guidelines, we say so. Where it does not, we explain why.",
 			},
 			{
 				type: "heading" as const,
@@ -111,19 +112,19 @@ export const personalInjuryLitigation = {
 				items: [
 					{
 						label: "Workplace accidents",
-						text: "Employers in Ireland have a statutory duty to provide a safe place and system of work. We advise where workplace injuries arise from inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations. We can advise on both the personal injury matter and any related employment law rights.",
+						text: "Employers in Ireland have a statutory duty to provide a safe place and system of work. We advise where workplace injuries arise from inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations. We can also advise on any related employment law matter that arises from the accident.",
 					},
 					{
 						label: "Public liability",
-						text: "Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. We advise on public liability matters where injuries on premises arise from a hazard the occupier failed to address.",
+						text: "Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. We advise on public liability claims where injuries on premises arise from a hazard the occupier failed to address.",
 					},
 					{
 						label: "Road traffic accidents",
-						text: "Road traffic accident matters are subject to specific procedural rules and must go through PIAB before proceedings can issue. We advise on road traffic injury claims, including how the PIAB process applies and what claimants can recover. See our separate road traffic accidents page for more detail.",
+						text: "Road traffic accident matters are subject to specific procedural rules and must go through PIAB before court proceedings can issue. We advise on liability, the PIAB application, dealings with insurers, and the conduct of the claim through to settlement or court if required. See our road traffic accidents page for fuller detail on the procedural rules and the MIBI scheme for uninsured drivers.",
 					},
 					{
 						label: "Civil litigation",
-						text: "Where a dispute cannot be resolved by negotiation — whether it involves a breach of contract, a property dispute, or another civil wrong — court proceedings may be necessary. We advise on the merits of bringing or defending civil proceedings and represent clients through all stages of litigation up to and including trial.",
+						text: "Where a dispute cannot be resolved by agreement — whether it involves a breach of contract, a property dispute, or another civil wrong — court proceedings may be necessary. We advise on the merits of bringing or defending civil proceedings and act for clients through the litigation, including at trial.",
 					},
 				],
 			},
@@ -133,38 +134,38 @@ export const personalInjuryLitigation = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "In Ireland, the general time limit for making a personal injury claim is two years from the date of the accident or from the date you first became aware of the injury (known as the 'date of knowledge'). This is known as the statute of limitations. Where the injured person is a minor, time does not begin to run until they turn 18. Missing the time limit is generally fatal to a claim — it is one of the most important reasons to take legal advice as soon as possible after an accident.",
+				text: "Personal injury claims in Ireland are subject to a two-year time limit under the Statute of Limitations (Amendment) Act 1991. The clock runs from the date of the accident, or from the date the injured person first became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. Missing the time limit will generally end a claim regardless of its merits.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"A personal injury claim has a defined legal process in Ireland. Here is how we manage it for you — clearly, carefully, and without unnecessary delay.",
+		"A personal injury claim moves through a defined legal process in Ireland — assessment, evidence-gathering, PIAB application, and either settlement or court proceedings. Here is how we manage each stage for our clients.",
 	process: [
 		{
 			title: "Initial assessment",
 			description:
-				"We review the circumstances of your injury and give you an honest assessment of the strength of your claim, the likely process, and what you can realistically expect in terms of outcome and timeline.",
+				"We review the circumstances of the accident, advise on the strength of the claim, and explain the process and the likely timeline. Where the merits do not justify proceeding, we say so at this stage.",
 		},
 		{
 			title: "Medical evidence",
 			description:
-				"We advise on what medical evidence you will need to support your claim and help you gather reports from your treating doctors and, where appropriate, from independent medical experts.",
+				"We advise on the medical evidence needed to support the claim and assist with gathering reports from the client's treating doctors and, where appropriate, from independent medical experts.",
 		},
 		{
 			title: "PIAB application",
 			description:
-				"We submit your application to the Personal Injuries Assessment Board, manage all correspondence with PIAB and the respondent, and advise you on any assessment made.",
+				"We submit the application to the Personal Injuries Assessment Board, manage all correspondence with PIAB and the respondent, and advise on any assessment made.",
 		},
 		{
 			title: "Negotiation and settlement",
 			description:
-				"Many claims are resolved by agreement before trial. We negotiate with the other side's insurers or solicitors to achieve the best possible outcome, and we advise you clearly and honestly on any offers made.",
+				"Where the claim moves into settlement discussions, we engage with the other party's insurers or solicitors. Any offer made is reviewed against the medical evidence, the documented financial losses, and the Personal Injuries Guidelines, and the client is advised on whether and how it reflects the value of the claim.",
 		},
 		{
 			title: "Court proceedings",
 			description:
-				"If a fair settlement cannot be reached, we issue court proceedings and represent you through all stages of the litigation, up to and including trial. We prepare you fully for every step and keep you informed throughout.",
+				"Where the client wishes to proceed to court — either because settlement discussions have not produced a workable agreement, or for other reasons — we issue court proceedings on the client's instructions and act for the client through the litigation. We prepare the documentation and ensure the client is supported at each hearing.",
 		},
 	],
 	// --- FAQs ---
@@ -172,27 +173,27 @@ export const personalInjuryLitigation = {
 		{
 			question: "What is the time limit for a personal injury claim in Ireland?",
 			answer:
-				"The general time limit is two years from the date of the accident or from the date the injured person became aware of the injury. There are limited exceptions — for example, where the injured person is under 18, time does not begin to run until they reach adulthood. The two-year limit is strictly applied and missing it generally prevents a claim from being brought, so early legal advice is important.",
+				"The general time limit is two years from the date of the accident, or from the date the injured person first became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. The two-year limit is strictly applied — missing it will generally prevent a claim from being brought regardless of its merits.",
 		},
 		{
 			question: "Is PIAB required before issuing court proceedings?",
 			answer:
-				"In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess a claim before court proceedings can be issued. PIAB makes an assessment of damages. If both parties accept it, the matter is resolved without litigation. If either party rejects it, PIAB issues an authorisation and the claimant can then proceed to court. We manage the entire PIAB process on behalf of our clients.",
+				"In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess a claim before court proceedings can be issued. PIAB may make an assessment that either side can accept or reject; in some cases PIAB declines to make an assessment at all. Where PIAB issues an authorisation, the claim can then proceed to court if the parties choose.",
 		},
 		{
 			question: "How is the level of compensation determined?",
 			answer:
-				"The level of compensation depends on the nature and severity of the injuries, their impact on daily life and ability to work, and the financial losses suffered. The Personal Injuries Guidelines, used by the courts as a guide to appropriate levels of general damages, are the starting point. We give clients a realistic estimate based on their specific circumstances. We do not promise outcomes, but we do give an honest assessment.",
+				"The level of compensation depends on the nature and severity of the injuries, their impact on daily life and the ability to work, and the financial losses arising from the accident. The Personal Injuries Guidelines published by the Judicial Council in 2021 are the starting point for general damages — both PIAB and the courts use them when assessing claims. We assess each claim against the Guidelines and the documented losses, and give clients a realistic estimate based on the specific circumstances.",
 		},
 		{
-			question: "What happens if a claimant was partly at fault?",
+			question: "What happens where a claimant was partly at fault?",
 			answer:
-				"A claim can still proceed even where the claimant was partly responsible for the accident. Under Irish law, the principle of contributory negligence allows the courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, where a claimant is 20% at fault, the award is reduced by 20%. We advise on how contributory negligence is likely to apply in each specific case.",
+				"A claim can still proceed where the claimant was partly responsible for the accident. Under Irish law, the principle of contributory negligence allows the courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, where a claimant is found to be 20% at fault, the award is reduced by 20%. We advise on how contributory negligence is likely to apply in the specific circumstances of a case.",
 		},
 		{
 			question: "How are the costs of a personal injury claim handled?",
 			answer:
-				"We discuss our fees with each client at the outset. In personal injury matters, costs are a legitimate element of a claim and can be recovered from the other side in many circumstances where proceedings are successful. We explain the costs position clearly before any decisions are made.",
+				"We discuss our fees with each client at the outset, including the basis on which we charge and the way costs are likely to be handled in the matter. In personal injury proceedings, costs are a legitimate element of a claim and can be recoverable from the other side in many circumstances where proceedings are successful. Section 149 of the Legal Services Regulation Act 2015 — which is also reflected in the cost warning at the bottom of this page — sets out that an unsuccessful claimant may be liable for the other party's legal costs.",
 		},
 	],
 	attribution: {

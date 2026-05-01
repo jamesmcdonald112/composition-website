@@ -1,5 +1,5 @@
 # Personal Injury & Litigation page
-_Exported 30 April 2026 — source: `src/config/services/personal-injury-litigation.ts`_
+_Exported 1 May 2026 — source: `src/config/services/personal-injury-litigation.ts`_
 
 This document is the full content of the Personal Injury & Litigation service page on the Mary Molloy Solicitor website. The wording has been audited against the Legal Services Regulation Act 2015 (Advertising) Regulations 2020.
 
@@ -32,19 +32,27 @@ The technical compliance summary at the end is for the website's records — you
 
 ---
 
+## Mid-page call to action
+
+> Honest advice on personal injury and civil disputes.
+>
+> Talk to us about your matter.
+
+---
+
 ## Trust strip
 
-- **Title:** Straightforward advice on personal injury claims in Kilkenny
+- **Title:** Practical personal injury advice in Kilkenny
 
 **Paragraphs:**
 
-> Personal injury claims can feel daunting if you have never been through one before. We explain how the process works in plain, straightforward terms and give you a realistic view of your claim from the very first meeting.
+> Personal injury law in Ireland gives those harmed by another person's negligence a route to seek compensation through the Personal Injuries Assessment Board (PIAB) and, where necessary, the courts. The route is the same across most accident types — workplace, public liability, and road traffic — but the procedural rules and the evidence required vary. We advise clients in Kilkenny and the surrounding counties across the full range of personal injury matters.
 
-> We handle all aspects of your claim — gathering medical evidence, dealing with PIAB, negotiating with insurers, and, where necessary, issuing and pursuing court proceedings. You focus on your recovery; we take care of the legal side.
+> A claim's value is assessed against the Personal Injuries Guidelines published by the Judicial Council in 2021, which set out appropriate damages ranges for general damages by injury type. We assess each claim against those ranges, gather the medical evidence and documentation of any financial losses, and explain to the client what a reasonable outcome looks like under the Guidelines.
 
-> We approach every case with honesty. If we do not believe a claim is strong enough to pursue, we will say so clearly rather than give you false hope. That approach means our clients always know where they stand.
+> Where a claim is strong, we say so. Where the merits do not justify proceeding, we say that too — clearly, and at the earliest stage we can. The aim is for the client to know where the claim stands before the time and cost of formal steps is committed.
 
-> Our litigation team advises on all types of personal injury claims — workplace accidents, public liability, road traffic injuries, and general civil disputes. We bring the same care and thoroughness to every case, regardless of its size.
+> We advise on personal injury matters across the four main areas — workplace accidents, public liability, road traffic accidents, and civil litigation arising from injury or other civil wrongs. The same care and thoroughness applies to each, regardless of the size of the claim.
 
 ### Stats
 
@@ -57,100 +65,60 @@ The technical compliance summary at the end is for the website's records — you
 
 ---
 
-## Article — "Understanding your right to compensation"
+## Article — "How a personal injury claim works in Ireland"
 
-- **Eyebrow label:** Personal Injury
+**Eyebrow:** Personal Injury
 
-### Article intro
+**Intro:**
 
-> Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through PIAB and, where necessary, the courts. Knowing what is recoverable, how the process works, and what to expect at each stage makes a real difference to how a matter progresses. The article below sets that process out in plain English.
+> Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through the Personal Injuries Assessment Board (PIAB) and, where necessary, the courts. Knowing what is recoverable, how the PIAB process works, and what the procedural rules require at each stage makes the route from accident to resolution clearer. The article below sets that framework out in plain English.
 
-### Pull quote (attributed to Richard O'Shea, Solicitor)
+### Pull quote
 
-> We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope.
+> "Some claims should be pursued; some shouldn't. Working out which is which is the most important thing we do at the start."
+>
+> — Richard O'Shea, Solicitor
 
 ### Section: What you can claim for
 
-> A personal injury claim in Ireland covers two main categories of loss. General damages compensate for the pain, suffering, and loss of enjoyment of life caused by your injuries. Special damages cover your actual out-of-pocket losses — medical expenses, physiotherapy and rehabilitation costs, loss of earnings while you were unable to work, and travel costs associated with medical appointments. In serious cases, future losses — including future medical treatment and the long-term impact on your earning capacity — are also recoverable.
+> A personal injury claim in Ireland covers two main categories of loss. General damages compensate for the pain, suffering, and loss of enjoyment of life caused by the injuries. Special damages cover the financial losses arising from the accident — medical expenses, physiotherapy and rehabilitation costs, loss of earnings during recovery, and travel costs to and from medical appointments. In cases of serious injury, future losses — including the cost of future medical treatment and the long-term impact on earning capacity — are also recoverable.
 
-> The level of general damages for common injury types is guided by the Personal Injuries Guidelines published by the Judicial Council, which replaced the Book of Quantum in 2021. These guidelines set out the range of damages appropriate for particular injuries, and courts and PIAB use them as a starting point when assessing claims. We advise you on where your injuries are likely to fall within these ranges and what a fair settlement looks like.
+> The level of general damages is guided by the Personal Injuries Guidelines published by the Judicial Council in 2021, which replaced the PIAB Book of Quantum. The Guidelines set out appropriate damages ranges for common injury types, and both PIAB and the courts use them as the starting point when assessing claims. We assess each claim against the Guidelines and explain how the injuries are likely to be valued.
 
 ### Section: The Personal Injuries Assessment Board (PIAB)
 
-> In Ireland, most personal injury claims must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. PIAB is an independent body that assesses personal injury claims and makes an award without the need for litigation. If both parties accept the PIAB award, the matter is resolved without the cost and delay of court proceedings. If either party rejects the award, PIAB issues an authorisation allowing the claimant to bring court proceedings.
+> In Ireland, most personal injury claims must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. PIAB is an independent statutory body that assesses personal injury claims based on the medical evidence and the financial losses submitted. PIAB may make an assessment that either side can accept or reject; in some cases PIAB declines to make an assessment at all. Where PIAB issues an authorisation, the claim can then proceed to court if the parties choose.
 
-> We manage the PIAB process on your behalf from start to finish — gathering the medical evidence, completing the application, responding to correspondence, and advising you on whether any award made is fair given the nature and extent of your injuries. We never advise you to accept an offer without fully explaining what we think it is worth and why.
+> We submit PIAB applications on the client's behalf — gathering the medical evidence, completing the application, and responding to correspondence — and review any settlement offer made at any stage of the process. Where an offer reflects the value of the claim under the Personal Injuries Guidelines, we say so. Where it does not, we explain why.
 
 ### Section: Types of personal injury claims we handle
 
-#### Workplace accidents
-> Employers in Ireland have a statutory duty to provide a safe place and system of work. We advise where workplace injuries arise from inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations. We can advise on both the personal injury matter and any related employment law rights.
-
-#### Public liability
-> Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. We advise on public liability matters where injuries on premises arise from a hazard the occupier failed to address.
-
-#### Road traffic accidents
-> Road traffic accident matters are subject to specific procedural rules and must go through PIAB before proceedings can issue. We advise on road traffic injury claims, including how the PIAB process applies and what claimants can recover. See our separate road traffic accidents page for more detail.
-
-#### Civil litigation
-> Where a dispute cannot be resolved by negotiation — whether it involves a breach of contract, a property dispute, or another civil wrong — court proceedings may be necessary. We advise on the merits of bringing or defending civil proceedings and represent clients through all stages of litigation up to and including trial.
+- **Workplace accidents** — Employers in Ireland have a statutory duty to provide a safe place and system of work. We advise where workplace injuries arise from inadequate training, faulty equipment, unsafe premises, or a failure to follow health and safety regulations. We can also advise on any related employment law matter that arises from the accident.
+- **Public liability** — Occupiers of premises — shops, restaurants, public buildings, and private properties — owe a duty of care to visitors under the Occupiers' Liability Act 1995. We advise on public liability claims where injuries on premises arise from a hazard the occupier failed to address.
+- **Road traffic accidents** — Road traffic accident matters are subject to specific procedural rules and must go through PIAB before court proceedings can issue. We advise on liability, the PIAB application, dealings with insurers, and the conduct of the claim through to settlement or court if required. See our road traffic accidents page for fuller detail on the procedural rules and the MIBI scheme for uninsured drivers.
+- **Civil litigation** — Where a dispute cannot be resolved by agreement — whether it involves a breach of contract, a property dispute, or another civil wrong — court proceedings may be necessary. We advise on the merits of bringing or defending civil proceedings and act for clients through the litigation, including at trial.
 
 ### Section: Time limits for personal injury claims
 
-> In Ireland, the general time limit for making a personal injury claim is two years from the date of the accident or from the date you first became aware of the injury (known as the 'date of knowledge'). This is known as the statute of limitations. Where the injured person is a minor, time does not begin to run until they turn 18. Missing the time limit is generally fatal to a claim — it is one of the most important reasons to take legal advice as soon as possible after an accident.
+> Personal injury claims in Ireland are subject to a two-year time limit under the Statute of Limitations (Amendment) Act 1991. The clock runs from the date of the accident, or from the date the injured person first became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. Missing the time limit will generally end a claim regardless of its merits.
 
 ---
 
-## Mid-page short prompt
+## How we work — process steps
 
-> Honest advice on personal injury and civil disputes.
->
-> Talk to us about your matter.
+**Intro:**
 
----
+> A personal injury claim moves through a defined legal process in Ireland — assessment, evidence-gathering, PIAB application, and either settlement or court proceedings. Here is how we manage each stage for our clients.
 
-## Process — five steps
-
-### 1. Initial assessment
-> We review the circumstances of your injury and give you an honest assessment of the strength of your claim, the likely process, and what you can realistically expect in terms of outcome and timeline.
-
-### 2. Medical evidence
-> We advise on what medical evidence you will need to support your claim and help you gather reports from your treating doctors and, where appropriate, from independent medical experts.
-
-### 3. PIAB application
-> We submit your application to the Personal Injuries Assessment Board, manage all correspondence with PIAB and the respondent, and advise you on any assessment made.
-
-### 4. Negotiation and settlement
-> Many claims are resolved by agreement before trial. We negotiate with the other side's insurers or solicitors to achieve the best possible outcome, and we advise you clearly and honestly on any offers made.
-
-### 5. Court proceedings
-> If a fair settlement cannot be reached, we issue court proceedings and represent you through all stages of the litigation, up to and including trial. We prepare you fully for every step and keep you informed throughout.
-
-**Process intro text shown above the steps:**
-> A personal injury claim has a defined legal process in Ireland. Here is how we manage it for you — clearly, carefully, and without unnecessary delay.
+1. **Initial assessment** — We review the circumstances of the accident, advise on the strength of the claim, and explain the process and the likely timeline. Where the merits do not justify proceeding, we say so at this stage.
+2. **Medical evidence** — We advise on the medical evidence needed to support the claim and assist with gathering reports from the client's treating doctors and, where appropriate, from independent medical experts.
+3. **PIAB application** — We submit the application to the Personal Injuries Assessment Board, manage all correspondence with PIAB and the respondent, and advise on any assessment made.
+4. **Negotiation and settlement** — Where the claim moves into settlement discussions, we engage with the other party's insurers or solicitors. Any offer made is reviewed against the medical evidence, the documented financial losses, and the Personal Injuries Guidelines, and the client is advised on whether and how it reflects the value of the claim.
+5. **Court proceedings** — Where the client wishes to proceed to court — either because settlement discussions have not produced a workable agreement, or for other reasons — we issue court proceedings on the client's instructions and act for the client through the litigation. We prepare the documentation and ensure the client is supported at each hearing.
 
 ---
 
-## Frequently asked questions
-
-### What is the time limit for a personal injury claim in Ireland?
-> The general time limit is two years from the date of the accident or from the date the injured person became aware of the injury. There are limited exceptions — for example, where the injured person is under 18, time does not begin to run until they reach adulthood. The two-year limit is strictly applied and missing it generally prevents a claim from being brought, so early legal advice is important.
-
-### Is PIAB required before issuing court proceedings?
-> In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess a claim before court proceedings can be issued. PIAB makes an assessment of damages. If both parties accept it, the matter is resolved without litigation. If either party rejects it, PIAB issues an authorisation and the claimant can then proceed to court. We manage the entire PIAB process on behalf of our clients.
-
-### How is the level of compensation determined?
-> The level of compensation depends on the nature and severity of the injuries, their impact on daily life and ability to work, and the financial losses suffered. The Personal Injuries Guidelines, used by the courts as a guide to appropriate levels of general damages, are the starting point. We give clients a realistic estimate based on their specific circumstances. We do not promise outcomes, but we do give an honest assessment.
-
-### What happens if a claimant was partly at fault?
-> A claim can still proceed even where the claimant was partly responsible for the accident. Under Irish law, the principle of contributory negligence allows the courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, where a claimant is 20% at fault, the award is reduced by 20%. We advise on how contributory negligence is likely to apply in each specific case.
-
-### How are the costs of a personal injury claim handled?
-> We discuss our fees with each client at the outset. In personal injury matters, costs are a legitimate element of a claim and can be recovered from the other side in many circumstances where proceedings are successful. We explain the costs position clearly before any decisions are made.
-
----
-
-## Bottom call-to-action panel
+## Bottom call to action
 
 - **Title:** Get an honest assessment of your claim
 
@@ -168,44 +136,61 @@ The following warning is automatically rendered at the bottom of the page in com
 
 ---
 
-## Action items — page-specific tasks before this page goes live
+## Frequently asked questions
 
-### Pull quote consent (Reg 5(a)(i))
+**1. What is the time limit for a personal injury claim in Ireland?**
 
-The article on this page contains a pull quote attributed to **Richard O'Shea, Solicitor**:
+> The general time limit is two years from the date of the accident, or from the date the injured person first became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. The two-year limit is strictly applied — missing it will generally prevent a claim from being brought regardless of its merits.
 
-> "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope."
+**2. Is PIAB required before issuing court proceedings?**
 
-**Action:** the page names Richard and includes a pull quote attributed to him. A signed consent form for Richard must be on file with the firm — see `legal-compliance/testimonials-and-quotes-consent.md`. The form covers his name, role, photo, biography, and any pull quotes attributed to him across the site. Please confirm to the website manager once the form is signed.
+> In most personal injury cases, yes. The Personal Injuries Assessment Board must be given the opportunity to assess a claim before court proceedings can be issued. PIAB may make an assessment that either side can accept or reject; in some cases PIAB declines to make an assessment at all. Where PIAB issues an authorisation, the claim can then proceed to court if the parties choose.
+
+**3. How is the level of compensation determined?**
+
+> The level of compensation depends on the nature and severity of the injuries, their impact on daily life and the ability to work, and the financial losses arising from the accident. The Personal Injuries Guidelines published by the Judicial Council in 2021 are the starting point for general damages — both PIAB and the courts use them when assessing claims. We assess each claim against the Guidelines and the documented losses, and give clients a realistic estimate based on the specific circumstances.
+
+**4. What happens where a claimant was partly at fault?**
+
+> A claim can still proceed where the claimant was partly responsible for the accident. Under Irish law, the principle of contributory negligence allows the courts to reduce a damages award by the percentage attributed to the claimant's own fault. For example, where a claimant is found to be 20% at fault, the award is reduced by 20%. We advise on how contributory negligence is likely to apply in the specific circumstances of a case.
+
+**5. How are the costs of a personal injury claim handled?**
+
+> We discuss our fees with each client at the outset, including the basis on which we charge and the way costs are likely to be handled in the matter. In personal injury proceedings, costs are a legitimate element of a claim and can be recoverable from the other side in many circumstances where proceedings are successful. Section 149 of the Legal Services Regulation Act 2015 — which is also reflected in the cost warning at the bottom of this page — sets out that an unsuccessful claimant may be liable for the other party's legal costs.
 
 ---
 
-## Compliance summary — for the website's records
+# Technical compliance summary
 
-_This is a technical reference for the website manager. You can skip this section — it does not need your review._
+_For the website's records. You can skip this unless you want to read it._
 
-This page was audited against the following regulations of S.I. No. 644/2020 — the Legal Services Regulation Act 2015 (Advertising) Regulations 2020:
+This page was rewritten in full from the previous version to remove second-person framing, claimant-presuming hooks, and implied-outcome phrasing — bringing the page into line with the calm-authority register used across the rewritten road-traffic-accidents and employment-law pages.
 
-| Regulation | Status |
-|---|---|
-| Reg 4(a)(i) — disrepute | ✅ pass |
-| Reg 4(a)(ii) — bad taste | ✅ pass |
-| Reg 4(a)(iii) — attacks on other solicitors | ✅ pass |
-| Reg 4(a)(iv) — false or misleading statements / unverifiable superlatives | ✅ pass |
-| Reg 4(a)(vi) — encouragement to make personal injury claims | ✅ revised — eight findings in the original copy resolved, plus all five FAQs rewritten in third-person framing |
-| Reg 5 — client references and testimonials | ✅ no client testimonials on this page; Richard's pull quote consent flagged in Action items |
-| Reg 6(a) — Section 149 cost warning visible | ✅ pass |
-| Reg 6(b) — "no win no fee" prohibited language | ✅ pass — no such language used |
-| Reg 6(c) — compensation amounts | ✅ pass — only the Personal Injuries Guidelines is referenced |
-| Reg 7 — risk-free claims | ✅ pass |
-| Reg 8 — success rate claims | ✅ pass |
-| Reg 11(a) — firm name visible | ✅ pass — appears in header, footer, schema |
-| Reg 11(f) — record keeping (12-month retention) | ✅ in place — `scripts/compliance-screenshot.ts` produces a dated record after every content change |
+**Regulations reviewed:**
 
-### Note on style — "you" / "your" wording in some sections
+- **Reg 4(a)(i)** — likely to bring the profession into disrepute. The previous combative phrases (*"give you false hope"*, *"You focus on your recovery; we take care of the legal side"*) were rewritten in third-person, descriptive language. No combative or sales-y register remains.
+- **Reg 4(a)(ii)** — likely to be in bad taste. No issues — sensitive subjects (injury, recovery) are handled descriptively without dramatisation.
+- **Reg 4(a)(iii)** — likely to constitute an attack on another solicitor. No comparative or critical wording about other firms.
+- **Reg 4(a)(iv)** — likely to be false or misleading. The previous *"We always give clients an honest assessment"* (Reg 4(a)(iv) absolute) and *"We never advise you to accept an offer"* (same problem) were rewritten without absolutes. The previous *"to achieve the best possible outcome"* (process step 4) — which implied outcome influence — was replaced with a description of how settlement offers are *reviewed* (against evidence, losses, and the Personal Injuries Guidelines).
+- **Reg 4(a)(vi)** — likely to encourage a person to make a claim. The previous *"daunting if you have never been through one before"*, *"You may be entitled to compensation"* implications, *"Understanding your right to compensation"* heading, and *"so early legal advice is important"* (FAQ closer) were all rewritten or removed. The two-year time limit is now stated as bare legal fact in the article body, not used as urgency.
+- **Reg 5(a)(i)** — consent to refer to a person. Richard O'Shea is named in a pull quote on the page. Consent for in-house solicitors named on the website is covered by a single signed blanket consent form held by the firm. _Action item — see below._
+- **Reg 6(a)** — cost warning. Section 149 of the LSRA 2015 cost warning is rendered at the bottom of the page. The same statute is referenced in FAQ 5 to give visitors a single coherent message about costs.
+- **Reg 6(b)** — no-win-no-fee ban. No fee-related wording of that kind appears on the page.
+- **Reg 6(c)** — referring to compensation amounts. The Personal Injuries Guidelines published by the Judicial Council in 2021 (which replaced the Book of Quantum) are referenced as the lawful basis for assessing general damages. No specific compensation figures are stated.
+- **Reg 7** — claims of risk-free litigation. No language suggesting a claim is risk-free or guaranteed.
+- **Reg 8** — referring to specific success rates. No success rates of any kind are referenced.
+- **Reg 11(f)** — record keeping. The firm retains dated screenshots of every page each time content changes, in `legal-compliance/compliance-records/`.
 
-Reg 4(a)(vi) targets language that *encourages* people to make personal injury claims (for example "if you have been injured… you may be entitled to compensation"). It does not prohibit second-person wording across the board.
+**False-binary fix in this rewrite:** the previous PIAB section listed only two outcomes (*"If both parties accept... If either party rejects..."*) and silently omitted the realistic third group (PIAB declines to assess, claim withdrawn, claim not pursued after authorisation). The rewritten section names those branches honestly. The same fix was applied to FAQ 2.
 
-The trust strip, process steps, and FAQ answers on this page still use "you" / "your" in places — for example, *"We review the circumstances of your injury…"* in the process steps. This is a deliberate decision: those sections describe how the firm works *with an existing client*, not how the firm seeks to attract a new claimant. The visitor reading the process steps has already self-identified as someone considering instructing a solicitor; the wording reflects that context.
+**Skills applied:**
 
-Removing "you" / "your" entirely from the page would make the wording feel cold and over-formal in places where warmth is appropriate (and where the regulator is not concerned).
+- `.claude/skills/copy/SKILL.md` — voice, plain-English structure, calm-authority register
+- `.claude/skills/ai-isms/SKILL.md` — removed AI patterns; Irish/British English spelling and legal terminology applied
+- `.claude/skills/irish-legal-compliance/SKILL.md` — full-rewrite mode, three AI re-reads, regulation-by-regulation pass, the new general implied-outcome rule applied across the page
+
+---
+
+## Action item flowing through to the firm's compliance file
+
+- **Richard O'Shea pull quote — Reg 5(a)(i) consent** — needs the same firm-wide blanket consent form Richard already signed (name, role, photo, bio, all pull quotes attributed to him on the website). No content change required on the page; this is a paperwork item only.
