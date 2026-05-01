@@ -6,7 +6,8 @@ import { solicitors } from "./team";
 export const homePageContent = {
 	seo: {
 		title: firm.companyName,
-		description: `Solicitors in Kilkenny with over ${yearsInPractice} years of experience. Clear, practical legal advice for buying and selling property, wills and probate, family law, personal injury and more. Call (056) 776 5829.`,
+		description:
+			"Solicitors in Kilkenny since 1979. We advise on conveyancing, wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery — for clients across County Kilkenny and the surrounding counties.",
 		canonicalPath: "/",
 	},
 
@@ -17,10 +18,10 @@ export const homePageContent = {
 		// TODO: Update subtitle once fee structure is confirmed with Mary.
 		// If fixed-fee conveyancing is offered, add a line here.
 		subtitle:
-			"Clear, practical conveyancing advice and a full range of legal services for every stage of life.",
+			"Conveyancing matters handled in Kilkenny since 1979 — alongside wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.",
 		ctas: {
-			primary: { label: firm.phone.display, href: `tel:${firm.phone.phoneHref}`, ariaLabel: `Call us on ${firm.phone.display}` },
-			secondary: { label: "Our services", href: "/services" },
+			primary: { label: "Our services", href: "/services" },
+			secondary: { label: "Get in touch", href: "/contact" },
 		},
 	},
 
@@ -28,38 +29,41 @@ export const homePageContent = {
 		eyebrow: "Conveyancing in Kilkenny",
 		card: {
 			tag: "Buying & Selling Property",
-			title: "Buying or selling property in Kilkenny?",
-			body: "We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled, and everything in between. You will always know where things stand.",
+			title: "Conveyancing in Kilkenny",
+			body: "We act on residential conveyancing — contract review, investigation of title at the Property Registration Authority, planning and building control checks, dealings with mortgage lenders, payment of stamp duty under the Stamp Duties Consolidation Act 1999, and registration of ownership.",
 			points: [
-				"Contracts reviewed in full before you sign anything",
-				"Title checks, planning, and compliance handled",
-				"Mortgage and lender requirements managed",
-				"Completion coordinated from start to finish",
+				"Contracts reviewed in full before signing",
+				"Title investigated at the Property Registration Authority",
+				"Planning and Building Regulations compliance checks",
+				"Mortgage and lender requirements handled",
+				"Stamp duty calculated and filed with Revenue",
+				"Ownership registered after completion",
 			],
-			cta: { label: "Learn more", href: "/services/buying-and-selling-property" },
+			cta: { label: "More on conveyancing", href: "/services/buying-and-selling-property" },
 			icon: homeModernIcon,
 			image: propertyImage,
 		},
 		aside: {
 			title: [{ text: "Property handled with " }, { text: "care", em: true }],
-			intro: "Buying or selling a home is one of the biggest decisions you will ever make. We handle the legal side thoroughly, keep you informed, and make the process as straightforward as possible.",
+			intro:
+				"On a residential conveyance, the firm acts on the title investigation, the contractual stage, the lender requirements where there is a mortgage, completion, and the post-completion steps with the Property Registration Authority and Revenue.",
 			keyPoints: [
 				{
-					heading: "Plain English, not legal jargon",
-					body: "We explain every step — what it means, what we need from you, and what happens next.",
+					heading: "Contracts reviewed in full",
+					body: "We read the contract in full and raise pre-contract and requisition enquiries with the seller's solicitor where needed before contracts are signed.",
 				},
 				{
-					heading: "You are kept informed throughout",
-					body: "We update you at each stage so you are never left wondering where your transaction stands.",
+					heading: "Title investigated against the PRA",
+					body: "We investigate the title at the Property Registration Authority — confirming the seller's ownership, identifying any judgment mortgages or registered burdens, and checking that the boundaries match the ground.",
 				},
 				{
-					heading: `Over ${yearsInPractice} years of Kilkenny transactions`,
-					body: "We know local properties, common title issues, and how to keep deals on track.",
+					heading: "Lender and stamp-duty work handled",
+					body: "We act for the lender on a mortgage transaction, manage the drawdown of funds in time for completion, and calculate and file the stamp duty return with the Revenue Commissioners.",
 				},
 				{
-					heading: "Costs explained before work begins",
+					heading: "Costs discussed at the outset",
 					// TODO: update if fixed-fee conveyancing is confirmed
-					body: "No surprises. We discuss our fees upfront so you know exactly what to expect.",
+					body: "We discuss our fees with each client at the outset, including the basis on which we charge and the third-party outlays (Land Registry fees, search fees, stamp duty) involved in the matter.",
 				},
 			],
 		},
@@ -67,22 +71,19 @@ export const homePageContent = {
 
 	supportingServices: {
 		eyebrow: "Other services",
-		title: [
-			{ text: "We can also " },
-			{ text: "help", em: true },
-			{ text: " with" },
-		],
-		intro: "From family law and wills to employment disputes and personal injury — we handle a wide range of legal matters for individuals and families across Kilkenny.",
+		title: [{ text: "Other " }, { text: "practice areas", em: true }, { text: " at the firm" }],
+		intro:
+			"Beyond conveyancing, the firm advises on wills and probate, family and childcare law, personal injury and litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery — for clients across Kilkenny and the surrounding counties.",
 	},
 
 	trustStrip: {
 		eyebrow: "About the practice",
-		title: "A Kilkenny solicitor practice you can rely on",
+		title: "A family practice in Kilkenny since 1979",
 		paragraphs: [
-			"Mary Molloy Solicitor has been practising on Rose Inn Street, Kilkenny since 1979. Mary now practises alongside her sons Nicholas and Richard — a family team with a shared commitment to thorough, personal legal work.",
-			"We act for individuals and families across County Kilkenny and the surrounding area. Our work spans property, wills and probate, family law, personal injury, employment law, and debt recovery — always approached with the same care and attention to detail.",
-			"Conveyancing is at the heart of what we do. But whatever legal matter you bring to us, you can expect clear advice, consistent communication, and a team that treats your matter as it deserves to be treated.",
-			"We are a regulated practice and members of the Law Society of Ireland. All legal work is carried out by qualified solicitors. We are based in Kilkenny City and can assist clients remotely where needed.",
+			"Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny since 1979. The firm is a family practice — Mary Molloy is the principal solicitor; her sons Nicholas O'Shea and Richard O'Shea are also solicitors at the firm.",
+			"The firm acts for clients across County Kilkenny and the surrounding counties on residential and commercial conveyancing, wills and probate, family law, personal injury and civil litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery.",
+			"Conveyancing is the largest area of the firm's practice, but the work covers each of the eight practice areas listed above. The legal and procedural rules differ by area; the underlying approach to client work — clarity about the law, careful preparation, and respect for the people involved — does not.",
+			"All solicitors at the firm are admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
