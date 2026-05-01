@@ -156,7 +156,7 @@ The technical compliance summary at the end is for the website's records — you
 
 **Description:**
 
-> Where an injury has occurred or a civil dispute has arisen, early legal advice is essential. Get in touch with us in Kilkenny to discuss the matter and find out where things stand.
+> Get in touch with us in Kilkenny. We'll assess liability and the available evidence, explain the PIAB process and the personal injury time limits, and set out the practical options from there.
 
 ---
 

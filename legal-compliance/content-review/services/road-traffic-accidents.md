@@ -28,7 +28,7 @@ The technical compliance summary at the end is for the website's records — you
 
 ## Service description (used on the services index page and in metadata)
 
-> Road traffic accident matters handled by our Kilkenny solicitors. We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required.
+> Road traffic accident claims handled in Kilkenny and the surrounding counties. We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required.
 
 ---
 
@@ -133,7 +133,7 @@ The technical compliance summary at the end is for the website's records — you
 
 **Description:**
 
-> Get in touch with us in Kilkenny for a clear assessment of the matter and a plain-English view of what comes next.
+> Get in touch with us in Kilkenny. We'll assess liability, review the medical evidence and the financial losses, and explain how the PIAB process and the personal injury time limits apply to the matter.
 
 ---
 
@@ -162,13 +162,6 @@ The technical compliance summary at the end is for the website's records — you
 **6. What are the immediate steps after a road traffic accident?**
 
 > Ensure everyone is safe and call emergency services if anyone is injured. Exchange details with the other driver — name, address, insurance details, and vehicle registration. Take photographs of the scene, the vehicles, and any visible injuries. Report the accident to An Garda Síochána if required. Seek medical attention as soon as possible. Take legal advice before giving any statement to an insurance company.
-
----
-
-## Page reviewed and approved by
-
-- **Solicitor:** Mary Molloy
-- **Date last reviewed:** April 2026
 
 ---
 

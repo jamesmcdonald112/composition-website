@@ -41,7 +41,7 @@ export const personalInjuryLitigation = {
 			{ text: " of your claim" },
 		],
 		description:
-			"Where an injury has occurred or a civil dispute has arisen, early legal advice is essential. Get in touch with us in Kilkenny to discuss the matter and find out where things stand.",
+			"Get in touch with us in Kilkenny. We'll assess liability and the available evidence, explain the PIAB process and the personal injury time limits, and set out the practical options from there.",
 	},
 	// --- Trust strip ---
 	trustStrip: {

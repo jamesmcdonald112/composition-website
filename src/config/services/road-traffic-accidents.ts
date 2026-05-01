@@ -13,7 +13,7 @@ export const roadTrafficAccidents = {
 	image,
 	imageClass: "",
 	description:
-		"Road traffic accident matters handled by our Kilkenny solicitors. We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required.",
+		"Road traffic accident claims handled in Kilkenny and the surrounding counties. We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required.",
 	// --- SEO ---
 	seo: {
 		title: `Road Traffic Accident Solicitors Kilkenny | ${firm.companyName}`,
@@ -43,7 +43,7 @@ export const roadTrafficAccidents = {
 			{ text: "road traffic claim", em: true },
 		],
 		description:
-			"Get in touch with us in Kilkenny for a clear assessment of the matter and a plain-English view of what comes next.",
+			"Get in touch with us in Kilkenny. We'll assess liability, review the medical evidence and the financial losses, and explain how the PIAB process and the personal injury time limits apply to the matter.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
