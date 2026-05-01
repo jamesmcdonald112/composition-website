@@ -13,12 +13,12 @@ export const leasesAndTenancyAgreements = {
 	image,
 	imageClass: "object-right-bottom",
 	description:
-		"We advise landlords and tenants on residential and commercial leases — reviewing and drafting agreements, advising on rights and obligations under Irish law, and representing clients in Residential Tenancies Board disputes.",
+		"Landlord and tenant advice for clients in Kilkenny and the surrounding counties. We review and draft residential and commercial leases, advise on rights and obligations under the Residential Tenancies Acts and the Landlord and Tenant Acts, and represent landlords and tenants in Residential Tenancies Board proceedings.",
 	// --- SEO ---
 	seo: {
 		title: `Lease & Tenancy Agreement Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Solicitors for landlords and tenants in Kilkenny. We review and draft leases, advise on rights under the Residential Tenancies Act, and represent clients in RTB disputes. Call (056) 776 5829.",
+			"Solicitors for landlords and tenants in Kilkenny. We review and draft residential and commercial leases, advise on rights and obligations under the Residential Tenancies Acts, and represent clients in Residential Tenancies Board disputes.",
 		canonicalPath: "/services/leases-and-tenancy-agreements",
 	},
 	// --- Hero ---
@@ -29,35 +29,31 @@ export const leasesAndTenancyAgreements = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"A well-drafted lease protects both landlord and tenant and sets clear expectations from the start. Whether you are a landlord letting a property for the first time, a tenant reviewing a proposed agreement, or either party dealing with a dispute, we provide clear, practical advice on your rights and obligations under Irish tenancy law.",
+			"Residential and commercial tenancies in Ireland are governed by the Residential Tenancies Acts 2004 to 2024 and the Landlord and Tenant Acts 1967 to 2022. We advise landlords and tenants in Kilkenny and the surrounding counties on lease drafting, rights and obligations under those statutes, and Residential Tenancies Board proceedings.",
 	},
 	// --- Mid-page CTA ---
-	midCta: [
-		"Questions about a lease or tenancy dispute?",
-		"Get advice before you act.",
-	],
+	midCta: ["Lease and tenancy matters, handled with care.", "Get in touch when you're ready."],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Need advice on a " },
-			{ text: "lease or tenancy", em: true },
-			{ text: " matter?" },
+			{ text: "A clear assessment of your " },
+			{ text: "lease or tenancy matter", em: true },
 		],
 		description:
-			"Whether you are entering a new tenancy, reviewing an agreement, or dealing with a dispute, our Kilkenny solicitors can advise you on your legal position and the most effective way to proceed.",
+			"Get in touch with us in Kilkenny. Whether the matter is reviewing a proposed lease, drafting a new tenancy agreement, advising on rights during an existing tenancy, or a Residential Tenancies Board dispute, we'll explain how the relevant law applies and the practical options for proceeding.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Clear advice for " },
-			{ text: "landlords and tenants", em: true },
-			{ text: " in Kilkenny" },
+			{ text: "Practical " },
+			{ text: "landlord and tenant", em: true },
+			{ text: " advice in Kilkenny" },
 		],
 		paragraphs: [
-			"Irish landlord and tenant law has changed significantly in recent years — new rules on rent increases in Rent Pressure Zones, longer notice periods for terminations, and restrictions on the grounds for ending a tenancy. We keep up to date with these changes and advise clients precisely on where they stand.",
-			"Getting a lease right from the start is far less costly than dealing with a dispute afterwards. We review agreements carefully, identify problematic terms, and advise on what should be negotiated or clarified before you sign.",
-			"We act for both landlords and tenants — drafting clear, legally sound agreements; advising on ongoing rights and obligations; and representing clients in Residential Tenancies Board proceedings when disputes arise.",
-			"Where disputes do occur, we take a practical approach — advising on the most cost-effective route to resolution, whether that is negotiation, RTB mediation, or formal adjudication proceedings before the Board.",
+			"Irish landlord and tenant law sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2024 (covering residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (covering commercial tenancies). Both frameworks have been amended significantly in recent years, with changes to notice periods, rent review rules, and the framework for tenancies of unlimited duration.",
+			"On the residential side, we draft and review tenancy agreements, advise on the Rent Pressure Zone rules and rent review procedure, and act for landlords and tenants in proceedings before the Residential Tenancies Board (RTB) — the statutory body that registers tenancies and adjudicates disputes.",
+			"On the commercial side, we review and negotiate the substantive terms of business leases — the duration, the rent review mechanism, the break clauses, the repair and insurance allocation, the assignment and subletting provisions, and the statutory rights to renewal under the Landlord and Tenant (Amendment) Act 1980.",
+			"Where a dispute arises, we advise on the route most appropriate to the matter — direct negotiation, mediation, RTB adjudication for residential tenancies, or court proceedings for commercial matters or where the RTB does not have jurisdiction. We act for clients through whichever route the matter follows.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -70,25 +66,25 @@ export const leasesAndTenancyAgreements = {
 	article: {
 		eyebrow: "Landlord & Tenant",
 		title: [
-			{ text: "Know your " },
-			{ text: "rights", em: true },
-			{ text: " before you sign" },
+			{ text: "How " },
+			{ text: "landlord and tenant law", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"Whether you are letting a property for the first time or moving into a new home, getting proper legal advice before signing a lease can prevent serious problems later. Our Kilkenny solicitors advise both landlords and tenants on their rights and obligations under the Residential Tenancies Act, and represent clients in Residential Tenancies Board proceedings when disputes arise.",
+			"Landlord and tenant law in Ireland sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2024 (residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (commercial tenancies). Knowing which framework applies, what the statute says about the rights and obligations of each side, and what the Residential Tenancies Board (RTB) procedure is for residential disputes makes the practical position clearer. The article below sets that framework out in plain English — first for landlords, then for tenants, with a separate section on commercial leases.",
 		quote: {
-			text: "A five-minute review of a lease before you sign can save months of dispute afterwards. Landlord and tenant law in Ireland has changed a lot in recent years — it is worth understanding your rights before you commit.",
+			text: "Residential tenancies law in Ireland has been amended seven times since 2004 — most recently in 2024. Knowing which version of the statute applies to a tenancy, and which procedural steps the RTB requires, is the work of getting it right.",
 			attribution: "Richard O'Shea, Solicitor",
 			image: richardImage,
 		},
 		blocks: [
 			{
 				type: "paragraph" as const,
-				text: "A lease or tenancy agreement is a legally binding contract. The terms it contains — on rent, duration, permitted use, maintenance obligations, notice requirements, and termination — govern the relationship between landlord and tenant for the life of the tenancy. Ambiguous or poorly drafted clauses are a common source of disputes, and they are much harder and more expensive to resolve once both parties have signed and moved in.",
+				text: "A lease or tenancy agreement is a legally binding contract. The substantive terms — on rent, duration, permitted use, maintenance obligations, notice requirements, and termination — govern the relationship between the parties for the life of the tenancy. Where the agreement is ambiguous or omits important matters, the gaps are filled by the default rules in the relevant statute (the Residential Tenancies Acts 2004 to 2024 for residential, the Landlord and Tenant Acts 1967 to 2022 for commercial), which may not be what either party expected when they signed.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "We advise both landlords and tenants. For landlords, we draft clear, enforceable agreements that protect their property and their income. For tenants, we review proposed leases and identify terms that are unfair, unlawful, or inconsistent with the protections available under the Residential Tenancies Act. In commercial tenancy matters, we advise on the specific terms that are most important to negotiate — break clauses, rent review mechanisms, repair obligations, and the right to renew.",
+				text: "We act for both landlords and tenants. For landlords, we draft tenancy agreements that comply with the statutory framework, deal with the matters the statute leaves open, and reflect the specific letting arrangement. For tenants, we review proposed agreements and identify terms that conflict with the statutory protections available under the Residential Tenancies Acts. On commercial tenancy matters, we advise on the negotiable terms — break clauses, rent review mechanisms, repair obligations, the right to renew under the Landlord and Tenant (Amendment) Act 1980 — and on the long-term financial implications of each.",
 			},
 			{
 				type: "heading" as const,
@@ -99,19 +95,19 @@ export const leasesAndTenancyAgreements = {
 				items: [
 					{
 						label: "Rent Pressure Zones",
-						text: "Most urban and suburban areas in Ireland are now designated Rent Pressure Zones (RPZs), where rent increases are capped. In RPZs, rent can be increased only once every 12 months, and the increase is capped at the rate of general inflation (HICP) or 2%, whichever is lower. Landlords who exceed this cap risk having an RTB determination made against them. We advise on whether an RPZ applies to your property and what the rules require.",
+						text: "Most urban and suburban areas in Ireland are designated Rent Pressure Zones (RPZs) under the Residential Tenancies Acts. In an RPZ, the rent that can be charged on a tenancy is capped — the precise calculation and review intervals are set by statute and have been amended several times in recent years (most recently by the Residential Tenancies (Amendment) Act 2024). We advise on whether an RPZ applies to a particular property and on what the current rules require.",
 					},
 					{
 						label: "Terminating a tenancy",
-						text: "A landlord can only terminate a tenancy on specific grounds set out in the Residential Tenancies Act — such as the tenant being in breach, the property being sold, or the landlord requiring it for their own use. The required notice period ranges from 90 days for short tenancies up to 224 days for tenancies of 8 years or more. Errors in the notice procedure can render an otherwise valid termination unlawful.",
+						text: "A landlord can terminate a residential tenancy only on the specific grounds set out in the Residential Tenancies Acts — for example, the tenant being in breach, the property being sold, or the landlord requiring it for their own use. The required notice period scales with the length of the tenancy, with longer notice required for longer tenancies. The exact periods are set by statute and have been amended; the periods applicable in any specific case are confirmed at the time of termination. Errors in the notice procedure can render an otherwise valid termination unlawful.",
 					},
 					{
 						label: "Rent arrears",
-						text: "Where a tenant is in arrears, the landlord must follow the correct procedure — serving a notice of termination for breach and giving the tenant a 28-day period to remedy the breach — before the tenancy can be ended. Failure to follow this procedure correctly can result in the RTB finding against the landlord.",
+						text: "Where a tenant is in arrears, the landlord must follow the specific procedure under the Residential Tenancies Acts before the tenancy can be ended — including serving a warning notice and giving the tenant a 28-day period to remedy the breach. Failure to follow the procedure can result in the RTB finding against the landlord even where the underlying arrears are real.",
 					},
 					{
 						label: "Registration with the RTB",
-						text: "All landlords of residential tenancies are required by law to register the tenancy with the Residential Tenancies Board within one month of commencement and to renew the registration annually. Failure to register can affect your entitlement to claim tax relief on rental income and can result in financial penalties.",
+						text: "All landlords of residential tenancies are required by law to register the tenancy with the Residential Tenancies Board. The registration framework has changed under recent amendments and the precise registration cycle is set by statute. Failure to register can affect entitlement to claim tax relief on rental income and can result in financial penalties.",
 					},
 				],
 			},
@@ -124,19 +120,19 @@ export const leasesAndTenancyAgreements = {
 				items: [
 					{
 						label: "Security of tenure",
-						text: "After six months of a tenancy, a tenant acquires Part 4 rights — meaning the landlord can only end the tenancy on specific grounds set out in the Residential Tenancies Act. These rights continue for cycles of six years. A landlord cannot simply ask a tenant to leave without a valid legal reason and the correct notice.",
+						text: "After the first six months of a residential tenancy, a tenant acquires Part 4 protection under the Residential Tenancies Acts — meaning the tenancy can be ended only on specific grounds set out in the statute. For tenancies commencing on or after 11 June 2022, the Residential Tenancies (Amendment) Act 2021 introduced a tenancy of unlimited duration after the initial six months. For earlier tenancies, the Part 4 protections continue in cycles set by the legislation in force at the time the tenancy commenced. We advise tenants on which framework applies in their case.",
 					},
 					{
 						label: "Written statement of terms",
-						text: "Landlords are legally required to provide tenants with a written statement of the terms of the tenancy within one month of commencement. The statement must include the amount of rent, the payment frequency, the obligations of the landlord and tenant, and other key terms. If you have not received one, we can advise on your rights.",
+						text: "Landlords are required by law to provide tenants with a written statement of the terms of the tenancy at the start of the tenancy. The statement must include the rent, the payment frequency, the duration, and other matters specified by statute. Where a tenant has not received one, we advise on the position.",
 					},
 					{
 						label: "Deposit protection",
-						text: "A landlord can deduct from your deposit only for rent arrears or damage beyond normal wear and tear. A disputed deposit deduction can be referred to the Residential Tenancies Board for adjudication. We advise tenants on what deductions are permissible and represent them in RTB proceedings if needed.",
+						text: "A landlord can deduct from a tenant's deposit only for unpaid rent or damage beyond normal wear and tear. A disputed deduction can be referred to the Residential Tenancies Board for adjudication. We advise tenants on whether a deduction is permissible and act for them in any RTB referral.",
 					},
 					{
 						label: "Unlawful termination",
-						text: "If you have been asked to leave without proper notice, or without a valid ground for termination, this may constitute an unlawful termination. You can refer the matter to the RTB for dispute resolution. Where the RTB finds in your favour, it can direct the landlord to allow you to return to the property or to pay damages.",
+						text: "Where a tenant has been asked to leave without proper notice or without a valid statutory ground, the termination may be unlawful. The matter can be referred to the RTB. Where the RTB finds in favour of the tenant, it can direct the landlord to allow the tenant to return to the property or, where return is no longer practical, order damages.",
 					},
 				],
 			},
@@ -146,70 +142,70 @@ export const leasesAndTenancyAgreements = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "Commercial tenancies are governed by different rules to residential ones. The Landlord and Tenant Acts 1967 to 2022 give business tenants certain rights — including, in some cases, a right to a new tenancy at the end of the lease. However, these rights can be waived by agreement, and many commercial leases contain terms that are significantly more favourable to the landlord than the statutory minimum.",
+				text: "Commercial tenancies are governed by a different statutory framework — the Landlord and Tenant Acts 1967 to 2022 — and the rules differ significantly from those applying to residential tenancies. The Landlord and Tenant (Amendment) Act 1980 gives business tenants certain rights, including in some cases a right to a new tenancy at the end of the term. These statutory rights can be modified or, in some cases, contracted out of by agreement, and the substantive terms of commercial leases are generally heavily negotiated.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Before taking on a commercial lease, it is essential to have the terms reviewed by a solicitor. Key issues include the length of the term, any break clause provisions, the basis for rent review, the repair and maintenance obligations allocated to the tenant, the permitted use of the premises, and the conditions for assigning or subletting. A poorly negotiated commercial lease can have significant financial consequences for years.",
+				text: "On a commercial lease review, we look at the key negotiable terms — the length of the term, the break clause provisions, the basis for rent review, the repair and insurance obligations, the permitted use of the premises, the conditions for assigning or subletting, and the application of the right to renew under the 1980 Act. The substance of these terms can have significant financial implications across the life of the lease.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"Whether you are a landlord or a tenant, here is how we handle your lease or tenancy matter from the initial review through to a completed agreement.",
+		"Lease and tenancy matters move through a defined sequence — review or drafting of the agreement, advice on rights and obligations during the tenancy, and dispute resolution where it arises. Here is how we manage each stage for our clients.",
 	process: [
 		{
-			title: "Review your agreement",
+			title: "Review of the agreement",
 			description:
-				"We review the proposed lease or tenancy agreement in detail, identify any terms that are unclear, unreasonable, or inconsistent with your legal rights, and advise you on what to negotiate before signing.",
+				"On a review (typically for a tenant or for a commercial-lease assignee), we read the agreement in full, identify terms that conflict with statute or that are unusually onerous, and advise the client on what to negotiate or seek clarification on before signing.",
 		},
 		{
 			title: "Drafting and negotiation",
 			description:
-				"Where we are drafting the agreement — typically for landlords — we prepare a clear, enforceable document tailored to the property and the letting arrangement. We negotiate amendments on your behalf where required.",
+				"Where we are drafting the agreement (typically for a landlord), we prepare a clear, statute-compliant document tailored to the property and the letting arrangement. We negotiate amendments with the other side's solicitor where required.",
 		},
 		{
-			title: "Advice on rights and obligations",
+			title: "Advice during the tenancy",
 			description:
-				"We advise landlords and tenants on their ongoing obligations — notice periods, rent review procedures, repair responsibilities, and deposit rules — so that issues are prevented rather than allowed to develop into disputes.",
+				"We advise landlords and tenants on rights and obligations as they arise during the tenancy — notice procedures, rent review under the relevant statute, repair allocations, deposit deductions, and other practical questions — so that issues can be addressed properly under the statute rather than in a dispute.",
 		},
 		{
 			title: "Dispute resolution",
 			description:
-				"Where a dispute has arisen, we advise on the options available — direct negotiation, RTB mediation, or formal RTB adjudication — and represent you through whichever process is most appropriate to your situation.",
+				"Where a dispute arises, we advise on the most appropriate route given the matter — direct negotiation, RTB mediation or adjudication for residential matters, or court proceedings for commercial matters or where the RTB does not have jurisdiction. We act for the client through whichever route the matter follows.",
 		},
 	],
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "Does a tenancy agreement have to be in writing in Ireland?",
+			question: "Does a residential tenancy agreement have to be in writing in Ireland?",
 			answer:
-				"There is no strict legal requirement for a residential tenancy to be in writing, but a landlord is required to provide a tenant with a written statement of the key terms of the tenancy within one month of its commencement. Having a written lease is strongly advisable for both parties as it sets out the agreed terms clearly and significantly reduces the risk of disputes about what was agreed.",
+				"There is no strict legal requirement for a residential tenancy itself to be in a written lease, but the Residential Tenancies Acts require the landlord to provide the tenant with a written statement of the key terms of the tenancy at the start of the tenancy. A written tenancy agreement is strongly advisable in any event — it sets out the terms agreed between the parties and significantly reduces the scope for disputes about what was agreed.",
 		},
 		{
-			question: "How much notice must a landlord give to end a tenancy?",
+			question: "How much notice must a landlord give to end a residential tenancy?",
 			answer:
-				"Under the Residential Tenancies Act, the required notice period depends on how long the tenancy has been in place. For a tenancy of less than six months, 90 days' notice is required. For tenancies of six months to one year, 152 days' notice applies. For longer tenancies, the notice period increases up to a maximum of 224 days for tenancies of eight years or more. The landlord must also have a valid legal reason for terminating the tenancy.",
+				"Under the Residential Tenancies Acts, the required notice period scales with the length of the tenancy — longer notice is required for longer tenancies. The specific periods are set by statute and have been amended several times in recent years, so the period applicable in any specific case is confirmed against the current legislation at the time the notice is being served. The landlord must also have a valid legal ground for the termination, and the notice itself must comply with the formal requirements of the Acts.",
 		},
 		{
 			question: "Can a landlord increase the rent at any time?",
 			answer:
-				"No. In Ireland, rent can only be reviewed once every 12 months. In Rent Pressure Zones — which cover most urban areas — the increase is capped at the rate of HICP inflation or 2%, whichever is lower. Landlords must provide the correct written notice of any rent review. We advise landlords on compliant rent review procedures and tenants on whether a proposed increase is lawful.",
+				"No. Rent reviews are regulated by the Residential Tenancies Acts. In Rent Pressure Zones (which cover most urban areas), the amount and frequency of rent reviews are capped — the precise calculation has been amended several times and the rules applicable in any specific case are confirmed at the time of review. Outside RPZs, different rules apply but the landlord must still follow the statutory rent-review procedure. We advise both landlords and tenants on whether a proposed rent change is compliant.",
 		},
 		{
-			question: "What can I do if my landlord refuses to return my deposit?",
+			question: "What can a tenant do if a landlord refuses to return their deposit?",
 			answer:
-				"If your landlord is withholding your deposit and you believe the deduction is not justified, you can refer the dispute to the Residential Tenancies Board. The RTB operates an online dispute resolution service and can direct the return of a deposit where it finds in your favour. We advise tenants on whether a deduction is permissible and represent clients in RTB proceedings.",
+				"Where a landlord is withholding a deposit and the tenant believes the deduction is not justified, the dispute can be referred to the Residential Tenancies Board. The RTB operates an online dispute resolution service and can direct the return of a deposit where it finds in the tenant's favour. We advise tenants on whether a deduction is permissible and act for them in RTB proceedings.",
 		},
 		{
 			question: "What is the Residential Tenancies Board?",
 			answer:
-				"The Residential Tenancies Board (RTB) is an independent public body that regulates the residential rental sector in Ireland. It operates a dispute resolution service for landlords and tenants, maintains a register of tenancies, and can impose sanctions on landlords who breach the Residential Tenancies Act. RTB dispute resolution is generally a faster and less expensive route to resolving tenancy disputes than going to court.",
+				"The Residential Tenancies Board (RTB) is an independent statutory body that regulates the residential rental sector in Ireland under the Residential Tenancies Acts 2004 to 2024. It maintains the register of tenancies, operates a dispute resolution service for landlords and tenants, and can impose sanctions on landlords who breach the Acts. RTB dispute resolution is generally faster and less expensive than court proceedings.",
 		},
 		{
-			question: "Do I need a solicitor to review a commercial lease?",
+			question: "Is a solicitor recommended for a commercial lease review?",
 			answer:
-				"We strongly recommend it. Commercial leases are complex documents that can have significant financial consequences for years. Key terms — the rent review mechanism, the repair obligations allocated to the tenant, break clause conditions, and assignment and subletting rights — can vary enormously from lease to lease. A solicitor review before you sign can identify unfavourable terms that can often be negotiated.",
+				"Yes. Commercial leases are detailed documents that can have significant financial implications across the life of the lease. Key terms — the rent review mechanism, the repair and insurance obligations, the break clause provisions, the assignment and subletting rights, and the application of the right to renew under the Landlord and Tenant (Amendment) Act 1980 — vary considerably from lease to lease and are usually negotiable. A solicitor's review identifies terms that may benefit from negotiation.",
 		},
 	],
 	attribution: {
