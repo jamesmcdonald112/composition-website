@@ -13,12 +13,12 @@ export const roadTrafficAccidents = {
 	image,
 	imageClass: "",
 	description:
-		"We represent people injured in road traffic accidents across County Kilkenny and beyond — advising on liability, managing the PIAB process, negotiating with insurers, and pursuing claims to court where necessary.",
+		"Road traffic accident matters handled by our Kilkenny solicitors. We advise on liability, manage the PIAB application, deal with insurers on the client's behalf, and represent clients in court where required.",
 	// --- SEO ---
 	seo: {
 		title: `Road Traffic Accident Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Injured in a road traffic accident in Kilkenny? Our solicitors advise on liability, insurance claims, and compensation — from PIAB to court. Don't deal with insurers alone. Call (056) 776 5829.",
+			"Road traffic accident solicitors in Kilkenny. We advise clients on liability, the PIAB process, dealings with insurers, and the conduct of personal injury claims arising from road traffic accidents.",
 		canonicalPath: "/services/road-traffic-accidents",
 	},
 	// --- Hero ---
@@ -29,34 +29,33 @@ export const roadTrafficAccidents = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Being involved in a road traffic accident can be a frightening and disorienting experience. Insurers move quickly to protect their own position — you should too. Our solicitors advise injured parties on their rights, handle the PIAB process and insurer negotiations, and pursue claims to court where a fair settlement cannot be reached.",
+			"Road traffic accidents are unsettling, and the legal process that follows is often unfamiliar. We advise clients in Kilkenny on liability, the PIAB application, and any dealings with insurers — explaining each step of the process in plain English.",
 	},
 	// --- Mid-page CTA ---
 	midCta: [
-		"Injured in a road traffic accident?",
-		"Don't deal with insurers alone.",
+		"Road traffic accident matters, handled with care.",
+		"Talk to us about your claim.",
 	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Injured in a " },
-			{ text: "road traffic accident", em: true },
-			{ text: "? Call us today" },
+			{ text: "A clear assessment of your " },
+			{ text: "road traffic claim", em: true },
 		],
 		description:
-			"Time limits apply to road traffic accident claims. Contact our Kilkenny team as soon as possible to protect your position and get clear advice on your next steps.",
+			"Get in touch with us in Kilkenny for a clear assessment of the matter and a plain-English view of what comes next.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "On your side " },
-			{ text: "from the moment you call", em: true },
+			{ text: "A clear path through " },
+			{ text: "your road traffic claim", em: true },
 		],
 		paragraphs: [
-			"After a road traffic accident, you are dealing with insurance companies that handle thousands of claims every year. They have experienced claims handlers and legal teams working to minimise their exposure. We level the playing field — giving you experienced legal representation from the start.",
-			"Early settlement offers from insurers are rarely a true reflection of the full value of your claim. They are made quickly, before the full extent of your injuries is known and before you have had the benefit of legal advice. We advise you on what a fair outcome looks like before you consider accepting anything.",
-			"We manage every aspect of your claim — from advising on what to do in the immediate aftermath of the accident, to gathering medical evidence, completing the PIAB application, negotiating with insurers, and issuing court proceedings if needed. You are kept informed at every stage.",
-			"We give you a realistic view of your claim from the outset. If we think a settlement offer is fair, we will tell you. If we think it undervalues your case, we will tell you that too — and explain what we think you should do about it.",
+			"Most road traffic accident claims in Ireland follow the same basic route: assessment of liability, gathering of medical evidence, and an application to the Personal Injuries Assessment Board (PIAB). What happens after the PIAB stage depends on the assessment made and on whether either side wishes to take the matter further. We guide clients through each step, in plain English, so the process is clear from the start.",
+			"A claim's value depends on the nature and extent of the injuries, the impact on daily life and earnings, and the financial losses arising from the accident. The Personal Injuries Guidelines published by the Judicial Council in 2021 set out appropriate ranges for general damages. We assess each claim against those ranges and advise clients on what a fair outcome looks like.",
+			"Settlement offers can be made at various stages of a claim — sometimes before PIAB has assessed it, sometimes after. We review any offer against the medical evidence, the financial losses on file, and the Personal Injuries Guidelines, and explain to the client what the offer covers and what it leaves outstanding. If an offer is fair, we say so.",
+			"We act for clients across Kilkenny and the surrounding counties on road traffic accident matters of every kind — from soft tissue and whiplash injuries to serious injury cases involving long-term care. Each claim receives the same care and thoroughness.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -69,28 +68,29 @@ export const roadTrafficAccidents = {
 	article: {
 		eyebrow: "Road Traffic Accidents",
 		title: [
-			{ text: "What to do after a " },
-			{ text: "road traffic accident", em: true },
+			{ text: "How a " },
+			{ text: "road traffic claim", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"The steps you take in the hours and days after a road traffic accident can have a real impact on your ability to bring a successful claim. Our Kilkenny solicitors advise injured road users on their rights and manage the full claims process — from the initial PIAB application through to settlement or court proceedings.",
+			"A road traffic accident claim in Ireland follows a defined legal process. Knowing what each stage involves, what evidence is needed, and how the Personal Injuries Assessment Board (PIAB) fits in makes the route from accident to resolution clearer. The article below sets that process out in plain English.",
 		quote: {
-			text: "Insurance companies deal with claims every day — most people don't. Getting legal advice early levels the playing field and makes a real difference to how a claim progresses.",
+			text: "Insurance companies deal with claims every day — most people don't. Getting legal advice early means the process is explained properly from the start, and any offer can be assessed against what the law actually allows.",
 			attribution: "Nicholas O'Shea, Solicitor",
 			image: nicholasImage,
 		},
 		blocks: [
 			{
 				type: "heading" as const,
-				text: "Steps to take at the scene",
+				text: "What evidence supports a road traffic claim",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Your priority after any accident is your safety and the safety of others. Once you are safe, try to gather as much information as possible at the scene — the other driver's name, address, insurance details, and vehicle registration number. Take photographs of the vehicles, the road conditions, any skid marks, and any visible injuries. If there are witnesses, ask for their names and contact details. Report the accident to An Garda Síochána if anyone is injured, if property is damaged, or if the other driver fails to stop or provide their details.",
+				text: "The strongest road traffic claims are built on evidence gathered at and around the time of the accident. The driver and vehicle details of the other party, photographs of the vehicles and the scene, witness names, and the Garda incident reference where reported are all useful. So is a contemporaneous medical record — many injuries, including whiplash and soft tissue damage, take days or weeks to become fully apparent, and a record made shortly after the accident anchors the medical timeline.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Seek medical attention as soon as possible — even if you feel your injuries are minor. Some injuries, including whiplash, soft tissue damage, and concussion, take time to become apparent. Having a contemporaneous medical record of your injuries, made shortly after the accident, is important for your claim. Do not give a statement to the other driver's insurance company before taking legal advice — insurers are experienced at managing claims in their own interests, not yours.",
+				text: "We advise clients on what evidence they have, what is missing, and what can be obtained later. Where evidence is incomplete, that is something to know about early — not on the day of a court hearing.",
 			},
 			{
 				type: "heading" as const,
@@ -101,109 +101,125 @@ export const roadTrafficAccidents = {
 				items: [
 					{
 						label: "General damages",
-						text: "Compensation for the pain, suffering, and impact on your quality of life caused by your injuries. The amount is assessed by reference to the Personal Injuries Guidelines published by the Judicial Council in 2021, which set out appropriate damages ranges for common injury types.",
+						text: "Compensation for the pain, suffering, and impact on quality of life caused by the injuries. The amount is assessed by reference to the Personal Injuries Guidelines published by the Judicial Council in 2021, which set out appropriate damages ranges for common injury types.",
 					},
 					{
 						label: "Loss of earnings",
-						text: "If your injuries prevented you from working — or have affected your future earning capacity — you are entitled to claim for that loss. We gather payslips, medical evidence, and where appropriate, reports from occupational or vocational experts to establish and value this element of your claim.",
+						text: "Where injuries prevent a claimant from working, or affect future earning capacity, that loss is recoverable. We gather payslips, medical evidence, and where appropriate reports from occupational or vocational experts to establish and value this element of a claim.",
 					},
 					{
 						label: "Medical and rehabilitation costs",
-						text: "The cost of your GP visits, hospital treatment, physiotherapy, specialist appointments, prescribed medication, and any aids or adaptations you required as a result of your injuries are all recoverable as special damages.",
+						text: "The cost of GP visits, hospital treatment, physiotherapy, specialist appointments, prescribed medication, and any aids or adaptations required as a result of the injuries are all recoverable as special damages.",
 					},
 					{
 						label: "Future losses",
-						text: "In cases of serious injury, compensation can also include the cost of future medical treatment, ongoing care needs, and the long-term impact of the injury on your ability to earn. We engage appropriate experts to establish and quantify these losses.",
+						text: "In cases of serious injury, compensation can also include the cost of future medical treatment, ongoing care needs, and the long-term impact of the injury on earning capacity. Appropriate experts are engaged to establish and quantify these losses.",
 					},
 					{
 						label: "Out-of-pocket expenses",
-						text: "Travel costs to and from medical appointments, care provided by a family member or friend, and other reasonably incurred expenses can be claimed as part of your case.",
+						text: "Travel costs to and from medical appointments, care provided by a family member or friend, and other reasonably incurred expenses can be claimed as part of a road traffic accident case.",
 					},
 				],
 			},
 			{
 				type: "heading" as const,
-				text: "The PIAB process for road traffic accident claims",
+				text: "How PIAB fits in",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Most road traffic accident claims in Ireland must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. We submit the application to PIAB on your behalf, supported by medical reports and evidence of your financial losses. PIAB will assess the claim and make an award. If the award is accepted by both sides, the case is resolved. If either side rejects it, PIAB issues an authorisation and we can then issue court proceedings.",
+				text: "Most road traffic accident claims in Ireland must go through the Personal Injuries Assessment Board (PIAB) before court proceedings can be issued. PIAB is an independent statutory body that assesses claims based on the medical evidence and financial losses submitted. PIAB may make an assessment that either side can accept or reject; in some cases PIAB declines to make an assessment at all. Where PIAB issues an authorisation, the claim can then proceed to court if the parties choose. The next step depends on the PIAB outcome and on the strength of the medical and liability evidence.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Insurance companies routinely make early settlement offers — sometimes before a PIAB assessment is made. These offers are almost always made before the full extent of your injuries is known and before you have had independent legal advice. We strongly advise against accepting any settlement offer, or signing any document from an insurer, without taking legal advice first.",
+				text: "We submit PIAB applications on the client's behalf, including the supporting medical reports and the documentary evidence of any financial losses. We also review any settlement offer made — at any stage of the process — and advise the client on whether the offer reflects the value of the claim under the Personal Injuries Guidelines.",
 			},
 			{
 				type: "heading" as const,
-				text: "Uninsured and untraced drivers",
+				text: "Uninsured drivers and the MIBI scheme",
 			},
 			{
 				type: "paragraph" as const,
-				text: "If you were injured by a driver who was uninsured, or who left the scene without stopping, you may still be entitled to compensation. The Motor Insurers' Bureau of Ireland (MIBI) operates a scheme to compensate victims of uninsured and untraced drivers. Claims under the MIBI scheme follow a different procedure and are subject to specific conditions. We advise on whether the MIBI scheme applies to your case and manage the claim on your behalf.",
+				text: "Where the driver responsible for an accident cannot be identified, or had no valid insurance, claims are made through the Motor Insurers' Bureau of Ireland (MIBI). The MIBI was established under an agreement with the Irish state and operates a compensation scheme for victims of uninsured and untraced drivers. The MIBI process differs from a standard PIAB claim — it has its own procedure, its own rules of evidence, and its own time limits. We advise on whether the MIBI scheme applies to a particular matter and conduct the claim under the MIBI procedure.",
+			},
+			{
+				type: "heading" as const,
+				text: "How long a road traffic claim takes",
+			},
+			{
+				type: "paragraph" as const,
+				text: "Most road traffic accident claims in Ireland are resolved in twelve to eighteen months where liability is clear and the injuries are well understood. Cases involving serious or long-term injuries take longer, because the full medical picture has to be established before a claim can be valued accurately. Settling too early — before the long-term effects of an injury are known — usually means accepting less than the claim is actually worth.",
+			},
+			{
+				type: "heading" as const,
+				text: "The time limit on a road traffic claim",
+			},
+			{
+				type: "paragraph" as const,
+				text: "Personal injury claims arising from road traffic accidents in Ireland are subject to a two-year time limit. The clock runs from the date of the accident, or from the date the injured person became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. Missing the time limit will generally end a claim, so early legal advice is the safe course.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"From your first call to settlement or award, here is how a road traffic accident claim progresses — and how we guide you through each stage.",
+		"A road traffic accident claim has a defined legal process in Ireland. Here is how it progresses — and how we guide our clients through each stage.",
 	process: [
 		{
 			title: "Initial consultation",
 			description:
-				"We review the details of your accident, advise on liability, and explain the claims process. We also advise on what evidence to gather and what steps to take in the early stages.",
+				"We review the circumstances of the accident, advise on liability, and explain how the claims process will run. We also advise on what evidence to gather and what steps to take in the early stages.",
 		},
 		{
 			title: "Medical evidence",
 			description:
-				"We advise on the medical evidence you will need to support your claim — GP records, consultant reports, and where appropriate, reports from independent medical experts. Thorough medical evidence is the foundation of a strong claim.",
+				"We advise on the medical evidence needed to support the claim — GP records, consultant reports, and where appropriate independent medical experts. Thorough medical evidence is the foundation of every road traffic case.",
 		},
 		{
 			title: "PIAB application",
 			description:
-				"We submit your application to the Personal Injuries Assessment Board, supported by medical reports and evidence of your losses. We guide you through the assessment process and advise on any award made.",
+				"We submit the application to the Personal Injuries Assessment Board, supported by medical reports and evidence of financial losses. We guide the client through the assessment process and advise on any award made.",
 		},
 		{
 			title: "Insurer negotiations",
 			description:
-				"If PIAB does not resolve the matter, we engage directly with the other party's insurer. We handle all correspondence and negotiate to achieve a settlement that properly reflects the full value of your claim.",
+				"If the matter does not resolve at PIAB, we engage directly with the other party's insurer. We handle the correspondence and conduct any settlement discussions in light of the medical evidence and the Personal Injuries Guidelines.",
 		},
 		{
 			title: "Court proceedings if needed",
 			description:
-				"Where a fair settlement cannot be achieved, we issue court proceedings and represent you through to trial. We prepare all necessary documentation and ensure you are fully supported at every hearing.",
+				"Where settlement discussions do not produce an agreement that the client is willing to accept, we issue court proceedings and act for the client at each stage of the litigation. We prepare the documentation and ensure the client is fully supported at every hearing.",
 		},
 	],
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "What should I do immediately after a road traffic accident?",
+			question: "What is the time limit for a road traffic accident claim?",
 			answer:
-				"Ensure you are safe and call emergency services if anyone is injured. Exchange details with the other driver — name, address, insurance details, and vehicle registration. Take photographs of the scene, the vehicles, and any visible injuries. Report the accident to An Garda Síochána if required. Seek medical attention as soon as possible. Contact a solicitor before giving any statement to an insurance company.",
+				"The general time limit for personal injury claims in Ireland — including road traffic accidents — is two years from the date of the accident or from the date the injured person became aware of the injury. Where the claimant was a minor at the time of the accident, time does not begin to run until they turn 18. Missing this deadline will generally prevent a claim from being brought.",
 		},
 		{
-			question: "What if the other driver was uninsured or drove away?",
+			question: "What if the other driver was uninsured or could not be identified?",
 			answer:
-				"If the driver responsible for your accident was uninsured, or if they left the scene without stopping, you may be entitled to compensation through the Motor Insurers' Bureau of Ireland (MIBI). The MIBI compensates victims of uninsured and untraced drivers in Ireland, subject to certain conditions. We can advise you on whether the MIBI scheme applies and manage the claim on your behalf.",
+				"Compensation for victims of uninsured or untraced drivers is paid through the Motor Insurers' Bureau of Ireland (MIBI). The MIBI scheme has its own procedure and its own conditions, and is separate from the standard PIAB process. We advise on whether the MIBI scheme applies and manage the claim on the client's behalf.",
 		},
 		{
-			question: "How long does a road traffic accident claim take in Ireland?",
+			question: "What about an early settlement offer from an insurance company?",
 			answer:
-				"The timeline depends on the severity of your injuries, the complexity of the liability issues, and whether the matter is resolved through PIAB or goes to court. Claims involving clear liability and soft tissue injuries are often settled within twelve to eighteen months. Claims involving serious or long-term injuries take longer — it is important not to settle before the full extent of your injuries and future losses is established.",
+				"We advise reviewing any insurance company offer carefully before accepting it. Early offers are routinely made before the full extent of an injury is known and before the claimant has independent representation. An offer that seems reasonable at first glance can significantly undervalue a claim once future medical costs, loss of earnings, and other losses are properly established.",
 		},
 		{
-			question: "Can I claim for damage to my vehicle as well?",
+			question: "How long does a road traffic accident claim take?",
 			answer:
-				"Yes, but a property damage claim is separate from a personal injury claim. Your vehicle damage claim is made against the other driver's motor insurer (or your own insurer under your policy) and does not go through PIAB. We can advise you on both aspects of your situation.",
+				"Claims involving clear liability and soft tissue injuries are often resolved within twelve to eighteen months. Cases involving serious or long-term injuries take longer, because the full medical picture has to be established before the claim can be accurately valued. Settling before the long-term effects are known usually means accepting less than the claim is worth.",
 		},
 		{
-			question: "Should I accept the insurance company's first offer?",
+			question: "Is vehicle damage covered as well as personal injury?",
 			answer:
-				"We strongly advise against accepting any offer from an insurance company without first taking legal advice. First offers from insurers are routinely made before the full extent of your injuries is known and before you have independent representation. An offer that seems reasonable on the surface may significantly undervalue your claim once all your losses — including future medical costs and loss of earnings — are taken into account.",
+				"Vehicle damage is treated as a separate claim from personal injury. A property damage claim is made against the other driver's motor insurer (or under the claimant's own policy) and does not go through PIAB. We advise on both aspects.",
 		},
 		{
-			question: "What is the time limit for making a road traffic accident claim?",
+			question: "What are the immediate steps after a road traffic accident?",
 			answer:
-				"The general time limit for personal injury claims in Ireland — including road traffic accidents — is two years from the date of the accident or from the date you became aware of the injury. Missing this deadline will generally prevent you from bringing a claim. It is important to take advice as soon as possible after an accident.",
+				"Ensure everyone is safe and call emergency services if anyone is injured. Exchange details with the other driver — name, address, insurance details, and vehicle registration. Take photographs of the scene, the vehicles, and any visible injuries. Report the accident to An Garda Síochána if required. Seek medical attention as soon as possible. Take legal advice before giving any statement to an insurance company.",
 		},
 	],
 	attribution: {
