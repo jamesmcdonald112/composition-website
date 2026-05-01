@@ -12,8 +12,8 @@ export const aboutPageContent = {
 	hero: {
 		eyebrow: "About the firm",
 		title: [
-			{ text: "Helping Kilkenny Families " },
-			{ text: "Since 1979", em: true },
+			{ text: "A family firm in Kilkenny " },
+			{ text: "since 1979", em: true },
 		],
 		subtitle:
 			"Many of our clients are people we've known for years. Some we've helped through more than one chapter of their lives. That's been true since 1979, and it still matters to us.",
@@ -29,8 +29,8 @@ export const aboutPageContent = {
 		paragraphs: [
 			"Mary Molloy has been practising law in Kilkenny since 1979. What started as a sole practice on Rose Inn Street is now a three-solicitor family firm. Mary's sons Nicholas and Richard practise alongside her, each with their own area of focus and the same approach the firm was built on.",
 			`We work across property, wills and probate, family law, personal injury, and private client matters. After ${yearsInPractice} years, one thing hasn't changed: the cases that seem routine to a solicitor are rarely routine to the person going through them. That's worth remembering on every file.`,
-			"People come to us at difficult moments. Buying a first home is exciting, but it's also the largest financial commitment most people ever make. Losing a parent means dealing with legal paperwork at the worst possible time. Going through a separation is hard enough without also trying to understand what the law says you're entitled to. We know that. We try to make our part of it as straightforward as possible.",
-			"We're a small team. That means when you call, someone who knows your case answers. You'll always know who's handling your matter, and you'll hear from them directly when anything changes on your file.",
+			"The work of the firm is mainly on the personal-client side — buying and selling a home, making a will, administering an estate, and family law matters — alongside personal injury, employment, and the smaller-business side of the practice. The legal and procedural rules differ by area; the underlying approach to client work does not.",
+			"All client matters are handled by qualified solicitors. The firm is small enough that the solicitor on a file is the person clients deal with directly — not a call handler or a paralegal acting on the solicitor's behalf.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -45,7 +45,7 @@ export const aboutPageContent = {
 	},
 	cta: {
 		title: "Not sure where to start?",
-		body: "That's fine. Tell us a little about your situation and we'll let you know whether we can help and what would be involved.",
+		body: "That's fine. Tell us a little about your situation and we'll explain what would be involved.",
 	},
 } as const;
 
