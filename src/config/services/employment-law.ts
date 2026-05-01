@@ -16,7 +16,7 @@ export const employmentLaw = {
 		"Employment law advice for employees and employers in Kilkenny and the surrounding counties. We advise on unfair dismissal, redundancy, workplace discrimination, working time, payment of wages, and employment contracts, and represent clients at the Workplace Relations Commission.",
 	// --- SEO ---
 	seo: {
-		title: `Employment Law Solicitors Kilkenny | Unfair Dismissal & WRC | ${firm.companyName}`,
+		title: `Employment Law Solicitors Kilkenny | ${firm.companyName}`,
 		description:
 			"Employment law solicitors in Kilkenny. We advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and the conduct of complaints to the Workplace Relations Commission.",
 		canonicalPath: "/services/employment-law",

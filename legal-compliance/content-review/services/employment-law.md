@@ -11,7 +11,7 @@ The technical compliance summary at the end is for the website's records — you
 
 ## SEO
 
-- **Page title:** Employment Law Solicitors Kilkenny | Unfair Dismissal & WRC | Mary Molloy Solicitor
+- **Page title:** Employment Law Solicitors Kilkenny | Mary Molloy Solicitor
 - **Meta description:** Employment law solicitors in Kilkenny. We advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and the conduct of complaints to the Workplace Relations Commission.
 
 ---
