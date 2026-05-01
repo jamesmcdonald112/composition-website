@@ -181,12 +181,12 @@ export const roadTrafficAccidents = {
 		{
 			title: "Insurer negotiations",
 			description:
-				"If the matter does not resolve at PIAB, we engage directly with the other party's insurer. We handle the correspondence and conduct any settlement discussions in light of the medical evidence and the Personal Injuries Guidelines.",
+				"Where the client wishes to pursue settlement discussions with the other party's insurer — typically after PIAB has issued an authorisation, or where the matter falls outside the PIAB process — we handle the correspondence and conduct those discussions in light of the medical evidence and the Personal Injuries Guidelines.",
 		},
 		{
 			title: "Court proceedings if needed",
 			description:
-				"Where settlement discussions do not produce an agreement that the client is willing to accept, we issue court proceedings and act for the client at each stage of the litigation. We prepare the documentation and ensure the client is fully supported at every hearing.",
+				"Where the client wishes to proceed to court — either because settlement discussions have not produced a workable agreement, or for other reasons — we issue court proceedings on the client's instructions and act for the client at each stage of the litigation. We prepare the documentation and ensure the client is fully supported at every hearing.",
 		},
 	],
 	// --- FAQs ---

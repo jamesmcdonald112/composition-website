@@ -122,8 +122,8 @@ The technical compliance summary at the end is for the website's records — you
 1. **Initial consultation** — We review the circumstances of the accident, advise on liability, and explain how the claims process will run. We also advise on what evidence to gather and what steps to take in the early stages.
 2. **Medical evidence** — We advise on the medical evidence needed to support the claim — GP records, consultant reports, and where appropriate independent medical experts. Thorough medical evidence is the foundation of every road traffic case.
 3. **PIAB application** — We submit the application to the Personal Injuries Assessment Board, supported by medical reports and evidence of financial losses. We guide the client through the assessment process and advise on any award made.
-4. **Insurer negotiations** — If the matter does not resolve at PIAB, we engage directly with the other party's insurer. We handle the correspondence and conduct any settlement discussions in light of the medical evidence and the Personal Injuries Guidelines.
-5. **Court proceedings if needed** — Where settlement discussions do not produce an agreement that the client is willing to accept, we issue court proceedings and act for the client at each stage of the litigation. We prepare the documentation and ensure the client is fully supported at every hearing.
+4. **Insurer negotiations** — Where the client wishes to pursue settlement discussions with the other party's insurer — typically after PIAB has issued an authorisation, or where the matter falls outside the PIAB process — we handle the correspondence and conduct those discussions in light of the medical evidence and the Personal Injuries Guidelines.
+5. **Court proceedings if needed** — Where the client wishes to proceed to court — either because settlement discussions have not produced a workable agreement, or for other reasons — we issue court proceedings on the client's instructions and act for the client at each stage of the litigation. We prepare the documentation and ensure the client is fully supported at every hearing.
 
 ---
 
