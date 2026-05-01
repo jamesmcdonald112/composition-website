@@ -4,7 +4,6 @@ import maryPhoto from "../assets/team/maryFull.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
 import { yearsInPractice } from "./firm";
-
 // ── Solicitor credential records ──────────────────────────────────────────────
 // Used by AttributionBlock on every page. Fill in university and admissionYear
 // once confirmed with Mary — placeholders marked with TODO.
@@ -49,24 +48,24 @@ export type Solicitor = typeof solicitors[keyof typeof solicitors];
 export const teamSectionContent = {
 	title: "Meet our team",
 	backgroundImage: teamSectionBackground,
-	intro: `Established in 1979, our family-run solicitor practice has been serving clients across Kilkenny and surrounding areas for over ${yearsInPractice} years. We provide clear, practical legal advice in property, probate and private client matters, with a strong focus on communication, personal service and keeping clients fully informed at every stage.`,
+	intro: `Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny for over ${yearsInPractice} years. The firm is a family practice — Mary is the principal solicitor; her sons Nicholas and Richard are also solicitors at the firm. All client matters are handled by qualified solicitors.`,
 	members: [
 		{
 			name: solicitors.mary.name,
 			role: solicitors.mary.role,
-			bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny. She is known for her practical guidance, straightforward advice and personal approach to each case.",
+			bio: "Mary is the principal solicitor at the firm, which she founded in Kilkenny in 1979. Her practice covers property, wills and probate, and private client matters.",
 			photo: maryPhoto,
 		},
 		{
 			name: solicitors.nicholas.name,
 			role: solicitors.nicholas.role,
-			bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression. He focuses on responsiveness, clarity and maintaining consistent contact throughout the legal process.",
+			bio: "Nicholas advises clients on property and private client matters at the firm, including conveyancing, wills and probate, and family law.",
 			photo: nicholasPhoto,
 		},
 		{
 			name: solicitors.richard.name,
 			role: solicitors.richard.role,
-			bio: "Richard advises clients on buying and selling property, conveyancing and probate matters. He brings a steady, detail-focused approach to ensure each transaction progresses efficiently from first instruction to final completion.",
+			bio: "Richard advises clients on buying and selling property, conveyancing, and probate matters at the firm.",
 			photo: richardPhoto,
 		},
 		{
