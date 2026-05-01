@@ -7,7 +7,7 @@ export const contactPageContent = {
 	},
 	title: "Get in touch",
 	intro:
-		"We understand that seeking legal advice can feel overwhelming. Our team is here to provide clear, practical guidance from the outset. Contact us to arrange a consultation or to discuss your matter in confidence.",
+		"Get in touch with us in Kilkenny to discuss the matter in confidence. We'll explain how the relevant area of law applies to the specific circumstances and what the practical options are.",
 } as const;
 
 export type ContactPageContent = typeof contactPageContent;
