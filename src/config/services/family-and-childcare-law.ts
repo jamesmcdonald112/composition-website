@@ -13,12 +13,12 @@ export const familyAndChildcareLaw = {
 	image,
 	imageClass: "",
 	description:
-		"We provide sensitive and experienced legal support in family law matters — separation, divorce, guardianship, custody, access, and childcare proceedings. Our aim is to help you reach a fair outcome with as little conflict as possible.",
+		"Family law advice for clients in Kilkenny and the surrounding counties. We advise on separation, divorce, guardianship, custody, access, maintenance, the family home, pensions, and childcare proceedings brought by Tusla.",
 	// --- SEO ---
 	seo: {
-		title: `Family Law Solicitors Kilkenny | Separation & Divorce | ${firm.companyName}`,
+		title: `Family Law Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Family law solicitors in Kilkenny handling separation, divorce, guardianship, custody and childcare proceedings. Sensitive, practical advice when it matters most. Call (056) 776 5829.",
+			"Family law solicitors in Kilkenny. We advise on judicial separation, divorce, guardianship, custody, access, the family home, pensions, maintenance, and Tusla childcare proceedings.",
 		canonicalPath: "/services/family-and-childcare-law",
 	},
 	// --- Hero ---
@@ -29,35 +29,31 @@ export const familyAndChildcareLaw = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Family law matters are often the most personal and emotionally difficult situations a person can face. We provide clear legal advice and steady support throughout — working to help you reach a fair outcome with the minimum of conflict, while always keeping the welfare of children at the centre of every decision.",
+			"Family law in Ireland covers separation, divorce, the rights of cohabitants, guardianship and access to children, maintenance, pensions, the family home, and childcare proceedings brought by Tusla. We advise clients on each of these areas, with the welfare of children as the legal touchstone where children are involved.",
 	},
 	// --- Mid-page CTA ---
-	midCta: [
-		"Going through a separation or family law matter?",
-		"Get confidential advice today.",
-	],
+	midCta: ["Family law matters, handled with care.", "Get in touch when you're ready."],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Talk to a " },
-			{ text: "family law", em: true },
-			{ text: " solicitor in Kilkenny" },
+			{ text: "A clear assessment of your " },
+			{ text: "family law matter", em: true },
 		],
 		description:
-			"Family law matters require prompt, confidential advice. Contact our team to discuss your situation — we will explain your options clearly and help you decide on the right next step.",
+			"Get in touch with us in Kilkenny. We'll talk through the situation in confidence and explain how the relevant areas of family law apply to it.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Sensitive, experienced " },
-			{ text: "family law", em: true },
-			{ text: " advice in Kilkenny" },
+			{ text: "Practical " },
+			{ text: "family law advice", em: true },
+			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
-			"Family law is an area where the right legal advice — given at the right time — can make a significant difference to the outcome for you and your children. We approach every family law matter with discretion, taking the time to understand your situation before advising on the most appropriate course of action.",
-			"Our aim is always to resolve matters with as little conflict as possible. Where agreement can be reached — through negotiation or mediation — we help clients get there. Where court proceedings are unavoidable, we prepare thoroughly and represent clients clearly and effectively.",
-			"We advise on the full range of family law matters, from straightforward consent separations to complex contested divorces involving significant assets, pensions, and difficult custody arrangements. Every client receives the same thorough, personal approach.",
-			"We understand that the decisions made in family law proceedings shape lives for years to come. We take that responsibility seriously and focus on outcomes that are fair, practical, and in the best interests of everyone involved — particularly children.",
+			"Family law in Ireland sits across a defined body of statutes — including the Family Law (Divorce) Act 1996, the Judicial Separation and Family Law Reform Act 1989, the Guardianship of Infants Act 1964, the Family Home Protection Act 1976, and the Civil Partnership and Certain Rights and Obligations of Cohabitants Act 2010. Most family proceedings are heard in the Circuit Family Court, with childcare proceedings heard in the District Court. We advise clients on each of these areas.",
+			"There is more than one route through a family law matter. Some are resolved by agreement between the parties — sometimes through direct negotiation, sometimes through mediation — and made into a consent order by the court. Others require contested proceedings. We advise on which route fits the client's circumstances and act for clients through whichever they choose.",
+			"Our work covers the full range of family law matters: judicial separation and divorce, the financial issues that arise from them (the family home, maintenance, and pensions in particular), guardianship and access in respect of children, the rights of cohabiting couples under the 2010 Act, and Tusla childcare proceedings. The legal and procedural rules differ by area; the underlying approach — clarity about the law, careful preparation, and respect for the people involved — does not.",
+			"Where children are involved, the welfare of the child is the paramount consideration in any decision the court makes. The Guardianship of Infants Act 1964 sets out the factors the court takes into account, including the child's age, wishes (where they are old enough to express them), and relationships with each parent. We advise on how those statutory factors typically apply in practice.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -70,24 +66,25 @@ export const familyAndChildcareLaw = {
 	article: {
 		eyebrow: "Family Law",
 		title: [
-			{ text: "Legal support through " },
-			{ text: "life's most difficult moments", em: true },
+			{ text: "How " },
+			{ text: "family law", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"Family law matters involve decisions that will shape your life and the lives of your children for years to come. Our Kilkenny solicitors provide clear legal advice and steady support throughout separation, divorce, guardianship, and childcare proceedings — always focused on helping you reach a resolution that works.",
+			"Family law in Ireland covers a defined set of areas — separation and divorce, the financial issues that arise from a relationship breakdown, guardianship and access to children, the rights of cohabitants, and childcare proceedings brought by Tusla. Knowing which area applies, what the statute says, and what the procedural route looks like makes the path through a family matter clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "Family law matters are rarely just legal problems — they involve real people going through genuinely hard times. Our job is to give clear advice and steady support so clients can make good decisions, even in difficult circumstances.",
+			text: "Family law sits across a lot of separate areas — separation, divorce, children, finances, the family home, pensions. The first job in any matter is usually to work out which areas are actually in play, and which statute governs each one.",
 			attribution: "Nicholas O'Shea, Solicitor",
 			image: nicholasImage,
 		},
 		blocks: [
 			{
 				type: "paragraph" as const,
-				text: "The breakdown of a relationship involves resolving a range of interconnected issues — the family home, maintenance, guardianship and access to children, pensions, and other financial assets. In Ireland, these matters can be resolved by agreement between the parties and made into a consent order by the court, or decided by the court itself if agreement is not possible. Understanding the difference between these routes — and knowing which is right for your situation — is one of the first things we help you with.",
+				text: "A relationship breakdown typically involves a range of interconnected issues — the family home, maintenance, guardianship and access to children, pensions, and other financial assets. In Ireland, these can be resolved by agreement between the parties and made into a consent order by the court, or determined by the court following contested proceedings. Where the matter falls outside the marriage context, the rights of the parties are governed by the Civil Partnership and Certain Rights and Obligations of Cohabitants Act 2010.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Where children are involved, their welfare is always the primary legal consideration. We advise on guardianship, custody, and access arrangements with a focus on arrangements that are child-centred and workable in practice. Where both parties are willing to engage constructively, we can often help reach arrangements without the need for contested court proceedings.",
+				text: "Where children are involved, the welfare of the child is the paramount consideration in any decision the court makes — that is the test set by the Guardianship of Infants Act 1964. We advise on the legal framework for guardianship, custody, and access, on how the welfare-of-the-child test is applied in practice, and on the procedural route — by agreement or by application — that the client wishes to take.",
 			},
 			{
 				type: "heading" as const,
@@ -98,27 +95,27 @@ export const familyAndChildcareLaw = {
 				items: [
 					{
 						label: "Judicial separation",
-						text: "A judicial separation legally recognises that a couple is living apart and resolves financial and parenting arrangements — without ending the marriage. There is no minimum period of separation required. It is an option for couples who do not yet meet the criteria for divorce, or who have religious or personal reasons for remaining married.",
+						text: "A judicial separation legally recognises that a couple is living apart and resolves financial and parenting arrangements without ending the marriage. There is no minimum period of separation required. It is an option for couples who do not yet meet the criteria for divorce, or who have religious or personal reasons for remaining married.",
 					},
 					{
 						label: "Divorce",
-						text: "To obtain a divorce in Ireland, the parties must have lived apart for at least two of the previous three years (reduced from four years following the 2019 constitutional referendum). The court must be satisfied that proper provision has been made for all dependent family members before granting a decree. We advise on what 'proper provision' means in your specific circumstances.",
+						text: "In Ireland, the grounds for a divorce decree are set by the Family Law (Divorce) Act 1996 as amended. The parties must have lived apart for at least two of the previous three years (reduced from four of the previous five years by the Family Law Act 2019, following the 38th Amendment of the Constitution earlier that year). The court must be satisfied that proper provision has been made for all dependent family members before granting the decree. We advise on what 'proper provision' means in the specific circumstances of the matter.",
 					},
 					{
-						label: "Cohabitation and civil partnerships",
-						text: "Cohabiting couples who qualify as 'qualified cohabitants' under the Civil Partnership and Certain Rights and Obligations of Cohabitants Act 2010 may be entitled to apply to the court for financial relief following the breakdown of a long-term relationship. The rights available are more limited than those for married couples, which makes getting legal advice early especially important.",
+						label: "Cohabitation",
+						text: "Cohabiting couples who qualify as 'qualified cohabitants' under the Civil Partnership and Certain Rights and Obligations of Cohabitants Act 2010 may apply to the court for financial relief following the breakdown of a long-term relationship. The remedies available are more limited than those for married couples — and the qualifying threshold for a 'qualified cohabitant' (length of relationship, dependency, and other factors) is itself a matter of legal assessment.",
 					},
 					{
 						label: "The family home",
-						text: "The family home is often the most significant asset and one of the most emotionally charged issues in separation proceedings. We advise on the options — sale and division of proceeds, one party buying out the other, or a deferred transfer where children remain in the home — and the financial and tax implications of each.",
+						text: "The family home is often the most significant asset in a separation. The Family Home Protection Act 1976 prevents one spouse from disposing of the family home without the written consent of the other. We advise on the available options — sale and division of proceeds, one party buying out the other, or a deferred transfer where children remain in the home — and on the financial and tax implications of each.",
 					},
 					{
 						label: "Maintenance",
-						text: "Either spouse can apply for maintenance from the other, and either parent can apply for maintenance for a dependent child. Maintenance can be agreed voluntarily or ordered by the court. We advise on appropriate levels of maintenance and how to seek enforcement of a maintenance order if payments are not being made.",
+						text: "Either spouse can apply for maintenance from the other, and either parent can apply for maintenance for a dependent child. Maintenance can be agreed voluntarily or ordered by the court under the Family Law (Maintenance of Spouses and Children) Act 1976. We advise on appropriate levels of maintenance and on the steps available to enforce a maintenance order if payments are not being made.",
 					},
 					{
 						label: "Pension adjustment orders",
-						text: "Pensions are frequently one of the most valuable assets in a family law case and are often underestimated. A pension adjustment order can direct that part of one party's pension entitlement be paid to the other party on retirement or on the death of the pension holder. We advise on how to identify and value pension assets and how to seek an appropriate order.",
+						text: "Pensions are frequently among the most valuable assets in a family law matter and are often underestimated. A pension adjustment order — provided for under the Family Law Act 1995 and the Family Law (Divorce) Act 1996 — can direct that part of one party's pension entitlement be paid to the other on retirement or on the death of the pension holder. We advise on identifying and valuing pension assets and on seeking the appropriate order.",
 					},
 				],
 			},
@@ -128,11 +125,11 @@ export const familyAndChildcareLaw = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "Guardianship, custody, and access are three distinct concepts that are often confused. Guardianship is the right and duty to make decisions about a child's upbringing — it is automatically held by a married couple and by the mother of a child born outside marriage. An unmarried father can acquire guardianship by agreement with the mother or by court order. Custody refers to where a child lives and who has day-to-day care of them. Access refers to the right of the non-custodial parent to spend time with the child.",
+				text: "Guardianship, custody, and access are three distinct concepts that are often confused. Guardianship is the right and duty to make decisions about a child's upbringing — it is automatically held by a married couple and by the mother of a child born outside marriage. An unmarried father can acquire guardianship by agreement with the mother (formalised by statutory declaration) or by court order. Custody refers to where a child lives and who has day-to-day care of them. Access refers to the right of the non-custodial parent to spend time with the child.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Where parents cannot agree on these arrangements, the court will make orders based on what is in the best interests of the child. Courts increasingly favour arrangements that allow the child to maintain a meaningful relationship with both parents. We advise on how to approach these proceedings in a way that prioritises the welfare of your children and demonstrates to the court that you have their interests at heart.",
+				text: "Where parents cannot agree on these arrangements, the court makes orders based on the welfare of the child — the paramount consideration under the Guardianship of Infants Act 1964. The Act sets out the statutory factors the court takes into account, including the child's age, wishes (where they are old enough to express them), and relationship with each parent. We advise on how those factors apply in the specific circumstances of the matter and on the procedural route to the court.",
 			},
 			{
 				type: "heading" as const,
@@ -140,33 +137,33 @@ export const familyAndChildcareLaw = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "Childcare proceedings are brought by Tusla, the Child and Family Agency, where it has concerns about the safety or welfare of a child. These are serious proceedings that can result in supervision orders, interim care orders, or full care orders removing a child from the family home. We represent parents and other parties in childcare proceedings, ensuring their voice is heard and that the court has a complete and balanced picture before making any order. If you have received notice of childcare proceedings, it is essential to take legal advice immediately.",
+				text: "Childcare proceedings are brought by Tusla, the Child and Family Agency, under the Child Care Act 1991, where Tusla has concerns about the safety or welfare of a child. These are serious proceedings: the orders available include supervision orders, interim care orders, and full care orders, and a care order can result in a child being placed in the care of Tusla. The proceedings are heard in the District Court (with appeals to the Circuit Court), and they have their own procedural rules and short timelines. We act for parents and other parties in childcare proceedings, including at interim hearings.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"Family law matters move at their own pace. Here is a clear picture of how we work with you — from your first conversation to a final resolution.",
+		"Family law matters move through a defined sequence — initial advice on the area of law that applies, negotiation or mediation where appropriate, court proceedings or consent orders, and any follow-up that arises. Here is how we manage each stage for our clients.",
 	process: [
 		{
 			title: "Initial consultation",
 			description:
-				"We listen carefully to your situation and explain your legal options — whether that is judicial separation, divorce, mediation, or another route. We outline what to expect at each stage and give you an honest assessment of your position.",
+				"We listen to the situation and explain which areas of family law apply — separation, divorce, guardianship, the family home, pensions, or another area — and what the procedural options are. We give a clear, honest assessment of where the matter stands legally and what the realistic next steps look like.",
 		},
 		{
-			title: "Negotiation and agreement",
+			title: "Negotiation, mediation, or consent order",
 			description:
-				"Where possible, we work with you and the other side to reach agreement on financial matters, the family home, maintenance, and arrangements for children. A negotiated agreement is generally quicker, less costly, and less stressful than contested proceedings.",
+				"Where the parties are willing to engage and there is a basis for agreement, we work towards resolving the financial and parenting issues by negotiation between solicitors or by mediation. Any agreement reached can be formalised as a consent order — a court order made by consent, with the same legal force as one made after a contested hearing.",
 		},
 		{
 			title: "Court proceedings",
 			description:
-				"Where agreement cannot be reached, we issue the necessary court applications, gather evidence, and represent you at all hearings — including interim applications and the full hearing before the Circuit Court or High Court.",
+				"Where the client wishes to proceed by way of contested court proceedings — typically because agreement has not been reached, or because the matter is urgent (for example, an application for an interim order in childcare or guardianship proceedings) — we issue the necessary applications, gather evidence, and act for the client at all hearings, including in the Circuit Family Court or High Court.",
 		},
 		{
 			title: "Orders and follow-up",
 			description:
-				"Once a court order or consent order is in place, we explain its terms carefully and advise on compliance. We remain available to assist if issues arise with its implementation — or if circumstances change in the future.",
+				"Once a court order or consent order is in place, we explain its terms and advise on compliance. We remain available to assist if questions arise about implementation, or if circumstances change — for example, where a maintenance variation, a guardianship application, or a contempt application becomes necessary later.",
 		},
 	],
 	// --- FAQs ---
@@ -174,32 +171,32 @@ export const familyAndChildcareLaw = {
 		{
 			question: "What is the difference between judicial separation and divorce in Ireland?",
 			answer:
-				"A judicial separation legally recognises that a couple is living apart and resolves issues such as maintenance, property, and custody, but the parties remain legally married and cannot remarry. A divorce ends the marriage entirely, allowing both parties to remarry if they wish. In Ireland, you must have been living apart for at least two of the previous three years before applying for a divorce. Both routes resolve the same financial and parenting issues — the key difference is whether the marriage itself is brought to an end.",
+				"A judicial separation legally recognises that a couple is living apart and resolves issues such as maintenance, property, and arrangements for children, but the parties remain legally married and cannot remarry. A divorce ends the marriage entirely. To apply for divorce in Ireland, the parties must have lived apart for at least two of the previous three years (the rule was reduced from four of the previous five years by the Family Law Act 2019, following the 38th Amendment of the Constitution earlier that year). Both routes resolve the same financial and parenting issues — the key difference is whether the marriage itself ends.",
 		},
 		{
-			question: "Do we have to go to court to get a separation or divorce?",
+			question: "Does every separation or divorce involve a contested court hearing?",
 			answer:
-				"Not necessarily. Many couples reach agreement through negotiation between their solicitors, and that agreement is then formalised as a consent order — a court order that is made by consent rather than after a contested hearing. This avoids the need for a full court hearing and is generally quicker, less expensive, and less stressful. A consent order has the same legal force as an order made after a contested hearing.",
+				"No. Many couples reach agreement through negotiation between their solicitors or through mediation, and that agreement is formalised as a consent order — a court order made by consent rather than after a contested hearing. A consent order has the same legal force as an order made after a contested hearing. Whether a contested hearing is required depends on the circumstances of the matter and on the willingness of the parties to engage with the alternatives.",
 		},
 		{
-			question: "How are childcare and access arrangements decided?",
+			question: "How are arrangements for children decided?",
 			answer:
-				"If parents cannot agree on arrangements for children, the court will make orders based on the best interests of the child. Courts consider factors including each parent's relationship with the child, the child's wishes (depending on their age and maturity), their need for stability and continuity, and their relationship with siblings. Courts in Ireland increasingly support arrangements that allow children to have a meaningful relationship with both parents.",
+				"Where parents cannot agree, the court makes orders under the Guardianship of Infants Act 1964 based on what is in the welfare of the child — the paramount consideration in family law decisions about children. The Act sets out the statutory factors the court takes into account, including the child's age, the child's wishes (where the child is old enough to express them), the child's relationship with each parent, and the need for stability.",
 		},
 		{
 			question: "What rights does an unmarried father have in Ireland?",
 			answer:
-				"An unmarried father does not automatically have guardianship rights in Ireland, although he does have the right to apply for guardianship, custody, and access. Guardianship can be granted by agreement with the mother or by a court order. Where guardianship is agreed, it is formalised by a statutory declaration. We advise fathers on the steps to take to secure their parental rights, and we represent them in any proceedings that become necessary.",
+				"An unmarried father does not automatically have guardianship rights in Ireland. He has the right to apply for guardianship, custody, or access. Guardianship can be acquired by agreement with the mother — formalised by a statutory declaration — or, where agreement is not possible, by application to the court. We advise unmarried fathers on the steps to take to secure their parental rights and act for them in any application required.",
 		},
 		{
-			question: "Can I get legal aid for a family law matter?",
+			question: "Is legal aid available for family law matters?",
 			answer:
-				"Legal aid is available for family law matters through the Legal Aid Board, subject to a means test and a contribution. There are often waiting lists at Legal Aid Board offices. Alternatively, some solicitors' firms charge fees that reflect the client's ability to pay. We are happy to discuss fees with you at your initial consultation.",
+				"Yes. Legal aid is available for family law matters through the Legal Aid Board, subject to a means test and a contribution. Waiting times at Legal Aid Board offices vary by region. Fees and the basis on which the firm charges are discussed at the initial consultation.",
 		},
 		{
 			question: "What happens to the family home when a couple separates?",
 			answer:
-				"The family home is one of the most significant issues in any separation or divorce. The options typically include selling the property and dividing the proceeds, one party buying out the other's share, or a deferred transfer where the sale or buyout is postponed — for example, until the youngest child reaches a certain age. The right solution depends on the financial position of both parties, whether there is a mortgage, and what is in the best interests of any children. We advise on all of these options and their tax implications.",
+				"The family home is one of the most significant issues in any separation or divorce. The options typically include selling the property and dividing the proceeds, one party buying out the other's share, or a deferred transfer — for example, where the sale or buyout is postponed until the youngest child reaches a certain age. The Family Home Protection Act 1976 prevents one spouse from disposing of the family home without the written consent of the other. The right approach depends on the financial position of both parties, whether there is a mortgage, and any considerations relating to children. We advise on the available options and their tax implications.",
 		},
 	],
 	attribution: {
