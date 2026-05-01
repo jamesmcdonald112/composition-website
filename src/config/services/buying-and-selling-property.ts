@@ -13,12 +13,12 @@ export const buyingAndSellingProperty = {
 	image,
 	imageClass: "object-[center_80%]",
 	description:
-		"Our property solicitors in Kilkenny guide you through every step of buying or selling a home — from reviewing contracts to managing completion. We protect your interests and keep your transaction moving at every stage.",
+		"Residential conveyancing for buyers and sellers in Kilkenny and the surrounding counties. We act on contract review, title investigation, planning compliance, mortgage and lender requirements, stamp duty, completion, and Land Registry registration.",
 	// --- SEO ---
 	seo: {
-		title: `Property Solicitors Kilkenny | Buying & Selling Property | ${firm.companyName}`,
+		title: `Property Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Buying or selling property in Kilkenny? Our experienced solicitors manage the full conveyancing process — contracts, title checks, mortgage requirements and completion. Call (056) 776 5829.",
+			"Property solicitors in Kilkenny. We advise on residential conveyancing — contract review, title investigation, planning compliance, lender requirements, stamp duty, and Land Registry registration.",
 		canonicalPath: "/services/buying-and-selling-property",
 	},
 	// --- Hero ---
@@ -29,35 +29,31 @@ export const buyingAndSellingProperty = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Buying or selling a home is one of the biggest decisions you will ever make. Our property solicitors in Kilkenny manage the full conveyancing process — from reviewing contracts and raising enquiries to handling completion and registration. We keep you informed at every step and make sure nothing is left to chance.",
+			"Conveyancing in Ireland involves a defined sequence of steps — investigation of title, contract review, dealings with mortgage lenders, stamp duty, completion, and Land Registry registration. We act for buyers, sellers, and lenders in residential property transactions in Kilkenny and the surrounding counties.",
 	},
 	// --- Mid-page CTA ---
-	midCta: [
-		"Ready to move your property matter forward?",
-		"Get in touch today.",
-	],
+	midCta: ["Conveyancing, handled with care.", "Get in touch when you're ready."],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Ready to move your " },
-			{ text: "property matter", em: true },
-			{ text: " forward?" },
+			{ text: "A clear assessment of your " },
+			{ text: "conveyancing matter", em: true },
 		],
 		description:
-			"Contact our Kilkenny property solicitors for clear, practical advice on buying or selling a home.",
+			"Get in touch with us in Kilkenny. Whether the matter is buying a first home, moving home, an investment purchase, or selling, we'll explain how the conveyancing process applies to the specific transaction.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Kilkenny property solicitors with " },
-			{ text: `over ${yearsInPractice} years`, em: true },
-			{ text: " of experience" },
+			{ text: "Practical " },
+			{ text: "conveyancing advice", em: true },
+			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
-			"Mary Molloy Solicitor has been helping buyers and sellers in Kilkenny and across County Kilkenny since 1979. Conveyancing is at the heart of what we do — our team handles residential property transactions every day, and we understand the local market, common title issues, and what it takes to keep deals on track.",
-			"We act for first-time buyers, people moving home, investors, and those selling an inherited or investment property. Whatever your situation, you get the same thorough, careful approach — contracts reviewed in full, title investigated properly, and all lender requirements managed without delay.",
-			"We know that buying or selling a home can feel stressful, particularly if something unexpected comes up during the process. Our job is to deal with those issues on your behalf, keep you fully informed, and make the experience as straightforward as possible.",
-			"We are a regulated solicitor's practice and members of the Law Society of Ireland. All conveyancing work is carried out by qualified solicitors. We are based on Rose Inn Street in Kilkenny City and can assist clients remotely where needed.",
+			"Conveyancing in Ireland is governed by a defined body of statute and procedure — the Land and Conveyancing Law Reform Act 2009, the Registration of Title Act 1964 (under which the Property Registration Authority maintains the Register of Titles), the Stamp Duties Consolidation Act 1999, and the planning and building control framework. We advise buyers and sellers in Kilkenny on each stage of the conveyancing process.",
+			"On a purchase, our work includes reviewing the contract, investigating the title at the Property Registration Authority, raising pre-contract and requisition enquiries with the seller's solicitor, checking planning permission and certificates of compliance for any works on the property, and acting on the lender's behalf where there is a mortgage. On a sale, we prepare the contracts and supporting documentation, respond to the buyer's solicitor's enquiries, and arrange for any existing mortgage to be discharged on completion.",
+			"On completion, we handle the transfer of funds, the payment of stamp duty under the Stamp Duties Consolidation Act 1999, and the registration of ownership with the Property Registration Authority. Where the property is unregistered title, we advise on conversion to registered title as part of the transaction.",
+			"All conveyancing work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since 1979, and is based on Rose Inn Street in Kilkenny City.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -68,95 +64,95 @@ export const buyingAndSellingProperty = {
 	},
 	// --- Article ---
 	article: {
-		eyebrow: "Conveyancing in Kilkenny",
+		eyebrow: "Conveyancing",
 		title: [
-			{ text: "What your " },
-			{ text: "property solicitor", em: true },
-			{ text: " does for you" },
+			{ text: "How " },
+			{ text: "conveyancing", em: true },
+			{ text: " works in Ireland" },
 		],
 		intro:
-			"Conveyancing is the legal process of transferring ownership of a property from one person to another. It involves reviewing contracts, investigating title, managing mortgage and lender requirements, and seeing the transaction through to completion and registration. Here is what we do on your behalf — and why it matters.",
+			"Conveyancing is the legal process of transferring ownership of property in Ireland. It involves contract review, investigation of title at the Property Registration Authority, planning and building control checks, dealings with mortgage lenders, payment of stamp duty under the Stamp Duties Consolidation Act 1999, and registration of ownership. The article below sets that framework out in plain English — first for buyers, then for sellers, with a note for first-time buyers and a checklist of what to have ready before instructing a solicitor.",
 		quote: {
-			text: "We review every contract in full before you sign anything. If something is unclear or needs to be negotiated, we raise it — that is what we are here for.",
+			text: "Most conveyancing problems show up in the contract or the title — not on the day of completion. The earlier the issues are identified, the more options there are to resolve them properly.",
 			attribution: "Mary Molloy, Principal Solicitor",
 			image: maryImage,
 		},
 		blocks: [
 			{
 				type: "heading" as const,
-				text: "Buying a property in Kilkenny",
+				text: "Buying a property",
 			},
 			{
 				type: "paragraph" as const,
-				text: "When you are buying a property, your solicitor does far more than witness your signature on a contract. We carry out a full investigation of the title to make sure the seller has the right to sell, that there are no undisclosed rights or burdens affecting the property, and that planning and building compliance is in order. We raise enquiries with the seller's solicitor on any points that need clarification, and we advise you clearly on the answers before you commit.",
+				text: "On a purchase, the solicitor's work goes well beyond witnessing the buyer's signature on a contract. We carry out a full investigation of the title to confirm that the seller has the right to sell, that there are no undisclosed rights or burdens affecting the property, and that the planning and building control position is in order. We raise enquiries with the seller's solicitor on any points that need clarification, and we advise the client clearly on the answers before contracts are signed.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "If you are buying with a mortgage, we also act for your lender — reviewing the loan offer, ensuring the property meets the lender's requirements, and managing the drawdown of funds. We handle stamp duty, Land Registry registration, and all post-completion steps so that when the transaction is finished, your ownership is properly recorded and protected.",
+				text: "Where the purchase involves a mortgage, we also act for the lender — reviewing the loan offer, confirming the property meets the lender's requirements, and managing the drawdown of funds. We handle stamp duty, registration with the Property Registration Authority, and the post-completion steps so that ownership is properly recorded and the title is in order.",
 			},
 			{
 				type: "list" as const,
 				items: [
 					{
 						label: "Contract review",
-						text: "We read the contract in full, explain what it says, and raise any issues with the seller's solicitor before you sign anything.",
+						text: "We read the contract in full, explain its terms, and raise any issues with the seller's solicitor before contracts are signed.",
 					},
 					{
 						label: "Title investigation",
-						text: "We investigate the title to the property — checking that the seller owns it outright, that there are no judgments or mortgages outstanding, and that the boundaries match what is on the ground.",
+						text: "We investigate the title to the property — confirming that the seller owns it outright, that there are no judgment mortgages or other registered burdens, and that the boundaries match what is on the ground.",
 					},
 					{
 						label: "Planning and compliance",
-						text: "We check that any extensions, conversions, or structures on the property have the necessary planning permissions and certificates of compliance.",
+						text: "We check that any extensions, conversions, or structures on the property have the necessary planning permissions and certificates of compliance with the Building Regulations.",
 					},
 					{
 						label: "Mortgage and lender requirements",
-						text: "We liaise with your lender, review the loan offer, and manage the drawdown of mortgage funds in time for completion.",
+						text: "Where there is a mortgage, we liaise with the lender, review the loan offer, and manage the drawdown of mortgage funds in time for completion.",
 					},
 					{
 						label: "Stamp duty",
-						text: "We calculate and file your stamp duty return with Revenue and ensure payment is made on time — currently 1% on the first €1 million of residential property, 2% on the balance.",
+						text: "Stamp duty is payable by the buyer to the Revenue Commissioners under the Stamp Duties Consolidation Act 1999. The rates and bands are set by Finance Act and updated periodically, so the rate applying in any specific case is confirmed at the time the matter is closing. We calculate the stamp duty, file the return with Revenue, and arrange payment as part of the conveyancing.",
 					},
 					{
 						label: "Land Registry registration",
-						text: "We register your ownership with the Property Registration Authority so that your title is fully protected and recorded.",
+						text: "We register the ownership with the Property Registration Authority so that the title is properly recorded.",
 					},
 				],
 			},
 			{
 				type: "heading" as const,
-				text: "Selling a property in Kilkenny",
+				text: "Selling a property",
 			},
 			{
 				type: "paragraph" as const,
-				text: "When you are selling, we prepare the contracts and all supporting documentation early in the process so there is no unnecessary delay once a buyer has been found. We deal with the buyer's solicitor's enquiries promptly, resolve any title issues that arise, and manage the transaction through to completion and the release of funds.",
+				text: "On a sale, we prepare the contracts and supporting documentation early in the process so that the file is ready when a buyer is found. We respond to the buyer's solicitor's pre-contract and requisition enquiries promptly, address any title issues that arise, and conduct the matter through to completion and the release of the sale proceeds.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "If there is a mortgage on the property, we obtain a redemption figure from your lender, ensure it is discharged on completion, and arrange for the release of the title deeds. If you are selling a property that has been recently extended or altered, we advise early on what planning and compliance documentation you will need to gather — dealing with this at the start avoids delays later.",
+				text: "Where there is an existing mortgage on the property, we obtain a redemption figure from the lender, arrange for it to be discharged on completion, and arrange the release of the title deeds. Where the property has been recently extended or altered, we advise early on what planning and compliance documentation will need to be in order — addressing this at the start of the matter avoids delays later.",
 			},
 			{
 				type: "list" as const,
 				items: [
 					{
 						label: "Contracts and documentation",
-						text: "We prepare the contracts for sale and all supporting documentation, including copies of the title, planning documents, and relevant certificates.",
+						text: "We prepare the contracts for sale and the supporting documentation, including copies of the title, planning documents, and relevant certificates of compliance.",
 					},
 					{
 						label: "Responding to enquiries",
-						text: "We deal with the buyer's solicitor's pre-contract and requisition queries promptly and professionally.",
+						text: "We deal with the buyer's solicitor's pre-contract and requisition queries.",
 					},
 					{
 						label: "Mortgage discharge",
-						text: "We obtain a redemption figure, arrange for the mortgage to be paid off on completion, and ensure the title deeds are released to the buyer's solicitor.",
+						text: "Where the property is mortgaged, we obtain a redemption figure, arrange for the mortgage to be paid off on completion, and ensure the title deeds are released to the buyer's solicitor.",
 					},
 					{
 						label: "Completion and closing",
-						text: "We manage the transfer of ownership documents and the release of sale proceeds, and confirm that the transaction has been properly closed.",
+						text: "We manage the transfer of ownership documentation and the release of the sale proceeds, and confirm that the matter has been properly closed.",
 					},
 					{
-						label: "Capital Gains Tax advice",
-						text: "If you are selling a property that is not your principal private residence, a Capital Gains Tax liability may arise. We flag this issue early and can signpost you to appropriate tax advice.",
+						label: "Capital Gains Tax flag",
+						text: "Where the property being sold is not the seller's principal private residence, a Capital Gains Tax (CGT) liability may arise on the sale. CGT is a separate tax matter and is generally handled by the seller's accountant. We flag the issue early and signpost to appropriate tax advice.",
 					},
 				],
 			},
@@ -166,26 +162,26 @@ export const buyingAndSellingProperty = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "If you are buying your first home, the process can feel unfamiliar and the terminology can be confusing. We take the time to explain each step clearly — what we are doing, why it matters, and what you need to do. We make sure you understand what you are signing before you sign anything, and we are always available to answer questions along the way.",
+				text: "First-time buyers in Ireland may have access to two schemes that affect the deposit and the legal title to the property. The Help to Buy scheme (administered by the Revenue Commissioners) allows eligible first-time buyers to claim a tax rebate towards the deposit on a new build. The cap and qualifying criteria are set by Finance Act and updated periodically, so the figures applying in any specific case are confirmed at the time of application.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "First-time buyers may be entitled to the Help to Buy scheme, which allows you to claim a tax rebate of up to €30,000 towards the deposit on a new build property. If you are using the First Home Scheme, which provides an equity share to bridge the gap between your deposit and mortgage, we will advise you on how this affects the legal title to your property.",
+				text: "The First Home Scheme is a separate equity-share scheme operated by the State, designed to bridge the gap between an applicant's mortgage and the price of an eligible new build. The scheme takes an equity stake in the property in exchange for the contribution. Where it applies, this affects the legal title and the long-term position of the property — we advise on those implications as part of the conveyancing.",
 			},
 			{
 				type: "heading" as const,
-				text: "What to have ready before you instruct us",
+				text: "What to have ready before instructing a solicitor",
 			},
 			{
 				type: "list" as const,
 				items: [
 					{
-						label: "Buyers",
-						text: "Photo ID and proof of address (passport or driving licence), mortgage approval in principle, details of your deposit and its source (required for anti-money laundering purposes), your PPS number, and the name and contact details of the estate agent.",
+						label: "For buyers",
+						text: "Photo ID and proof of address (passport or driving licence), mortgage approval in principle, details of the deposit and its source (required for anti-money laundering purposes under the Criminal Justice (Money Laundering and Terrorist Financing) Acts), the buyer's PPS number, and the name and contact details of the estate agent.",
 					},
 					{
-						label: "Sellers",
-						text: "Photo ID and proof of address, your title deeds or folio number if you have it, details of your mortgage lender and account number, any planning permissions or certificates of compliance for works carried out, and a valid BER certificate (required by law before marketing a property for sale).",
+						label: "For sellers",
+						text: "Photo ID and proof of address, the title deeds or folio number where available, details of the mortgage lender and account number, any planning permissions or certificates of compliance for works carried out on the property, and a valid Building Energy Rating (BER) certificate (required by law before marketing a property for sale or rent).",
 					},
 				],
 			},
@@ -193,96 +189,95 @@ export const buyingAndSellingProperty = {
 	},
 	// --- Process steps ---
 	processDescription:
-		"Here is what happens from the moment you instruct us to the day your matter is closed — so you always know where you are in the process.",
+		"Conveyancing moves through a defined sequence of stages — instruction, identity and documentation, contract stage, mortgage and finance, exchange, completion, and registration. Here is how we manage each stage for our clients.",
 	process: [
 		{
-			title: "Get in touch",
+			title: "Instruction",
 			description:
-				"Contact us as soon as an offer is accepted — or even before, to understand what to expect. We open your file, confirm your details, and explain the likely timeline.",
+				"We open the file, confirm the client's details, explain the likely timeline, and identify the documents we will need from the client. Many clients instruct a solicitor before an offer is accepted; the file can sit on standby until contracts are issued.",
 		},
 		{
-			title: "Documents and identity checks",
+			title: "Identity and documentation",
 			description:
-				"We carry out the required identity and anti-money laundering checks and gather the core documents needed to begin legal work on your file.",
+				"We carry out the identity and anti-money laundering checks required under the Criminal Justice (Money Laundering and Terrorist Financing) Acts and gather the core documents needed to begin legal work — title information from a seller, deposit-source documentation from a buyer.",
 		},
 		{
 			title: "Contract stage",
 			description:
-				"For buyers, we review the contract and title documents in full and raise any necessary enquiries. For sellers, we prepare contracts and documentation and respond to the buyer's queries.",
+				"On a purchase, we review the contract and title documents in full and raise pre-contract and requisition enquiries with the seller's solicitor. On a sale, we prepare the contracts and supporting documentation and respond to the buyer's solicitor's queries.",
 		},
 		{
 			title: "Mortgage and finance",
 			description:
-				"We review your loan offer, ensure all lender requirements are met, and manage the drawdown of mortgage funds in time for completion.",
+				"Where there is a mortgage, we review the loan offer, confirm the property meets the lender's requirements, and arrange the drawdown of mortgage funds in time for completion.",
 		},
 		{
 			title: "Exchange and signing",
 			description:
-				"Once all queries are resolved, contracts are signed and exchanged. At this point the sale becomes legally binding and a closing date is agreed.",
+				"Once the contractual queries are resolved and the lender's requirements (where applicable) are met, contracts are signed and exchanged. The transaction becomes legally binding at this point and a closing date is fixed.",
 		},
 		{
 			title: "Completion",
 			description:
-				"We handle all closing documentation, manage the transfer of funds, and ensure that ownership passes correctly on the agreed date.",
+				"On the agreed completion date, we manage the closing documentation and the transfer of funds, and confirm that ownership has passed correctly.",
 		},
 		{
-			title: "Registration and closing",
+			title: "Registration and post-completion",
 			description:
-				"We attend to stamp duty, Land Registry registration, and all post-completion steps, and confirm to you when your matter is fully closed.",
+				"We attend to the stamp duty return, registration with the Property Registration Authority, and the other post-completion steps, and confirm to the client when the matter is fully closed.",
 		},
 	],
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "Do I need a solicitor to buy or sell a property in Ireland?",
+			question: "Is a solicitor required to buy or sell property in Ireland?",
 			answer:
-				"Yes. A solicitor is required to carry out conveyancing in Ireland. You cannot register a property purchase with the Land Registry without the involvement of a solicitor. Your mortgage lender will also require a solicitor to act on their behalf (usually the same solicitor who acts for you as the buyer).",
+				"In practice, yes. A solicitor is required to carry out conveyancing in Ireland — registration of property purchases with the Property Registration Authority cannot be completed without a solicitor's involvement. A mortgage lender will also require a solicitor to act for the lender (typically the same solicitor who acts for the buyer).",
 		},
 		{
-			question: "When should I instruct a solicitor?",
+			question: "When should a solicitor be instructed?",
 			answer:
-				"As early as possible — ideally before your offer is accepted, so we can prepare your file and explain the process. The sooner you instruct us, the quicker we can move when contracts are issued. Delays in instructing a solicitor are one of the most common causes of property transactions falling through.",
+				"It is common to instruct a solicitor at or before the point an offer is accepted, so that the file can be prepared and documentation gathered. Earlier instruction tends to produce a smoother process once contracts are issued, because the firm's identity and money-laundering checks have already been completed.",
 		},
 		{
 			question: "How long does conveyancing take in Ireland?",
 			answer:
-				"The typical timeline from instruction to completion is eight to twelve weeks for a straightforward transaction, though this can vary significantly depending on the complexity of the title, how quickly all parties respond, and whether any issues arise during the process. New builds can take longer depending on the stage of construction.",
+				"The typical timeline from instruction to completion is eight to twelve weeks for a straightforward transaction, though this varies significantly depending on the complexity of the title, how quickly the parties respond, and whether issues arise during the process. New builds can take longer depending on the stage of construction at the time of contract.",
 		},
 		{
-			question: "What is stamp duty and how much will I pay?",
+			question: "What is stamp duty and how is it calculated?",
 			answer:
-				"Stamp duty is a tax paid by the buyer on the purchase of a property. For residential properties in Ireland, the rate is currently 1% on the first €1 million of the purchase price and 2% on anything above that. First-time buyers pay the same rates. We calculate your stamp duty, file the return with Revenue, and arrange payment as part of the conveyancing process.",
+				"Stamp duty is a tax paid by the buyer to the Revenue Commissioners on the purchase of a property, governed by the Stamp Duties Consolidation Act 1999. The rates and bands applicable to residential property are set by Finance Act and updated periodically, so the rate applying in any specific transaction is confirmed at the time the matter is closing. We calculate the stamp duty payable, file the return with Revenue, and arrange payment as part of the conveyancing.",
 		},
 		{
 			question: "What is title investigation and why does it matter?",
 			answer:
-				"A title investigation is our review of the legal ownership of the property you are buying. We check that the seller has good and marketable title — meaning they own it outright and are entitled to sell it — that there are no outstanding mortgages, judgments, or rights affecting the property, and that planning and building compliance is in order. A thorough title investigation protects you from buying a property with hidden legal problems.",
+				"Title investigation is the solicitor's review of the legal ownership of the property. We confirm that the seller has good marketable title — meaning that the seller owns the property and is entitled to sell it — that there are no outstanding mortgages, judgment mortgages, or registered burdens, and that the planning and building control position is in order. A thorough title investigation establishes whether there are legal problems that affect the value of the property or the buyer's ability to take clear title.",
 		},
 		{
-			question: "What happens if something goes wrong during conveyancing?",
+			question: "What happens if an issue arises during conveyancing?",
 			answer:
-				"Issues can arise during conveyancing — a title defect, a planning problem, or a dispute over the boundary. Our job is to identify these issues early, advise you on how they affect the transaction, and work to resolve them. In some cases, an issue will affect the price or the terms of the purchase; in others, it may mean the transaction cannot proceed. We will always advise you honestly on your position.",
+				"Issues do arise during conveyancing — a title defect, a planning irregularity, an issue with the boundary, or a problem with documentation. Our role is to identify the issue, advise the client on its significance, and work with the other side to resolve it. In some cases, an issue will be resolved by clarification or by an indemnity; in others, it may affect the price or the terms; in some, the parties may not be able to agree a way forward, and the matter will not complete. We advise the client honestly at each stage.",
 		},
 		{
-			question: "Do I need a BER certificate to sell my property?",
+			question: "Is a BER certificate required to sell a property?",
 			answer:
-				"Yes. A Building Energy Rating (BER) certificate is required by law before you can market a property for sale or rent in Ireland. You must have one in place before we can include it in the contracts for sale. If you do not have one, you will need to arrange for a BER assessor to carry out an assessment of the property.",
+				"Yes. A Building Energy Rating (BER) certificate is required by law before a property can be marketed for sale or for rent in Ireland (under the European Communities (Energy Performance of Buildings) Regulations). A valid BER certificate must be in place before the contracts for sale are issued. Where one is not available, an assessment must be carried out by a registered BER assessor.",
 		},
 		{
-			question:
-				"What is the difference between registered and unregistered title?",
+			question: "What is the difference between registered and unregistered title?",
 			answer:
-				"Most properties in Ireland are now registered with the Property Registration Authority (PRA), which maintains a central register of ownership. Older properties may still have unregistered title, where ownership is proved by a chain of title deeds. Both are legally valid, but unregistered title requires a more detailed investigation and, where possible, we would recommend that it is converted to registered title as part of the transaction.",
+				"Most properties in Ireland are now registered with the Property Registration Authority (PRA) — ownership is established by reference to the entry on the Register of Titles maintained under the Registration of Title Act 1964. Older properties may still have unregistered title, where ownership is proved by the chain of title deeds. Both are legally valid, but unregistered title requires a more detailed investigation, and conversion to registered title is generally advised as part of the transaction where the property is being sold or mortgaged.",
 		},
 		{
-			question: "Can I buy or sell a property if I am not based in Kilkenny?",
+			question: "Can the firm act for clients who are not based in Kilkenny?",
 			answer:
-				"Yes. We act for clients across County Kilkenny and the surrounding areas, and we regularly assist clients who are based elsewhere in Ireland or abroad. Most of the conveyancing process can be managed remotely by phone, email, and secure document exchange.",
+				"Yes. The firm acts for clients across County Kilkenny and the surrounding counties, and regularly assists clients based elsewhere in Ireland or abroad. Most of the conveyancing process can be conducted by phone, email, and secure document exchange, with attendance in person required only at specific points (such as the signing of contracts and the deed of transfer).",
 		},
 		{
-			question: "What are solicitor's fees for conveyancing in Ireland?",
+			question: "What are the costs of conveyancing?",
 			answer:
-				"Solicitor's fees for conveyancing are made up of professional fees and outlays. Outlays are third-party costs such as Land Registry fees, search fees, and stamp duty — these are fixed by law or by the relevant authority. Professional fees vary depending on the complexity of the transaction. We will explain our fees clearly at the outset so you know exactly what to expect.",
+				"Conveyancing costs are made up of professional fees and outlays. Outlays are third-party costs — Land Registry fees, search fees, stamp duty, and similar — and are fixed by the relevant authority or by statute. Professional fees vary depending on the complexity of the transaction. We discuss our fees with each client at the outset, including the basis on which we charge.",
 		},
 	],
 	attribution: {
