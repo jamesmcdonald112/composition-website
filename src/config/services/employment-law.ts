@@ -13,12 +13,12 @@ export const employmentLaw = {
 	image,
 	imageClass: "object-bottom",
 	description:
-		"We advise employees and employers on unfair dismissal, redundancy, workplace rights, discrimination, and employment contracts. Whatever your employment law issue, we give you clear, practical advice and represent your interests effectively.",
+		"Employment law advice for employees and employers in Kilkenny and the surrounding counties. We advise on unfair dismissal, redundancy, workplace discrimination, working time, payment of wages, and employment contracts, and represent clients at the Workplace Relations Commission.",
 	// --- SEO ---
 	seo: {
 		title: `Employment Law Solicitors Kilkenny | Unfair Dismissal & WRC | ${firm.companyName}`,
 		description:
-			"Employment law solicitors in Kilkenny advising employees and employers on unfair dismissal, redundancy, WRC complaints, discrimination and employment contracts. Time limits apply — call (056) 776 5829.",
+			"Employment law solicitors in Kilkenny. We advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and the conduct of complaints to the Workplace Relations Commission.",
 		canonicalPath: "/services/employment-law",
 	},
 	// --- Hero ---
@@ -29,35 +29,34 @@ export const employmentLaw = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"If you have been dismissed from your job, made redundant, or treated unfairly at work, you may have important legal rights — and strict time limits apply. Our solicitors advise employees and employers on the full range of employment law matters, from understanding your options to representing you at the Workplace Relations Commission.",
+			"Employment law in Ireland sits across the Unfair Dismissals Acts, the Employment Equality Acts, the Redundancy Payments Acts, and the Organisation of Working Time Act, with most disputes resolved through the Workplace Relations Commission. We advise employees and employers in Kilkenny on the practical operation of those rights and on the conduct of WRC proceedings.",
 	},
 	// --- Mid-page CTA ---
 	midCta: [
-		"Dismissed or treated unfairly at work?",
-		"Time limits apply — act now.",
+		"Employment law matters, handled with care.",
+		"Talk to us about your situation.",
 	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
-			{ text: "Facing a " },
-			{ text: "workplace dispute", em: true },
-			{ text: "? Get advice now" },
+			{ text: "A clear assessment of your " },
+			{ text: "employment law matter", em: true },
 		],
 		description:
-			"Most WRC complaints must be submitted within six months of the act complained of. If you have been dismissed, made redundant, or are dealing with a workplace issue, contact our Kilkenny employment team without delay.",
+			"Get in touch with us in Kilkenny. Whether you're an employee considering a complaint or an employer responding to one, we'll explain how the relevant statute applies and set out the practical options.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
 		title: [
-			{ text: "Employment law advice for " },
-			{ text: "employees and employers", em: true },
+			{ text: "Practical " },
+			{ text: "employment law advice", em: true },
 			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
-			"Employment disputes are stressful and time-sensitive. Whether you have just been dismissed, are facing a redundancy process, or have received a WRC complaint, early legal advice makes a real difference to the outcome.",
-			"Our approach is practical and direct. We assess the strength of your position honestly, advise on the most effective strategy, and move quickly given the tight time limits that apply to most employment law claims.",
-			"We advise employees on their rights under Irish employment legislation — including the Unfair Dismissals Acts, the Employment Equality Acts, the Redundancy Payments Acts, and the Organisation of Working Time Act — and represent them in WRC proceedings.",
-			"We also advise employers on building compliant contracts and procedures that reduce the risk of disputes arising in the first place, and on managing performance, conduct, and absence issues in a way that is fair and legally defensible.",
+			"Employment law in Ireland is governed by a tightly defined body of legislation — primarily the Unfair Dismissals Acts, the Employment Equality Acts, the Redundancy Payments Acts, the Organisation of Working Time Act, and the Payment of Wages Act. Most disputes are decided by the Workplace Relations Commission (WRC), with appeals to the Labour Court. We advise employees and employers in Kilkenny on the practical operation of these statutes.",
+			"For employees, that usually means assessing whether a dismissal was unfair, whether a redundancy was genuine, whether a workplace issue amounts to discrimination or harassment, or whether wages have been unlawfully deducted. We review the contract, the procedures followed, and the relevant correspondence, and explain in plain English what the law says about each point.",
+			"For employers, it usually means setting up compliant employment contracts, disciplinary and grievance procedures, and performance-management frameworks before disputes arise — and managing dismissals, redundancies, and performance issues correctly when they do. Following the right procedure is both a legal requirement and the fairest way to handle a difficult situation.",
+			"Where a matter cannot be resolved by agreement, we prepare and present complaints (or responses) to the Workplace Relations Commission, including the gathering of supporting documentation and representation at the WRC adjudication hearing. The WRC process is generally less formal than court but the time limits are strict and the preparation required is significant.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
@@ -70,21 +69,21 @@ export const employmentLaw = {
 	article: {
 		eyebrow: "Employment Law",
 		title: [
-			{ text: "Your " },
-			{ text: "rights", em: true },
-			{ text: " in the workplace" },
+			{ text: "How Irish " },
+			{ text: "employment law", em: true },
+			{ text: " works" },
 		],
 		intro:
-			"Irish employment law gives employees significant protections — but knowing when those protections apply, how to use them, and how to do so before the time limit runs out is not straightforward. Our Kilkenny employment solicitors advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and WRC proceedings.",
+			"Irish employment law sits across a defined body of statutes and is administered primarily through the Workplace Relations Commission. Knowing which statute applies, what the threshold tests are, and how the WRC process works makes the route from issue to resolution clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "The six-month deadline for WRC complaints catches a lot of people out. If you think you have been dismissed or treated unfairly at work, the most important thing is to take advice quickly — before the clock runs out.",
+			text: "Employment law has tighter deadlines than most people expect. The WRC's six-month rule is one of the most common reasons that otherwise good claims cannot be pursued — and it runs from the date of the act complained of, not from the end of any internal grievance process.",
 			attribution: "Nicholas O'Shea, Solicitor",
 			image: nicholasImage,
 		},
 		blocks: [
 			{
 				type: "paragraph" as const,
-				text: "The Workplace Relations Commission (WRC) is the body responsible for adjudicating on complaints under Irish employment legislation. A WRC adjudicator can award reinstatement, re-engagement, or financial compensation of up to two years' remuneration in unfair dismissal cases. In discrimination cases, the maximum award is also two years' remuneration. The WRC process is generally faster and less formal than going to court, but the time limits are strict and the preparation required is significant.",
+				text: "The Workplace Relations Commission (WRC) is the statutory body responsible for adjudicating complaints under Irish employment legislation. A WRC adjudicator can order reinstatement, re-engagement, or financial compensation of up to two years' remuneration in unfair dismissal cases. The same two-year maximum applies in discrimination cases. The WRC process is less formal than litigation in court, but the procedural rules — particularly the six-month time limit for most complaints — are strict, and the preparation required for a hearing is significant.",
 			},
 			{
 				type: "heading" as const,
@@ -95,27 +94,27 @@ export const employmentLaw = {
 				items: [
 					{
 						label: "Unfair dismissal",
-						text: "An employee who has been continuously employed for at least 12 months has the right not to be unfairly dismissed. A dismissal can be unfair either because the reason given is not a fair one or because the employer did not follow fair procedures. Common procedural failures include not giving the employee an opportunity to respond to allegations, not conducting a fair investigation, or failing to provide a right of appeal. An employer who cannot show both a fair reason and a fair procedure risks an adverse WRC finding.",
+						text: "An employee with at least 12 months' continuous service has the right not to be unfairly dismissed under the Unfair Dismissals Acts. A dismissal can be unfair either because the reason given is not a fair one or because the employer did not follow fair procedures. Common procedural failures include not giving the employee an opportunity to respond to allegations, not conducting a fair investigation, or failing to provide a right of appeal. An employer who cannot show both a fair reason and a fair procedure risks an adverse WRC finding.",
 					},
 					{
 						label: "Constructive dismissal",
-						text: "Constructive dismissal occurs when an employee is effectively forced to resign because of their employer's conduct. Examples include a significant unilateral reduction in pay, a demotion without justification, serious workplace bullying, or a fundamental change to the employee's role. The bar for constructive dismissal is high — the employer's conduct must amount to a breach of contract or make it unreasonable to remain. Taking legal advice before resigning is strongly recommended.",
+						text: "Constructive dismissal occurs where an employee is effectively forced to resign because of the employer's conduct. Examples include a significant unilateral reduction in pay, a demotion without justification, serious workplace bullying, or a fundamental change to the employee's role. The threshold is high — the employer's conduct must amount to a breach of contract or make it unreasonable for the employee to remain. Legal advice before resigning is strongly recommended, as constructive dismissal claims turn on the precise sequence of events leading to the resignation.",
 					},
 					{
 						label: "Redundancy",
-						text: "A genuine redundancy arises where a role no longer exists due to business closure, restructuring, or reduced need for particular work. An employee with two or more years of continuous service is entitled to a statutory redundancy payment calculated at two weeks' pay per year of service, plus one additional week, subject to a weekly earnings cap. Employers cannot use redundancy to disguise the dismissal of an employee for other reasons — this is a sham redundancy and is unlawful.",
+						text: "A genuine redundancy arises where a role no longer exists due to business closure, restructuring, or reduced need for particular work. An employee with two or more years' continuous service is entitled to a statutory redundancy payment calculated at two weeks' pay per year of service plus one additional week, subject to a statutory weekly earnings cap. Employers cannot use redundancy to disguise the dismissal of an employee for other reasons — that is a sham redundancy and is unlawful under the Redundancy Payments Acts.",
 					},
 					{
 						label: "Discrimination",
 						text: "The Employment Equality Acts 1998 to 2015 prohibit discrimination in employment on nine grounds: gender, civil status, family status, age, disability, sexual orientation, race, religion, and membership of the Traveller community. Discrimination includes direct discrimination, indirect discrimination, harassment (including sexual harassment), and victimisation for making a complaint. Successful discrimination claims can result in compensation of up to two years' remuneration.",
 					},
 					{
-						label: "Organisation of working time",
-						text: "The Organisation of Working Time Act 1997 gives employees rights to maximum working hours (48 hours per week averaged over a reference period), rest breaks, annual leave (four weeks per year), and public holiday entitlements. Breaches of these rights can be referred to the WRC.",
+						label: "Working time and rest breaks",
+						text: "The Organisation of Working Time Act 1997 sets out maximum working hours (48 hours per week averaged over a reference period), rest breaks, annual leave (four working weeks per year), and public holiday entitlements. Breaches can be referred to the WRC.",
 					},
 					{
 						label: "Payment of wages",
-						text: "The Payment of Wages Act 1991 prohibits unlawful deductions from wages. If your employer has reduced your pay without your agreement, or has made deductions that are not authorised under your contract, this may constitute an unlawful deduction that can be referred to the WRC.",
+						text: "The Payment of Wages Act 1991 prohibits unlawful deductions from wages. Where an employer reduces pay without agreement, or makes deductions not authorised under the contract, that may be an unlawful deduction that can be referred to the WRC.",
 					},
 				],
 			},
@@ -125,30 +124,30 @@ export const employmentLaw = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "For employers, the cost of getting dismissals and redundancies wrong can be significant — in terms of WRC awards, legal costs, and the disruption of contested proceedings. We advise businesses on putting in place clear, compliant employment contracts, disciplinary and grievance procedures, and performance management frameworks from the outset.",
+				text: "For employers, the cost of getting a dismissal or redundancy wrong can be significant — WRC awards, legal costs, and the disruption of contested proceedings all add up. We advise businesses on putting in place clear, compliant employment contracts, disciplinary and grievance procedures, and performance-management frameworks before issues arise.",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Where a disciplinary or redundancy process is required, we advise on how to manage it correctly — ensuring that the employee is given appropriate notice, a genuine opportunity to respond, and a right of appeal. Following the correct procedure is not just a legal requirement; it is also the fairest way to handle a difficult situation and significantly reduces the risk of a successful WRC claim.",
+				text: "Where a disciplinary or redundancy process is required, we advise on how to manage it in line with the relevant statute and case law — appropriate notice, a genuine opportunity to respond, a fair investigation, and a right of appeal. Following the correct procedure is both a legal requirement and the fairest way to handle a difficult situation. It is also, in practical terms, what an adjudicator looks at first.",
 			},
 			{
 				type: "heading" as const,
-				text: "Time limits — act promptly",
+				text: "Time limits for WRC complaints",
 			},
 			{
 				type: "paragraph" as const,
-				text: "Most WRC complaints must be submitted within six months of the date of the act complained of. In exceptional circumstances, this period can be extended to twelve months where the claimant can show reasonable cause for the delay. The six-month deadline is strictly applied — missing it will generally prevent you from bringing a claim, regardless of how strong it might be on its merits. If you have been dismissed, made redundant, or subjected to unlawful treatment at work, contact us without delay.",
+				text: "Most WRC complaints must be submitted within six months of the date of the act complained of. In exceptional circumstances, that period can be extended to twelve months where the claimant can show reasonable cause for the delay. The six-month rule is applied strictly — missing it will generally end a claim regardless of its merits. The deadline runs from the date of the act complained of, not from the date of any internal grievance or appeal outcome, so internal processes do not pause the clock.",
 			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"Employment disputes can move quickly. Here is how we take on your matter, assess your position, and work towards the best available outcome.",
+		"Employment law matters typically move through a defined sequence — assessment, internal procedure where appropriate, and a complaint or response at the WRC. Here is how we manage each stage for our clients.",
 	process: [
 		{
 			title: "Initial consultation",
 			description:
-				"We review your employment situation — your contract, relevant correspondence, and the circumstances of your dismissal or dispute — and advise you honestly on whether you have a viable claim, what process applies, and what steps to take next.",
+				"We review the employment situation — the contract, the relevant correspondence, and the circumstances of the dismissal or dispute — and advise the client honestly on whether there is a viable claim, what process applies, and what steps to take next.",
 		},
 		{
 			title: "Internal grievance and appeal",
@@ -158,45 +157,45 @@ export const employmentLaw = {
 		{
 			title: "WRC complaint",
 			description:
-				"We prepare and submit your complaint to the Workplace Relations Commission, gather the necessary supporting evidence and documentation, and represent you at the WRC adjudication hearing. We advise you clearly on the strengths and weaknesses of your case throughout.",
+				"We prepare and submit the complaint to the Workplace Relations Commission, gather the necessary supporting evidence and documentation, and represent the client at the WRC adjudication hearing. We advise on the strengths and weaknesses of the case throughout.",
 		},
 		{
 			title: "Appeal and enforcement",
 			description:
-				"If the WRC decision is not in your favour, we advise on the right of appeal to the Labour Court. Where a decision is made in your favour and the other party fails to comply, we advise on the steps available to enforce it.",
+				"Where the WRC issues a decision, we advise on what the decision means in practical terms, on whether an appeal to the Labour Court is appropriate, and on the steps available to enforce the decision if the other party does not comply.",
 		},
 	],
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "What is constructive dismissal in Ireland?",
+			question: "What is constructive dismissal in Irish law?",
 			answer:
-				"Constructive dismissal occurs when an employee is forced to resign because their employer's conduct has made it unreasonable to remain in the job. It can arise from a fundamental breach of contract by the employer — such as a significant unilateral pay cut, demotion without justification, persistent bullying, or a failure to address serious workplace issues. The bar is high: the employer's conduct must be serious enough that no reasonable employee would be expected to remain. Crucially, you must generally have 12 months' continuous service to bring an unfair dismissal claim. We strongly advise taking legal advice before resigning.",
+				"Constructive dismissal occurs where an employee is forced to resign because the employer's conduct has made it unreasonable to remain in the job. It can arise from a fundamental breach of contract by the employer — such as a significant unilateral pay cut, demotion without justification, persistent bullying, or a failure to address serious workplace issues. The threshold is high: the employer's conduct must be serious enough that no reasonable employee would be expected to remain. As with ordinary unfair dismissal, an employee generally needs 12 months' continuous service to bring a claim. Legal advice before resigning is strongly recommended, as constructive dismissal claims turn on the precise sequence of events leading to the resignation.",
 		},
 		{
-			question: "How long do I have to make a WRC complaint?",
+			question: "How long does an employee have to make a WRC complaint?",
 			answer:
-				"Most WRC complaints must be submitted within six months of the date of the act complained of — for example, the date of dismissal. This deadline can be extended to 12 months in exceptional circumstances where there is reasonable cause for the delay. The six-month rule is strictly enforced and it is one of the most common reasons that otherwise valid claims cannot be pursued. Contact us as soon as possible.",
+				"Most WRC complaints must be submitted within six months of the date of the act complained of — for example, the date of dismissal. The deadline can be extended to twelve months in exceptional circumstances where there is reasonable cause for the delay. The six-month rule is strictly enforced, and it is one of the most common reasons that otherwise valid claims cannot be pursued. The clock is not paused by internal grievance or appeal procedures.",
 		},
 		{
-			question: "Am I entitled to statutory redundancy pay?",
+			question: "Who is entitled to statutory redundancy pay?",
 			answer:
-				"If you have been in continuous employment for at least two years and your position has been genuinely made redundant, you are entitled to a statutory redundancy payment. The payment is calculated at two weeks' pay per year of service, plus one additional week, subject to a maximum weekly earnings cap (currently €600 per week). Your employer is obliged to pay this. If they refuse or cannot pay, you may be able to claim from the Social Insurance Fund.",
+				"An employee with at least two years' continuous service whose role has been genuinely made redundant is entitled to a statutory redundancy payment under the Redundancy Payments Acts. The payment is calculated at two weeks' pay per year of service plus one additional week, subject to a statutory weekly earnings cap. The employer is obliged to pay; where the employer cannot or will not, a claim can be made through the Social Insurance Fund.",
 		},
 		{
-			question: "Can my employer change my contract without my agreement?",
+			question: "Can an employer change a contract without the employee's agreement?",
 			answer:
-				"In general, an employer cannot unilaterally make significant changes to the core terms of your employment — such as reducing your pay, changing your working hours, or substantially altering your role — without your agreement. Doing so may constitute a breach of contract and could form the basis of a constructive dismissal claim or a complaint to the WRC. We can advise you on your options and the best way to respond.",
+				"An employer cannot generally make significant unilateral changes to the core terms of employment — such as reducing pay, changing working hours, or substantially altering the role — without the employee's agreement. Doing so may amount to a breach of contract and could form the basis of a constructive dismissal claim or a complaint to the WRC. Where the employer has business reasons for a change, those reasons usually need to be raised through a consultation process rather than imposed.",
 		},
 		{
 			question: "What does the WRC process involve?",
 			answer:
-				"The Workplace Relations Commission adjudicates on complaints under Irish employment legislation. Once a complaint is submitted, it is assigned to a WRC adjudicator who will schedule a hearing. Both parties are given the opportunity to present their case — in writing and orally at the hearing. The adjudicator issues a written decision which can be appealed to the Labour Court. The WRC process is generally less formal and faster than court proceedings.",
+				"The Workplace Relations Commission adjudicates complaints under Irish employment legislation. Once a complaint is submitted, it is assigned to a WRC adjudicator who schedules a hearing. Both parties are given the opportunity to present their case in writing and orally at the hearing. The adjudicator issues a written decision, which can be appealed to the Labour Court. The WRC process is generally less formal and faster than court, but the procedural rules and time limits apply throughout.",
 		},
 		{
-			question: "I am an employer and have received a WRC complaint — what should I do?",
+			question: "What should an employer do on receiving a WRC complaint?",
 			answer:
-				"Take it seriously and take legal advice promptly. WRC complaints have strict response deadlines, and how you engage with the process from the outset matters. We advise employers on how to respond, what documentation to gather, and how to present their case at the hearing. We also advise on whether the matter can be resolved by agreement before a hearing takes place.",
+				"WRC complaints have strict response deadlines, and the way an employer engages with the process from the outset matters. We advise employers on how to respond, what documentation to gather, and how to present the case at hearing. We also advise on whether the matter can be resolved by agreement before a hearing takes place.",
 		},
 	],
 	attribution: {
