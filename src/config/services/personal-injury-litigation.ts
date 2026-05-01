@@ -13,12 +13,12 @@ export const personalInjuryLitigation = {
 	image,
 	imageClass: "object-[right_25%]",
 	description:
-		"We advise on personal injury matters, including workplace accidents, public liability, and road traffic injuries, and represent clients in civil litigation from initial assessment through to settlement or trial.",
+		"We advise on personal injury matters — including workplace accidents, public liability, and road traffic injuries — and represent clients in civil litigation. We assess liability, manage the PIAB application, and act for clients in court where required.",
 	// --- SEO ---
 	seo: {
 		title: `Personal Injury Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Personal injury solicitors in Kilkenny. We advise on workplace accidents, public liability claims, and road traffic injuries — from PIAB application to settlement or court. Call (056) 776 5829.",
+			"Personal injury solicitors in Kilkenny. We advise on workplace accidents, public liability claims, and road traffic injuries — including the conduct of PIAB applications and civil litigation in the Irish courts.",
 		canonicalPath: "/services/personal-injury-litigation",
 	},
 	// --- Hero ---
@@ -29,7 +29,7 @@ export const personalInjuryLitigation = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"We advise on personal injury and civil litigation matters from initial assessment through to settlement or trial. We assess each case honestly, explain the process clearly, and represent our clients' interests at every stage — from the initial PIAB application onwards.",
+			"We advise on personal injury and civil litigation matters in Kilkenny. We assess each case honestly, explain the process clearly, and act for our clients at every stage — from the initial assessment of liability through to the conduct of the PIAB application and court proceedings where they arise.",
 	},
 	// --- Mid-page CTA ---
 	midCta: ["Honest advice on personal injury and civil disputes.", "Talk to us about your matter."],
@@ -71,7 +71,7 @@ export const personalInjuryLitigation = {
 			{ text: "right to compensation", em: true },
 		],
 		intro:
-			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through PIAB and, where necessary, the courts. Knowing what is recoverable, how the process works, and what to expect at each stage makes a real difference to how a matter progresses. We advise on personal injury matters from initial assessment through to settlement or trial.",
+			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through PIAB and, where necessary, the courts. Knowing what is recoverable, how the process works, and what to expect at each stage makes a real difference to how a matter progresses. The article below sets that process out in plain English.",
 		quote: {
 			text: "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope.",
 			attribution: "Richard O'Shea, Solicitor",
