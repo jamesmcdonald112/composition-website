@@ -65,7 +65,14 @@ body[data-page="policy"] #CybotCookiebotDialog {
 	box-shadow: none;
 
 	@media (min-width: 768px) {
-		position: fixed;
+		position: revert;
+		inset: revert;
+		width: revert;
+		max-width: revert;
+		height: revert;
+		max-height: revert;
+		transform: revert;
+		box-shadow: revert;
 	}
 }
 
@@ -73,6 +80,6 @@ body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
 	display: none;
 
 	@media (min-width: 768px) {
-		display: block;
+		display: revert;
 	}
 }
