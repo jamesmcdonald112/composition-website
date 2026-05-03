@@ -54,32 +54,19 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
   ─────────────────────────────────────────────────────────────────────────────
 */
-body[data-page="policy"] #CybotCookiebotDialog {
-	position: static;
-	inset: auto;
-	width: 100%;
-	max-width: none;
-	height: auto;
-	max-height: none;
-	transform: none;
-	box-shadow: none;
-
-	@media (min-width: 768px) {
-		position: revert;
-		inset: revert;
-		width: revert;
-		max-width: revert;
-		height: revert;
-		max-height: revert;
-		transform: revert;
-		box-shadow: revert;
+@media (max-width: 47.99rem) {
+	body[data-page="policy"] #CybotCookiebotDialog {
+		position: static !important;
+		inset: auto !important;
+		width: 100% !important;
+		max-width: none !important;
+		height: auto !important;
+		max-height: none !important;
+		transform: none !important;
+		box-shadow: none !important;
 	}
-}
 
-body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
-	display: none;
-
-	@media (min-width: 768px) {
-		display: revert;
+	body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
+		display: none !important;
 	}
 }
