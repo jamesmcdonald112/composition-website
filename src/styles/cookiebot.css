@@ -54,7 +54,7 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
   ─────────────────────────────────────────────────────────────────────────────
 */
-@media (max-width: 47.99rem) {
+@media (max-width: 37.49rem) {
 	body[data-page="policy"] #CybotCookiebotDialog {
 		position: static !important;
 		inset: auto !important;
