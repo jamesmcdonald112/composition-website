@@ -183,7 +183,8 @@ if (prev) await Astro.session?.delete("form-data");
 		<div class="contact-form__bottom" data-cf-animate="bottom">
 			<p class="contact-form__small-print">
 				All enquiries are treated in strict confidence.<br />
-				We aim to respond within one business day.
+				We aim to respond within one business day.<br />
+				We will use the details you provide to respond to your enquiry. See our <a class="contact-form__small-print-link" href="/privacy">Privacy Policy</a> for how we handle your information.
 			</p>
 			<button class="contact-form__submit" type="submit">
 					Send Enquiry
@@ -386,7 +387,7 @@ if (prev) await Astro.session?.delete("form-data");
 		align-items: flex-start;
 		margin-block-start: var(--space-md);
 
-		@media (min-width: 640px) {
+		@media (min-width: 1024px) {
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
@@ -397,6 +398,23 @@ if (prev) await Astro.session?.delete("form-data");
 		font-size: var(--font-size-xs);
 		line-height: var(--line-height-relaxed);
 		color: var(--color-fg-subtle);
+	}
+
+	.contact-form__small-print-link {
+		color: var(--color-fg-subtle);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition: color var(--duration-fast) var(--ease-out);
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-fg-accent);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--color-border-focus);
+			outline-offset: 2px;
+		}
 	}
 
 	/* ── Submit button ────────────────────────────────────────────────────── */
