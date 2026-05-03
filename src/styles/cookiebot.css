@@ -36,3 +36,43 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
 		opacity 0.5s ease-out,
 		visibility 0s linear 0s;
 }
+
+/*
+  POLICY PAGES — MOBILE INLINE BANNER OVERRIDE
+  ─────────────────────────────────────────────────────────────────────────────
+  On Cookiebot free tier, the "Banner-Bottom" layout is ignored on mobile —
+  Cookiebot forces a full-screen modal that completely obscures the policy
+  text underneath. This violates DPC April 2020 cookie guidance, page 12:
+  "the banner must not obscure the privacy notice."
+
+  Fix: on /privacy and /cookie-policy only, render the banner inline at the
+  bottom of the document on mobile, instead of as a fixed overlay. Visitor
+  reads the full policy, then sees the banner waiting at the end of the
+  content. Desktop/tablet behaviour is untouched (Cookiebot's normal
+  fixed-bottom banner takes the bottom strip — policy still readable above).
+
+  See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
+  ─────────────────────────────────────────────────────────────────────────────
+*/
+body[data-page="policy"] #CybotCookiebotDialog {
+	position: static;
+	inset: auto;
+	width: 100%;
+	max-width: none;
+	height: auto;
+	max-height: none;
+	transform: none;
+	box-shadow: none;
+
+	@media (min-width: 768px) {
+		position: fixed;
+	}
+}
+
+body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
+	display: none;
+
+	@media (min-width: 768px) {
+		display: block;
+	}
+}

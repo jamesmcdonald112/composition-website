@@ -45,6 +45,7 @@ interface BaseLayoutProps {
 	section?: string;
 	tags?: string[];
 	solidNav?: boolean;
+	pageId?: string;
 }
 
 const {
@@ -62,6 +63,7 @@ const {
 	section,
 	tags = [],
 	solidNav = false,
+	pageId,
 } = Astro.props as BaseLayoutProps;
 
 const canonical = firm.siteUrl
@@ -130,7 +132,7 @@ const isArticle = ogType === "article";
 			)
 		}
 	</head>
-	<body>
+	<body data-page={pageId}>
 		<SkipLink />
 		<Intro />
 		<header role="banner">
