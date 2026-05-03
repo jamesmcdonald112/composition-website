@@ -10,3 +10,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	canonicalPath="/privacy"
 	pageId="policy"
 />
+
+<style is:global>
+	/* Make <body> a flex column so the Cookiebot banner (order: 999 in
+	   cookiebot.css) lands at the very bottom of the page, below the footer.
+	   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18. */
+	body[data-page="policy"] {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+</style>
