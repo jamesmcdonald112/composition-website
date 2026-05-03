@@ -65,6 +65,7 @@ body[data-page="policy"] #CybotCookiebotDialog {
 	max-height: none !important;
 	transform: none !important;
 	box-shadow: none !important;
+	padding-block-start: var(--space-5xl) !important;
 }
 
 body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
