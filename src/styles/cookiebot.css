@@ -38,35 +38,35 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
 }
 
 /*
-  POLICY PAGES — MOBILE INLINE BANNER OVERRIDE
+  POLICY PAGES — INLINE BANNER (ALL VIEWPORTS)
   ─────────────────────────────────────────────────────────────────────────────
-  On Cookiebot free tier, the "Banner-Bottom" layout is ignored on mobile —
-  Cookiebot forces a full-screen modal that completely obscures the policy
-  text underneath. This violates DPC April 2020 cookie guidance, page 12:
-  "the banner must not obscure the privacy notice."
+  On /privacy and /cookie-policy only, render the banner inline at the end of
+  the document instead of as a fixed/floating overlay. The visitor reads the
+  full policy, then sees the banner waiting at the bottom of the page.
 
-  Fix: on /privacy and /cookie-policy only, render the banner inline at the
-  bottom of the document on mobile, instead of as a fixed overlay. Visitor
-  reads the full policy, then sees the banner waiting at the end of the
-  content. Desktop/tablet behaviour is untouched (Cookiebot's normal
-  fixed-bottom banner takes the bottom strip — policy still readable above).
+  Why: Cookiebot's default behaviour on these pages obscures or overlaps the
+  policy text — at small viewports as a full-screen modal, at mid-size
+  viewports as a centred dialog. Both block the visitor from reading the
+  policy and making an informed consent decision (DPC April 2020 cookie
+  guidance, page 12).
+
+  This override applies at every viewport size on policy pages only. All
+  other pages keep Cookiebot's default behaviour untouched.
 
   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
   ─────────────────────────────────────────────────────────────────────────────
 */
-@media (max-width: 47.99rem) {
-	body[data-page="policy"] #CybotCookiebotDialog {
-		position: static !important;
-		inset: auto !important;
-		width: 100% !important;
-		max-width: none !important;
-		height: auto !important;
-		max-height: none !important;
-		transform: none !important;
-		box-shadow: none !important;
-	}
+body[data-page="policy"] #CybotCookiebotDialog {
+	position: static !important;
+	inset: auto !important;
+	width: 100% !important;
+	max-width: none !important;
+	height: auto !important;
+	max-height: none !important;
+	transform: none !important;
+	box-shadow: none !important;
+}
 
-	body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
-		display: none !important;
-	}
+body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
+	display: none !important;
 }
