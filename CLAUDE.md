@@ -68,8 +68,8 @@ npx tsx check-contrast.ts
 - Every section needs three layers: full-width shell → inner container (max-width + margin-inline: auto + responsive gutters) → content
 - The inner container is always `<div class="component-name__inner wrapper wrapper--wide">` — never hand-roll max-width or margin-inline
 - CSS class names follow BEM: `block__element--modifier` — e.g. `.service-hero__title`, `.cta-panel__inner`, `.quote-card__text`
-- Read `_system/LAYOUT-REFERENCE.md` before building any component
-- Read `_system/COMPONENT-DIRECTION-GUIDE.md` before building any component
+- Read `_system/reference/layout.md` before building any component
+- Read `_system/reference/component-direction.md` before building any component
 - Visual quality is the primary deliverable — if it looks mediocre, it is wrong
 - Mobile-first: write base styles for mobile, then nest `@media (min-width: Npx)` inside the selector block for larger breakpoints
 - Use `data-` attributes for JS hooks, not classes or IDs — e.g. `[data-navbar-toggle]` not `#navbar-toggle`
@@ -102,7 +102,9 @@ Always remind the user even for small changes — a component edit can affect ev
 
 ## Design System Files
 - Skill: `.claude/skills/frontend-design/SKILL.md`
-- Layout rules: `_system/LAYOUT-REFERENCE.md`
-- Component direction: `_system/COMPONENT-DIRECTION-GUIDE.md`
-- Design brief: `_system/STAGE-3-DESIGN-BRIEF.md`
-- Theme creation: `_system/THEME-CREATION-GUIDE.md` — read before writing any theme file
+- Layout rules: `_system/reference/layout.md`
+- Component direction: `_system/reference/component-direction.md`
+- Component build prompt: `_system/workflow/component-build-prompt.md` — paste at start of any new component-build session
+- Theme creation: `_system/reference/theme-creation.md` — read before writing any theme file
+- New-theme alias checklist: `_system/prompts/new-theme-checklist.md` — required role-aliases every theme must define
+- Token chain audit: `_system/prompts/token-chain-audit.md` — diagnostic prompt when a theme looks visually broken
