@@ -244,7 +244,7 @@ If the client wants tracked retargeting for sensitive-topic services, refuse. Do
 - **Client-facing summary of this policy:** `_business/sensitive-topic-tracking-client-faq.md`
 - **Engagement-time triage to apply this policy:** `legal-compliance/cookies/client-onboarding-checklist.md` Phase 0
 - **Underlying DPC reasoning:** `legal-compliance/cookies/dpc-guidance-walkthrough.md` Sections 22, 24, 25
-- **The five-step Section 22 trigger checklist:** `_scratch-remaining-work.md` Section 5
+- **The five-step Section 22 trigger checklist:** the README Per-Client Compliance Setup, Section F (third-party-widget trigger checklist)
 
 ---
 

@@ -36,7 +36,7 @@ A "sensitive-topic profession" is any business whose practice or service involve
 | **Sensitive** | Search ads only (no trackers) | Standard Cookiebot setup, Necessary-only categories. **Hand the client `_business/google-ads-for-sensitive-topic-clients.md`** for the operational ad guide. Proceed to Phase 1. |
 | **Sensitive** | Wants trackers / personalised ads | **Refuse** trackers site-wide. Hand the client `_business/sensitive-topic-tracking-client-faq.md`. If they push back, walk them through `_business/sensitive-topic-tracking-policy.md` "When a sensitive-topic client insists" subsection. If they still insist on retargeting for sensitive services — refuse the engagement for that piece of work. Document the refusal in writing. |
 | **Not sensitive** | No analytics, no ads | Standard Cookiebot setup, Necessary-only categories. Proceed to Phase 1. |
-| **Not sensitive** | Wants trackers / ads | Have the cost conversation. Hand them `_scratch-remaining-work.md` Section 5 (Section 22 trigger checklist) so they understand the per-tool compliance work involved. Once accepted, proceed to Phase 1 with the appropriate categories enabled. |
+| **Not sensitive** | Wants trackers / ads | Have the cost conversation. Hand them the README Per-Client Compliance Setup, Section F (third-party-widget trigger checklist) so they understand the per-tool compliance work involved. Once accepted, proceed to Phase 1 with the appropriate categories enabled. |
 | **Public-sector / regulated-finance** | Any | Pause. Specialist legal review required before any Cookiebot or tracker work. |
 
 ### Phase 0 deliverables (record these for the engagement file)
@@ -44,7 +44,7 @@ A "sensitive-topic profession" is any business whose practice or service involve
 - [ ] Sensitivity classification recorded (Sensitive / Not sensitive / Specialist).
 - [ ] Tracker decision recorded (None / Search ads only / Trackers approved with paperwork).
 - [ ] If Sensitive + tracker decision is None or Search-ads-only — the client has received and acknowledged `_business/sensitive-topic-tracking-client-faq.md`.
-- [ ] If trackers are approved — the client has received and acknowledged the cost-of-compliance conversation in `_scratch-remaining-work.md` Section 5.
+- [ ] If trackers are approved — the client has received and acknowledged the cost-of-compliance conversation in the README Per-Client Compliance Setup, Section F (third-party-widget trigger checklist).
 - [ ] Decision filed in `legal-compliance/compliance-records/[client]-tracker-decision-YYYY-MM-DD.md`.
 
 Once Phase 0 is closed, proceed to Phase 1.
