@@ -13,12 +13,12 @@ export const willsAndEstateAdministration = {
 	image,
 	imageClass: "",
 	description:
-		"Wills, probate, and estate administration for clients in Kilkenny and the surrounding counties. We draft wills, register enduring powers of attorney, and act for executors and administrators in applications to the Probate Office and in the administration of the estate.",
+		"Wills, probate, and estate administration for clients in Kilkenny and the surrounding counties. We draft wills and act for executors and administrators in applications to the Probate Office and in the administration of the estate.",
 	// --- SEO ---
 	seo: {
 		title: `Wills & Probate Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Wills and probate solicitors in Kilkenny. We advise on the drafting of wills, the registration of enduring powers of attorney, and the administration of estates from grant of probate to final distribution.",
+			"Wills and probate solicitors in Kilkenny. We advise on the drafting of wills and the administration of estates from grant of probate to final distribution.",
 		canonicalPath: "/services/wills-and-estate-administration",
 	},
 	// --- Hero ---
@@ -29,7 +29,7 @@ export const willsAndEstateAdministration = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"We advise on the making of wills, the registration of enduring powers of attorney under the Assisted Decision-Making (Capacity) Act 2015, and the administration of estates following bereavement — including applications for grants of probate or letters of administration to the Probate Office of the High Court.",
+			"We advise on the making of wills and the administration of estates following bereavement — including applications for grants of probate or letters of administration to the Probate Office of the High Court.",
 	},
 	// --- Mid-page CTA ---
 	midCta: ["Wills and probate, handled with care.", "Get in touch when you're ready."],
@@ -40,7 +40,7 @@ export const willsAndEstateAdministration = {
 			{ text: "wills or probate matter", em: true },
 		],
 		description:
-			"Get in touch with us in Kilkenny. Whether the matter is drafting or updating a will, registering an enduring power of attorney, or administering an estate after a bereavement, we'll explain how the relevant law applies in the specific circumstances.",
+			"Get in touch with us in Kilkenny. Whether the matter is drafting or updating a will or administering an estate after a bereavement, we'll explain how the relevant law applies in the specific circumstances.",
 	},
 	// --- Trust strip ---
 	trustStrip: {
@@ -50,8 +50,8 @@ export const willsAndEstateAdministration = {
 			{ text: " advice in Kilkenny" },
 		],
 		paragraphs: [
-			"Wills, probate, and estate administration are governed by a defined body of Irish statute and procedure — primarily the Succession Act 1965 (intestacy, the legal right share, Section 117 applications), the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances), and the Assisted Decision-Making (Capacity) Act 2015 (enduring powers of attorney). We advise clients on each of these areas.",
-			"On the wills side of the practice, we draft wills that comply with the execution formalities under the Succession Act 1965, advise on the appointment of executors and guardians for minor children, and consider the Capital Acquisitions Tax position of the gifts and inheritances proposed. We also advise on enduring powers of attorney under the 2015 Act and on registration with the Decision Support Service.",
+			"Wills, probate, and estate administration are governed by a defined body of Irish statute and procedure — primarily the Succession Act 1965 (intestacy, the legal right share, Section 117 applications) and the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances). We advise clients on each of these areas.",
+			"On the wills side of the practice, we draft wills that comply with the execution formalities under the Succession Act 1965, advise on the appointment of executors and guardians for minor children, and consider the Capital Acquisitions Tax position of the gifts and inheritances proposed.",
 			"On the probate side, we act for executors and administrators in applications to the Probate Office of the High Court for grants of probate (where there is a will) or letters of administration (where there is not). We deal with the Probate Office, the Revenue Commissioners, and financial institutions on the client's behalf, and conduct the distribution of the estate in accordance with the will or the rules of intestacy.",
 			"All wills, probate, and estate administration work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since 1979.",
 		],
@@ -71,7 +71,7 @@ export const willsAndEstateAdministration = {
 			{ text: " work in Ireland" },
 		],
 		intro:
-			"Irish law on wills and estates sits across a defined body of statute — the Succession Act 1965 (the rules on wills and intestacy), the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances), and the Assisted Decision-Making (Capacity) Act 2015 (enduring powers of attorney). Knowing how a valid will is made, how an estate is administered after a bereavement, and how the tax rules apply makes the practical position clearer. The article below sets that framework out in plain English.",
+			"Irish law on wills and estates sits across a defined body of statute — primarily the Succession Act 1965 (the rules on wills and intestacy) and the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances). Knowing how a valid will is made, how an estate is administered after a bereavement, and how the tax rules apply makes the practical position clearer. The article below sets that framework out in plain English.",
 		quote: {
 			text: "A will is a precise legal document. The execution formalities under the Succession Act 1965 are strict — and a will that doesn't meet them is no will at all. The point of taking advice early is to make sure each clause does what it is meant to, and that the document will hold up when it has to.",
 			attribution: "Mary Molloy, Principal Solicitor",
@@ -148,43 +148,31 @@ export const willsAndEstateAdministration = {
 					},
 				],
 			},
-			{
-				type: "heading" as const,
-				text: "Enduring powers of attorney",
-			},
-			{
-				type: "paragraph" as const,
-				text: "An enduring power of attorney (EPA) allows a person to appoint someone they trust — known as the attorney — to make decisions about their personal welfare or their property and financial affairs if they later lose the capacity to make those decisions themselves. EPAs are governed by the Assisted Decision-Making (Capacity) Act 2015, which came fully into force in April 2023 and which replaced the previous EPA regime under the Powers of Attorney Act 1996.",
-			},
-			{
-				type: "paragraph" as const,
-				text: "Under the 2015 Act, an EPA must be registered with the Decision Support Service (DSS) before it can be activated. The registration process involves notifying specified persons (such as the person's spouse, civil partner, or adult children), confirming the person's capacity at the time of registration, and providing the supporting information the DSS requires. Without a valid EPA, an application may need to be made to the Circuit Court for a decision-making representation order under the same 2015 Act — a process that takes longer and is more involved than a registered EPA would have been. We advise on the EPA framework and act in EPA registrations and decision-making representation order applications.",
-			},
 		],
 	},
 	// --- Process steps ---
 	processDescription:
-		"Wills, EPAs, and estate administration each move through a defined sequence — initial consultation and instructions, drafting or application, review and execution or registration, and the conduct of the matter through to its conclusion. Here is how we manage each stage for our clients.",
+		"Wills and estate administration each move through a defined sequence — initial consultation and instructions, drafting or application, review and execution, and the conduct of the matter through to its conclusion. Here is how we manage each stage for our clients.",
 	process: [
 		{
 			title: "Initial consultation",
 			description:
-				"We meet with the client to understand the family situation, the assets, and any specific instructions. For a will, we explain the execution formalities and the practical considerations; for an EPA, we explain the role of the attorney and the registration process; for estate administration, we identify what information is needed for the application to the Probate Office.",
+				"We meet with the client to understand the family situation, the assets, and any specific instructions. For a will, we explain the execution formalities and the practical considerations; for estate administration, we identify what information is needed for the application to the Probate Office.",
 		},
 		{
 			title: "Drafting or application",
 			description:
-				"For wills, we draft a will reflecting the instructions — including the appointment of executors, any trusts for younger beneficiaries, specific gifts, and the residuary estate, with the Capital Acquisitions Tax position considered. For EPAs, we draft the instrument and prepare the supporting documentation for the Decision Support Service. For estate administration, we prepare the Probate Office application and the relevant Revenue forms.",
+				"For wills, we draft a will reflecting the instructions — including the appointment of executors, any trusts for younger beneficiaries, specific gifts, and the residuary estate, with the Capital Acquisitions Tax position considered. For estate administration, we prepare the Probate Office application and the relevant Revenue forms.",
 		},
 		{
-			title: "Review and execution or registration",
+			title: "Review and execution",
 			description:
-				"The client reviews the draft. For wills, the document is signed and witnessed in compliance with the strict execution formalities under the Succession Act 1965 — a will not properly executed is not valid. For EPAs, the instrument is registered with the Decision Support Service. For grants of probate, the application is lodged with the Probate Office of the High Court.",
+				"The client reviews the draft. For wills, the document is signed and witnessed in compliance with the strict execution formalities under the Succession Act 1965 — a will not properly executed is not valid. For grants of probate, the application is lodged with the Probate Office of the High Court.",
 		},
 		{
 			title: "Administration and follow-up",
 			description:
-				"Where the matter is an estate administration, once the grant issues we proceed with the gathering of assets, the satisfaction of debts and Revenue obligations, and the distribution of the estate to beneficiaries in the correct order. We remain available afterwards if questions arise about the estate or about a registered EPA.",
+				"Where the matter is an estate administration, once the grant issues we proceed with the gathering of assets, the satisfaction of debts and Revenue obligations, and the distribution of the estate to beneficiaries in the correct order. We remain available afterwards if questions arise about the estate.",
 		},
 	],
 	// --- FAQs ---
@@ -218,11 +206,6 @@ export const willsAndEstateAdministration = {
 			question: "What is Capital Acquisitions Tax and when does it apply?",
 			answer:
 				"Capital Acquisitions Tax (CAT) is the tax on gifts and inheritances in Ireland, governed by the Capital Acquisitions Tax Consolidation Act 2003. The tax applies to inheritances above the relevant tax-free threshold. The threshold depends on the relationship between the deceased (or donor) and the beneficiary — Group A applies to children, Group B to other close relatives such as siblings and nieces/nephews, and Group C to all others. Both the rate and the thresholds are set by Finance Act and are updated periodically, so the figures applying in any specific case are confirmed at the time the inheritance is taxable. Reliefs such as agricultural relief and business relief may also reduce the CAT position. We advise on the tax position of the estate and of each beneficiary.",
-		},
-		{
-			question: "What is an enduring power of attorney?",
-			answer:
-				"An enduring power of attorney (EPA) is a legal document that allows a person to appoint someone they trust — known as the attorney — to make decisions about their personal welfare or their property and financial affairs if they lose the capacity to do so themselves. EPAs are governed by the Assisted Decision-Making (Capacity) Act 2015, which came fully into force in April 2023. Under the 2015 Act, EPAs must be registered with the Decision Support Service. Without a valid EPA, an application for a decision-making representation order may need to be made to the Circuit Court if a person loses capacity — a process that is longer and more involved than a registered EPA.",
 		},
 	],
 	attribution: {
