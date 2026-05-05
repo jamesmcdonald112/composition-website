@@ -66,51 +66,30 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 			},
 		});
 
-		// Per-step: active when in viewport center, fades when not
+		// Per-step: number scales up as the step enters viewport centre, scales
+		// back down as it exits. Body paragraph stays static — the previous
+		// border/padding animation on the body was removed because it looked
+		// distracting alongside the number-scale effect.
 		steps.forEach((step) => {
-			const body = step.querySelector<HTMLElement>("[data-sp-body]");
 			const number = step.querySelector<HTMLElement>("[data-sp-number]");
+			if (!number) return;
 
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: step,
-					start: "top 50%",
-					end: "bottom 50%",
-					scrub: 0.6,
-				},
-			});
-
-			if (body) {
-				tl.fromTo(
-					body,
-					{ borderLeftWidth: "0px", paddingLeft: "0px" },
-					{
-						borderLeftWidth: "2px",
-						paddingLeft: "1.25rem",
-						ease: "power2.out",
-						duration: 0.4,
+			gsap
+				.timeline({
+					scrollTrigger: {
+						trigger: step,
+						start: "top 50%",
+						end: "bottom 50%",
+						scrub: 0.6,
 					},
-					0,
-				).to(
-					body,
-					{
-						borderLeftWidth: "0px",
-						paddingLeft: "0px",
-						ease: "power2.in",
-						duration: 0.4,
-					},
-					0.6,
-				);
-			}
-
-			if (number) {
-				tl.fromTo(
+				})
+				.fromTo(
 					number,
 					{ scale: 0.85 },
 					{ scale: 1.1, ease: "power2.out", duration: 0.4 },
 					0,
-				).to(number, { scale: 0.85, ease: "power2.in", duration: 0.4 }, 0.6);
-			}
+				)
+				.to(number, { scale: 0.85, ease: "power2.in", duration: 0.4 }, 0.6);
 		});
 	});
 }
