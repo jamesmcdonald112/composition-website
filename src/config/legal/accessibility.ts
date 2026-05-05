@@ -4,7 +4,7 @@
 // audit (WAVE) of the live site.
 //
 // **Source-of-truth original markdown:**
-// `legal-compliance/accessibility-statement_2026-01-11.md`
+// `legal-compliance/accessibility/accessibility-statement_2026-01-11.md`
 //
 // That file is the dated audit-trail copy. It demonstrates to a regulator
 // that the statement was generated using the recommended W3C tool and was

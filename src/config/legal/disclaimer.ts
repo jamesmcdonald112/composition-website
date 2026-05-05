@@ -1,8 +1,8 @@
 // Source-of-truth original markdown:
-// `legal-compliance/disclaimer.md`
+// `legal-compliance/disclaimer/disclaimer.md`
 //
 // Research and Stage 3 Law Society template comparison live in
-// `legal-compliance/disclaimer-research-and-audit-trail.md`. The Reg 9
+// `legal-compliance/disclaimer/disclaimer-research-and-audit-trail.md`. The Reg 9
 // (LSRA 2020 Advertising Regulations) rationale for Section 5's external-links
 // policy lives there too. Keep markdown and TS in sync — when this config
 // changes, the markdown must be updated and the reviewDate bumped.
@@ -99,7 +99,7 @@ export const disclaimerPageContent = {
 		},
 		{
 			heading: "8. The site may change without notice",
-			body: 'We may change, add to, remove from, or discontinue any part of this website at any time and without notice. We may also change this disclaimer from time to time. The "Last reviewed" date at the foot of this page shows when it was last revised. Please check this page periodically.',
+			body: 'We may change, add to, remove from, or discontinue any part of this website at any time and without notice. We may also change this disclaimer from time to time. The "Last reviewed" date at the foot of this page shows when it was last revised. Please check this page periodically — your continued use of the site after a change indicates your acceptance of the updated disclaimer.',
 		},
 		{
 			heading: "9. Governing law and jurisdiction",
