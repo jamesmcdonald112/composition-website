@@ -1,5 +1,5 @@
 import teamSectionBackground from "../assets/images/pages/property/team.webp";
-import dukePhoto from "../assets/team/duke.webp";
+// import dukePhoto from "../assets/team/duke.webp"; // Duke removed 2026-05-05 — see commented-out entry below
 import maryPhoto from "../assets/team/maryFull.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
@@ -16,7 +16,8 @@ export const solicitors = {
 		degree: "LLB", // TODO: confirm university name
 		university: "TODO: University name",
 		admissionYear: "TODO: Year",
-		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		credentials:
+			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
 		specialism: "Property, wills and probate, and private client matters",
 	},
 	nicholas: {
@@ -26,7 +27,8 @@ export const solicitors = {
 		degree: "LLB", // TODO: confirm university name
 		university: "TODO: University name",
 		admissionYear: "TODO: Year",
-		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		credentials:
+			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
 		specialism: "Property, conveyancing, and private client matters",
 	},
 	richard: {
@@ -36,12 +38,13 @@ export const solicitors = {
 		degree: "LLB", // TODO: confirm university name
 		university: "TODO: University name",
 		admissionYear: "TODO: Year",
-		credentials: "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
+		credentials:
+			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
 		specialism: "Property, conveyancing, and probate matters",
 	},
 } as const;
 
-export type Solicitor = typeof solicitors[keyof typeof solicitors];
+export type Solicitor = (typeof solicitors)[keyof typeof solicitors];
 
 // ── Team section content ──────────────────────────────────────────────────────
 
@@ -68,12 +71,16 @@ export const teamSectionContent = {
 			bio: "Richard advises clients on buying and selling property, conveyancing, and probate matters at the firm.",
 			photo: richardPhoto,
 		},
-		{
-			name: "Duke",
-			role: "Office Companion",
-			bio: "Providing daily morale support to the team and a friendly welcome to visitors.",
-			photo: dukePhoto,
-		},
+		// Duke removed from the team page on the firm's request (2026-05-05).
+		// Kept as a commented-out block in case the firm decides to add him
+		// back later — the photo asset (`duke.webp`) is still in the repo and
+		// the import at the top of this file is preserved.
+		// {
+		// 	name: "Duke",
+		// 	role: "Office Companion",
+		// 	bio: "Providing daily morale support to the team and a friendly welcome to visitors.",
+		// 	photo: dukePhoto,
+		// },
 	],
 } as const;
 
