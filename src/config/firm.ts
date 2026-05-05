@@ -1,5 +1,5 @@
 export const firm = {
-	siteUrl: "https://test-mary-m.netlify.app/",
+	siteUrl: "https://splendorous-tiramisu-3c7f26.netlify.app/",
 	companyName: "Mary Molloy Solicitor",
 	county: "Kilkenny",
 	established: 1979,
