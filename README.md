@@ -1,6 +1,6 @@
-# Nick Solicitors — Website
+# Mary Molloy Solicitor — Website
 
-Astro website for Nick Solicitors.
+Astro website for Mary Molloy Solicitor.
 
 ---
 
@@ -36,6 +36,8 @@ You don't need this on legal/policy pages (privacy, terms, cookie policy, etc.) 
 
 ## Google Reviews (reusable for any client)
 
+> ⚠️ **Do not use this on Irish solicitor sites.** Auto-fetching Google reviews breaches **Regulation 5(a)(i) of S.I. No. 644/2020** (Legal Services Regulation Act 2015 Advertising Regulations). Every testimonial published by a solicitor requires **signed written consent from that individual reviewer before it goes live** — the Google Places API cannot verify consent, so every auto-pulled review is a standing violation. Also not suitable for barristers (Bar of Ireland Code of Conduct prohibits testimonials) or medical practices (Medical Council guidelines on testimonials). Only use this feature for non-regulated businesses (restaurants, tradespeople, retail, hospitality).
+
 The testimonials section fetches reviews from the Google Places API (New) and caches them server-side so the API is only called once per day regardless of traffic.
 
 ### What you need per client
@@ -48,79 +50,6 @@ The testimonials section fetches reviews from the Google Places API (New) and ca
 ### Pricing
 Free up to 10,000 requests/month. With 24hr caching, a typical client site uses ~30 requests/month — well within the free tier.
 
-### Legal note — testimonials on solicitor sites
-
-Solicitor advertising in Ireland is regulated by S.I. No. 644/2020, not the Law Society. Testimonials require written client consent under Regulation 5 before appearing on the website — including Google reviews republished on the site.
-
-See the **Client Testimonial Consent** section below for the full consent process, record-keeping requirements, and violation risks.
-
----
-
-## Legal Compliance — Cost Warning (Regulation 6, S.I. No. 644/2020)
-
-Under Regulation 6 of the Legal Services Regulation Act 2015 (Advertising) Regulations 2020, any page that references **personal injuries or contentious business** must include a clear cost warning referencing Section 149 of the Act.
-
-The `<LegalCostWarning />` component (`src/components/ui/LegalCostWarning/LegalCostWarning.astro`) handles this automatically. It **must** be present on the following pages:
-
-| Page | Reason |
-|---|---|
-| `src/pages/services/personal-injury-litigation.astro` | Personal injuries + litigation |
-| `src/pages/services/road-traffic-accidents.astro` | Motor accidents = personal injuries under Reg 4(c) |
-| `src/pages/services/employment-law.astro` | Contentious employment disputes |
-| `src/pages/services/debt-collection.astro` | Court proceedings / contentious business |
-| `src/pages/services/family-and-childcare-law.astro` | Contested family proceedings |
-
-**Does not apply to:** buying/selling property, wills and estate administration, leases and tenancy agreements — these are non-contentious.
-
-Place `<LegalCostWarning />` directly after `<ServiceArticle>` and before `<ServiceProcess>` on each affected page.
-
-**Also prohibited on all pages** (Reg 6(b)): "no win no fee", "no foal no fee", "free first consultation", or any phrase that implies the service will cost the client nothing.
-
----
-
-## Legal Compliance — Client Testimonial Consent (Regulation 5, S.I. No. 644/2020)
-
-Before featuring **any** client testimonial on the website, written consent from the client is legally required under Regulation 5 of the Legal Services Regulation Act 2015 (Advertising) Regulations 2020.
-
-### Consent requirements
-
-- The client must be shown **exactly** how their testimonial will appear — the precise wording, location on the site, and context — before it goes live
-- Consent must specifically cover promotional use on the website
-- If the testimonial mentions case details, outcomes, or results, the written consent must explicitly cover those specifics
-- You cannot exaggerate your role in any case referenced
-
-### Consent process
-
-1. Prepare a screenshot or mockup showing exactly how the testimonial will appear on the site
-2. Show this to the client and obtain written signed consent approving that specific use
-3. Store the signed consent form for a minimum of 12 months — the LSRA can request it at any time
-4. If the testimonial includes case specifics, the consent form must explicitly state that those details may be used for promotional purposes
-
-### Google Business reviews
-
-Republishing a Google review on your own website is a republication and requires consent:
-
-- Any review that mentions case details or outcomes — **get written permission before featuring it**
-- Generic reviews with no case specifics may qualify as publicly available information but written consent is still the safest approach
-- The LSRA can investigate testimonial use without consent as a compliance violation
-
-### What to record in the consent form
-
-| Field | What to include |
-|---|---|
-| Client name | Full name as it will appear (or confirm anonymised) |
-| Date signed | Date consent was given |
-| What was approved | Exact testimonial text, where it will appear, in what context |
-| Duration | How long you have permission to use it |
-
-### Violation risk
-
-Featuring testimonials without proper written consent can result in an LSRA investigation under Regulation 5. The burden of proof is on the solicitor to demonstrate consent was obtained.
-
-> See also: `legal-compliance/website-content-review-checklist.md` — Regulation 5 section.
-
----
-
 ### Review filtering
 Reviews can be excluded by author name via `googleReviews.excludeAuthors` in `src/config/firm.ts`. **When reusing for a new client, check this array is empty (`[]`) or remove it entirely** — filters set for one client should never carry over to another.
 
@@ -132,260 +61,95 @@ Reviews can be excluded by author name via `googleReviews.excludeAuthors` in `sr
 5. Set the Place ID in the site config (see `src/config/firm.ts`)
 6. Update `address.googleMapsProfileHref` in `src/config/firm.ts` — this is the direct Google Maps listing URL used by the "See all reviews" link. Find it by searching the firm name on Google Maps, opening their profile, and copying the URL from the browser address bar.
 
+### If the client is a regulated profession — the compliant alternative
+
+If the client is a solicitor, barrister, or medical practice and they want to showcase reviews, the only compliant route is to approach individual reviewers in writing, obtain signed consent for the exact quote and placement, strip any case-outcome or "free consultation" language, and hand-publish the approved text. Store each signed consent for 12 months minimum.
+
+Everything below is the detailed Regulation 5 requirement set for solicitors — if the client is a solicitor, this is the process.
+
+#### Consent requirements (Reg 5, S.I. No. 644/2020)
+
+- The client must be shown **exactly** how their testimonial will appear — the precise wording, location on the site, and context — before it goes live
+- Consent must specifically cover promotional use on the website
+- If the testimonial mentions case details, outcomes, or results, the written consent must explicitly cover those specifics
+- You cannot exaggerate your role in any case referenced
+
+#### Consent process
+
+1. Prepare a screenshot or mockup showing exactly how the testimonial will appear on the site
+2. Show this to the client and obtain written signed consent approving that specific use
+3. Store the signed consent form for a minimum of 12 months — the LSRA can request it at any time
+4. If the testimonial includes case specifics, the consent form must explicitly state that those details may be used for promotional purposes
+
+#### Google Business reviews — republishing
+
+Republishing a Google review on your own website is a republication and requires consent:
+
+- Any review that mentions case details or outcomes — **get written permission before featuring it**
+- Generic reviews with no case specifics may qualify as publicly available information but written consent is still the safest approach
+- The LSRA can investigate testimonial use without consent as a compliance violation
+
+#### What to record in the consent form
+
+| Field | What to include |
+|---|---|
+| Client name | Full name as it will appear (or confirm anonymised) |
+| Date signed | Date consent was given |
+| What was approved | Exact testimonial text, where it will appear, in what context |
+| Duration | How long you have permission to use it |
+
+#### Violation risk
+
+Featuring testimonials without proper written consent can result in an LSRA investigation under Regulation 5. The burden of proof is on the solicitor to demonstrate consent was obtained.
+
+> See also: `legal-compliance/legal-services-regulation-act/website-content-review-checklist.md` — Regulation 5 section.
+
+---
+
+## Legal Compliance — Cost Warning (Regulation 6, S.I. No. 644/2020)
+
+Under Regulation 6 of the Legal Services Regulation Act 2015 (Advertising) Regulations 2020, any page that references **personal injuries or contentious business** must include a clear cost warning referencing Section 149 of the Act.
+
+The `<LegalCostWarning />` component (`src/components/ui/LegalCostWarning/LegalCostWarning.astro`) handles this automatically.
+
+### Belt-and-braces approach — warning on every service page + sitewide footer notice
+
+Regulation 6 only **requires** the warning on pages referencing personal injuries or contentious business. In practice, this site ships it on **every service page** (including the non-contentious ones — property, wills, leases) *and* runs a separate `<FooterLegalNotice />` component in the sitewide footer (`src/components/footer/FooterLegalNotice.astro`, content in `src/config/legal/legal-cost-notice.ts`).
+
+The reasoning: anything on the site can end up in front of a court or the LSRA if a complaint is lodged, and the boundary between contentious and non-contentious work is not always clean (a wills page can lead to a contested probate; a property page can lead to a boundary dispute). Over-disclosing costs nothing; under-disclosing is a statutory breach. When in doubt, show the warning.
+
+**Pages where the warning is strictly required by Reg 6:**
+
+| Page | Reason |
+|---|---|
+| `src/pages/services/personal-injury-litigation.astro` | Personal injuries + litigation |
+| `src/pages/services/road-traffic-accidents.astro` | Motor accidents = personal injuries under Reg 4(c) |
+| `src/pages/services/employment-law.astro` | Contentious employment disputes |
+| `src/pages/services/debt-collection.astro` | Court proceedings / contentious business |
+| `src/pages/services/family-and-childcare-law.astro` | Contested family proceedings |
+
+Place `<LegalCostWarning />` directly after `<ServiceArticle>` and before `<ServiceProcess>` on each page. The sitewide footer notice is already wired into the main layout — nothing to add per-page for that.
+
+**Also prohibited on all pages** (Reg 6(b)): "no win no fee", "no foal no fee", "free first consultation", or any phrase that implies the service will cost the client nothing.
+
 ---
 
 ## Legal Compliance — ePrivacy & Data Protection (S.I. No. 336/2011 + GDPR)
 
-This section covers the implementation requirements for cookie consent, contact form compliance, data security, and data retention under Irish ePrivacy law and GDPR. It is written for developers, not solicitors — the focus is on what to build, not legal theory.
-
-**Key legal references:**
-- [S.I. No. 336/2011 — Irish ePrivacy Regulations (full text)](https://www.irishstatutebook.ie/eli/2011/si/336/)
-- [GDPR Articles 6 & 7 — lawful basis and consent requirements](https://gdpr-info.eu/art-6-gdpr/)
-- [DPC — Guidance on Cookies and Other Tracking Technologies](https://www.dataprotection.ie/en/dpc-guidance/guidance-cookies-and-other-tracking-technologies)
-- [DPC — How do I make a privacy policy?](https://www.dataprotection.ie/en/faqs/responsibilities-data-controllers/how-do-i-make-privacy-policy)
-
----
-
-### 1. Cookie Consent (S.I. No. 336/2011, Regulation 5)
-
-#### What the law requires
-
-Regulation 5 of S.I. No. 336/2011 requires prior informed consent before setting any cookie that is not strictly necessary. Strictly necessary cookies (session management, security tokens) are exempt. Everything else — analytics, preferences, marketing — requires explicit opt-in consent before the cookie fires.
-
-The exact statutory text (for reference and audit purposes):
-
-> **Regulation 5(3):** "A person shall not use an electronic communications network to store information, or to gain access to information already stored in the terminal equipment of a subscriber or user, unless (a) the subscriber or user has given his or her consent to that use, and (b) the subscriber or user has been provided with clear and comprehensive information..."
-
-> **Regulation 5(5):** "Paragraph (3) does not prevent any technical storage of, or access to, information for the sole purpose of carrying out the transmission of a communication over an electronic communications network or which is strictly necessary in order to provide an information society service explicitly requested by the subscriber or user."
-
-Regulation 5(5) is the legal basis for strictly necessary cookies being exempt from the consent requirement. Regulation 5(3) is why everything else needs explicit opt-in before it fires.
-
-Irish-specific rule: **consent expires after 6 months** and must be re-prompted. This is the shortest consent validity period in the EU.
-
-#### What counts as valid consent (GDPR Article 7)
-- A clear affirmative action (ticking a box, clicking "Accept") — not inferred from scrolling or continued browsing
-- Granular — users must be able to accept analytics without accepting marketing
-- As easy to decline as to accept — the reject button must be equally prominent
-- Freely given — no cookie walls forcing acceptance to access the site
-- Withdrawable at any time
-
-#### Cookiebot setup — step by step
-
-Cookiebot is the recommended tool. It auto-scans the site, categorises cookies, generates the cookie policy page content, handles the 6-month renewal, and produces a compliant banner. Free for sites under 100 pages.
-
-**Step 1 — Create a Cookiebot account**
-Sign up at [cookiebot.com](https://www.cookiebot.com). Add the site's domain. Cookiebot will scan it and list all cookies detected.
-
-Configure the account with these settings — each one is required for Irish legal compliance:
-
-| Setting | Value | Reason |
-|---|---|---|
-| Consent method | Explicit consent | Required by S.I. No. 336/2011 Reg 5(3) — implied consent is not valid |
-| Button layout | Reject all / Selection / Allow all | DPC equal prominence requirement — reject must be as easy as accept |
-| Geographic scope | EU and EEA | Applies Irish/EU law to all visitors |
-| Implementation | Manual (auto-blocking enabled) | Auto-blocking prevents non-essential scripts firing before consent without needing to tag each script individually |
-
-**Production domain switch:** Cookiebot is initially configured on a test domain during development. Before client launch, update the domain in the Cookiebot dashboard to the live production domain. The CBID in `BaseLayout.astro` stays the same — only the domain setting in the dashboard changes.
-
-**Step 2 — Add the consent script to `BaseLayout.astro`**
-
-This must be the **first script in `<head>`** — before any analytics or other scripts. Cookiebot's auto-blocking mode will prevent other scripts from firing until consent is given.
-
-```astro
-<head>
-  <script
-    is:inline
-    id="Cookiebot"
-    src="https://consent.cookiebot.com/uc.js"
-    data-cbid="YOUR-COOKIEBOT-ID"
-    data-blockingmode="auto"
-    type="text/javascript"
-  ></script>
-  <!-- all other head content below -->
-```
-
-Replace `YOUR-COOKIEBOT-ID` with the CBID from your Cookiebot dashboard. The `data-blockingmode="auto"` attribute tells Cookiebot to automatically block non-essential scripts until the user consents — no manual tagging of individual scripts needed.
-
-**Step 3 — Add the cookie declaration to `/cookie-policy`**
-
-The cookie declaration is a live auto-updating table of all cookies on the site. Embed it on the cookie policy page:
-
-```astro
-<script
-  is:inline
-  id="CookieDeclaration"
-  src="https://consent.cookiebot.com/YOUR-COOKIEBOT-ID/cd.js"
-  type="text/javascript"
-  async
-></script>
-```
-
-**Step 4 — Add a "Manage preferences" button**
-
-Users must be able to withdraw or change consent at any time. Add this button to the cookie policy page (and optionally the footer):
-
-```html
-<button type="button" onclick="Cookiebot.renew()">
-  Manage cookie preferences
-</button>
-```
-
-**Step 5 — Configure consent categories in the Cookiebot dashboard**
-
-In the Cookiebot dashboard, review the auto-detected cookies and assign each to the correct category:
-- **Necessary** — session cookies, CSRF tokens, Cookiebot's own consent cookie
-- **Preferences** — cookies that remember user choices
-- **Statistics** — Google Analytics, any analytics tool
-- **Marketing** — advertising pixels, retargeting
-
-**Step 6 — Test before launch**
-
-- Clear cookies and visit the site — the banner should appear immediately
-- Click "Decline" — verify no analytics or marketing cookies are set
-- Click "Accept all" — verify analytics fires
-- Return to the site — banner should not appear again until 6 months have passed
-- Visit `/cookie-policy` — verify the declaration table renders correctly
-
-#### Strictly necessary cookies — no consent required
-
-These cookies are exempt from the consent requirement under Regulation 5(5) of S.I. No. 336/2011:
-
-| Cookie | Purpose |
-|---|---|
-| Session/auth cookies | Keeping users logged in (not applicable to this site — no login) |
-| CSRF tokens | Form security (the contact form uses these) |
-| Cookie consent record | Cookiebot's own consent record cookie (`CookieConsent`) |
-| Load balancer cookies | Routing requests to the correct server |
-
----
-
-### 2. Contact Form & Email Compliance (S.I. No. 336/2011, Regulation 13)
-
-#### What the law requires
-
-Regulation 13 prohibits sending unsolicited electronic communications for direct marketing without prior consent. For a solicitor's contact form, this applies if the form is used to send any follow-up marketing material beyond responding to the specific enquiry.
-
-**Responding to a contact form submission is not marketing** — it is fulfilling the purpose for which the data was given. No additional consent is needed to reply to an enquiry.
-
-**Sending a newsletter or follow-up promotional email requires separate explicit consent.**
-
-#### Contact form — what to include
-
-The contact form at `src/features/contact-form/` currently collects name, phone, email, service type, and message. No changes are needed for basic enquiry handling. If a newsletter or mailing list is ever added:
-
-1. Add a clearly labelled **opt-in checkbox** — unchecked by default
-2. The checkbox label must specify exactly what the person is signing up for
-3. Store a record of when and how consent was given
-4. Every marketing email must include an unsubscribe link
-
-**Example opt-in checkbox (if a newsletter is ever added):**
-
-```html
-<label>
-  <input type="checkbox" name="marketing-consent" value="yes" />
-  I would like to receive occasional updates and legal news from
-  Mary Molloy Solicitor by email. I can unsubscribe at any time.
-</label>
-```
-
-Do not pre-check this box. Do not bundle marketing consent with the enquiry submission.
-
-#### Current contact form — no marketing consent needed
-
-The current form sends a one-time enquiry. The legal basis for processing the submitted data is **legitimate interests** (GDPR Article 6(1)(f)) — responding to an enquiry the person initiated. No consent checkbox is required for the enquiry itself.
-
-The Privacy Policy must state this lawful basis and the data retention period for enquiry data (see section 4 below).
-
----
-
-### 3. Data Security (S.I. No. 336/2011, Regulation 4 + GDPR Article 32)
-
-#### What the law requires
-
-Regulation 4 requires providers to take appropriate technical and organisational measures to safeguard the security of their services. GDPR Article 32 requires appropriate security measures relative to the risk. For a solicitor's website, the relevant risks are: interception of contact form data, unauthorised access to form submissions, and exposure of client enquiry details.
-
-#### Security checklist — hosting & deployment
-
-- [ ] **HTTPS enforced** — Vercel/Netlify provide this automatically. Verify HSTS is set in response headers (see the Security Headers section of this README)
-- [ ] **Environment variables** — `RESEND_API_KEY` and `GOOGLE_PLACES_API_KEY` must be set in the hosting platform, never committed to the repository
-- [ ] **Contact form validation** — all fields are validated server-side via Zod before the email is sent (already implemented in `src/features/contact-form/`)
-- [ ] **Honeypot field** — the contact form includes a hidden honeypot field to block basic spam bots (already implemented)
-- [ ] **No client data in logs** — verify that form submission content (names, email addresses, enquiry details) is not written to server logs or error tracking services
-- [ ] **Resend — email in transit** — Resend transmits emails over TLS. Verify the `FROM` and `TO` addresses in `src/features/contact-form/service/deliverContact.ts` use the firm's own domain once verified
-- [ ] **Dependencies audited** — run `npm audit` before launch and resolve any high/critical vulnerabilities
-- [ ] **Security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP, HSTS (see Security Headers section)
-
-#### Resend — what data leaves the server
-
-When the contact form is submitted, the following data is sent to Resend's API to deliver the email: the submitter's name, email address, phone number, and message. Resend is a US-based processor. This transfer is covered under the EU–US Data Privacy Framework (Resend participates in this framework). The Privacy Policy must disclose Resend as a data processor and acknowledge the US transfer.
-
----
-
-### 4. Data Retention (S.I. No. 336/2011, Regulation 6 + GDPR Article 5(1)(e))
-
-#### What the law requires
-
-GDPR Article 5(1)(e) requires that personal data is kept no longer than necessary for the purpose it was collected. There is no single fixed retention period — it depends on the purpose. The Privacy Policy must state the retention period (or the criteria used to determine it) for each category of data.
-
-#### Retention periods for this site
-
-| Data type | Where held | Retention period | Reason |
-|---|---|---|---|
-| Contact form submissions | Resend delivery logs | 30 days (Resend default) | Delivery confirmation only — the email is delivered to the firm's inbox, which is the record |
-| Contact form submissions | Firm's email inbox | At the firm's discretion — recommend 1 year if no matter opened, 7 years if a matter is opened | Standard file retention for solicitors |
-| Google Analytics data | Google (if enabled) | 14 months maximum (configure in GA4 settings) | GA4 default is 14 months; reduce to 2 months if only session data is needed |
-| Cookie consent records | Cookiebot | 12 months | Cookiebot stores proof of consent for audit purposes |
-| AML identity verification | Firm's files | 5 years minimum from end of business relationship | Criminal Justice (Money Laundering and Terrorist Financing) Acts 2010–2021 |
-
-#### Configuring GA4 data retention
-
-In Google Analytics 4, go to **Admin → Data Settings → Data Retention** and set the user and event data retention to **14 months** (the minimum available). This must be done before the site goes live if GA4 is used.
-
-#### Analytics anonymisation
-
-If using Google Analytics, enable IP anonymisation. In GA4 this is on by default. For any other analytics tool, verify that IP addresses are anonymised before data leaves the user's browser — this reduces the privacy risk and the sensitivity of the data being collected.
-
-#### Form data lifecycle
-
-```
-User submits form
-       ↓
-Server-side Zod validation (no data stored at this point)
-       ↓
-Resend API call → email delivered to firm inbox
-       ↓
-Resend log retained 30 days (delivery record only)
-       ↓
-Firm inbox — retained per firm's email retention policy
-       ↓
-If matter opened → retained on client file (7 years recommended)
-If no matter opened → delete after 12 months
-```
-
-The Privacy Policy must document this lifecycle in plain English for data subjects.
-
-**This project is already compliant with Regulation 6 by design.** The contact form at `src/features/contact-form/service/deliverContact.ts` sends the submission directly through Resend and discards it — there is no database, no server-side log, and no persistent storage of form data. Once Resend delivers the email to the firm's inbox, the only remaining copy is in that inbox, which is the firm's responsibility to manage. Resend's own delivery logs are deleted automatically after 30 days. No developer action is required to achieve data retention compliance for the contact form.
-
----
-
-### 5. Privacy Policy — required elements checklist
-
-The Privacy Policy at `/privacy` must cover the following. These map directly to GDPR Articles 13 & 14 and the DPC's guidance for Irish SMEs.
-
-- [ ] Identity and contact details of the data controller (the solicitor's name, address)
-- [ ] Lawful basis for processing each category of data (enquiries = legitimate interests; AML checks = legal obligation)
-- [ ] What data is collected (name, email, phone, enquiry content; analytics data if applicable)
-- [ ] Who data is shared with (Resend for email delivery; Google if GA4 is used)
-- [ ] International transfers and safeguards (Resend = US transfer covered by EU–US DPF)
-- [ ] Retention periods for each data category (see table above)
-- [ ] All data subject rights (access, rectification, erasure, portability, objection, restriction)
-- [ ] Right to withdraw consent (for any consent-based processing)
-- [ ] Right to complain to the DPC ([dataprotection.ie](https://www.dataprotection.ie))
-- [ ] AML retention notice — right to erasure does not apply during the 5-year AML retention period
-- [ ] Legal professional privilege notice — access requests may be refused for privileged material
-- [ ] No automated decision-making statement (if true — state it explicitly)
-
-**DPC template:** [GDPR Checklist & Templates for SMEs (Word)](https://www.dataprotection.ie/sites/default/files/uploads/2019-04/GDPR-Checklist-Templates-for-SMEs-Downloadable-1.docx) — the most authoritative free starting point for an Irish firm.
+The compliance audit trail for cookie consent, contact-form processing, data security, retention, and the privacy-policy contents lives in `legal-compliance/`. Read these in order if you need to verify any compliance claim:
+
+1. **`legal-compliance/cookies/dpc-guidance-walkthrough.md`** — DPC's April 2020 guidance walked section-by-section, with verbatim quotes, plain-English explanation, and a verification step against the live site for every requirement.
+2. **`legal-compliance/cookies/edpb-2023-compliance-evidence.md`** — same exercise for the EU regulator's 2023 Cookie Banner Taskforce Report.
+3. **`legal-compliance/cookies/reg-5-compliance-evidence.md`** — same exercise for S.I. 336/2011 Regulation 5 (the operative Irish statute).
+4. **`legal-compliance/gdpr/walkthrough.md`** — full GDPR walkthrough: every Recital (1–173) and every Article (1–99) triaged, with full entries for the operative ones cross-referenced to the privacy policy section, RoPA activity, and processor DPA that handles each.
+5. **`legal-compliance/gdpr/privacy-policy-draft.md`** — the published privacy policy, plain English, ~3,000 words.
+6. **`legal-compliance/gdpr/record-of-processing-activities.md`** — the firm's Article 30 RoPA, three website-side activities documented under the seven mandatory headings.
+7. **`legal-compliance/processor-agreements/`** — the three executed Article 28(3) DPAs: Cookiebot, Resend, Vercel.
+8. **`legal-compliance/legal-services-regulation-act/website-content-review-checklist.md`** — the plain-English checklist that walks each LSRA Reg 4–11 rule with examples.
+
+Source PDFs live alongside each walkthrough (DPC guidance, EDPB report, S.I. 336/2011, the GDPR text, the EU ePrivacy Directive, the LSRA Regulations).
+
+If you're reviewing this site against the law for the first time, start with item 1 (the DPC walkthrough). It's the most efficient entry point and points at every other relevant file.
 
 ---
 
@@ -492,7 +256,7 @@ npx tsx scripts/compliance-screenshot.ts annual-review
 ```
 
 **Then complete the compliance record:**
-1. Copy `legal-compliance/website-content-review-checklist.md` into the launch folder
+1. Copy `legal-compliance/legal-services-regulation-act/website-content-review-checklist.md` into the launch folder
 2. Save all testimonial consent forms to `legal-compliance/compliance-records/YYYY-MM-launch/consents/`
 3. Save any content instructions received from the solicitor (emails, messages, briefs) into `legal-compliance/compliance-records/YYYY-MM-launch/instructions.md`
 
@@ -539,7 +303,7 @@ legal-compliance/
 
 GitHub tracks code history but the LSRA needs the finished output as visitors see it — screenshots are the compliance record, GitHub is the audit trail.
 
-> Full compliance guidance: `legal-compliance/website-content-review-checklist.md`
+> Full compliance guidance: `legal-compliance/legal-services-regulation-act/website-content-review-checklist.md`
 
 ---
 
@@ -558,30 +322,178 @@ The review files cover: firm details, team bios and credentials, the about page,
 
 ---
 
+## Per-Client Compliance Setup — Reusable Checklist
+
+This section is the reusable instruction set for setting up GDPR / ePrivacy / LSRA compliance on **any** Irish solicitor site built from this template. Mary-specific status lives in `_scratch-remaining-work.md`; everything below is the standing process.
+
+### A. During build — establish processor relationships
+
+Every solicitor's-firm website using this template will have these three processor relationships. For each, the executed Data Processing Addendum (DPA) must be filed locally so the firm can satisfy GDPR Article 28(3) and respond to Article 15(1)(c) / 13(1)(f) requests.
+
+**1. Cookiebot DPA** (cookie consent management)
+- Source: Cookiebot Manager → Settings → DPA, or `cookiebot.com/en/legal/dpa/`.
+- File at: `legal-compliance/processor-agreements/cookiebot-dpa-YYYY-MM.pdf`.
+
+**2. Email-delivery provider DPA** (e.g. Resend for the contact form)
+- Source: provider's legal-documents page (e.g. `resend.com/legal/dpa`).
+- File at: `legal-compliance/processor-agreements/[provider]-dpa-YYYY-MM-DD.pdf`.
+- Confirm the third-country transfer mechanism (EU Standard Contractual Clauses or EU–US Data Privacy Framework adequacy decision). Note which DPA section names the safeguard.
+
+**3. Hosting provider DPA** (e.g. Vercel, Netlify, etc.)
+- Source: hosting provider's legal-documents page (e.g. `vercel.com/legal/dpa`).
+- File at: `legal-compliance/processor-agreements/[provider]-dpa-YYYY-MM-DD.pdf`.
+- Same: confirm third-country mechanism + which section names it.
+
+**Verification for each DPA:** confirm it covers all eight Article 28(3) clauses. Checklist in `legal-compliance/processor-agreements/README.md`.
+
+### B. During build — Article 30 RoPA (website slice)
+
+GDPR Article 30 requires every controller to maintain a written Record of Processing Activities. The under-250-employees carve-out in Article 30(5) does **not** apply to a solicitor's firm because the processing is not occasional and may include special-category data (health in PI, criminal allegations in family law).
+
+The website-slice RoPA is the same shape for every solicitor client and lives at `legal-compliance/gdpr/record-of-processing-activities.md`. Three website processing activities to document under the seven Article 30(1)(a)–(g) headings:
+
+1. Cookie consent records (Cookiebot)
+2. Contact-form submissions (email-delivery provider)
+3. Server access logs (hosting provider)
+
+Confirm with the firm:
+- Their preferred retention period for non-matter contact-form messages (typical pattern: 30–90 days)
+- Their data-protection point of contact name (often the principal solicitor herself)
+- The hosting provider that will be active in production
+
+### C. During build — shared compliance Google Drive folder
+
+When a visitor exercises an Article 15(1)(c) / 13(1)(f) right and asks for a copy of the international-transfer safeguard, the **firm** must respond within one month (Article 12(3)). If the only copy of the DPA lives on the website manager's laptop, the firm cannot respond when the website manager is unavailable. So the firm's office needs its own access.
+
+**Three locations, three purposes:**
+- `legal-compliance/processor-agreements/` (this repo) — frozen-in-time audit trail, never delete; git history is the legal evidence.
+- Website manager's master Google Drive folder — working copies; manage updates here first.
+- Shared **"[Firm Name] — Compliance — Processor Agreements"** Google Drive folder — what the firm or its staff opens when a visitor asks.
+
+**Setup steps (~30 minutes):**
+1. Create the Google Drive folder named "[Firm Name] — Compliance — Processor Agreements" and share with the firm's confirmed email address.
+2. Copy the three current DPAs in.
+3. Add a one-page README inside the Drive folder explaining: which file to send for which provider, which section names the safeguard, and the wording of a short covering email to a requesting visitor.
+4. Reference the shared folder location in the firm's operational notes (not the public-site README).
+5. Whenever a DPA is updated by a processor: replace the file in **all three** locations on the same day; commit the new repo version with the date in the filename; do not silently overwrite.
+
+### D. Pre-launch — production-cutover checklist
+
+Run these in order before flipping DNS to the production domain. Total ~30–45 minutes.
+
+**Cookiebot production swap:**
+- [ ] Replace the development CBID in `src/layouts/BaseLayout.astro` and `src/pages/cookie-policy.astro` with the firm's production CBID.
+- [ ] Re-apply the **1-month consent-expiry** setting in the production Cookiebot dashboard (the path is in `legal-compliance/cookies/client-onboarding-checklist.md`).
+- [ ] Re-enter the Cookie Declaration / Privacy Policy URL fields in the production dashboard.
+
+**Domain swap:**
+- [ ] Update `siteUrl` in `src/config/firm.ts` from the staging URL (e.g. `https://test-XXX.netlify.app/`) to the production domain. This value is baked into canonical URLs, the sitemap, Open Graph metadata, and structured data — leaving it on the staging URL after production deploy silently destroys SEO. **Five-second edit, must happen before the production build.**
+
+**External-links audit (LSRA Reg 9):**
+- [ ] Audit the live site against the disclaimer's Section 5 commitment. Confirm there are no:
+  - Directory-listing or review-aggregator links (e.g. Solicitors.ie listings)
+  - Press articles linked that name the firm
+  - Referral / partner website links
+  - Google Business Profile link (use a Google Maps **address-search** URL for directions instead — not the business profile)
+- [ ] Run through every "Verification" block in `legal-compliance/cookies/dpc-guidance-walkthrough.md` against the live production site.
+
+**Compliance screenshots (Reg 11(f)):**
+- [ ] Run dated compliance screenshots:
+  ```bash
+  npx tsx scripts/compliance-screenshot.ts launch
+  ```
+
+### E. Post-launch — Reg 11(f) record-keeping
+
+Reg 11(f) of S.I. 644/2020 requires the firm to keep a **12-month-rolling dated record of every advertisement** — which includes the website. The compliance-screenshot script handles this:
+
+```bash
+npx tsx scripts/compliance-screenshot.ts <descriptive-label>
+```
+
+Screenshots save to `legal-compliance/compliance-records/<YYYY-MM-label>/screenshots/`. Re-run **after any visible content change** so the rolling-12-month record stays current.
+
+### F. Standing — third-party-widget trigger checklist
+
+If anyone (the firm, the website manager, a future developer) wants to add a third-party widget to the site, the steps below **must** be completed before it ships to production. Triggers include:
+
+- Facebook Like button or any social-sharing button
+- Embedded YouTube, Vimeo, or any third-party video iframe
+- Embedded Google Maps, OpenStreetMap, or any third-party map iframe
+- Google Analytics, Hotjar, Microsoft Clarity, Plausible, Fathom, or any analytics provider
+- Meta Pixel, Google Ads conversion / remarketing tag, LinkedIn Insight Tag, TikTok pixel, or any advertising pixel
+- Stripe, PayPal, Worldpay, Realex, or any online payment processor
+- Disqus, Intercom, Crisp, Tawk.to, or any third-party chat / comments widget
+- A new font loaded from `fonts.googleapis.com` (use `@fontsource` instead)
+- Any new processor (replacing the current Cookiebot, email, or hosting provider)
+
+**Step 0 — Sensitivity gate (apply BEFORE the rest):**
+- Run the Phase 0 triage in `legal-compliance/cookies/client-onboarding-checklist.md`.
+- If the client is **sensitive-topic** (family law, personal injury, criminal defence, mental health, immigration, etc.) AND the trigger is a **tracker / advertising pixel / analytics tool**: **refuse**. Hand the client `_business/sensitive-topic-tracking-client-faq.md` and `_business/google-ads-for-sensitive-topic-clients.md`.
+- If the client is **not sensitive-topic** OR the trigger is a non-tracker third party (Maps embed, payment processor, replacement processor): proceed.
+
+**The seven steps that must be completed before the widget ships:**
+
+1. **Written assessment** — paragraph in the RoPA describing the data flow plus the *Fashion ID* CJEU joint-controllership analysis. Joint-controller assessments belong in `legal-compliance/joint-controller-assessments/[vendor].md`.
+2. **Article 26 joint-controller arrangement** — find and accept the vendor's published joint-controller addendum in their dashboard. If the vendor does not publish one, the widget cannot lawfully ship under EU law.
+3. **Privacy policy disclosure** — add the vendor under Article 13(1)(e) categories of recipients, with the Article 26(2) "essence of the arrangement" included.
+4. **Consent gating** — tag the embed with `data-cookieconsent="marketing"` (or the relevant category) so Cookiebot blocks it until consent. Verify in DevTools Network panel that the third-party request does not fire before consent is given.
+5. **Article 30 RoPA update** — add a new processing-activity row covering all seven Article 30(1)(a)–(g) headings.
+6. **Section 24 DPIA** — for any analytics, profiling, advertising-pixel, session-recording, or dataset-linking tool. Cite the DPC's mandatory-DPIA list. Skip only if the trigger is a payment processor or non-tracking embed (Maps / video) — even then, document the no-DPIA conclusion.
+7. **Section 25 special-category check** — confirm the vendor's sensitive-information policy and confirm that the site's content does not flow Article 9 inferences to the vendor. For sensitive-topic clients this gate is failed by definition (see Step 0).
+
+**Skip any one of the seven and the consent is not valid, the data flow is unlawful, or both.**
+
+**Realistic time estimate:** ~one full working day per widget for non-sensitive clients (Step 22 paperwork ~2–4 hours + DPIA ~4–8 hours + Section 25 check ~30 minutes + RoPA + privacy policy update). For sensitive-topic clients: don't measure the time, the answer is no for trackers.
+
+### G. Standing — testimonials process (when the firm is ready)
+
+Real testimonials are a separate workstream that can run after launch. Process for any client:
+
+1. The firm identifies clients to ask for a testimonial.
+2. **Prepare a screenshot or mockup** showing exactly how the testimonial will appear on the live site — wording, location, surrounding context. Show this to the client before publication.
+3. The client signs a written consent form covering the exact wording, the location of publication, and (if the testimonial mentions case details or outcomes) the specific case-detail content.
+4. The wording is reviewed under LSRA Reg 4(a)(iv) for any superlatives that should be toned down, with the client's agreement (quotes can't be unilaterally rewritten).
+5. The signed consent form is filed at `legal-compliance/compliance-records/YYYY-MM-launch/consents/`.
+
+Full procedure with statutory anchors: `legal-compliance/testimonials/testimonials-and-quotes-consent.md`.
+
+**Why this matters (Reg 5(a)(i)):** every named-person testimonial published by an Irish solicitor requires prior written consent. The LSRA can investigate testimonial use without consent as a compliance violation; the burden of proof is on the solicitor.
+
+**Whose responsibility:** the firm gathers testimonials and obtains consent; the website manager handles the wording review and publication.
+
+---
+
 ## TODO — Before Launch
 
-> When the project is finished, delete `TODO.md` from the root.
-> When the project is finished, delete `Markdown/things-i-learned/` — these are personal learning notes for during development only.
+Items waiting on Mary (firm email, solicitor credentials, complaints procedure, fixed-fee conveyancing, bios sign-off, Duke / Michelle question) are tracked in `legal-compliance/content-review/_pending-items-across-pages.md` — that's the single document Mary fills in before launch.
 
+Pre-launch operational tasks (Cookiebot CBID swap, production-domain swap, link audit, compliance screenshots) are documented in the **"Per-Client Compliance Setup — Reusable Checklist"** section above (Sections D and E).
 
+What remains here is the small set of pre-launch tasks that aren't already covered in either of the above:
 
-- [ ] **Delete `src/sections/`** — this folder was used for the mock/placeholder layout only and will likely not be needed once the real homepage is built.
-
-- [ ] **Solicitor credentials** — the attribution card on the About page (and any future service pages) displays each solicitor's degree, university, year of admission, and specialism for Google E-E-A-T. The following are still placeholders in `src/config/team.ts` and need to be confirmed with Mary:
-  - University name (for Mary, Nicholas, and Richard)
-  - Year admitted to the Roll of Solicitors (for Mary, Nicholas, and Richard)
-  Once confirmed, update the `university` and `admissionYear` fields for each solicitor in `src/config/team.ts`.
-
-- [ ] **Firm email address** — replace the placeholder `email` value in `src/config/firm.ts` with the real firm email address.
 - [ ] **Favicon colour** — confirm the favicon colour matches the final brand accent before launch. The SVG is at `public/images/favicon/favicon.svg`. The `fill` value should match `--accent-500` in `src/styles/tokens.css`. Currently set to `hsl(20 70% 46%)` (copper).
 
 - [ ] **OG images** — create and add a default Open Graph image. Currently using placeholder/default values. The default image is set in `firm.seo.defaultOgImage` (`src/config/firm.ts`) and should be placed in `public/images/open-graph/`. A single good default image is fine for all pages — per-page OG images are optional and can be passed via the `ogImage` and `ogImageAlt` props on `BaseLayout` if you ever want a specific image for a particular page (e.g. a services page).
+
+- [ ] **Cookie consent — write Playwright tests** to verify the banner loads before any non-essential scripts can run. Tests to cover:
+  - On first visit (no `CookieConsent` cookie): banner is visible before the user interacts
+  - On first visit: no Statistics or Marketing cookies are set before the user clicks Accept
+  - On first visit: clicking Deny sets no non-essential cookies
+  - On first visit: clicking Accept All sets the `CookieConsent` cookie with the correct consent state
+  - On return visit (after consent given): banner does not appear again
+  - On the `/cookie-policy` page: the cookie declaration table renders and lists at least the `CookieConsent` and `intro-seen` cookies
+  - On the `/cookie-policy` page: "Change your consent" and "Withdraw your consent" links are present and functional
+  
+  These tests are a legal safeguard — if the DPC ever investigates, passing tests demonstrate that the site was verified to obtain consent before firing any tracking.
 
 ---
 
 ## Going Live — Cookie Consent & Tracking Setup
 
 The site will need cookie consent management for GDPR compliance if running Google or Facebook ads.
+
+> **Note — Google Consent Mode (GCM):** When Google Analytics or Google Ads are added, enable Google Consent Mode in the Cookiebot dashboard under **Implementation → Google Consent Mode**. This tells Google how to adjust its data modelling based on whether the user consented. It is not needed until tracking is added — skip it until then.
 
 ### What you need
 
@@ -598,23 +510,36 @@ They work as a pair: Cookiebot captures consent, GTM only fires tags when Cookie
 - `_fbp`, `_fbc` — Facebook Pixel
 - Session/functional cookies — these are usually exempt from consent
 
-### Account ownership — Cookiebot
+### Account ownership — Cookiebot (read this first)
 
-**Each client must own their own Cookiebot account.** Cookiebot's free plan covers 1 domain. If you are building sites for multiple clients, you cannot use your own Cookiebot account — each client needs theirs.
+**Every client needs their own Cookiebot account. This is non-negotiable.**
 
-**Handover process for this project:**
+Three reasons:
 
-1. Ask Mary to sign up for a free account at [cookiebot.com](https://www.cookiebot.com) using her own email address
-2. She adds her live domain (e.g. `marymolloy.ie`) to her account
-3. She runs the domain scan — Cookiebot will detect all cookies on the site
-4. She sends you the new `data-cbid` value from her dashboard
+1. **Legal** — the consent records (who agreed, when, to what) belong to the data controller. That is the client, not you. Under GDPR, if the DPC audits Mary, she must produce those records. They need to be in her account, not yours.
+2. **Practical** — Cookiebot's free plan allows 1 domain per account. You will hit that limit immediately if you try to manage all clients from one account.
+3. **Business** — if a client leaves you or switches developer, their compliance records stay with them. You do not want to be holding a client's GDPR records after the relationship ends.
+
+**Standard process for every new client:**
+
+1. During development — use your own Cookiebot account with a development domain. This is fine.
+2. Before launch — ask the client to sign up for a free account at [cookiebot.com](https://www.cookiebot.com) using their own email address.
+3. They add their live domain and run the scan.
+4. They send you their `data-cbid` from the dashboard.
 5. You update the one line in `BaseLayout.astro`:
    ```astro
-   data-cbid="PASTE-NEW-CBID-HERE"
+   data-cbid="PASTE-CLIENT-CBID-HERE"
    ```
-6. Commit and push — done. The banner will now report to her account.
+6. Commit and push. Their banner now reports to their account. Done.
 
-**As a developer running multiple client sites:** use your own Cookiebot account during development only, then hand over to the client before launch. Do not leave a development CBID live in production — the consent records will be in your account, not theirs.
+**Client onboarding — what to ask for:**
+
+- **Team access (admin)** — ask the client to go to **Settings → Team** in their Cookiebot dashboard and invite `james@jamesmcdonald.dev` with admin access. This lets you configure the banner and fix issues without sharing their password.
+- **Scan report recipient** — ask them to add `james@jamesmcdonald.dev` under **Cookies and Trackers → Scan report recipients**. This emails you whenever a scan runs so you can catch new cookies or tracking scripts that need categorising.
+- **CMP script (`data-cbid`)** — once their account is set up, go to **Implementation → CMP** in their dashboard. Copy the `data-cbid` value and update it in `BaseLayout.astro` (see Step 2 in the Cookiebot setup section below). This is the consent banner script — it must use their CBID, not yours.
+- **Cookie Declaration script** — go to **Implementation → Cookie Declaration** in their dashboard. Copy the full script tag and replace the existing script in `src/pages/cookie-policy.astro`. The page already has a development version of this script with a TODO comment marking it for replacement — swap the entire script tag with the one from the client's dashboard. It must use their CBID so it reads from their account's scan results.
+
+Add this to your client onboarding checklist alongside domain access and Resend credentials — it is a standard pre-launch step on every project.
 
 ### Account setup — GTM/GA4
 
@@ -688,7 +613,7 @@ Before going live you must verify a domain so that emails can be delivered to an
 
 2. **Add your domain**
    - Go to **Domains → Add Domain**
-   - Enter the domain the site will be hosted on (e.g. `nicksolicitors.ie`)
+   - Enter the domain the site will be hosted on (e.g. `marymolloy.ie`)
 
 3. **Add the DNS records**
    - Resend will show you a set of DNS records (MX, TXT, DKIM)
@@ -700,8 +625,8 @@ Before going live you must verify a domain so that emails can be delivered to an
    Open `src/features/contact-form/service/deliverContact.ts` and update these two lines:
 
    ```ts
-   const FROM = "contact@nicksolicitors.ie"; // must use your verified domain
-   const TO = "nick@nicksolicitors.ie";       // the solicitor's actual email
+   const FROM = "contact@marymolloy.ie"; // must use your verified domain
+   const TO = "info@marymolloy.ie";      // the solicitor's actual email
    ```
 
 5. **Set the production API key**
@@ -797,3 +722,26 @@ An accessibility statement page is included as part of the standard legal pages.
 
 ## Important
 ⚠️ If the firm wants to publish a public email address, add that address to the statement and confirm the preferred accessibility contact method before launch.
+
+## Accessibility audit — do this after launch
+
+The statement currently says the conformance status has not been formally evaluated. After launch, run a full audit and update the statement accordingly.
+
+**How to audit:**
+
+1. **WAVE** — go to [wave.webaim.org](https://wave.webaim.org/) and enter the live URL. It will flag errors (red), alerts (yellow), and structural issues across the page. **WAVE tests one page at a time** — you must run it separately for every page on the site. Pages to test: `/`, `/about`, `/contact`, `/services`, each individual service page, `/cookie-policy`, `/privacy`, `/accessibility`, `/disclaimer`, `/terms`, `/complaints`. Focus on clearing all **errors** (red) first — alerts (yellow) are informational and do not always indicate a real barrier.
+2. **axe DevTools** — install the free Chrome/Firefox extension from [deque.com/axe](https://www.deque.com/axe/). Open DevTools → axe tab → Analyse Page. More thorough than Lighthouse for accessibility-specific issues.
+3. **Keyboard navigation** — tab through every page without a mouse. Every interactive element (links, buttons, form fields) must be reachable and have a visible focus indicator.
+4. **VoiceOver** — on Mac, press `Cmd + F5` to toggle. Tab through the site and check that the screen reader reads everything in a logical order and all images have meaningful alt text.
+
+**After the audit — update the statement:**
+
+Open `legal-compliance/accessibility/accessibility-statement_2026-01-11.md` and update the **Conformance status** section:
+
+- If no issues found: change to `"fully conformant with WCAG 2.1 level AA"`
+- If minor issues remain: change to `"partially conformant with WCAG 2.1 level AA"` and list each known issue below the status line, e.g.:
+  - "Some older PDF documents linked from the site may not fully meet accessibility standards."
+  - "The contact form does not yet have a visible focus indicator on the submit button."
+- Update the **Date** line at the bottom with the new review date.
+
+Then rebuild the `/accessibility` page with the updated content from the statement file.
