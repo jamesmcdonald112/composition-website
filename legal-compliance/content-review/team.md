@@ -3,7 +3,7 @@ _Exported 2 May 2026 — source: `src/config/team.ts`_
 
 This document is the visible content of the team section that appears on the home page and the about page of the Mary Molloy Solicitor website. The wording has been audited against the Legal Services Regulation Act 2015 (Advertising) Regulations 2020.
 
-Please read through and let me know if you would like anything changed. **In particular: Mary, Nicholas, and Richard should each confirm the bio under their own name reads accurately.**
+Please read through and let me know if you would like anything changed. **The bio sign-off, the solicitor credentials, and the Duke / Michelle question are all consolidated in the master file** at `legal-compliance/content-review/_pending-items-across-pages.md` (Sections 3, 5, and 6) — no need to answer here.
 
 The technical compliance summary at the end is for the website's records — you can skip it unless you want to read it.
 
@@ -57,25 +57,13 @@ _The "46 years" figure is calculated automatically from the firm's establishment
 
 ---
 
-## Solicitor credentials (used in attribution blocks across the site)
+## Solicitor credentials + bio sign-off
 
-Each solicitor's name, role, and qualifications are also displayed in the attribution block at the bottom of every content page they have signed off on. The current displayed credentials line is:
+The "Reviewed by" attribution block at the bottom of every content page shows each solicitor's name, role, and qualifications. The credentials and the bio sign-off are both **asked for in the master pending-items file** rather than repeated here:
 
-> "LLB, Admitted to the Roll of Solicitors, Law Society of Ireland"
+> See `legal-compliance/content-review/_pending-items-across-pages.md` — Sections 3 (credentials) and 5 (bios).
 
-**This is a placeholder.** The full version should include each solicitor's:
-
-- Degree (LLB or other) — currently shown as LLB for all three; please confirm
-- University attended — currently a placeholder (`TODO: University name`)
-- Year of admission to the Roll of Solicitors — currently a placeholder (`TODO: Year`)
-
-This applies to all three solicitors and is tracked separately in the cross-page items file (`legal-compliance/content-review/_pending-items-across-pages.md`). It is not a per-page audit item.
-
-**Action items for each of you:**
-
-- **Mary** — confirm your LLB, the university you attended, and your year of admission to the Roll of Solicitors. The website manager will update the configuration.
-- **Nicholas** — confirm your LLB, university, and year of admission.
-- **Richard** — confirm your LLB, university, and year of admission.
+When you've answered those sections in the master file, the website manager will update the relevant configuration files.
 
 ---
 
@@ -113,7 +101,7 @@ The team section was originally written before the calm-authority register was s
 - **Reg 4(a)(ii)** — bad taste. No issues.
 - **Reg 4(a)(iii)** — attacks on other solicitors. No comparative or critical wording.
 - **Reg 4(a)(vi)** — encouragement to make a claim. Not directly applicable on the team section; no claim-making hooks appear.
-- **Reg 5(a)(i)** — consent to refer to a person. Mary Molloy is named with photo and bio; as firm owner, separate consent is not required (Category 1 in `legal-compliance/testimonials-and-quotes-consent.md`). Nicholas O'Shea and Richard O'Shea are named with photos and bios — covered by the firm-wide blanket consent forms they have signed. Duke is named with photo — as a non-human family member, no consent framework applies. No content change required.
+- **Reg 5(a)(i)** — consent to refer to a person. Mary Molloy is named with photo and bio; as firm owner, separate consent is not required (Category 1 in `legal-compliance/testimonials/testimonials-and-quotes-consent.md`). Nicholas O'Shea and Richard O'Shea are named with photos and bios — covered by the firm-wide blanket consent forms they have signed. Duke is named with photo — as a non-human family member, no consent framework applies. No content change required.
 - **Reg 6** / **Reg 7** / **Reg 8** — not directly applicable on the team section.
 - **Reg 11(f)** — record keeping. The firm retains dated screenshots of every page each time content changes, in `legal-compliance/compliance-records/`.
 
@@ -127,6 +115,4 @@ The team section was originally written before the calm-authority register was s
 
 ## Action items flowing through to the firm's compliance file
 
-- **Mary, Nicholas, and Richard** — each to confirm the bio under their own name reads accurately. (Bios are short and factual; no marketing claims to verify.)
-- **Solicitor credentials** — Mary, Nicholas, and Richard each to confirm their degree, university, and year of admission to the Roll of Solicitors, so the attribution block placeholder can be updated. Tracked in `_pending-items-across-pages.md`.
-- **Duke's photo** — no consent framework applies (he is a non-human family member). No action needed.
+- **Bio sign-off, solicitor credentials, and the Duke / Michelle question** — all consolidated in `_pending-items-across-pages.md` (Sections 3, 5, and 6). Nothing duplicated here.

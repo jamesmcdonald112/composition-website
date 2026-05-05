@@ -64,7 +64,7 @@ The end of the article shows a "written by" panel attributing the page to Mary a
 - **Credentials line displayed:** LLB, Admitted to the Roll of Solicitors, Law Society of Ireland
 - **Last reviewed marker:** April 2026
 
-_The credentials line is currently a placeholder. The full version (with the university Mary attended and her year of admission to the Roll of Solicitors) will be filled in once those details have been confirmed. This is tracked separately and applies to every page that displays an attribution._
+_The credentials line is currently a placeholder; the full version will be filled in once Mary supplies her university and year of admission. Asked in `_pending-items-across-pages.md` Section 3._
 
 ---
 
@@ -92,7 +92,7 @@ This page was audited against the following regulations of S.I. No. 644/2020 —
 | Reg 4(a)(iv) — false or misleading statements / unverifiable superlatives | ✅ pass — no "expert", "leading", "best", "specialist", or guarantees of outcome |
 | Reg 4(a)(vi) — encouragement to make personal injury claims | n/a — no personal injury content on this page |
 | Reg 5 — client references and testimonials | ✅ no client testimonials on this page |
-| Reg 5(a)(i) — named persons consent | ✅ Mary's name, role, and photo appear via the attribution block. As owner of the firm, separate consent is not required — the firm publishing on its own behalf is the consent (Category 1 in `legal-compliance/testimonials-and-quotes-consent.md`) |
+| Reg 5(a)(i) — named persons consent | ✅ Mary's name, role, and photo appear via the attribution block. As owner of the firm, separate consent is not required — the firm publishing on its own behalf is the consent (Category 1 in `legal-compliance/testimonials/testimonials-and-quotes-consent.md`) |
 | Reg 6(a) — Section 149 cost warning | n/a — page does not cover litigation, personal injury, or contentious matters |
 | Reg 6(b) / 6(c) / 7 / 8 — personal injury and contentious-business specific rules | n/a — page does not cover personal injury or contentious business |
 | Reg 11(a) — firm name visible | ✅ pass — appears in header, footer, schema |
