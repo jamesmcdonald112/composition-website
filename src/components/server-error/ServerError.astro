@@ -1,0 +1,97 @@
+---
+import { firm } from "../../config/firm";
+import CtaLink from "../ui/CtaLink.astro";
+import Eyebrow from "../ui/Eyebrow.astro";
+---
+
+<div class="server-error">
+	<div class="server-error__inner wrapper wrapper--wide">
+		<Eyebrow text="500 — server error" />
+
+		<h1 class="server-error__heading">
+			Something went wrong<br /><em>on our side.</em>
+		</h1>
+
+		<p class="server-error__body">
+			This is a temporary problem with the website, not anything you've done. Please try again in a moment, or use one of the links below to get where you need to go.
+		</p>
+
+		<nav class="server-error__nav" aria-label="Where would you like to go?">
+			<CtaLink href="/" label="Back to home" variant="primary" icon="arrow" />
+			<CtaLink href="/contact" label="Get in touch" variant="outline-dark" icon="arrow" />
+		</nav>
+
+		<p class="server-error__contact">
+			If the problem keeps happening, please call the firm on
+			<a href={`tel:${firm.phone.phoneHref}`}>{firm.phone.display}</a> and we'll help you directly.
+		</p>
+	</div>
+</div>
+
+<style>
+	.server-error {
+		min-height: 100vh;
+		background: var(--color-bg-page);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-block: var(--space-5xl);
+	}
+
+	.server-error__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		max-width: 65ch;
+	}
+
+	.server-error__heading {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light);
+		line-height: var(--line-height-tight);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+		margin-block-start: var(--space-lg);
+		margin-block-end: var(--space-xl);
+
+		em {
+			font-style: italic;
+			color: var(--color-fg-accent);
+		}
+	}
+
+	.server-error__body {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		margin-block-end: var(--space-3xl);
+	}
+
+	.server-error__nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--space-md);
+		margin-block-end: var(--space-4xl);
+	}
+
+	.server-error__contact {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+
+		a {
+			color: var(--color-fg-accent);
+			text-decoration: none;
+			border-block-end: 1px solid currentColor;
+
+			&:hover {
+				color: var(--color-fg-default);
+			}
+		}
+	}
+</style>
