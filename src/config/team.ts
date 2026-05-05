@@ -1,6 +1,6 @@
 import teamSectionBackground from "../assets/images/pages/property/team.webp";
 // import dukePhoto from "../assets/team/duke.webp"; // Duke removed 2026-05-05 — see commented-out entry below
-import maryPhoto from "../assets/team/maryFull.webp";
+import maryPhoto from "../assets/team/mary.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
 import { yearsInPractice } from "./firm";

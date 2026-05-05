@@ -1,6 +1,6 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import image from "../../assets/images/new/envelope-with-wax-seal.webp";
-import maryImage from "../../assets/team/maryFull.webp";
+import maryImage from "../../assets/team/mary.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
