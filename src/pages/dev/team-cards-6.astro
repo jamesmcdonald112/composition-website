@@ -1,0 +1,1105 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import maryPhoto from "../../assets/team/maryCropped.webp";
+import nicholasPhoto from "../../assets/team/nicholas.webp";
+import richardPhoto from "../../assets/team/richard.webp";
+import dukePhoto from "../../assets/team/duke.webp";
+
+const m = [
+	{ name: "Mary Molloy", role: "Principal Solicitor", bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny. She is known for her practical guidance, straightforward advice and personal approach to each case.", photo: maryPhoto },
+	{ name: "Nicholas O'Shea", role: "Solicitor", bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression. He focuses on responsiveness, clarity and maintaining consistent contact throughout the legal process.", photo: nicholasPhoto },
+	{ name: "Richard O'Shea", role: "Solicitor", bio: "Richard advises clients on buying and selling property, conveyancing and probate matters. He brings a steady, detail-focused approach to ensure each transaction progresses efficiently.", photo: richardPhoto },
+	{ name: "Duke", role: "Office Companion", bio: "Providing daily morale support to the team and a warm welcome to all visitors.", photo: dukePhoto },
+] as const;
+---
+
+<BaseLayout
+	title="Team Cards — Round 6"
+	description="Dev — 20 variations on v03 (always-visible strip, mobile horizontal)"
+	canonicalPath="/dev/team-cards-6"
+>
+	<div class="dev-page">
+		<div class="dev-page__header wrapper wrapper--wide">
+			<h1 class="dev-page__title">Round 6 — v03 Variations</h1>
+			<p class="dev-page__sub">Mobile: horizontal split · Desktop: tall portrait with slide-up bio</p>
+		</div>
+
+		<!-- ─── 01: Exact v03 + mobile horizontal ────────────────────────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">01 — v03 baseline + mobile horizontal layout</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v01">
+							<!-- Mobile: horizontal -->
+							<div class="v01__mobile">
+								<div class="v01__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v01__m-img" />
+								</div>
+								<div class="v01__m-text">
+									<p class="v01__m-role">{p.role}</p>
+									<h3 class="v01__m-name">{p.name}</h3>
+									<p class="v01__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<!-- Desktop: tall portrait with slide strip -->
+							<div class="v01__desktop">
+								<div class="v01__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v01__img" />
+									<div class="v01__strip">
+										<div class="v01__static">
+											<p class="v01__role">{p.role}</p>
+											<h3 class="v01__name">{p.name}</h3>
+										</div>
+										<p class="v01__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 02: Gold border on strip, deeper panel opacity ───────────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">02 — Gold accent top of strip, deeper navy panel</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v02">
+							<div class="v02__mobile">
+								<div class="v02__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v02__m-img" />
+								</div>
+								<div class="v02__m-text">
+									<p class="v02__m-role">{p.role}</p>
+									<h3 class="v02__m-name">{p.name}</h3>
+									<p class="v02__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v02__desktop">
+								<div class="v02__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v02__img" />
+									<div class="v02__strip">
+										<div class="v02__static">
+											<p class="v02__role">{p.role}</p>
+											<h3 class="v02__name">{p.name}</h3>
+										</div>
+										<p class="v02__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 03: Strip shows larger name, italic, rule in strip ──────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">03 — Larger italic name in strip, gold rule separator</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v03">
+							<div class="v03__mobile">
+								<div class="v03__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v03__m-img" />
+								</div>
+								<div class="v03__m-text">
+									<p class="v03__m-role">{p.role}</p>
+									<h3 class="v03__m-name">{p.name}</h3>
+									<p class="v03__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v03__desktop">
+								<div class="v03__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v03__img" />
+									<div class="v03__strip">
+										<div class="v03__static">
+											<p class="v03__role">{p.role}</p>
+											<h3 class="v03__name">{p.name}</h3>
+										</div>
+										<div class="v03__rule" aria-hidden="true"></div>
+										<p class="v03__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 04: Brand-muted panel, flanked gold rules in strip ──────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">04 — Flanked rules (M-style) inside strip</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v04">
+							<div class="v04__mobile">
+								<div class="v04__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v04__m-img" />
+								</div>
+								<div class="v04__m-text">
+									<div class="v04__m-eyebrow">
+										<span class="v04__m-rule" aria-hidden="true"></span>
+										<p class="v04__m-role">{p.role}</p>
+										<span class="v04__m-rule" aria-hidden="true"></span>
+									</div>
+									<h3 class="v04__m-name">{p.name}</h3>
+									<p class="v04__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v04__desktop">
+								<div class="v04__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v04__img" />
+									<div class="v04__strip">
+										<div class="v04__static">
+											<div class="v04__eyebrow">
+												<span class="v04__rule-side" aria-hidden="true"></span>
+												<p class="v04__role">{p.role}</p>
+												<span class="v04__rule-side" aria-hidden="true"></span>
+											</div>
+											<h3 class="v04__name">{p.name}</h3>
+										</div>
+										<p class="v04__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 05: Square image desktop, strip lower third ─────────────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">05 — Square portrait desktop, strip covers lower third</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v05">
+							<div class="v05__mobile">
+								<div class="v05__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={120} class="v05__m-img" />
+								</div>
+								<div class="v05__m-text">
+									<p class="v05__m-role">{p.role}</p>
+									<h3 class="v05__m-name">{p.name}</h3>
+									<p class="v05__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v05__desktop">
+								<div class="v05__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={360} class="v05__img" />
+									<div class="v05__strip">
+										<div class="v05__static">
+											<p class="v05__role">{p.role}</p>
+											<h3 class="v05__name">{p.name}</h3>
+										</div>
+										<p class="v05__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 06: Mobile wider image (40%), desktop same v03 ───────────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">06 — Mobile: wider photo col (40%), no border card</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v06">
+							<div class="v06__mobile">
+								<div class="v06__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={160} height={180} class="v06__m-img" />
+								</div>
+								<div class="v06__m-text">
+									<p class="v06__m-role">{p.role}</p>
+									<h3 class="v06__m-name">{p.name}</h3>
+									<p class="v06__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v06__desktop">
+								<div class="v06__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v06__img" />
+									<div class="v06__strip">
+										<div class="v06__static">
+											<p class="v06__role">{p.role}</p>
+											<h3 class="v06__name">{p.name}</h3>
+										</div>
+										<p class="v06__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 07: Dark card mobile + dark strip desktop ────────────────────── -->
+		<section class="dev-section dev-section--brand">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label dev-label--light">07 — All dark: brand-muted card mobile, dark strip desktop</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v07">
+							<div class="v07__mobile">
+								<div class="v07__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v07__m-img" />
+								</div>
+								<div class="v07__m-text">
+									<p class="v07__m-role">{p.role}</p>
+									<h3 class="v07__m-name">{p.name}</h3>
+									<p class="v07__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v07__desktop">
+								<div class="v07__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v07__img" />
+									<div class="v07__strip">
+										<div class="v07__static">
+											<p class="v07__role">{p.role}</p>
+											<h3 class="v07__name">{p.name}</h3>
+										</div>
+										<p class="v07__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 08: Surface card mobile, strip with xl radius desktop ────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">08 — xl radius card, strip has gold top line + taller peek</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v08">
+							<div class="v08__mobile">
+								<div class="v08__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v08__m-img" />
+								</div>
+								<div class="v08__m-text">
+									<p class="v08__m-role">{p.role}</p>
+									<h3 class="v08__m-name">{p.name}</h3>
+									<p class="v08__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v08__desktop">
+								<div class="v08__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v08__img" />
+									<div class="v08__strip">
+										<div class="v08__static">
+											<p class="v08__role">{p.role}</p>
+											<h3 class="v08__name">{p.name}</h3>
+										</div>
+										<p class="v08__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 09: Mobile circle avatar + text, desktop v03 ────────────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">09 — Mobile: circle avatar; Desktop: v03 portrait strip</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v09">
+							<div class="v09__mobile">
+								<div class="v09__m-circle">
+									<Image src={p.photo} alt={p.name} width={80} height={80} class="v09__m-img" />
+								</div>
+								<div class="v09__m-text">
+									<p class="v09__m-role">{p.role}</p>
+									<h3 class="v09__m-name">{p.name}</h3>
+									<p class="v09__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v09__desktop">
+								<div class="v09__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v09__img" />
+									<div class="v09__strip">
+										<div class="v09__static">
+											<p class="v09__role">{p.role}</p>
+											<h3 class="v09__name">{p.name}</h3>
+										</div>
+										<p class="v09__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 10: Mobile P-style (stroke + role), desktop v03 ─────────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">10 — Mobile: P-style vertical stroke; Desktop: v03 strip</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v10">
+							<div class="v10__mobile">
+								<div class="v10__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v10__m-img" />
+								</div>
+								<div class="v10__m-text">
+									<div class="v10__m-header">
+										<div class="v10__m-stroke" aria-hidden="true"></div>
+										<p class="v10__m-role">{p.role}</p>
+									</div>
+									<h3 class="v10__m-name">{p.name}</h3>
+									<p class="v10__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v10__desktop">
+								<div class="v10__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v10__img" />
+									<div class="v10__strip">
+										<div class="v10__static">
+											<p class="v10__role">{p.role}</p>
+											<h3 class="v10__name">{p.name}</h3>
+										</div>
+										<p class="v10__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 11: Strip peek shows role only (minimal), name in bio reveal ── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">11 — Peek shows role only; name + bio reveal together</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v11">
+							<div class="v11__mobile">
+								<div class="v11__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v11__m-img" />
+								</div>
+								<div class="v11__m-text">
+									<p class="v11__m-role">{p.role}</p>
+									<h3 class="v11__m-name">{p.name}</h3>
+									<p class="v11__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v11__desktop">
+								<div class="v11__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v11__img" />
+									<div class="v11__strip">
+										<div class="v11__static">
+											<p class="v11__role">{p.role}</p>
+										</div>
+										<h3 class="v11__name">{p.name}</h3>
+										<p class="v11__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 12: Strip with large display name, role small above ─────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">12 — Large display serif name in peek, role tiny above</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v12">
+							<div class="v12__mobile">
+								<div class="v12__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v12__m-img" />
+								</div>
+								<div class="v12__m-text">
+									<p class="v12__m-role">{p.role}</p>
+									<h3 class="v12__m-name">{p.name}</h3>
+									<p class="v12__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v12__desktop">
+								<div class="v12__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v12__img" />
+									<div class="v12__strip">
+										<div class="v12__static">
+											<p class="v12__role">{p.role}</p>
+											<h3 class="v12__name">{p.name}</h3>
+										</div>
+										<p class="v12__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 13: Strip full-opacity brand, no transparency ───────────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">13 — Strip fully opaque brand colour, no transparency</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v13">
+							<div class="v13__mobile">
+								<div class="v13__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v13__m-img" />
+								</div>
+								<div class="v13__m-text">
+									<p class="v13__m-role">{p.role}</p>
+									<h3 class="v13__m-name">{p.name}</h3>
+									<p class="v13__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v13__desktop">
+								<div class="v13__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v13__img" />
+									<div class="v13__strip">
+										<div class="v13__static">
+											<p class="v13__role">{p.role}</p>
+											<h3 class="v13__name">{p.name}</h3>
+										</div>
+										<p class="v13__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 14: Desktop peek taller (name + first line of bio visible) ──── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">14 — Taller default peek: role + name + partial bio visible</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v14">
+							<div class="v14__mobile">
+								<div class="v14__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v14__m-img" />
+								</div>
+								<div class="v14__m-text">
+									<p class="v14__m-role">{p.role}</p>
+									<h3 class="v14__m-name">{p.name}</h3>
+									<p class="v14__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v14__desktop">
+								<div class="v14__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v14__img" />
+									<div class="v14__strip">
+										<div class="v14__static">
+											<p class="v14__role">{p.role}</p>
+											<h3 class="v14__name">{p.name}</h3>
+											<p class="v14__hint">{p.bio.slice(0, 40)}…</p>
+										</div>
+										<p class="v14__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 15: Mobile M-style (flanked rules), desktop v03 ─────────────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">15 — Mobile: M flanked rules; Desktop: v03 portrait</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v15">
+							<div class="v15__mobile">
+								<div class="v15__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v15__m-img" />
+								</div>
+								<div class="v15__m-text">
+									<div class="v15__m-eyebrow">
+										<span class="v15__m-rule" aria-hidden="true"></span>
+										<p class="v15__m-role">{p.role}</p>
+										<span class="v15__m-rule" aria-hidden="true"></span>
+									</div>
+									<h3 class="v15__m-name">{p.name}</h3>
+									<p class="v15__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v15__desktop">
+								<div class="v15__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v15__img" />
+									<div class="v15__strip">
+										<div class="v15__static">
+											<p class="v15__role">{p.role}</p>
+											<h3 class="v15__name">{p.name}</h3>
+										</div>
+										<p class="v15__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 16: Surface card with gold border accent, v03 desktop ────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">16 — Mobile: gold left border card; Desktop: v03</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v16">
+							<div class="v16__mobile">
+								<div class="v16__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v16__m-img" />
+								</div>
+								<div class="v16__m-text">
+									<p class="v16__m-role">{p.role}</p>
+									<h3 class="v16__m-name">{p.name}</h3>
+									<p class="v16__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v16__desktop">
+								<div class="v16__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v16__img" />
+									<div class="v16__strip">
+										<div class="v16__static">
+											<p class="v16__role">{p.role}</p>
+											<h3 class="v16__name">{p.name}</h3>
+										</div>
+										<p class="v16__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 17: Strip brand-subtle (lighter navy tint), v03 desktop ──────── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">17 — Strip in brand-subtle tint (lighter), gold border top</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v17">
+							<div class="v17__mobile">
+								<div class="v17__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v17__m-img" />
+								</div>
+								<div class="v17__m-text">
+									<p class="v17__m-role">{p.role}</p>
+									<h3 class="v17__m-name">{p.name}</h3>
+									<p class="v17__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v17__desktop">
+								<div class="v17__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v17__img" />
+									<div class="v17__strip">
+										<div class="v17__static">
+											<p class="v17__role">{p.role}</p>
+											<h3 class="v17__name">{p.name}</h3>
+										</div>
+										<p class="v17__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 18: Wide 2-col mobile, v03 desktop ──────────────────────────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">18 — Mobile: image fills half card height; Desktop: v03</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v18">
+							<div class="v18__mobile">
+								<div class="v18__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={160} class="v18__m-img" />
+								</div>
+								<div class="v18__m-text">
+									<p class="v18__m-role">{p.role}</p>
+									<h3 class="v18__m-name">{p.name}</h3>
+									<p class="v18__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v18__desktop">
+								<div class="v18__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v18__img" />
+									<div class="v18__strip">
+										<div class="v18__static">
+											<p class="v18__role">{p.role}</p>
+											<h3 class="v18__name">{p.name}</h3>
+										</div>
+										<p class="v18__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 19: v03 + inset shadow (P letterpress), mobile horizontal ───── -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">19 — Letterpress inset shadow + v03 strip</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v19">
+							<div class="v19__mobile">
+								<div class="v19__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v19__m-img" />
+								</div>
+								<div class="v19__m-text">
+									<p class="v19__m-role">{p.role}</p>
+									<h3 class="v19__m-name">{p.name}</h3>
+									<p class="v19__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v19__desktop">
+								<div class="v19__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v19__img" />
+									<div class="v19__strip">
+										<div class="v19__static">
+											<p class="v19__role">{p.role}</p>
+											<h3 class="v19__name">{p.name}</h3>
+										</div>
+										<p class="v19__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── 20: Grand pick — v03 + M flanked rules in strip + shadow ──────── -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">20 — Best of all: v03 strip + M flanked rules + shadow card</p>
+				<div class="tc-grid">
+					{m.map((p) => (
+						<div class="v20">
+							<div class="v20__mobile">
+								<div class="v20__m-img-wrap">
+									<Image src={p.photo} alt={p.name} width={120} height={140} class="v20__m-img" />
+								</div>
+								<div class="v20__m-text">
+									<div class="v20__m-eyebrow">
+										<span class="v20__m-rule" aria-hidden="true"></span>
+										<p class="v20__m-role">{p.role}</p>
+										<span class="v20__m-rule" aria-hidden="true"></span>
+									</div>
+									<h3 class="v20__m-name">{p.name}</h3>
+									<p class="v20__m-bio">{p.bio}</p>
+								</div>
+							</div>
+							<div class="v20__desktop">
+								<div class="v20__img-wrap">
+									<Image src={p.photo} alt={p.name} width={360} height={480} class="v20__img" />
+									<div class="v20__strip">
+										<div class="v20__static">
+											<div class="v20__eyebrow">
+												<span class="v20__rule-side" aria-hidden="true"></span>
+												<p class="v20__role">{p.role}</p>
+												<span class="v20__rule-side" aria-hidden="true"></span>
+											</div>
+											<h3 class="v20__name">{p.name}</h3>
+										</div>
+										<p class="v20__bio">{p.bio}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+	</div>
+</BaseLayout>
+
+<style>
+	/* ── Dev shell ──────────────────────────────────────────────────────────── */
+	.dev-page { padding-block-start: var(--space-5xl); }
+	.dev-page__header { margin-block-end: var(--space-4xl); }
+	.dev-page__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.dev-page__sub {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		color: var(--color-fg-muted); margin-block-start: var(--space-sm);
+		letter-spacing: var(--letter-spacing-wide);
+	}
+	.dev-section { padding-block: var(--space-5xl); }
+	.dev-section--alt { background: var(--color-bg-subtle); }
+	.dev-section--brand { background: var(--color-bg-brand); }
+	.dev-label {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase; color: var(--color-fg-subtle); margin-block-end: var(--space-3xl);
+	}
+	.dev-label--light { color: var(--color-fg-on-brand-subtle); }
+
+	/* ── Responsive grid: 1 → 2 → 4 ─────────────────────────────────────── */
+	.tc-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+		@media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
+		@media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+	}
+
+	/* ── Mobile / Desktop visibility toggle ──────────────────────────────── */
+	[class*="__mobile"] { display: flex; }
+	[class*="__desktop"] { display: none; }
+
+	@media (min-width: 640px) {
+		[class*="__mobile"] { display: none; }
+		[class*="__desktop"] { display: block; }
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   SHARED MOBILE PATTERN
+	════════════════════════════════════════════════════════════════════════ */
+	[class*="__mobile"] {
+		align-items: stretch; overflow: hidden; border-radius: var(--radius-lg);
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		box-shadow: var(--shadow-sm);
+	}
+
+	/* Mobile image column — fixed width, full height */
+	[class*="__m-img-wrap"] {
+		flex-shrink: 0; width: 35%; overflow: hidden;
+	}
+	[class*="__m-img"] {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+	}
+
+	/* Mobile text column */
+	[class*="__m-text"] {
+		flex: 1; padding: var(--space-md) var(--space-lg);
+		display: flex; flex-direction: column; justify-content: center; gap: var(--space-xs);
+		min-width: 0;
+	}
+	[class*="__m-role"] {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent);
+	}
+	[class*="__m-name"] {
+		font-family: var(--font-serif); font-size: var(--font-size-lg);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-surface);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	[class*="__m-bio"] {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+		display: none;
+		@media (min-width: 400px) { display: block; }
+	}
+
+	/* Mobile circle variant (v09) */
+	[class*="__m-circle"] {
+		flex-shrink: 0; width: var(--size-16); height: var(--size-16);
+		border-radius: var(--radius-full); overflow: hidden; align-self: center;
+		margin-inline-start: var(--space-md);
+		border: 2px solid var(--color-border-accent);
+	}
+
+	/* Mobile P-stroke variant (v10) */
+	[class*="__m-header"] { display: flex; align-items: center; gap: var(--space-sm); }
+	[class*="__m-stroke"] { width: 3px; height: var(--size-4); background: var(--color-fg-accent); flex-shrink: 0; }
+
+	/* Mobile flanked rules (v04, v15, v20) */
+	[class*="__m-eyebrow"] { display: flex; align-items: center; gap: var(--space-sm); }
+	[class*="__m-rule"] { flex: 1; height: 1px; background: var(--color-fg-accent); }
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   SHARED DESKTOP PATTERN — tall portrait with slide-up strip
+	════════════════════════════════════════════════════════════════════════ */
+	[class$="__desktop"] { border-radius: var(--radius-lg); overflow: hidden; }
+
+	[class*="__img-wrap"]:not([class*="__m-img-wrap"]) {
+		position: relative; overflow: hidden;
+	}
+
+	[class*="v0"][class*="__img"]:not([class*="__m-img"]),
+	[class*="v1"][class*="__img"]:not([class*="__m-img"]),
+	[class*="v2"][class*="__img"]:not([class*="__m-img"]) {
+		width: 100%; object-fit: cover; display: block;
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   PER-VARIANT DESKTOP STYLES
+	   (strip colour, border, name size, shadow — the creative differences)
+	════════════════════════════════════════════════════════════════════════ */
+
+	/* ── Shared strip mechanics ──────────────────────────────────────────── */
+	/* Applied individually per variant below to allow colour differences */
+
+	/* ── 01 — Baseline ──────────────────────────────────────────────────── */
+	.v01__desktop { box-shadow: var(--shadow-lg); }
+	.v01__img-wrap { aspect-ratio: 3 / 4; }
+	.v01__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v01:hover & { transform: scale(1.04); } }
+	.v01__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v01__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v01__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v01__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v01__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v01:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 02 — Deeper opacity, full brand colour ─────────────────────────── */
+	.v02__desktop { box-shadow: var(--shadow-lg); }
+	.v02__img-wrap { aspect-ratio: 3 / 4; }
+	.v02__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v02:hover & { transform: scale(1.04); } }
+	.v02__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 96%, transparent); overflow: hidden; }
+	.v02__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v02__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v02__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-style: italic; font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v02__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v02:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 03 — Gold rule separator in strip ─────────────────────────────── */
+	.v03__desktop { box-shadow: var(--shadow-lg); }
+	.v03__img-wrap { aspect-ratio: 3 / 4; }
+	.v03__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v03:hover & { transform: scale(1.04); } }
+	.v03__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v03__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v03__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v03__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v03__rule { width: var(--size-10); height: 1px; background: var(--color-fg-accent-on-brand); margin-inline: var(--space-xl); max-height: 0; overflow: hidden; transition: max-height var(--duration-slow) var(--ease-smooth); .v03:hover & { max-height: 4px; } }
+	.v03__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v03:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 04 — Flanked rules in strip ───────────────────────────────────── */
+	.v04__desktop { box-shadow: var(--shadow-lg); }
+	.v04__img-wrap { aspect-ratio: 3 / 4; }
+	.v04__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v04:hover & { transform: scale(1.04); } }
+	.v04__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent); overflow: hidden; }
+	.v04__static { padding: var(--space-lg) var(--space-xl) var(--space-md); }
+	.v04__eyebrow { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
+	.v04__rule-side { flex: 1; height: 1px; background: var(--color-fg-accent-on-brand); }
+	.v04__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); white-space: nowrap; }
+	.v04__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); text-align: center; }
+	.v04__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v04:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+	.v04__m-eyebrow { display: flex; align-items: center; gap: var(--space-sm); }
+	.v04__m-rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v04__m-role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+
+	/* ── 05 — Square image ─────────────────────────────────────────────── */
+	.v05__desktop { box-shadow: var(--shadow-lg); }
+	.v05__img-wrap { aspect-ratio: 1 / 1; }
+	.v05__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v05:hover & { transform: scale(1.04); } }
+	.v05__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v05__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v05__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v05__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v05__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v05:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 06 — Wider mobile photo col ──────────────────────────────────── */
+	.v06__mobile { --mobile-img-width: 40%; }
+	.v06__m-img-wrap { width: 40%; }
+	.v06__desktop { box-shadow: var(--shadow-xl); }
+	.v06__img-wrap { aspect-ratio: 3 / 4; }
+	.v06__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v06:hover & { transform: scale(1.04); } }
+	.v06__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v06__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v06__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v06__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v06__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v06:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 07 — All dark ────────────────────────────────────────────────── */
+	[class^="v07"][class$="__mobile"] { background: var(--color-bg-brand-muted); border-color: color-mix(in srgb, var(--color-fg-on-brand) 10%, transparent); }
+	.v07__m-role { color: var(--color-fg-accent-on-brand) !important; }
+	.v07__m-name { color: var(--color-fg-on-brand) !important; }
+	.v07__desktop { box-shadow: var(--shadow-xl); }
+	.v07__img-wrap { aspect-ratio: 3 / 4; }
+	.v07__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v07:hover & { transform: scale(1.04); } }
+	.v07__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 96%, transparent); overflow: hidden; }
+	.v07__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v07__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v07__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v07__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v07:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 08 — xl radius, taller peek ──────────────────────────────────── */
+	.v08__desktop { border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); overflow: hidden; }
+	.v08__img-wrap { aspect-ratio: 3 / 4; }
+	.v08__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v08:hover & { transform: scale(1.04); } }
+	.v08__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v08__static { padding: var(--space-xl) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v08__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v08__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v08__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v08:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 09 — Circle mobile ───────────────────────────────────────────── */
+	.v09__desktop { box-shadow: var(--shadow-lg); }
+	.v09__img-wrap { aspect-ratio: 3 / 4; }
+	.v09__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v09:hover & { transform: scale(1.04); } }
+	.v09__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v09__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v09__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v09__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v09__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v09:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 10 — P-stroke mobile ─────────────────────────────────────────── */
+	.v10__m-header { display: flex; align-items: center; gap: var(--space-sm); }
+	.v10__m-stroke { width: 3px; height: var(--size-4); background: var(--color-fg-accent); flex-shrink: 0; }
+	.v10__m-role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); }
+	.v10__desktop { box-shadow: var(--shadow-lg); }
+	.v10__img-wrap { aspect-ratio: 3 / 4; }
+	.v10__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v10:hover & { transform: scale(1.04); } }
+	.v10__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v10__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v10__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v10__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v10__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v10:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 11 — Peek shows role only ────────────────────────────────────── */
+	.v11__desktop { box-shadow: var(--shadow-lg); }
+	.v11__img-wrap { aspect-ratio: 3 / 4; }
+	.v11__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v11:hover & { transform: scale(1.04); } }
+	.v11__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v11__static { padding: var(--space-md) var(--space-xl); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v11__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); }
+	.v11__name { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v11:hover & { max-height: 60px; padding-block: var(--space-sm); } }
+	.v11__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v11:hover & { max-height: 200px; padding-block: var(--space-xs) var(--space-xl); } }
+
+	/* ── 12 — Large display name in peek ──────────────────────────────── */
+	.v12__desktop { box-shadow: var(--shadow-lg); }
+	.v12__img-wrap { aspect-ratio: 3 / 4; }
+	.v12__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v12:hover & { transform: scale(1.04); } }
+	.v12__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v12__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v12__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v12__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v12__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v12:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 13 — Fully opaque strip ──────────────────────────────────────── */
+	.v13__desktop { box-shadow: var(--shadow-lg); }
+	.v13__img-wrap { aspect-ratio: 3 / 4; }
+	.v13__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v13:hover & { transform: scale(1.04); } }
+	.v13__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: var(--color-bg-brand); overflow: hidden; }
+	.v13__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v13__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v13__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v13__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v13:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 14 — Taller peek with hint text ─────────────────────────────── */
+	.v14__desktop { box-shadow: var(--shadow-lg); }
+	.v14__img-wrap { aspect-ratio: 3 / 4; }
+	.v14__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v14:hover & { transform: scale(1.04); } }
+	.v14__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent); overflow: hidden; }
+	.v14__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v14__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v14__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-xs); }
+	.v14__hint { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-fg-on-brand-subtle); font-style: italic; }
+	.v14__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v14:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 15 — M flanked rules mobile ─────────────────────────────────── */
+	.v15__m-eyebrow { display: flex; align-items: center; gap: var(--space-sm); }
+	.v15__m-rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v15__m-role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v15__desktop { box-shadow: var(--shadow-lg); }
+	.v15__img-wrap { aspect-ratio: 3 / 4; }
+	.v15__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v15:hover & { transform: scale(1.04); } }
+	.v15__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v15__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v15__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v15__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v15__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v15:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 16 — Gold left border mobile card ───────────────────────────── */
+	[class^="v16"][class$="__mobile"] { border-inline-start: 3px solid var(--color-fg-accent); }
+	.v16__desktop { box-shadow: var(--shadow-lg); }
+	.v16__img-wrap { aspect-ratio: 3 / 4; }
+	.v16__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v16:hover & { transform: scale(1.04); } }
+	.v16__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v16__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v16__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v16__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v16__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v16:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 17 — Brand-subtle tint strip ────────────────────────────────── */
+	.v17__desktop { box-shadow: var(--shadow-lg); }
+	.v17__img-wrap { aspect-ratio: 3 / 4; }
+	.v17__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v17:hover & { transform: scale(1.04); } }
+	.v17__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand-subtle) 95%, transparent); overflow: hidden; }
+	.v17__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v17__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v17__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v17__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v17:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 18 — Taller mobile image ─────────────────────────────────────── */
+	.v18__m-img-wrap { width: 35%; }
+	.v18__desktop { box-shadow: var(--shadow-lg); }
+	.v18__img-wrap { aspect-ratio: 3 / 4; }
+	.v18__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v18:hover & { transform: scale(1.04); } }
+	.v18__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v18__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v18__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v18__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v18__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v18:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 19 — Letterpress inset shadow ───────────────────────────────── */
+	[class^="v19"][class$="__mobile"] { background: var(--color-bg-subtle); box-shadow: var(--shadow-inset-sm); }
+	.v19__desktop { box-shadow: var(--shadow-inset-sm), var(--shadow-lg); }
+	.v19__img-wrap { aspect-ratio: 3 / 4; }
+	.v19__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v19:hover & { transform: scale(1.04); } }
+	.v19__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 90%, transparent); overflow: hidden; }
+	.v19__static { padding: var(--space-lg) var(--space-xl) var(--space-md); border-block-start: 2px solid var(--color-fg-accent-on-brand); }
+	.v19__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs); }
+	.v19__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); }
+	.v19__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v19:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+
+	/* ── 20 — Grand pick: flanked rules + strip + shadow ─────────────── */
+	.v20__m-eyebrow { display: flex; align-items: center; gap: var(--space-sm); }
+	.v20__m-rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v20__m-role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v20__desktop { box-shadow: var(--shadow-xl); }
+	.v20__img-wrap { aspect-ratio: 3 / 4; }
+	.v20__img { width: 100%; height: 100%; transition: transform var(--duration-slow) var(--ease-smooth); .v20:hover & { transform: scale(1.04); } }
+	.v20__strip { position: absolute; inset-inline: 0; inset-block-end: 0; background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent); overflow: hidden; }
+	.v20__static { padding: var(--space-lg) var(--space-xl) var(--space-md); }
+	.v20__eyebrow { display: flex; align-items: center; gap: var(--space-sm); margin-block-end: var(--space-xs); }
+	.v20__rule-side { flex: 1; height: 1px; background: var(--color-fg-accent-on-brand); }
+	.v20__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); white-space: nowrap; }
+	.v20__name { font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); text-align: center; }
+	.v20__bio { max-height: 0; overflow: hidden; padding-inline: var(--space-xl); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth); .v20:hover & { max-height: 200px; padding-block: var(--space-md) var(--space-xl); } }
+</style>

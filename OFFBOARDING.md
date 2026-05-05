@@ -16,6 +16,7 @@ These are working scratch files that have no value once the project ships:
 - `possible.md` — already deleted, but if it reappears, delete
 - `TODO.md` — note already says "delete on launch" at the top
 - `_scratch-questions-answers.md` (if present) — review-round Q&A reasoning trail; superseded by the live config files
+- `src/pages/dev/` — 21 design-iteration scratch pages (variants, v2/v3/v4, team-cards-N, etc.) used during the visual build. **Must be deleted** before production launch and before re-using this codebase as a template for a new client. The pages are publicly accessible at `/dev/[slug]` if URLs are guessed.
 
 ---
 

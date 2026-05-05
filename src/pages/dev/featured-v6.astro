@@ -1,0 +1,1296 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceCard from "../../components/services/ServiceCards/ServiceCard/ServiceCard.astro";
+import { homePageContent } from "../../config/home";
+import { buyingAndSellingProperty as svc } from "../../config/services";
+import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
+import signingImage from "../../assets/images/new/person-signing-document-at-desk.webp";
+
+const { featuredService } = homePageContent;
+const { aside } = featuredService;
+const stats = homePageContent.trustStrip.stats;
+---
+
+<BaseLayout title="Featured V6 — Card Variants" description="Dev — 20 featured-card layout explorations" canonicalPath="/dev/featured-v6">
+<div class="dev-page">
+
+	<!-- ─── 1: Stone / card left / eyebrow + heading + points right ──────────── -->
+	<section class="v v1">
+		<p class="lbl">1 · Stone / Card left / Eyebrow + heading + key points right</p>
+		<div class="wrapper wrapper--wide v1__grid">
+			<div class="v1__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v1__content">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<div class="kp-stack">
+					{aside.keyPoints.map(kp => (
+						<div class="kp">
+							<strong class="kp__head">{kp.heading}</strong>
+							<p class="kp__body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 2: Navy / card right / large eyebrow left + stats below ──────────── -->
+	<section class="v v-navy v2">
+		<p class="lbl lbl-light">2 · Navy / Large eyebrow left / Card right / Stats below</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v2__top">
+				<div class="v2__text">
+					<p class="v2__eyebrow">{featuredService.eyebrow}</p>
+					<div class="v2__rule"></div>
+					<h2 class="v2__heading">{featuredService.card.title}</h2>
+					<p class="body body--brand">{aside.intro}</p>
+				</div>
+				<div class="v2__card">
+					<ServiceCard
+						title={svc.title}
+						href={svc.href}
+						image={svc.image}
+						imageClass={svc.imageClass}
+						description={svc.description}
+						level={3}
+					/>
+				</div>
+			</div>
+			<div class="v2__stats">
+				{stats.map(s => (
+					<div class="stat">
+						<span class="stat__val">{s.value}</span>
+						<span class="stat__lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 3: White / centred eyebrow + heading / card below centred ────────── -->
+	<section class="v v-white v3">
+		<p class="lbl">3 · White / Centred header / Card below centred / Points flanking</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v3__header">
+				<p class="eyebrow eyebrow--center">{featuredService.eyebrow}</p>
+				<h2 class="v3__display">{featuredService.card.title}</h2>
+			</div>
+			<div class="v3__body">
+				<div class="v3__points-left">
+					{aside.keyPoints.slice(0,2).map(kp => (
+						<div class="kp kp--right-align">
+							<strong class="kp__head">{kp.heading}</strong>
+							<p class="kp__body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+				<div class="v3__card">
+					<ServiceCard
+						title={svc.title}
+						href={svc.href}
+						image={svc.image}
+						imageClass={svc.imageClass}
+						description={svc.description}
+						level={3}
+					/>
+				</div>
+				<div class="v3__points-right">
+					{aside.keyPoints.slice(2,4).map(kp => (
+						<div class="kp">
+							<strong class="kp__head">{kp.heading}</strong>
+							<p class="kp__body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 4: Amber / card right / serif quote dominant left ────────────────── -->
+	<section class="v v-amber v4">
+		<p class="lbl">4 · Amber / Serif quote dominant left / Card right</p>
+		<div class="wrapper wrapper--wide v4__grid">
+			<div class="v4__text">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<p class="v4__pull">&ldquo;{svc.article.quote.text}&rdquo;</p>
+				<p class="v4__attr">— {svc.article.quote.attribution}</p>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="v4__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 5: Stone / card full-width top / 4-col key points below ──────────── -->
+	<section class="v v5">
+		<p class="lbl">5 · Stone / Card wide top / 4-col key points grid below</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v5__header">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+			</div>
+			<div class="v5__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v5__grid">
+				{aside.keyPoints.map(kp => (
+					<div class="v5__kp">
+						<div class="v5__kp-rule"></div>
+						<strong class="v5__kp-head">{kp.heading}</strong>
+						<p class="v5__kp-body">{kp.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 6: Navy / 3-col: intro | card | stats col ────────────────────────── -->
+	<section class="v v-navy v6">
+		<p class="lbl lbl-light">6 · Navy / 3-col: intro | card | stats stack</p>
+		<div class="wrapper wrapper--wide v6__grid">
+			<div class="v6__intro">
+				<p class="eyebrow eyebrow--brand">{featuredService.eyebrow}</p>
+				<h2 class="v6__heading">{featuredService.card.title}</h2>
+				<p class="body body--brand">{aside.intro}</p>
+				<a href={svc.href} class="btn-outline-light">Learn more</a>
+			</div>
+			<div class="v6__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v6__stats">
+				{stats.map(s => (
+					<div class="v6__stat">
+						<span class="v6__stat-val">{s.value}</span>
+						<span class="v6__stat-lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 7: White / card + stats band / points below ──────────────────────── -->
+	<section class="v v-white v7">
+		<p class="lbl">7 · White / Card + inline stats / Points below rule</p>
+		<div class="wrapper wrapper--wide v7__grid">
+			<div class="v7__card-col">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+				<div class="v7__stats">
+					{stats.map(s => (
+						<div class="v7__stat">
+							<span class="v7__stat-val">{s.value}</span>
+							<span class="v7__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="v7__text">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<ul class="points">
+					{featuredService.card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 8: Stone / eyebrow band top / card + process steps side by side ──── -->
+	<section class="v v8">
+		<p class="lbl">8 · Stone / Eyebrow band top / Card + numbered process right</p>
+		<div class="v8__eyebrow-band">
+			<div class="wrapper wrapper--wide">
+				<p class="v8__eyebrow">{featuredService.eyebrow}</p>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v8__grid">
+			<div class="v8__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v8__process">
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<div class="v8__steps">
+					{svc.process.slice(0, 4).map((step, i) => (
+						<div class="v8__step">
+							<span class="v8__step-num" aria-hidden="true">0{i + 1}</span>
+							<div class="v8__step-text">
+								<strong class="v8__step-head">{step.title}</strong>
+								<p class="v8__step-body">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 9: Navy / card left / article quote + key points right ───────────── -->
+	<section class="v v-navy v9">
+		<p class="lbl lbl-light">9 · Navy / Card left / Article quote + key points right</p>
+		<div class="wrapper wrapper--wide v9__grid">
+			<div class="v9__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v9__content">
+				<p class="eyebrow eyebrow--brand">{featuredService.eyebrow}</p>
+				<h2 class="v9__heading">{featuredService.card.title}</h2>
+				<blockquote class="v9__quote">
+					<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
+					<cite>{svc.article.quote.attribution}</cite>
+				</blockquote>
+				<div class="v9__kps">
+					{aside.keyPoints.slice(0,2).map(kp => (
+						<div class="v9__kp">
+							<strong class="v9__kp-head">{kp.heading}</strong>
+							<p class="v9__kp-body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-outline-light">Learn more</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 10: Amber / card centred / stats flanking either side ────────────── -->
+	<section class="v v-amber v10">
+		<p class="lbl">10 · Amber / Stats columns flanking a centred card</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v10__header">
+				<p class="eyebrow eyebrow--center">{featuredService.eyebrow}</p>
+				<h2 class="v10__heading">{featuredService.card.title}</h2>
+			</div>
+			<div class="v10__layout">
+				<div class="v10__stat-col">
+					{stats.slice(0,2).map(s => (
+						<div class="v10__stat">
+							<span class="v10__stat-val">{s.value}</span>
+							<span class="v10__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<div class="v10__card">
+					<ServiceCard
+						title={svc.title}
+						href={svc.href}
+						image={svc.image}
+						imageClass={svc.imageClass}
+						description={svc.description}
+						level={3}
+					/>
+				</div>
+				<div class="v10__stat-col">
+					{aside.keyPoints.slice(0,2).map(kp => (
+						<div class="v10__aside-kp">
+							<strong class="v10__aside-head">{kp.heading}</strong>
+							<p class="v10__aside-body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 11: White / card right / tall eyebrow + process steps left ───────── -->
+	<section class="v v-white v11">
+		<p class="lbl">11 · White / Eyebrow + 3 process steps left / Card right</p>
+		<div class="wrapper wrapper--wide v11__grid">
+			<div class="v11__left">
+				<p class="v11__eyebrow">{featuredService.eyebrow}</p>
+				<div class="v11__rule"></div>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<div class="v11__steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="v11__step">
+							<span class="v11__num">0{i + 1}</span>
+							<div>
+								<strong class="v11__step-head">{step.title}</strong>
+								<p class="v11__step-body">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="v11__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 12: Navy / card top / 4-col process steps below on dark ──────────── -->
+	<section class="v v-navy v12">
+		<p class="lbl lbl-light">12 · Navy / Card + eyebrow top / Process steps below</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v12__top">
+				<div class="v12__top-text">
+					<p class="eyebrow eyebrow--brand">{featuredService.eyebrow}</p>
+					<h2 class="v12__heading">{featuredService.card.title}</h2>
+					<p class="body body--brand">{aside.intro}</p>
+				</div>
+				<div class="v12__card">
+					<ServiceCard
+						title={svc.title}
+						href={svc.href}
+						image={svc.image}
+						imageClass={svc.imageClass}
+						description={svc.description}
+						level={3}
+					/>
+				</div>
+			</div>
+			<div class="v12__rule"></div>
+			<div class="v12__steps">
+				{svc.process.slice(0, 4).map((step, i) => (
+					<div class="v12__step">
+						<span class="v12__step-num">0{i + 1}</span>
+						<strong class="v12__step-head">{step.title}</strong>
+						<p class="v12__step-body">{step.description}</p>
+					</div>
+				))}
+			</div>
+			<a href={svc.href} class="btn-outline-light">See full process</a>
+		</div>
+	</section>
+
+	<!-- ─── 13: Stone / card right / intro + Mary quote left ────────────────── -->
+	<section class="v v13">
+		<p class="lbl">13 · Stone / Intro + Mary photo + quote left / Card right</p>
+		<div class="wrapper wrapper--wide v13__grid">
+			<div class="v13__left">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<figure class="v13__quote-fig">
+					<div class="v13__quote-img">
+						<Image src={svc.article.quote.image} alt="" width={80} height={80} class="v13__avatar" />
+					</div>
+					<blockquote class="v13__quote">
+						<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
+						<cite>{svc.article.quote.attribution}</cite>
+					</blockquote>
+				</figure>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="v13__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 14: White / 3 cards in a row — featured card enlarged ───────────── -->
+	<section class="v v-white v14">
+		<p class="lbl">14 · White / Featured card enlarged in a 3-card row</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v14__header">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+			</div>
+			<div class="v14__row">
+				<div class="v14__secondary">
+					<div class="v14__secondary-inner">
+						<p class="v14__aside-head">{aside.keyPoints[0].heading}</p>
+						<p class="v14__aside-body">{aside.keyPoints[0].body}</p>
+					</div>
+					<div class="v14__secondary-inner">
+						<p class="v14__aside-head">{aside.keyPoints[1].heading}</p>
+						<p class="v14__aside-body">{aside.keyPoints[1].body}</p>
+					</div>
+				</div>
+				<div class="v14__featured">
+					<ServiceCard
+						title={svc.title}
+						href={svc.href}
+						image={svc.image}
+						imageClass={svc.imageClass}
+						description={svc.description}
+						level={3}
+					/>
+				</div>
+				<div class="v14__secondary">
+					<div class="v14__secondary-inner">
+						<p class="v14__aside-head">{aside.keyPoints[2].heading}</p>
+						<p class="v14__aside-body">{aside.keyPoints[2].body}</p>
+					</div>
+					<div class="v14__secondary-inner">
+						<p class="v14__aside-head">{aside.keyPoints[3].heading}</p>
+						<p class="v14__aside-body">{aside.keyPoints[3].body}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 15: Navy / card left / eyebrow huge + intro + stats right ────────── -->
+	<section class="v v-navy v15">
+		<p class="lbl lbl-light">15 · Navy / Card left / Huge eyebrow + intro + stats right</p>
+		<div class="wrapper wrapper--wide v15__grid">
+			<div class="v15__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v15__content">
+				<p class="v15__eyebrow">{featuredService.eyebrow}</p>
+				<div class="v15__rule"></div>
+				<h2 class="v15__heading">{featuredService.card.title}</h2>
+				<p class="body body--brand">{aside.intro}</p>
+				<div class="v15__stats">
+					{stats.map(s => (
+						<div class="v15__stat">
+							<span class="v15__stat-val">{s.value}</span>
+							<span class="v15__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-outline-light">Our property service</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 16: Amber / card bottom / large serif heading + intro top ────────── -->
+	<section class="v v-amber v16">
+		<p class="lbl">16 · Amber / Large heading + intro top / Card bottom</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v16__top">
+				<div class="v16__top-text">
+					<p class="eyebrow">{featuredService.eyebrow}</p>
+					<h2 class="v16__display">{featuredService.card.title}</h2>
+				</div>
+				<div class="v16__top-aside">
+					<p class="body">{aside.intro}</p>
+					<a href={svc.href} class="btn-primary">Our property service</a>
+				</div>
+			</div>
+			<div class="v16__rule"></div>
+			<div class="v16__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 17: Stone / card right offset / stats row left / key points below ── -->
+	<section class="v v17">
+		<p class="lbl">17 · Stone / Stats left + card right / Key points below</p>
+		<div class="wrapper wrapper--wide v17__top">
+			<div class="v17__left">
+				<p class="eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<div class="v17__stats">
+					{stats.map(s => (
+						<div class="v17__stat">
+							<span class="v17__stat-val">{s.value}</span>
+							<span class="v17__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="v17__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v17__kps">
+			{aside.keyPoints.map(kp => (
+				<div class="v17__kp">
+					<strong class="v17__kp-head">{kp.heading}</strong>
+					<p class="v17__kp-body">{kp.body}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ─── 18: Navy / eyebrow band / card centred / key points row below ─────── -->
+	<section class="v v-navy v18">
+		<p class="lbl lbl-light">18 · Navy / Eyebrow band / Card centred / Points below</p>
+		<div class="v18__eyebrow-band">
+			<div class="wrapper wrapper--wide v18__eyebrow-inner">
+				<p class="v18__eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="v18__heading">{featuredService.card.title}</h2>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v18__card-wrap">
+			<div class="v18__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v18__kps">
+			{aside.keyPoints.map(kp => (
+				<div class="v18__kp">
+					<p class="v18__kp-head">{kp.heading}</p>
+					<p class="v18__kp-body">{kp.body}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ─── 19: White / card left / article intro blocks right ───────────────── -->
+	<section class="v v-white v19">
+		<p class="lbl">19 · White / Card left / Article eyebrow + intro + quote right</p>
+		<div class="wrapper wrapper--wide v19__grid">
+			<div class="v19__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v19__content">
+				<p class="eyebrow">{svc.article.eyebrow}</p>
+				<h2 class="h-serif">{featuredService.card.title}</h2>
+				<p class="body">{svc.article.intro}</p>
+				<blockquote class="v19__quote">
+					<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
+					<cite>{svc.article.quote.attribution}</cite>
+				</blockquote>
+				<a href={svc.href} class="btn-primary">Read the full guide</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 20: Navy / card + image side by side / text + stats full width below  -->
+	<section class="v v-navy v20">
+		<p class="lbl lbl-light">20 · Navy / Card + image pair / Text + stats below</p>
+		<div class="wrapper wrapper--wide v20__top">
+			<div class="v20__card">
+				<ServiceCard
+					title={svc.title}
+					href={svc.href}
+					image={svc.image}
+					imageClass={svc.imageClass}
+					description={svc.description}
+					level={3}
+				/>
+			</div>
+			<div class="v20__image">
+				<Image src={signingImage} alt="" width={600} height={520} class="v20__img" />
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v20__bottom">
+			<div class="v20__bottom-text">
+				<p class="v20__eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="v20__heading">{featuredService.card.title}</h2>
+				<p class="body body--brand">{aside.intro}</p>
+				<a href={svc.href} class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="v20__bottom-stats">
+				{stats.map(s => (
+					<div class="v20__stat">
+						<span class="v20__stat-val">{s.value}</span>
+						<span class="v20__stat-lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+/* ── Page shell ───────────────────────────────────────────────────────────── */
+.dev-page { display: flex; flex-direction: column; }
+
+.v {
+	background: var(--color-bg-subtle);
+	position: relative;
+	overflow: hidden;
+	padding-block: var(--space-5xl);
+}
+.v-white  { background: var(--color-bg-surface); }
+.v-amber  { background: var(--color-bg-accent); }
+.v-navy   { background: var(--color-bg-brand); }
+
+.lbl {
+	position: absolute;
+	top: var(--space-sm);
+	left: var(--space-lg);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wider);
+	text-transform: uppercase;
+	opacity: 0.4;
+	color: var(--color-fg-default);
+	z-index: 10;
+}
+.lbl-light { color: var(--color-fg-on-brand); }
+
+/* ── Shared atoms ─────────────────────────────────────────────────────────── */
+.eyebrow {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent);
+	margin-block-end: var(--space-sm);
+}
+.eyebrow--center { text-align: center; }
+.eyebrow--brand { color: var(--color-fg-accent-on-brand); }
+
+.h-serif {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-3xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	margin-block-end: var(--space-lg);
+}
+
+.body {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-fg-muted);
+	margin-block-end: var(--space-lg);
+}
+.body--brand { color: var(--color-fg-on-brand-muted); }
+
+.points {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+.points li {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-muted);
+	padding-inline-start: var(--space-lg);
+	position: relative;
+}
+.points li::before {
+	content: "—";
+	position: absolute;
+	inset-inline-start: 0;
+	color: var(--color-fg-accent);
+}
+
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: var(--color-bg-interactive);
+	color: var(--color-fg-interactive);
+	border: 1px solid var(--color-border-accent);
+}
+.btn-outline-light {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: transparent;
+	color: var(--color-fg-on-brand);
+	border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 40%, transparent);
+}
+
+/* ── Key point atoms ─────────────────────────────────────────────────────── */
+.kp-stack { display: flex; flex-direction: column; gap: var(--space-xl); margin-block-start: var(--space-xl); }
+.kp { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.kp--right-align { text-align: right; }
+.kp__head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.kp__body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ── Stat atoms ──────────────────────────────────────────────────────────── */
+.stat { display: flex; flex-direction: column; gap: var(--space-xs); }
+.stat__val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent-on-brand); }
+.stat__lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1 · Stone / Card left / Content right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v1__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v1__content { display: flex; flex-direction: column; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2 · Navy / Large eyebrow / Card / Stats
+   ══════════════════════════════════════════════════════════════════════════ */
+.v2__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	margin-block-end: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v2__text { display: flex; flex-direction: column; }
+.v2__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+	margin-block-end: var(--space-xl);
+}
+.v2__rule { height: 1px; background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); margin-block-end: var(--space-xl); }
+.v2__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v2__stats {
+	display: flex;
+	gap: 0;
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	padding-block-start: var(--space-xl);
+}
+.v2__stats .stat { flex: 1; padding-inline: var(--space-lg); border-inline-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent); }
+.v2__stats .stat:first-child { padding-inline-start: 0; }
+.v2__stats .stat:last-child { border-inline-end: none; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3 · White / Centred header / Card centred / Points flanking
+   ══════════════════════════════════════════════════════════════════════════ */
+.v3__header {
+	text-align: center;
+	max-width: 720px;
+	margin-inline: auto;
+	margin-block-end: var(--space-3xl);
+}
+.v3__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+}
+.v3__body {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2xl);
+	align-items: start;
+	@media (min-width: 900px) { grid-template-columns: 1fr 2fr 1fr; }
+}
+.v3__card {}
+.v3__points-left, .v3__points-right { display: flex; flex-direction: column; gap: var(--space-xl); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4 · Amber / Quote left / Card right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v4__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v4__text { display: flex; flex-direction: column; }
+.v4__pull {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
+	font-style: italic;
+	font-weight: var(--font-weight-light);
+	color: var(--color-fg-default);
+	line-height: var(--line-height-snug);
+	border-inline-start: 3px solid var(--color-fg-accent);
+	padding-inline-start: var(--space-xl);
+	margin-block-end: var(--space-md);
+}
+.v4__attr {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-subtle);
+	padding-inline-start: var(--space-xl);
+	margin-block-end: var(--space-2xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5 · Stone / Wide card top / 4-col points grid below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v5__header { margin-block-end: var(--space-2xl); }
+.v5__card {
+	max-width: 560px;
+	margin-block-end: var(--space-3xl);
+}
+.v5__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	border-block-start: 1px solid var(--color-border-default);
+	padding-block-start: var(--space-2xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v5__kp { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v5__kp-rule { width: var(--space-lg); height: 2px; background: var(--color-fg-accent); margin-block-end: var(--space-sm); }
+.v5__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v5__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6 · Navy / 3-col: intro | card | stats
+   ══════════════════════════════════════════════════════════════════════════ */
+.v6__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 30fr 40fr 30fr; }
+}
+.v6__intro { display: flex; flex-direction: column; }
+.v6__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v6__stats {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+}
+.v6__stat { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v6__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent-on-brand); }
+.v6__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7 · White / Card + stats / Points right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v7__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v7__card-col { display: flex; flex-direction: column; gap: var(--space-xl); }
+.v7__stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-md);
+	border-block-start: 1px solid var(--color-border-default);
+	padding-block-start: var(--space-xl);
+}
+.v7__stat { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v7__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent); }
+.v7__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-subtle); }
+.v7__text { display: flex; flex-direction: column; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8 · Stone / Eyebrow band / Card + process steps
+   ══════════════════════════════════════════════════════════════════════════ */
+.v8 { padding-block: 0; }
+.v8__eyebrow-band {
+	background: var(--color-bg-brand);
+	padding-block: var(--space-xl);
+}
+.v8__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+}
+.v8__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	padding-block: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v8__process { display: flex; flex-direction: column; }
+.v8__steps { display: flex; flex-direction: column; gap: var(--space-lg); margin-block: var(--space-xl); }
+.v8__step { display: flex; gap: var(--space-lg); }
+.v8__step-num { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent); flex-shrink: 0; line-height: 1.2; width: var(--space-2xl); }
+.v8__step-text { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-sm); }
+.v8__step-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v8__step-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9 · Navy / Card left / Quote + points right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v9__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v9__content { display: flex; flex-direction: column; }
+.v9__heading { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); line-height: var(--line-height-snug); margin-block-end: var(--space-xl); }
+.v9__quote {
+	border-inline-start: 2px solid var(--color-fg-accent-on-brand);
+	padding-inline-start: var(--space-lg);
+	margin-block-end: var(--space-xl);
+}
+.v9__quote p { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-on-brand); line-height: var(--line-height-relaxed); margin-block-end: var(--space-xs); }
+.v9__quote cite { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-fg-on-brand-muted); letter-spacing: var(--letter-spacing-wide); font-style: normal; text-transform: uppercase; }
+.v9__kps { display: flex; flex-direction: column; gap: var(--space-md); margin-block-end: var(--space-xl); }
+.v9__kp { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-sm); }
+.v9__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v9__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10 · Amber / Stats cols flanking centred card
+   ══════════════════════════════════════════════════════════════════════════ */
+.v10__header { text-align: center; max-width: 640px; margin-inline: auto; margin-block-end: var(--space-3xl); }
+.v10__heading { font-family: var(--font-serif); font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl)); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-default); line-height: var(--line-height-tight); letter-spacing: var(--letter-spacing-tight); }
+.v10__layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 900px) { grid-template-columns: 22fr 56fr 22fr; }
+}
+.v10__card {}
+.v10__stat-col { display: flex; flex-direction: column; gap: var(--space-xl); }
+.v10__stat { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.v10__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent); }
+.v10__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-subtle); }
+.v10__aside-kp { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.v10__aside-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v10__aside-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11 · White / Process steps left / Card right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v11__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v11__left { display: flex; flex-direction: column; }
+.v11__eyebrow { font-family: var(--font-sans); font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl)); font-weight: var(--font-weight-light); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); line-height: 1.1; margin-block-end: var(--space-lg); }
+.v11__rule { width: var(--space-xl); height: 2px; background: var(--color-fg-accent); margin-block-end: var(--space-xl); }
+.v11__steps { display: flex; flex-direction: column; gap: var(--space-lg); margin-block: var(--space-xl); }
+.v11__step { display: flex; gap: var(--space-md); }
+.v11__num { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent); flex-shrink: 0; line-height: 1.2; width: var(--space-2xl); }
+.v11__step-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); margin-block-end: var(--space-xs); }
+.v11__step-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12 · Navy / Card + text top / Process steps below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v12__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	margin-block-end: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v12__top-text { display: flex; flex-direction: column; }
+.v12__heading { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); line-height: var(--line-height-snug); margin-block-end: var(--space-lg); }
+.v12__rule { height: 1px; background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); margin-block-end: var(--space-2xl); }
+.v12__steps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	margin-block-end: var(--space-2xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v12__step { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v12__step-num { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent-on-brand); line-height: 1; }
+.v12__step-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v12__step-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13 · Stone / Intro + photo + quote left / Card right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v13__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v13__left { display: flex; flex-direction: column; }
+.v13__quote-fig { display: flex; gap: var(--space-lg); align-items: start; margin-block: var(--space-xl); }
+.v13__quote-img { flex-shrink: 0; }
+.v13__avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.v13__quote { flex: 1; border-inline-start: 2px solid var(--color-fg-accent); padding-inline-start: var(--space-lg); }
+.v13__quote p { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-default); line-height: var(--line-height-relaxed); margin-block-end: var(--space-xs); }
+.v13__quote cite { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-fg-subtle); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; font-style: normal; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   14 · White / Featured card in 3-col row with aside panels
+   ══════════════════════════════════════════════════════════════════════════ */
+.v14__header { margin-block-end: var(--space-3xl); }
+.v14__row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2xl);
+	align-items: start;
+	@media (min-width: 900px) { grid-template-columns: 1fr 2fr 1fr; }
+}
+.v14__secondary { display: flex; flex-direction: column; gap: var(--space-xl); }
+.v14__secondary-inner { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.v14__aside-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v14__aside-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   15 · Navy / Card left / Huge eyebrow + stats right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v15__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v15__content { display: flex; flex-direction: column; }
+.v15__eyebrow { font-family: var(--font-sans); font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl)); font-weight: var(--font-weight-light); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); line-height: 1; margin-block-end: var(--space-xl); }
+.v15__rule { height: 1px; background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); margin-block-end: var(--space-xl); }
+.v15__heading { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); line-height: var(--line-height-snug); margin-block-end: var(--space-lg); }
+.v15__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-block-end: var(--space-xl); }
+.v15__stat { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v15__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent-on-brand); }
+.v15__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   16 · Amber / Display heading + aside top / Card below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v16__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	margin-block-end: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v16__top-text {}
+.v16__display { font-family: var(--font-serif); font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl)); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-default); line-height: var(--line-height-tight); letter-spacing: var(--letter-spacing-tight); }
+.v16__top-aside { display: flex; flex-direction: column; align-items: start; padding-block-start: var(--space-2xl); }
+.v16__rule { height: 1px; background: var(--color-border-default); margin-block-end: var(--space-3xl); }
+.v16__card { max-width: 560px; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   17 · Stone / Stats left + card / Key points row below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v17 { padding-block: 0; }
+.v17__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	padding-block: var(--space-5xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v17__left { display: flex; flex-direction: column; }
+.v17__stats { display: flex; flex-direction: column; gap: var(--space-md); margin-block-start: var(--space-xl); }
+.v17__stat { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.v17__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent); }
+.v17__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-subtle); }
+.v17__kps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	border-block-start: 1px solid var(--color-border-default);
+	padding-block: var(--space-3xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v17__kp { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v17__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v17__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   18 · Navy / Eyebrow band / Card centred / Points below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v18 { padding-block: 0; }
+.v18__eyebrow-band { background: color-mix(in srgb, var(--color-bg-brand) 100%, transparent); padding-block: var(--space-2xl); border-block-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent); }
+.v18__eyebrow-inner { display: flex; flex-direction: column; gap: var(--space-sm); @media (min-width: 768px) { flex-direction: row; align-items: baseline; gap: var(--space-3xl); } }
+.v18__eyebrow { font-family: var(--font-sans); font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl)); font-weight: var(--font-weight-light); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); line-height: 1; }
+.v18__heading { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); line-height: var(--line-height-snug); }
+.v18__card-wrap { padding-block: var(--space-3xl); max-width: 480px; }
+.v18__kps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	padding-block: var(--space-3xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v18__kp { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v18__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v18__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   19 · White / Card left / Article intro + quote right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v19__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v19__content { display: flex; flex-direction: column; }
+.v19__quote {
+	border-inline-start: 2px solid var(--color-fg-accent);
+	padding-inline-start: var(--space-xl);
+	margin-block: var(--space-xl);
+}
+.v19__quote p { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-default); line-height: var(--line-height-relaxed); margin-block-end: var(--space-xs); }
+.v19__quote cite { font-family: var(--font-sans); font-size: var(--font-size-xs); color: var(--color-fg-subtle); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; font-style: normal; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   20 · Navy / Card + image pair / Text + stats below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v20 { padding-block: 0; }
+.v20__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	padding-block-start: var(--space-5xl);
+	padding-block-end: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v20__image { overflow: hidden; border-radius: var(--radius-lg); min-height: 320px; }
+.v20__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v20__bottom {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	padding-block: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v20__bottom-text { display: flex; flex-direction: column; }
+.v20__eyebrow { font-family: var(--font-sans); font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl)); font-weight: var(--font-weight-light); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); line-height: 1; margin-block-end: var(--space-md); }
+.v20__heading { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-brand); line-height: var(--line-height-snug); margin-block-end: var(--space-lg); }
+.v20__bottom-stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-md);
+}
+.v20__stat { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v20__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent-on-brand); }
+.v20__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+</style>

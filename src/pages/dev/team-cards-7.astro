@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import maryPhoto from "../../assets/team/maryCropped.webp";
+import nicholasPhoto from "../../assets/team/nicholas.webp";
+import richardPhoto from "../../assets/team/richard.webp";
+import dukePhoto from "../../assets/team/duke.webp";
+
+const members = [
+	{ name: "Mary Molloy", role: "Principal Solicitor", bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny.", photo: maryPhoto },
+	{ name: "Nicholas O'Shea", role: "Solicitor", bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression.", photo: nicholasPhoto },
+	{ name: "Richard O'Shea", role: "Solicitor", bio: "Richard advises clients on buying and selling property, conveyancing and probate matters.", photo: richardPhoto },
+	{ name: "Duke", role: "Office Companion", bio: "Providing daily morale support to the team and a friendly welcome to visitors.", photo: dukePhoto },
+] as const;
+
+// 20 variants: [sectionBg, stripBg, borderColor, roleColor, nameColor, bioColor]
+const variants: Array<{
+	label: string;
+	sectionBg: string;
+	stripBg: string;
+	border: string;
+	roleColor: string;
+	nameColor: string;
+	bioColor: string;
+}> = [
+	// 1 — Current: stone page / navy-900 strip / amber-300 border
+	{ label: "1 · Stone / Navy-900 / Amber border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 80%, transparent)" },
+	// 2 — Stone page / navy-800 strip / amber-400 border
+	{ label: "2 · Stone / Navy-800 / Amber-400", sectionBg: "var(--stone-100)", stripBg: "var(--navy-800)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	// 3 — Stone-50 page / navy-700 strip / amber-300 border
+	{ label: "3 · Stone-50 / Navy-700 / Amber-300", sectionBg: "var(--stone-50)", stripBg: "var(--navy-700)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 4 — Navy-900 page / navy-800 strip / amber-300 border (full dark)
+	{ label: "4 · Navy-900 page / Navy-800 strip / Amber", sectionBg: "var(--navy-900)", stripBg: "var(--navy-800)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	// 5 — Navy-800 page / charcoal-900 strip / amber-300 border
+	{ label: "5 · Navy-800 page / Charcoal-900 strip / Amber", sectionBg: "var(--navy-800)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	// 6 — Stone-100 page / charcoal-900 strip / amber-300 border (charcoal card)
+	{ label: "6 · Stone / Charcoal-900 strip / Amber", sectionBg: "var(--stone-100)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	// 7 — Stone-100 page / charcoal-800 strip / amber-400 border
+	{ label: "7 · Stone / Charcoal-800 / Amber-400", sectionBg: "var(--stone-100)", stripBg: "var(--charcoal-800)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 72%, transparent)" },
+	// 8 — Amber-50 page / navy-900 strip / amber-400 border
+	{ label: "8 · Amber-50 page / Navy-900 strip / Amber-400", sectionBg: "var(--amber-50)", stripBg: "var(--navy-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 9 — Amber-100 page / navy-900 strip / amber-300 border
+	{ label: "9 · Amber-100 page / Navy-900 / Amber-300", sectionBg: "var(--amber-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 10 — Navy-50 page / navy-900 strip / amber-400 border (cool tint)
+	{ label: "10 · Navy-50 page / Navy-900 / Amber-400", sectionBg: "var(--navy-50)", stripBg: "var(--navy-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 11 — Navy-100 page / navy-900 strip / amber-300 border
+	{ label: "11 · Navy-100 page / Navy-900 / Amber-300", sectionBg: "var(--navy-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 12 — White page / navy-900 strip / amber-500 border
+	{ label: "12 · White / Navy-900 / Amber-500", sectionBg: "var(--white)", stripBg: "var(--navy-900)", border: "var(--amber-500)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 13 — Stone-100 page / navy-900 strip / charcoal-300 border (cool, restrained)
+	{ label: "13 · Stone / Navy-900 / Charcoal-300 border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--charcoal-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 14 — Stone-100 page / navy-900 strip / navy-300 border (monochrome)
+	{ label: "14 · Stone / Navy-900 / Navy-300 border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--navy-300)", roleColor: "var(--navy-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 15 — Charcoal-50 page / navy-900 strip / amber-300 border
+	{ label: "15 · Charcoal-50 page / Navy-900 / Amber-300", sectionBg: "var(--charcoal-50)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 16 — Charcoal-100 page / charcoal-900 strip / amber-300 border
+	{ label: "16 · Charcoal-100 page / Charcoal-900 / Amber-300", sectionBg: "var(--charcoal-100)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 17 — Navy-900 page / amber-800 strip / amber-300 border (warm dark)
+	{ label: "17 · Navy-900 page / Amber-800 strip / Amber-300", sectionBg: "var(--navy-900)", stripBg: "var(--amber-800)", border: "var(--amber-300)", roleColor: "var(--amber-200)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	// 18 — Stone-50 page / navy-900 strip / amber-200 border (pale, airy)
+	{ label: "18 · Stone-50 / Navy-900 / Amber-200 border", sectionBg: "var(--stone-50)", stripBg: "var(--navy-900)", border: "var(--amber-200)", roleColor: "var(--amber-200)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 72%, transparent)" },
+	// 19 — Navy-50 page / charcoal-900 strip / amber-400 border
+	{ label: "19 · Navy-50 / Charcoal-900 / Amber-400", sectionBg: "var(--navy-50)", stripBg: "var(--charcoal-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	// 20 — Amber-50 page / charcoal-900 strip / amber-400 border (warmest)
+	{ label: "20 · Amber-50 / Charcoal-900 / Amber-400", sectionBg: "var(--amber-50)", stripBg: "var(--charcoal-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+];
+---
+
+<BaseLayout
+	title="Team Card Colour Variants"
+	description="Dev page — 20 colour variant explorations for team cards"
+	canonicalPath="/dev/team-cards-7"
+>
+	<div class="dev-page">
+		{variants.map((v) => (
+			<section
+				class="variant-section"
+				style={`background-color: ${v.sectionBg};`}
+			>
+				<div class="variant-label">{v.label}</div>
+				<ul class="card-grid" role="list">
+					{members.map((m) => (
+						<li
+							class="team-card"
+							tabindex="0"
+							style={`
+								--strip-bg: ${v.stripBg};
+								--border-col: ${v.border};
+								--role-col: ${v.roleColor};
+								--name-col: ${v.nameColor};
+								--bio-col: ${v.bioColor};
+							`}
+						>
+							<div class="team-card__portrait-wrap">
+								<Image
+									src={m.photo}
+									alt={m.name}
+									width={400}
+									height={533}
+									class="team-card__portrait"
+								/>
+								<div class="team-card__strip">
+									<div class="team-card__strip-peek">
+										<p class="team-card__role">{m.role}</p>
+										<h3 class="team-card__name">{m.name}</h3>
+									</div>
+									<p class="team-card__bio">{m.bio}</p>
+								</div>
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+		))}
+	</div>
+</BaseLayout>
+
+<style>
+	.dev-page {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.variant-section {
+		padding-block: var(--space-2xl);
+		padding-inline: var(--space-xl);
+	}
+
+	.variant-label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-wider);
+		text-transform: uppercase;
+		color: var(--color-fg-subtle);
+		margin-block-end: var(--space-lg);
+		opacity: 0.6;
+	}
+
+	.card-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 260px));
+		grid-auto-rows: min(55vh, 420px);
+		gap: var(--space-lg);
+	}
+
+	.team-card {
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-lg);
+		height: 100%;
+		cursor: default;
+		outline: none;
+	}
+
+	.team-card__portrait-wrap {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+	}
+
+	.team-card__portrait {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top center;
+		display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+
+		.team-card:hover &,
+		.team-card:focus-within & { transform: scale(1.04); }
+	}
+
+	.team-card__strip {
+		position: absolute;
+		inset-inline: 0;
+		inset-block-end: 0;
+		background: var(--strip-bg);
+		overflow: hidden;
+	}
+
+	.team-card__strip-peek {
+		padding: var(--space-md) var(--space-lg) var(--space-sm);
+		border-block-start: 2px solid var(--border-col);
+	}
+
+	.team-card__role {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--role-col);
+		margin-block-end: var(--space-xs);
+	}
+
+	.team-card__name {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light);
+		font-style: italic;
+		color: var(--name-col);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+
+	.team-card__bio {
+		max-height: 0;
+		overflow: hidden;
+		padding-inline: var(--space-lg);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--bio-col);
+		transition:
+			max-height var(--duration-slow) var(--ease-smooth),
+			padding var(--duration-slow) var(--ease-smooth);
+
+		.team-card:hover &,
+		.team-card:focus-within & {
+			max-height: 200px;
+			padding-block: var(--space-sm) var(--space-lg);
+		}
+	}
+</style>

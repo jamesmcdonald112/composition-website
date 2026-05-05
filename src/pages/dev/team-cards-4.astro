@@ -1,0 +1,1159 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import maryPhoto from "../../assets/team/maryCropped.webp";
+import nicholasPhoto from "../../assets/team/nicholas.webp";
+import richardPhoto from "../../assets/team/richard.webp";
+import dukePhoto from "../../assets/team/duke.webp";
+
+const m = [
+	{ name: "Mary Molloy", role: "Principal Solicitor", bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny. She is known for her practical guidance, straightforward advice and personal approach to each case.", photo: maryPhoto, initial: "M" },
+	{ name: "Nicholas O'Shea", role: "Solicitor", bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression.", photo: nicholasPhoto, initial: "N" },
+	{ name: "Richard O'Shea", role: "Solicitor", bio: "Richard advises clients on buying and selling property, conveyancing and probate matters. He brings a steady, detail-focused approach to every transaction.", photo: richardPhoto, initial: "R" },
+	{ name: "Duke", role: "Office Companion", bio: "Providing daily morale support to the team and a warm welcome to all visitors.", photo: dukePhoto, initial: "D" },
+] as const;
+---
+
+<BaseLayout
+	title="Team Cards — Round 4"
+	description="Dev — team card round 4, focused on C/M/N/P"
+	canonicalPath="/dev/team-cards-4"
+>
+	<div class="dev-page">
+		<div class="dev-page__header wrapper wrapper--wide">
+			<h1 class="dev-page__title">Team Cards — Round 4</h1>
+			<p class="dev-page__sub">Pure focus on C · M · N (fixed) · P</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════════════
+		     C FAMILY — slide panel, 3/4 portrait
+		═══════════════════════════════════════════════════════════════════ -->
+
+		<!-- C1 — Original C, gold rule added in panel -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">C1 — Original C + gold rule inside panel</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="c1">
+							<div class="c1__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={480} class="c1__img" />
+								<div class="c1__panel">
+									<p class="c1__role">{p.role}</p>
+									<h3 class="c1__name">{p.name}</h3>
+									<div class="c1__rule" aria-hidden="true"></div>
+									<p class="c1__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- C2 — Wider reveal peek, deeper panel opacity -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">C2 — Deeper peek, very dark panel, italic name</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="c2">
+							<div class="c2__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={480} class="c2__img" />
+								<div class="c2__panel">
+									<p class="c2__role">{p.role}</p>
+									<h3 class="c2__name">{p.name}</h3>
+									<p class="c2__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- C3 — Panel in brand-muted (lighter navy), gold top border on panel -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">C3 — Panel in brand-muted, gold accent border top of panel</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="c3">
+							<div class="c3__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={480} class="c3__img" />
+								<div class="c3__panel">
+									<p class="c3__role">{p.role}</p>
+									<h3 class="c3__name">{p.name}</h3>
+									<p class="c3__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- C4 — Wider card (2-col grid), taller reveal, larger name -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">C4 — 2-col grid, taller, large display name</p>
+				<div class="grid-2">
+					{m.map((p) => (
+						<div class="c4">
+							<div class="c4__img-wrap">
+								<Image src={p.photo} alt={p.name} width={600} height={520} class="c4__img" />
+								<div class="c4__panel">
+									<p class="c4__role">{p.role}</p>
+									<h3 class="c4__name">{p.name}</h3>
+									<p class="c4__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- C5 — Rounded xl radius, shadow below, panel peek shows initial -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">C5 — Large radius, shadow, peek shows role only</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="c5">
+							<div class="c5__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={480} class="c5__img" />
+								<div class="c5__panel">
+									<div class="c5__peek">
+										<p class="c5__role">{p.role}</p>
+										<span class="c5__arrow" aria-hidden="true">↑</span>
+									</div>
+									<h3 class="c5__name">{p.name}</h3>
+									<p class="c5__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════════════
+		     M FAMILY — flanked rules, centred role, newspaper
+		═══════════════════════════════════════════════════════════════════ -->
+
+		<!-- M1 — Original M, gold rules instead of default border -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">M1 — Gold flanked rules (not grey), centred name</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="m1">
+							<div class="m1__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={260} class="m1__img" />
+							</div>
+							<div class="m1__body">
+								<div class="m1__eyebrow">
+									<span class="m1__rule" aria-hidden="true"></span>
+									<p class="m1__role">{p.role}</p>
+									<span class="m1__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="m1__name">{p.name}</h3>
+								<p class="m1__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- M2 — Dark card, flanked rules, bio centred -->
+		<section class="dev-section dev-section--brand">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label dev-label--light">M2 — Dark brand card, gold rules, centred layout</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="m2">
+							<div class="m2__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={260} class="m2__img" />
+							</div>
+							<div class="m2__body">
+								<div class="m2__eyebrow">
+									<span class="m2__rule" aria-hidden="true"></span>
+									<p class="m2__role">{p.role}</p>
+									<span class="m2__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="m2__name">{p.name}</h3>
+								<p class="m2__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- M3 — Wide 2-col, portrait left, rules in text col -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">M3 — Wide horizontal, portrait left, rules in text col</p>
+				<div class="grid-2">
+					{m.map((p) => (
+						<div class="m3">
+							<div class="m3__img-col">
+								<Image src={p.photo} alt={p.name} width={240} height={300} class="m3__img" />
+							</div>
+							<div class="m3__text-col">
+								<div class="m3__eyebrow">
+									<span class="m3__rule" aria-hidden="true"></span>
+									<p class="m3__role">{p.role}</p>
+									<span class="m3__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="m3__name">{p.name}</h3>
+								<p class="m3__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- M4 — No image, type-only, flanked rules large, subtle bg -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">M4 — Type-only M, large serif name, flanked rules</p>
+				<div class="m4-list">
+					{m.map((p) => (
+						<div class="m4">
+							<div class="m4__eyebrow">
+								<span class="m4__rule" aria-hidden="true"></span>
+								<p class="m4__role">{p.role}</p>
+								<span class="m4__rule" aria-hidden="true"></span>
+							</div>
+							<h3 class="m4__name">{p.name}</h3>
+							<p class="m4__bio">{p.bio}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- M5 — 4/3 image, rule above AND below role, subtle surface card -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">M5 — Rules above and below role (double-ruled eyebrow)</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="m5">
+							<div class="m5__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={260} class="m5__img" />
+							</div>
+							<div class="m5__body">
+								<div class="m5__rule-top" aria-hidden="true"></div>
+								<p class="m5__role">{p.role}</p>
+								<div class="m5__rule-bottom" aria-hidden="true"></div>
+								<h3 class="m5__name">{p.name}</h3>
+								<p class="m5__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════════════
+		     N FAMILY — portrait dominant, gradient, bio fully integrated
+		═══════════════════════════════════════════════════════════════════ -->
+
+		<!-- N1 — Gradient footer name bar + brand-muted bio panel below -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">N1 — Gradient name in image, brand-muted bio panel</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="n1">
+							<div class="n1__img-wrap">
+								<Image src={p.photo} alt={p.name} width={340} height={380} class="n1__img" />
+								<div class="n1__name-bar">
+									<p class="n1__role">{p.role}</p>
+									<h3 class="n1__name">{p.name}</h3>
+								</div>
+							</div>
+							<div class="n1__bio-panel">
+								<p class="n1__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- N2 — Gradient fades into white surface, seamless dissolve -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">N2 — Photo gradient dissolves into white bio, one card</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="n2">
+							<div class="n2__photo-area">
+								<Image src={p.photo} alt={p.name} width={340} height={320} class="n2__img" />
+								<div class="n2__fade" aria-hidden="true"></div>
+								<div class="n2__name-float">
+									<p class="n2__role">{p.role}</p>
+									<h3 class="n2__name">{p.name}</h3>
+								</div>
+							</div>
+							<div class="n2__bio-area">
+								<p class="n2__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- N3 — 2-col wide, large portrait, gradient name, bio right col -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">N3 — Wide 2-col, portrait left with gradient, bio right</p>
+				<div class="grid-2">
+					{m.map((p) => (
+						<div class="n3">
+							<div class="n3__img-col">
+								<Image src={p.photo} alt={p.name} width={300} height={400} class="n3__img" />
+								<div class="n3__name-bar">
+									<p class="n3__role">{p.role}</p>
+									<h3 class="n3__name">{p.name}</h3>
+								</div>
+							</div>
+							<div class="n3__text-col">
+								<p class="n3__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- N4 — Portrait + gradient, bio slides up C-style -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">N4 — N gradient name always visible, C-style bio slides up</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="n4">
+							<div class="n4__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={480} class="n4__img" />
+								<div class="n4__gradient" aria-hidden="true"></div>
+								<div class="n4__panel">
+									<div class="n4__static">
+										<p class="n4__role">{p.role}</p>
+										<h3 class="n4__name">{p.name}</h3>
+									</div>
+									<p class="n4__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- N5 — Full bleed portrait, brand gradient lower 40%, rule, name, bio -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">N5 — Brand gradient lower 50%, gold rule, name, bio all inside</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="n5">
+							<div class="n5__img-wrap">
+								<Image src={p.photo} alt={p.name} width={360} height={520} class="n5__img" />
+								<div class="n5__overlay">
+									<div class="n5__rule" aria-hidden="true"></div>
+									<p class="n5__role">{p.role}</p>
+									<h3 class="n5__name">{p.name}</h3>
+									<p class="n5__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════════════
+		     P FAMILY — letterpress, inset shadow, vertical stroke
+		═══════════════════════════════════════════════════════════════════ -->
+
+		<!-- P1 — Original P, subtle surface, inset shadow, vertical gold stroke -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">P1 — Original P refined: gold stroke taller, name larger</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="p1">
+							<div class="p1__img-wrap">
+								<Image src={p.photo} alt={p.name} width={280} height={240} class="p1__img" />
+							</div>
+							<div class="p1__body">
+								<div class="p1__header">
+									<div class="p1__stroke" aria-hidden="true"></div>
+									<p class="p1__role">{p.role}</p>
+								</div>
+								<h3 class="p1__name">{p.name}</h3>
+								<p class="p1__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- P2 — P on brand-muted dark, gold stroke on brand -->
+		<section class="dev-section dev-section--brand">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label dev-label--light">P2 — Dark P: brand-muted card, gold stroke</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="p2">
+							<div class="p2__img-wrap">
+								<Image src={p.photo} alt={p.name} width={280} height={240} class="p2__img" />
+							</div>
+							<div class="p2__body">
+								<div class="p2__header">
+									<div class="p2__stroke" aria-hidden="true"></div>
+									<p class="p2__role">{p.role}</p>
+								</div>
+								<h3 class="p2__name">{p.name}</h3>
+								<p class="p2__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- P3 — P wide 2-col, portrait left, stroke + role right -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">P3 — P wide 2-col, portrait fixed left</p>
+				<div class="grid-2">
+					{m.map((p) => (
+						<div class="p3">
+							<div class="p3__img-col">
+								<Image src={p.photo} alt={p.name} width={200} height={260} class="p3__img" />
+							</div>
+							<div class="p3__text-col">
+								<div class="p3__header">
+									<div class="p3__stroke" aria-hidden="true"></div>
+									<p class="p3__role">{p.role}</p>
+								</div>
+								<h3 class="p3__name">{p.name}</h3>
+								<p class="p3__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- P4 — P with gold left border on whole card instead of stroke widget -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">P4 — Gold left border on whole card, inset shadow</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="p4">
+							<div class="p4__img-wrap">
+								<Image src={p.photo} alt={p.name} width={280} height={240} class="p4__img" />
+							</div>
+							<div class="p4__body">
+								<p class="p4__role">{p.role}</p>
+								<h3 class="p4__name">{p.name}</h3>
+								<p class="p4__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- P5 — P + C hybrid: letterpress card, hover reveals bio -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">P5 — P letterpress + C hover: bio expands on hover</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="p5">
+							<div class="p5__img-wrap">
+								<Image src={p.photo} alt={p.name} width={280} height={240} class="p5__img" />
+							</div>
+							<div class="p5__body">
+								<div class="p5__header">
+									<div class="p5__stroke" aria-hidden="true"></div>
+									<p class="p5__role">{p.role}</p>
+								</div>
+								<h3 class="p5__name">{p.name}</h3>
+								<div class="p5__bio-wrap">
+									<p class="p5__bio">{p.bio}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+	</div>
+</BaseLayout>
+
+<style>
+	/* ── Dev shell ──────────────────────────────────────────────────────────── */
+	.dev-page { padding-block-start: var(--space-5xl); }
+	.dev-page__header { margin-block-end: var(--space-4xl); }
+	.dev-page__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.dev-page__sub {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		color: var(--color-fg-muted); margin-block-start: var(--space-sm);
+	}
+	.dev-section { padding-block: var(--space-5xl); }
+	.dev-section--alt { background: var(--color-bg-subtle); }
+	.dev-section--brand { background: var(--color-bg-brand); }
+	.dev-label {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase; color: var(--color-fg-subtle); margin-block-end: var(--space-3xl);
+	}
+	.dev-label--light { color: var(--color-fg-on-brand-subtle); }
+	.grid-4 {
+		display: grid; grid-template-columns: 1fr; gap: var(--space-xl);
+		@media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
+		@media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+	}
+	.grid-2 {
+		display: grid; grid-template-columns: 1fr; gap: var(--space-xl);
+		@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   C FAMILY
+	════════════════════════════════════════════════════════════════════════ */
+
+	/* C1 — gold rule in panel */
+	.c1 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+	.c1__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.c1__img {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c1:hover & { transform: scale(1.04); }
+	}
+	.c1__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent);
+		transform: translateY(calc(100% - var(--space-4xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c1:hover & { transform: translateY(0); }
+	}
+	.c1__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.c1__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.c1__rule {
+		width: var(--size-10); height: 1px;
+		background: var(--color-fg-accent-on-brand); margin-block-end: var(--space-md);
+	}
+	.c1__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* C2 — deep panel, italic name */
+	.c2 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+	.c2__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.c2__img {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c2:hover & { transform: scale(1.04); }
+	}
+	.c2__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: color-mix(in srgb, var(--color-bg-brand) 97%, transparent);
+		transform: translateY(calc(100% - var(--space-3xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c2:hover & { transform: translateY(0); }
+	}
+	.c2__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.c2__name {
+		font-family: var(--font-serif); font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-light); font-style: italic;
+		color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight);
+		margin-block-end: var(--space-md);
+	}
+	.c2__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* C3 — brand-muted panel, gold top border */
+	.c3 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+	.c3__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.c3__img {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c3:hover & { transform: scale(1.04); }
+	}
+	.c3__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: color-mix(in srgb, var(--color-bg-brand-muted) 96%, transparent);
+		border-block-start: 2px solid var(--color-fg-accent-on-brand);
+		transform: translateY(calc(100% - var(--space-4xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c3:hover & { transform: translateY(0); }
+	}
+	.c3__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.c3__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.c3__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* C4 — wide 2-col, large display name */
+	.c4 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); }
+	.c4__img-wrap { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+	.c4__img {
+		width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c4:hover & { transform: scale(1.04); }
+	}
+	.c4__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-2xl);
+		background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent);
+		transform: translateY(calc(100% - var(--space-5xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c4:hover & { transform: translateY(0); }
+	}
+	.c4__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-sm);
+	}
+	.c4__name {
+		font-family: var(--font-serif); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-lg);
+	}
+	.c4__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+		max-width: 52ch;
+	}
+
+	/* C5 — large radius, peek shows role + arrow */
+	.c5 { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+	.c5__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.c5__img {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c5:hover & { transform: scale(1.04); }
+	}
+	.c5__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: color-mix(in srgb, var(--color-bg-brand) 93%, transparent);
+		transform: translateY(calc(100% - var(--space-4xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.c5:hover & { transform: translateY(0); }
+	}
+	.c5__peek { display: flex; justify-content: space-between; align-items: center; margin-block-end: var(--space-md); }
+	.c5__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand);
+	}
+	.c5__arrow {
+		font-size: var(--font-size-base); color: var(--color-fg-accent-on-brand);
+		transition: transform var(--duration-normal) var(--ease-out);
+		.c5:hover & { transform: rotate(180deg); }
+	}
+	.c5__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.c5__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   M FAMILY
+	════════════════════════════════════════════════════════════════════════ */
+
+	/* M1 — gold flanked rules */
+	.m1 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.m1__img-wrap { overflow: hidden; }
+	.m1__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.m1__body { padding: var(--space-lg); }
+	.m1__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.m1__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.m1__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); white-space: nowrap;
+	}
+	.m1__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-surface);
+		letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md);
+	}
+	.m1__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+	}
+
+	/* M2 — dark card, gold rules */
+	.m2 {
+		background: var(--color-bg-brand-muted); border-radius: var(--radius-lg);
+		overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 8%, transparent);
+	}
+	.m2__img-wrap { overflow: hidden; }
+	.m2__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.m2__body { padding: var(--space-lg); }
+	.m2__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.m2__rule { flex: 1; height: 1px; background: var(--color-fg-accent-on-brand); opacity: 0.5; }
+	.m2__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); white-space: nowrap;
+	}
+	.m2__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md);
+	}
+	.m2__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* M3 — wide horizontal */
+	.m3 {
+		display: grid; grid-template-columns: 1fr; gap: 0;
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+		@media (min-width: 480px) { grid-template-columns: 200px 1fr; }
+	}
+	.m3__img-col { overflow: hidden; }
+	.m3__img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: var(--size-40); }
+	.m3__text-col { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
+	.m3__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.m3__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.m3__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); white-space: nowrap;
+	}
+	.m3__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-surface);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.m3__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+	}
+
+	/* M4 — type-only list */
+	.m4-list {
+		display: grid; grid-template-columns: 1fr; gap: var(--space-xl);
+		@media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
+		@media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+	}
+	.m4 {
+		padding: var(--space-2xl); background: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default); border-radius: var(--radius-lg);
+		text-align: center;
+	}
+	.m4__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-lg); }
+	.m4__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.m4__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); white-space: nowrap;
+	}
+	.m4__name {
+		font-family: var(--font-serif); font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl));
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-lg);
+	}
+	.m4__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-muted);
+	}
+
+	/* M5 — double-ruled eyebrow */
+	.m5 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.m5__img-wrap { overflow: hidden; }
+	.m5__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.m5__body { padding: var(--space-lg); }
+	.m5__rule-top, .m5__rule-bottom { height: 1px; background: var(--color-border-default); }
+	.m5__rule-top { margin-block-end: var(--space-md); }
+	.m5__rule-bottom { margin-block: var(--space-md); }
+	.m5__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); text-align: center;
+	}
+	.m5__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-surface);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.m5__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   N FAMILY
+	════════════════════════════════════════════════════════════════════════ */
+
+	/* N1 — gradient name bar + brand-muted bio panel */
+	.n1 {
+		border-radius: var(--radius-lg); overflow: hidden;
+		border: 1px solid var(--color-border-accent); box-shadow: var(--shadow-md);
+	}
+	.n1__img-wrap { position: relative; overflow: hidden; }
+	.n1__img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+	.n1__name-bar {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: linear-gradient(to top, var(--color-bg-brand) 40%, transparent 100%);
+	}
+	.n1__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.n1__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.n1__bio-panel { background: var(--color-bg-brand-muted); padding: var(--space-lg) var(--space-xl); }
+	.n1__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* N2 — gradient dissolves into white bio */
+	.n2 {
+		background: var(--color-bg-surface); border-radius: var(--radius-lg);
+		overflow: hidden; border: 1px solid var(--color-border-default); box-shadow: var(--shadow-md);
+	}
+	.n2__photo-area { position: relative; }
+	.n2__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.n2__fade {
+		position: absolute; inset-block-end: 0; inset-inline: 0; height: var(--size-20);
+		background: linear-gradient(to top, var(--color-bg-surface) 0%, transparent 100%);
+		pointer-events: none;
+	}
+	.n2__name-float {
+		position: absolute; inset-block-end: var(--space-md); inset-inline: var(--space-lg);
+	}
+	.n2__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); margin-block-end: var(--space-xs);
+	}
+	.n2__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-surface);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.n2__bio-area { padding: var(--space-lg) var(--space-xl) var(--space-xl); }
+	.n2__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+	}
+
+	/* N3 — wide 2-col, portrait left, bio right */
+	.n3 {
+		display: grid; grid-template-columns: 1fr;
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+		@media (min-width: 480px) { grid-template-columns: 220px 1fr; }
+	}
+	.n3__img-col { position: relative; overflow: hidden; }
+	.n3__img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: var(--size-48); }
+	.n3__name-bar {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-lg);
+		background: linear-gradient(to top, var(--color-bg-brand) 40%, transparent 100%);
+	}
+	.n3__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.n3__name {
+		font-family: var(--font-serif); font-size: var(--font-size-lg);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.n3__text-col {
+		padding: var(--space-xl); display: flex; align-items: center;
+		border-inline-start: 3px solid var(--color-fg-accent);
+	}
+	.n3__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted);
+	}
+
+	/* N4 — N gradient always visible, C-style bio slides up */
+	.n4 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+	.n4__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.n4__img {
+		width: 100%; height: 100%; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.n4:hover & { transform: scale(1.04); }
+	}
+	.n4__gradient {
+		position: absolute; inset-block-end: 0; inset-inline: 0; height: 50%;
+		background: linear-gradient(to top, var(--color-bg-brand) 0%, transparent 100%);
+		pointer-events: none;
+	}
+	.n4__panel {
+		position: absolute; inset-inline: 0; inset-block-end: 0; padding: var(--space-xl);
+		background: color-mix(in srgb, var(--color-bg-brand) 92%, transparent);
+		transform: translateY(calc(100% - var(--space-4xl)));
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.n4:hover & { transform: translateY(0); }
+	}
+	.n4__static { margin-block-end: var(--space-md); }
+	.n4__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.n4__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.n4__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* N5 — full brand overlay lower 50%, everything inside */
+	.n5 { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); }
+	.n5__img-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+	.n5__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+	.n5__overlay {
+		position: absolute; inset-block-end: 0; inset-inline: 0; padding: var(--space-xl);
+		background: linear-gradient(to top,
+			color-mix(in srgb, var(--color-bg-brand) 98%, transparent) 0%,
+			color-mix(in srgb, var(--color-bg-brand) 94%, transparent) 40%,
+			transparent 100%
+		);
+	}
+	.n5__rule {
+		width: var(--size-10); height: 1px;
+		background: var(--color-fg-accent-on-brand); margin-block-end: var(--space-md);
+	}
+	.n5__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand); margin-block-end: var(--space-xs);
+	}
+	.n5__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.n5__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* ════════════════════════════════════════════════════════════════════════
+	   P FAMILY
+	════════════════════════════════════════════════════════════════════════ */
+
+	/* P1 — refined original, taller stroke */
+	.p1 {
+		background: var(--color-bg-subtle); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden;
+		box-shadow: var(--shadow-inset-sm), var(--shadow-sm);
+		transition: transform var(--duration-normal) var(--ease-out);
+		&:hover { transform: translateY(-4px); }
+	}
+	.p1__img-wrap { overflow: hidden; }
+	.p1__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.p1__body { padding: var(--space-lg); }
+	.p1__header { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.p1__stroke { width: 3px; height: var(--size-8); background: var(--color-fg-accent); flex-shrink: 0; }
+	.p1__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent);
+	}
+	.p1__name {
+		font-family: var(--font-serif); font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.p1__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-muted);
+	}
+
+	/* P2 — dark brand-muted, gold stroke */
+	.p2 {
+		background: var(--color-bg-brand-muted); border-radius: var(--radius-lg);
+		overflow: hidden;
+		border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 10%, transparent);
+		box-shadow: var(--shadow-inset-sm);
+		transition: transform var(--duration-normal) var(--ease-out);
+		&:hover { transform: translateY(-4px); }
+	}
+	.p2__img-wrap { overflow: hidden; }
+	.p2__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.p2__body { padding: var(--space-lg); }
+	.p2__header { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.p2__stroke { width: 3px; height: var(--size-8); background: var(--color-fg-accent-on-brand); flex-shrink: 0; }
+	.p2__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent-on-brand);
+	}
+	.p2__name {
+		font-family: var(--font-serif); font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-on-brand);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.p2__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted);
+	}
+
+	/* P3 — wide 2-col, portrait fixed left */
+	.p3 {
+		display: grid; grid-template-columns: 1fr;
+		background: var(--color-bg-subtle); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden;
+		box-shadow: var(--shadow-inset-sm), var(--shadow-sm);
+		@media (min-width: 480px) { grid-template-columns: 180px 1fr; }
+	}
+	.p3__img-col { overflow: hidden; }
+	.p3__img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: var(--size-40); }
+	.p3__text-col { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
+	.p3__header { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.p3__stroke { width: 3px; height: var(--size-8); background: var(--color-fg-accent); flex-shrink: 0; }
+	.p3__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent);
+	}
+	.p3__name {
+		font-family: var(--font-serif); font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.p3__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-muted);
+	}
+
+	/* P4 — gold left border on whole card */
+	.p4 {
+		background: var(--color-bg-subtle);
+		border: 1px solid var(--color-border-default);
+		border-inline-start: 3px solid var(--color-fg-accent);
+		border-radius: var(--radius-lg); overflow: hidden;
+		box-shadow: var(--shadow-inset-sm), var(--shadow-sm);
+		transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+		&:hover { transform: translateY(-4px); box-shadow: var(--shadow-inset-sm), var(--shadow-md); }
+	}
+	.p4__img-wrap { overflow: hidden; }
+	.p4__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.p4__body { padding: var(--space-lg); }
+	.p4__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent); margin-block-end: var(--space-xs);
+	}
+	.p4__name {
+		font-family: var(--font-serif); font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md);
+	}
+	.p4__bio {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-muted);
+	}
+
+	/* P5 — P + C: bio expands on hover */
+	.p5 {
+		background: var(--color-bg-subtle); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden;
+		box-shadow: var(--shadow-inset-sm);
+		transition: box-shadow var(--duration-normal) var(--ease-out);
+		&:hover { box-shadow: var(--shadow-inset-sm), var(--shadow-md); }
+	}
+	.p5__img-wrap { overflow: hidden; }
+	.p5__img {
+		width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.p5:hover & { transform: scale(1.03); }
+	}
+	.p5__body { padding: var(--space-lg); }
+	.p5__header { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-sm); }
+	.p5__stroke { width: 3px; height: var(--size-8); background: var(--color-fg-accent); flex-shrink: 0; }
+	.p5__role {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-accent);
+	}
+	.p5__name {
+		font-family: var(--font-serif); font-size: var(--font-size-2xl);
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-sm);
+	}
+	.p5__bio-wrap {
+		display: grid; grid-template-rows: 0fr;
+		transition: grid-template-rows var(--duration-slow) var(--ease-smooth);
+		.p5:hover & { grid-template-rows: 1fr; }
+	}
+	.p5__bio {
+		overflow: hidden;
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed); color: var(--color-fg-muted);
+	}
+</style>

@@ -13,6 +13,7 @@ export const GET: APIRoute = () => {
 	const body = `User-agent: *
 Allow: /
 Disallow: /thank-you
+Disallow: /dev/
 
 Sitemap: ${siteUrl}/sitemap-index.xml
 `;

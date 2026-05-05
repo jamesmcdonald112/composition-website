@@ -1,0 +1,863 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import maryPhoto from "../../assets/team/maryCropped.webp";
+import nicholasPhoto from "../../assets/team/nicholas.webp";
+import richardPhoto from "../../assets/team/richard.webp";
+import dukePhoto from "../../assets/team/duke.webp";
+
+const m = [
+	{ name: "Mary Molloy", role: "Principal Solicitor", bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny.", photo: maryPhoto },
+	{ name: "Nicholas O'Shea", role: "Solicitor", bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression.", photo: nicholasPhoto },
+	{ name: "Richard O'Shea", role: "Solicitor", bio: "Richard advises clients on buying and selling property, conveyancing and probate matters, with a steady detail-focused approach.", photo: richardPhoto },
+	{ name: "Duke", role: "Office Companion", bio: "Providing daily morale support to the team and a warm welcome to all visitors.", photo: dukePhoto },
+] as const;
+---
+
+<BaseLayout
+	title="Team Cards — Round 5 (M1 focus)"
+	description="Dev — 20 variations on M1: gold flanked rules, centred name"
+	canonicalPath="/dev/team-cards-5"
+>
+	<div class="dev-page">
+		<div class="dev-page__header wrapper wrapper--wide">
+			<h1 class="dev-page__title">M1 — 20 Variations</h1>
+			<p class="dev-page__sub">Gold flanked rules · centred name · every dimension explored</p>
+		</div>
+
+		<!-- 01 — Exact M1 baseline -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">01 — M1 baseline: surface card, 4/3 image, gold rules</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v01">
+							<div class="v01__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v01__img" />
+							</div>
+							<div class="v01__body">
+								<div class="v01__eyebrow">
+									<span class="v01__rule" aria-hidden="true"></span>
+									<p class="v01__role">{p.role}</p>
+									<span class="v01__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v01__name">{p.name}</h3>
+								<p class="v01__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 02 — 3/4 portrait, rules closer, name larger -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">02 — 3/4 portrait, large serif name</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v02">
+							<div class="v02__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={400} class="v02__img" />
+							</div>
+							<div class="v02__body">
+								<div class="v02__eyebrow">
+									<span class="v02__rule" aria-hidden="true"></span>
+									<p class="v02__role">{p.role}</p>
+									<span class="v02__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v02__name">{p.name}</h3>
+								<p class="v02__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 03 — Square image, compact body -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">03 — Square 1/1 image, compact</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v03">
+							<div class="v03__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={300} class="v03__img" />
+							</div>
+							<div class="v03__body">
+								<div class="v03__eyebrow">
+									<span class="v03__rule" aria-hidden="true"></span>
+									<p class="v03__role">{p.role}</p>
+									<span class="v03__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v03__name">{p.name}</h3>
+								<p class="v03__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 04 — Dark brand-muted card, gold rules -->
+		<section class="dev-section dev-section--brand">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label dev-label--light">04 — Dark brand-muted card, gold rules</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v04">
+							<div class="v04__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v04__img" />
+							</div>
+							<div class="v04__body">
+								<div class="v04__eyebrow">
+									<span class="v04__rule" aria-hidden="true"></span>
+									<p class="v04__role">{p.role}</p>
+									<span class="v04__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v04__name">{p.name}</h3>
+								<p class="v04__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 05 — No border card, shadow only, rules thicker -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">05 — Borderless, shadow-only, 2px rules</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v05">
+							<div class="v05__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v05__img" />
+							</div>
+							<div class="v05__body">
+								<div class="v05__eyebrow">
+									<span class="v05__rule" aria-hidden="true"></span>
+									<p class="v05__role">{p.role}</p>
+									<span class="v05__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v05__name">{p.name}</h3>
+								<p class="v05__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 06 — Wide 2-col, portrait left, rules in text col -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">06 — Wide 2-col: portrait left, rules in text col</p>
+				<div class="grid-2">
+					{m.map((p) => (
+						<div class="v06">
+							<div class="v06__img-col">
+								<Image src={p.photo} alt={p.name} width={240} height={300} class="v06__img" />
+							</div>
+							<div class="v06__text-col">
+								<div class="v06__eyebrow">
+									<span class="v06__rule" aria-hidden="true"></span>
+									<p class="v06__role">{p.role}</p>
+									<span class="v06__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v06__name">{p.name}</h3>
+								<p class="v06__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 07 — Accent-tinted card bg, rules accent colour -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">07 — Accent-tinted bg card, rules match</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v07">
+							<div class="v07__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v07__img" />
+							</div>
+							<div class="v07__body">
+								<div class="v07__eyebrow">
+									<span class="v07__rule" aria-hidden="true"></span>
+									<p class="v07__role">{p.role}</p>
+									<span class="v07__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v07__name">{p.name}</h3>
+								<p class="v07__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 08 — xl radius, generous padding, shadow-lg -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">08 — xl radius, generous padding, larger shadow</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v08">
+							<div class="v08__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v08__img" />
+							</div>
+							<div class="v08__body">
+								<div class="v08__eyebrow">
+									<span class="v08__rule" aria-hidden="true"></span>
+									<p class="v08__role">{p.role}</p>
+									<span class="v08__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v08__name">{p.name}</h3>
+								<p class="v08__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 09 — Rules + italic serif name -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">09 — Italic serif name, rules same width as name</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v09">
+							<div class="v09__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v09__img" />
+							</div>
+							<div class="v09__body">
+								<div class="v09__eyebrow">
+									<span class="v09__rule" aria-hidden="true"></span>
+									<p class="v09__role">{p.role}</p>
+									<span class="v09__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v09__name">{p.name}</h3>
+								<p class="v09__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 10 — Subtle bg (not surface), gold border bottom of image -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">10 — Subtle bg, gold accent line between image and text</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v10">
+							<div class="v10__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v10__img" />
+								<div class="v10__accent-line" aria-hidden="true"></div>
+							</div>
+							<div class="v10__body">
+								<div class="v10__eyebrow">
+									<span class="v10__rule" aria-hidden="true"></span>
+									<p class="v10__role">{p.role}</p>
+									<span class="v10__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v10__name">{p.name}</h3>
+								<p class="v10__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 11 — No image, type-only, full padding, larger name -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">11 — No image, type-only, rules + large display name</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v11">
+							<div class="v11__eyebrow">
+								<span class="v11__rule" aria-hidden="true"></span>
+								<p class="v11__role">{p.role}</p>
+								<span class="v11__rule" aria-hidden="true"></span>
+							</div>
+							<h3 class="v11__name">{p.name}</h3>
+							<p class="v11__bio">{p.bio}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 12 — Hover: rules animate inward, name colour shifts -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">12 — Hover: lift + border-accent glow + image scale</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v12">
+							<div class="v12__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v12__img" />
+							</div>
+							<div class="v12__body">
+								<div class="v12__eyebrow">
+									<span class="v12__rule" aria-hidden="true"></span>
+									<p class="v12__role">{p.role}</p>
+									<span class="v12__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v12__name">{p.name}</h3>
+								<p class="v12__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 13 — Gold border-top on card, rules in body -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">13 — Gold 3px border-top on card + rules</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v13">
+							<div class="v13__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v13__img" />
+							</div>
+							<div class="v13__body">
+								<div class="v13__eyebrow">
+									<span class="v13__rule" aria-hidden="true"></span>
+									<p class="v13__role">{p.role}</p>
+									<span class="v13__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v13__name">{p.name}</h3>
+								<p class="v13__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 14 — Inset shadow (letterpress) + gold rules -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">14 — Letterpress inset shadow + gold rules (P × M hybrid)</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v14">
+							<div class="v14__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v14__img" />
+							</div>
+							<div class="v14__body">
+								<div class="v14__eyebrow">
+									<span class="v14__rule" aria-hidden="true"></span>
+									<p class="v14__role">{p.role}</p>
+									<span class="v14__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v14__name">{p.name}</h3>
+								<p class="v14__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 15 — Bio below name centred, name very large -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">15 — Everything centred: role rules, large name, bio centred</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v15">
+							<div class="v15__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v15__img" />
+							</div>
+							<div class="v15__body">
+								<div class="v15__eyebrow">
+									<span class="v15__rule" aria-hidden="true"></span>
+									<p class="v15__role">{p.role}</p>
+									<span class="v15__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v15__name">{p.name}</h3>
+								<p class="v15__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 16 — Rules only around role, name left-aligned below -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">16 — Rules centred, name left-aligned below</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v16">
+							<div class="v16__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v16__img" />
+							</div>
+							<div class="v16__body">
+								<div class="v16__eyebrow">
+									<span class="v16__rule" aria-hidden="true"></span>
+									<p class="v16__role">{p.role}</p>
+									<span class="v16__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v16__name">{p.name}</h3>
+								<p class="v16__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 17 — Brand-subtle tint card, rules on brand -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">17 — Brand-subtle tint bg, rules match</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v17">
+							<div class="v17__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v17__img" />
+							</div>
+							<div class="v17__body">
+								<div class="v17__eyebrow">
+									<span class="v17__rule" aria-hidden="true"></span>
+									<p class="v17__role">{p.role}</p>
+									<span class="v17__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v17__name">{p.name}</h3>
+								<p class="v17__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 18 — Rules + circle portrait (no rect image) -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">18 — Circle portrait, rules centred below</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v18">
+							<div class="v18__circle">
+								<Image src={p.photo} alt={p.name} width={200} height={200} class="v18__img" />
+							</div>
+							<div class="v18__eyebrow">
+								<span class="v18__rule" aria-hidden="true"></span>
+								<p class="v18__role">{p.role}</p>
+								<span class="v18__rule" aria-hidden="true"></span>
+							</div>
+							<h3 class="v18__name">{p.name}</h3>
+							<p class="v18__bio">{p.bio}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 19 — Rules tighter (not full width), role larger -->
+		<section class="dev-section dev-section--alt">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">19 — Short fixed-width rules, larger role text</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v19">
+							<div class="v19__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v19__img" />
+							</div>
+							<div class="v19__body">
+								<div class="v19__eyebrow">
+									<span class="v19__rule" aria-hidden="true"></span>
+									<p class="v19__role">{p.role}</p>
+									<span class="v19__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v19__name">{p.name}</h3>
+								<p class="v19__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- 20 — Full bleed image top, no border, rules float on white -->
+		<section class="dev-section">
+			<div class="wrapper wrapper--wide">
+				<p class="dev-label">20 — Full-bleed no-border, generous white space, rules prominent</p>
+				<div class="grid-4">
+					{m.map((p) => (
+						<div class="v20">
+							<div class="v20__img-wrap">
+								<Image src={p.photo} alt={p.name} width={300} height={225} class="v20__img" />
+							</div>
+							<div class="v20__body">
+								<div class="v20__eyebrow">
+									<span class="v20__rule" aria-hidden="true"></span>
+									<p class="v20__role">{p.role}</p>
+									<span class="v20__rule" aria-hidden="true"></span>
+								</div>
+								<h3 class="v20__name">{p.name}</h3>
+								<p class="v20__bio">{p.bio}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+	</div>
+</BaseLayout>
+
+<style>
+	/* ── Dev shell ──────────────────────────────────────────────────────────── */
+	.dev-page { padding-block-start: var(--space-5xl); }
+	.dev-page__header { margin-block-end: var(--space-4xl); }
+	.dev-page__title {
+		font-family: var(--font-serif);
+		font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+		font-weight: var(--font-weight-light); color: var(--color-fg-default);
+		letter-spacing: var(--letter-spacing-tight);
+	}
+	.dev-page__sub {
+		font-family: var(--font-sans); font-size: var(--font-size-sm);
+		color: var(--color-fg-muted); margin-block-start: var(--space-sm);
+		letter-spacing: var(--letter-spacing-wide);
+	}
+	.dev-section { padding-block: var(--space-5xl); }
+	.dev-section--alt { background: var(--color-bg-subtle); }
+	.dev-section--brand { background: var(--color-bg-brand); }
+	.dev-label {
+		font-family: var(--font-sans); font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase; color: var(--color-fg-subtle); margin-block-end: var(--space-3xl);
+	}
+	.dev-label--light { color: var(--color-fg-on-brand-subtle); }
+	.grid-4 {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+		@media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
+		@media (min-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+	}
+
+	.grid-2 {
+		display: grid; grid-template-columns: 1fr; gap: var(--space-xl);
+		@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+	}
+
+	/* ── Shared eyebrow pattern (all variants use the same atom) ────────────── */
+	/* Each .vXX__eyebrow, .vXX__rule, .vXX__role defined per card for isolation */
+
+	/* ════ 01 — Baseline ════════════════════════════════════════════════════ */
+	.v01 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v01__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v01__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v01__body { padding: var(--space-lg); }
+	.v01__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v01__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v01__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v01__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v01__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 02 — 3/4 portrait, large name ══════════════════════════════════ */
+	.v02 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v02__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v02__img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+	.v02__body { padding: var(--space-lg); }
+	.v02__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v02__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v02__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v02__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v02__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 03 — Square image ═══════════════════════════════════════════════ */
+	.v03 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v03__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v03__img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+	.v03__body { padding: var(--space-lg); }
+	.v03__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v03__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v03__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v03__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v03__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 04 — Dark brand-muted card ═════════════════════════════════════ */
+	.v04 {
+		background: var(--color-bg-brand-muted); border-radius: var(--radius-lg); overflow: hidden;
+		border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 8%, transparent);
+	}
+	.v04__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v04__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v04__body { padding: var(--space-lg); }
+	.v04__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v04__rule { flex: 1; height: 1px; background: var(--color-fg-accent-on-brand); }
+	.v04__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); white-space: nowrap; }
+	.v04__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v04__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); }
+
+	/* ════ 05 — Borderless, shadow only, 2px rules ═════════════════════════ */
+	.v05 {
+		background: var(--color-bg-surface); border-radius: var(--radius-lg);
+		overflow: hidden; box-shadow: var(--shadow-lg);
+	}
+	.v05__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v05__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v05__body { padding: var(--space-lg); }
+	.v05__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v05__rule { flex: 1; height: 2px; background: var(--color-fg-accent); }
+	.v05__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v05__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v05__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 06 — Wide 2-col ═════════════════════════════════════════════════ */
+	.v06 {
+		display: grid; grid-template-columns: 1fr;
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+		@media (min-width: 480px) { grid-template-columns: 200px 1fr; }
+	}
+	.v06__img-col { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v06__img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: var(--size-40); }
+	.v06__text-col { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
+	.v06__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v06__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v06__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v06__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md); }
+	.v06__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 07 — Accent-tinted card bg ═════════════════════════════════════ */
+	.v07 {
+		background: var(--color-bg-accent); border: 1px solid var(--color-border-accent);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v07__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v07__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v07__body { padding: var(--space-lg); }
+	.v07__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v07__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v07__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v07__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-default); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v07__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); }
+
+	/* ════ 08 — xl radius, generous padding ════════════════════════════════ */
+	.v08 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);
+	}
+	.v08__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v08__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v08__body { padding: var(--space-xl); }
+	.v08__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-lg); }
+	.v08__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v08__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v08__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-lg); }
+	.v08__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 09 — Italic serif name ══════════════════════════════════════════ */
+	.v09 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v09__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v09__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v09__body { padding: var(--space-lg); }
+	.v09__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v09__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v09__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v09__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); font-style: italic; color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v09__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 10 — Gold line between image and body ════════════════════════════ */
+	.v10 {
+		background: var(--color-bg-subtle); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v10__img-wrap { overflow: hidden; position: relative; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v10__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v10__accent-line { height: 3px; background: var(--color-fg-accent); }
+	.v10__body { padding: var(--space-lg); }
+	.v10__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v10__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v10__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v10__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-default); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v10__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); }
+
+	/* ════ 11 — Type-only, no image ════════════════════════════════════════ */
+	.v11 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); padding: var(--space-2xl); text-align: center;
+	}
+	.v11__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-lg); }
+	.v11__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v11__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v11__name { font-family: var(--font-serif); font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl)); font-weight: var(--font-weight-light); color: var(--color-fg-default); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-lg); }
+	.v11__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); }
+
+	/* ════ 12 — Hover: lift + accent border + image scale ══════════════════ */
+	.v12 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+		transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out);
+		&:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 0 0 1px var(--color-border-accent), var(--shadow-lg);
+			border-color: var(--color-border-accent);
+		}
+	}
+	.v12__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v12__img {
+		width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+		transition: transform var(--duration-slow) var(--ease-smooth);
+		.v12:hover & { transform: scale(1.04); }
+	}
+	.v12__body { padding: var(--space-lg); }
+	.v12__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v12__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v12__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v12__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v12__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 13 — Gold border-top ════════════════════════════════════════════ */
+	.v13 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-block-start: 3px solid var(--color-fg-accent);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v13__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v13__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v13__body { padding: var(--space-lg); }
+	.v13__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v13__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v13__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v13__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v13__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 14 — Letterpress inset shadow ════════════════════════════════════ */
+	.v14 {
+		background: var(--color-bg-subtle); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden;
+		box-shadow: var(--shadow-inset-sm), var(--shadow-sm);
+	}
+	.v14__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v14__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v14__body { padding: var(--space-lg); }
+	.v14__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v14__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v14__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v14__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-default); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v14__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); }
+
+	/* ════ 15 — Everything centred ══════════════════════════════════════════ */
+	.v15 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+		text-align: center;
+	}
+	.v15__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v15__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v15__body { padding: var(--space-xl); }
+	.v15__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v15__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v15__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v15__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md); }
+	.v15__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 16 — Rules centred, name left-aligned ════════════════════════════ */
+	.v16 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v16__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v16__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v16__body { padding: var(--space-lg); }
+	.v16__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v16__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v16__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v16__name { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md); }
+	.v16__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 17 — Brand-subtle tint bg ════════════════════════════════════════ */
+	.v17 {
+		background: var(--color-bg-brand-subtle); border-radius: var(--radius-lg);
+		overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-fg-accent-on-brand) 20%, transparent);
+	}
+	.v17__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v17__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v17__body { padding: var(--space-lg); }
+	.v17__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v17__rule { flex: 1; height: 1px; background: var(--color-fg-accent-on-brand); }
+	.v17__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); white-space: nowrap; }
+	.v17__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-brand); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v17__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); }
+
+	/* ════ 18 — Circle portrait ══════════════════════════════════════════════ */
+	.v18 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); padding: var(--space-xl);
+		display: flex; flex-direction: column; align-items: center; text-align: center;
+		box-shadow: var(--shadow-sm);
+	}
+	.v18__circle {
+		width: var(--size-32); height: var(--size-32); border-radius: var(--radius-full);
+		overflow: hidden; border: 2px solid var(--color-border-accent);
+		margin-block-end: var(--space-xl);
+	}
+	.v18__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+	.v18__eyebrow { display: flex; align-items: center; gap: var(--space-md); margin-block-end: var(--space-md); width: 100%; }
+	.v18__rule { flex: 1; height: 1px; background: var(--color-fg-accent); }
+	.v18__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v18__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); margin-block-end: var(--space-md); }
+	.v18__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 19 — Short fixed rules, larger role ════════════════════════════════ */
+	.v19 {
+		background: var(--color-bg-surface); border: 1px solid var(--color-border-default);
+		border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+	}
+	.v19__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v19__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v19__body { padding: var(--space-lg); }
+	.v19__eyebrow { display: flex; align-items: center; justify-content: center; gap: var(--space-md); margin-block-end: var(--space-md); }
+	.v19__rule { width: var(--size-10); height: 1px; background: var(--color-fg-accent); flex-shrink: 0; }
+	.v19__role { font-family: var(--font-sans); font-size: var(--font-size-sm); letter-spacing: var(--letter-spacing-wider); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; font-weight: var(--font-weight-medium); }
+	.v19__name { font-family: var(--font-serif); font-size: var(--font-size-xl); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-md); }
+	.v19__bio { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+
+	/* ════ 20 — No border, generous white space, rules very prominent ═══════ */
+	.v20 {
+		background: var(--color-bg-surface); border-radius: var(--radius-lg);
+		overflow: hidden;
+		box-shadow: 0 0 0 1px var(--color-border-default), var(--shadow-xl);
+	}
+	.v20__img-wrap { overflow: hidden; @media (max-width: 639px) { max-height: var(--size-48); } }
+	.v20__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+	.v20__body { padding: var(--space-2xl); }
+	.v20__eyebrow { display: flex; align-items: center; gap: var(--space-lg); margin-block-end: var(--space-xl); }
+	.v20__rule { flex: 1; height: 2px; background: var(--color-fg-accent); border-radius: var(--radius-full); }
+	.v20__role { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); white-space: nowrap; }
+	.v20__name { font-family: var(--font-serif); font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl)); font-weight: var(--font-weight-light); color: var(--color-fg-on-surface); letter-spacing: var(--letter-spacing-tight); text-align: center; margin-block-end: var(--space-xl); }
+	.v20__bio { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-on-surface-muted); }
+</style>

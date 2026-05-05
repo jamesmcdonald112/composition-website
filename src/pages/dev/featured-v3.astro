@@ -1,0 +1,737 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
+import signingImage from "../../assets/images/new/person-signing-document-at-desk.webp";
+import houseKeyImage from "../../assets/images/new/house-key-on-wooden-table.webp";
+---
+
+<BaseLayout title="Featured V3 — Premium Variants" description="Dev — 20 premium layout explorations" canonicalPath="/dev/featured-v3">
+<div class="dev-page">
+
+	<!-- 1: Navy bg / text left / image right contained & smaller / amber outline -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">1 · Navy / Text left / Image smaller + amber outline</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 2: Navy bg / image right with amber inset shadow / text left -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">2 · Navy / Amber inset shadow on image / Contained</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled, and everything in between.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-shadow img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 3: Navy bg / amber corner accent on image / portrait crop -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">3 · Navy / Amber corner brackets on image</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We handle the full conveyancing process so you can focus on what matters. From contracts to completion, we keep you informed at every stage.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-bracket-wrap img-frame--sm">
+				<div class="img-bracket">
+					<Image src={houseKeyImage} alt="" width={500} height={600} class="img-fill" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4: Navy bg / amber offset frame behind image / elevated feel -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">4 · Navy / Amber offset frame behind image</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Conveyancing in Kilkenny</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-offset-wrap img-frame--sm">
+				<div class="img-offset-frame"></div>
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill img-offset-img" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 5: Navy bg / image floated right smaller / amber left rule on text -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">5 · Navy / Amber left rule on text / Small image right</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col text-col--amber-rule">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--xs">
+				<Image src={signingImage} alt="" width={400} height={500} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 6: Charcoal-900 bg / amber outline image / white text — dark warm variant -->
+	<section class="v v-charcoal-dark">
+		<p class="lbl lbl-light">6 · Charcoal-900 / Amber outline image / Warm dark</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, and mortgage requirements handled.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={houseKeyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 7: Stone bg / navy card panel left / image right with amber outline — inverted -->
+	<section class="v v-stone">
+		<p class="lbl">7 · Stone bg / Navy card panel / Image amber outline</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="navy-card">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 8: White bg / editorial — large serif quote / small portrait image / minimal -->
+	<section class="v v-white">
+		<p class="lbl">8 · White / Editorial serif quote / Portrait image / Minimal</p>
+		<div class="wrapper wrapper--wide split split--45-55">
+			<div class="text-col">
+				<p class="tag">Conveyancing in Kilkenny</p>
+				<p class="pull-quote">"One of the biggest decisions you'll ever make — handled with the care it deserves."</p>
+				<p class="body">Clear, practical conveyancing advice from a practice established in Kilkenny since 1979.</p>
+				<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--portrait">
+				<Image src={signingImage} alt="" width={400} height={560} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 9: Stone bg / numbered steps left / contained image right / amber numbers -->
+	<section class="v v-stone">
+		<p class="lbl">9 · Stone / Numbered steps / Contained portrait image</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag">Buying & Selling Property</p>
+				<h2 class="heading">Buying or selling property in Kilkenny?</h2>
+				<ol class="num-steps">
+					<li><span class="ns-num">01</span><div><strong>Contracts reviewed</strong> in full before you sign anything</div></li>
+					<li><span class="ns-num">02</span><div><strong>Title checks,</strong> planning, and compliance handled</div></li>
+					<li><span class="ns-num">03</span><div><strong>Mortgage</strong> and lender requirements managed</div></li>
+					<li><span class="ns-num">04</span><div><strong>Completion</strong> coordinated from start to finish</div></li>
+				</ol>
+				<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 10: Amber-50 bg / navy text / image amber outline / warm light -->
+	<section class="v v-amber">
+		<p class="lbl">10 · Amber-50 / Navy text / Image amber outline</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag">Buying & Selling Property</p>
+				<h2 class="heading">Buying or selling property in Kilkenny?</h2>
+				<p class="body">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+				<ul class="points">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={houseKeyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 11: Navy bg / stats row under text / contained image amber outline -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">11 · Navy / Stats row / Contained image</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Conveyancing in Kilkenny</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">Clear, practical advice from a practice established in Kilkenny since 1979. We manage the full process so you can focus on what matters.</p>
+				<div class="stats">
+					<div class="stat"><span class="stat-val">46+</span><span class="stat-lbl">Years in practice</span></div>
+					<div class="stat"><span class="stat-val">1979</span><span class="stat-lbl">Established</span></div>
+					<div class="stat"><span class="stat-val">Kilkenny</span><span class="stat-lbl">Local base</span></div>
+				</div>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={signingImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 12: Navy bg / image top-right floated / text fills left — asymmetric -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">12 · Navy / Asymmetric: image top-aligned / Text dominant</p>
+		<div class="wrapper wrapper--wide split split--60-40">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand heading--xl">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--xs img-frame--top">
+				<Image src={propertyImage} alt="" width={400} height={480} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 13: White bg / split / image with thin navy frame / amber tag large -->
+	<section class="v v-white">
+		<p class="lbl">13 · White / Thin navy frame on image / Large amber tag</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag-serif">Buying &amp; Selling Property</p>
+				<h2 class="heading">We manage the full conveyancing process for Kilkenny clients</h2>
+				<p class="body">Contracts reviewed, title investigated, mortgage requirements handled — and you'll always know where things stand.</p>
+				<ul class="points">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--navy-outline img-frame--sm">
+				<Image src={houseKeyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 14: Navy bg / image below heading, inset smaller / amber outline / text wraps -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">14 · Navy / Image inset below heading / Amber outline / Compact</p>
+		<div class="wrapper wrapper--wide split split--55-45">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled. You will always know where things stand.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--contained">
+				<Image src={signingImage} alt="" width={420} height={500} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 15: Stone bg / amber-50 inset panel left / image right with amber outline -->
+	<section class="v v-stone">
+		<p class="lbl">15 · Stone bg / Amber-50 inset text panel / Image amber outline</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="amber-panel">
+				<p class="tag">Buying & Selling Property</p>
+				<h2 class="heading">Buying or selling property in Kilkenny?</h2>
+				<p class="body">We manage the full conveyancing process from first instruction to completion.</p>
+				<ul class="points">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 16: White bg / minimal text / image pair side by side / one outlined -->
+	<section class="v v-white">
+		<p class="lbl">16 · White / Two images side by side / One amber outlined / Header above</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v16-header">
+				<p class="tag">Buying & Selling Property</p>
+				<h2 class="heading v16-heading">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--narrow">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+			</div>
+			<div class="v16-images">
+				<div class="img-frame img-frame--amber-outline">
+					<Image src={propertyImage} alt="" width={600} height={500} class="img-fill" />
+				</div>
+				<div class="img-frame img-frame--plain">
+					<Image src={signingImage} alt="" width={600} height={500} class="img-fill" />
+				</div>
+			</div>
+			<a href="/services/buying-and-selling-property" class="btn-primary">Our property service</a>
+		</div>
+	</section>
+
+	<!-- 17: Navy bg / wide image spanning right with amber outline / narrow text left -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">17 · Navy / Narrow text left / Wide image right amber outline</p>
+		<div class="wrapper wrapper--wide split split--40-60">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion.</p>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-outline img-frame--wide">
+				<Image src={houseKeyImage} alt="" width={700} height={500} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 18: Navy bg / amber-tinted image overlay / text over darkened image half -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">18 · Navy / Text left / Image with amber top border stripe</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--amber-top img-frame--sm">
+				<Image src={propertyImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 19: Navy bg / image right with double amber outline — bold graphic feel -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">19 · Navy / Double amber outline on image / Bold</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process — contracts reviewed, title investigated, mortgage requirements handled throughout.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-frame img-frame--double-amber img-frame--sm">
+				<Image src={signingImage} alt="" width={500} height={600} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- 20: Navy bg / image right / amber bottom border strip under image / text left -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">20 · Navy / Amber strip below image / Caption style</p>
+		<div class="wrapper wrapper--wide split">
+			<div class="text-col">
+				<p class="tag tag--brand">Buying & Selling Property</p>
+				<h2 class="heading heading--brand">Buying or selling property in Kilkenny?</h2>
+				<p class="body body--brand">We manage the full conveyancing process from first instruction to completion — contracts reviewed, title investigated, mortgage requirements handled.</p>
+				<ul class="points points--brand">
+					<li>Contracts reviewed before you sign</li>
+					<li>Title checks and compliance handled</li>
+					<li>Mortgage requirements managed</li>
+					<li>Completion coordinated throughout</li>
+				</ul>
+				<a href="/services/buying-and-selling-property" class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="img-caption-wrap img-frame--sm">
+				<div class="img-frame img-frame--plain" style="height: calc(100% - var(--space-lg));">
+					<Image src={propertyImage} alt="" width={500} height={560} class="img-fill" />
+				</div>
+				<div class="img-caption-strip">Buying & Selling Property — Kilkenny</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+.dev-page { display: flex; flex-direction: column; }
+
+/* ── Section bases ─────────────────────────────────────────────────────────── */
+.v { padding-block: var(--space-5xl); position: relative; }
+.v-navy    { background: var(--color-bg-brand); }
+.v-stone   { background: var(--color-bg-subtle); }
+.v-white   { background: var(--color-bg-surface); }
+.v-amber   { background: var(--color-bg-accent); }
+.v-charcoal-dark { background: var(--charcoal-900); }
+
+.lbl {
+	position: absolute;
+	top: var(--space-sm);
+	left: var(--space-lg);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wider);
+	text-transform: uppercase;
+	opacity: 0.4;
+	color: var(--color-fg-default);
+}
+.lbl-light { color: var(--color-fg-on-brand); }
+
+/* ── Grids ─────────────────────────────────────────────────────────────────── */
+.split {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.split--45-55 { @media (min-width: 768px) { grid-template-columns: 45fr 55fr; } }
+.split--55-45 { @media (min-width: 768px) { grid-template-columns: 55fr 45fr; } }
+.split--60-40 { @media (min-width: 768px) { grid-template-columns: 60fr 40fr; } }
+.split--40-60 { @media (min-width: 768px) { grid-template-columns: 40fr 60fr; } }
+
+/* ── Text col ──────────────────────────────────────────────────────────────── */
+.text-col { display: flex; flex-direction: column; }
+.text-col--amber-rule {
+	border-inline-start: 2px solid var(--color-fg-accent-on-brand);
+	padding-inline-start: var(--space-xl);
+}
+
+/* ── Image frames ──────────────────────────────────────────────────────────── */
+.img-frame {
+	overflow: hidden;
+	align-self: center;
+}
+.img-frame--sm  { max-width: 380px; width: 100%; justify-self: center; }
+.img-frame--xs  { max-width: 300px; width: 100%; justify-self: center; }
+.img-frame--portrait { max-width: 320px; width: 100%; justify-self: center; }
+.img-frame--contained { max-width: 340px; width: 100%; justify-self: center; }
+.img-frame--wide { width: 100%; }
+.img-frame--top { align-self: start; }
+
+.img-frame--amber-outline {
+	outline: 2px solid var(--amber-400);
+	outline-offset: var(--space-sm);
+}
+.img-frame--amber-shadow {
+	box-shadow: var(--space-sm) var(--space-sm) 0 0 var(--amber-400);
+}
+.img-frame--navy-outline {
+	outline: 2px solid var(--navy-300);
+	outline-offset: var(--space-sm);
+}
+.img-frame--amber-top {
+	border-block-start: 4px solid var(--amber-400);
+}
+.img-frame--double-amber {
+	outline: 2px solid var(--amber-400);
+	outline-offset: var(--space-sm);
+	box-shadow: 0 0 0 calc(var(--space-sm) + 4px) var(--amber-700);
+}
+.img-frame--plain { overflow: hidden; }
+
+.img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Amber corner brackets ─────────────────────────────────────────────────── */
+.img-bracket-wrap { position: relative; align-self: center; }
+.img-bracket {
+	position: relative;
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: var(--space-xl);
+		height: var(--space-xl);
+		z-index: 1;
+	}
+	&::before {
+		inset-block-start: calc(-1 * var(--space-xs));
+		inset-inline-start: calc(-1 * var(--space-xs));
+		border-block-start: 2px solid var(--amber-400);
+		border-inline-start: 2px solid var(--amber-400);
+	}
+	&::after {
+		inset-block-end: calc(-1 * var(--space-xs));
+		inset-inline-end: calc(-1 * var(--space-xs));
+		border-block-end: 2px solid var(--amber-400);
+		border-inline-end: 2px solid var(--amber-400);
+	}
+}
+
+/* ── Amber offset frame ────────────────────────────────────────────────────── */
+.img-offset-wrap { position: relative; align-self: center; }
+.img-offset-frame {
+	position: absolute;
+	inset-block-start: var(--space-md);
+	inset-inline-start: var(--space-md);
+	inset-block-end: calc(-1 * var(--space-md));
+	inset-inline-end: calc(-1 * var(--space-md));
+	border: 2px solid var(--amber-400);
+	z-index: 0;
+}
+.img-offset-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; object-fit: cover; }
+
+/* ── Navy card panel ───────────────────────────────────────────────────────── */
+.navy-card {
+	background: var(--color-bg-brand);
+	padding: var(--space-2xl);
+	border-radius: var(--radius-lg);
+	display: flex;
+	flex-direction: column;
+}
+
+/* ── Amber panel ───────────────────────────────────────────────────────────── */
+.amber-panel {
+	background: var(--color-bg-accent);
+	padding: var(--space-2xl);
+	border-radius: var(--radius-lg);
+	display: flex;
+	flex-direction: column;
+}
+
+/* ── Caption strip ─────────────────────────────────────────────────────────── */
+.img-caption-wrap { display: flex; flex-direction: column; gap: var(--space-sm); align-self: center; max-width: 380px; width: 100%; justify-self: center; }
+.img-caption-strip {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wider);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	border-block-start: 1px solid var(--amber-400);
+	padding-block-start: var(--space-sm);
+}
+
+/* ── V16 ───────────────────────────────────────────────────────────────────── */
+.v16-header { margin-block-end: var(--space-2xl); }
+.v16-heading { max-width: 24ch; }
+.v16-images {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-lg);
+	margin-block-end: var(--space-xl);
+	height: 360px;
+}
+
+/* ── Typography ────────────────────────────────────────────────────────────── */
+.tag {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent);
+	margin-block-end: var(--space-sm);
+}
+.tag--brand { color: var(--color-fg-accent-on-brand); }
+
+.tag-serif {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-style: italic;
+	color: var(--color-fg-accent);
+	margin-block-end: var(--space-md);
+}
+
+.heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-3xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: 1.2;
+	margin-block-end: var(--space-lg);
+}
+.heading--brand { color: var(--color-fg-on-brand); }
+.heading--xl { font-size: var(--font-size-4xl); }
+
+.pull-quote {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-2xl);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: 1.4;
+	margin-block-end: var(--space-lg);
+}
+
+.body {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-fg-muted);
+	margin-block-end: var(--space-lg);
+}
+.body--brand { color: var(--color-fg-on-brand-muted); }
+.body--narrow { max-width: 52ch; }
+
+.points {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+.points li {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-muted);
+	padding-inline-start: var(--space-lg);
+	position: relative;
+	&::before { content: "—"; position: absolute; inset-inline-start: 0; color: var(--color-fg-accent); }
+}
+.points--brand li { color: var(--color-fg-on-brand-muted); }
+.points--brand li::before { color: var(--color-fg-accent-on-brand); }
+
+.num-steps {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+.num-steps li {
+	display: flex;
+	gap: var(--space-md);
+	align-items: start;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-muted);
+}
+.ns-num {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-lg);
+	color: var(--color-fg-accent);
+	flex-shrink: 0;
+	line-height: 1.2;
+	min-width: var(--size-8);
+}
+
+.stats { display: flex; gap: var(--space-2xl); margin-block-end: var(--space-xl); flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: var(--space-xs); }
+.stat-val { font-family: var(--font-serif); font-size: var(--font-size-2xl); font-style: italic; color: var(--color-fg-accent-on-brand); }
+.stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); color: var(--color-fg-on-brand-subtle); }
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: var(--color-bg-interactive);
+	color: var(--color-fg-interactive);
+	border: 1px solid var(--color-border-accent);
+	margin-block-start: var(--space-sm);
+	align-self: flex-start;
+}
+.btn-outline-light {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: transparent;
+	color: var(--color-fg-on-brand);
+	border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 40%, transparent);
+	margin-block-start: var(--space-sm);
+	align-self: flex-start;
+}
+</style>

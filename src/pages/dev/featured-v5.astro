@@ -1,0 +1,1594 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { homePageContent } from "../../config/home";
+import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
+import signingImage from "../../assets/images/new/person-signing-document-at-desk.webp";
+import houseKeyImage from "../../assets/images/new/house-key-on-wooden-table.webp";
+
+const { featuredService } = homePageContent;
+const { card, aside } = featuredService;
+const stats = homePageContent.trustStrip.stats;
+---
+
+<BaseLayout title="Featured V5 — Design Variations" description="Dev — 20 more layout explorations" canonicalPath="/dev/featured-v5">
+<div class="dev-page">
+
+	<!-- ─── 1: Navy / eyebrow at full width above / split below ─────────────── -->
+	<!-- Like v4-14 but eyebrow is a full-width header band above the split -->
+	<section class="v v-navy v1">
+		<p class="lbl lbl-light">1 · Navy / Full-width eyebrow band / Split below</p>
+		<div class="v1__eyebrow-band">
+			<div class="wrapper wrapper--wide">
+				<p class="v1__eyebrow">{featuredService.eyebrow}</p>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v1__grid">
+			<div class="v1__text">
+				<h2 class="v1__heading">{card.title}</h2>
+				<p class="body body--brand">{card.body}</p>
+				<ul class="points points--brand">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+			<div class="v1__image">
+				<Image src={signingImage} alt="" width={600} height={680} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 2: Amber / eyebrow tracks vertical left edge / split right ───────── -->
+	<!-- Eyebrow rotated 90° on the left margin, heading + content to the right -->
+	<section class="v v-amber v2">
+		<p class="lbl">2 · Amber / Vertical rotated eyebrow / Content right</p>
+		<div class="wrapper wrapper--wide v2__layout">
+			<div class="v2__rotated-label" aria-hidden="true">
+				<span>{featuredService.eyebrow}</span>
+			</div>
+			<div class="v2__content">
+				<div class="v2__split">
+					<div class="v2__text">
+						<p class="tag tag--amber">{card.tag}</p>
+						<h2 class="v2__display">{card.title}</h2>
+						<p class="body">{aside.intro}</p>
+						<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+					</div>
+					<div class="v2__image">
+						<Image src={propertyImage} alt="" width={580} height={660} class="img-fill img--rounded" />
+					</div>
+				</div>
+				<div class="v2__stats">
+					{stats.map(s => (
+						<div class="v2__stat">
+							<span class="v2__stat-val">{s.value}</span>
+							<span class="v2__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 3: Navy / eyebrow huge + key points grid — no image ─────────────── -->
+	<!-- Pure information architecture — scale of eyebrow + structured grid -->
+	<section class="v v-navy v3">
+		<p class="lbl lbl-light">3 · Navy / Huge eyebrow + 4-col points grid / No image</p>
+		<div class="wrapper wrapper--wide">
+			<p class="v3__eyebrow">{featuredService.eyebrow}</p>
+			<div class="v3__rule"></div>
+			<div class="v3__bottom">
+				<div class="v3__heading-col">
+					<h2 class="v3__heading">{card.title}</h2>
+					<p class="body body--brand">{aside.intro}</p>
+					<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+				</div>
+				<div class="v3__points-grid">
+					{aside.keyPoints.map(kp => (
+						<div class="v3__point">
+							<p class="v3__point-head">{kp.heading}</p>
+							<p class="v3__point-body">{kp.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 4: Stone / serif display + stats band at top / image + points below ─ -->
+	<!-- Stats lead — trust established before you read the heading -->
+	<section class="v v4">
+		<p class="lbl">4 · Stone / Stats band at top / Serif heading + image below</p>
+		<div class="v4__stats-band">
+			<div class="wrapper wrapper--wide v4__stats-row">
+				{stats.map(s => (
+					<div class="v4__stat">
+						<span class="v4__stat-val">{s.value}</span>
+						<span class="v4__stat-lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v4__grid">
+			<div class="v4__text">
+				<p class="tag">{card.tag}</p>
+				<h2 class="v4__display">{card.title}</h2>
+				<p class="body">{card.body}</p>
+				<ul class="points">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+			<div class="v4__image">
+				<Image src={propertyImage} alt="" width={580} height={660} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 5: Navy / eyebrow left col / heading + body right col / image bottom ─ -->
+	<!-- 3-zone: eyebrow | heading+body | image spanning full width below -->
+	<section class="v v-navy v5">
+		<p class="lbl lbl-light">5 · Navy / 3-zone: eyebrow col | text col | filmstrip below</p>
+		<div class="wrapper wrapper--wide v5__top">
+			<div class="v5__eyebrow-col">
+				<p class="v5__eyebrow">{featuredService.eyebrow}</p>
+				<div class="v5__eyebrow-rule"></div>
+			</div>
+			<div class="v5__text-col">
+				<h2 class="v5__heading">{card.title}</h2>
+				<p class="body body--brand">{card.body}</p>
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+		</div>
+		<div class="v5__filmstrip">
+			<Image src={houseKeyImage} alt="" width={1400} height={420} class="v5__film-img" />
+			<div class="v5__film-overlay">
+				<div class="wrapper wrapper--wide v5__film-points">
+					{card.points.map(p => (
+						<div class="v5__film-point">
+							<span class="v5__film-dash">—</span>
+							<span>{p}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 6: White / heading at display scale left / key points stacked right ─ -->
+	<!-- No image — typographic + structured -->
+	<section class="v v-white v6">
+		<p class="lbl">6 · White / Display heading left / 4 key points stacked right</p>
+		<div class="wrapper wrapper--wide v6__grid">
+			<div class="v6__left">
+				<p class="tag">{card.tag}</p>
+				<h2 class="v6__display">{card.title}</h2>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+			<div class="v6__right">
+				{aside.keyPoints.map((kp, i) => (
+					<div class="v6__kp">
+						<span class="v6__kp-num" aria-hidden="true">0{i + 1}</span>
+						<div class="v6__kp-text">
+							<strong class="v6__kp-head">{kp.heading}</strong>
+							<p class="v6__kp-body">{kp.body}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 7: Amber / amber stats band mid / image left / text right ────────── -->
+	<!-- Stats interrupt the flow — amber colour makes them land hard -->
+	<section class="v v-amber v7">
+		<p class="lbl">7 · Amber / Image left / Text right / Stats mid-band</p>
+		<div class="wrapper wrapper--wide v7__top">
+			<div class="v7__image">
+				<Image src={signingImage} alt="" width={580} height={660} class="img-fill img--rounded" />
+			</div>
+			<div class="v7__text">
+				<p class="tag tag--amber">{card.tag}</p>
+				<h2 class="h-serif">{card.title}</h2>
+				<p class="body">{card.body}</p>
+				<ul class="points">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+		</div>
+		<div class="v7__stats-band">
+			<div class="wrapper wrapper--wide v7__stats-row">
+				{stats.map(s => (
+					<div class="v7__stat">
+						<span class="v7__stat-val">{s.value}</span>
+						<span class="v7__stat-lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 8: Navy / two-col: heading block left / 2×2 points grid right ─────── -->
+	<!-- Like v4-18 but heading is at display scale and image removed for purity -->
+	<section class="v v-navy v8">
+		<p class="lbl lbl-light">8 · Navy / Display heading left / 2×2 points grid right</p>
+		<div class="wrapper wrapper--wide v8__grid">
+			<div class="v8__left">
+				<p class="v8__eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="v8__display">{card.title}</h2>
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+			<div class="v8__points-grid">
+				{aside.keyPoints.map(kp => (
+					<div class="v8__point">
+						<p class="v8__point-head">{kp.heading}</p>
+						<p class="v8__point-body">{kp.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 9: Stone / serif display heading / rule / 3-col body text ───────── -->
+	<!-- Magazine editorial — heading above a rule, three columns of text below -->
+	<section class="v v9">
+		<p class="lbl">9 · Stone / Serif display / Rule / 3-col editorial text</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v9__header">
+				<p class="tag">{card.tag}</p>
+				<h2 class="v9__display">{card.title}</h2>
+			</div>
+			<div class="v9__rule"></div>
+			<div class="v9__cols">
+				<p class="v9__col-text">{aside.intro}</p>
+				<p class="v9__col-text">{card.body}</p>
+				<div class="v9__col-aside">
+					{aside.keyPoints.slice(0, 2).map(kp => (
+						<div class="v9__kp">
+							<strong class="v9__kp-head">{kp.heading}</strong>
+							<p class="v9__kp-body">{kp.body}</p>
+						</div>
+					))}
+					<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 10: Navy / eyebrow + heading stacked large / image bleeds right ─── -->
+	<!-- Like v4-5 but on navy with eyebrow stacked above heading -->
+	<section class="v v-navy v10">
+		<p class="lbl lbl-light">10 · Navy / Eyebrow stacked on heading / Image bleeds right edge</p>
+		<div class="v10__layout">
+			<div class="v10__text-side">
+				<p class="v10__eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="v10__heading">{card.title}</h2>
+				<p class="body body--brand">{card.body}</p>
+				<ul class="points points--brand">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+			<div class="v10__image-side">
+				<Image src={propertyImage} alt="" width={800} height={800} class="img-fill" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 11: Amber / headline + intro / points in amber card / image right ─── -->
+	<!-- Points pulled into a navy card that contrasts with amber background -->
+	<section class="v v-amber v11">
+		<p class="lbl">11 · Amber / Points in navy contrast card / Image right</p>
+		<div class="wrapper wrapper--wide v11__grid">
+			<div class="v11__left">
+				<p class="tag tag--amber">{card.tag}</p>
+				<h2 class="h-serif">{card.title}</h2>
+				<p class="body">{aside.intro}</p>
+				<div class="v11__navy-card">
+					<ul class="v11__points">
+						{card.points.map(p => <li>{p}</li>)}
+					</ul>
+					<a href={card.cta.href} class="v11__cta">{card.cta.label}</a>
+				</div>
+			</div>
+			<div class="v11__image">
+				<Image src={houseKeyImage} alt="" width={580} height={660} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 12: White / serif display + stats below heading / image right ─────── -->
+	<!-- Stats integrated into the text column below the heading — like v4-19 variant -->
+	<section class="v v-white v12">
+		<p class="lbl">12 · White / Serif display / Inline stats / Image right</p>
+		<div class="wrapper wrapper--wide v12__grid">
+			<div class="v12__text">
+				<p class="tag">{card.tag}</p>
+				<h2 class="v12__display">{card.title}</h2>
+				<div class="v12__stats">
+					{stats.map(s => (
+						<div class="v12__stat">
+							<span class="v12__stat-val">{s.value}</span>
+							<span class="v12__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<p class="body">{card.body}</p>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+			<div class="v12__image">
+				<Image src={signingImage} alt="" width={580} height={700} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 13: Navy / 3-col: eyebrow | heading | points — all same height ──── -->
+	<!-- Flat editorial grid — all three columns sit at equal level -->
+	<section class="v v-navy v13">
+		<p class="lbl lbl-light">13 · Navy / 3-col editorial flat grid / Image below</p>
+		<div class="wrapper wrapper--wide v13__grid">
+			<div class="v13__eyebrow-col">
+				<p class="v13__eyebrow">{featuredService.eyebrow}</p>
+			</div>
+			<div class="v13__heading-col">
+				<h2 class="v13__heading">{card.title}</h2>
+			</div>
+			<div class="v13__points-col">
+				{aside.keyPoints.slice(0,3).map(kp => (
+					<div class="v13__kp">
+						<strong class="v13__kp-head">{kp.heading}</strong>
+						<p class="v13__kp-body">{kp.body}</p>
+					</div>
+				))}
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+		</div>
+		<div class="v13__image-band">
+			<Image src={propertyImage} alt="" width={1400} height={380} class="v13__img" />
+		</div>
+	</section>
+
+	<!-- ─── 14: Stone / amber left col accent / heading + points / image right ── -->
+	<!-- Amber accent column acts as the dominant visual element on the left -->
+	<section class="v v14">
+		<p class="lbl">14 · Stone / Amber accent left column / Heading + points / Image</p>
+		<div class="wrapper wrapper--wide v14__grid">
+			<div class="v14__amber-col" aria-hidden="true">
+				<div class="v14__amber-bar"></div>
+				<p class="v14__amber-label">{featuredService.eyebrow}</p>
+			</div>
+			<div class="v14__text">
+				<p class="tag">{card.tag}</p>
+				<h2 class="h-serif">{card.title}</h2>
+				<p class="body">{card.body}</p>
+				<ul class="points">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+			<div class="v14__image">
+				<Image src={houseKeyImage} alt="" width={520} height={640} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 15: Navy / eyebrow oversized / body + stats / image floated ─────── -->
+	<!-- v4-14 pushed further: eyebrow even larger, stats woven below body -->
+	<section class="v v-navy v15">
+		<p class="lbl lbl-light">15 · Navy / Eyebrow at max scale / Stats woven into body</p>
+		<div class="wrapper wrapper--wide v15__grid">
+			<div class="v15__text">
+				<p class="v15__eyebrow">{featuredService.eyebrow}</p>
+				<div class="v15__rule"></div>
+				<h2 class="v15__heading">{card.title}</h2>
+				<p class="body body--brand">{card.body}</p>
+				<div class="v15__stats">
+					{stats.map(s => (
+						<div class="v15__stat">
+							<span class="v15__stat-val">{s.value}</span>
+							<span class="v15__stat-lbl">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+			</div>
+			<div class="v15__image">
+				<Image src={signingImage} alt="" width={560} height={680} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 16: White / serif display centred above / split below ────────────── -->
+	<!-- Heading centred and large at the top, then splits to image+points below -->
+	<section class="v v-white v16">
+		<p class="lbl">16 · White / Centred display heading / Split image+points below</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v16__header">
+				<p class="tag v16__tag">{card.tag}</p>
+				<h2 class="v16__display">{card.title}</h2>
+			</div>
+		</div>
+		<div class="wrapper wrapper--wide v16__grid">
+			<div class="v16__image">
+				<Image src={propertyImage} alt="" width={580} height={560} class="img-fill img--rounded" />
+			</div>
+			<div class="v16__points">
+				{aside.keyPoints.map(kp => (
+					<div class="v16__kp">
+						<div class="v16__kp-rule"></div>
+						<strong class="v16__kp-head">{kp.heading}</strong>
+						<p class="v16__kp-body">{kp.body}</p>
+					</div>
+				))}
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 17: Amber / serif display / amber stats row top / image left ─────── -->
+	<!-- v4-19 flipped: stats at top, image left, text right -->
+	<section class="v v-amber v17">
+		<p class="lbl">17 · Amber / Stats row top / Image left / Serif heading right</p>
+		<div class="wrapper wrapper--wide v17__stats-row">
+			{stats.map(s => (
+				<div class="v17__stat">
+					<span class="v17__stat-val">{s.value}</span>
+					<span class="v17__stat-lbl">{s.label}</span>
+				</div>
+			))}
+		</div>
+		<div class="wrapper wrapper--wide v17__grid">
+			<div class="v17__image">
+				<Image src={houseKeyImage} alt="" width={580} height={660} class="img-fill img--rounded" />
+			</div>
+			<div class="v17__text">
+				<p class="tag tag--amber">{card.tag}</p>
+				<h2 class="v17__display">{card.title}</h2>
+				<p class="body">{card.body}</p>
+				<ul class="points">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 18: Navy / image fills top band / eyebrow + heading + points below ── -->
+	<!-- v4-18 pattern: structured content below image — but eyebrow dominates -->
+	<section class="v v-navy v18">
+		<p class="lbl lbl-light">18 · Navy / Image band top / Eyebrow + points grid below</p>
+		<div class="v18__image-band">
+			<Image src={signingImage} alt="" width={1400} height={420} class="v18__img" />
+		</div>
+		<div class="wrapper wrapper--wide v18__body">
+			<div class="v18__body-top">
+				<p class="v18__eyebrow">{featuredService.eyebrow}</p>
+				<h2 class="v18__heading">{card.title}</h2>
+			</div>
+			<div class="v18__rule"></div>
+			<div class="v18__points-grid">
+				{aside.keyPoints.map(kp => (
+					<div class="v18__point">
+						<p class="v18__point-head">{kp.heading}</p>
+						<p class="v18__point-body">{kp.body}</p>
+					</div>
+				))}
+			</div>
+			<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+		</div>
+	</section>
+
+	<!-- ─── 19: Stone / serif display split by an amber horizontal rule ───────── -->
+	<!-- Heading split into two halves by an amber rule — typographic drama -->
+	<section class="v v19">
+		<p class="lbl">19 · Stone / Serif display bisected by amber rule / Image right</p>
+		<div class="wrapper wrapper--wide v19__grid">
+			<div class="v19__text">
+				<p class="tag">{card.tag}</p>
+				<h2 class="v19__display-top">Buying or selling</h2>
+				<div class="v19__amber-rule"></div>
+				<h2 class="v19__display-bot">property in Kilkenny?</h2>
+				<p class="body">{card.body}</p>
+				<ul class="points">
+					{card.points.map(p => <li>{p}</li>)}
+				</ul>
+				<a href={card.cta.href} class="btn-primary">{card.cta.label}</a>
+			</div>
+			<div class="v19__image">
+				<Image src={propertyImage} alt="" width={580} height={700} class="img-fill img--rounded" />
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── 20: Navy / stats row centred / eyebrow + heading + grid below ─────── -->
+	<!-- All three favourite patterns combined: eyebrow scale + points grid + stats -->
+	<section class="v v-navy v20">
+		<p class="lbl lbl-light">20 · Navy / Stats centred top / Eyebrow + heading + 4-col grid</p>
+		<div class="wrapper wrapper--wide">
+			<div class="v20__stats-row">
+				{stats.map(s => (
+					<div class="v20__stat">
+						<span class="v20__stat-val">{s.value}</span>
+						<span class="v20__stat-lbl">{s.label}</span>
+					</div>
+				))}
+			</div>
+			<div class="v20__rule"></div>
+			<div class="v20__mid">
+				<div class="v20__mid-text">
+					<p class="v20__eyebrow">{featuredService.eyebrow}</p>
+					<h2 class="v20__heading">{card.title}</h2>
+					<p class="body body--brand">{card.body}</p>
+					<a href={card.cta.href} class="btn-outline-light">{card.cta.label}</a>
+				</div>
+				<div class="v20__mid-image">
+					<Image src={houseKeyImage} alt="" width={520} height={480} class="img-fill img--rounded" />
+				</div>
+			</div>
+			<div class="v20__rule"></div>
+			<div class="v20__points-grid">
+				{aside.keyPoints.map(kp => (
+					<div class="v20__point">
+						<p class="v20__point-head">{kp.heading}</p>
+						<p class="v20__point-body">{kp.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+/* ── Page shell ───────────────────────────────────────────────────────────── */
+.dev-page { display: flex; flex-direction: column; }
+
+.v {
+	background: var(--color-bg-subtle);
+	position: relative;
+	overflow: hidden;
+}
+.v-white    { background: var(--color-bg-surface); }
+.v-amber    { background: var(--color-bg-accent); }
+.v-navy     { background: var(--color-bg-brand); }
+
+.lbl {
+	position: absolute;
+	top: var(--space-sm);
+	left: var(--space-lg);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wider);
+	text-transform: uppercase;
+	opacity: 0.4;
+	color: var(--color-fg-default);
+	z-index: 10;
+}
+.lbl-light { color: var(--color-fg-on-brand); }
+
+/* ── Shared atoms ─────────────────────────────────────────────────────────── */
+.tag {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent);
+	margin-block-end: var(--space-sm);
+}
+.tag--amber { color: var(--color-fg-accent); }
+.tag--brand { color: var(--color-fg-accent-on-brand); }
+
+.h-serif {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-3xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	margin-block-end: var(--space-lg);
+}
+
+.body {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-fg-muted);
+	margin-block-end: var(--space-lg);
+}
+.body--brand { color: var(--color-fg-on-brand-muted); }
+
+.points {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+.points li {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-muted);
+	padding-inline-start: var(--space-lg);
+	position: relative;
+}
+.points li::before {
+	content: "—";
+	position: absolute;
+	inset-inline-start: 0;
+	color: var(--color-fg-accent);
+}
+.points--brand li { color: var(--color-fg-on-brand-muted); }
+.points--brand li::before { color: var(--color-fg-accent-on-brand); }
+
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: var(--color-bg-interactive);
+	color: var(--color-fg-interactive);
+	border: 1px solid var(--color-border-accent);
+}
+.btn-outline-light {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: transparent;
+	color: var(--color-fg-on-brand);
+	border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 40%, transparent);
+}
+
+.img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img--rounded { border-radius: var(--radius-lg); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1 · Full-width eyebrow band / split below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v1 { padding-block: 0; }
+
+.v1__eyebrow-band {
+	padding-block: var(--space-2xl);
+	border-block-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 15%, transparent);
+}
+.v1__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+}
+.v1__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	padding-block: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v1__text { display: flex; flex-direction: column; }
+.v1__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v1__image { overflow: hidden; min-height: 440px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2 · Vertical rotated eyebrow / content right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v2 { padding-block: var(--space-5xl); }
+
+.v2__layout {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+}
+.v2__rotated-label {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	display: flex;
+	align-items: center;
+}
+.v2__rotated-label span {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent);
+	white-space: nowrap;
+}
+.v2__content { display: flex; flex-direction: column; gap: var(--space-3xl); }
+.v2__split {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v2__text { display: flex; flex-direction: column; }
+.v2__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	margin-block-end: var(--space-lg);
+}
+.v2__image { overflow: hidden; min-height: 440px; align-self: stretch; }
+.v2__stats {
+	display: flex;
+	gap: 0;
+	border-block-start: 1px solid var(--color-border-default);
+}
+.v2__stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	padding-block: var(--space-lg);
+	padding-inline: var(--space-xl);
+	border-inline-end: 1px solid var(--color-border-default);
+}
+.v2__stat:first-child { padding-inline-start: 0; }
+.v2__stat:last-child { border-inline-end: none; }
+.v2__stat-val {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-2xl);
+	color: var(--color-fg-accent);
+}
+.v2__stat-lbl {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	color: var(--color-fg-subtle);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3 · Huge eyebrow + 4-col points / no image
+   ══════════════════════════════════════════════════════════════════════════ */
+.v3 { padding-block: var(--space-5xl); }
+
+.v3__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-3xl), 5.5vw, var(--font-size-6xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+	margin-block-end: var(--space-2xl);
+}
+.v3__rule {
+	height: 1px;
+	background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	margin-block-end: var(--space-3xl);
+}
+.v3__bottom {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 40fr 60fr; }
+}
+.v3__heading-col { display: flex; flex-direction: column; }
+.v3__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v3__points-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-xl) var(--space-2xl);
+}
+.v3__point { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v3__point-head {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-fg-accent-on-brand);
+}
+.v3__point-body {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-on-brand-muted);
+	line-height: var(--line-height-relaxed);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4 · Stats band top / display heading + image below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v4 { padding-block: 0; }
+
+.v4__stats-band {
+	background: var(--color-bg-brand);
+	padding-block: var(--space-xl);
+}
+.v4__stats-row {
+	display: flex;
+	gap: 0;
+}
+.v4__stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	padding-inline: var(--space-xl);
+	border-inline-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.v4__stat:first-child { padding-inline-start: 0; }
+.v4__stat:last-child { border-inline-end: none; }
+.v4__stat-val {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-xl);
+	color: var(--color-fg-accent-on-brand);
+}
+.v4__stat-lbl {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	color: var(--color-fg-on-brand-muted);
+}
+.v4__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	padding-block: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v4__text { display: flex; flex-direction: column; }
+.v4__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-xl);
+}
+.v4__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5 · Navy / 3-zone: eyebrow col | text col | filmstrip with points
+   ══════════════════════════════════════════════════════════════════════════ */
+.v5 { padding-block: 0; }
+
+.v5__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	padding-block: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 30fr 70fr; }
+}
+.v5__eyebrow-col { display: flex; flex-direction: column; gap: var(--space-lg); }
+.v5__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1.1;
+}
+.v5__eyebrow-rule {
+	width: var(--space-xl);
+	height: 2px;
+	background: var(--color-fg-accent-on-brand);
+}
+.v5__text-col { display: flex; flex-direction: column; }
+.v5__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v5__filmstrip { position: relative; overflow: hidden; height: 320px; }
+.v5__film-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v5__film-overlay {
+	position: absolute;
+	inset: 0;
+	background: color-mix(in srgb, var(--color-bg-brand) 75%, transparent);
+	display: flex;
+	align-items: flex-end;
+	padding-block-end: var(--space-2xl);
+}
+.v5__film-points {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v5__film-point {
+	display: flex;
+	gap: var(--space-sm);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-on-brand-muted);
+}
+.v5__film-dash { color: var(--color-fg-accent-on-brand); flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6 · Display heading left / 4 key points stacked right / no image
+   ══════════════════════════════════════════════════════════════════════════ */
+.v6 { padding-block: var(--space-5xl); }
+.v6__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-4xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v6__left { display: flex; flex-direction: column; align-items: start; }
+.v6__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4.5vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-2xl);
+}
+.v6__right {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+	padding-block-start: 0;
+	@media (min-width: 768px) { padding-block-start: var(--space-2xl); }
+}
+.v6__kp { display: flex; gap: var(--space-lg); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-lg); }
+.v6__kp-num {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-xl);
+	color: var(--color-fg-accent);
+	flex-shrink: 0;
+	line-height: 1.2;
+	width: var(--space-2xl);
+}
+.v6__kp-text { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v6__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v6__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7 · Amber / image left / text right / stats band below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v7 { padding-block-start: var(--space-5xl); padding-block-end: 0; }
+.v7__top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	margin-block-end: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v7__image { overflow: hidden; min-height: 440px; align-self: stretch; }
+.v7__text { display: flex; flex-direction: column; }
+.v7__stats-band {
+	background: var(--color-bg-brand);
+}
+.v7__stats-row { display: flex; gap: 0; padding-block: var(--space-xl); }
+.v7__stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	padding-inline: var(--space-xl);
+	border-inline-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.v7__stat:first-child { padding-inline-start: 0; }
+.v7__stat:last-child { border-inline-end: none; }
+.v7__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent-on-brand); }
+.v7__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8 · Navy / display heading left / 2×2 points grid right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v8 { padding-block: var(--space-5xl); }
+.v8__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-4xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 45fr 55fr; }
+}
+.v8__left { display: flex; flex-direction: column; }
+.v8__eyebrow {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	margin-block-end: var(--space-md);
+}
+.v8__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-2xl);
+}
+.v8__points-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-xl);
+}
+.v8__point {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	padding-block-start: var(--space-md);
+}
+.v8__point-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v8__point-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9 · Stone / serif display / rule / 3-col editorial
+   ══════════════════════════════════════════════════════════════════════════ */
+.v9 { padding-block: var(--space-5xl); }
+.v9__header { margin-block-end: var(--space-2xl); }
+.v9__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4.5vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	max-width: 800px;
+}
+.v9__rule {
+	height: 1px;
+	background: var(--color-border-strong);
+	margin-block-end: var(--space-3xl);
+}
+.v9__cols {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr 1fr; }
+}
+.v9__col-text {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-fg-muted);
+}
+.v9__col-aside { display: flex; flex-direction: column; gap: var(--space-xl); }
+.v9__kp { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid var(--color-border-default); padding-block-start: var(--space-md); }
+.v9__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v9__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10 · Navy / eyebrow stacked / image bleeds right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v10 { padding: 0; }
+.v10__layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v10__text-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-block: var(--space-5xl);
+	padding-inline-start: max(var(--space-3xl), calc((100vw - 1280px) / 2));
+	padding-inline-end: var(--space-3xl);
+}
+.v10__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-2xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1.1;
+	margin-block-end: var(--space-md);
+}
+.v10__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-xl);
+	padding-block-start: var(--space-md);
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.v10__image-side { overflow: hidden; min-height: 560px; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11 · Amber / navy contrast card for points
+   ══════════════════════════════════════════════════════════════════════════ */
+.v11 { padding-block: var(--space-5xl); }
+.v11__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v11__left { display: flex; flex-direction: column; }
+.v11__navy-card {
+	background: var(--color-bg-brand);
+	padding: var(--space-2xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+}
+.v11__points {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+.v11__points li {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	color: var(--color-fg-on-brand-muted);
+	padding-inline-start: var(--space-lg);
+	position: relative;
+}
+.v11__points li::before {
+	content: "—";
+	position: absolute;
+	inset-inline-start: 0;
+	color: var(--color-fg-accent-on-brand);
+}
+.v11__cta {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: transparent;
+	color: var(--color-fg-on-brand);
+	border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 40%, transparent);
+	align-self: start;
+}
+.v11__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12 · White / serif display / inline stats / image right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v12 { padding-block: var(--space-5xl); }
+.v12__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v12__text { display: flex; flex-direction: column; }
+.v12__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-xl);
+}
+.v12__stats {
+	display: flex;
+	gap: 0;
+	margin-block-end: var(--space-xl);
+	border-block: 1px solid var(--color-border-default);
+	padding-block: var(--space-md);
+}
+.v12__stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+	padding-inline: var(--space-md);
+	border-inline-end: 1px solid var(--color-border-default);
+}
+.v12__stat:first-child { padding-inline-start: 0; }
+.v12__stat:last-child { border-inline-end: none; }
+.v12__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); color: var(--color-fg-accent); }
+.v12__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-subtle); }
+.v12__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13 · Navy / 3-col editorial flat grid / image below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v13 { padding-block: 0; }
+.v13__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	padding-block: var(--space-4xl);
+	@media (min-width: 768px) { grid-template-columns: 22fr 38fr 40fr; }
+}
+.v13__eyebrow-col {}
+.v13__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1.1;
+}
+.v13__heading-col {}
+.v13__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+}
+.v13__points-col { display: flex; flex-direction: column; gap: var(--space-lg); }
+.v13__kp { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v13__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v13__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+.v13__image-band { overflow: hidden; height: 360px; }
+.v13__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   14 · Stone / amber left accent column / heading + points / image
+   ══════════════════════════════════════════════════════════════════════════ */
+.v14 { padding-block: var(--space-5xl); }
+.v14__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: auto 1fr 1fr; }
+}
+.v14__amber-col {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-xl);
+	@media (min-width: 768px) { display: flex; }
+}
+.v14__amber-bar {
+	width: 2px;
+	flex: 1;
+	min-height: var(--space-5xl);
+	background: var(--color-fg-accent);
+}
+.v14__amber-label {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent);
+	white-space: nowrap;
+}
+.v14__text { display: flex; flex-direction: column; }
+.v14__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   15 · Navy / eyebrow at max scale / stats woven in
+   ══════════════════════════════════════════════════════════════════════════ */
+.v15 { padding-block: var(--space-5xl); }
+.v15__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v15__text { display: flex; flex-direction: column; }
+.v15__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+	margin-block-end: var(--space-xl);
+}
+.v15__rule {
+	height: 1px;
+	background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	margin-block-end: var(--space-xl);
+}
+.v15__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+}
+.v15__stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-md);
+	margin-block-end: var(--space-xl);
+}
+.v15__stat { display: flex; flex-direction: column; gap: var(--space-2xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v15__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent-on-brand); }
+.v15__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+.v15__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   16 · White / centred display heading / split image+points below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v16 { padding-block: var(--space-5xl); }
+.v16__header {
+	text-align: center;
+	max-width: 800px;
+	margin-inline: auto;
+	margin-block-end: var(--space-4xl);
+}
+.v16__tag { text-align: center; }
+.v16__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4.5vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+}
+.v16__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v16__image { overflow: hidden; min-height: 440px; }
+.v16__points { display: flex; flex-direction: column; gap: var(--space-xl); }
+.v16__kp { display: flex; flex-direction: column; gap: var(--space-xs); }
+.v16__kp-rule { width: var(--space-lg); height: 2px; background: var(--color-fg-accent); margin-block-end: var(--space-sm); }
+.v16__kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-default); }
+.v16__kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   17 · Amber / stats row top / image left / serif heading right
+   ══════════════════════════════════════════════════════════════════════════ */
+.v17 { padding-block: 0; }
+.v17__stats-row {
+	display: flex;
+	gap: 0;
+	padding-block: var(--space-xl);
+	border-block-end: 1px solid var(--color-border-default);
+	margin-block-end: var(--space-4xl);
+}
+.v17__stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+	padding-inline: var(--space-lg);
+	border-inline-end: 1px solid var(--color-border-default);
+}
+.v17__stat:first-child { padding-inline-start: 0; }
+.v17__stat:last-child { border-inline-end: none; }
+.v17__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent); }
+.v17__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-subtle); }
+.v17__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	padding-block-end: var(--space-5xl);
+	@media (min-width: 768px) { grid-template-columns: 1fr 1fr; }
+}
+.v17__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+.v17__text { display: flex; flex-direction: column; }
+.v17__display {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: var(--line-height-tight);
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   18 · Navy / image band top / eyebrow + points grid below
+   ══════════════════════════════════════════════════════════════════════════ */
+.v18 { padding-block: 0; }
+.v18__image-band { overflow: hidden; height: 380px; }
+.v18__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v18__body { padding-block: var(--space-4xl); }
+.v18__body-top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2xl);
+	margin-block-end: var(--space-2xl);
+	@media (min-width: 768px) { grid-template-columns: 45fr 55fr; }
+}
+.v18__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+}
+.v18__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+}
+.v18__rule { height: 1px; background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); margin-block-end: var(--space-2xl); }
+.v18__points-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-lg);
+	margin-block-end: var(--space-2xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v18__point { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v18__point-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v18__point-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   19 · Stone / serif display bisected by amber rule
+   ══════════════════════════════════════════════════════════════════════════ */
+.v19 { padding-block: var(--space-5xl); }
+.v19__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v19__text { display: flex; flex-direction: column; }
+.v19__display-top {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: 1;
+	letter-spacing: var(--letter-spacing-tight);
+	margin: 0;
+}
+.v19__amber-rule {
+	height: 3px;
+	background: var(--color-fg-accent);
+	margin-block: var(--space-sm);
+	width: 100%;
+}
+.v19__display-bot {
+	font-family: var(--font-serif);
+	font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-default);
+	line-height: 1;
+	letter-spacing: var(--letter-spacing-tight);
+	margin-block-end: var(--space-2xl);
+}
+.v19__image { overflow: hidden; min-height: 480px; align-self: stretch; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   20 · Navy / all three patterns combined
+   ══════════════════════════════════════════════════════════════════════════ */
+.v20 { padding-block: var(--space-5xl); }
+.v20__stats-row {
+	display: flex;
+	justify-content: center;
+	gap: 0;
+	margin-block-end: var(--space-3xl);
+}
+.v20__stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-xs);
+	padding-inline: var(--space-3xl);
+	border-inline-end: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.v20__stat:last-child { border-inline-end: none; }
+.v20__stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-3xl); color: var(--color-fg-accent-on-brand); }
+.v20__stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-on-brand-muted); }
+.v20__rule { height: 1px; background: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); margin-block-end: var(--space-3xl); }
+.v20__mid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: center;
+	margin-block-end: var(--space-3xl);
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.v20__mid-text { display: flex; flex-direction: column; }
+.v20__eyebrow {
+	font-family: var(--font-sans);
+	font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	color: var(--color-fg-accent-on-brand);
+	line-height: 1;
+	margin-block-end: var(--space-md);
+}
+.v20__heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	color: var(--color-fg-on-brand);
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+	padding-block-start: var(--space-md);
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.v20__mid-image { overflow: hidden; min-height: 380px; align-self: stretch; }
+.v20__points-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-lg);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.v20__point { display: flex; flex-direction: column; gap: var(--space-xs); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent); padding-block-start: var(--space-md); }
+.v20__point-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-fg-accent-on-brand); }
+.v20__point-body { font-family: var(--font-sans); font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); line-height: var(--line-height-relaxed); }
+</style>

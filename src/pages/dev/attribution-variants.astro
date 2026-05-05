@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AttributionBlock from "../../components/ui/AttributionBlock/AttributionBlock.astro";
+import maryPhoto from "../../assets/team/maryFull.webp";
+import nicholasPhoto from "../../assets/team/nicholas.webp";
+
+const mary = {
+	name: "Mary Molloy",
+	role: "Principal Solicitor",
+	credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland",
+	reviewDate: "April 2026",
+	photo: maryPhoto,
+};
+
+const nicholas = {
+	name: "Nicholas O'Shea",
+	role: "Solicitor",
+	credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland",
+	reviewDate: "April 2026",
+	photo: nicholasPhoto,
+};
+---
+
+<BaseLayout title="Attribution Block Variants" description="Dev preview">
+	<div class="dev-page">
+		<div class="dev-page__inner wrapper wrapper--narrow">
+
+			<h1 class="dev-page__heading">Attribution Block</h1>
+			<p class="dev-page__label">Mary Molloy (Principal)</p>
+			<AttributionBlock {...mary} />
+
+			<p class="dev-page__label dev-page__label--spaced">Nicholas O'Shea (Solicitor)</p>
+			<AttributionBlock {...nicholas} />
+
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.dev-page {
+		padding-block: var(--space-5xl);
+		background-color: var(--color-bg-page);
+	}
+
+	.dev-page__inner {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.dev-page__heading {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-2xl);
+		color: var(--color-fg-default);
+		margin-block-start: var(--space-3xl);
+		padding-block-end: var(--space-md);
+		border-block-end: 1px solid var(--color-border-default);
+	}
+
+	.dev-page__heading:first-child {
+		margin-block-start: 0;
+	}
+
+	.dev-page__label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-fg-muted);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+	}
+
+	.dev-page__label--spaced {
+		margin-block-start: var(--space-xl);
+	}
+</style>

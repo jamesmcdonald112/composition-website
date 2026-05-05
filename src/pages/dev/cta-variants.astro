@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaLink from "../../components/ui/CtaLink.astro";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.astro";
+import { firm } from "../../config/firm";
+
+const heading = [
+	{ text: "Need legal advice you can " },
+	{ text: "rely on", em: true },
+	{ text: "?" },
+] as const;
+
+const eyebrow = "Get in touch";
+const body = "Our solicitors in Kilkenny are here to help. Call us or send a message and we will get back to you promptly.";
+const phone = firm.phone;
+
+// [label, sectionBg, eyebrowColor, ruleColor, headingColor, introColor, btn1variant, btn2variant, emColor]
+const variants: Array<{
+	label: string;
+	bg: string;
+	eyebrowColor: string;
+	ruleColor: string;
+	headingColor: string;
+	introColor: string;
+	btn1: "primary" | "outline-light" | "outline-dark";
+	btn2: "primary" | "outline-light" | "outline-dark";
+	emColor: string;
+}> = [
+	// ── LIGHT BACKGROUNDS ────────────────────────────────────────────────────
+	// 1 — Current: stone-100 bg, amber accent, dark text
+	{ label: "1 · Stone-100 / Amber accent / Dark text (current)", bg: "var(--stone-100)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 2 — White bg, amber accent
+	{ label: "2 · White / Amber accent / Dark text", bg: "var(--white)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 3 — Stone-50 bg, amber accent
+	{ label: "3 · Stone-50 / Amber accent / Dark text", bg: "var(--stone-50)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 4 — Amber-50 bg, amber accent, dark text
+	{ label: "4 · Amber-50 / Amber accent / Dark text", bg: "var(--amber-50)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 5 — Amber-100 bg, deep amber eyebrow
+	{ label: "5 · Amber-100 / Deep amber accent / Dark text", bg: "var(--amber-100)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 6 — Navy-50 bg, amber accent
+	{ label: "6 · Navy-50 / Amber accent / Navy text", bg: "var(--navy-50)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 7 — Navy-100 bg, amber accent
+	{ label: "7 · Navy-100 / Amber accent / Navy text", bg: "var(--navy-100)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 8 — Charcoal-50 bg, amber accent
+	{ label: "8 · Charcoal-50 / Amber accent / Dark text", bg: "var(--charcoal-50)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 9 — Charcoal-100 bg, amber accent
+	{ label: "9 · Charcoal-100 / Amber accent / Dark text", bg: "var(--charcoal-100)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 10 — Stone-200 bg, amber accent (slightly deeper)
+	{ label: "10 · Stone-200 / Amber accent / Dark text", bg: "var(--stone-200)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+
+	// ── DARK BACKGROUNDS ─────────────────────────────────────────────────────
+	// 11 — Navy-900 bg (brand), amber-300 accent, white text
+	{ label: "11 · Navy-900 / Amber-300 / White text", bg: "var(--navy-900)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 12 — Navy-800 bg, amber-300 accent, white text
+	{ label: "12 · Navy-800 / Amber-300 / White text", bg: "var(--navy-800)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 13 — Navy-700 bg (brand-muted), amber-300 accent, white text
+	{ label: "13 · Navy-700 / Amber-300 / White text", bg: "var(--navy-700)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 14 — Charcoal-900 bg, amber-300 accent, white text
+	{ label: "14 · Charcoal-900 / Amber-300 / White text", bg: "var(--charcoal-900)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 15 — Charcoal-800 bg, amber-300 accent, white text
+	{ label: "15 · Charcoal-800 / Amber-300 / White text", bg: "var(--charcoal-800)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 16 — Charcoal-700 bg, amber-400 accent, white text
+	{ label: "16 · Charcoal-700 / Amber-400 / White text", bg: "var(--charcoal-700)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 17 — Amber-900 bg, amber-200 accent, white text (very warm dark)
+	{ label: "17 · Amber-900 / Amber-200 / White text", bg: "var(--amber-900)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+	// 18 — Amber-800 bg, amber-200, white text
+	{ label: "18 · Amber-800 / Amber-200 / White text", bg: "var(--amber-800)", eyebrowColor: "--color-fg-accent-on-brand", ruleColor: "--color-fg-accent-on-brand", headingColor: "--color-fg-on-brand", introColor: "var(--color-fg-on-brand-muted)", btn1: "primary", btn2: "outline-light", emColor: "var(--color-fg-accent-on-brand)" },
+
+	// ── MID-TONE ─────────────────────────────────────────────────────────────
+	// 19 — Navy-200 bg (medium cool), dark navy text, amber accent
+	{ label: "19 · Navy-200 / Amber accent / Navy text", bg: "var(--navy-200)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+	// 20 — Stone-300 bg, amber accent, dark text (parchment feel)
+	{ label: "20 · Stone-300 / Amber accent / Dark text", bg: "var(--stone-300)", eyebrowColor: "--color-fg-accent", ruleColor: "--color-fg-accent", headingColor: "--color-fg-default", introColor: "var(--color-fg-muted)", btn1: "primary", btn2: "outline-dark", emColor: "var(--color-fg-accent)" },
+];
+---
+
+<BaseLayout
+	title="CTA Panel Colour Variants"
+	description="Dev page — 20 colour variant explorations for CTA panel"
+	canonicalPath="/dev/cta-variants"
+>
+	<div class="dev-page">
+		{variants.map((v) => (
+			<section
+				class="cta-variant"
+				style={`
+					background-color: ${v.bg};
+					--variant-intro: ${v.introColor};
+					--variant-em: ${v.emColor};
+				`}
+			>
+				<div class="variant-label">{v.label}</div>
+				<div class="cta-variant__inner wrapper wrapper--wide">
+					<div class="cta-variant__text">
+						<SectionHeader
+							eyebrow={eyebrow}
+							heading={heading}
+							intro={body}
+							eyebrowColor={v.eyebrowColor}
+							ruleColor={v.ruleColor}
+							headingColor={v.headingColor}
+							noMargin
+						/>
+					</div>
+					<div class="cta-variant__ctas">
+						<CtaLink
+							href={`tel:${phone.phoneHref}`}
+							label={phone.display}
+							variant={v.btn1}
+							icon="phone"
+						/>
+						<CtaLink
+							href="/contact"
+							label="Contact Us"
+							variant={v.btn2}
+							icon="arrow"
+						/>
+					</div>
+				</div>
+			</section>
+		))}
+	</div>
+</BaseLayout>
+
+<style>
+	.dev-page {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cta-variant {
+		padding-block: var(--space-4xl);
+		position: relative;
+	}
+
+	.variant-label {
+		position: absolute;
+		top: var(--space-sm);
+		left: var(--space-lg);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		letter-spacing: var(--letter-spacing-wider);
+		text-transform: uppercase;
+		opacity: 0.4;
+		color: currentColor;
+	}
+
+	.cta-variant__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+		}
+	}
+
+	.cta-variant__text {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	/* Override intro colour per variant */
+	.cta-variant :global(.section-header__intro) {
+		color: var(--variant-intro);
+	}
+
+	/* Override em colour per variant */
+	.cta-variant :global(.section-header__heading em) {
+		color: var(--variant-em);
+	}
+
+	.cta-variant__ctas {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		margin-block-start: var(--space-2xl);
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		@media (min-width: 1024px) {
+			margin-block-start: 0;
+			justify-content: flex-end;
+		}
+	}
+</style>

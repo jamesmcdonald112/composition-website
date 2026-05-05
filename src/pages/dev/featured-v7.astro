@@ -1,0 +1,892 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceCard from "../../components/services/ServiceCards/ServiceCard/ServiceCard.astro";
+import { homePageContent } from "../../config/home";
+import { buyingAndSellingProperty as svc } from "../../config/services";
+
+const { featuredService } = homePageContent;
+const { aside } = featuredService;
+const stats = homePageContent.trustStrip.stats;
+
+// helper — card props repeated each time
+const card = {
+	title: svc.title,
+	href: svc.href,
+	image: svc.image,
+	imageClass: svc.imageClass,
+	description: svc.description,
+	level: 3 as const,
+};
+---
+
+<BaseLayout title="Featured V7 — Card Variants" description="Dev — 20 variations on patterns A and B" canonicalPath="/dev/featured-v7">
+<div class="dev-page">
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     PATTERN A  —  Large eyebrow · Text col · Card col · Stats band below
+     ══════════════════════════════════════════════════════════════════════ -->
+
+	<!-- A1 · Navy (original reference) -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">A1 · Navy / Original reference</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--brand">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--brand"></div>
+					<h2 class="a-heading a-heading--brand">{featuredService.card.title}</h2>
+					<p class="a-body a-body--brand">{aside.intro}</p>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+			<div class="a-stats a-stats--brand">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A2 · Stone bg / amber eyebrow / stats on navy band -->
+	<section class="v v-stone">
+		<p class="lbl">A2 · Stone / Amber eyebrow / Navy stats band</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--amber">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--amber"></div>
+					<h2 class="a-heading a-heading--default">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+		<div class="a-stats-navy-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--brand">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A3 · White bg / navy eyebrow / amber stats band -->
+	<section class="v v-white">
+		<p class="lbl">A3 · White / Navy eyebrow / Amber stats band</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--navy">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--navy"></div>
+					<h2 class="a-heading a-heading--default">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+		<div class="a-stats-amber-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--on-amber">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--on-amber">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--on-amber">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A4 · Amber bg / navy eyebrow / white stats on stone band -->
+	<section class="v v-amber">
+		<p class="lbl">A4 · Amber / Navy eyebrow / Stone stats band</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--navy">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--navy"></div>
+					<h2 class="a-heading a-heading--default">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+		<div class="a-stats-stone-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--on-stone">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--accent">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--muted">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A5 · Navy / amber eyebrow / no stats band — key points instead -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">A5 · Navy / Amber eyebrow / Key points grid instead of stats</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--brand">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--brand"></div>
+					<h2 class="a-heading a-heading--brand">{featuredService.card.title}</h2>
+					<p class="a-body a-body--brand">{aside.intro}</p>
+					<a href={svc.href} class="btn-outline-light">Our property service</a>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+			<div class="a-kps a-kps--brand">
+				{aside.keyPoints.map(kp => (
+					<div class="a-kp">
+						<p class="a-kp-head a-kp-head--brand">{kp.heading}</p>
+						<p class="a-kp-body a-kp-body--brand">{kp.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A6 · Charcoal / amber eyebrow / amber stats inline (no band) -->
+	<section class="v v-charcoal">
+		<p class="lbl lbl-light">A6 · Charcoal / Amber eyebrow / Amber stats inline</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--brand">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--brand"></div>
+					<h2 class="a-heading a-heading--brand">{featuredService.card.title}</h2>
+					<p class="a-body a-body--brand">{aside.intro}</p>
+					<div class="a-stats a-stats--inline">
+						{stats.map(s => (
+							<div class="a-stat">
+								<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+								<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+							</div>
+						))}
+					</div>
+					<a href={svc.href} class="btn-outline-light">Our property service</a>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- A7 · White / eyebrow + heading wider column / card narrower / navy stats -->
+	<section class="v v-white">
+		<p class="lbl">A7 · White / 60:40 wider text / Navy stats band</p>
+		<div class="wrapper wrapper--wide a-wrap a-wrap--60-40">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--amber">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--amber"></div>
+					<h2 class="a-heading a-heading--default">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+					<a href={svc.href} class="btn-primary">Our property service</a>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+		<div class="a-stats-navy-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--brand">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A8 · Stone / navy eyebrow / card left text right (flipped) / amber stats -->
+	<section class="v v-stone">
+		<p class="lbl">A8 · Stone / Card left (flipped) / Navy eyebrow right / Amber stats</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top a-top--flipped">
+				<div class="a-card"><ServiceCard {...card} /></div>
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--navy">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--navy"></div>
+					<h2 class="a-heading a-heading--default">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+					<a href={svc.href} class="btn-primary">Our property service</a>
+				</div>
+			</div>
+		</div>
+		<div class="a-stats-amber-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--on-amber">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--on-amber">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--on-amber">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A9 · Amber / white card on amber / eyebrow amber small / navy stats -->
+	<section class="v v-amber">
+		<p class="lbl">A9 · Amber / Small amber eyebrow / Card right / Navy stats</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--sm-amber">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--amber"></div>
+					<h2 class="a-heading a-heading--default a-heading--display">{featuredService.card.title}</h2>
+					<p class="a-body a-body--default">{aside.intro}</p>
+					<a href={svc.href} class="btn-primary">Our property service</a>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+		</div>
+		<div class="a-stats-navy-band">
+			<div class="wrapper wrapper--wide a-stats a-stats--brand">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- A10 · Navy / eyebrow very large / card right / key points 2-col band -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">A10 · Navy / Max eyebrow scale / Card right / 2-col key points band</p>
+		<div class="wrapper wrapper--wide a-wrap">
+			<div class="a-top">
+				<div class="a-text">
+					<p class="a-eyebrow a-eyebrow--brand a-eyebrow--xl">{featuredService.eyebrow}</p>
+					<div class="a-rule a-rule--brand"></div>
+					<h2 class="a-heading a-heading--brand a-heading--sm">{featuredService.card.title}</h2>
+					<p class="a-body a-body--brand">{aside.intro}</p>
+					<a href={svc.href} class="btn-outline-light">Our property service</a>
+				</div>
+				<div class="a-card"><ServiceCard {...card} /></div>
+			</div>
+			<div class="a-kps a-kps--brand a-kps--2col">
+				{aside.keyPoints.map(kp => (
+					<div class="a-kp">
+						<p class="a-kp-head a-kp-head--brand">{kp.heading}</p>
+						<p class="a-kp-body a-kp-body--brand">{kp.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     PATTERN B  —  Eyebrow · Heading · Numbered process steps · Card right
+     ══════════════════════════════════════════════════════════════════════ -->
+
+	<!-- B1 · White (original reference) -->
+	<section class="v v-white">
+		<p class="lbl">B1 · White / Original reference</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--amber">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--amber"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--amber">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B2 · Navy / amber eyebrow / white heading / white steps / card right -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">B2 · Navy / Amber eyebrow / White heading + steps</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--brand">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--brand"></div>
+				<h2 class="b-heading b-heading--brand">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step b-step--brand">
+							<span class="b-num b-num--brand">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--brand">{step.title}</strong>
+								<p class="b-step-body b-step-body--brand">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B3 · Stone / navy eyebrow / navy numbers / card right -->
+	<section class="v v-stone">
+		<p class="lbl">B3 · Stone / Navy eyebrow / Navy numbers / 4 steps</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--navy">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--navy"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 4).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--navy">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B4 · Amber / navy eyebrow / navy numbers / card left (flipped) -->
+	<section class="v v-amber">
+		<p class="lbl">B4 · Amber / Card left (flipped) / Navy eyebrow / Navy numbers</p>
+		<div class="wrapper wrapper--wide b-grid b-grid--flipped">
+			<div class="b-card"><ServiceCard {...card} /></div>
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--navy">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--navy"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--navy">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- B5 · White / eyebrow large / amber numbers / stats below steps -->
+	<section class="v v-white">
+		<p class="lbl">B5 · White / Large eyebrow / Amber numbers / Stats below steps</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--amber b-eyebrow--lg">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--amber"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--amber">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="b-stats">
+					{stats.map(s => (
+						<div class="b-stat">
+							<span class="b-stat-val b-stat-val--accent">{s.value}</span>
+							<span class="b-stat-lbl b-stat-lbl--muted">{s.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B6 · Navy / amber eyebrow very large / white heading small / card right -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">B6 · Navy / Max eyebrow scale / Smaller heading / Amber numbers</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--brand b-eyebrow--xl">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--brand"></div>
+				<h2 class="b-heading b-heading--brand b-heading--sm">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step b-step--brand">
+							<span class="b-num b-num--brand">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--brand">{step.title}</strong>
+								<p class="b-step-body b-step-body--brand">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B7 · Stone / amber eyebrow / amber numbers / stats below steps -->
+	<section class="v v-stone">
+		<p class="lbl">B7 · Stone / Amber eyebrow / Amber numbers / Stats woven in</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--amber">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--amber"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--amber">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="b-stats">
+					{stats.map(s => (
+						<div class="b-stat">
+							<span class="b-stat-val b-stat-val--accent">{s.value}</span>
+							<span class="b-stat-lbl b-stat-lbl--muted">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B8 · Charcoal / amber eyebrow / amber numbers / card right -->
+	<section class="v v-charcoal">
+		<p class="lbl lbl-light">B8 · Charcoal / Amber eyebrow / Amber numbers / Card right</p>
+		<div class="wrapper wrapper--wide b-grid">
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--brand">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--brand"></div>
+				<h2 class="b-heading b-heading--brand">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step b-step--brand">
+							<span class="b-num b-num--brand">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--brand">{step.title}</strong>
+								<p class="b-step-body b-step-body--brand">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-outline-light">Our property service</a>
+			</div>
+			<div class="b-card"><ServiceCard {...card} /></div>
+		</div>
+	</section>
+
+	<!-- B9 · Amber / card left (flipped) / navy eyebrow / stats below steps -->
+	<section class="v v-amber">
+		<p class="lbl">B9 · Amber / Card left / Navy eyebrow / Stats below steps</p>
+		<div class="wrapper wrapper--wide b-grid b-grid--flipped">
+			<div class="b-card"><ServiceCard {...card} /></div>
+			<div class="b-left">
+				<p class="b-eyebrow b-eyebrow--navy b-eyebrow--lg">{featuredService.eyebrow}</p>
+				<div class="b-rule b-rule--navy"></div>
+				<h2 class="b-heading b-heading--default">{featuredService.card.title}</h2>
+				<div class="b-steps">
+					{svc.process.slice(0, 3).map((step, i) => (
+						<div class="b-step">
+							<span class="b-num b-num--navy">0{i + 1}</span>
+							<div class="b-step-text">
+								<strong class="b-step-head b-step-head--default">{step.title}</strong>
+								<p class="b-step-body b-step-body--default">{step.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="b-stats">
+					{stats.map(s => (
+						<div class="b-stat">
+							<span class="b-stat-val b-stat-val--accent">{s.value}</span>
+							<span class="b-stat-lbl b-stat-lbl--muted">{s.label}</span>
+						</div>
+					))}
+				</div>
+				<a href={svc.href} class="btn-primary">Our property service</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- B10 · Navy / card left / white eyebrow lg / amber numbers / white stats -->
+	<section class="v v-navy">
+		<p class="lbl lbl-light">B10 · Navy / Card left (flipped) / Large white eyebrow / Amber numbers / Stats below</p>
+		<div class="wrapper wrapper--wide">
+			<div class="b-grid b-grid--flipped">
+				<div class="b-card"><ServiceCard {...card} /></div>
+				<div class="b-left">
+					<p class="b-eyebrow b-eyebrow--brand b-eyebrow--lg">{featuredService.eyebrow}</p>
+					<div class="b-rule b-rule--brand"></div>
+					<h2 class="b-heading b-heading--brand">{featuredService.card.title}</h2>
+					<div class="b-steps">
+						{svc.process.slice(0, 3).map((step, i) => (
+							<div class="b-step b-step--brand">
+								<span class="b-num b-num--brand">0{i + 1}</span>
+								<div class="b-step-text">
+									<strong class="b-step-head b-step-head--brand">{step.title}</strong>
+									<p class="b-step-body b-step-body--brand">{step.description}</p>
+								</div>
+							</div>
+						))}
+					</div>
+					<a href={svc.href} class="btn-outline-light">Our property service</a>
+				</div>
+			</div>
+			<div class="a-stats a-stats--brand" style="margin-block-start: var(--space-3xl); padding-block-start: var(--space-xl); border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);">
+				{stats.map(s => (
+					<div class="a-stat">
+						<span class="a-stat-val a-stat-val--brand">{s.value}</span>
+						<span class="a-stat-lbl a-stat-lbl--brand">{s.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+/* ── Page ─────────────────────────────────────────────────────────────────── */
+.dev-page { display: flex; flex-direction: column; }
+
+.v {
+	background: var(--color-bg-subtle);
+	position: relative;
+	overflow: hidden;
+	padding-block: var(--space-5xl);
+}
+.v-white    { background: var(--color-bg-surface); }
+.v-stone    { background: var(--color-bg-subtle); }
+.v-amber    { background: var(--color-bg-accent); }
+.v-navy     { background: var(--color-bg-brand); }
+.v-charcoal { background: var(--color-bg-tertiary); }
+
+.lbl {
+	position: absolute;
+	top: var(--space-sm);
+	left: var(--space-lg);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wider);
+	text-transform: uppercase;
+	opacity: 0.4;
+	color: var(--color-fg-default);
+	z-index: 10;
+}
+.lbl-light { color: var(--color-fg-on-brand); }
+
+/* ── Shared buttons ───────────────────────────────────────────────────────── */
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: var(--color-bg-interactive);
+	color: var(--color-fg-interactive);
+	border: 1px solid var(--color-border-accent);
+}
+.btn-outline-light {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding-block: var(--space-md);
+	padding-inline: var(--space-xl);
+	background: transparent;
+	color: var(--color-fg-on-brand);
+	border: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 40%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PATTERN A — shared structural tokens
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.a-wrap { display: flex; flex-direction: column; gap: 0; }
+
+.a-top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.a-top--flipped {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 45fr 55fr; }
+}
+.a-wrap--60-40 .a-top {
+	@media (min-width: 768px) { grid-template-columns: 60fr 40fr; }
+}
+
+.a-text { display: flex; flex-direction: column; }
+.a-card {}
+
+/* Eyebrow variants */
+.a-eyebrow {
+	font-family: var(--font-sans);
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	line-height: 1;
+	margin-block-end: var(--space-xl);
+	font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+}
+.a-eyebrow--brand  { color: var(--color-fg-accent-on-brand); }
+.a-eyebrow--amber  { color: var(--color-fg-accent); }
+.a-eyebrow--navy   { color: var(--color-fg-default); }
+.a-eyebrow--sm-amber { font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); color: var(--color-fg-accent); }
+.a-eyebrow--xl     { font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl)); }
+
+/* Rule variants */
+.a-rule { height: 1px; margin-block-end: var(--space-xl); }
+.a-rule--brand  { background: color-mix(in srgb, var(--color-fg-on-brand) 25%, transparent); }
+.a-rule--amber  { background: var(--color-fg-accent); }
+.a-rule--navy   { background: var(--color-border-strong); }
+
+/* Heading variants */
+.a-heading {
+	font-family: var(--font-serif);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-lg);
+	font-size: var(--font-size-xl);
+}
+.a-heading--brand   { color: var(--color-fg-on-brand); }
+.a-heading--default { color: var(--color-fg-default); }
+.a-heading--display { font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl)); }
+.a-heading--sm      { font-size: var(--font-size-lg); }
+
+/* Body variants */
+.a-body {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-relaxed);
+	margin-block-end: var(--space-lg);
+}
+.a-body--brand   { color: var(--color-fg-on-brand-muted); }
+.a-body--default { color: var(--color-fg-muted); }
+
+/* Stats band — full-bleed coloured bands */
+.a-stats-navy-band  { background: var(--color-bg-brand); }
+.a-stats-amber-band { background: var(--color-bg-accent); }
+.a-stats-stone-band { background: var(--color-bg-subtle); }
+
+.a-stats {
+	display: flex;
+	gap: 0;
+	padding-block: var(--space-xl);
+}
+.a-stats--brand {
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.a-stats--on-amber {
+	border-block-start: 1px solid var(--color-border-default);
+}
+.a-stats--on-stone {
+	border-block-start: 1px solid var(--color-border-default);
+}
+.a-stats--inline {
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+	margin-block: var(--space-xl);
+}
+
+.a-stat {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	padding-inline: var(--space-xl);
+	border-inline-end: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+.a-stat:first-child { padding-inline-start: 0; }
+.a-stat:last-child  { border-inline-end: none; }
+
+.a-stat-val {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-2xl);
+}
+.a-stat-val--brand    { color: var(--color-fg-accent-on-brand); }
+.a-stat-val--on-amber { color: var(--color-fg-default); }
+.a-stat-val--accent   { color: var(--color-fg-accent); }
+
+.a-stat-lbl {
+	font-family: var(--font-sans);
+	font-size: var(--font-size-xs);
+	letter-spacing: var(--letter-spacing-wide);
+	text-transform: uppercase;
+}
+.a-stat-lbl--brand    { color: var(--color-fg-on-brand-muted); }
+.a-stat-lbl--on-amber { color: var(--color-fg-muted); }
+.a-stat-lbl--muted    { color: var(--color-fg-subtle); }
+
+/* Key points band (A5, A10) */
+.a-kps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-lg);
+	padding-block-start: var(--space-2xl);
+	margin-block-start: var(--space-2xl);
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+.a-kps--2col {
+	@media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+}
+.a-kps--brand {
+	border-block-start: 1px solid color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+.a-kp { display: flex; flex-direction: column; gap: var(--space-xs); }
+.a-kp-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
+.a-kp-head--brand { color: var(--color-fg-accent-on-brand); }
+.a-kp-body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); }
+.a-kp-body--brand { color: var(--color-fg-on-brand-muted); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PATTERN B — shared structural tokens
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.b-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3xl);
+	align-items: start;
+	@media (min-width: 768px) { grid-template-columns: 55fr 45fr; }
+}
+.b-grid--flipped {
+	@media (min-width: 768px) { grid-template-columns: 45fr 55fr; }
+}
+
+.b-left { display: flex; flex-direction: column; }
+.b-card {}
+
+/* Eyebrow */
+.b-eyebrow {
+	font-family: var(--font-sans);
+	font-weight: var(--font-weight-light);
+	letter-spacing: var(--letter-spacing-widest);
+	text-transform: uppercase;
+	line-height: 1;
+	margin-block-end: var(--space-lg);
+	font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
+}
+.b-eyebrow--amber { color: var(--color-fg-accent); }
+.b-eyebrow--brand { color: var(--color-fg-accent-on-brand); }
+.b-eyebrow--navy  { color: var(--color-fg-default); }
+.b-eyebrow--lg    { font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl)); }
+.b-eyebrow--xl    { font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl)); }
+
+/* Rule */
+.b-rule { height: 1px; margin-block-end: var(--space-xl); }
+.b-rule--amber { background: var(--color-fg-accent); }
+.b-rule--brand { background: color-mix(in srgb, var(--color-fg-on-brand) 25%, transparent); }
+.b-rule--navy  { background: var(--color-border-strong); }
+
+/* Heading */
+.b-heading {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-light);
+	font-style: italic;
+	line-height: var(--line-height-snug);
+	margin-block-end: var(--space-xl);
+}
+.b-heading--default { color: var(--color-fg-default); }
+.b-heading--brand   { color: var(--color-fg-on-brand); }
+.b-heading--sm      { font-size: var(--font-size-lg); }
+
+/* Steps */
+.b-steps { display: flex; flex-direction: column; gap: var(--space-lg); margin-block-end: var(--space-xl); }
+
+.b-step {
+	display: flex;
+	gap: var(--space-lg);
+	align-items: start;
+	padding-block-start: var(--space-md);
+	border-block-start: 1px solid var(--color-border-default);
+}
+.b-step--brand {
+	border-block-start-color: color-mix(in srgb, var(--color-fg-on-brand) 20%, transparent);
+}
+
+.b-num {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--font-size-2xl);
+	line-height: 1;
+	flex-shrink: 0;
+	width: var(--space-2xl);
+}
+.b-num--amber { color: var(--color-fg-accent); }
+.b-num--brand { color: var(--color-fg-accent-on-brand); }
+.b-num--navy  { color: var(--color-fg-default); }
+
+.b-step-text { display: flex; flex-direction: column; gap: var(--space-xs); padding-block-start: var(--space-xs); }
+
+.b-step-head { font-family: var(--font-sans); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
+.b-step-head--default { color: var(--color-fg-default); }
+.b-step-head--brand   { color: var(--color-fg-accent-on-brand); }
+
+.b-step-body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); }
+.b-step-body--default { color: var(--color-fg-muted); }
+.b-step-body--brand   { color: var(--color-fg-on-brand-muted); }
+
+/* Stats block (within B-pattern left col) */
+.b-stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-md);
+	margin-block-end: var(--space-xl);
+	border-block-start: 1px solid var(--color-border-default);
+	padding-block-start: var(--space-lg);
+}
+.b-stat { display: flex; flex-direction: column; gap: var(--space-xs); }
+.b-stat-val { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-xl); }
+.b-stat-val--accent { color: var(--color-fg-accent); }
+.b-stat-lbl { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; }
+.b-stat-lbl--muted  { color: var(--color-fg-subtle); }
+</style>
