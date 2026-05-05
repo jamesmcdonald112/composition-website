@@ -1,0 +1,22 @@
+---
+/*
+  PAGE: 404 — Not Found
+  LAYOUT: BaseLayout
+  COMPONENT: src/components/not-found/NotFound.astro
+  NOTE: Astro's static-build pipeline picks this up automatically as the 404
+  page. With the Netlify adapter in SSR mode, the build emits a `_redirects`
+  rule that returns this page with a 404 status for any unknown path.
+*/
+import NotFound from "../components/not-found/NotFound.astro";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`Page not found | ${firm.companyName}`}
+	description={`The page you're looking for doesn't exist on the ${firm.companyName} website. Try the links below or get in touch.`}
+	noIndex={true}
+	solidNav={true}
+>
+	<NotFound />
+</BaseLayout>

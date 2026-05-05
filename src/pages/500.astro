@@ -1,0 +1,22 @@
+---
+/*
+  PAGE: 500 — Server Error
+  LAYOUT: BaseLayout
+  COMPONENT: src/components/server-error/ServerError.astro
+  NOTE: Astro renders this page when the server throws an unhandled error
+  during a request. With the Netlify SSR adapter, this lands in front of the
+  visitor instead of Netlify's generic 500 page.
+*/
+import ServerError from "../components/server-error/ServerError.astro";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+	title={`Something went wrong | ${firm.companyName}`}
+	description={`A temporary problem on the ${firm.companyName} website. Please try again in a moment.`}
+	noIndex={true}
+	solidNav={true}
+>
+	<ServerError />
+</BaseLayout>
