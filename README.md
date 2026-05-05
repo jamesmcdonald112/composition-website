@@ -480,7 +480,25 @@ What remains here is the small set of pre-launch tasks that aren't already cover
   - `services/debt-collection.astro` references the **European Communities (Late Payment in Commercial Transactions) Regulations 2012** (S.I. 580/2012) as the current consolidated instrument. Confirm against `irishstatutebook.ie` that this has not been amended or superseded since.
   - `services/leases-and-tenancy-agreements.astro` deliberately does **not** quote specific notice periods, RPZ rent caps, or registration cycles, because the Residential Tenancies Act 2004 has been amended seven times (2009, 2012, 2015, 2019, 2021, 2022, 2024). The page is durable as-is. If specific figures are wanted, verify against a consolidated source first.
 
-- [ ] **OG images** — create and add a default Open Graph image. Currently using placeholder/default values. The default image is set in `firm.seo.defaultOgImage` (`src/config/firm.ts`) and should be placed in `public/images/open-graph/`. A single good default image is fine for all pages — per-page OG images are optional and can be passed via the `ogImage` and `ogImageAlt` props on `BaseLayout` if you ever want a specific image for a particular page (e.g. a services page).
+- [ ] **OG social-sharing image** — replace the current `public/images/open-graph/og-default.webp` with a real Mary Molloy Solicitor branded image, then test how it renders on WhatsApp, Facebook, LinkedIn, and X (use `https://www.opengraph.xyz/` or paste the production URL into a chat). The default image is referenced from `firm.seo.defaultOgImage` in `src/config/firm.ts`. Per-page overrides are possible via the `ogImage` and `ogImageAlt` props on `BaseLayout` if you ever want a specific image for a particular page (e.g. a services page).
+  - **Reusing this template for a new client:** replace the file at `public/images/open-graph/og-default.webp` with the new firm's branded image (same filename), or replace it and update the path in `firm.seo.defaultOgImage`.
+
+> **Sitemap and robots.txt are configured.** `@astrojs/sitemap` is integrated in `astro.config.mjs` and reads from `firm.siteUrl`. The robots.txt is generated dynamically by `src/pages/robots.txt.ts` and points crawlers at the sitemap.
+>
+> **Reusing this template for a new client:** both files follow `firm.siteUrl` automatically, so updating that one value when the new firm's domain is set is all that's needed.
+
+- [ ] **Submit the sitemap to Google Search Console** — after production deploy:
+  1. Add and verify the production domain at `https://search.google.com/search-console`. Verification options include DNS TXT record (most reliable), HTML file upload, or the Google Analytics / Tag Manager method if those are in use.
+  2. Submit the sitemap at **Indexing → Sitemaps**, entering `sitemap-index.xml` (the full URL is auto-prefixed with the verified domain).
+  3. Wait 24–48 hours and check that pages are being discovered and indexed. Any errors will surface in the Sitemap report.
+
+- [ ] **Test robots.txt with Google Search Console's robots.txt Tester** — once the site is verified in Search Console, the **Settings → Crawling → robots.txt** report fetches the live file and tells you whether it's blocking pages you didn't mean to block. Run it once after launch. Reference: `https://support.google.com/webmasters/answer/6062598` (Google Search Central — robots.txt report).
+
+- [ ] **Test how the site renders for a Googlebot crawl** — in Search Console, use the **URL Inspection** tool on a couple of representative pages (home + one service page). Check both:
+  - **Coverage** — confirms the page is indexed.
+  - **Live Test → View Crawled Page → HTML** — confirms Google sees the page's content as a human would. Particularly useful for catching JavaScript-rendered content that crawlers can't read.
+
+- [ ] **Submit the site to Bing Webmaster Tools** — Bing has its own webmaster tooling at `https://www.bing.com/webmasters`. Smaller market share than Google but still ~3–5% of Irish search traffic. Same pattern: verify domain, submit sitemap, monitor for crawl errors. About 5 minutes of work.
 
 - [ ] **Cookie consent — write Playwright tests** to verify the banner loads before any non-essential scripts can run. Tests to cover:
   - On first visit (no `CookieConsent` cookie): banner is visible before the user interacts

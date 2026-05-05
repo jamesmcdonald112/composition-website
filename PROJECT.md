@@ -10,7 +10,7 @@ A production website for Mary Molloy Solicitor, a Kilkenny-based Irish solicitor
 - **Location:** 2 Rose Inn St, Kilkenny, R95 W58D, Ireland
 - **Phone:** (056) 776 5829
 - **Established:** 1979 (46+ years in practice)
-- **URL (staging):** https://test-mary-m.netlify.app/
+- **URL (staging):** https://splendorous-tiramisu-3c7f26.netlify.app/
 - **Core focus:** Conveyancing (buying & selling property)
 - **Google Place ID:** ChIJeTRDMZ4wXUgRwZoAUIYc-30
 
@@ -56,7 +56,7 @@ Service order is controlled by the array in `src/config/services/index.ts`.
 ```
 src/styles/global.css          ← load order controller
 src/styles/themes/
-  theme-amber-navy.css         ← Layer 1: primitives (raw values, never used in components)
+  theme-navy-amber-charcoal.css  ← Layer 1: primitives (raw values, never used in components)
 src/styles/tokens.css          ← Layer 2: semantic tokens (use these in components)
 src/styles/compositions.css    ← CUBE CSS layout classes
 src/styles/utilities.css
@@ -283,7 +283,7 @@ Used on every section that has a heading. The `eyebrowColor` and `ruleColor` pro
 | About (`/about`) | Built |
 | Contact (`/contact`) | Built — form logic complete, do not touch |
 | Thank you | Built |
-| Legal pages | Built (privacy, terms, accessibility, complaints, cookie policy, disclaimer) |
+| Legal pages | privacy ✅ live, cookie policy ✅ live (Cookiebot-rendered), accessibility ✅ live, disclaimer ✅ live, complaints ⏳ stub awaiting firm-supplied document. Terms of use was dropped — the disclaimer covers the same ground; see the disclaimer / cookies / GDPR audit-trail folders under `legal-compliance/` for the full rationale. |
 
 ---
 
