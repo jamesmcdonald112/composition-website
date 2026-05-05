@@ -324,7 +324,7 @@ The review files cover: firm details, team bios and credentials, the about page,
 
 ## Per-Client Compliance Setup — Reusable Checklist
 
-This section is the reusable instruction set for setting up GDPR / ePrivacy / LSRA compliance on **any** Irish solicitor site built from this template. Mary-specific status lives in `_scratch-remaining-work.md`; everything below is the standing process.
+This section is the reusable instruction set for setting up GDPR / ePrivacy / LSRA compliance on **any** Irish solicitor site built from this template. Everything below is the standing process; per-client pending items live in each client's `legal-compliance/content-review/_pending-items-across-pages.md`.
 
 ### A. During build — establish processor relationships
 
@@ -473,6 +473,12 @@ Pre-launch operational tasks (Cookiebot CBID swap, production-domain swap, link 
 What remains here is the small set of pre-launch tasks that aren't already covered in either of the above:
 
 - [ ] **Favicon colour** — confirm the favicon colour matches the final brand accent before launch. The SVG is at `public/images/favicon/favicon.svg`. The `fill` value should match `--accent-500` in `src/styles/tokens.css`. Currently set to `hsl(20 70% 46%)` (copper).
+
+- [ ] **Shared compliance Google Drive folder for the firm** — create a folder named "[Firm Name] — Compliance — Processor Agreements" shared with the firm's confirmed email; copy the three executed DPAs in (`cookiebot-dpa-2022-01.pdf`, `resend-dpa-2026-05-03.pdf`, `vercel-dpa-2026-05-03.pdf`); add a one-page README inside the folder noting which DPA section names each safeguard (Cookiebot §3.4 — EU/EEA processing; Resend §6.2 — EU SCCs; Vercel §12.1 — EU SCCs). The firm needs its own access so it can respond to a visitor's Article 13(1)(f) / 15(1)(c) request within Article 12(3)'s one-month window without depending on the website manager. ~30 minutes once the firm email is confirmed.
+
+- [ ] **Verify two regulation citations** — two pages cite Irish statutes I deliberately avoided asserting specific figures for, because the figures are volatile and I couldn't verify them from a primary source:
+  - `services/debt-collection.astro` references the **European Communities (Late Payment in Commercial Transactions) Regulations 2012** (S.I. 580/2012) as the current consolidated instrument. Confirm against `irishstatutebook.ie` that this has not been amended or superseded since.
+  - `services/leases-and-tenancy-agreements.astro` deliberately does **not** quote specific notice periods, RPZ rent caps, or registration cycles, because the Residential Tenancies Act 2004 has been amended seven times (2009, 2012, 2015, 2019, 2021, 2022, 2024). The page is durable as-is. If specific figures are wanted, verify against a consolidated source first.
 
 - [ ] **OG images** — create and add a default Open Graph image. Currently using placeholder/default values. The default image is set in `firm.seo.defaultOgImage` (`src/config/firm.ts`) and should be placed in `public/images/open-graph/`. A single good default image is fine for all pages — per-page OG images are optional and can be passed via the `ogImage` and `ogImageAlt` props on `BaseLayout` if you ever want a specific image for a particular page (e.g. a services page).
 
