@@ -4,8 +4,8 @@ Based on S.I. No. 644/2020 — Legal Services Regulation Act 2015 (Advertising) 
 Run alongside `.claude/skills/copy/SKILL.md` and `.claude/skills/ai-isms/SKILL.md` — apply this skill last, as a filter pass after copy quality is established.
 
 **If unsure about any regulation or requirement, reference these sources in order:**
-1. `legal-compliance/website-content-review-checklist.md` — plain-English explanations and examples for each rule
-2. `legal-compliance/Legal Services Regulation Act 2015 (Advertising) Regulations 2020.md` — exact text of the regulations as enacted
+1. `legal-compliance/legal-services-regulation-act/website-content-review-checklist.md` — plain-English explanations and examples for each rule
+2. `legal-compliance/legal-services-regulation-act/legal-services-regulation-act-2015-advertising-regulations-2020.md` — exact text of the regulations as enacted
 3. Official online source: https://www.irishstatutebook.ie/eli/2020/si/644/made/en/print
 
 ---
