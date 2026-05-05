@@ -1,11 +1,22 @@
 ---
-import { disclaimerPageContent } from "../config/legal/disclaimer";
+import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
 import { firm } from "../config/firm";
+import { disclaimerPageContent } from "../config/legal/disclaimer";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { seo, title, intro, sections, reviewDate } = disclaimerPageContent;
 ---
 
 <BaseLayout
-	title={`${disclaimerPageContent.title} | ${firm.companyName}`}
-	description={disclaimerPageContent.description}
-	canonicalPath="/disclaimer"
-/>
+	title={`${seo.title} | ${firm.companyName}`}
+	description={seo.description}
+	canonicalPath={seo.canonicalPath}
+	solidNav={true}
+>
+	<LegalPageContent
+		title={title}
+		intro={intro}
+		sections={sections}
+		reviewDate={reviewDate}
+	/>
+</BaseLayout>
