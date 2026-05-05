@@ -8,7 +8,6 @@ _Maps each finding of the European Data Protection Board's Cookie Banner Taskfor
 **Companion files in this folder:**
 - `reg-5-compliance-evidence.md` — same exercise for the Irish statute (S.I. 336/2011 Reg 5)
 - `DPC-guidance-cookies-and-tracking-2020-04.pdf` — the DPC's April 2020 guidance, which we walk through separately
-- `cookiebot-compliance-analysis.md` — detailed analysis of Cookiebot's capabilities against each rule
 
 ---
 
@@ -117,7 +116,7 @@ GDPR has a stricter idea of what counts as valid consent than ePrivacy law alone
 
 > "'consent' of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her"
 
-_Source: `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf`, Article 4(11). Verified verbatim on 2026-04-25._
+_Source: `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf`, Article 4(11). Verified verbatim on 2026-04-25._
 
 So the four conditions in the definition itself are:
 
@@ -130,7 +129,7 @@ So the four conditions in the definition itself are:
 
 > "It shall be as easy to withdraw as to give consent."
 
-_Source: `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf`, Article 7(3). Verified verbatim on 2026-04-25._
+_Source: `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf`, Article 7(3). Verified verbatim on 2026-04-25._
 
 So the full GDPR consent test for a cookie banner is:
 
@@ -185,7 +184,7 @@ Para 3 now says: **even when you are only judging Step 1 (was the cookie allowed
 
 Why? Because Irish ePrivacy law uses words like "consent" and "information," but it does not itself fully spell out what those mean. The GDPR is the place where those words are properly defined. So when the DPC investigates whether a cookie was set lawfully, it reaches into the GDPR for two things:
 
-1. **What counts as valid consent.** Defined in **GDPR Article 4(11)** (freely given, specific, informed, unambiguous) and **Article 7** (the conditions for consent — including Article 7(3) on withdrawal being as easy as giving). Together these are the "freely given, specific, informed, unambiguous, withdrawable" rule we covered in Para 2. _Verified verbatim against local copy `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf` on 2026-04-25._
+1. **What counts as valid consent.** Defined in **GDPR Article 4(11)** (freely given, specific, informed, unambiguous) and **Article 7** (the conditions for consent — including Article 7(3) on withdrawal being as easy as giving). Together these are the "freely given, specific, informed, unambiguous, withdrawable" rule we covered in Para 2. _Verified verbatim against local copy `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf` on 2026-04-25._
 2. **What information must be given to visitors.** Defined in **GDPR Articles 12, 13 and 14**. Visitors must be told who is collecting their data, what is being collected, why, how long it is kept, and who it is shared with. _Article numbers verified against local GDPR PDF on 2026-04-25; the specific wording of each article has not been quoted here — open the PDF to read the full text if needed._
 
 ### Why this matters
@@ -286,7 +285,7 @@ The actual text of Article 4(23)(b), verified verbatim from the local GDPR PDF:
 > (a) processing of personal data which takes place in the context of the activities of establishments in more than one Member State of a controller or processor in the Union where the controller or processor is established in more than one Member State; or
 > **(b) processing of personal data which takes place in the context of the activities of a single establishment of a controller or processor in the Union but which substantially affects or is likely to substantially affect data subjects in more than one Member State.**"
 
-_Source: `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf`, Article 4(23). Verified verbatim on 2026-04-25._
+_Source: `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf`, Article 4(23). Verified verbatim on 2026-04-25._
 
 The bolded sub-paragraph (b) is the one Para 5 talks about. The key word is **"substantially."** A complainant has to show that the processing substantially affects people in multiple Member States — just being reachable from those countries is not enough.
 
@@ -339,7 +338,7 @@ So Section 2 effectively confirms that the broader, multi-regulator-ready approa
 There is nothing to *test* on the live site for Section 2 — it is jurisdictional. The verification step here is documentary:
 
 1. **Confirm the compliance set covers all four reference layers**, not just the DPC. Open `legal-compliance/cookies/README.md` — the "What's in this folder" table should list the DPC PDF, the EDPB report, the EDPB consent guidelines, and S.I. 336/2011. ✅
-2. **Confirm the GDPR PDF is in the project** for any Article 4(23) verification: `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf`. ✅
+2. **Confirm the GDPR PDF is in the project** for any Article 4(23) verification: `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf`. ✅
 3. **Confirm the compliance screenshot script captures evidence** in a format any EU regulator could review on request: `scripts/compliance-screenshot.ts`. ✅
 
 If those three documentary points hold, Section 2 is satisfied — Mary's site is set up to be defensible to any reasonable EU regulator who might choose to look, not just the DPC.
@@ -527,7 +526,7 @@ This is the digital equivalent of a contract that says "by signing nothing, you 
 
 _Source: `EDPB-cookie-banner-taskforce-report-2023-01.pdf`, Section 4, paragraph 10 (page 5). Verified verbatim against local PDF on 2026-04-25._
 
-> **GDPR Recital 32 — independently verified.** The EDPB report quotes Recital 32 of the GDPR — "Silence, pre-ticked boxes or inactivity should not therefore constitute consent." This phrase has been independently verified verbatim against the local GDPR Official Journal PDF (`legal-compliance/GDPR-regulation-2016-679-official-journal-with-recitals-2016-05.pdf`, Recital 32, page L 119/6). Verified on 2026-04-25. The full Recital 32 reads:
+> **GDPR Recital 32 — independently verified.** The EDPB report quotes Recital 32 of the GDPR — "Silence, pre-ticked boxes or inactivity should not therefore constitute consent." This phrase has been independently verified verbatim against the local GDPR Official Journal PDF (`legal-compliance/gdpr/regulation-2016-679-official-journal-with-recitals-2016-05.pdf`, Recital 32, page L 119/6). Verified on 2026-04-25. The full Recital 32 reads:
 >
 > > "Consent should be given by a clear affirmative act establishing a freely given, specific, informed and unambiguous indication of the data subject's agreement to the processing of personal data relating to him or her, such as by a written statement, including by electronic means, or an oral statement. This could include ticking a box when visiting an internet website, choosing technical settings for information society services or another statement or conduct which clearly indicates in this context the data subject's acceptance of the proposed processing of his or her personal data. **Silence, pre-ticked boxes or inactivity should not therefore constitute consent.** Consent should cover all processing activities carried out for the same purpose or purposes. When the processing has multiple purposes, consent should be given for all of them. If the data subject's consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided."
 
@@ -865,7 +864,7 @@ Verified against `banner-copy-mary-molloy.md`, `theme-navy-amber-charcoal.css`, 
 |---|---|
 | **Para 15** — Accept button must not be visually dominant over reject options | Cookiebot renders Deny and Allow all as equal-prominence buttons of the same shape, size, font weight and styling. No CSS override demotes Deny — the previous demotion was removed in commit `fec7dd0`. |
 | **Para 17** — Colours and contrast must not be misleading | The four banner colours (Background, Text, Highlight, Shade) all come from `theme-navy-amber-charcoal.css`, where every colour pair has been verified against WCAG 2.1 thresholds and the ratios are documented in the theme file's header comment. |
-| **Para 17** — Banner is subject to case-by-case review | Compliance evidence is already in the project: this file (the EDPB walkthrough), `cookiebot-compliance-analysis.md` (the Cookiebot capability map), the documented theme contrast ratios, and the dated screenshots from `scripts/compliance-screenshot.ts`. |
+| **Para 17** — Banner is subject to case-by-case review | Compliance evidence is already in the project: this file (the EDPB walkthrough), `dpc-guidance-walkthrough.md` (the DPC walkthrough), the documented theme contrast ratios, and the dated screenshots from `scripts/compliance-screenshot.ts`. |
 | **Para 18** — Reject button text must not be unreadably low-contrast | Mary's interactive button text/background combination passes WCAG AA (4.56:1 measured for white text on amber-500), well above the "unreadable to virtually any user" threshold. |
 | **Para 19** — No assumption that any banner pattern is automatically safe | Plan to re-run contrast verification annually using `check-contrast.ts`-style scripts whenever the theme changes, and include a banner screenshot in every dated compliance record. |
 
@@ -1361,7 +1360,7 @@ The verbatim quote of GDPR Article 7(3), already in this file under Section 1 Pa
 
 > "It shall be as easy to withdraw as to give consent."
 
-_Verified earlier in this file from `legal-compliance/GDPR-regulation-2016-679-consolidated-2016-05.pdf`, Article 7(3)._
+_Verified earlier in this file from `legal-compliance/gdpr/regulation-2016-679-consolidated-2016-05.pdf`, Article 7(3)._
 
 ### Para 35 — The flexibility rule
 
