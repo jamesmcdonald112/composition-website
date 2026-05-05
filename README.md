@@ -587,43 +587,41 @@ Once GTM is in place, all future tracking changes are made in the GTM dashboard,
 
 ---
 
-## Environment Variables (Vercel)
+## Vercel Deployment
 
-Add these in Vercel → Project Settings → Environment Variables before deploying:
+Full step-by-step migration plan and post-launch checklist: **`DEPLOYMENT.md`** at the repo root.
+
+### Region — must be set manually to Dublin
+
+> ⚠️ **Vercel defaults SSR functions to a US region (Washington `iad1`).** This is a compliance issue for an Irish solicitor's site — the privacy policy commits the firm to processing personal data inside the EU/EEA. The region must be actively changed to Dublin before the first production deploy.
+
+**To set it:**
+
+1. Vercel dashboard → your project → **Settings → Functions**.
+2. Find **Function Region** and select **Dublin, Ireland (`dub1`)**.
+3. Click **Save**.
+4. **Trigger a redeploy** — the region change only takes effect on new deployments. Either push a commit, or in *Deployments* click the three-dot menu next to the latest deploy and choose **Redeploy**.
+
+**To verify it actually applied** — after the redeploy, open the site in your browser, open DevTools → Network tab, reload the page, and check the response headers on the page request. You should see:
+
+```
+x-vercel-id: dub1::xxxxxxx-xxxxxx
+```
+
+The `dub1::` prefix is the proof that the function actually executed in Dublin. If the prefix is anything else (`iad1`, `sfo1`, `cdg1`, etc.), the change didn't take effect — go back and trigger another deploy.
+
+**Compliance evidence** — once verified, take a screenshot of the dashboard showing **Function Region: Dublin** and a screenshot of the `x-vercel-id: dub1::` response header, and save both into `legal-compliance/compliance-records/YYYY-MM-launch/` alongside the page screenshots. This gives the firm a documented, dated record of the EU-data-residency claim that the privacy policy makes.
+
+### Environment variables
+
+Add these in Vercel → **Settings → Environment Variables** (scope: Production + Preview) before the first deploy:
 
 | Variable | Required | Description |
 |---|---|---|
 | `RESEND_API_KEY` | Yes | API key from resend.com — used by the contact form to send emails |
 | `GOOGLE_PLACES_API_KEY` | Yes (for reviews) | API key from Google Cloud Console — used to fetch Google reviews |
 
-Never commit these to the repo. Both keys must be set for their respective features to work in production.
-
----
-
-## Going Live — Switch Adapter to Vercel
-
-The site currently uses `@astrojs/netlify` as a temporary adapter during development. Before going live on Vercel, swap it out:
-
-1. Uninstall the Netlify adapter:
-   ```bash
-   npm uninstall @astrojs/netlify
-   ```
-
-2. Install the Vercel adapter:
-   ```bash
-   npx astro add vercel
-   ```
-
-3. In `astro.config.mjs`, replace:
-   ```js
-   import netlify from "@astrojs/netlify";
-   adapter: netlify(),
-   ```
-   with:
-   ```js
-   import vercel from "@astrojs/vercel";
-   adapter: vercel(),
-   ```
+Never commit these to the repo. The same key values that worked on Netlify carry over unchanged — they're issued by Resend and Google, not by the host. **One thing to check:** if the Google Places API key has an HTTP-referrer restriction in Google Cloud Console, add the new `*.vercel.app` and the eventual production domain to the allowed-referrers list, or the reviews block will silently fail.
 
 ---
 
