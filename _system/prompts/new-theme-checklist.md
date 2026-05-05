@@ -108,7 +108,7 @@ After writing the theme file always run:
 All 10 critical pairs must pass AA (4.5:1)
 before the theme is considered complete.
 
-Read _system/THEME-CREATION-GUIDE.md
+Read _system/reference/theme-creation.md
 for the full checklist and contrast pairs.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
