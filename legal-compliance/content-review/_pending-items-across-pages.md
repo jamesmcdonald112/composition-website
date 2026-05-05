@@ -20,6 +20,35 @@ We've set the firm email to `info@marymolloy.ie`. Please confirm.
 
 **Your answer:** `Confirmed: yes / no — preferred address: ____________________`
 
+If the email mailbox is hosted with **Blacknight** (or wherever the firm's existing email lives), we don't need to change anything — the website host change doesn't affect email at all. We just need to know which email service is in use so we can confirm DNS records aren't accidentally disturbed during the website-domain cutover.
+
+**Email provider for `info@marymolloy.ie`:** ____________________ _(e.g. Blacknight, Microsoft 365, Google Workspace)_
+
+---
+
+### 1a. Cookiebot account — small pre-launch task for Nick
+
+The site uses **Cookiebot** to manage the cookie-consent banner. Under GDPR, the consent records (who agreed, when, to what) must legally belong to the firm — not to me. So the firm needs its own Cookiebot account before the site can launch on the production domain.
+
+**This is a 5-minute job and only needs to happen once.**
+
+What I need Nick (or whoever's easiest) to do:
+
+1. Sign up for a free account at **cookiebot.com** using the firm's email address (`info@marymolloy.ie` or another firm email — not a personal one).
+2. Add the production domain (`marymolloy.ie`) when prompted.
+3. Once signed up, go to **Settings → Team** and invite **`james@jamesmcdonald.dev`** as an **admin**. This lets me configure the banner and respond to issues without needing the firm's password.
+4. While there, go to **Cookies and Trackers → Scan report recipients** and add **`james@jamesmcdonald.dev`** as well — this emails me whenever Cookiebot detects a new cookie or tracker so I can categorise it correctly.
+
+That's it. I'll handle the rest from my end (banner configuration, swapping the development CBID in the site code for the firm's production CBID before launch).
+
+**Why the firm has to own the account, not me:** if the Data Protection Commission ever audits the firm, the firm has to produce its consent records. They have to be in the firm's account, not mine. This is a non-negotiable GDPR requirement, not a workflow preference.
+
+**Your answer:**
+
+- [ ] Cookiebot account created (date: ____________________)
+- [ ] `james@jamesmcdonald.dev` added as admin
+- [ ] `james@jamesmcdonald.dev` added as scan-report recipient
+
 ---
 
 ### 2. Privacy policy — three small confirmations
