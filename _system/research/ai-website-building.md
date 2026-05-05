@@ -43,15 +43,15 @@ Astro 6, plain CSS, GSAP, TypeScript, Biome, Vitest, Playwright
 ## Critical Rules
 - No raw CSS values anywhere — tokens only
 - Every section needs inner container: max-width + margin-inline: auto + responsive gutters
-- Read _system/LAYOUT-REFERENCE.md before building any component
-- Read _system/COMPONENT-DIRECTION-GUIDE.md before building any component
+- Read _system/reference/layout.md before building any component
+- Read _system/reference/component-direction.md before building any component
 - Visual quality is the primary deliverable — if it looks mediocre, it is wrong
 
 ## Design System Files
 - Skill: .claude/skills/frontend-design/SKILL.md
-- Layout rules: _system/LAYOUT-REFERENCE.md
-- Component direction: _system/COMPONENT-DIRECTION-GUIDE.md
-- Design brief: _system/STAGE-3-DESIGN-BRIEF.md
+- Layout rules: _system/reference/layout.md
+- Component direction: _system/reference/component-direction.md
+- Design brief: _system/briefs/stage-3-service-pages.md
 ```
 
 **Important:** Keep it short. Anthropic's own docs confirm that long CLAUDE.md
@@ -163,8 +163,8 @@ Report what you find, then begin building.
 
 ### 4. CLAUDE.md for the Skill File Is Too Long
 
-The full STAGE-3-DESIGN-BRIEF.md, LAYOUT-REFERENCE.md, and
-COMPONENT-DIRECTION-GUIDE.md being read every session is a lot of
+The full stage-3-service-pages.md, layout.md, and
+component-direction.md being read every session is a lot of
 context. Claude's attention is finite.
 
 **Fix:** Put the critical non-negotiables in CLAUDE.md (short, always loaded).
@@ -182,8 +182,8 @@ Create `.claude/commands/build-component.md`:
 # Build Component
 
 Read these files before starting:
-- _system/LAYOUT-REFERENCE.md
-- _system/COMPONENT-DIRECTION-GUIDE.md
+- _system/reference/layout.md
+- _system/reference/component-direction.md
 - .claude/skills/frontend-design/SKILL.md
 
 Your primary job is visual quality. The code expresses the design.

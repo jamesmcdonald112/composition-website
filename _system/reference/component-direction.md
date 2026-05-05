@@ -83,7 +83,7 @@ real content. Refine it until it feels right. Only then build.
 Stale context from earlier sessions causes Claude to make
 assumptions. Always start fresh.
 
-### Step 3 — Use the per-session prompt from STAGE-3-DESIGN-BRIEF.md
+### Step 3 — Use the per-session prompt from stage-3-service-pages.md
 Fill in the bracketed sections:
 - Session name
 - Component list
@@ -94,12 +94,12 @@ Fill in the bracketed sections:
 
 ```
 1. view .claude/skills/frontend-design/SKILL.md
-2. view _system/LAYOUT-REFERENCE.md
-3. view _system/COMPONENT-DIRECTION-GUIDE.md
+2. view _system/reference/layout.md
+3. view _system/reference/component-direction.md
 4. view [config files]
 5. view src/styles/tokens.css
 6. view src/styles/themes/theme-cream-navy.css
-7. view _system/STAGE-3-DESIGN-BRIEF.md
+7. view _system/briefs/stage-3-service-pages.md
 ```
 
 ### Step 5 — Paste the layout concept

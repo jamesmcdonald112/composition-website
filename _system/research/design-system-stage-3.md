@@ -341,7 +341,7 @@ Read these files in this exact order before writing any code:
 3. view src/config/nav.ts
 4. view src/styles/tokens.css
 5. view src/styles/themes/theme-cream-navy.css
-6. view _system/2. DesignSystem.md
+6. view _system/research/design-system-stage-3.md
 
 Then read the component structure section of the brief carefully.
 

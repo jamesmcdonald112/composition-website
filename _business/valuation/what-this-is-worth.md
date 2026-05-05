@@ -92,7 +92,7 @@ A fully configured, documented, and AI-workflow-enabled product for building pre
 - **AI workflow system** — 6 specialist skills that enforce Irish legal copywriting, LSRA compliance review, premium design standards, and local SEO on every content task, for every client
 - **Legal compliance infrastructure** — Cookiebot integration, cost warning component, screenshot compliance tooling — all reusable with no modification per client
 - **Research corpus** — market research, regulatory analysis, SEO strategy, copywriting methodology, competitor pricing — all documented and available to inform future deployments
-- **Developer documentation** — CLAUDE.md, LAYOUT-REFERENCE.md, COMPONENT-DIRECTION-GUIDE.md, THEME-CREATION-GUIDE.md — enough to hand off or collaborate with another developer
+- **Developer documentation** — CLAUDE.md, layout.md, component-direction.md, theme-creation.md — enough to hand off or collaborate with another developer
 
 ### What a second deployment looks like
 
