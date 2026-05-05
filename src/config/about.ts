@@ -41,7 +41,7 @@ export const aboutPageContent = {
 	},
 	attribution: {
 		solicitor: solicitors.mary,
-		reviewDate: "April 2026",
+		reviewDate: "May 2026",
 	},
 	cta: {
 		title: "Not sure where to start?",

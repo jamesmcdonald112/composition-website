@@ -30,7 +30,14 @@ const {
 <div class="attribution-section">
 	<div class="attribution-section__inner wrapper wrapper--wide">
 		<div class="attribution">
-			<Image class="attribution__photo" src={photo} alt={`${name}, ${role}`} width={80} height={80} />
+			<Image
+				class="attribution__photo"
+				src={photo}
+				alt={`${name}, ${role}`}
+				width={200}
+				height={200}
+				quality={90}
+			/>
 			<div class="attribution__text">
 				<span class="attribution__label">{label}</span>
 				<span class="attribution__name">{name}</span>
@@ -58,7 +65,7 @@ const {
 
 	.attribution {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: var(--space-xl);
 		background-color: var(--color-bg-surface);
 		border: 1px solid var(--color-border-default);

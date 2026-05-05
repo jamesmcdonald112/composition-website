@@ -19,7 +19,7 @@ export const accessibilityPageContent = {
 			"Accessibility statement for Mary Molloy Solicitor. We aim to meet WCAG 2.1 Level AA and welcome feedback on accessibility barriers.",
 		canonicalPath: "/accessibility",
 	},
-	reviewDate: "April 2026",
+	reviewDate: "May 2026",
 	title: "Accessibility Statement for Mary Molloy Solicitor",
 	intro: "This is an accessibility statement from Mary Molloy Solicitor.",
 	sections: [
