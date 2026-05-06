@@ -3,7 +3,7 @@ import teamSectionBackground from "../assets/images/pages/property/team.webp";
 import maryPhoto from "../assets/team/mary.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
-import { yearsInPractice } from "./firm";
+import { firm, yearsInPractice } from "./firm";
 // ── Solicitor credential records ──────────────────────────────────────────────
 // Used by AttributionBlock on every page. Fill in university and admissionYear
 // once confirmed with Mary — placeholders marked with TODO.
@@ -56,7 +56,7 @@ export const teamSectionContent = {
 		{
 			name: solicitors.mary.name,
 			role: solicitors.mary.role,
-			bio: "Mary is the principal solicitor at the firm, which she founded in Kilkenny in 1979. Her practice covers property, wills and probate, and private client matters.",
+			bio: `Mary is the principal solicitor at the firm, which she founded in Kilkenny in ${firm.established}. Her practice covers property, wills and probate, and private client matters.`,
 			photo: maryPhoto,
 		},
 		{

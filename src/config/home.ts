@@ -6,8 +6,7 @@ import { solicitors } from "./team";
 export const homePageContent = {
 	seo: {
 		title: firm.companyName,
-		description:
-			"Solicitors in Kilkenny since 1979. We advise on conveyancing, wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery — for clients across County Kilkenny and the surrounding counties.",
+		description: `Solicitors in Kilkenny since ${firm.established}. We advise on conveyancing, wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery — for clients across County Kilkenny and the surrounding counties.`,
 		canonicalPath: "/",
 	},
 
@@ -18,7 +17,7 @@ export const homePageContent = {
 		// TODO: Update subtitle once fee structure is confirmed with Mary.
 		// If fixed-fee conveyancing is offered, add a line here.
 		subtitle:
-			"Conveyancing matters handled in Kilkenny since 1979 — alongside wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.",
+			`Conveyancing matters handled in Kilkenny since ${firm.established} — alongside wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.`,
 		ctas: {
 			primary: { label: "Our services", href: "/services" },
 			secondary: { label: "Get in touch", href: "/contact" },
@@ -78,16 +77,16 @@ export const homePageContent = {
 
 	trustStrip: {
 		eyebrow: "About the practice",
-		title: "A family practice in Kilkenny since 1979",
+		title: `A family practice in Kilkenny since ${firm.established}`,
 		paragraphs: [
-			"Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny since 1979. The firm is a family practice — Mary Molloy is the principal solicitor; her sons Nicholas O'Shea and Richard O'Shea are also solicitors at the firm.",
+			`Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny since ${firm.established}. The firm is a family practice — Mary Molloy is the principal solicitor; her sons Nicholas O'Shea and Richard O'Shea are also solicitors at the firm.`,
 			"The firm acts for clients across County Kilkenny and the surrounding counties on residential and commercial conveyancing, wills and probate, family law, personal injury and civil litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery.",
 			"Conveyancing is the largest area of the firm's practice, but the work covers each of the eight practice areas listed above. The legal and procedural rules differ by area; the underlying approach to client work — clarity about the law, careful preparation, and respect for the people involved — does not.",
 			"All solicitors at the firm are admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority.",
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
-			{ label: "Established", value: "1979" },
+			{ label: "Established", value: String(firm.established) },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Core focus", value: "Conveyancing" },
 		],

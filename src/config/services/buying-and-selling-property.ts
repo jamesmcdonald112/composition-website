@@ -53,11 +53,11 @@ export const buyingAndSellingProperty = {
 			"Conveyancing in Ireland is governed by a defined body of statute and procedure — the Land and Conveyancing Law Reform Act 2009, the Registration of Title Act 1964 (under which the Property Registration Authority maintains the Register of Titles), the Stamp Duties Consolidation Act 1999, and the planning and building control framework. We advise buyers and sellers in Kilkenny on each stage of the conveyancing process.",
 			"On a purchase, our work includes reviewing the contract, investigating the title at the Property Registration Authority, raising pre-contract and requisition enquiries with the seller's solicitor, checking planning permission and certificates of compliance for any works on the property, and acting on the lender's behalf where there is a mortgage. On a sale, we prepare the contracts and supporting documentation, respond to the buyer's solicitor's enquiries, and arrange for any existing mortgage to be discharged on completion.",
 			"On completion, we handle the transfer of funds, the payment of stamp duty under the Stamp Duties Consolidation Act 1999, and the registration of ownership with the Property Registration Authority. Where the property is unregistered title, we advise on conversion to registered title as part of the transaction.",
-			"All conveyancing work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since 1979, and is based on Rose Inn Street in Kilkenny City.",
+			`All conveyancing work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since ${firm.established}, and is based on Rose Inn Street in Kilkenny City.`,
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
-			{ label: "Established", value: "1979" },
+			{ label: "Established", value: String(firm.established) },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Core focus", value: "Conveyancing" },
 		],

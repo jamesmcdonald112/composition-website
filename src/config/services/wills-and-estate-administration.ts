@@ -53,11 +53,11 @@ export const willsAndEstateAdministration = {
 			"Wills, probate, and estate administration are governed by a defined body of Irish statute and procedure — primarily the Succession Act 1965 (intestacy, the legal right share, Section 117 applications) and the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances). We advise clients on each of these areas.",
 			"On the wills side of the practice, we draft wills that comply with the execution formalities under the Succession Act 1965, advise on the appointment of executors and guardians for minor children, and consider the Capital Acquisitions Tax position of the gifts and inheritances proposed.",
 			"On the probate side, we act for executors and administrators in applications to the Probate Office of the High Court for grants of probate (where there is a will) or letters of administration (where there is not). We deal with the Probate Office, the Revenue Commissioners, and financial institutions on the client's behalf, and conduct the distribution of the estate in accordance with the will or the rules of intestacy.",
-			"All wills, probate, and estate administration work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since 1979.",
+			`All wills, probate, and estate administration work at the firm is carried out by solicitors admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority. The firm has practised in Kilkenny continuously since ${firm.established}.`,
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
-			{ label: "Established", value: "1979" },
+			{ label: "Established", value: String(firm.established) },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Wills & Probate" },
 		],

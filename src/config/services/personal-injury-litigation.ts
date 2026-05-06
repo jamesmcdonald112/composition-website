@@ -58,7 +58,7 @@ export const personalInjuryLitigation = {
 		],
 		stats: [
 			{ label: "Years in practice", value: `${yearsInPractice}+` },
-			{ label: "Established", value: "1979" },
+			{ label: "Established", value: String(firm.established) },
 			{ label: "Local base", value: "Kilkenny" },
 			{ label: "Focus area", value: "Litigation" },
 		],
