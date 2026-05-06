@@ -2,7 +2,7 @@ export const firm = {
 	siteUrl: "https://splendorous-tiramisu-3c7f26.netlify.app/",
 	companyName: "Mary Molloy Solicitor",
 	county: "Kilkenny",
-	established: 1979,
+	established: 1981,
 
 	phone: {
 		display: "(056) 776 5829",
