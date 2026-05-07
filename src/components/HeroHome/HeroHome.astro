@@ -308,8 +308,11 @@ const [titleBefore, titleAfter] = titleEmphasis
 	}
 
 	/* ── Eyebrow ────────────────────────────────────────────────────────────── */
-	/* margin unreachable here due to Astro scope — gap lives on h1 instead */
-	.hero-home__eyebrow {
+	/* :global() needed because .hero-home__eyebrow lives on the <Eyebrow> child
+	   component's root — without :global() Astro scopes the selector and it
+	   never matches, so the eyebrow paints visible and then blinks when GSAP
+	   takes over. */
+	:global(.hero-home__eyebrow) {
 		visibility: hidden;
 	}
 
@@ -337,8 +340,10 @@ const [titleBefore, titleAfter] = titleEmphasis
 	}
 
 	/* ── Gold rule ──────────────────────────────────────────────────────────── */
-	/* Target only the hero rule via its animate attribute — no global bleed */
-	[data-animate="h-rule"] {
+	/* :global() needed because [data-animate="h-rule"] lives on the <SectionRule>
+	   child component — without it the selector is scoped to HeroHome and never
+	   matches, so the rule paints visible and blinks when GSAP takes over. */
+	:global([data-animate="h-rule"]) {
 		visibility: hidden;
 	}
 
