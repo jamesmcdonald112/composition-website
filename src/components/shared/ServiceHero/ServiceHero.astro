@@ -121,6 +121,13 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 		inset: 0;
 		z-index: 2;
 		pointer-events: none;
+		/* Fallback for Safari < 16.2 (no color-mix support): rgb() with slash-alpha
+		   driven by --color-bg-brand-rgb so the gradient stays token-driven */
+		background: linear-gradient(
+			to bottom,
+			rgb(var(--color-bg-brand-rgb) / 0.94) 0%,
+			rgb(var(--color-bg-brand-rgb) / 0.72) 100%
+		);
 		background: linear-gradient(
 			to bottom,
 			color-mix(in srgb, var(--color-bg-brand) 94%, transparent) 0%,
@@ -128,6 +135,15 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 		);
 
 		@media (min-width: 768px) {
+			/* Fallback for Safari < 16.2 */
+			background: linear-gradient(
+				108deg,
+				rgb(var(--color-bg-brand-rgb) / 0.97) 0%,
+				rgb(var(--color-bg-brand-rgb) / 0.90) 40%,
+				rgb(var(--color-bg-brand-rgb) / 0.60) 65%,
+				rgb(var(--color-bg-brand-rgb) / 0.20) 84%,
+				rgb(var(--color-bg-brand-rgb) / 0) 100%
+			);
 			background: linear-gradient(
 				108deg,
 				color-mix(in srgb, var(--color-bg-brand) 97%, transparent) 0%,
@@ -145,6 +161,18 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 		inset: 0;
 		z-index: 3;
 		pointer-events: none;
+		/* Fallback for Safari < 16.2 */
+		background:
+			radial-gradient(
+				ellipse at 0% 0%,
+				rgb(var(--color-bg-brand-rgb) / 0.45) 0%,
+				transparent 55%
+			),
+			radial-gradient(
+				ellipse at 0% 100%,
+				rgb(var(--color-bg-brand-rgb) / 0.35) 0%,
+				transparent 50%
+			);
 		background:
 			radial-gradient(
 				ellipse at 0% 0%,

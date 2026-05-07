@@ -51,6 +51,9 @@
 
   /* Rich Navy — primary brand, hue 220 */
   --navy-900: oklch(0.22 0.075 220); /* #00202e */
+  /* RGB channels for navy-900 — used in rgb()/rgba() gradients as a fallback for
+     Safari < 16.2, which can't parse color-mix(). Keep in sync with --navy-900. */
+  --navy-900-rgb: 0 32 46;
   --navy-800: oklch(0.28 0.080 220); /* #002f40 */
   --navy-700: oklch(0.34 0.082 220); /* #004155 */
   --navy-600: oklch(0.42 0.082 220); /* #0d5569 */
@@ -132,6 +135,9 @@
   --color-brand-200: var(--navy-200);
   --color-brand-100: var(--navy-100);
   --color-brand-50:  var(--navy-50);
+  /* RGB-channel companion for --color-brand-900 — feeds rgb()/rgba() fallbacks
+     for translucent brand backgrounds on Safari < 16.2 (no color-mix support). */
+  --color-brand-900-rgb: var(--navy-900-rgb);
 
   /* Accent — burnt amber */
   --color-accent-900: var(--amber-900);
@@ -179,8 +185,12 @@
 
   /* ── On-brand foreground (dark navy panels = white text) ─ */
   --color-on-brand:        var(--color-absolute-white);
-  --color-on-brand-muted:  color-mix(in oklch, var(--color-absolute-white) 80%, transparent);
-  --color-on-brand-subtle: color-mix(in oklch, var(--color-absolute-white) 65%, transparent);
+  /* rgb() with slash-alpha is used here instead of color-mix() so muted/subtle
+     text on navy still renders on Safari < 16.2 (no color-mix support). White is
+     a fixed sRGB primary, so this produces identical pixels to the previous
+     color-mix(in oklch, white N%, transparent) on modern browsers. */
+  --color-on-brand-muted:  rgb(255 255 255 / 0.80);
+  --color-on-brand-subtle: rgb(255 255 255 / 0.65);
 
   /* ── On-surface foreground (light card surface = dark text) ── */
   --color-on-surface:       var(--color-brand-900);
@@ -212,6 +222,9 @@
   --color-brand-bg:        var(--color-brand-900);
   --color-brand-bg-muted:  var(--color-brand-700);
   --color-brand-bg-subtle: var(--color-brand-100);
+  /* RGB-channel companion for --color-brand-bg — used by components that need
+     a translucent brand wash via rgb()/rgba() (gradient overlays, etc.). */
+  --color-brand-bg-rgb:    var(--color-brand-900-rgb);
 
   /* ── Borders ─────────────────────────────────────── */
   --color-border-level-1:  var(--color-neutral-300);

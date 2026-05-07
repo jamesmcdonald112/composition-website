@@ -50,6 +50,10 @@
 	--color-bg-brand:        var(--color-brand-bg);       /* Primary brand sections: nav, footer, hero */
 	--color-bg-brand-muted:  var(--color-brand-bg-muted); /* Less prominent brand sections */
 	--color-bg-brand-subtle: var(--color-brand-bg-subtle);/* Decorative tints, circle fills, section accents */
+	/* RGB channels of --color-bg-brand for use in rgb()/rgba() gradients — a
+	   fallback path for Safari < 16.2 where color-mix() is unsupported. Use as
+	   `rgb(var(--color-bg-brand-rgb) / 0.92)` to produce a translucent brand wash. */
+	--color-bg-brand-rgb:    var(--color-brand-bg-rgb);
 	--color-bg-accent:       var(--color-accent-bg);      /* Accent-tinted background */
 	--color-bg-tertiary:     var(--color-tertiary-bg);    /* Tertiary-tinted background */
 

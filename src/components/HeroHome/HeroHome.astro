@@ -153,6 +153,13 @@ const [titleBefore, titleAfter] = titleEmphasis
 		z-index: 2;
 		pointer-events: none;
 
+		/* Fallback for Safari < 16.2 (no color-mix support): rgb() with slash-alpha
+		   driven by --color-bg-brand-rgb so the gradient still flows from the design token */
+		background: linear-gradient(
+			to bottom,
+			rgb(var(--color-bg-brand-rgb) / 0.92) 0%,
+			rgb(var(--color-bg-brand-rgb) / 0.65) 100%
+		);
 		/* Mobile: top-to-bottom wash — heavy at top, lighter at bottom */
 		background: linear-gradient(
 			to bottom,
@@ -161,6 +168,12 @@ const [titleBefore, titleAfter] = titleEmphasis
 		);
 
 		@media (min-width: 768px) {
+			/* Fallback for Safari < 16.2 */
+			background: linear-gradient(
+				105deg,
+				rgb(var(--color-bg-brand-rgb) / 0.97) 0%,
+				rgb(var(--color-bg-brand-rgb) / 0.20) 100%
+			);
 			/* Tablet: angled sweep from left */
 			background: linear-gradient(
 				105deg,
@@ -170,6 +183,16 @@ const [titleBefore, titleAfter] = titleEmphasis
 		}
 
 		@media (min-width: 1024px) {
+			/* Fallback for Safari < 16.2 */
+			background: linear-gradient(
+				105deg,
+				rgb(var(--color-bg-brand-rgb) / 0.97) 0%,
+				rgb(var(--color-bg-brand-rgb) / 0.94) 30%,
+				rgb(var(--color-bg-brand-rgb) / 0.82) 50%,
+				rgb(var(--color-bg-brand-rgb) / 0.45) 68%,
+				rgb(var(--color-bg-brand-rgb) / 0.12) 82%,
+				rgb(var(--color-bg-brand-rgb) / 0) 100%
+			);
 			/* Desktop: sculpted gradient — opens fully to the right */
 			background: linear-gradient(
 				105deg,
@@ -189,6 +212,23 @@ const [titleBefore, titleAfter] = titleEmphasis
 		inset: 0;
 		z-index: 3;
 		pointer-events: none;
+		/* Fallback for Safari < 16.2 */
+		background:
+			radial-gradient(
+				ellipse at 0% 0%,
+				rgb(var(--color-bg-brand-rgb) / 0.40) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse at 100% 100%,
+				rgb(var(--color-bg-brand-rgb) / 0.35) 0%,
+				transparent 55%
+			),
+			radial-gradient(
+				ellipse at 0% 100%,
+				rgb(var(--color-bg-brand-rgb) / 0.30) 0%,
+				transparent 50%
+			);
 		background:
 			radial-gradient(
 				ellipse at 0% 0%,
