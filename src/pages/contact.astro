@@ -1,4 +1,5 @@
 ---
+import { actions } from "astro:actions";
 import ContactPanel from "../components/contact/ContactPanel.astro";
 import SplitPage from "../components/layout/SplitPage.astro";
 import { contactPageContent } from "../config/contact";
@@ -6,6 +7,14 @@ import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
 import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Redirect to /thank-you on successful contact-form submission.
+// Astro Actions return the result on the same URL — we redirect on success here
+// so the visitor lands on the dedicated thank-you page.
+const result = Astro.getActionResult(actions.contact);
+if (result && !result.error) {
+	return Astro.redirect("/thank-you");
+}
 
 const structuredData = getLawFirmStructuredData();
 ---

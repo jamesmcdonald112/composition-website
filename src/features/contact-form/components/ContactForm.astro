@@ -1,16 +1,24 @@
 ---
 import { actions, isInputError } from "astro:actions";
+import arrowIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_SERVICES } from "../config/contact-services";
-import arrowIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 
 const result = Astro.getActionResult(actions.contact);
 const error = result?.error;
 const fieldErrors = isInputError(error) ? error.fields : {};
 
-// Repopulate fields after validation error redirect (no ClientRouter needed)
-const prev = error ? await Astro.session?.get<Record<string, string>>("form-data") : null;
-if (prev) await Astro.session?.delete("form-data");
+// Repopulate fields when an error occurs by reading the original POST body.
+// Astro re-renders the page on the same URL after a form action error, so the
+// request still carries the submitted values.
+let prev: Record<string, string> | null = null;
+if (error && Astro.request.method === "POST") {
+	const formData = await Astro.request.clone().formData();
+	prev = {};
+	for (const [key, value] of formData.entries()) {
+		if (typeof value === "string") prev[key] = value;
+	}
+}
 ---
 
 <div class="contact-form">
