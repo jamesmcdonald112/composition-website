@@ -8,10 +8,7 @@ export const firm = {
 		display: "(056) 776 5829",
 		phoneHref: "+353567765829",
 	},
-	// TODO: Replace with the real firm email address before launch.
-	// Likely value, supplied by James 2026-05-03: info@marymolloy.ie
-	// Do NOT swap into the live `email` field below until Mary has explicitly confirmed it.
-	email: "info@YOURDOMAIN.ie",
+	email: "nicholasoshea@marymolloysolicitor.ie",
 
 	address: {
 		line1: "2 Rose Inn St",
