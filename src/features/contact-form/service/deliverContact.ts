@@ -6,14 +6,14 @@
    ────────────────────────────────────────────────────────────────────────────── */
 import { RESEND_API_KEY } from "astro:env/server";
 import { Resend } from "resend";
-import { firm } from "../../../config/firm";
 import type { ContactInput } from "../schema/contact.schema";
 
 const resend = new Resend(RESEND_API_KEY);
 
 // TEMPLATE: Replace with a verified Resend sender domain before deployment
 const FROM = "onboarding@resend.dev";
-const TO = firm.email;
+// TEMPLATE: Replace with client email address before deployment
+const TO = "jamesmcdonald112@yahoo.ie";
 
 export async function deliverContact(input: ContactInput): Promise<void> {
 	await resend.emails.send({

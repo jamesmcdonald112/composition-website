@@ -478,6 +478,10 @@ What remains here is the small set of pre-launch tasks that aren't already cover
 
 - [ ] **Shared compliance Google Drive folder for the firm** — create a folder named "[Firm Name] — Compliance — Processor Agreements" shared with the firm's confirmed email; copy the three executed DPAs in (`cookiebot-dpa-2022-01.pdf`, `resend-dpa-2026-05-03.pdf`, `vercel-dpa-2026-05-03.pdf`); add a one-page README inside the folder noting which DPA section names each safeguard (Cookiebot §3.4 — EU/EEA processing; Resend §6.2 — EU SCCs; Vercel §12.1 — EU SCCs). The firm needs its own access so it can respond to a visitor's Article 13(1)(f) / 15(1)(c) request within Article 12(3)'s one-month window without depending on the website manager. ~30 minutes once the firm email is confirmed.
 
+- [ ] **Resend account — firm-owned, James-linked** — ask Nick to sign up for a free Resend account at [resend.com](https://resend.com) using a firm email address (`nicholasoshea@marymolloysolicitor.ie` or similar — not a personal one), then add `james@jamesmcdonald.dev` as a team member with admin access. Once the account exists, James verifies the `marymolloysolicitor.ie` sending domain (adds 3-4 DNS records — SPF, DKIM, DMARC, tracking — to the domain's DNS), then updates `FROM` in `src/features/contact-form/service/deliverContact.ts` from `onboarding@resend.dev` (Resend's shared test sender) to something like `noreply@marymolloysolicitor.ie`. **Why the firm has to own the account, not James:** Resend processes every contact-form submission, which contains the visitor's name, email, phone and message — all personal data under GDPR. The firm is the data controller and must be able to produce these records if the DPC ever audits. The signed Resend DPA at `legal-compliance/processor-agreements/resend-dpa-2026-05-03.pdf` is structured for a firm-to-Resend relationship, not an agency-to-Resend one. Same pattern as the Cookiebot setup. Free tier is more than enough — a solicitor's contact form will never approach 100/day or 3,000/month. ~10 minutes for Nick, ~15 minutes for James once Nick's account is live and DNS access is confirmed.
+
+- [ ] **Vercel account — firm-owned, James-linked, project transferred** — ask Nick to sign up for a free Vercel account at [vercel.com](https://vercel.com) using a firm email address (`nicholasoshea@marymolloysolicitor.ie` or similar), then add `james@jamesmcdonald.dev` as a team member with admin access. James then **transfers the existing project** from his Vercel account to the firm's team (Vercel: **Project → Settings → General → Transfer Project**) so that the production deployment, environment variables, and analytics all live in the firm's account from launch onwards. **Why the firm has to own the account, not James:** Vercel hosts the entire public site and processes every contact-form submission server-side — the firm is the data controller, Vercel is the processor. The signed Vercel DPA at `legal-compliance/processor-agreements/vercel-dpa-2026-05-03.pdf` is structured for a firm-to-Vercel relationship, not an agency-to-Vercel one. Same pattern as Cookiebot and Resend. If the firm ever switches developer, hosting and infrastructure stay with them. **Domain pointing:** once the project is in the firm's Vercel team, add `marymolloysolicitor.ie` (and the `www` variant) under **Project → Settings → Domains**. Vercel will provide a CNAME or A record to add to the domain's DNS (separate from the Resend records — Resend = sending email *from* the domain, Vercel = pointing the *website* at the domain). Free tier is more than enough for a solicitor's brochure site. ~5 minutes for Nick, ~30 minutes for James (project transfer + DNS pointing + environment variable copy) once Nick's account is live and DNS access is confirmed.
+
 - [ ] **Verify two regulation citations** — two pages cite Irish statutes I deliberately avoided asserting specific figures for, because the figures are volatile and I couldn't verify them from a primary source:
   - `services/debt-collection.astro` references the **European Communities (Late Payment in Commercial Transactions) Regulations 2012** (S.I. 580/2012) as the current consolidated instrument. Confirm against `irishstatutebook.ie` that this has not been amended or superseded since.
   - `services/leases-and-tenancy-agreements.astro` deliberately does **not** quote specific notice periods, RPZ rent caps, or registration cycles, because the Residential Tenancies Act 2004 has been amended seven times (2009, 2012, 2015, 2019, 2021, 2022, 2024). The page is durable as-is. If specific figures are wanted, verify against a consolidated source first.
@@ -566,6 +570,67 @@ Three reasons:
 - **Cookie Declaration script** — go to **Implementation → Cookie Declaration** in their dashboard. Copy the full script tag and replace the existing script in `src/pages/cookie-policy.astro`. The page already has a development version of this script with a TODO comment marking it for replacement — swap the entire script tag with the one from the client's dashboard. It must use their CBID so it reads from their account's scan results.
 
 Add this to your client onboarding checklist alongside domain access and Resend credentials — it is a standard pre-launch step on every project.
+
+### Account setup — Resend (email delivery for the contact form)
+
+**Every client needs their own Resend account. Same reasoning as Cookiebot.**
+
+Three reasons:
+
+1. **Legal** — every contact-form submission contains personal data (name, email, phone, message). The firm is the data controller; Resend is the processor. Records must sit in the client's account, not the developer's, so the client can produce them if the DPC audits.
+2. **Practical** — the signed Resend DPA at `legal-compliance/processor-agreements/resend-dpa-2026-05-03.pdf` is structured as a firm-to-Resend agreement, not an agency-to-Resend one.
+3. **Business** — if the client switches developer, their email-delivery infrastructure (and the verified sending domain) stays with them.
+
+**Standard process for every new client:**
+
+1. During development — use the Resend free tier with `onboarding@resend.dev` as the `FROM`. This is fine for testing and is what `deliverContact.ts` ships with.
+2. Before launch — ask the client to sign up for a free account at [resend.com](https://resend.com) using a firm email (not a personal one).
+3. Client invites `james@jamesmcdonald.dev` as a team member with admin access (cleaner than sharing passwords).
+4. Once you have access, **verify the firm's sending domain** in the Resend dashboard — add the 3-4 DNS records Resend provides (SPF, DKIM, DMARC, tracking) to the domain's DNS. This is needed so emails pass spam filters once the site goes live.
+5. Update the `FROM` constant in `src/features/contact-form/service/deliverContact.ts` from `onboarding@resend.dev` to something like `noreply@[firm-domain]` (e.g. `noreply@marymolloysolicitor.ie`). The `TO` is already driven from `firm.email`, so no change needed there.
+6. Send a test submission and confirm it arrives at the firm's inbox (and not in spam).
+
+**Why this can't stay on `onboarding@resend.dev` at launch:**
+
+- It's Resend's shared test sender — thousands of test accounts use it
+- Gmail / Outlook / corporate spam filters increasingly penalise emails where the `FROM` domain doesn't have aligned SPF / DKIM / DMARC for the actual sender
+- Resend's own terms restrict production use of the test sender
+- Once a domain is verified, the email looks like it came from the firm (it did), passes spam filters, and is rate-limited per the firm's account — not shared with the rest of Resend's free-tier traffic
+
+**Free tier is enough for any solicitor.** 100 emails/day, 3,000/month, 1 verified domain — a sole-practitioner contact form will use a tiny fraction of that.
+
+Add this to your client onboarding checklist alongside the Cookiebot and DNS access steps.
+
+### Account setup — Vercel (website hosting)
+
+**Every client needs their own Vercel account. Same reasoning as Cookiebot and Resend.**
+
+Three reasons:
+
+1. **Legal** — Vercel hosts the entire public site and processes every contact-form submission server-side. The client is the data controller; Vercel is the processor. The signed Vercel DPA at `legal-compliance/processor-agreements/vercel-dpa-2026-05-03.pdf` is structured as a firm-to-Vercel agreement, not an agency-to-Vercel one.
+2. **Practical** — production deployments, environment variables (`RESEND_API_KEY`, etc.), analytics, build logs, and domain DNS pointing all sit inside the Vercel project. They need to live in the client's account so the client can audit, rotate keys, or hand off the project to a new developer without depending on you.
+3. **Business** — if the client switches developer, the live site keeps running, the domain stays pointed correctly, and the new developer can take over without rebuilding the deployment.
+
+**Standard process for every new client:**
+
+1. During development — use your own Vercel account. Preview deployments at `*.vercel.app` are fine.
+2. Before launch — ask the client to sign up for a free account at [vercel.com](https://vercel.com) using a firm email (not a personal one).
+3. Client creates a team (Vercel auto-creates one on signup) and invites `james@jamesmcdonald.dev` as a team member with admin access.
+4. **Transfer the project** from your Vercel account to the firm's team: **Project → Settings → General → Transfer Project**. Vercel handles this cleanly — environment variables, deployments, and build history all move across. No rebuild needed.
+5. **Re-add environment variables** if Vercel doesn't copy them automatically (it usually does, but verify): at minimum `RESEND_API_KEY`. Check via **Project → Settings → Environment Variables**.
+6. **Point the domain** — add `marymolloysolicitor.ie` (or whichever the firm's live domain is) and the `www` variant under **Project → Settings → Domains**. Vercel provides the DNS records (CNAME or A) to add to the domain's DNS panel. This is **separate from the Resend DNS records** — Resend authorises sending email *from* the domain; Vercel points the *website itself* at the domain.
+7. **Trigger a production deployment** from the firm's team to confirm everything still builds and serves correctly.
+8. **Update `firm.siteUrl`** in `src/config/firm.ts` to the production URL (`https://marymolloysolicitor.ie`) so the sitemap, OpenGraph defaults, and canonical URLs all reference the correct domain.
+
+**Why this can't stay on your Vercel account at launch:**
+
+- The DPA is firm-to-Vercel, not agency-to-Vercel — the legal relationship has to match the technical setup
+- If you ever stop maintaining the site, the firm's site is hostage to your Vercel account staying active and paid
+- Environment variables (Resend API key, any future tokens) need to live with the data controller, not the developer
+
+**Free tier is enough for any solicitor brochure site.** A sole-practitioner site will use a tiny fraction of Vercel's free-tier bandwidth, build minutes, and serverless function invocations.
+
+Add this to your client onboarding checklist alongside the Cookiebot, Resend, and DNS access steps. All four (Cookiebot, Resend, Vercel, DNS) typically converge into a single 60-90 minute pre-launch session once the firm has confirmed access.
 
 ### Account setup — GTM/GA4
 
