@@ -1,17 +1,10 @@
 ---
-interface Section {
-	heading: string;
-	body?: string;
-	list?: readonly string[];
-	footer?: string;
-	afterListBody?: string;
-	afterListItems?: readonly string[];
-}
+import type { LegalPageSection } from "./LegalPageContent.types";
 
 interface Props {
 	title: string;
 	intro?: string;
-	sections: readonly Section[];
+	sections: readonly LegalPageSection[];
 	footerNote?: string;
 	reviewDate?: string;
 }

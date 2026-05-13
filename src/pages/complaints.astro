@@ -1,11 +1,22 @@
 ---
-import { complaintsPageContent } from "../config/legal/complaints";
+import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
 import { firm } from "../config/firm";
+import { complaintsPageContent } from "../config/legal/complaints";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { seo, title, intro, sections, reviewDate } = complaintsPageContent;
 ---
 
 <BaseLayout
-	title={`${complaintsPageContent.title} | ${firm.companyName}`}
-	description={complaintsPageContent.description}
-	canonicalPath="/complaints"
-/>
+	title={`${seo.title} | ${firm.companyName}`}
+	description={seo.description}
+	canonicalPath={seo.canonicalPath}
+	solidNav={true}
+>
+	<LegalPageContent
+		title={title}
+		intro={intro}
+		sections={sections}
+		reviewDate={reviewDate}
+	/>
+</BaseLayout>
