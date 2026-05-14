@@ -75,7 +75,7 @@ export const leasesAndTenancyAgreements = {
 		intro:
 			"Landlord and tenant law in Ireland sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2026 (residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (commercial tenancies). Knowing which framework applies, what the statute says about the rights and obligations of each side, and what the Residential Tenancies Board (RTB) procedure is for residential disputes makes the practical position clearer. The article below sets that framework out in plain English — first for landlords, then for tenants, with a separate section on commercial leases.",
 		quote: {
-			text: "Residential tenancies law in Ireland has been amended seven times since 2004 — most recently in 2026. Knowing which version of the statute applies to a tenancy, and which procedural steps the RTB requires, is the work of getting it right.",
+			text: "Residential tenancies law in Ireland has been amended several times since 2004 — most recently in 2026. Knowing which version of the statute applies to a tenancy, and which procedural steps the RTB requires, is the work of getting it right.",
 			solicitor: solicitors.nicholas,
 		},
 		blocks: [
@@ -96,7 +96,7 @@ export const leasesAndTenancyAgreements = {
 				items: [
 					{
 						label: "Rent Pressure Zones",
-						text: "Most urban and suburban areas in Ireland are designated Rent Pressure Zones (RPZs) under the Residential Tenancies Acts. In an RPZ, the rent that can be charged on a tenancy is capped — the precise calculation and review intervals are set by statute and have been amended several times in recent years (most recently by the Residential Tenancies (Amendment) Act 2024). We advise on whether an RPZ applies to a particular property and on what the current rules require.",
+						text: "Most urban and suburban areas in Ireland are designated Rent Pressure Zones (RPZs) under the Residential Tenancies Acts. In an RPZ, the rent that can be charged on a tenancy is capped — the precise calculation and review intervals are set by statute and have been amended several times in recent years (most recently by the Residential Tenancies (Miscellaneous Provisions) Act 2026). We advise on whether an RPZ applies to a particular property and on what the current rules require.",
 					},
 					{
 						label: "Terminating a tenancy",
