@@ -523,6 +523,60 @@ What remains here is the small set of pre-launch tasks that aren't already cover
 
 ---
 
+## Post-Launch Verification — First Hour After DNS Cutover
+
+Run this checklist the moment `marymolloysolicitor.ie` resolves to the live Vercel deployment. Most of these can't be validated before launch because the canonical URLs in OG tags, canonical links, and the sitemap all point at the production domain — they only become meaningful once that domain is live.
+
+Total time end-to-end: ~20 minutes.
+
+### Reachability
+
+- [ ] Open `https://marymolloysolicitor.ie/` in a fresh incognito window — confirms DNS, TLS, and the site loads.
+- [ ] Open `https://www.marymolloysolicitor.ie/` — confirms the `www` variant redirects (or serves) correctly.
+- [ ] Open one page of each type: a service page (e.g. `/services/buying-and-selling-property`), the privacy page (`/privacy`), the contact page (`/contact`), and the complaints page (`/complaints`).
+- [ ] Submit the contact form once with test data — confirms Resend is sending and the email lands in `nicholasoshea@marymolloysolicitor.ie`.
+
+### Crawler-facing files
+
+- [ ] `https://marymolloysolicitor.ie/robots.txt` returns 200 and points at the production sitemap.
+- [ ] `https://marymolloysolicitor.ie/sitemap-index.xml` returns 200 and lists the production URLs.
+- [ ] `https://marymolloysolicitor.ie/images/open-graph/og-default.webp` returns 200 (the OG image asset itself).
+
+### Social preview cards — OG image rendering
+
+Paste the production URL into each of these tools. The first time you hit Scrape Again / Inspect, it'll fetch fresh.
+
+- [ ] **Facebook / Instagram / Meta:** [developers.facebook.com/tools/debug](https://developers.facebook.com/tools/debug/) — paste `https://marymolloysolicitor.ie/`, click "Scrape Again". Expected: image renders, no warnings about ratio/size, no 403.
+- [ ] **LinkedIn:** [linkedin.com/post-inspector](https://www.linkedin.com/post-inspector/) — paste URL, confirm the card shows the OG image (not "No image found").
+- [ ] **X / Twitter:** paste the URL into a draft tweet and check the preview card. (cards-dev.twitter.com is defunct since 2023.)
+- [ ] **WhatsApp / iMessage / Slack:** paste the URL into a chat. Each platform has its own cache so you may need to test from a fresh thread or device.
+- [ ] **Generic OG snapshot:** [opengraph.xyz](https://www.opengraph.xyz/) — shows what most generic-OG bots see. Useful as a quick sanity check covering anything not in the above list.
+
+### Security and headers
+
+- [ ] [securityheaders.com](https://securityheaders.com/) — scan the production URL. Aim for an A rating once the security headers are configured (see "Going Live — Security Headers" further down). If still F at launch, that's the next priority post-launch.
+- [ ] [ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) — TLS configuration scan. Vercel's default cert handling is already A-grade so this is a quick confirmation.
+
+### Search engines
+
+- [ ] Add the production domain to **[Google Search Console](https://search.google.com/search-console)**, verify, and submit `sitemap-index.xml`. (See the existing "Submit the sitemap to Google Search Console" item in TODO — Before Launch for the detailed steps.)
+- [ ] Submit to **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — same pattern.
+- [ ] Run **URL Inspection** in Search Console on the home page + one service page — confirms Google can render and read the content.
+
+### Compliance screenshot (legal requirement)
+
+- [ ] Run `npx tsx scripts/compliance-screenshot.ts launch-day` — captures every page on the live production URL for the dated audit trail. Required under Reg 11(f) of S.I. No. 644/2020 (the solicitor's advertising-records obligation). See the "Legal Compliance — Record Keeping" section above for context.
+
+### Cookie banner end-to-end
+
+- [ ] In a fresh incognito window: confirm the Cookiebot banner appears, that no Statistics or Marketing cookies are set before consent, and that the `CookieConsent` cookie's `Expires` timestamp is approximately **30 days** from today (the dashboard setting from `client-onboarding-checklist.md`).
+- [ ] On `/cookie-policy`: confirm the cookie-declaration table renders.
+- [ ] Click the floating "Privacy" icon (bottom-left): confirm the banner reopens and consent can be changed.
+
+If any of the above fails, fix the failure before walking away from the launch.
+
+---
+
 ## Going Live — Cookie Consent & Tracking Setup
 
 The site will need cookie consent management for GDPR compliance if running Google or Facebook ads.
