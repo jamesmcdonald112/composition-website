@@ -31,7 +31,10 @@ export const familyAndChildcareLaw = {
 			"Family law in Ireland covers separation, divorce, the rights of cohabitants, guardianship and access to children, maintenance, pensions, the family home, and childcare proceedings brought by Tusla. We advise clients on each of these areas, with the welfare and best interest of the children at the centre of all matters involving children.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Family law matters, handled with care.", "Get in touch when you're ready."],
+	midCta: [
+		"Family law matters, handled with care.",
+		"Get in touch when you're ready.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -167,12 +170,14 @@ export const familyAndChildcareLaw = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "What is the difference between judicial separation and divorce in Ireland?",
+			question:
+				"What is the difference between judicial separation and divorce in Ireland?",
 			answer:
 				"A judicial separation legally recognises that a couple is living apart and resolves issues such as maintenance, property, and arrangements for children, but the parties remain legally married and cannot remarry. A divorce ends the marriage entirely. To apply for divorce in Ireland, the parties must have lived apart for at least two of the previous three years (the rule was reduced from four of the previous five years by the Family Law Act 2019, following the 38th Amendment of the Constitution earlier that year). Both routes resolve the same financial and parenting issues — the key difference is whether the marriage itself ends.",
 		},
 		{
-			question: "Does every separation or divorce involve a contested court hearing?",
+			question:
+				"Does every separation or divorce involve a contested court hearing?",
 			answer:
 				"No. Many couples reach agreement through negotiation between their solicitors or through mediation, and that agreement is formalised as a consent order — a court order made by consent rather than after a contested hearing. A consent order has the same legal force as an order made after a contested hearing. Whether a contested hearing is required depends on the circumstances of the matter and on the willingness of the parties to engage with the alternatives.",
 		},

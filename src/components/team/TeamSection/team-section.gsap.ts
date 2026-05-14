@@ -1,9 +1,10 @@
 // biome-ignore lint/correctness/noUnusedImports: ScrollTrigger import registers the plugin as a side effect
 import { gsap, ScrollTrigger } from "../../../scripts/gsap.ts";
 
-
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-	const sections = document.querySelectorAll<HTMLElement>("[data-team-section]");
+	const sections = document.querySelectorAll<HTMLElement>(
+		"[data-team-section]",
+	);
 
 	sections.forEach((section) => {
 		const header = section.querySelector<HTMLElement>("[data-section-header]");

@@ -13,7 +13,10 @@ interface Props {
 	heading?: Heading;
 }
 
-const defaultHeading: HeadingPart[] = [{ text: "How We " }, { text: "Work", em: true }];
+const defaultHeading: HeadingPart[] = [
+	{ text: "How We " },
+	{ text: "Work", em: true },
+];
 const { steps, processDescription, heading = defaultHeading } = Astro.props;
 ---
 

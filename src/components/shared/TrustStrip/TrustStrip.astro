@@ -15,7 +15,13 @@ interface Props {
 	style?: string;
 }
 
-const { title, paragraphs, stats, eyebrow = "Why clients choose us", style } = Astro.props;
+const {
+	title,
+	paragraphs,
+	stats,
+	eyebrow = "Why clients choose us",
+	style,
+} = Astro.props;
 ---
 
 <section class="svc-trust section" data-service-trust style={style}>

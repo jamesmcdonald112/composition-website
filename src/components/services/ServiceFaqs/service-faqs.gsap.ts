@@ -4,12 +4,13 @@ import { gsap, ScrollTrigger } from "../../../scripts/gsap.ts";
 // ── Entrance animation ─────────────────────────────────────────────────────
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-
 	// Header column — stagger fade up
 	const headers = document.querySelectorAll<HTMLElement>("[data-sf-header]");
 
 	headers.forEach((header) => {
-		const eyebrow = header.querySelector<HTMLElement>("[data-animate='sf-eyebrow']");
+		const eyebrow = header.querySelector<HTMLElement>(
+			"[data-animate='sf-eyebrow']",
+		);
 		const heading = header.querySelector<HTMLElement>("[data-sf-heading]");
 		const intro = header.querySelector<HTMLElement>("[data-sf-intro]");
 
@@ -48,13 +49,13 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 			},
 		});
 	});
-
 }
 
 // ── Accordion interaction ──────────────────────────────────────────────────
 
 function initAccordion() {
-	const triggers = document.querySelectorAll<HTMLButtonElement>("[data-sf-trigger]");
+	const triggers =
+		document.querySelectorAll<HTMLButtonElement>("[data-sf-trigger]");
 
 	triggers.forEach((trigger) => {
 		trigger.addEventListener("click", () => {
@@ -67,11 +68,13 @@ function initAccordion() {
 
 			// Close all open items in this list
 			const list = item.closest<HTMLElement>("[data-sf-list]");
-			list?.querySelectorAll<HTMLElement>("[data-sf-item]").forEach((otherItem) => {
-				if (otherItem !== item) {
-					closeItem(otherItem);
-				}
-			});
+			list
+				?.querySelectorAll<HTMLElement>("[data-sf-item]")
+				.forEach((otherItem) => {
+					if (otherItem !== item) {
+						closeItem(otherItem);
+					}
+				});
 
 			if (isOpen) {
 				closeItem(item);

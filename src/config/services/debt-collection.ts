@@ -155,7 +155,8 @@ export const debtCollection = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "How much does it cost to pursue a debt through the courts in Ireland?",
+			question:
+				"How much does it cost to pursue a debt through the courts in Ireland?",
 			answer:
 				"Court fees vary depending on the size of the debt and the court involved. We discuss the likely costs at the outset, including the basis on which we charge and the cost-proportionality issues that apply for smaller debts. Where judgment is obtained in the creditor's favour, the court may order the debtor to pay the creditor's legal costs.",
 		},
@@ -175,7 +176,8 @@ export const debtCollection = {
 				"It depends on the contract and the type of debt. Where the contract includes a term providing for interest on late payments, that interest is recoverable. For business-to-business debts in particular, the European Communities (Late Payment in Commercial Transactions) Regulations 2012 entitle the creditor to statutory interest without needing a specific contractual provision, together with a fixed sum towards recovery costs. We advise on what interest is recoverable in the specific circumstances.",
 		},
 		{
-			question: "What is the difference between the District, Circuit, and High Court for debt claims?",
+			question:
+				"What is the difference between the District, Circuit, and High Court for debt claims?",
 			answer:
 				"In Ireland, the court in which a debt claim is brought depends on the amount owed: the District Court handles smaller claims, the Circuit Court handles mid-range claims, and the High Court handles the largest. The specific monetary thresholds are set by statute and updated periodically. The choice of court affects the court fees, the speed of the process, and the procedural rules that apply. We advise on the most appropriate court for the claim.",
 		},

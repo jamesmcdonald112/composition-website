@@ -5,8 +5,8 @@ import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
 import { firm } from "../../config/firm";
 import CtaLink from "../ui/CtaLink.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
-import SectionRule from "../ui/SectionRule.astro";
 import ScrollIndicator from "../ui/ScrollIndicator/ScrollIndicator.astro";
+import SectionRule from "../ui/SectionRule.astro";
 
 interface Props {
 	eyebrow: string;
@@ -19,8 +19,16 @@ interface Props {
 	imageAlt: string;
 }
 
-const { eyebrow, title, titleEmphasis, subtitle, primaryCta, secondaryCta, image, imageAlt } =
-	Astro.props;
+const {
+	eyebrow,
+	title,
+	titleEmphasis,
+	subtitle,
+	primaryCta,
+	secondaryCta,
+	image,
+	imageAlt,
+} = Astro.props;
 
 const [titleBefore, titleAfter] = titleEmphasis
 	? title.split(titleEmphasis)

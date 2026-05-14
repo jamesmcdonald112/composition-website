@@ -1,13 +1,12 @@
 ---
-import type { Heading } from "../../../types/heading";
-import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import mapPinIcon from "../../../assets/icons/mapPinIcon.svg?raw";
+import { firm } from "../../../config/firm";
+import type { Heading } from "../../../types/heading";
 import CtaLink from "../../ui/CtaLink.astro";
 import Eyebrow from "../../ui/Eyebrow.astro";
 import ScrollIndicator from "../../ui/ScrollIndicator/ScrollIndicator.astro";
-import { firm } from "../../../config/firm";
-import mapPinIcon from "../../../assets/icons/mapPinIcon.svg?raw";
-
 
 interface ImageFocusResponsive {
 	mobile: string;
@@ -22,11 +21,19 @@ interface Props {
 	phone: { display: string; phoneHref: string };
 }
 
-const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props;
+const {
+	title,
+	subtitle,
+	image,
+	imageFocus = "center 50%",
+	phone,
+} = Astro.props;
 const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 
-const focusMobile = typeof imageFocus === "string" ? imageFocus : imageFocus.mobile;
-const focusDesktop = typeof imageFocus === "string" ? imageFocus : imageFocus.desktop;
+const focusMobile =
+	typeof imageFocus === "string" ? imageFocus : imageFocus.mobile;
+const focusDesktop =
+	typeof imageFocus === "string" ? imageFocus : imageFocus.desktop;
 ---
 
 <section class="service-hero" data-service-hero>

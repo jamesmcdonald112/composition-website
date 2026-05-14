@@ -1,6 +1,8 @@
 import { gsap } from "../../../scripts/gsap.ts";
 
-export function initScrollIndicator(container: Element | Document = document): void {
+export function initScrollIndicator(
+	container: Element | Document = document,
+): void {
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
 	const thumbs = container.querySelectorAll(".scroll-indicator__thumb");

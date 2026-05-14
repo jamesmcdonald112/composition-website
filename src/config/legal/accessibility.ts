@@ -55,7 +55,7 @@ export const accessibilityPageContent = {
 				{
 					type: "list",
 					items: [
-						"Intro animation text — the firm name displayed during the page loading animation is styled to appear large but is marked as a paragraph element rather than a heading. This element is hidden from screen readers via aria-hidden=\"true\" and is not perceivable by assistive technologies.",
+						'Intro animation text — the firm name displayed during the page loading animation is styled to appear large but is marked as a paragraph element rather than a heading. This element is hidden from screen readers via aria-hidden="true" and is not perceivable by assistive technologies.',
 						'Logo and "Home" navigation link — the site logo and the "Home" link in the navigation bar both link to the homepage. Each has a distinct accessible label ("Mary Molloy Solicitor — home" and "Home" respectively), so screen reader users hear different labels for each link. This is the standard pattern used by accessible sites.',
 						"Phone number links — the phone number appears in both the desktop navigation bar and the mobile navigation (which is visually hidden on desktop). Both instances link to the same tel: URL. The desktop link has a distinct aria-label; the mobile link is not perceivable when hidden.",
 					],

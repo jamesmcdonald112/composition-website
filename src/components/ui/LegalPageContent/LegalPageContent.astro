@@ -11,11 +11,8 @@ interface Props {
 
 const { title, intro, sections, reviewDate, footerNote } = Astro.props;
 
-const introParagraphs = intro === undefined
-	? []
-	: Array.isArray(intro)
-		? intro
-		: [intro as string];
+const introParagraphs =
+	intro === undefined ? [] : Array.isArray(intro) ? intro : [intro as string];
 ---
 
 <section class="legal-page">

@@ -14,8 +14,7 @@ export const aboutPageContent = {
 			{ text: "A family firm in Kilkenny " },
 			{ text: `since ${firm.established}`, em: true },
 		],
-		subtitle:
-			`Since ${firm.established}, we’ve helped our client’s through many of life’s important chapters and legal challenges, building trusted relationships that continue with both longstanding and new clients alike.`,
+		subtitle: `Since ${firm.established}, we’ve helped our client’s through many of life’s important chapters and legal challenges, building trusted relationships that continue with both longstanding and new clients alike.`,
 		image: aboutImage,
 		imageAlt: "Kilkenny Castle and the River Nore, Kilkenny City",
 	},

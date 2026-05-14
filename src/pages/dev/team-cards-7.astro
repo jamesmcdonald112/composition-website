@@ -1,16 +1,36 @@
 ---
 import { Image } from "astro:assets";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import dukePhoto from "../../assets/team/duke.webp";
 import maryPhoto from "../../assets/team/maryCropped.webp";
 import nicholasPhoto from "../../assets/team/nicholas.webp";
 import richardPhoto from "../../assets/team/richard.webp";
-import dukePhoto from "../../assets/team/duke.webp";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const members = [
-	{ name: "Mary Molloy", role: "Principal Solicitor", bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny.", photo: maryPhoto },
-	{ name: "Nicholas O'Shea", role: "Solicitor", bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression.", photo: nicholasPhoto },
-	{ name: "Richard O'Shea", role: "Solicitor", bio: "Richard advises clients on buying and selling property, conveyancing and probate matters.", photo: richardPhoto },
-	{ name: "Duke", role: "Office Companion", bio: "Providing daily morale support to the team and a friendly welcome to visitors.", photo: dukePhoto },
+	{
+		name: "Mary Molloy",
+		role: "Principal Solicitor",
+		bio: "Mary leads the firm with over four decades of experience advising clients on property and private client matters throughout Kilkenny.",
+		photo: maryPhoto,
+	},
+	{
+		name: "Nicholas O'Shea",
+		role: "Solicitor",
+		bio: "Nicholas works across property and private client matters, supporting clients with clear communication and efficient case progression.",
+		photo: nicholasPhoto,
+	},
+	{
+		name: "Richard O'Shea",
+		role: "Solicitor",
+		bio: "Richard advises clients on buying and selling property, conveyancing and probate matters.",
+		photo: richardPhoto,
+	},
+	{
+		name: "Duke",
+		role: "Office Companion",
+		bio: "Providing daily morale support to the team and a friendly welcome to visitors.",
+		photo: dukePhoto,
+	},
 ] as const;
 
 // 20 variants: [sectionBg, stripBg, borderColor, roleColor, nameColor, bioColor]
@@ -24,45 +44,205 @@ const variants: Array<{
 	bioColor: string;
 }> = [
 	// 1 — Current: stone page / navy-900 strip / amber-300 border
-	{ label: "1 · Stone / Navy-900 / Amber border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 80%, transparent)" },
+	{
+		label: "1 · Stone / Navy-900 / Amber border",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 80%, transparent)",
+	},
 	// 2 — Stone page / navy-800 strip / amber-400 border
-	{ label: "2 · Stone / Navy-800 / Amber-400", sectionBg: "var(--stone-100)", stripBg: "var(--navy-800)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "2 · Stone / Navy-800 / Amber-400",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--navy-800)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 	// 3 — Stone-50 page / navy-700 strip / amber-300 border
-	{ label: "3 · Stone-50 / Navy-700 / Amber-300", sectionBg: "var(--stone-50)", stripBg: "var(--navy-700)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "3 · Stone-50 / Navy-700 / Amber-300",
+		sectionBg: "var(--stone-50)",
+		stripBg: "var(--navy-700)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 4 — Navy-900 page / navy-800 strip / amber-300 border (full dark)
-	{ label: "4 · Navy-900 page / Navy-800 strip / Amber", sectionBg: "var(--navy-900)", stripBg: "var(--navy-800)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "4 · Navy-900 page / Navy-800 strip / Amber",
+		sectionBg: "var(--navy-900)",
+		stripBg: "var(--navy-800)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 	// 5 — Navy-800 page / charcoal-900 strip / amber-300 border
-	{ label: "5 · Navy-800 page / Charcoal-900 strip / Amber", sectionBg: "var(--navy-800)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "5 · Navy-800 page / Charcoal-900 strip / Amber",
+		sectionBg: "var(--navy-800)",
+		stripBg: "var(--charcoal-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 	// 6 — Stone-100 page / charcoal-900 strip / amber-300 border (charcoal card)
-	{ label: "6 · Stone / Charcoal-900 strip / Amber", sectionBg: "var(--stone-100)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "6 · Stone / Charcoal-900 strip / Amber",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--charcoal-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 	// 7 — Stone-100 page / charcoal-800 strip / amber-400 border
-	{ label: "7 · Stone / Charcoal-800 / Amber-400", sectionBg: "var(--stone-100)", stripBg: "var(--charcoal-800)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 72%, transparent)" },
+	{
+		label: "7 · Stone / Charcoal-800 / Amber-400",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--charcoal-800)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 72%, transparent)",
+	},
 	// 8 — Amber-50 page / navy-900 strip / amber-400 border
-	{ label: "8 · Amber-50 page / Navy-900 strip / Amber-400", sectionBg: "var(--amber-50)", stripBg: "var(--navy-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "8 · Amber-50 page / Navy-900 strip / Amber-400",
+		sectionBg: "var(--amber-50)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 9 — Amber-100 page / navy-900 strip / amber-300 border
-	{ label: "9 · Amber-100 page / Navy-900 / Amber-300", sectionBg: "var(--amber-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "9 · Amber-100 page / Navy-900 / Amber-300",
+		sectionBg: "var(--amber-100)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 10 — Navy-50 page / navy-900 strip / amber-400 border (cool tint)
-	{ label: "10 · Navy-50 page / Navy-900 / Amber-400", sectionBg: "var(--navy-50)", stripBg: "var(--navy-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "10 · Navy-50 page / Navy-900 / Amber-400",
+		sectionBg: "var(--navy-50)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 11 — Navy-100 page / navy-900 strip / amber-300 border
-	{ label: "11 · Navy-100 page / Navy-900 / Amber-300", sectionBg: "var(--navy-100)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "11 · Navy-100 page / Navy-900 / Amber-300",
+		sectionBg: "var(--navy-100)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 12 — White page / navy-900 strip / amber-500 border
-	{ label: "12 · White / Navy-900 / Amber-500", sectionBg: "var(--white)", stripBg: "var(--navy-900)", border: "var(--amber-500)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "12 · White / Navy-900 / Amber-500",
+		sectionBg: "var(--white)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-500)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 13 — Stone-100 page / navy-900 strip / charcoal-300 border (cool, restrained)
-	{ label: "13 · Stone / Navy-900 / Charcoal-300 border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--charcoal-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "13 · Stone / Navy-900 / Charcoal-300 border",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--navy-900)",
+		border: "var(--charcoal-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 14 — Stone-100 page / navy-900 strip / navy-300 border (monochrome)
-	{ label: "14 · Stone / Navy-900 / Navy-300 border", sectionBg: "var(--stone-100)", stripBg: "var(--navy-900)", border: "var(--navy-300)", roleColor: "var(--navy-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "14 · Stone / Navy-900 / Navy-300 border",
+		sectionBg: "var(--stone-100)",
+		stripBg: "var(--navy-900)",
+		border: "var(--navy-300)",
+		roleColor: "var(--navy-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 15 — Charcoal-50 page / navy-900 strip / amber-300 border
-	{ label: "15 · Charcoal-50 page / Navy-900 / Amber-300", sectionBg: "var(--charcoal-50)", stripBg: "var(--navy-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "15 · Charcoal-50 page / Navy-900 / Amber-300",
+		sectionBg: "var(--charcoal-50)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 16 — Charcoal-100 page / charcoal-900 strip / amber-300 border
-	{ label: "16 · Charcoal-100 page / Charcoal-900 / Amber-300", sectionBg: "var(--charcoal-100)", stripBg: "var(--charcoal-900)", border: "var(--amber-300)", roleColor: "var(--amber-300)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "16 · Charcoal-100 page / Charcoal-900 / Amber-300",
+		sectionBg: "var(--charcoal-100)",
+		stripBg: "var(--charcoal-900)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-300)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 17 — Navy-900 page / amber-800 strip / amber-300 border (warm dark)
-	{ label: "17 · Navy-900 page / Amber-800 strip / Amber-300", sectionBg: "var(--navy-900)", stripBg: "var(--amber-800)", border: "var(--amber-300)", roleColor: "var(--amber-200)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 78%, transparent)" },
+	{
+		label: "17 · Navy-900 page / Amber-800 strip / Amber-300",
+		sectionBg: "var(--navy-900)",
+		stripBg: "var(--amber-800)",
+		border: "var(--amber-300)",
+		roleColor: "var(--amber-200)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 78%, transparent)",
+	},
 	// 18 — Stone-50 page / navy-900 strip / amber-200 border (pale, airy)
-	{ label: "18 · Stone-50 / Navy-900 / Amber-200 border", sectionBg: "var(--stone-50)", stripBg: "var(--navy-900)", border: "var(--amber-200)", roleColor: "var(--amber-200)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 72%, transparent)" },
+	{
+		label: "18 · Stone-50 / Navy-900 / Amber-200 border",
+		sectionBg: "var(--stone-50)",
+		stripBg: "var(--navy-900)",
+		border: "var(--amber-200)",
+		roleColor: "var(--amber-200)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 72%, transparent)",
+	},
 	// 19 — Navy-50 page / charcoal-900 strip / amber-400 border
-	{ label: "19 · Navy-50 / Charcoal-900 / Amber-400", sectionBg: "var(--navy-50)", stripBg: "var(--charcoal-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "19 · Navy-50 / Charcoal-900 / Amber-400",
+		sectionBg: "var(--navy-50)",
+		stripBg: "var(--charcoal-900)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 	// 20 — Amber-50 page / charcoal-900 strip / amber-400 border (warmest)
-	{ label: "20 · Amber-50 / Charcoal-900 / Amber-400", sectionBg: "var(--amber-50)", stripBg: "var(--charcoal-900)", border: "var(--amber-400)", roleColor: "var(--amber-400)", nameColor: "var(--white)", bioColor: "color-mix(in oklch, var(--white) 75%, transparent)" },
+	{
+		label: "20 · Amber-50 / Charcoal-900 / Amber-400",
+		sectionBg: "var(--amber-50)",
+		stripBg: "var(--charcoal-900)",
+		border: "var(--amber-400)",
+		roleColor: "var(--amber-400)",
+		nameColor: "var(--white)",
+		bioColor: "color-mix(in oklch, var(--white) 75%, transparent)",
+	},
 ];
 ---
 

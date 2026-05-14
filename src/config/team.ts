@@ -19,16 +19,14 @@ export const solicitors = {
 		role: "Solicitor",
 		photo: nicholasPhoto,
 		university: "TODO: University name",
-		credentials:
-			"Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
+		credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
 	},
 	richard: {
 		name: "Richard O'Shea",
 		role: "Solicitor",
 		photo: richardPhoto,
 		university: "TODO: University name",
-		credentials:
-			"Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
+		credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
 	},
 } as const;
 

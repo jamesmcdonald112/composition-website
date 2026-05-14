@@ -19,7 +19,10 @@ interface Props {
 const {
 	faqs,
 	eyebrow = "Common Questions",
-	heading = [{ text: "What clients " }, { text: "ask us most", em: true }] as const,
+	heading = [
+		{ text: "What clients " },
+		{ text: "ask us most", em: true },
+	] as const,
 	intro = "We understand that legal matters can feel daunting. Here are the questions we hear most often — answered plainly.",
 	style,
 } = Astro.props;

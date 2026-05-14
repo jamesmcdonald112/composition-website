@@ -1,8 +1,7 @@
 ---
+import type { Heading, HeadingPart } from "../../../types/heading";
 import Eyebrow from "../Eyebrow.astro";
 import SectionRule from "../SectionRule.astro";
-
-import type { Heading, HeadingPart } from "../../../types/heading";
 
 interface Props {
 	eyebrow: string;
@@ -34,7 +33,8 @@ const {
 
 const Tag = `h${level}` as "h1" | "h2" | "h3";
 
-const parts: HeadingPart[] = typeof heading === "string" ? [{ text: heading }] : [...heading];
+const parts: HeadingPart[] =
+	typeof heading === "string" ? [{ text: heading }] : [...heading];
 ---
 
 <header

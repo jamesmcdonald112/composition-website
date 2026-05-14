@@ -181,7 +181,8 @@ export const employmentLaw = {
 				"An employee with at least two years' continuous service whose role has been genuinely made redundant is entitled to a statutory redundancy payment under the Redundancy Payments Acts. The payment is calculated at two weeks' pay per year of service plus one additional week, subject to a statutory weekly earnings cap. The employer is obliged to pay; where the employer cannot or will not, a claim can be made through the Social Insurance Fund.",
 		},
 		{
-			question: "Can an employer change a contract without the employee's agreement?",
+			question:
+				"Can an employer change a contract without the employee's agreement?",
 			answer:
 				"An employer cannot generally make significant unilateral changes to the core terms of employment — such as reducing pay, changing working hours, or substantially altering the role — without the employee's agreement. Doing so may amount to a breach of contract and could form the basis of a constructive dismissal claim or a complaint to the WRC. Where the employer has business reasons for a change, those reasons usually need to be raised through a consultation process rather than imposed.",
 		},

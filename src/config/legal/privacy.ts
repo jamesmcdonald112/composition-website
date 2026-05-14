@@ -373,7 +373,7 @@ function buildPrivacyPolicyContent(opts: PrivacyPolicyOptions) {
 				blocks: [
 					{
 						type: "paragraph",
-						text: 'The Data Protection Commission ("DPC") is Ireland\'s data-protection regulator. The most efficient way to lodge a complaint is through the DPC\'s online contact form, which the DPC itself recommends as the primary route: www.dataprotection.ie/en/contact/how-contact-us.',
+						text: "The Data Protection Commission (\"DPC\") is Ireland's data-protection regulator. The most efficient way to lodge a complaint is through the DPC's online contact form, which the DPC itself recommends as the primary route: www.dataprotection.ie/en/contact/how-contact-us.",
 					},
 					{
 						type: "paragraph",

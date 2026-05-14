@@ -31,7 +31,10 @@ export const buyingAndSellingProperty = {
 			"Conveyancing in Ireland involves a defined sequence of steps — investigation of title, contract review, dealings with mortgage lenders, stamp duty, completion, and Land Registry registration. We act for buyers, sellers, and lenders in residential property transactions in Kilkenny and the surrounding counties.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Conveyancing, handled with care.", "Get in touch when you're ready."],
+	midCta: [
+		"Conveyancing, handled with care.",
+		"Get in touch when you're ready.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -43,10 +46,7 @@ export const buyingAndSellingProperty = {
 	},
 	// --- Trust strip ---
 	trustStrip: {
-		title: [
-			{ text: "Practical " },
-			{ text: "conveyancing advice", em: true },
-		],
+		title: [{ text: "Practical " }, { text: "conveyancing advice", em: true }],
 		paragraphs: [
 			"Conveyancing in Ireland is governed by a defined body of statute and procedure — the Land and Conveyancing Law Reform Act 2009, the Registration of Title Act 1964 (under which the Property Registration Authority maintains the Register of Titles), the Stamp Duties Consolidation Act 1999, and the planning and building control framework. We advise buyers and sellers in Kilkenny on each stage of the conveyancing process.",
 			"On a purchase, our work includes reviewing the contract, investigating the title at the Property Registration Authority, raising pre-contract and requisition enquiries with the seller's solicitor, checking planning permission and certificates of compliance for any works on the property, and acting on the lender's behalf where there is a mortgage. On a sale, we prepare the contracts and supporting documentation, respond to the buyer's solicitor's enquiries, and arrange for any existing mortgage to be discharged on completion.",
@@ -262,7 +262,8 @@ export const buyingAndSellingProperty = {
 				"Yes. A Building Energy Rating (BER) certificate is required by law before a property can be marketed for sale or for rent in Ireland (under the European Communities (Energy Performance of Buildings) Regulations). A valid BER certificate must be in place before the contracts for sale are issued. Where one is not available, an assessment must be carried out by a registered BER assessor.",
 		},
 		{
-			question: "What is the difference between registered and unregistered title?",
+			question:
+				"What is the difference between registered and unregistered title?",
 			answer:
 				"Most properties in Ireland are now registered with the Property Registration Authority (PRA) — ownership is established by reference to the entry on the Register of Titles maintained under the Registration of Title Act 1964. Older properties may still have unregistered title, where ownership is proved by the chain of title deeds. Both are legally valid, but unregistered title requires a more detailed investigation, and conversion to registered title is generally advised as part of the transaction where the property is being sold or mortgaged.",
 		},

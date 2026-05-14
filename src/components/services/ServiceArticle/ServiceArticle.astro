@@ -1,9 +1,9 @@
 ---
+import type { Solicitor } from "../../../config/team";
+import type { Heading } from "../../../types/heading";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
 import ArticleQuote from "./ArticleQuote/ArticleQuote.astro";
 import BlockList from "./BlockList/BlockList.astro";
-import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
-import type { Heading } from "../../../types/heading";
-import type { Solicitor } from "../../../config/team";
 
 type Block =
 	| { type: "heading"; text: string }

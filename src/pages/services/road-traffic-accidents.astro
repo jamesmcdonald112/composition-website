@@ -1,19 +1,19 @@
 ---
-import { roadTrafficAccidents as service } from "../../config/services";
-import { firm } from "../../config/firm";
-import { getLawFirmStructuredData } from "../../config/structured-data";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
+import ServiceArticle from "../../components/services/ServiceArticle/ServiceArticle.astro";
+import RelatedServices from "../../components/services/ServiceCards/RelatedServices/RelatedServices.astro";
+import ServiceFaqs from "../../components/services/ServiceFaqs/ServiceFaqs.astro";
+import ServiceMidCta from "../../components/services/ServiceMidCta/ServiceMidCta.astro";
+import ServiceProcess from "../../components/services/ServiceProcess/ServiceProcess.astro";
 import ServiceHero from "../../components/shared/ServiceHero/ServiceHero.astro";
 import TrustStrip from "../../components/shared/TrustStrip/TrustStrip.astro";
-import ServiceMidCta from "../../components/services/ServiceMidCta/ServiceMidCta.astro";
-import ServiceArticle from "../../components/services/ServiceArticle/ServiceArticle.astro";
-import ServiceProcess from "../../components/services/ServiceProcess/ServiceProcess.astro";
-import ServiceFaqs from "../../components/services/ServiceFaqs/ServiceFaqs.astro";
-import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
 import TestimonialBlock from "../../components/TestimonialBlock/TestimonialBlock.astro";
-import RelatedServices from "../../components/services/ServiceCards/RelatedServices/RelatedServices.astro";
-import LegalCostWarning from "../../components/ui/LegalCostWarning/LegalCostWarning.astro";
 import AttributionBlock from "../../components/ui/AttributionBlock/AttributionBlock.astro";
+import LegalCostWarning from "../../components/ui/LegalCostWarning/LegalCostWarning.astro";
+import { firm } from "../../config/firm";
+import { roadTrafficAccidents as service } from "../../config/services";
+import { getLawFirmStructuredData } from "../../config/structured-data";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
 const { solicitor, reviewDate } = service.attribution;

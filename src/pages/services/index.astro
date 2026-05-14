@@ -1,14 +1,17 @@
 ---
-import { firm } from "../../config/firm";
-import { allServices, servicesIndexContent } from "../../config/services/services-index";
-import { getLawFirmStructuredData } from "../../config/structured-data";
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAPanel from "../../components/CTAPanel/CTAPanel.astro";
 import ServiceCardsGrid from "../../components/services/ServiceCards/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TrustStrip from "../../components/shared/TrustStrip/TrustStrip.astro";
 import TestimonialBlock from "../../components/TestimonialBlock/TestimonialBlock.astro";
 import AttributionBlock from "../../components/ui/AttributionBlock/AttributionBlock.astro";
 import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.astro";
+import { firm } from "../../config/firm";
+import {
+	allServices,
+	servicesIndexContent,
+} from "../../config/services/services-index";
+import { getLawFirmStructuredData } from "../../config/structured-data";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
 const { solicitor, reviewDate } = servicesIndexContent.attribution;

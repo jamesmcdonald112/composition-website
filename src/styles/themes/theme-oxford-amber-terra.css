@@ -42,222 +42,242 @@
 */
 
 :root {
-
-  /* ── SECTION 1: COLOUR PRIMITIVES ─────────────────────────────────────────
+	/* ── SECTION 1: COLOUR PRIMITIVES ─────────────────────────────────────────
      Raw colour values. Not used directly in components or tokens.
      Consumed only by role aliases in Section 2.
   ──────────────────────────────────────────────────────────────────────────── */
 
-  /* Oxford blue — primary brand, hue 222 */
-  --oxford-900: oklch(0.24 0.072 222); /* #002535 */
-  --oxford-800: oklch(0.30 0.080 222); /* #003549 */
-  --oxford-700: oklch(0.37 0.085 222); /* #004960 */
-  --oxford-600: oklch(0.45 0.088 222); /* #1a6078 */
-  --oxford-500: oklch(0.54 0.084 222); /* #3d7a92 */
-  --oxford-400: oklch(0.63 0.074 222); /* #6096ae */
-  --oxford-300: oklch(0.73 0.058 222); /* #87b3c9 */
-  --oxford-200: oklch(0.83 0.035 222); /* #b5cfdc */
-  --oxford-100: oklch(0.92 0.016 222); /* #dde9f0 */
-  --oxford-50:  oklch(0.97 0.006 222); /* #f2f7fa */
+	/* Oxford blue — primary brand, hue 222 */
+	--oxford-900: oklch(0.24 0.072 222); /* #002535 */
+	--oxford-800: oklch(0.3 0.08 222); /* #003549 */
+	--oxford-700: oklch(0.37 0.085 222); /* #004960 */
+	--oxford-600: oklch(0.45 0.088 222); /* #1a6078 */
+	--oxford-500: oklch(0.54 0.084 222); /* #3d7a92 */
+	--oxford-400: oklch(0.63 0.074 222); /* #6096ae */
+	--oxford-300: oklch(0.73 0.058 222); /* #87b3c9 */
+	--oxford-200: oklch(0.83 0.035 222); /* #b5cfdc */
+	--oxford-100: oklch(0.92 0.016 222); /* #dde9f0 */
+	--oxford-50: oklch(0.97 0.006 222); /* #f2f7fa */
 
-  /* Warm amber — accent, hue 58–64
+	/* Warm amber — accent, hue 58–64
      amber-600 (#9c4900): 5.56:1 on parchment-100  — AA Text PASS
      amber-400 (#dc8738): 5.72:1 on oxford-900     — AA Text PASS
      amber-500 L=0.57 (#b55c00): 4.67:1 white on amber-500 — AA Text PASS (adjusted from 0.60)
   */
-  --amber-900: oklch(0.25 0.088 58); /* #3a1500 */
-  --amber-800: oklch(0.32 0.108 58); /* #562800 */
-  --amber-700: oklch(0.40 0.128 58); /* #783d00 */
-  --amber-600: oklch(0.50 0.148 58); /* #9c4900 */  /* adjusted chroma for clarity */
-  --amber-500: oklch(0.57 0.148 58); /* #b55c00 — adjusted from 0.60 to pass white AA */
-  --amber-400: oklch(0.70 0.138 60); /* #dc8738 */
-  --amber-300: oklch(0.78 0.118 62); /* #eda862 */
-  --amber-200: oklch(0.88 0.070 63); /* #f6d0a3 */
-  --amber-100: oklch(0.94 0.032 64); /* #fbe9d1 */
-  --amber-50:  oklch(0.97 0.014 64); /* #fdf5ea */
+	--amber-900: oklch(0.25 0.088 58); /* #3a1500 */
+	--amber-800: oklch(0.32 0.108 58); /* #562800 */
+	--amber-700: oklch(0.4 0.128 58); /* #783d00 */
+	--amber-600: oklch(
+		0.5 0.148 58
+	); /* #9c4900 */ /* adjusted chroma for clarity */
+	--amber-500: oklch(
+		0.57 0.148 58
+	); /* #b55c00 — adjusted from 0.60 to pass white AA */
+	--amber-400: oklch(0.7 0.138 60); /* #dc8738 */
+	--amber-300: oklch(0.78 0.118 62); /* #eda862 */
+	--amber-200: oklch(0.88 0.07 63); /* #f6d0a3 */
+	--amber-100: oklch(0.94 0.032 64); /* #fbe9d1 */
+	--amber-50: oklch(0.97 0.014 64); /* #fdf5ea */
 
-  /* Terracotta — tertiary, hue 22–26
+	/* Terracotta — tertiary, hue 22–26
      terra-700 (#781a21): 9.48:1 on parchment-100 — AA Text PASS
   */
-  --terra-900: oklch(0.23 0.082 22); /* #420008 */
-  --terra-800: oklch(0.30 0.108 22); /* #5e0912 */
-  --terra-700: oklch(0.38 0.128 22); /* #781a21 */
-  --terra-600: oklch(0.48 0.142 22); /* #983035 */
-  --terra-500: oklch(0.58 0.148 22); /* #ba4d50 */
-  --terra-400: oklch(0.68 0.135 24); /* #d97070 */
-  --terra-300: oklch(0.78 0.108 25); /* #ec9898 */
-  --terra-200: oklch(0.88 0.064 26); /* #f5c7c5 */
-  --terra-100: oklch(0.94 0.030 26); /* #fae4e2 */
-  --terra-50:  oklch(0.97 0.012 26); /* #fdf2f1 */
+	--terra-900: oklch(0.23 0.082 22); /* #420008 */
+	--terra-800: oklch(0.3 0.108 22); /* #5e0912 */
+	--terra-700: oklch(0.38 0.128 22); /* #781a21 */
+	--terra-600: oklch(0.48 0.142 22); /* #983035 */
+	--terra-500: oklch(0.58 0.148 22); /* #ba4d50 */
+	--terra-400: oklch(0.68 0.135 24); /* #d97070 */
+	--terra-300: oklch(0.78 0.108 25); /* #ec9898 */
+	--terra-200: oklch(0.88 0.064 26); /* #f5c7c5 */
+	--terra-100: oklch(0.94 0.03 26); /* #fae4e2 */
+	--terra-50: oklch(0.97 0.012 26); /* #fdf2f1 */
 
-  /* Warm parchment — neutral, hue 42, low chroma */
-  --parchment-900: oklch(0.20 0.024 42); /* #1c1208 */
-  --parchment-700: oklch(0.38 0.026 42); /* #463822 */
-  --parchment-600: oklch(0.52 0.022 42); /* #6b5d47 */
-  --parchment-500: oklch(0.64 0.018 42); /* #8f8170 */
-  --parchment-400: oklch(0.76 0.014 42); /* #b5aba0 */
-  --parchment-300: oklch(0.85 0.010 42); /* #d2cbc4 */
-  --parchment-200: oklch(0.91 0.008 42); /* #e6e1dc */
-  --parchment-100: oklch(0.96 0.010 42); /* #f8f0ed — warm parchment page canvas */
-  --parchment-50:  oklch(0.985 0.005 42); /* #fdf9f7 — near-white subtle sections */
+	/* Warm parchment — neutral, hue 42, low chroma */
+	--parchment-900: oklch(0.2 0.024 42); /* #1c1208 */
+	--parchment-700: oklch(0.38 0.026 42); /* #463822 */
+	--parchment-600: oklch(0.52 0.022 42); /* #6b5d47 */
+	--parchment-500: oklch(0.64 0.018 42); /* #8f8170 */
+	--parchment-400: oklch(0.76 0.014 42); /* #b5aba0 */
+	--parchment-300: oklch(0.85 0.01 42); /* #d2cbc4 */
+	--parchment-200: oklch(0.91 0.008 42); /* #e6e1dc */
+	--parchment-100: oklch(
+		0.96 0.01 42
+	); /* #f8f0ed — warm parchment page canvas */
+	--parchment-50: oklch(
+		0.985 0.005 42
+	); /* #fdf9f7 — near-white subtle sections */
 
-  /* State colours */
-  --red-600:   oklch(0.577 0.245 27.325); /* #dc2626 approx */
-  --red-100:   oklch(0.936 0.032 17.717); /* #fee2e2 approx */
-  --warn-600:  oklch(0.666 0.179 54.900); /* #d97706 approx */
-  --warn-100:  oklch(0.962 0.059 95.617); /* #fef3c7 approx */
+	/* State colours */
+	--red-600: oklch(0.577 0.245 27.325); /* #dc2626 approx */
+	--red-100: oklch(0.936 0.032 17.717); /* #fee2e2 approx */
+	--warn-600: oklch(0.666 0.179 54.9); /* #d97706 approx */
+	--warn-100: oklch(0.962 0.059 95.617); /* #fef3c7 approx */
 
-  /* Absolute */
-  --white: oklch(1 0 0); /* #ffffff */
-  --black: oklch(0 0 0); /* #000000 */
+	/* Absolute */
+	--white: oklch(1 0 0); /* #ffffff */
+	--black: oklch(0 0 0); /* #000000 */
 
-
-  /* ── SECTION 2: ROLE ALIASES ───────────────────────────────────────────────
+	/* ── SECTION 2: ROLE ALIASES ───────────────────────────────────────────────
      Map primitives to brand/accent/tertiary/neutral slots.
      tokens.css references these aliases, not the raw primitives above.
      To retheme: swap the var() references here only.
   ──────────────────────────────────────────────────────────────────────────── */
 
-  /* Brand — Oxford blue */
-  --color-brand-900: var(--oxford-900);
-  --color-brand-800: var(--oxford-800);
-  --color-brand-700: var(--oxford-700);
-  --color-brand-600: var(--oxford-600);
-  --color-brand-500: var(--oxford-500);
-  --color-brand-400: var(--oxford-400);
-  --color-brand-300: var(--oxford-300);
-  --color-brand-200: var(--oxford-200);
-  --color-brand-100: var(--oxford-100);
-  --color-brand-50:  var(--oxford-50);
+	/* Brand — Oxford blue */
+	--color-brand-900: var(--oxford-900);
+	--color-brand-800: var(--oxford-800);
+	--color-brand-700: var(--oxford-700);
+	--color-brand-600: var(--oxford-600);
+	--color-brand-500: var(--oxford-500);
+	--color-brand-400: var(--oxford-400);
+	--color-brand-300: var(--oxford-300);
+	--color-brand-200: var(--oxford-200);
+	--color-brand-100: var(--oxford-100);
+	--color-brand-50: var(--oxford-50);
 
-  /* Accent — warm amber */
-  --color-accent-900: var(--amber-900);
-  --color-accent-800: var(--amber-800);
-  --color-accent-700: var(--amber-700);
-  --color-accent-600: var(--amber-600);
-  --color-accent-500: var(--amber-500);
-  --color-accent-400: var(--amber-400);
-  --color-accent-300: var(--amber-300);
-  --color-accent-200: var(--amber-200);
-  --color-accent-100: var(--amber-100);
-  --color-accent-50:  var(--amber-50);
+	/* Accent — warm amber */
+	--color-accent-900: var(--amber-900);
+	--color-accent-800: var(--amber-800);
+	--color-accent-700: var(--amber-700);
+	--color-accent-600: var(--amber-600);
+	--color-accent-500: var(--amber-500);
+	--color-accent-400: var(--amber-400);
+	--color-accent-300: var(--amber-300);
+	--color-accent-200: var(--amber-200);
+	--color-accent-100: var(--amber-100);
+	--color-accent-50: var(--amber-50);
 
-  /* Tertiary — terracotta */
-  --color-tertiary-900: var(--terra-900);
-  --color-tertiary-800: var(--terra-800);
-  --color-tertiary-700: var(--terra-700);
-  --color-tertiary-600: var(--terra-600);
-  --color-tertiary-500: var(--terra-500);
-  --color-tertiary-400: var(--terra-400);
-  --color-tertiary-300: var(--terra-300);
-  --color-tertiary-200: var(--terra-200);
-  --color-tertiary-100: var(--terra-100);
-  --color-tertiary-50:  var(--terra-50);
+	/* Tertiary — terracotta */
+	--color-tertiary-900: var(--terra-900);
+	--color-tertiary-800: var(--terra-800);
+	--color-tertiary-700: var(--terra-700);
+	--color-tertiary-600: var(--terra-600);
+	--color-tertiary-500: var(--terra-500);
+	--color-tertiary-400: var(--terra-400);
+	--color-tertiary-300: var(--terra-300);
+	--color-tertiary-200: var(--terra-200);
+	--color-tertiary-100: var(--terra-100);
+	--color-tertiary-50: var(--terra-50);
 
-  /* Neutral — warm parchment */
-  --color-neutral-900: var(--parchment-900);
-  --color-neutral-700: var(--parchment-700);
-  --color-neutral-600: var(--parchment-600);
-  --color-neutral-500: var(--parchment-500);
-  --color-neutral-400: var(--parchment-400);
-  --color-neutral-300: var(--parchment-300);
-  --color-neutral-200: var(--parchment-200);
-  --color-neutral-100: var(--parchment-100);
-  --color-neutral-50:  var(--parchment-50);
+	/* Neutral — warm parchment */
+	--color-neutral-900: var(--parchment-900);
+	--color-neutral-700: var(--parchment-700);
+	--color-neutral-600: var(--parchment-600);
+	--color-neutral-500: var(--parchment-500);
+	--color-neutral-400: var(--parchment-400);
+	--color-neutral-300: var(--parchment-300);
+	--color-neutral-200: var(--parchment-200);
+	--color-neutral-100: var(--parchment-100);
+	--color-neutral-50: var(--parchment-50);
 
-  /* Absolute */
-  --color-absolute-white: var(--white);
-  --color-absolute-black: var(--black);
+	/* Absolute */
+	--color-absolute-white: var(--white);
+	--color-absolute-black: var(--black);
 
-  /* ── Foreground levels ───────────────────────────── */
-  --color-fg-level-1: var(--color-brand-900);   /* Primary body text */
-  --color-fg-level-2: var(--color-brand-700);   /* Secondary text */
-  --color-fg-level-3: var(--color-neutral-600); /* Captions, placeholders */
+	/* ── Foreground levels ───────────────────────────── */
+	--color-fg-level-1: var(--color-brand-900); /* Primary body text */
+	--color-fg-level-2: var(--color-brand-700); /* Secondary text */
+	--color-fg-level-3: var(--color-neutral-600); /* Captions, placeholders */
 
-  /* ── On-brand foreground (dark brand panels) ─────── */
-  --color-on-brand:        var(--color-absolute-white);
-  --color-on-brand-muted:  color-mix(in oklch, var(--color-absolute-white) 80%, transparent);
-  --color-on-brand-subtle: color-mix(in oklch, var(--color-absolute-white) 65%, transparent);
+	/* ── On-brand foreground (dark brand panels) ─────── */
+	--color-on-brand: var(--color-absolute-white);
+	--color-on-brand-muted: color-mix(
+		in oklch,
+		var(--color-absolute-white) 80%,
+		transparent
+	);
+	--color-on-brand-subtle: color-mix(
+		in oklch,
+		var(--color-absolute-white) 65%,
+		transparent
+	);
 
-  /* ── On-surface foreground (dark card surface = light text) ── */
-  --color-on-surface:       var(--color-absolute-white);
-  --color-on-surface-muted: color-mix(in oklch, var(--color-absolute-white) 80%, transparent);
+	/* ── On-surface foreground (dark card surface = light text) ── */
+	--color-on-surface: var(--color-absolute-white);
+	--color-on-surface-muted: color-mix(
+		in oklch,
+		var(--color-absolute-white) 80%,
+		transparent
+	);
 
-  /* ── Accent foreground ───────────────────────────── */
-  --color-accent-fg:          var(--color-accent-600); /* On light surfaces — must pass AA */
-  --color-accent-fg-on-brand: var(--color-accent-400); /* On brand surfaces — must pass AA */
+	/* ── Accent foreground ───────────────────────────── */
+	--color-accent-fg: var(
+		--color-accent-600
+	); /* On light surfaces — must pass AA */
+	--color-accent-fg-on-brand: var(
+		--color-accent-400
+	); /* On brand surfaces — must pass AA */
 
-  /* ── Tertiary foreground ─────────────────────────── */
-  --color-tertiary-fg:       var(--color-tertiary-700);
-  --color-tertiary-fg-hover: var(--color-tertiary-800);
-  --color-tertiary-border:   var(--color-tertiary-300);
+	/* ── Tertiary foreground ─────────────────────────── */
+	--color-tertiary-fg: var(--color-tertiary-700);
+	--color-tertiary-fg-hover: var(--color-tertiary-800);
+	--color-tertiary-border: var(--color-tertiary-300);
 
-  /* ── Interactive ─────────────────────────────────── */
-  --color-interactive-bg:       var(--color-accent-500);
-  --color-interactive-bg-hover: var(--color-accent-600);
-  --color-interactive-fg:       var(--color-absolute-white);
-  --color-interactive-fg-hover: var(--color-absolute-white);
+	/* ── Interactive ─────────────────────────────────── */
+	--color-interactive-bg: var(--color-accent-500);
+	--color-interactive-bg-hover: var(--color-accent-600);
+	--color-interactive-fg: var(--color-absolute-white);
+	--color-interactive-fg-hover: var(--color-absolute-white);
 
-  /* ── Page backgrounds ────────────────────────────── */
-  /* Parchment page, near-white subtle — dark oxford-800 cards float against warm background */
-  --color-page-bg:     var(--color-neutral-100);
-  --color-subtle-bg:   var(--color-neutral-50);
-  --color-surface:     var(--color-brand-800);  /* dark Oxford blue card */
-  --color-accent-bg:   var(--color-accent-50);
-  --color-tertiary-bg: var(--color-tertiary-50);
+	/* ── Page backgrounds ────────────────────────────── */
+	/* Parchment page, near-white subtle — dark oxford-800 cards float against warm background */
+	--color-page-bg: var(--color-neutral-100);
+	--color-subtle-bg: var(--color-neutral-50);
+	--color-surface: var(--color-brand-800); /* dark Oxford blue card */
+	--color-accent-bg: var(--color-accent-50);
+	--color-tertiary-bg: var(--color-tertiary-50);
 
-  /* ── Brand backgrounds ───────────────────────────── */
-  --color-brand-bg:        var(--color-brand-900);
-  --color-brand-bg-muted:  var(--color-brand-700);
-  --color-brand-bg-subtle: var(--color-brand-100);
+	/* ── Brand backgrounds ───────────────────────────── */
+	--color-brand-bg: var(--color-brand-900);
+	--color-brand-bg-muted: var(--color-brand-700);
+	--color-brand-bg-subtle: var(--color-brand-100);
 
-  /* ── Borders ─────────────────────────────────────── */
-  --color-border-level-1:  var(--color-neutral-300);
-  --color-border-level-2:  var(--color-neutral-400);
-  --color-brand-border:    var(--color-brand-900);
-  --color-accent-border:   var(--color-accent-400);
-  --color-tertiary-border: var(--color-tertiary-300);
-  --color-focus-ring:      var(--color-accent-500);
+	/* ── Borders ─────────────────────────────────────── */
+	--color-border-level-1: var(--color-neutral-300);
+	--color-border-level-2: var(--color-neutral-400);
+	--color-brand-border: var(--color-brand-900);
+	--color-accent-border: var(--color-accent-400);
+	--color-tertiary-border: var(--color-tertiary-300);
+	--color-focus-ring: var(--color-accent-500);
 
-  /* ── State colours ───────────────────────────────── */
-  --color-danger-fg:  var(--red-600);
-  --color-danger-bg:  var(--red-100);
-  --color-success-fg: var(--terra-600);
-  --color-success-bg: var(--terra-100);
-  --color-warning-fg: var(--warn-600);
-  --color-warning-bg: var(--warn-100);
+	/* ── State colours ───────────────────────────────── */
+	--color-danger-fg: var(--red-600);
+	--color-danger-bg: var(--red-100);
+	--color-success-fg: var(--terra-600);
+	--color-success-bg: var(--terra-100);
+	--color-warning-fg: var(--warn-600);
+	--color-warning-bg: var(--warn-100);
 
-
-  /* ── SECTION 3: NON-COLOUR PRIMITIVES ─────────────────────────────────────
+	/* ── SECTION 3: NON-COLOUR PRIMITIVES ─────────────────────────────────────
      Font stacks and size scale. Theme-agnostic — identical across all themes.
   ──────────────────────────────────────────────────────────────────────────── */
 
-  /* Font stacks */
-  --font-stack-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
-  --font-stack-sans:  'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
-  --font-stack-mono:  'Menlo', 'Monaco', 'Courier New', monospace;
+	/* Font stacks */
+	--font-stack-serif: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+	--font-stack-sans: "DM Sans", "Helvetica Neue", "Arial", sans-serif;
+	--font-stack-mono: "Menlo", "Monaco", "Courier New", monospace;
 
-  /* Size scale — base unit 0.25rem (4px) */
-  --size-0-5: 0.125rem;  /*   2px */
-  --size-1:   0.25rem;   /*   4px */
-  --size-2:   0.5rem;    /*   8px */
-  --size-3:   0.75rem;   /*  12px */
-  --size-3-5: 0.875rem;  /*  14px */
-  --size-4:   1rem;      /*  16px */
-  --size-5:   1.25rem;   /*  20px */
-  --size-6:   1.5rem;    /*  24px */
-  --size-7:   1.75rem;   /*  28px */
-  --size-8:   2rem;      /*  32px */
-  --size-10:  2.5rem;    /*  40px */
-  --size-12:  3rem;      /*  48px */
-  --size-14:  3.5rem;    /*  56px */
-  --size-16:  4rem;      /*  64px */
-  --size-20:  5rem;      /*  80px */
-  --size-24:  6rem;      /*  96px */
-  --size-28:  7rem;      /* 112px */
-  --size-32:  8rem;      /* 128px */
-  --size-40:  10rem;     /* 160px */
-  --size-48:  12rem;     /* 192px */
-  --size-64:  16rem;     /* 256px */
-
+	/* Size scale — base unit 0.25rem (4px) */
+	--size-0-5: 0.125rem; /*   2px */
+	--size-1: 0.25rem; /*   4px */
+	--size-2: 0.5rem; /*   8px */
+	--size-3: 0.75rem; /*  12px */
+	--size-3-5: 0.875rem; /*  14px */
+	--size-4: 1rem; /*  16px */
+	--size-5: 1.25rem; /*  20px */
+	--size-6: 1.5rem; /*  24px */
+	--size-7: 1.75rem; /*  28px */
+	--size-8: 2rem; /*  32px */
+	--size-10: 2.5rem; /*  40px */
+	--size-12: 3rem; /*  48px */
+	--size-14: 3.5rem; /*  56px */
+	--size-16: 4rem; /*  64px */
+	--size-20: 5rem; /*  80px */
+	--size-24: 6rem; /*  96px */
+	--size-28: 7rem; /* 112px */
+	--size-32: 8rem; /* 128px */
+	--size-40: 10rem; /* 160px */
+	--size-48: 12rem; /* 192px */
+	--size-64: 16rem; /* 256px */
 }

@@ -20,7 +20,14 @@ export function initServiceMidCta(): void {
 			},
 		});
 
-		tl.from(text, { x: -20, opacity: 0, duration: 0.8, ease: "power2.out" }, 0)
-			.from(actions, { x: 20, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.1);
+		tl.from(
+			text,
+			{ x: -20, opacity: 0, duration: 0.8, ease: "power2.out" },
+			0,
+		).from(
+			actions,
+			{ x: 20, opacity: 0, duration: 0.8, ease: "power2.out" },
+			0.1,
+		);
 	});
 }

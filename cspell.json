@@ -1,9 +1,4 @@
 {
-  "version": "0.2",
-  "words": [
-    "colour",
-    "gsap",
-    "scanline",
-    "scanlines"
-  ]
+	"version": "0.2",
+	"words": ["colour", "gsap", "scanline", "scanlines"]
 }

@@ -23,10 +23,22 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 				},
 			});
 
-			tl.from(eyebrow, { y: 16, opacity: 0, duration: 0.7, ease: "power2.out" }, 0)
-				.from(title, { y: 24, opacity: 0, duration: 0.9, ease: "power2.out" }, 0.1)
+			tl.from(
+				eyebrow,
+				{ y: 16, opacity: 0, duration: 0.7, ease: "power2.out" },
+				0,
+			)
+				.from(
+					title,
+					{ y: 24, opacity: 0, duration: 0.9, ease: "power2.out" },
+					0.1,
+				)
 				.to(rule, { width: "40px", duration: 0.6, ease: "power2.out" }, 0.5)
-				.from(intro, { y: 18, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.6);
+				.from(
+					intro,
+					{ y: 18, opacity: 0, duration: 0.8, ease: "power2.out" },
+					0.6,
+				);
 		}
 
 		if (quote) {

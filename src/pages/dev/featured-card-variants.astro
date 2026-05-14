@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
 import { homePageContent } from "../../config/home";
 import { buyingAndSellingProperty as svc } from "../../config/services";
-import propertyImage from "../../assets/images/new/house-key-and-figurine.webp";
-import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const { featuredService } = homePageContent;
 const { card } = featuredService;

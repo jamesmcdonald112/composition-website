@@ -9,110 +9,217 @@
   ─────────────────────────────────────────────────────────────────────────────
 */
 
-
 /* ── ACCESSIBILITY ────────────────────────────────────────────────────── */
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
-
 
 /* ── TEXT UTILITIES ───────────────────────────────────────────────────── */
 
-.text-center  { text-align: center; }
-.text-left    { text-align: left; }
-.text-right   { text-align: right; }
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
 
-.text-balance { text-wrap: balance; }
-.text-pretty  { text-wrap: pretty; }
+.text-balance {
+	text-wrap: balance;
+}
+.text-pretty {
+	text-wrap: pretty;
+}
 
-.text-muted   { color: var(--color-fg-muted); }
-.text-subtle  { color: var(--color-fg-subtle); }
-.text-accent  { color: var(--color-fg-accent); }
-.text-inverse { color: var(--color-fg-on-brand); }
+.text-muted {
+	color: var(--color-fg-muted);
+}
+.text-subtle {
+	color: var(--color-fg-subtle);
+}
+.text-accent {
+	color: var(--color-fg-accent);
+}
+.text-inverse {
+	color: var(--color-fg-on-brand);
+}
 
-.text-sm      { font-size: var(--font-size-sm); }
-.text-lg      { font-size: var(--font-size-lg); }
-.text-xl      { font-size: var(--font-size-xl); }
+.text-sm {
+	font-size: var(--font-size-sm);
+}
+.text-lg {
+	font-size: var(--font-size-lg);
+}
+.text-xl {
+	font-size: var(--font-size-xl);
+}
 
-.font-serif   { font-family: var(--font-serif); }
-.font-sans    { font-family: var(--font-sans); }
+.font-serif {
+	font-family: var(--font-serif);
+}
+.font-sans {
+	font-family: var(--font-sans);
+}
 
-.font-medium  { font-weight: var(--font-weight-medium); }
-.font-bold    { font-weight: var(--font-weight-bold); }
+.font-medium {
+	font-weight: var(--font-weight-medium);
+}
+.font-bold {
+	font-weight: var(--font-weight-bold);
+}
 
-.uppercase    { text-transform: uppercase; }
-.italic       { font-style: italic; }
+.uppercase {
+	text-transform: uppercase;
+}
+.italic {
+	font-style: italic;
+}
 
-.tracking-wide    { letter-spacing: var(--letter-spacing-wide); }
-.tracking-wider   { letter-spacing: var(--letter-spacing-wider); }
-.tracking-widest  { letter-spacing: var(--letter-spacing-widest); }
-
+.tracking-wide {
+	letter-spacing: var(--letter-spacing-wide);
+}
+.tracking-wider {
+	letter-spacing: var(--letter-spacing-wider);
+}
+.tracking-widest {
+	letter-spacing: var(--letter-spacing-widest);
+}
 
 /* ── DISPLAY UTILITIES ────────────────────────────────────────────────── */
 
-.block         { display: block; }
-.inline-block  { display: inline-block; }
-.flex          { display: flex; }
-.grid-display  { display: grid; }
-.hidden        { display: none; }
+.block {
+	display: block;
+}
+.inline-block {
+	display: inline-block;
+}
+.flex {
+	display: flex;
+}
+.grid-display {
+	display: grid;
+}
+.hidden {
+	display: none;
+}
 
-.items-center  { align-items: center; }
-.items-start   { align-items: flex-start; }
-.justify-center   { justify-content: center; }
-.justify-between  { justify-content: space-between; }
+.items-center {
+	align-items: center;
+}
+.items-start {
+	align-items: flex-start;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-between {
+	justify-content: space-between;
+}
 
-.w-full        { width: 100%; }
-.h-full        { height: 100%; }
-.min-h-screen  { min-height: 100dvh; }
+.w-full {
+	width: 100%;
+}
+.h-full {
+	height: 100%;
+}
+.min-h-screen {
+	min-height: 100dvh;
+}
 
-.relative      { position: relative; }
-.absolute      { position: absolute; }
-.overflow-hidden { overflow: hidden; }
-
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.overflow-hidden {
+	overflow: hidden;
+}
 
 /* ── COLOUR UTILITIES ─────────────────────────────────────────────────── */
 
-.bg-base       { background-color: var(--color-bg-page); }
-.bg-surface    { background-color: var(--color-bg-surface); }
-.bg-subtle     { background-color: var(--color-bg-subtle); }
-.bg-muted      { background-color: var(--color-bg-subtle); }
-.bg-brand      { background-color: var(--color-bg-brand); }
-.bg-inverse    { background-color: var(--color-bg-brand); }
-.bg-accent     { background-color: var(--color-bg-accent); }
-
+.bg-base {
+	background-color: var(--color-bg-page);
+}
+.bg-surface {
+	background-color: var(--color-bg-surface);
+}
+.bg-subtle {
+	background-color: var(--color-bg-subtle);
+}
+.bg-muted {
+	background-color: var(--color-bg-subtle);
+}
+.bg-brand {
+	background-color: var(--color-bg-brand);
+}
+.bg-inverse {
+	background-color: var(--color-bg-brand);
+}
+.bg-accent {
+	background-color: var(--color-bg-accent);
+}
 
 /* ── SPACING UTILITIES ────────────────────────────────────────────────── */
 
-.mt-auto  { margin-top: auto; }
-.ml-auto  { margin-left: auto; }
-.mx-auto  { margin-inline: auto; }
-
+.mt-auto {
+	margin-top: auto;
+}
+.ml-auto {
+	margin-left: auto;
+}
+.mx-auto {
+	margin-inline: auto;
+}
 
 /* ── BORDER UTILITIES ─────────────────────────────────────────────────── */
 
-.border-top    { border-top: 1px solid var(--color-border-default); }
-.border-bottom { border-bottom: 1px solid var(--color-border-default); }
-.rounded-md    { border-radius: var(--radius-md); }
-.rounded-lg    { border-radius: var(--radius-lg); }
-
+.border-top {
+	border-top: 1px solid var(--color-border-default);
+}
+.border-bottom {
+	border-bottom: 1px solid var(--color-border-default);
+}
+.rounded-md {
+	border-radius: var(--radius-md);
+}
+.rounded-lg {
+	border-radius: var(--radius-lg);
+}
 
 /* ── ANIMATIONS ───────────────────────────────────────────────────────── */
 
 @keyframes phone-shake {
-  0%   { transform: rotate(0deg); }
-  15%  { transform: rotate(15deg); }
-  30%  { transform: rotate(-12deg); }
-  45%  { transform: rotate(10deg); }
-  60%  { transform: rotate(-8deg); }
-  75%  { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+	15% {
+		transform: rotate(15deg);
+	}
+	30% {
+		transform: rotate(-12deg);
+	}
+	45% {
+		transform: rotate(10deg);
+	}
+	60% {
+		transform: rotate(-8deg);
+	}
+	75% {
+		transform: rotate(5deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
 }

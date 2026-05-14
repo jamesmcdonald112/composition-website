@@ -24,11 +24,11 @@ import "@fontsource/dm-sans/400.css";
 import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-sans/700.css";
 import "../styles/global.css";
-import { firm } from "../config/firm";
+import Footer from "../components/footer/Footer.astro";
 import Intro from "../components/Intro/Intro.astro";
 import Navbar from "../components/navbar/Navbar.astro";
-import Footer from "../components/footer/Footer.astro";
 import SkipLink from "../components/ui/SkipLink.astro";
+import { firm } from "../config/firm";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -70,7 +70,10 @@ const canonical = firm.siteUrl
 	? new URL(canonicalPath ?? Astro.url.pathname, firm.siteUrl).toString()
 	: undefined;
 
-const ogImageUrl = firm.siteUrl && ogImage ? new URL(ogImage, firm.siteUrl).toString() : undefined;
+const ogImageUrl =
+	firm.siteUrl && ogImage
+		? new URL(ogImage, firm.siteUrl).toString()
+		: undefined;
 
 const isArticle = ogType === "article";
 ---

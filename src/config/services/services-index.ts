@@ -1,4 +1,3 @@
-import { buyingAndSellingProperty } from "./buying-and-selling-property";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 import {
@@ -10,13 +9,13 @@ import {
 	roadTrafficAccidents,
 	willsAndEstateAdministration,
 } from ".";
+import { buyingAndSellingProperty } from "./buying-and-selling-property";
 
 // --- Services index page content (hero, cta) ---
 export const servicesIndexContent = {
 	seo: {
 		title: `Legal Services in Kilkenny | ${firm.companyName}`,
-		description:
-			`Solicitors in Kilkenny since ${firm.established}. We advise on property conveyancing, wills and probate, family law, personal injury and litigation, road traffic accidents, leases and tenancies, employment law, and debt recovery.`,
+		description: `Solicitors in Kilkenny since ${firm.established}. We advise on property conveyancing, wills and probate, family law, personal injury and litigation, road traffic accidents, leases and tenancies, employment law, and debt recovery.`,
 		canonicalPath: "/services",
 	},
 	hero: {

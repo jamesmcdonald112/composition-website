@@ -44,85 +44,137 @@
 	/* ── Backgrounds ─────────────────────────────────────────────────────────
 	   Use bg tokens for background-color only.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-bg-page:         var(--color-page-bg);        /* Page canvas */
-	--color-bg-surface:      var(--color-surface);        /* Cards, panels, raised surfaces */
-	--color-bg-subtle:       var(--color-subtle-bg);      /* Alternate rows, inset sections */
-	--color-bg-brand:        var(--color-brand-bg);       /* Primary brand sections: nav, footer, hero */
-	--color-bg-brand-muted:  var(--color-brand-bg-muted); /* Less prominent brand sections */
-	--color-bg-brand-subtle: var(--color-brand-bg-subtle);/* Decorative tints, circle fills, section accents */
+	--color-bg-page: var(--color-page-bg); /* Page canvas */
+	--color-bg-surface: var(--color-surface); /* Cards, panels, raised surfaces */
+	--color-bg-subtle: var(
+		--color-subtle-bg
+	); /* Alternate rows, inset sections */
+	--color-bg-brand: var(
+		--color-brand-bg
+	); /* Primary brand sections: nav, footer, hero */
+	--color-bg-brand-muted: var(
+		--color-brand-bg-muted
+	); /* Less prominent brand sections */
+	--color-bg-brand-subtle: var(
+		--color-brand-bg-subtle
+	); /* Decorative tints, circle fills, section accents */
 	/* RGB channels of --color-bg-brand for use in rgb()/rgba() gradients — a
 	   fallback path for Safari < 16.2 where color-mix() is unsupported. Use as
 	   `rgb(var(--color-bg-brand-rgb) / 0.92)` to produce a translucent brand wash. */
-	--color-bg-brand-rgb:    var(--color-brand-bg-rgb);
-	--color-bg-accent:       var(--color-accent-bg);      /* Accent-tinted background */
-	--color-bg-tertiary:     var(--color-tertiary-bg);    /* Tertiary-tinted background */
+	--color-bg-brand-rgb: var(--color-brand-bg-rgb);
+	--color-bg-accent: var(--color-accent-bg); /* Accent-tinted background */
+	--color-bg-tertiary: var(
+		--color-tertiary-bg
+	); /* Tertiary-tinted background */
 
 	/* ── Foreground — text and icons ─────────────────────────────────────────
 	   Use fg tokens for color on text and inline SVG icons.
 	   Both use the CSS color property so one token covers both.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-fg-default:          var(--color-fg-level-1);     /* Primary body text and icons on light surfaces */
-	--color-fg-muted:            var(--color-fg-level-2);     /* Secondary / supporting text on light surfaces */
-	--color-fg-subtle:           var(--color-fg-level-3);     /* Captions, placeholders, disabled text */
+	--color-fg-default: var(
+		--color-fg-level-1
+	); /* Primary body text and icons on light surfaces */
+	--color-fg-muted: var(
+		--color-fg-level-2
+	); /* Secondary / supporting text on light surfaces */
+	--color-fg-subtle: var(
+		--color-fg-level-3
+	); /* Captions, placeholders, disabled text */
 
 	/* Surface foreground — text on card/panel surfaces.
 	   Dark themes use light text, light themes use dark text. Defined per theme. */
-	--color-fg-on-surface:       var(--color-on-surface);      /* Primary text/icons on bg-surface */
-	--color-fg-on-surface-muted: var(--color-on-surface-muted);/* Secondary text/icons on bg-surface */
+	--color-fg-on-surface: var(
+		--color-on-surface
+	); /* Primary text/icons on bg-surface */
+	--color-fg-on-surface-muted: var(
+		--color-on-surface-muted
+	); /* Secondary text/icons on bg-surface */
 
-	--color-fg-on-brand:         var(--color-on-brand);       /* Primary text/icons on bg-brand */
-	--color-fg-on-brand-muted:   var(--color-on-brand-muted); /* Less prominent text/icons on bg-brand */
-	--color-fg-on-brand-subtle:  var(--color-on-brand-subtle);/* Captions and labels on bg-brand */
-	--color-fg-link:             var(--color-tertiary-fg);    /* Inline link */
-	--color-fg-link-hover:       var(--color-tertiary-fg-hover); /* Inline link hover */
+	--color-fg-on-brand: var(
+		--color-on-brand
+	); /* Primary text/icons on bg-brand */
+	--color-fg-on-brand-muted: var(
+		--color-on-brand-muted
+	); /* Less prominent text/icons on bg-brand */
+	--color-fg-on-brand-subtle: var(
+		--color-on-brand-subtle
+	); /* Captions and labels on bg-brand */
+	--color-fg-link: var(--color-tertiary-fg); /* Inline link */
+	--color-fg-link-hover: var(--color-tertiary-fg-hover); /* Inline link hover */
 
 	/* ── Tertiary foreground ─────────────────────────────────────────────────
 	   Third brand colour for links, featured callouts, and supporting accents.
 	   Use on light surfaces only — never on bg-brand or bg-brand-muted.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-fg-tertiary:         var(--color-tertiary-fg);      /* Links, callout text, supporting icons */
-	--color-fg-tertiary-hover:   var(--color-tertiary-fg-hover);/* Hover state for tertiary text */
-	--color-border-tertiary:     var(--color-tertiary-border);  /* Tertiary border, left rule on callouts */
+	--color-fg-tertiary: var(
+		--color-tertiary-fg
+	); /* Links, callout text, supporting icons */
+	--color-fg-tertiary-hover: var(
+		--color-tertiary-fg-hover
+	); /* Hover state for tertiary text */
+	--color-border-tertiary: var(
+		--color-tertiary-border
+	); /* Tertiary border, left rule on callouts */
 
 	/* ── Accent foreground ───────────────────────────────────────────────────
 	   Two tokens because no single shade passes AA text on both surfaces.
 	   Always use the correct one for your context.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-fg-accent:           var(--color-accent-fg);          /* Accent text/icons on light surfaces — must pass AA */
-	--color-fg-accent-on-brand:  var(--color-accent-fg-on-brand); /* Accent text/icons on brand surfaces — must pass AA */
+	--color-fg-accent: var(
+		--color-accent-fg
+	); /* Accent text/icons on light surfaces — must pass AA */
+	--color-fg-accent-on-brand: var(
+		--color-accent-fg-on-brand
+	); /* Accent text/icons on brand surfaces — must pass AA */
 
 	/* ── Interactive ─────────────────────────────────────────────────────────
 	   Buttons and CTAs. All fg/bg interactive pairs must pass AA text (4.5:1).
 	────────────────────────────────────────────────────────────────────────── */
-	--color-bg-interactive:       var(--color-interactive-bg);       /* Button/CTA background default */
-	--color-bg-interactive-hover: var(--color-interactive-bg-hover); /* Button/CTA background hover */
-	--color-fg-interactive:       var(--color-interactive-fg);       /* Text on bg-interactive */
-	--color-fg-interactive-hover: var(--color-interactive-fg-hover); /* Text on bg-interactive-hover */
+	--color-bg-interactive: var(
+		--color-interactive-bg
+	); /* Button/CTA background default */
+	--color-bg-interactive-hover: var(
+		--color-interactive-bg-hover
+	); /* Button/CTA background hover */
+	--color-fg-interactive: var(
+		--color-interactive-fg
+	); /* Text on bg-interactive */
+	--color-fg-interactive-hover: var(
+		--color-interactive-fg-hover
+	); /* Text on bg-interactive-hover */
 
 	/* ── Borders ─────────────────────────────────────────────────────────────
 	   Use border tokens for border-color only.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-border-default:  var(--color-border-level-1); /* Standard border on light surfaces */
-	--color-border-strong:   var(--color-border-level-2); /* Stronger border, dividers */
-	--color-border-brand:    var(--color-brand-border);   /* Border on brand surfaces */
-	--color-border-accent:   var(--color-accent-border);  /* Accent-coloured border — UI elements only */
+	--color-border-default: var(
+		--color-border-level-1
+	); /* Standard border on light surfaces */
+	--color-border-strong: var(
+		--color-border-level-2
+	); /* Stronger border, dividers */
+	--color-border-brand: var(
+		--color-brand-border
+	); /* Border on brand surfaces */
+	--color-border-accent: var(
+		--color-accent-border
+	); /* Accent-coloured border — UI elements only */
 
 	/* ── States ──────────────────────────────────────────────────────────────
 	   Danger, success, warning — fg for text/icons, bg for surface tints.
 	   Functional colours are universal — they do not vary by theme.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-fg-danger:   var(--color-danger-fg);
-	--color-bg-danger:   var(--color-danger-bg);
-	--color-fg-success:  var(--color-success-fg);
-	--color-bg-success:  var(--color-success-bg);
-	--color-fg-warning:  var(--color-warning-fg);
-	--color-bg-warning:  var(--color-warning-bg);
+	--color-fg-danger: var(--color-danger-fg);
+	--color-bg-danger: var(--color-danger-bg);
+	--color-fg-success: var(--color-success-fg);
+	--color-bg-success: var(--color-success-bg);
+	--color-fg-warning: var(--color-warning-fg);
+	--color-bg-warning: var(--color-warning-bg);
 
 	/* ── Focus ───────────────────────────────────────────────────────────────
 	   Must be visible on every surface.
 	   Applied as border-color (or outline-color) on focus rings.
 	────────────────────────────────────────────────────────────────────────── */
-	--color-border-focus:  var(--color-focus-ring);
+	--color-border-focus: var(--color-focus-ring);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

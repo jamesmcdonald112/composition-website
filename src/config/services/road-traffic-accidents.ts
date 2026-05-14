@@ -195,12 +195,14 @@ export const roadTrafficAccidents = {
 				"The general time limit for personal injury claims in Ireland — including road traffic accidents — is two years from the date of the accident or from the date the injured person became aware of the injury. Where the claimant was a minor at the time of the accident, time does not begin to run until they turn 18. Missing this deadline will generally prevent a claim from being brought.",
 		},
 		{
-			question: "What if the other driver was uninsured or could not be identified?",
+			question:
+				"What if the other driver was uninsured or could not be identified?",
 			answer:
 				"Compensation for victims of uninsured or untraced drivers is paid through the Motor Insurers' Bureau of Ireland (MIBI). The MIBI scheme has its own procedure and its own conditions, and is separate from the standard PIAB process. We advise on whether the MIBI scheme applies and manage the claim on the client's behalf.",
 		},
 		{
-			question: "What about an early settlement offer from an insurance company?",
+			question:
+				"What about an early settlement offer from an insurance company?",
 			answer:
 				"We advise reviewing any insurance company offer carefully before accepting it. Early offers are routinely made before the full extent of an injury is known and before the claimant has independent representation. An offer that seems reasonable at first glance can significantly undervalue a claim once future medical costs, loss of earnings, and other losses are properly established.",
 		},

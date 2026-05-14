@@ -31,7 +31,10 @@ export const personalInjuryLitigation = {
 			"We advise on personal injury and civil litigation matters in Kilkenny. We assess each case honestly, explain the process clearly, and act for our clients at every stage — from the initial assessment of liability through to the conduct of the PIAB application and court proceedings where they arise.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Honest advice on personal injury and civil disputes.", "Talk to us about your matter."],
+	midCta: [
+		"Honest advice on personal injury and civil disputes.",
+		"Talk to us about your matter.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -169,7 +172,8 @@ export const personalInjuryLitigation = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "What is the time limit for a personal injury claim in Ireland?",
+			question:
+				"What is the time limit for a personal injury claim in Ireland?",
 			answer:
 				"The general time limit is two years from the date of the accident, or from the date the injured person first became aware of the injury (the 'date of knowledge'), whichever is later. Where the injured person was a minor at the time of the accident, time does not begin to run until they turn 18. The two-year limit is strictly applied — missing it will generally prevent a claim from being brought regardless of its merits.",
 		},

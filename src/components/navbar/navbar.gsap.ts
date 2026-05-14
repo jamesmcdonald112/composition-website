@@ -24,8 +24,12 @@ if (navbar) {
 
 // ── Navbar entrance animations ────────────────────────────────────────────────
 const logo = document.querySelector<HTMLElement>("[data-navbar-logo]");
-const desktopNavLinks = document.querySelectorAll<HTMLElement>("[data-navbar-nav-link]");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const desktopNavLinks = document.querySelectorAll<HTMLElement>(
+	"[data-navbar-nav-link]",
+);
+const reducedMotion = window.matchMedia(
+	"(prefers-reduced-motion: reduce)",
+).matches;
 
 if (!reducedMotion) {
 	if (logo) {
@@ -45,7 +49,9 @@ if (!reducedMotion) {
 			ease: "power2.out",
 			stagger: 0.1,
 			delay: 0.35,
-			onComplete: () => { gsap.set(desktopNavLinks, { clearProps: "transform" }); },
+			onComplete: () => {
+				gsap.set(desktopNavLinks, { clearProps: "transform" });
+			},
 		});
 	}
 }
@@ -61,7 +67,9 @@ if (cta) {
 			duration: 0.7,
 			ease: "power3.out",
 			delay: 0.5,
-			onComplete: () => { gsap.set(cta, { clearProps: "transform" }); },
+			onComplete: () => {
+				gsap.set(cta, { clearProps: "transform" });
+			},
 		});
 	}
 
@@ -75,10 +83,16 @@ if (cta) {
 }
 
 // ── Mobile menu ───────────────────────────────────────────────────────────────
-const toggle = document.querySelector<HTMLButtonElement>("[data-navbar-toggle]");
+const toggle = document.querySelector<HTMLButtonElement>(
+	"[data-navbar-toggle]",
+);
 const dialog = document.querySelector<HTMLDialogElement>("[data-nav-mobile]");
-const closeBtn = document.querySelector<HTMLButtonElement>("[data-nav-mobile-close]");
-const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>("[data-nav-mobile-link]");
+const closeBtn = document.querySelector<HTMLButtonElement>(
+	"[data-nav-mobile-close]",
+);
+const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>(
+	"[data-nav-mobile-link]",
+);
 
 if (toggle && dialog) {
 	// iOS Safari doesn't block background scroll on <dialog>.showModal(),

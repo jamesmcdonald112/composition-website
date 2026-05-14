@@ -3,15 +3,15 @@ import type { ImageMetadata } from "astro";
 import ServiceCard from "../ServiceCard/ServiceCard.astro";
 
 interface Service {
-  title: string;
-  href: string;
-  image: ImageMetadata;
-  description: string;
-  imageClass?: string;
+	title: string;
+	href: string;
+	image: ImageMetadata;
+	description: string;
+	imageClass?: string;
 }
 
 interface Props {
-  services: readonly Service[];
+	services: readonly Service[];
 }
 
 const { services } = Astro.props;

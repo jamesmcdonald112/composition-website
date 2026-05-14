@@ -16,7 +16,9 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		if (!title) return;
 
 		// Reveal elements — CSS keeps them hidden until GSAP is ready
-		gsap.set([eyebrow, title, subtitle, ctas, bottom], { visibility: "visible" });
+		gsap.set([eyebrow, title, subtitle, ctas, bottom], {
+			visibility: "visible",
+		});
 
 		const tl = gsap.timeline({ delay: 0.15 });
 
