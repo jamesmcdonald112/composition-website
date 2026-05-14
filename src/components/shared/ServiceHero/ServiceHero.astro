@@ -9,16 +9,24 @@ import { firm } from "../../../config/firm";
 import mapPinIcon from "../../../assets/icons/mapPinIcon.svg?raw";
 
 
+interface ImageFocusResponsive {
+	mobile: string;
+	desktop: string;
+}
+
 interface Props {
 	title: Heading;
 	subtitle: string;
 	image: ImageMetadata;
-	imageFocus?: string;
+	imageFocus?: string | ImageFocusResponsive;
 	phone: { display: string; phoneHref: string };
 }
 
 const { title, subtitle, image, imageFocus = "center 50%", phone } = Astro.props;
 const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
+
+const focusMobile = typeof imageFocus === "string" ? imageFocus : imageFocus.mobile;
+const focusDesktop = typeof imageFocus === "string" ? imageFocus : imageFocus.desktop;
 ---
 
 <section class="service-hero" data-service-hero>
@@ -28,7 +36,7 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 			src={image}
 			alt=""
 			class="service-hero__image"
-			style={`object-position: ${imageFocus}`}
+			style={`--focus-mobile: ${focusMobile}; --focus-desktop: ${focusDesktop};`}
 			widths={[640, 768, 1280, 1920]}
 			sizes="100vw"
 			loading="eager"
@@ -113,6 +121,11 @@ const titleParts = typeof title === "string" ? [{ text: title }] : [...title];
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: var(--focus-mobile);
+
+		@media (min-width: 768px) {
+			object-position: var(--focus-desktop);
+		}
 	}
 
 	/* ── Wash ───────────────────────────────────────────────────────────────── */

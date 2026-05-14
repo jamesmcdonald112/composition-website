@@ -30,9 +30,8 @@ const { solicitor, reviewDate } = service.attribution;
 		title={service.hero.title}
 		subtitle={service.hero.subtitle}
 		image={service.image}
-		imageFocus="center 65%"
+		imageFocus={{ mobile: "70% center", desktop: "67% 90%" }}
 		phone={firm.phone}
-		imageFocus={"67% 90%"}
 	/>
 	<TrustStrip
 		title={service.trustStrip.title}
