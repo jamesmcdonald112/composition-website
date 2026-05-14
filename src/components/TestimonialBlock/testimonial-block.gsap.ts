@@ -1,11 +1,16 @@
-// biome-ignore lint/correctness/noUnusedImports: ScrollTrigger must be imported to register with GSAP
 import { gsap, ScrollTrigger } from "../../scripts/gsap";
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotion = window.matchMedia(
+	"(prefers-reduced-motion: reduce)",
+).matches;
 
 if (!reducedMotion) {
-	const header = document.querySelector<HTMLElement>("[data-testimonial-header]");
-	const cards = document.querySelectorAll<HTMLElement>("[data-testimonial-card]");
+	const header = document.querySelector<HTMLElement>(
+		"[data-testimonial-header]",
+	);
+	const cards = document.querySelectorAll<HTMLElement>(
+		"[data-testimonial-card]",
+	);
 
 	if (header) {
 		gsap.from(header, {

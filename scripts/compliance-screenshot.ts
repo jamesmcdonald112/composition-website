@@ -16,9 +16,9 @@
  * Pages inside src/pages/dev/ are excluded automatically.
  */
 
+import { mkdir, readdir, stat } from "node:fs/promises";
+import { join, relative } from "node:path";
 import { chromium } from "playwright";
-import { mkdir, readdir, stat } from "fs/promises";
-import { join, relative } from "path";
 
 const BASE_URL = "http://localhost:4321";
 const PAGES_DIR = join(process.cwd(), "src", "pages");
@@ -59,13 +59,15 @@ const outputDir = join(
 	"legal-compliance",
 	"compliance-records",
 	`${date}-${label}`,
-	"screenshots"
+	"screenshots",
 );
 
 async function run() {
 	const files = await collectPages(PAGES_DIR);
 	const pages = files.map((f) => ({
-		name: relative(PAGES_DIR, f).replace(/\.astro$/, "").replace(/\//g, "-"),
+		name: relative(PAGES_DIR, f)
+			.replace(/\.astro$/, "")
+			.replace(/\//g, "-"),
 		url: fileToUrl(f),
 	}));
 
@@ -103,15 +105,23 @@ async function run() {
 			// Scroll to bottom to trigger all scroll-based GSAP animations,
 			// then wait for them to settle before screenshotting.
 			await page.evaluate(() =>
-				window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" })
+				window.scrollTo({
+					top: document.body.scrollHeight,
+					behavior: "instant",
+				}),
 			);
 			await page.waitForTimeout(2000);
 
 			// Scroll back to top so the screenshot shows the page from the beginning.
-			await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+			await page.evaluate(() =>
+				window.scrollTo({ top: 0, behavior: "instant" }),
+			);
 			await page.waitForTimeout(500);
 
-			await page.screenshot({ path: join(outputDir, `${name}.png`), fullPage: true });
+			await page.screenshot({
+				path: join(outputDir, `${name}.png`),
+				fullPage: true,
+			});
 			console.log(`✓  ${url}`);
 		} catch (err) {
 			console.error(`✗  ${url} — ${err}`);
