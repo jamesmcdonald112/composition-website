@@ -3,46 +3,51 @@ import type { LegalPageSection } from "./LegalPageContent.types";
 
 interface Props {
 	title: string;
-	intro?: string;
+	intro?: string | readonly string[];
 	sections: readonly LegalPageSection[];
-	footerNote?: string;
 	reviewDate?: string;
+	footerNote?: string;
 }
 
-const { title, intro, sections, footerNote, reviewDate } = Astro.props;
+const { title, intro, sections, reviewDate, footerNote } = Astro.props;
+
+const introParagraphs = intro === undefined
+	? []
+	: Array.isArray(intro)
+		? intro
+		: [intro as string];
 ---
 
 <section class="legal-page">
 	<div class="legal-page__inner wrapper wrapper--wide">
 		<h1 class="legal-page__title">{title}</h1>
-		{intro && <p class="legal-page__intro">{intro}</p>}
+		{introParagraphs.map((paragraph) => (
+			<p class="legal-page__intro">{paragraph}</p>
+		))}
 
 		{sections.map((section) => (
 			<section class="legal-page__section">
 				<h2 class="legal-page__heading">{section.heading}</h2>
 				{section.body && <p class="legal-page__paragraph">{section.body}</p>}
-				{section.list && (
-					<ul class="legal-page__list">
-						{section.list.map((item) => (
-							<li class="legal-page__list-item">{item}</li>
-						))}
-					</ul>
-				)}
-				{section.afterListBody && (
-					<p class="legal-page__paragraph">{section.afterListBody}</p>
-				)}
-				{section.afterListItems && (
-					<ul class="legal-page__list">
-						{section.afterListItems.map((item) => (
-							<li class="legal-page__list-item">{item}</li>
-						))}
-					</ul>
-				)}
-				{section.footer && <p class="legal-page__paragraph">{section.footer}</p>}
+				{section.blocks?.map((block) => {
+					if (block.type === "paragraph") {
+						return <p class="legal-page__paragraph">{block.text}</p>;
+					}
+					if (block.type === "list") {
+						return (
+							<ul class="legal-page__list">
+								{block.items.map((item) => (
+									<li class="legal-page__list-item">{item}</li>
+								))}
+							</ul>
+						);
+					}
+					return null;
+				})}
 			</section>
 		))}
 
-		{(footerNote || reviewDate) && (
+		{(reviewDate || footerNote) && (
 			<div class="legal-page__meta">
 				<hr class="legal-page__rule" />
 				{reviewDate && (

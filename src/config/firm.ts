@@ -1,6 +1,18 @@
 export const firm = {
-	siteUrl: "https://splendorous-tiramisu-3c7f26.netlify.app/",
+	// Production site URL. Used as the base for canonical tags, OG image URLs,
+	// the sitemap, robots.txt, structured data, and the privacy policy's
+	// "runs this website at ..." line (which derives the bare hostname).
+	//
+	// LAUNCH NOTE: this points at the production domain even before DNS
+	// cutover — until the domain resolves to the live Vercel deployment,
+	// canonical tags and sitemap URLs will not resolve in browsers. That is
+	// intentional: it means Google indexes the production URLs from day one
+	// and no canonical-rewrite is needed at launch. To find the temporary
+	// preview URL (Netlify or Vercel) for visual review, use the deploy
+	// dashboard rather than this field.
+	siteUrl: "https://marymolloysolicitor.ie/",
 	companyName: "Mary Molloy Solicitor",
+	principalSolicitor: "Mary Molloy",
 	county: "Kilkenny",
 	established: 1981,
 
@@ -8,7 +20,12 @@ export const firm = {
 		display: "(056) 776 5829",
 		phoneHref: "+353567765829",
 	},
-	email: "nicholasoshea@marymolloysolicitor.ie",
+	email: {
+		// Public-facing address shown on the site (footer, contact panel, etc.).
+		primary: "michelle@marymolloysolicitor.ie",
+		// Delivery target for contact form submissions via Resend.
+		formTo: "nicholasoshea@marymolloysolicitor.ie",
+	},
 
 	address: {
 		line1: "2 Rose Inn St",

@@ -4,7 +4,7 @@ import { firm } from "../config/firm";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
 
-const { seo, title, intro, sections, createdNote, reviewDate } = accessibilityPageContent;
+const { seo, title, intro, sections, footerNote, reviewDate } = accessibilityPageContent;
 ---
 
 <BaseLayout
@@ -17,7 +17,7 @@ const { seo, title, intro, sections, createdNote, reviewDate } = accessibilityPa
 		title={title}
 		intro={intro}
 		sections={sections}
-		footerNote={createdNote}
+		footerNote={footerNote}
 		reviewDate={reviewDate}
 	/>
 </BaseLayout>

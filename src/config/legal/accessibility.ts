@@ -12,6 +12,8 @@
 // config is updated, the markdown source must also be updated, and the
 // reviewDate field below must be bumped.
 
+import type { LegalPageContent } from "../../components/ui/LegalPageContent/LegalPageContent.types";
+
 export const accessibilityPageContent = {
 	seo: {
 		title: "Accessibility Statement",
@@ -25,10 +27,18 @@ export const accessibilityPageContent = {
 	sections: [
 		{
 			heading: "Measures to support accessibility",
-			body: "Mary Molloy Solicitor takes the following measures to ensure accessibility of this website:",
-			list: [
-				"Assign clear accessibility goals and responsibilities.",
-				"Accessibility is considered during design, development, and content updates.",
+			blocks: [
+				{
+					type: "paragraph",
+					text: "Mary Molloy Solicitor takes the following measures to ensure accessibility of this website:",
+				},
+				{
+					type: "list",
+					items: [
+						"Assign clear accessibility goals and responsibilities.",
+						"Accessibility is considered during design, development, and content updates.",
+					],
+				},
 			],
 		},
 		{
@@ -37,51 +47,94 @@ export const accessibilityPageContent = {
 		},
 		{
 			heading: "Known limitations",
-			body: "The following minor issues have been identified via automated audit (WAVE, April 2026). None represent barriers to access — all are informational alerts rather than errors.",
-			list: [
-				"Intro animation text — the firm name displayed during the page loading animation is styled to appear large but is marked as a paragraph element rather than a heading. This element is hidden from screen readers via aria-hidden=\"true\" and is not perceivable by assistive technologies.",
-				'Logo and "Home" navigation link — the site logo and the "Home" link in the navigation bar both link to the homepage. Each has a distinct accessible label ("Mary Molloy Solicitor — home" and "Home" respectively), so screen reader users hear different labels for each link. This is the standard pattern used by accessible sites.',
-				"Phone number links — the phone number appears in both the desktop navigation bar and the mobile navigation (which is visually hidden on desktop). Both instances link to the same tel: URL. The desktop link has a distinct aria-label; the mobile link is not perceivable when hidden.",
+			blocks: [
+				{
+					type: "paragraph",
+					text: "The following minor issues have been identified via automated audit (WAVE, April 2026). None represent barriers to access — all are informational alerts rather than errors.",
+				},
+				{
+					type: "list",
+					items: [
+						"Intro animation text — the firm name displayed during the page loading animation is styled to appear large but is marked as a paragraph element rather than a heading. This element is hidden from screen readers via aria-hidden=\"true\" and is not perceivable by assistive technologies.",
+						'Logo and "Home" navigation link — the site logo and the "Home" link in the navigation bar both link to the homepage. Each has a distinct accessible label ("Mary Molloy Solicitor — home" and "Home" respectively), so screen reader users hear different labels for each link. This is the standard pattern used by accessible sites.',
+						"Phone number links — the phone number appears in both the desktop navigation bar and the mobile navigation (which is visually hidden on desktop). Both instances link to the same tel: URL. The desktop link has a distinct aria-label; the mobile link is not perceivable when hidden.",
+					],
+				},
 			],
 		},
 		{
 			heading: "Feedback",
-			body: "We welcome your feedback on the accessibility of this website. Please let us know if you encounter accessibility barriers:",
-			list: [
-				"Phone: +353 56 7765829",
-				"Visitor address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
-				"Postal address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
-				'You may also submit accessibility feedback through our website contact form by selecting "General enquiry" and describing the accessibility issue.',
+			blocks: [
+				{
+					type: "paragraph",
+					text: "We welcome your feedback on the accessibility of this website. Please let us know if you encounter accessibility barriers:",
+				},
+				{
+					type: "list",
+					items: [
+						"Phone: +353 56 7765829",
+						"Visitor address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
+						"Postal address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
+						'You may also submit accessibility feedback through our website contact form by selecting "General enquiry" and describing the accessibility issue.',
+					],
+				},
+				{
+					type: "paragraph",
+					text: "We aim to respond to accessibility feedback within 5 business days.",
+				},
 			],
-			footer: "We aim to respond to accessibility feedback within 5 business days.",
 		},
 		{
 			heading: "Compatibility with browsers and assistive technology",
-			body: "This website is designed to be compatible with the following assistive technologies:",
-			list: [
-				"Modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers such as NVDA, VoiceOver, or JAWS on current operating systems.",
+			blocks: [
+				{
+					type: "paragraph",
+					text: "This website is designed to be compatible with the following assistive technologies:",
+				},
+				{
+					type: "list",
+					items: [
+						"Modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers such as NVDA, VoiceOver, or JAWS on current operating systems.",
+					],
+				},
+				{ type: "paragraph", text: "This website is not compatible with:" },
+				{ type: "list", items: ["Browsers older than 3 major versions."] },
 			],
-			afterListBody: "This website is not compatible with:",
-			afterListItems: ["Browsers older than 3 major versions."],
 		},
 		{
 			heading: "Technical specifications",
-			body: "Accessibility of this website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:",
-			list: ["HTML", "WAI-ARIA", "CSS", "JavaScript"],
-			footer: "These technologies are relied upon for conformance with the accessibility standards used.",
+			blocks: [
+				{
+					type: "paragraph",
+					text: "Accessibility of this website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:",
+				},
+				{
+					type: "list",
+					items: ["HTML", "WAI-ARIA", "CSS", "JavaScript"],
+				},
+				{
+					type: "paragraph",
+					text: "These technologies are relied upon for conformance with the accessibility standards used.",
+				},
+			],
 		},
 		{
 			heading: "Assessment approach",
-			body: "Mary Molloy Solicitor assessed the accessibility of this website by the following approaches:",
-			list: ["Self-evaluation"],
+			blocks: [
+				{
+					type: "paragraph",
+					text: "Mary Molloy Solicitor assessed the accessibility of this website by the following approaches:",
+				},
+				{ type: "list", items: ["Self-evaluation"] },
+			],
 		},
 		{
 			heading: "Formal complaints",
 			body: "If you are not satisfied with our response, you may contact us using the details above and we will review your concerns.",
 		},
 	],
-	createdNote:
+	footerNote:
 		"This statement was created on 10 February 2026 using the W3C Accessibility Statement Generator Tool.",
-} as const;
+} as const satisfies LegalPageContent;
 
 export type AccessibilityPageContent = typeof accessibilityPageContent;

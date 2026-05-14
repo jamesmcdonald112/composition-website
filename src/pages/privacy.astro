@@ -1,23 +1,23 @@
 ---
-import { privacyPageContent } from "../config/legal/privacy";
+import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
 import { firm } from "../config/firm";
+import { privacyPageContent } from "../config/legal/privacy";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { seo, title, intro, sections, reviewDate } = privacyPageContent;
 ---
 
 <BaseLayout
-	title={`${privacyPageContent.title} | ${firm.companyName}`}
-	description={privacyPageContent.description}
-	canonicalPath="/privacy"
-	pageId="policy"
-/>
-
-<style is:global>
-	/* Make <body> a flex column so the Cookiebot banner (order: 999 in
-	   cookiebot.css) lands at the very bottom of the page, below the footer.
-	   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18. */
-	body[data-page="policy"] {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-</style>
+	title={`${seo.title} | ${firm.companyName}`}
+	description={seo.description}
+	canonicalPath={seo.canonicalPath}
+	pageId="cookiebot-inline"
+	solidNav={true}
+>
+	<LegalPageContent
+		title={title}
+		intro={intro}
+		sections={sections}
+		reviewDate={reviewDate}
+	/>
+</BaseLayout>

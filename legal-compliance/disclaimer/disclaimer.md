@@ -108,7 +108,7 @@ This disclaimer, your use of this site, and any dispute arising out of or in con
 
 ## 10. Contact
 
-If you have any question about this disclaimer, please contact the firm at the address on the [contact page](/contact), or by email to the address shown there.
+If you have any question about this disclaimer, please contact the firm at the address on the [contact page](/contact), or by email to michelle@marymolloysolicitor.ie.
 
 ---
 

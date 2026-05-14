@@ -56,7 +56,17 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
   ─────────────────────────────────────────────────────────────────────────────
 */
-body[data-page="policy"] #CybotCookiebotDialog {
+
+/* Make <body> a flex column so the Cookiebot banner (order: 1 below) and the
+   footer (order: 2 below) lay out in document order at the bottom of the
+   page. Without flex on the body, the `order` rules below have no effect. */
+body[data-page="cookiebot-inline"] {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+body[data-page="cookiebot-inline"] #CybotCookiebotDialog {
 	position: static !important;
 	inset: auto !important;
 	width: 100% !important;
@@ -69,10 +79,10 @@ body[data-page="policy"] #CybotCookiebotDialog {
 	order: 1;
 }
 
-body[data-page="policy"] > footer {
+body[data-page="cookiebot-inline"] > footer {
 	order: 2;
 }
 
-body[data-page="policy"] #CybotCookiebotDialogBodyUnderlay {
+body[data-page="cookiebot-inline"] #CybotCookiebotDialogBodyUnderlay {
 	display: none !important;
 }

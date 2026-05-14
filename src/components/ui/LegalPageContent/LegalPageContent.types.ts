@@ -1,29 +1,21 @@
 // Shared types for the LegalPageContent component and the legal-page configs
 // that feed into it (e.g. accessibility, complaints, privacy, disclaimer).
 //
-// Why this file exists:
-//   The LegalPageContent component renders a small set of structured fields
-//   (title, intro, list of sections, etc.). Every legal-page config in
-//   src/config/legal/ must produce data in that exact shape. Defining the
-//   shape here once means every config can declare itself with
-//   `: LegalPageContent` to get autocomplete + typo-checking in the editor.
-//
-// How to use it in a new legal-page config:
-//   import type { LegalPageContent } from "../../components/ui/LegalPageContent/LegalPageContent.types";
-//
-//   export const myLegalPageContent: LegalPageContent = {
-//     seo: { title: "...", description: "...", canonicalPath: "..." },
-//     title: "...",
-//     sections: [...],
-//   };
+// Section content model:
+//   Each section has a heading plus its body content. For simple sections
+//   that are just one paragraph, use the `body: string` shorthand. For
+//   anything richer (mixed paragraphs and lists, in any order), use
+//   `blocks: Block[]` — an ordered array of typed blocks. Only one of
+//   `body` / `blocks` should be set per section.
+
+export type LegalPageBlock =
+	| { type: "paragraph"; text: string }
+	| { type: "list"; items: readonly string[] };
 
 export interface LegalPageSection {
 	heading: string;
 	body?: string;
-	list?: readonly string[];
-	footer?: string;
-	afterListBody?: string;
-	afterListItems?: readonly string[];
+	blocks?: readonly LegalPageBlock[];
 }
 
 export interface LegalPageContent {
@@ -33,7 +25,7 @@ export interface LegalPageContent {
 		canonicalPath: string;
 	};
 	title: string;
-	intro?: string;
+	intro?: string | readonly string[];
 	sections: readonly LegalPageSection[];
 	reviewDate?: string;
 	footerNote?: string;

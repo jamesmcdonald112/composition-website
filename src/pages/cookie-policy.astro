@@ -11,7 +11,7 @@ const { seo } = cookiePolicyPageContent;
 	description={seo.description}
 	canonicalPath={seo.canonicalPath}
 	solidNav={true}
-	pageId="policy"
+	pageId="cookiebot-inline"
 >
 	<section class="cookie-policy">
 		<div class="cookie-policy__inner wrapper wrapper--wide">
@@ -29,17 +29,6 @@ const { seo } = cookiePolicyPageContent;
 		</div>
 	</section>
 </BaseLayout>
-
-<style is:global>
-	/* Make <body> a flex column so the Cookiebot banner (order: 999 in
-	   cookiebot.css) lands at the very bottom of the page, below the footer.
-	   See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18. */
-	body[data-page="policy"] {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-</style>
 
 <style>
 	.cookie-policy {
