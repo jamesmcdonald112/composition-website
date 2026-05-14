@@ -1,6 +1,5 @@
 import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
 import image from "../../assets/images/new/person-signing-document-at-desk.webp";
-import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -77,8 +76,7 @@ export const employmentLaw = {
 			"Irish employment law sits across a defined body of statutes and is administered primarily through the Workplace Relations Commission. Knowing which statute applies, what the threshold tests are, and how the WRC process works makes the route from issue to resolution clearer. The article below sets that framework out in plain English.",
 		quote: {
 			text: "Employment law has tighter deadlines than most people expect. The WRC's six-month rule is one of the most common reasons that otherwise good claims cannot be pursued — and it runs from the date of the act complained of, not from the end of any internal grievance process.",
-			attribution: "Nicholas O'Shea, Solicitor",
-			image: nicholasImage,
+			solicitor: solicitors.nicholas,
 		},
 		blocks: [
 			{

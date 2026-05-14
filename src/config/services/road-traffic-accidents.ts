@@ -1,6 +1,5 @@
 import truckIcon from "../../assets/icons/truckIcon.svg?raw";
 import image from "../../assets/images/new/aerial-view-of-country-road.webp";
-import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -76,8 +75,7 @@ export const roadTrafficAccidents = {
 			"A road traffic accident claim in Ireland follows a defined legal process. Knowing what each stage involves, what evidence is needed, and how the Personal Injuries Assessment Board (PIAB) fits in makes the route from accident to resolution clearer. The article below sets that process out in plain English.",
 		quote: {
 			text: "Insurance companies deal with claims every day — most people don't. Getting legal advice early means the process is explained properly from the start, and any offer can be assessed against what the law actually allows.",
-			attribution: "Nicholas O'Shea, Solicitor",
-			image: nicholasImage,
+			solicitor: solicitors.nicholas,
 		},
 		blocks: [
 			{

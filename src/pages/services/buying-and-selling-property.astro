@@ -53,14 +53,5 @@ const { solicitor, reviewDate } = service.attribution;
 	<CTAPanel heading={service.cta.title} body={service.cta.description} />
 	<TestimonialBlock />
 	<RelatedServices currentHref={service.href} />
-	<AttributionBlock
-		name={solicitor.name}
-		role={solicitor.role}
-		credentials={solicitor.credentials}
-		university={solicitor.university}
-		admissionYear={solicitor.admissionYear}
-		specialism={solicitor.specialism}
-		reviewDate={reviewDate}
-		photo={solicitor.photo}
-	/>
+	<AttributionBlock solicitor={solicitor} reviewDate={reviewDate} />
 </BaseLayout>

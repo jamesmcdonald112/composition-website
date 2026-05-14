@@ -1,24 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AttributionBlock from "../../components/ui/AttributionBlock/AttributionBlock.astro";
-import maryPhoto from "../../assets/team/maryFull.webp";
-import nicholasPhoto from "../../assets/team/nicholas.webp";
+import { solicitors } from "../../config/team";
 
-const mary = {
-	name: "Mary Molloy",
-	role: "Principal Solicitor",
-	credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland",
-	reviewDate: "April 2026",
-	photo: maryPhoto,
-};
-
-const nicholas = {
-	name: "Nicholas O'Shea",
-	role: "Solicitor",
-	credentials: "Admitted to the Roll of Solicitors, Law Society of Ireland",
-	reviewDate: "April 2026",
-	photo: nicholasPhoto,
-};
+const reviewDate = "April 2026";
 ---
 
 <BaseLayout title="Attribution Block Variants" description="Dev preview">
@@ -27,10 +12,10 @@ const nicholas = {
 
 			<h1 class="dev-page__heading">Attribution Block</h1>
 			<p class="dev-page__label">Mary Molloy (Principal)</p>
-			<AttributionBlock {...mary} />
+			<AttributionBlock solicitor={solicitors.mary} reviewDate={reviewDate} />
 
 			<p class="dev-page__label dev-page__label--spaced">Nicholas O'Shea (Solicitor)</p>
-			<AttributionBlock {...nicholas} />
+			<AttributionBlock solicitor={solicitors.nicholas} reviewDate={reviewDate} />
 
 		</div>
 	</div>

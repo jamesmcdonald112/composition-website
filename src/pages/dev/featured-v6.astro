@@ -10,6 +10,8 @@ import signingImage from "../../assets/images/new/person-signing-document-at-des
 const { featuredService } = homePageContent;
 const { aside } = featuredService;
 const stats = homePageContent.trustStrip.stats;
+const quoteAttribution = `${svc.article.quote.solicitor.name}, ${svc.article.quote.solicitor.role}`;
+const quoteImage = svc.article.quote.solicitor.photo;
 ---
 
 <BaseLayout title="Featured V6 — Card Variants" description="Dev — 20 featured-card layout explorations" canonicalPath="/dev/featured-v6">
@@ -124,7 +126,7 @@ const stats = homePageContent.trustStrip.stats;
 			<div class="v4__text">
 				<p class="eyebrow">{featuredService.eyebrow}</p>
 				<p class="v4__pull">&ldquo;{svc.article.quote.text}&rdquo;</p>
-				<p class="v4__attr">— {svc.article.quote.attribution}</p>
+				<p class="v4__attr">— {quoteAttribution}</p>
 				<a href={svc.href} class="btn-primary">Our property service</a>
 			</div>
 			<div class="v4__card">
@@ -291,7 +293,7 @@ const stats = homePageContent.trustStrip.stats;
 				<h2 class="v9__heading">{featuredService.card.title}</h2>
 				<blockquote class="v9__quote">
 					<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
-					<cite>{svc.article.quote.attribution}</cite>
+					<cite>{quoteAttribution}</cite>
 				</blockquote>
 				<div class="v9__kps">
 					{aside.keyPoints.slice(0,2).map(kp => (
@@ -424,11 +426,11 @@ const stats = homePageContent.trustStrip.stats;
 				<p class="body">{aside.intro}</p>
 				<figure class="v13__quote-fig">
 					<div class="v13__quote-img">
-						<Image src={svc.article.quote.image} alt="" width={80} height={80} class="v13__avatar" />
+						<Image src={quoteImage} alt="" width={80} height={80} class="v13__avatar" />
 					</div>
 					<blockquote class="v13__quote">
 						<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
-						<cite>{svc.article.quote.attribution}</cite>
+						<cite>{quoteAttribution}</cite>
 					</blockquote>
 				</figure>
 				<a href={svc.href} class="btn-primary">Our property service</a>
@@ -638,7 +640,7 @@ const stats = homePageContent.trustStrip.stats;
 				<p class="body">{svc.article.intro}</p>
 				<blockquote class="v19__quote">
 					<p>&ldquo;{svc.article.quote.text}&rdquo;</p>
-					<cite>{svc.article.quote.attribution}</cite>
+					<cite>{quoteAttribution}</cite>
 				</blockquote>
 				<a href={svc.href} class="btn-primary">Read the full guide</a>
 			</div>

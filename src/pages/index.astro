@@ -59,15 +59,6 @@ const { solicitor, reviewDate } = attribution;
 
 	<TestimonialBlock />
 	<TeamSection />
-	<AttributionBlock
-		name={solicitor.name}
-		role={solicitor.role}
-		credentials={solicitor.credentials}
-		university={solicitor.university}
-		admissionYear={solicitor.admissionYear}
-		specialism={solicitor.specialism}
-		reviewDate={reviewDate}
-		photo={solicitor.photo}
-	/>
+	<AttributionBlock solicitor={solicitor} reviewDate={reviewDate} />
 	<CTAPanel />
 </BaseLayout>

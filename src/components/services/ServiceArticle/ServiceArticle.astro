@@ -1,9 +1,9 @@
 ---
-import type { ImageMetadata } from "astro";
 import ArticleQuote from "./ArticleQuote/ArticleQuote.astro";
 import BlockList from "./BlockList/BlockList.astro";
 import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
 import type { Heading } from "../../../types/heading";
+import type { Solicitor } from "../../../config/team";
 
 type Block =
 	| { type: "heading"; text: string }
@@ -12,8 +12,7 @@ type Block =
 
 interface Quote {
 	readonly text: string;
-	readonly attribution: string;
-	readonly image: ImageMetadata;
+	readonly solicitor: Solicitor;
 }
 
 interface Props {
@@ -43,7 +42,7 @@ const { eyebrow, title, intro, quote, blocks } = Astro.props;
 
 			<!-- Quote — mobile only (hidden on desktop) -->
 			<div class="service-article__quote-mobile">
-				<ArticleQuote text={quote.text} attribution={quote.attribution} image={quote.image} />
+				<ArticleQuote text={quote.text} solicitor={quote.solicitor} />
 			</div>
 
 			<BlockList blocks={blocks} />
@@ -51,7 +50,7 @@ const { eyebrow, title, intro, quote, blocks } = Astro.props;
 
 		<!-- Right: sticky pull-quote — desktop only -->
 		<aside class="service-article__quote-col">
-			<ArticleQuote text={quote.text} attribution={quote.attribution} image={quote.image} />
+			<ArticleQuote text={quote.text} solicitor={quote.solicitor} />
 		</aside>
 	</div>
 </section>

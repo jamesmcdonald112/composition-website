@@ -1,6 +1,5 @@
 import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
 import image from "../../assets/images/new/calculator-and-finances.webp";
-import richardImage from "../../assets/team/richard.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -74,8 +73,7 @@ export const debtCollection = {
 			"Debt recovery in Ireland follows a defined legal process — a formal solicitor's letter of demand, court proceedings in the appropriate court if the debt remains unpaid, and enforcement of any judgment obtained. Knowing how the process is structured, what the court jurisdictions are, and what enforcement options apply makes the route from unpaid debt to recovery clearer. The article below sets that framework out in plain English.",
 		quote: {
 			text: "No two debtor situations are the same. Some debts are recoverable in days, some take years, and some cannot be recovered at all once the debtor's circumstances are properly understood. Knowing which is which early is what saves time and money.",
-			attribution: "Richard O'Shea, Solicitor",
-			image: richardImage,
+			solicitor: solicitors.richard,
 		},
 		blocks: [
 			{

@@ -4,43 +4,31 @@ import maryPhoto from "../assets/team/mary.webp";
 import nicholasPhoto from "../assets/team/nicholas.webp";
 import richardPhoto from "../assets/team/richard.webp";
 import { firm, yearsInPractice } from "./firm";
-// ── Solicitor credential records ──────────────────────────────────────────────
-// Used by AttributionBlock on every page. Fill in university and admissionYear
-// once confirmed with Mary — placeholders marked with TODO.
 
 export const solicitors = {
 	mary: {
 		name: "Mary Molloy",
 		role: "Principal Solicitor",
 		photo: maryPhoto,
-		degree: "LLB", // TODO: confirm university name
-		university: "TODO: University name",
-		admissionYear: "TODO: Year",
+		university: "University College Dublin",
 		credentials:
-			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
-		specialism: "Property, wills and probate, and private client matters",
+			"Admitted to the Roll of Solicitors 1980, Law Society of Ireland",
 	},
 	nicholas: {
 		name: "Nicholas O'Shea",
 		role: "Solicitor",
 		photo: nicholasPhoto,
-		degree: "LLB", // TODO: confirm university name
 		university: "TODO: University name",
-		admissionYear: "TODO: Year",
 		credentials:
-			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
-		specialism: "Property, conveyancing, and private client matters",
+			"Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
 	},
 	richard: {
 		name: "Richard O'Shea",
 		role: "Solicitor",
 		photo: richardPhoto,
-		degree: "LLB", // TODO: confirm university name
 		university: "TODO: University name",
-		admissionYear: "TODO: Year",
 		credentials:
-			"LLB, Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add university + year once confirmed
-		specialism: "Property, conveyancing, and probate matters",
+			"Admitted to the Roll of Solicitors, Law Society of Ireland", // TODO: add admission year once confirmed
 	},
 } as const;
 
@@ -62,13 +50,13 @@ export const teamSectionContent = {
 		{
 			name: solicitors.nicholas.name,
 			role: solicitors.nicholas.role,
-			bio: "Nicholas advises clients on property and private client matters at the firm, including conveyancing, wills and probate, and family law.",
+			bio: "Nicholas advises clients on property and private client matters at the firm, including conveyancing, wills and probate, and personal injury claims.",
 			photo: nicholasPhoto,
 		},
 		{
 			name: solicitors.richard.name,
 			role: solicitors.richard.role,
-			bio: "Richard advises clients on buying and selling property, conveyancing, and probate matters at the firm.",
+			bio: "Richard O’Shea has extensive experience in Family Law, Litigation and Employment Law, providing clear, practical legal advice and representation.",
 			photo: richardPhoto,
 		},
 		// Duke removed from the team page on the firm's request (2026-05-05).

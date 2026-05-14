@@ -1,6 +1,5 @@
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import image from "../../assets/images/new/hands-holding-family-figurines.webp";
-import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -29,7 +28,7 @@ export const familyAndChildcareLaw = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Family law in Ireland covers separation, divorce, the rights of cohabitants, guardianship and access to children, maintenance, pensions, the family home, and childcare proceedings brought by Tusla. We advise clients on each of these areas, with the welfare of children as the legal touchstone where children are involved.",
+			"Family law in Ireland covers separation, divorce, the rights of cohabitants, guardianship and access to children, maintenance, pensions, the family home, and childcare proceedings brought by Tusla. We advise clients on each of these areas, with the welfare and best interest of the children at the centre of all matters involving children.",
 	},
 	// --- Mid-page CTA ---
 	midCta: ["Family law matters, handled with care.", "Get in touch when you're ready."],
@@ -73,9 +72,8 @@ export const familyAndChildcareLaw = {
 		intro:
 			"Family law in Ireland covers a defined set of areas — separation and divorce, the financial issues that arise from a relationship breakdown, guardianship and access to children, the rights of cohabitants, and childcare proceedings brought by Tusla. Knowing which area applies, what the statute says, and what the procedural route looks like makes the path through a family matter clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "Family law sits across a lot of separate areas — separation, divorce, children, finances, the family home, pensions. The first job in any matter is usually to work out which areas are actually in play, and which statute governs each one.",
-			attribution: "Nicholas O'Shea, Solicitor",
-			image: nicholasImage,
+			text: "We understand that family law matters are often difficult and deeply personal. Our role is to identify the issues involved and guide you to the most appropriate legal position, and guide you through this important life transition with clarity, care and support",
+			solicitor: solicitors.richard,
 		},
 		blocks: [
 			{

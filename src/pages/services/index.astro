@@ -46,16 +46,7 @@ const { solicitor, reviewDate } = servicesIndexContent.attribution;
 		heading={servicesIndexContent.cta.title}
 		body={servicesIndexContent.cta.body}
 	/>
-	<AttributionBlock
-		name={solicitor.name}
-		role={solicitor.role}
-		credentials={solicitor.credentials}
-		university={solicitor.university}
-		admissionYear={solicitor.admissionYear}
-		specialism={solicitor.specialism}
-		reviewDate={reviewDate}
-		photo={solicitor.photo}
-	/>
+	<AttributionBlock solicitor={solicitor} reviewDate={reviewDate} />
 </BaseLayout>
 
 <style>
