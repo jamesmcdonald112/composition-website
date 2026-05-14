@@ -15,7 +15,7 @@ export const aboutPageContent = {
 			{ text: `since ${firm.established}`, em: true },
 		],
 		subtitle:
-			`Many of our clients are people we've known for years. Some we've helped through more than one chapter of their lives. That's been true since ${firm.established}, and it still matters to us.`,
+			`Since ${firm.established}, we’ve helped our client’s through many of life’s important chapters and legal challenges, building trusted relationships that continue with both longstanding and new clients alike.`,
 		image: aboutImage,
 		imageAlt: "Kilkenny Castle and the River Nore, Kilkenny City",
 	},

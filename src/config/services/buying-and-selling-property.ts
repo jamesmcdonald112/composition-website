@@ -1,6 +1,5 @@
 import homeModernIcon from "../../assets/icons/homeModernIcon.svg?raw";
 import image from "../../assets/images/new/house-key-and-figurine.webp";
-import maryImage from "../../assets/team/mary.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -47,7 +46,6 @@ export const buyingAndSellingProperty = {
 		title: [
 			{ text: "Practical " },
 			{ text: "conveyancing advice", em: true },
-			{ text: " in Kilkenny" },
 		],
 		paragraphs: [
 			"Conveyancing in Ireland is governed by a defined body of statute and procedure — the Land and Conveyancing Law Reform Act 2009, the Registration of Title Act 1964 (under which the Property Registration Authority maintains the Register of Titles), the Stamp Duties Consolidation Act 1999, and the planning and building control framework. We advise buyers and sellers in Kilkenny on each stage of the conveyancing process.",
@@ -73,9 +71,8 @@ export const buyingAndSellingProperty = {
 		intro:
 			"Conveyancing is the legal process of transferring ownership of property in Ireland. It involves contract review, investigation of title at the Property Registration Authority, planning and building control checks, dealings with mortgage lenders, payment of stamp duty under the Stamp Duties Consolidation Act 1999, and registration of ownership. The article below sets that framework out in plain English — first for buyers, then for sellers, with a note for first-time buyers and a checklist of what to have ready before instructing a solicitor.",
 		quote: {
-			text: "Most conveyancing problems show up in the contract or the title — not on the day of completion. The earlier the issues are identified, the more options there are to resolve them properly.",
-			attribution: "Mary Molloy, Principal Solicitor",
-			image: maryImage,
+			text: "We recognise that buying or selling a property is a significant and major milestone. Our role is to guide you through a smooth and efficient property transaction, ensuring that any issues are identified and resolved at the earliest opportunity.",
+			solicitor: solicitors.mary,
 		},
 		blocks: [
 			{
@@ -88,7 +85,7 @@ export const buyingAndSellingProperty = {
 			},
 			{
 				type: "paragraph" as const,
-				text: "Where the purchase involves a mortgage, we also act for the lender — reviewing the loan offer, confirming the property meets the lender's requirements, and managing the drawdown of funds. We handle stamp duty, registration with the Property Registration Authority, and the post-completion steps so that ownership is properly recorded and the title is in order.",
+				text: "Where the purchase involves a mortgage, we review the loan offer, confirming the property meets the lender's requirements, and manage the drawdown of funds. We handle stamp duty, registration with the Property Registration Authority, and the post-completion steps so that ownership is properly recorded and the title is in order.",
 			},
 			{
 				type: "list" as const,
@@ -144,7 +141,7 @@ export const buyingAndSellingProperty = {
 					},
 					{
 						label: "Mortgage discharge",
-						text: "Where the property is mortgaged, we obtain a redemption figure, arrange for the mortgage to be paid off on completion, and ensure the title deeds are released to the buyer's solicitor.",
+						text: "Where the property is mortgaged, we first obtain the Title deeds from your lending institution to draft contracts together with the redemption figure, we then arrange for the mortgage to be paid off on completion.",
 					},
 					{
 						label: "Completion and closing",

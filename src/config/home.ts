@@ -16,8 +16,7 @@ export const homePageContent = {
 		titleEmphasis: "Buying & Selling",
 		// TODO: Update subtitle once fee structure is confirmed with Mary.
 		// If fixed-fee conveyancing is offered, add a line here.
-		subtitle:
-			`Conveyancing matters handled in Kilkenny since ${firm.established} — alongside wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.`,
+		subtitle: `Conveyancing matters handled in Kilkenny since ${firm.established} — alongside extensive knowledge in wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.`,
 		ctas: {
 			primary: { label: "Our services", href: "/services" },
 			secondary: { label: "Get in touch", href: "/contact" },
@@ -38,7 +37,10 @@ export const homePageContent = {
 				"Stamp duty calculated and filed with Revenue",
 				"Ownership registered after completion",
 			],
-			cta: { label: "More on conveyancing", href: "/services/buying-and-selling-property" },
+			cta: {
+				label: "More on conveyancing",
+				href: "/services/buying-and-selling-property",
+			},
 			icon: homeModernIcon,
 			image: propertyImage,
 		},
@@ -53,11 +55,11 @@ export const homePageContent = {
 				},
 				{
 					heading: "Title investigated against the PRA",
-					body: "We investigate the title at the Property Registration Authority — confirming the seller's ownership, identifying any judgment mortgages or registered burdens, and checking that the boundaries match the ground.",
+					body: "We investigate the title and confirm it is a legally marketable title and registered with the Property Registration Authority — confirming the seller's ownership, identifying any judgment mortgages or registered burdens, and checking that the boundaries match the ground.",
 				},
 				{
 					heading: "Lender and stamp-duty work handled",
-					body: "We act for the lender on a mortgage transaction, manage the drawdown of funds in time for completion, and calculate and file the stamp duty return with the Revenue Commissioners.",
+					body: "We act for the borrower on a mortgage transaction, manage the drawdown of funds in time for completion, and calculate and file the stamp duty return with the Revenue Commissioners.",
 				},
 				{
 					heading: "Costs discussed at the outset",
@@ -70,7 +72,11 @@ export const homePageContent = {
 
 	supportingServices: {
 		eyebrow: "Other services",
-		title: [{ text: "Other " }, { text: "practice areas", em: true }, { text: " at the firm" }],
+		title: [
+			{ text: "Other " },
+			{ text: "practice areas", em: true },
+			{ text: " at the firm" },
+		],
 		intro:
 			"Beyond conveyancing, the firm advises on wills and probate, family and childcare law, personal injury and litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery — for clients across Kilkenny and the surrounding counties.",
 	},

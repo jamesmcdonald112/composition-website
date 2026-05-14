@@ -1,6 +1,5 @@
 import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
 import image from "../../assets/images/new/lady-justice-and-gavel-on-desk.webp";
-import richardImage from "../../assets/team/richard.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -74,9 +73,8 @@ export const personalInjuryLitigation = {
 		intro:
 			"Personal injury law in Ireland gives those harmed through the negligence of another person or organisation a route to seek compensation through the Personal Injuries Assessment Board (PIAB) and, where necessary, the courts. Knowing what is recoverable, how the PIAB process works, and what the procedural rules require at each stage makes the route from accident to resolution clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "Some claims should be pursued; some shouldn't. Working out which is which is the most important thing we do at the start.",
-			attribution: "Richard O'Shea, Solicitor",
-			image: richardImage,
+			text: "Suffering an injury can have a significant impact on every aspect of a persons life. Our role is to asses each case carefully and honestly, advising clients on the avenues available to them where they have suffered injury as a result of a third parties negligence.",
+			solicitor: solicitors.richard,
 		},
 		blocks: [
 			{

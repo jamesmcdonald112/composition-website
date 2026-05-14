@@ -1,6 +1,5 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import image from "../../assets/images/new/envelope-with-wax-seal.webp";
-import maryImage from "../../assets/team/mary.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -32,7 +31,10 @@ export const willsAndEstateAdministration = {
 			"We advise on the making of wills and the administration of estates following bereavement — including applications for grants of probate or letters of administration to the Probate Office of the High Court.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Wills and probate, handled with care.", "Get in touch when you're ready."],
+	midCta: [
+		"Wills and probate, handled with care.",
+		"Get in touch when you're ready.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -73,9 +75,8 @@ export const willsAndEstateAdministration = {
 		intro:
 			"Irish law on wills and estates sits across a defined body of statute — primarily the Succession Act 1965 (the rules on wills and intestacy) and the Capital Acquisitions Tax Consolidation Act 2003 (the tax position of inheritances). Knowing how a valid will is made, how an estate is administered after a bereavement, and how the tax rules apply makes the practical position clearer. The article below sets that framework out in plain English.",
 		quote: {
-			text: "A will is a precise legal document. The execution formalities under the Succession Act 1965 are strict — and a will that doesn't meet them is no will at all. The point of taking advice early is to make sure each clause does what it is meant to, and that the document will hold up when it has to.",
-			attribution: "Mary Molloy, Principal Solicitor",
-			image: maryImage,
+			text: "A Will is a precise legal document. The execution formalities under the Succession Act 1965 are strict. If a Will does not meet these legal requirements, it may be deemed invalid. Taking legal advice early is to make sure each clause achieves its intended purposes, and that your estate will be administered in accordance with your intentions when the time comes.",
+			solicitor: solicitors.mary,
 		},
 		blocks: [
 			{
@@ -99,7 +100,7 @@ export const willsAndEstateAdministration = {
 					},
 					{
 						label: "Appointment of executor",
-						text: "The executor is the person responsible for administering the estate after death — gathering assets, paying debts, and distributing what remains. Choosing the right person and confirming they are willing to act is an important part of making a will.",
+						text: "The executor is the person responsible for administering the estate after death — gathering assets, paying debts, and distributing the remaining assets. Choosing the right person and confirming they are willing to act is an important part of making a will.",
 					},
 					{
 						label: "Guardianship of children",
@@ -136,7 +137,7 @@ export const willsAndEstateAdministration = {
 					},
 					{
 						label: "Capital Acquisitions Tax",
-						text: "Inheritances above certain thresholds are subject to Capital Acquisitions Tax (CAT). The tax-free threshold depends on the relationship between the deceased and the beneficiary — Group A applies to children, Group B to other close relatives, and Group C to all others. Both the rate and the thresholds are set by Finance Act and updated periodically, so the figures applying in any specific case are confirmed at the time the inheritance is taxable. Reliefs such as agricultural relief and business relief may also apply. We advise on the CAT position of the estate and of each beneficiary and ensure the correct returns are filed with Revenue.",
+						text: "Inheritances above certain thresholds are subject to Capital Acquisitions Tax (CAT). The tax-free threshold depends on the relationship between the deceased and the beneficiary — Group A applies to children, Group B to other close relatives, and Group C to all others. Both the rate and the thresholds are set by Finance Act and updated periodically, so the figures applying in any specific case are confirmed at the time the inheritance is taxable. Reliefs such as agricultural relief and business relief may also apply. We draw to your attention the CAT position of the estate and of each beneficiary and ensure you are aware of the necessary returns to be filed with Revenue.",
 					},
 					{
 						label: "Insolvent estates",
@@ -193,7 +194,8 @@ export const willsAndEstateAdministration = {
 				"The timeline for obtaining a grant of probate depends on the complexity of the estate, the speed at which the required documentation can be gathered, and the current workload at the Probate Office. For a straightforward estate where the necessary information is readily available, the process commonly takes between four and six months from the date of instruction. More complex estates — those involving property, business interests, foreign assets, or disputes between beneficiaries — can take considerably longer.",
 		},
 		{
-			question: "What is the legal right share of a surviving spouse or civil partner?",
+			question:
+				"What is the legal right share of a surviving spouse or civil partner?",
 			answer:
 				"Under the Succession Act 1965, a surviving spouse or civil partner has a legal right share of the deceased's estate that cannot be removed by will. The legal right share is one half of the estate where the deceased left no children, and one third where the deceased left children. The surviving spouse or civil partner must elect to take the legal right share within six months of the grant of probate, or within one year of the deceased's death (whichever is later). We advise executors and beneficiaries on how the legal right share affects the administration of the estate.",
 		},
@@ -205,7 +207,7 @@ export const willsAndEstateAdministration = {
 		{
 			question: "What is Capital Acquisitions Tax and when does it apply?",
 			answer:
-				"Capital Acquisitions Tax (CAT) is the tax on gifts and inheritances in Ireland, governed by the Capital Acquisitions Tax Consolidation Act 2003. The tax applies to inheritances above the relevant tax-free threshold. The threshold depends on the relationship between the deceased (or donor) and the beneficiary — Group A applies to children, Group B to other close relatives such as siblings and nieces/nephews, and Group C to all others. Both the rate and the thresholds are set by Finance Act and are updated periodically, so the figures applying in any specific case are confirmed at the time the inheritance is taxable. Reliefs such as agricultural relief and business relief may also reduce the CAT position. We advise on the tax position of the estate and of each beneficiary.",
+				"Capital Acquisitions Tax (CAT) is the tax on gifts and inheritances in Ireland, governed by the Capital Acquisitions Tax Consolidation Act 2003. The tax applies to inheritances above the relevant tax-free threshold. The threshold depends on the relationship between the deceased (or donor) and the beneficiary — Group A applies to children, Group B to other close relatives such as siblings and nieces/nephews, and Group C to all others. Both the rate and the thresholds are set by Finance Act and are updated periodically, so the figures applying in any specific case are confirmed at the time the inheritance is taxable. Reliefs such as agricultural relief and business relief may also reduce the CAT position. We draw to your attention the CAT position of the estate and of each beneficiary and ensure you are aware of the necessary returns to be filed with Revenue.",
 		},
 	],
 	attribution: {
