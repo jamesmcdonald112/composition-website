@@ -1,6 +1,5 @@
 import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
 import image from "../../assets/images/new/house-key-on-wooden-table.webp";
-import richardImage from "../../assets/team/richard.webp";
 import { firm, yearsInPractice } from "../firm";
 import { solicitors } from "../team";
 
@@ -29,10 +28,13 @@ export const leasesAndTenancyAgreements = {
 			{ text: " in Kilkenny" },
 		],
 		subtitle:
-			"Residential and commercial tenancies in Ireland are governed by the Residential Tenancies Acts 2004 to 2024 and the Landlord and Tenant Acts 1967 to 2022. We advise landlords and tenants in Kilkenny and the surrounding counties on lease drafting, rights and obligations under those statutes, and Residential Tenancies Board proceedings.",
+			"Residential and commercial tenancies in Ireland are governed by the Residential Tenancies Acts 2004 to 2026 and the Landlord and Tenant Acts 1967 to 2022. We advise landlords and tenants in Kilkenny and the surrounding counties on lease drafting, rights and obligations under those statutes, and Residential Tenancies Board proceedings.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Lease and tenancy matters, handled with care.", "Get in touch when you're ready."],
+	midCta: [
+		"Lease and tenancy matters, handled with care.",
+		"Get in touch when you're ready.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: [
@@ -50,7 +52,7 @@ export const leasesAndTenancyAgreements = {
 			{ text: " advice in Kilkenny" },
 		],
 		paragraphs: [
-			"Irish landlord and tenant law sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2024 (covering residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (covering commercial tenancies). Both frameworks have been amended significantly in recent years, with changes to notice periods, rent review rules, and the framework for tenancies of unlimited duration.",
+			"Irish landlord and tenant law sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2026 (covering residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (covering commercial tenancies). Both frameworks have been amended significantly in recent years, with changes to notice periods, rent review rules, and the framework for tenancies of unlimited duration.",
 			"On the residential side, we draft and review tenancy agreements, advise on the Rent Pressure Zone rules and rent review procedure, and act for landlords and tenants in proceedings before the Residential Tenancies Board (RTB) — the statutory body that registers tenancies and adjudicates disputes.",
 			"On the commercial side, we review and negotiate the substantive terms of business leases — the duration, the rent review mechanism, the break clauses, the repair and insurance allocation, the assignment and subletting provisions, and the statutory rights to renewal under the Landlord and Tenant (Amendment) Act 1980.",
 			"Where a dispute arises, we advise on the route most appropriate to the matter — direct negotiation, mediation, RTB adjudication for residential tenancies, or court proceedings for commercial matters or where the RTB does not have jurisdiction. We act for clients through whichever route the matter follows.",
@@ -71,16 +73,15 @@ export const leasesAndTenancyAgreements = {
 			{ text: " works in Ireland" },
 		],
 		intro:
-			"Landlord and tenant law in Ireland sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2024 (residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (commercial tenancies). Knowing which framework applies, what the statute says about the rights and obligations of each side, and what the Residential Tenancies Board (RTB) procedure is for residential disputes makes the practical position clearer. The article below sets that framework out in plain English — first for landlords, then for tenants, with a separate section on commercial leases.",
+			"Landlord and tenant law in Ireland sits across two main statutory frameworks — the Residential Tenancies Acts 2004 to 2026 (residential lettings) and the Landlord and Tenant Acts 1967 to 2022 (commercial tenancies). Knowing which framework applies, what the statute says about the rights and obligations of each side, and what the Residential Tenancies Board (RTB) procedure is for residential disputes makes the practical position clearer. The article below sets that framework out in plain English — first for landlords, then for tenants, with a separate section on commercial leases.",
 		quote: {
-			text: "Residential tenancies law in Ireland has been amended seven times since 2004 — most recently in 2024. Knowing which version of the statute applies to a tenancy, and which procedural steps the RTB requires, is the work of getting it right.",
-			attribution: "Richard O'Shea, Solicitor",
-			image: richardImage,
+			text: "Residential tenancies law in Ireland has been amended seven times since 2004 — most recently in 2026. Knowing which version of the statute applies to a tenancy, and which procedural steps the RTB requires, is the work of getting it right.",
+			solicitor: solicitors.nicholas,
 		},
 		blocks: [
 			{
 				type: "paragraph" as const,
-				text: "A lease or tenancy agreement is a legally binding contract. The substantive terms — on rent, duration, permitted use, maintenance obligations, notice requirements, and termination — govern the relationship between the parties for the life of the tenancy. Where the agreement is ambiguous or omits important matters, the gaps are filled by the default rules in the relevant statute (the Residential Tenancies Acts 2004 to 2024 for residential, the Landlord and Tenant Acts 1967 to 2022 for commercial), which may not be what either party expected when they signed.",
+				text: "A lease or tenancy agreement is a legally binding contract. The substantive terms — on rent, duration, permitted use, maintenance obligations, notice requirements, and termination — govern the relationship between the parties for the life of the tenancy. Where the agreement is ambiguous or omits important matters, the gaps are filled by the default rules in the relevant statute (the Residential Tenancies Acts 2004 to 2026 for residential, the Landlord and Tenant Acts 1967 to 2022 for commercial), which may not be what either party expected when they signed.",
 			},
 			{
 				type: "paragraph" as const,
@@ -118,10 +119,6 @@ export const leasesAndTenancyAgreements = {
 			{
 				type: "list" as const,
 				items: [
-					{
-						label: "Security of tenure",
-						text: "After the first six months of a residential tenancy, a tenant acquires Part 4 protection under the Residential Tenancies Acts — meaning the tenancy can be ended only on specific grounds set out in the statute. For tenancies commencing on or after 11 June 2022, the Residential Tenancies (Amendment) Act 2021 introduced a tenancy of unlimited duration after the initial six months. For earlier tenancies, the Part 4 protections continue in cycles set by the legislation in force at the time the tenancy commenced. We advise tenants on which framework applies in their case.",
-					},
 					{
 						label: "Written statement of terms",
 						text: "Landlords are required by law to provide tenants with a written statement of the terms of the tenancy at the start of the tenancy. The statement must include the rent, the payment frequency, the duration, and other matters specified by statute. Where a tenant has not received one, we advise on the position.",
@@ -178,12 +175,14 @@ export const leasesAndTenancyAgreements = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "Does a residential tenancy agreement have to be in writing in Ireland?",
+			question:
+				"Does a residential tenancy agreement have to be in writing in Ireland?",
 			answer:
 				"There is no strict legal requirement for a residential tenancy itself to be in a written lease, but the Residential Tenancies Acts require the landlord to provide the tenant with a written statement of the key terms of the tenancy at the start of the tenancy. A written tenancy agreement is strongly advisable in any event — it sets out the terms agreed between the parties and significantly reduces the scope for disputes about what was agreed.",
 		},
 		{
-			question: "How much notice must a landlord give to end a residential tenancy?",
+			question:
+				"How much notice must a landlord give to end a residential tenancy?",
 			answer:
 				"Under the Residential Tenancies Acts, the required notice period scales with the length of the tenancy — longer notice is required for longer tenancies. The specific periods are set by statute and have been amended several times in recent years, so the period applicable in any specific case is confirmed against the current legislation at the time the notice is being served. The landlord must also have a valid legal ground for the termination, and the notice itself must comply with the formal requirements of the Acts.",
 		},
@@ -193,14 +192,15 @@ export const leasesAndTenancyAgreements = {
 				"No. Rent reviews are regulated by the Residential Tenancies Acts. In Rent Pressure Zones (which cover most urban areas), the amount and frequency of rent reviews are capped — the precise calculation has been amended several times and the rules applicable in any specific case are confirmed at the time of review. Outside RPZs, different rules apply but the landlord must still follow the statutory rent-review procedure. We advise both landlords and tenants on whether a proposed rent change is compliant.",
 		},
 		{
-			question: "What can a tenant do if a landlord refuses to return their deposit?",
+			question:
+				"What can a tenant do if a landlord refuses to return their deposit?",
 			answer:
 				"Where a landlord is withholding a deposit and the tenant believes the deduction is not justified, the dispute can be referred to the Residential Tenancies Board. The RTB operates an online dispute resolution service and can direct the return of a deposit where it finds in the tenant's favour. We advise tenants on whether a deduction is permissible and act for them in RTB proceedings.",
 		},
 		{
 			question: "What is the Residential Tenancies Board?",
 			answer:
-				"The Residential Tenancies Board (RTB) is an independent statutory body that regulates the residential rental sector in Ireland under the Residential Tenancies Acts 2004 to 2024. It maintains the register of tenancies, operates a dispute resolution service for landlords and tenants, and can impose sanctions on landlords who breach the Acts. RTB dispute resolution is generally faster and less expensive than court proceedings.",
+				"The Residential Tenancies Board (RTB) is an independent statutory body that regulates the residential rental sector in Ireland under the Residential Tenancies Acts 2004 to 2026. It maintains the register of tenancies, operates a dispute resolution service for landlords and tenants, and can impose sanctions on landlords who breach the Acts. RTB dispute resolution is generally faster and less expensive than court proceedings.",
 		},
 		{
 			question: "Is a solicitor recommended for a commercial lease review?",
