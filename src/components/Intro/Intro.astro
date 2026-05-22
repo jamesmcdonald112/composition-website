@@ -1,6 +1,6 @@
 ---
 import companyLogo from "../../assets/logo/companyLogo.svg";
-import { firm } from "../../config/firm";
+import { studio } from "../../config/studio";
 ---
 
 <div data-intro class="intro" aria-hidden="true">
@@ -14,8 +14,8 @@ import { firm } from "../../config/firm";
 		</div>
 
 		<div class="intro__text">
-			<p data-intro-name class="intro__name">{firm.companyName.split(" ").slice(0, 2).join(" ")}</p>
-			<p data-intro-sub class="intro__sub">Solicitor &middot; {firm.county}</p>
+			<p data-intro-name class="intro__name">{studio.name}</p>
+			<p data-intro-sub class="intro__sub">{studio.tagline}</p>
 		</div>
 	</div>
 </div>

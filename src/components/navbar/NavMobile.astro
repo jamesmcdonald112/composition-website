@@ -1,6 +1,5 @@
 ---
-import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import { nav } from "../../config/nav";
 import BrandLogo from "../ui/BrandLogo.astro";
 
@@ -38,15 +37,16 @@ const currentPath = Astro.url.pathname;
 			</ul>
 		</nav>
 
-		<!-- Contact info -->
+		<!-- Booking -->
 		<div class="nav-mobile__contact">
 			<a
-				href={`tel:${firm.phone.phoneHref}`}
-				class="nav-mobile__phone"
-				aria-label={`Call us on ${firm.phone.display}`}
+				href={booking.href}
+				class="nav-mobile__booking"
+				data-cal-link={booking.calLink}
+				data-cal-namespace={booking.calNamespace}
+				data-cal-config={booking.calConfig}
 			>
-				<span class="nav-mobile__phone-icon" aria-hidden="true" set:html={phoneIcon} />
-				{firm.phone.display}
+				{booking.label}
 			</a>
 		</div>
 	</div>
@@ -220,7 +220,7 @@ const currentPath = Astro.url.pathname;
 		border-top: 1px solid color-mix(in srgb, var(--color-border-default) 40%, transparent);
 	}
 
-	.nav-mobile__phone {
+	.nav-mobile__booking {
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-sm);
@@ -230,24 +230,5 @@ const currentPath = Astro.url.pathname;
 		line-height: var(--line-height-tight);
 		color: var(--color-fg-accent-on-brand);
 		text-decoration: none;
-	}
-
-	.nav-mobile__phone-icon {
-		display: inline-flex;
-		flex-shrink: 0;
-		width: var(--size-6);
-		height: var(--size-6);
-		overflow: hidden;
-
-		:global(svg) {
-			width: 100%;
-			height: 100%;
-		}
-
-		@media (prefers-reduced-motion: no-preference) {
-			.nav-mobile__phone:hover & {
-				animation: phone-shake var(--duration-slow) var(--ease-smooth);
-			}
-		}
 	}
 </style>

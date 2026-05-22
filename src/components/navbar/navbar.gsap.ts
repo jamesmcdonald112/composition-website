@@ -143,6 +143,16 @@ if (toggle && dialog) {
 		link.addEventListener("click", closeMenu);
 	}
 
+	// Close the menu before Cal.com opens its booking modal. Native <dialog>
+	// elements opened via showModal() sit in the browser's top-layer, which
+	// covers the Cal modal regardless of z-index. Capture phase makes this
+	// fire before Cal's own click listener so the dialog is already gone by
+	// the time Cal injects its overlay.
+	const mobileBookingLink = document.querySelector<HTMLAnchorElement>(
+		".nav-mobile__booking",
+	);
+	mobileBookingLink?.addEventListener("click", closeMenu, { capture: true });
+
 	dialog.addEventListener("click", (e) => {
 		const rect = dialog.getBoundingClientRect();
 		const clickedOutside =

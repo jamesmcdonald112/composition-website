@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
-import { firm } from "../../config/firm";
+import { studio } from "../../config/studio";
 import CtaLink from "../ui/CtaLink.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
 import ScrollIndicator from "../ui/ScrollIndicator/ScrollIndicator.astro";
@@ -13,7 +12,14 @@ interface Props {
 	title: string;
 	titleEmphasis?: string;
 	subtitle: string;
-	primaryCta?: { label: string; href: string; ariaLabel?: string };
+	primaryCta?: {
+		label: string;
+		href: string;
+		ariaLabel?: string;
+		calLink?: string;
+		calNamespace?: string;
+		calConfig?: string;
+	};
 	secondaryCta?: { label: string; href: string; ariaLabel?: string };
 	image: ImageMetadata;
 	imageAlt: string;
@@ -93,8 +99,10 @@ const [titleBefore, titleAfter] = titleEmphasis
 						href={primaryCta.href}
 						label={primaryCta.label}
 						variant="primary"
-						icon="phone"
 						ariaLabel={primaryCta.ariaLabel}
+						calLink={primaryCta.calLink}
+						calNamespace={primaryCta.calNamespace}
+						calConfig={primaryCta.calConfig}
 					/>
 				)}
 				{secondaryCta && (
@@ -111,12 +119,7 @@ const [titleBefore, titleAfter] = titleEmphasis
 
 		<!-- Child 3: Bottom bar -->
 		<div class="hero-home__bottom" data-animate="h-bottom">
-			<div class="hero-home__location">
-				<span class="hero-home__location-icon" set:html={mapPinIcon} aria-hidden="true" />
-				<span class="hero-home__location-text">
-					{firm.address.line1}, {firm.address.city}
-				</span>
-			</div>
+			<span class="hero-home__lineage">{studio.location.display}</span>
 			<ScrollIndicator />
 		</div>
 
@@ -395,27 +398,8 @@ const [titleBefore, titleAfter] = titleEmphasis
 		visibility: hidden;
 	}
 
-	/* ── Location ────────────────────────────────────────────────────────────── */
-	.hero-home__location {
-		display: flex;
-		align-items: center;
-		gap: var(--space-xs);
-	}
-
-	.hero-home__location-icon {
-		display: inline-flex;
-		flex-shrink: 0;
-		width: var(--space-md);
-		height: var(--space-md);
-		color: var(--color-fg-on-brand-subtle);
-	}
-
-	.hero-home__location-icon :global(svg) {
-		width: 100%;
-		height: 100%;
-	}
-
-	.hero-home__location-text {
+	/* ── Lineage ─────────────────────────────────────────────────────────────── */
+	.hero-home__lineage {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
 		font-weight: var(--font-weight-medium);

@@ -1,0 +1,301 @@
+---
+/*
+  COMPONENT: LeadMagnet
+  PURPOSE:   Free-guide email capture — the homepage's primary soft
+             conversion. Sits on the accent-tinted background between
+             trust strip and curriculum.
+  LAYOUT:    Two columns on desktop — left: eyebrow, italic-em heading,
+             body paragraph, three benefit bullets, trust note. Right:
+             stylised form card with email field, marketing opt-in,
+             submit button.
+  COLOUR:    Light accent surface (--color-bg-accent) — warm, premium,
+             distinct from the brand-dark sections without competing.
+  HOVER:     Form card lifts subtly on focus-within; the submit button
+             warms toward accent on hover.
+  MOTION:    GSAP scroll reveal mirrors Pricing / CTAPanel — header text
+             staggers, form card reveals last. Guarded by reduced-motion.
+  STATUS:    Form has no action wired yet — submitting does nothing.
+             TODO (james): wire to /api/lead-magnet or Resend.
+*/
+import { leadMagnet } from "../../../config/lead-magnet";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+---
+
+<section class="lead-magnet" id="free-guide" data-lead-magnet>
+	<div class="lead-magnet__inner wrapper wrapper--wide">
+
+		<div class="lead-magnet__copy" data-lm-copy>
+			<SectionHeader
+				eyebrow={leadMagnet.form.eyebrow}
+				heading={leadMagnet.form.heading}
+				emColor="--color-fg-accent"
+				noMargin={true}
+			/>
+			<p class="lead-magnet__body">{leadMagnet.form.body}</p>
+
+			<ul class="lead-magnet__bullets" role="list">
+				{leadMagnet.form.bullets.map((b) => (
+					<li class="lead-magnet__bullet">{b}</li>
+				))}
+			</ul>
+		</div>
+
+		<form
+			class="lead-magnet__form"
+			data-lm-form
+			method="post"
+			action="#"
+			aria-label="Sign up to receive the free guide"
+		>
+			<div class="lead-magnet__field">
+				<label class="lead-magnet__label" for="lead-magnet-name">
+					{leadMagnet.form.nameLabel}
+				</label>
+				<input
+					id="lead-magnet-name"
+					type="text"
+					name="name"
+					required
+					autocomplete="given-name"
+					class="lead-magnet__input"
+					placeholder={leadMagnet.form.namePlaceholder}
+				/>
+			</div>
+
+			<div class="lead-magnet__field">
+				<label class="lead-magnet__label" for="lead-magnet-email">
+					{leadMagnet.form.emailLabel}
+				</label>
+				<input
+					id="lead-magnet-email"
+					type="email"
+					name="email"
+					required
+					autocomplete="email"
+					class="lead-magnet__input"
+					placeholder={leadMagnet.form.emailPlaceholder}
+				/>
+			</div>
+
+			<p class="lead-magnet__trust">{leadMagnet.form.trustNote}</p>
+
+			<button type="submit" class="lead-magnet__submit">
+				<span>{leadMagnet.form.submitLabel}</span>
+				<span class="lead-magnet__submit-arrow" aria-hidden="true">→</span>
+			</button>
+		</form>
+
+	</div>
+</section>
+
+<script>
+	import { initLeadMagnet } from "./lead-magnet.gsap";
+	initLeadMagnet();
+</script>
+
+<style>
+	/* ── Shell ──────────────────────────────────────────────────────────── */
+	.lead-magnet {
+		background-color: var(--color-bg-accent);
+		padding-block: var(--space-section);
+		position: relative;
+	}
+
+	.lead-magnet__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-2xl);
+		align-items: start;
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-4xl);
+		}
+	}
+
+	/* ── Copy column ────────────────────────────────────────────────────── */
+	.lead-magnet__copy {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xl);
+		max-width: 52ch;
+	}
+
+	.lead-magnet__body {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	.lead-magnet__bullets {
+		list-style: none;
+		padding: 0;
+		margin: var(--space-md) 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.lead-magnet__bullet {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		padding-inline-start: var(--space-lg);
+		position: relative;
+	}
+
+	.lead-magnet__bullet::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.85em;
+		width: var(--space-sm);
+		height: 1px;
+		background-color: var(--color-fg-accent);
+	}
+
+	/* ── Form card ──────────────────────────────────────────────────────── */
+	.lead-magnet__form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+		padding: var(--space-2xl);
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		border-block-start: 2px solid var(--color-fg-accent);
+		transition:
+			transform var(--duration-normal) var(--ease-smooth),
+			box-shadow var(--duration-normal) var(--ease-smooth),
+			border-color var(--duration-normal) var(--ease-smooth);
+		will-change: transform;
+	}
+
+	@media (hover: hover) {
+		.lead-magnet__form:focus-within {
+			transform: translateY(-2px);
+			border-color: var(--color-fg-accent);
+			box-shadow: var(--shadow-lg);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.lead-magnet__form {
+			transition: none;
+		}
+
+		.lead-magnet__form:focus-within {
+			transform: none;
+		}
+	}
+
+	/* ── Field (name / email) ──────────────────────────────────────────── */
+	.lead-magnet__field {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.lead-magnet__label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-fg-accent);
+	}
+
+	.lead-magnet__input {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
+		color: var(--color-fg-default);
+		background-color: var(--color-bg-page);
+		border: 1px solid var(--color-border-default);
+		padding: 0 var(--space-lg);
+		height: var(--size-12);
+		width: 100%;
+		box-sizing: border-box;
+		transition: border-color var(--duration-fast) var(--ease-out);
+	}
+
+	.lead-magnet__input::placeholder {
+		color: var(--color-fg-subtle);
+	}
+
+	.lead-magnet__input:hover {
+		border-color: var(--color-border-strong);
+	}
+
+	.lead-magnet__input:focus-visible {
+		outline: 2px solid var(--color-border-focus);
+		outline-offset: 2px;
+		border-color: var(--color-fg-accent);
+	}
+
+	/* ── Trust note ─────────────────────────────────────────────────────── */
+	.lead-magnet__trust {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		margin: 0;
+	}
+
+	/* ── Submit button ──────────────────────────────────────────────────── */
+	.lead-magnet__submit {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-fg-interactive);
+		background-color: var(--color-bg-interactive);
+		border: 0;
+		padding: var(--space-md) var(--space-xl);
+		min-height: var(--size-12);
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
+		transition: background-color var(--duration-fast) var(--ease-out);
+	}
+
+	.lead-magnet__submit:hover,
+	.lead-magnet__submit:focus-visible {
+		background-color: var(--color-bg-interactive-hover);
+	}
+
+	.lead-magnet__submit:focus-visible {
+		outline: 2px solid var(--color-border-focus);
+		outline-offset: 2px;
+	}
+
+	.lead-magnet__submit-arrow {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-base);
+		transition: transform var(--duration-fast) var(--ease-out);
+	}
+
+	.lead-magnet__submit:hover .lead-magnet__submit-arrow,
+	.lead-magnet__submit:focus-visible .lead-magnet__submit-arrow {
+		transform: translateX(var(--space-2xs));
+	}
+
+	/* ── GSAP — hide pre-animation elements until JS runs ───────────────── */
+	[data-lm-copy],
+	[data-lm-form] {
+		visibility: hidden;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-lm-copy],
+		[data-lm-form] {
+			visibility: visible;
+		}
+	}
+</style>

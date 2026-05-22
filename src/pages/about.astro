@@ -1,42 +1,69 @@
 ---
+import BiographyCv from "../components/about/BiographyCv/BiographyCv.astro";
+import Article from "../components/shared/Article/Article.astro";
 import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
-import ServiceHero from "../components/shared/ServiceHero/ServiceHero.astro";
+import PageHero from "../components/shared/PageHero/PageHero.astro";
 import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
-import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
-import TeamSection from "../components/team/TeamSection/TeamSection.astro";
-import AttributionBlock from "../components/ui/AttributionBlock/AttributionBlock.astro";
 import { aboutPageContent } from "../config/about";
-import { firm } from "../config/firm";
-import { getLawFirmStructuredData } from "../config/structured-data";
+import { bio } from "../config/alex/bio";
+import { studio } from "../config/studio";
+import { getStructuredData } from "../config/structured-data";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const structuredData = getLawFirmStructuredData();
-const { hero, trustStrip, cta, attribution } = aboutPageContent;
-const { solicitor, reviewDate } = attribution;
+const structuredData = getStructuredData();
+const { hero, trustStrip, article, cv, cta } = aboutPageContent;
+
+// Flatten the bio's chapter structure into the Article's block list. Each
+// chapter heading becomes a `heading` block; each paragraph becomes a
+// `paragraph` block — the BlockList renderer handles the typography.
+type Block =
+	| { type: "heading"; text: string }
+	| { type: "paragraph"; text: string };
+
+const articleBlocks: Block[] = bio.full.flatMap((chapter) => [
+	{ type: "heading" as const, text: chapter.heading },
+	...chapter.paragraphs.map((text) => ({
+		type: "paragraph" as const,
+		text,
+	})),
+]);
 ---
 
 <BaseLayout
-	title={`${aboutPageContent.seo.title} | ${firm.companyName}`}
+	title={`${aboutPageContent.seo.title} | ${studio.name}`}
 	description={aboutPageContent.seo.description}
 	canonicalPath={aboutPageContent.seo.canonicalPath}
 	ogType="website"
 	structuredData={structuredData}
 >
-	<ServiceHero
+	<PageHero
 		title={hero.title}
 		subtitle={hero.subtitle}
 		image={hero.image}
-		phone={firm.phone}
-		imageFocus={"top center"}
+		imageFocus={hero.imageFocus}
 	/>
+
 	<TrustStrip
+		eyebrow={trustStrip.eyebrow}
 		title={trustStrip.title}
 		paragraphs={trustStrip.paragraphs}
 		stats={trustStrip.stats}
 	/>
-	<TeamSection />
-	{/* <TestimonialBlock /> */}
-	<AttributionBlock solicitor={solicitor} reviewDate={reviewDate} />
+
+	<Article
+		eyebrow={article.eyebrow}
+		title={article.title}
+		intro={article.intro}
+		quote={article.pullQuote}
+		blocks={articleBlocks}
+	/>
+
+	<BiographyCv
+		eyebrow={cv.eyebrow}
+		title={cv.title}
+		intro={cv.intro}
+	/>
+
 	<CTAPanel
 		heading={cta.title}
 		body={cta.body}

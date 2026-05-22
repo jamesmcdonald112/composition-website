@@ -1,0 +1,74 @@
+---
+/*
+  V32 — Stripe-Press chapter list
+  Two-up layout: small meta column (numeral, kicker, name, subtitle) on the
+  left; rich prose body on the right. Inspired by the chapter list of
+  Stripe Press books. Very functional, very calm.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V32 — Stripe-Press list" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<ol class="list">
+				{curriculum.map((m) => (
+					<li class="list__item">
+						<aside class="list__meta">
+							<span class="list__num">{m.numeral}</span>
+							<p class="list__kicker">Module {m.numeral}</p>
+							<h3 class="list__name">{m.name}</h3>
+							<p class="list__sub">{m.subtitle}</p>
+						</aside>
+						<div class="list__body">
+							<p>{m.body}</p>
+							<p class="list__out"><span class="list__out-label">By the end —</span> {m.outcome}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-3xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.list { list-style: none; padding: 0; margin: 0; max-width: 80rem; }
+	.list__item {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+		padding: var(--space-2xl) 0;
+		border-block-end: 1px solid var(--color-border-default);
+
+		@media (min-width: 1024px) {
+			grid-template-columns: minmax(240px, 1fr) minmax(0, 2.4fr);
+			gap: var(--space-4xl);
+			padding: var(--space-3xl) 0;
+		}
+	}
+	.list__item:first-child { border-block-start: 1px solid var(--color-border-default); }
+	.list__meta { display: flex; flex-direction: column; gap: var(--space-xs); }
+	.list__num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-6xl); line-height: 0.85; color: var(--color-fg-accent); }
+	.list__kicker { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-subtle); margin: var(--space-sm) 0 0; }
+	.list__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.list__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.list__body { font-family: var(--font-sans); font-size: var(--font-size-lg); line-height: var(--line-height-relaxed); color: var(--color-fg-default); max-width: 60ch; }
+	.list__body p { margin: 0 0 var(--space-lg); }
+	.list__body p:last-child { margin-block-end: 0; }
+	.list__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base) !important; color: var(--color-fg-muted); }
+	.list__out-label { font-family: var(--font-sans); font-style: normal; font-weight: var(--font-weight-medium); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-accent); }
+</style>

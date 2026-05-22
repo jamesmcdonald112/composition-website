@@ -8,13 +8,13 @@
   visitor instead of Netlify's generic 500 page.
 */
 import ServerError from "../components/server-error/ServerError.astro";
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-	title={`Something went wrong | ${firm.companyName}`}
-	description={`A temporary problem on the ${firm.companyName} website. Please try again in a moment.`}
+	title={`Something went wrong | ${studio.name}`}
+	description={`A temporary problem on the ${studio.name} website. Please try again in a moment.`}
 	noIndex={true}
 	solidNav={true}
 >

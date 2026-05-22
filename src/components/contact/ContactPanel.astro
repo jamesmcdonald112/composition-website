@@ -1,20 +1,15 @@
 ---
-import clockIcon from "../../assets/icons/clockIcon.svg?raw";
-import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
-import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 import { contactPageContent } from "../../config/contact";
-import { firm } from "../../config/firm";
+import { studio } from "../../config/studio";
 ---
 
 <div class="contact-panel" data-contact-panel>
 	<p class="contact-panel__eyebrow" data-contact-panel-eyebrow>
-		<span class="contact-panel__eyebrow-icon" aria-hidden="true" set:html={mapPinIcon} />
-		Kilkenny, Ireland
+		{studio.location.display}
 	</p>
 
-
 	<h1 class="contact-panel__heading" data-contact-panel-heading>
-		Let&rsquo;s talk about<br />your <em>matter.</em>
+		Let&rsquo;s talk about<br />your <em>composing.</em>
 	</h1>
 
 	<p class="contact-panel__intro" data-contact-panel-intro>{contactPageContent.intro}</p>
@@ -23,36 +18,12 @@ import { firm } from "../../config/firm";
 
 	<ul class="contact-panel__details" role="list">
 		<li class="contact-panel__item" data-contact-panel-item>
-			<span class="contact-panel__icon" aria-hidden="true" set:html={clockIcon} />
 			<div class="contact-panel__text">
-				<span class="contact-panel__label">Office Hours</span>
-				<span class="contact-panel__value">{firm.officeHours.display}</span>
-			</div>
-		</li>
-
-		<li class="contact-panel__item" data-contact-panel-item>
-			<span class="contact-panel__icon" aria-hidden="true" set:html={phoneIcon} />
-			<div class="contact-panel__text">
-				<span class="contact-panel__label">Phone</span>
-				<a href={`tel:${firm.phone.phoneHref}`} class="contact-panel__value">{firm.phone.display}</a
-				>
-			</div>
-		</li>
-
-		<li class="contact-panel__item" data-contact-panel-item>
-			<span class="contact-panel__icon" aria-hidden="true" set:html={mapPinIcon} />
-			<div class="contact-panel__text">
-				<span class="contact-panel__label">Address</span>
+				<span class="contact-panel__label">Email</span>
 				<a
-					href={firm.address.googleMapDirectionsHref}
-					target="_blank"
-					rel="noopener noreferrer"
+					href={`mailto:${studio.email.primary}`}
 					class="contact-panel__value"
-				>
-					<span class="contact-panel__address-line">{firm.address.line1}</span>
-					<span class="contact-panel__address-line">{firm.address.city}</span>
-					<span class="contact-panel__address-line">{firm.address.eircode}</span>
-				</a>
+				>{studio.email.primary}</a>
 			</div>
 		</li>
 	</ul>

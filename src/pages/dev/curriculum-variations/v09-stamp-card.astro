@@ -1,0 +1,74 @@
+---
+/*
+  V09 — Stamp / passport card
+  Postage-stamp aesthetic — dotted/notched borders, embossed numeral
+  in a circle. A "passport stamp" sense of cataloguing.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V09 — Stamp / passport" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="stamps">
+				{curriculum.map((m) => (
+					<article class="stamp">
+						<div class="stamp__inner">
+							<div class="stamp__seal" aria-hidden="true">
+								<span class="stamp__seal-num">{m.numeral}</span>
+							</div>
+							<h3 class="stamp__name">{m.name}</h3>
+							<p class="stamp__sub">{m.subtitle}</p>
+							<p class="stamp__body">{m.body}</p>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-subtle); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.stamps { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); @media (min-width: 640px) { grid-template-columns: 1fr 1fr; } @media (min-width: 1024px) { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+	.stamp {
+		background-color: var(--color-bg-surface);
+		padding: var(--space-sm);
+		background-image:
+			radial-gradient(circle at 0 8px, var(--color-bg-subtle) 4px, transparent 4.5px),
+			radial-gradient(circle at 100% 8px, var(--color-bg-subtle) 4px, transparent 4.5px);
+		background-size: 16px 16px;
+		background-repeat: repeat-x, repeat-x;
+		background-position: 0 0, 0 100%;
+		filter: drop-shadow(0 2px 3px hsl(0 0% 0% / 0.08));
+	}
+	.stamp__inner {
+		padding: var(--space-lg);
+		border: 1px solid var(--color-fg-accent);
+		display: flex; flex-direction: column; gap: var(--space-sm); align-items: flex-start;
+		min-height: 280px;
+	}
+	.stamp__seal {
+		width: 56px; height: 56px; border-radius: 50%;
+		border: 2px solid var(--color-fg-accent);
+		display: flex; align-items: center; justify-content: center;
+		margin-block-end: var(--space-xs);
+	}
+	.stamp__seal-num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-xl); color: var(--color-fg-accent); line-height: 1; }
+	.stamp__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-xl); margin: 0; }
+	.stamp__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; }
+	.stamp__body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: var(--space-xs) 0 0; }
+</style>

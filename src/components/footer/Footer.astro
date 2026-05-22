@@ -1,11 +1,9 @@
 ---
-import clockIcon from "../../assets/icons/clockIcon.svg?raw";
-import mapPinIcon from "../../assets/icons/mapPinIcon.svg?raw";
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import { legalNav, nav } from "../../config/nav";
+import { studio } from "../../config/studio";
 import BrandLogo from "../ui/BrandLogo.astro";
 import CtaLink from "../ui/CtaLink.astro";
-import FooterLegalNotice from "./FooterLegalNotice.astro";
 ---
 
 <footer class="footer" aria-label="Site footer">
@@ -15,40 +13,17 @@ import FooterLegalNotice from "./FooterLegalNotice.astro";
 			<div class="footer__brand" data-footer-animate="brand">
 				<div class="footer__logo-row">
 					<BrandLogo />
-					<span class="footer__name">{firm.companyName}</span>
-				</div>
-
-				<div class="footer__details">
-					<div class="footer__detail-row">
-						<span class="footer__detail-icon" set:html={mapPinIcon} aria-hidden="true" />
-						<address class="footer__address" aria-label="Office address">
-							<span>{firm.address.line1}</span>
-							<span>{firm.address.city}</span>
-							<span>{firm.address.eircode}</span>
-							<span>{firm.address.country}</span>
-						</address>
-					</div>
-
-					<div class="footer__detail-row">
-						<span class="footer__detail-icon" set:html={clockIcon} aria-hidden="true" />
-						<span class="footer__hours" aria-label={`Office hours: ${firm.officeHours.display}`}
-							>{firm.officeHours.display}</span
-						>
-					</div>
+					<span class="footer__name">{studio.name}</span>
 				</div>
 
 				<div class="footer__ctas">
 					<CtaLink
-						href={`tel:${firm.phone.phoneHref}`}
-						label={firm.phone.display}
+						href={booking.href}
+						label={booking.label}
 						variant="primary"
-						icon="phone"
-					/>
-					<CtaLink
-						href={firm.address.googleMapDirectionsHref}
-						label="Get directions"
-						variant="outline-light"
-						icon="arrow"
+						calLink={booking.calLink}
+						calNamespace={booking.calNamespace}
+						calConfig={booking.calConfig}
 					/>
 				</div>
 			</div>
@@ -86,23 +61,11 @@ import FooterLegalNotice from "./FooterLegalNotice.astro";
 			</div>
 		</div>
 
-		<!-- Legal cost notice -->
-		<FooterLegalNotice />
-
 		<!-- Bottom bar -->
 		<div class="footer__bottom" data-footer-animate="bottom">
-			<a
-				href="https://www.lawsociety.ie"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="footer__regulated"
-				aria-label="Regulated by the Law Society of Ireland (opens in new tab)"
-			>
-				Regulated by the Law Society of Ireland
-			</a>
 			<p class="footer__copyright">
 				© {new Date().getFullYear()}
-				{firm.companyName}. All rights reserved.
+				{studio.name}. All rights reserved.
 			</p>
 		</div>
 	</div>
@@ -154,49 +117,6 @@ import FooterLegalNotice from "./FooterLegalNotice.astro";
 		font-size: var(--font-size-base);
 		font-weight: var(--font-weight-semibold);
 		color: var(--color-fg-on-brand);
-	}
-
-	/* ── Detail rows ────────────────────────────────────────────── */
-	.footer__details {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-		margin-block-end: var(--space-xl);
-	}
-
-	.footer__detail-row {
-		display: flex;
-		align-items: flex-start;
-		gap: var(--space-sm);
-	}
-
-	.footer__detail-icon {
-		flex-shrink: 0;
-		color: var(--color-fg-accent-on-brand);
-		display: inline-flex;
-		margin-block-start: var(--size-0-5);
-
-		:global(svg) {
-			width: var(--size-4);
-			height: var(--size-4);
-		}
-	}
-
-	.footer__address {
-		font-style: normal;
-		display: flex;
-		flex-direction: column;
-		font-family: var(--font-sans);
-		font-size: var(--font-size-sm);
-		line-height: var(--line-height-relaxed);
-		color: var(--color-fg-on-brand-subtle);
-	}
-
-	.footer__hours {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-sm);
-		line-height: var(--line-height-relaxed);
-		color: var(--color-fg-on-brand-subtle);
 	}
 
 	/* ── CTAs ───────────────────────────────────────────────────── */
@@ -259,21 +179,6 @@ import FooterLegalNotice from "./FooterLegalNotice.astro";
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-		}
-	}
-
-	.footer__regulated {
-		font-family: var(--font-sans);
-		font-size: var(--font-size-xs);
-		color: var(--color-fg-on-brand-subtle);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-		border-left: 2px solid var(--color-border-accent);
-		padding-inline-start: var(--space-sm);
-		transition: color var(--duration-fast) var(--ease-out);
-
-		&:hover {
-			color: var(--color-fg-on-brand);
 		}
 	}
 

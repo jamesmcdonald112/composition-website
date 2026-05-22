@@ -1,6 +1,6 @@
 ---
 import logo from "../../assets/logo/companyLogo.svg?raw";
-import { firm } from "../../config/firm";
+import { studio } from "../../config/studio";
 
 interface Props {
 	class?: string;
@@ -12,7 +12,7 @@ const { class: className, ...rest } = Astro.props;
 <a
   href="/"
   class:list={["brand-logo", className]}
-  aria-label={`${firm.companyName} — home`}
+  aria-label={`${studio.name} — home`}
   {...rest}
 >
   <span class="brand-logo__img" aria-hidden="true" set:html={logo} />

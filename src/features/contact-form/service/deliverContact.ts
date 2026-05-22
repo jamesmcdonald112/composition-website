@@ -6,25 +6,23 @@
    ────────────────────────────────────────────────────────────────────────────── */
 import { RESEND_API_KEY } from "astro:env/server";
 import { Resend } from "resend";
-import { firm } from "../../../config/firm";
+import { studio } from "../../../config/studio";
 import type { ContactInput } from "../schema/contact.schema";
 
 const resend = new Resend(RESEND_API_KEY);
 
 // TEMPLATE: Replace with a verified Resend sender domain before deployment
 const FROM = "onboarding@resend.dev";
-const TO = firm.email.formTo;
+const TO = studio.email.formTo;
 
 export async function deliverContact(input: ContactInput): Promise<void> {
 	await resend.emails.send({
 		from: FROM,
 		to: TO,
-		subject: `New contact form submission — ${input.service}`,
+		subject: `New contact form submission — ${input.name}`,
 		html: [
 			`<p><strong>Name:</strong> ${input.name}</p>`,
 			`<p><strong>Email:</strong> ${input.email}</p>`,
-			`<p><strong>Phone:</strong> ${input.phone}</p>`,
-			`<p><strong>Service:</strong> ${input.service}</p>`,
 			`<p><strong>Message:</strong><br>${(input.message || "(none)").replace(/\n/g, "<br>")}</p>`,
 		].join("\n"),
 	});

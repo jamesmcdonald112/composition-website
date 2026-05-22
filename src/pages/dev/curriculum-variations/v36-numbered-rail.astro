@@ -1,0 +1,66 @@
+---
+/*
+  V36 — Numbered rail
+  Vertical brand rail on the left holds all eight numerals stacked top-to-
+  bottom, the way a book's running header lists chapters. Module rows sit
+  to the right, aligned with their numeral.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V36 — Numbered rail" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="rail">
+				<aside class="rail__strip" aria-hidden="true">
+					{curriculum.map((m) => (
+						<span class="rail__strip-num">{m.numeral}</span>
+					))}
+				</aside>
+				<ol class="rail__list">
+					{curriculum.map((m) => (
+						<li class="rail__item">
+							<header class="rail__head">
+								<span class="rail__numeral">{m.numeral}</span>
+								<div>
+									<h3 class="rail__name">{m.name}</h3>
+									<p class="rail__sub">{m.subtitle}</p>
+								</div>
+							</header>
+							<p class="rail__body">{m.body}</p>
+							<p class="rail__out">{m.outcome}</p>
+						</li>
+					))}
+				</ol>
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.rail { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); @media (min-width: 1024px) { grid-template-columns: 80px 1fr; gap: var(--space-3xl); align-items: start; } }
+	.rail__strip { display: none; @media (min-width: 1024px) { display: flex; flex-direction: column; gap: var(--space-4xl); background-color: var(--color-bg-brand); color: var(--color-fg-on-brand); padding: var(--space-2xl) var(--space-md); align-items: center; position: sticky; top: var(--space-md); } }
+	.rail__strip-num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-xl); color: var(--color-fg-accent-on-brand); line-height: 1; }
+	.rail__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-md); }
+	.rail__item { background-color: var(--color-bg-surface); border: 1px solid var(--color-border-default); padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); }
+	.rail__head { display: flex; align-items: baseline; gap: var(--space-lg); }
+	.rail__numeral { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-4xl); line-height: 1; color: var(--color-fg-accent); min-width: 2ch; }
+	.rail__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.rail__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: var(--space-2xs) 0 0; }
+	.rail__body { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.rail__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; padding-block-start: var(--space-md); border-block-start: 1px solid var(--color-border-default); }
+</style>

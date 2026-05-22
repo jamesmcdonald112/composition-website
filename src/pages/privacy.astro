@@ -1,6 +1,6 @@
 ---
 import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 import { privacyPageContent } from "../config/legal/privacy";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -8,7 +8,7 @@ const { seo, title, intro, sections, reviewDate } = privacyPageContent;
 ---
 
 <BaseLayout
-	title={`${seo.title} | ${firm.companyName}`}
+	title={`${seo.title} | ${studio.name}`}
 	description={seo.description}
 	canonicalPath={seo.canonicalPath}
 	pageId="cookiebot-inline"

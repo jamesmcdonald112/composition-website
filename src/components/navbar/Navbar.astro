@@ -1,8 +1,7 @@
 ---
-import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 import closeIcon from "../../assets/navbar/closeMenuIcon.svg?raw";
 import hamburgerIcon from "../../assets/navbar/hambugerMenu.svg?raw";
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import { nav } from "../../config/nav";
 import BrandLogo from "../ui/BrandLogo.astro";
 import NavMobile from "./NavMobile.astro";
@@ -42,16 +41,17 @@ const { solid = false } = Astro.props;
 			</ul>
 		</nav>
 
-		<!-- Phone CTA — hidden on mobile -->
+		<!-- Booking CTA — hidden on mobile -->
 		<div class="navbar__cta">
 			<a
-				href={`tel:${firm.phone.phoneHref}`}
+				href={booking.href}
 				class="navbar__cta-link"
 				data-navbar-cta
-				aria-label={`Call us on ${firm.phone.display}`}
+				data-cal-link={booking.calLink}
+				data-cal-namespace={booking.calNamespace}
+				data-cal-config={booking.calConfig}
 			>
-				<span class="navbar__cta-icon" aria-hidden="true" set:html={phoneIcon} />
-				{firm.phone.display}
+				{booking.label}
 			</a>
 		</div>
 
@@ -214,24 +214,6 @@ const { solid = false } = Astro.props;
 			color: var(--color-fg-on-brand);
 			background: color-mix(in srgb, var(--color-fg-accent-on-brand) 10%, transparent);
 			box-shadow: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-fg-accent-on-brand) 35%, transparent);
-		}
-	}
-
-	.navbar__cta-icon {
-		display: inline-flex;
-		flex-shrink: 0;
-		line-height: 0;
-		margin-inline-end: var(--space-sm);
-
-		svg {
-			width: var(--size-4);
-			height: var(--size-4);
-		}
-
-		@media (prefers-reduced-motion: no-preference) {
-			.navbar__cta-link:hover & {
-				animation: phone-shake var(--duration-slow) var(--ease-smooth);
-			}
 		}
 	}
 

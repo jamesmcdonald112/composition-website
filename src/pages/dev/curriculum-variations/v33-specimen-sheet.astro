@@ -1,0 +1,70 @@
+---
+/*
+  V33 — Specimen sheet
+  Each module presented as a typographic specimen — labelled data fields
+  (No., Subject, Outline, Outcome), the way a type foundry catalogues a
+  font. Pro-grade information design.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V33 — Specimen sheet" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="sheet">
+				{curriculum.map((m) => (
+					<article class="spec">
+						<header class="spec__head">
+							<span class="spec__numeral">{m.numeral}</span>
+							<h3 class="spec__name">{m.name}</h3>
+						</header>
+						<dl class="spec__fields">
+							<div class="spec__field">
+								<dt class="spec__label">Subject</dt>
+								<dd class="spec__value spec__value--sub">{m.subtitle}</dd>
+							</div>
+							<div class="spec__field">
+								<dt class="spec__label">Outline</dt>
+								<dd class="spec__value">{m.body}</dd>
+							</div>
+							<div class="spec__field spec__field--accent">
+								<dt class="spec__label">By the end</dt>
+								<dd class="spec__value">{m.outcome}</dd>
+							</div>
+						</dl>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.sheet { display: grid; grid-template-columns: 1fr; gap: var(--space-md); @media (min-width: 768px) { grid-template-columns: 1fr 1fr; } }
+	.spec { background-color: var(--color-bg-surface); border: 1px solid var(--color-border-default); padding: 0; display: flex; flex-direction: column; }
+	.spec__head { background-color: var(--color-bg-brand); color: var(--color-fg-on-brand); padding: var(--space-lg) var(--space-xl); display: flex; align-items: baseline; gap: var(--space-md); justify-content: space-between; }
+	.spec__numeral { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-3xl); line-height: 1; color: var(--color-fg-accent-on-brand); }
+	.spec__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-xl); margin: 0; line-height: var(--line-height-tight); text-align: right; }
+	.spec__fields { margin: 0; display: flex; flex-direction: column; }
+	.spec__field { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-md); padding: var(--space-md) var(--space-xl); border-block-end: 1px solid var(--color-border-default); }
+	.spec__field:last-child { border-block-end: 0; }
+	.spec__field--accent { background-color: var(--color-bg-subtle); }
+	.spec__label { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-subtle); margin: 0; padding-block-start: var(--space-2xs); }
+	.spec__value { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.spec__value--sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-default); }
+	.spec__field--accent .spec__value { font-family: var(--font-serif); font-style: italic; color: var(--color-fg-muted); }
+</style>

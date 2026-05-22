@@ -1,0 +1,126 @@
+---
+/*
+  COMPONENT: Article
+  PURPOSE:   Editorial long-form section — a section header, a column of
+             content blocks (headings / paragraphs / lists), and a sticky
+             pull-quote in the right column on desktop, inline on mobile.
+  LAYOUT:    5:3 two-column on desktop; single column on mobile, with the
+             quote rendered above the body content.
+  USE FOR:   Biography on About; method exposition; any long-form prose
+             section where a pulled quote earns its keep.
+*/
+import type { ImageMetadata } from "astro";
+import type { Heading } from "../../../types/heading";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+import BlockList from "./BlockList/BlockList.astro";
+import PullQuote from "./PullQuote/PullQuote.astro";
+
+type Block =
+	| { type: "heading"; text: string }
+	| { type: "paragraph"; text: string }
+	| { type: "list"; items: readonly { label: string; text: string }[] };
+
+interface QuoteAttribution {
+	readonly name: string;
+	readonly role: string;
+	readonly photo: ImageMetadata;
+}
+
+interface Quote {
+	readonly text: string;
+	readonly attribution: QuoteAttribution;
+}
+
+interface Props {
+	eyebrow: string;
+	title: Heading;
+	intro: string;
+	quote: Quote;
+	blocks: readonly Block[];
+}
+
+const { eyebrow, title, intro, quote, blocks } = Astro.props;
+---
+
+<section class="article" data-article>
+	<div class="article__inner wrapper wrapper--wide">
+		<!-- Left: article content -->
+		<div class="article__content">
+			<SectionHeader
+				eyebrow={eyebrow}
+				heading={title}
+				intro={intro}
+				gsapAttr="sa-header"
+				noMargin
+			/>
+
+			<!-- Quote — mobile only (hidden on desktop) -->
+			<div class="article__quote-mobile">
+				<PullQuote text={quote.text} attribution={quote.attribution} />
+			</div>
+
+			<BlockList blocks={blocks} />
+		</div>
+
+		<!-- Right: sticky pull-quote — desktop only -->
+		<aside class="article__quote-col">
+			<PullQuote text={quote.text} attribution={quote.attribution} />
+		</aside>
+	</div>
+</section>
+
+<script>
+	import "./article.gsap.ts";
+</script>
+
+<style>
+	/* ── Shell ──────────────────────────────────────────────────────────────── */
+	.article {
+		padding-block: var(--space-section);
+	}
+
+	/* ── Two-column grid ─────────────────────────────────────────────────────── */
+	.article__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-3xl);
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 5fr 3fr;
+			gap: var(--space-4xl);
+			align-items: start;
+		}
+	}
+
+	/* ── Left content column ─────────────────────────────────────────────────── */
+	.article__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		min-width: 0;
+		max-width: var(--width-narrow);
+
+		@media (min-width: 1024px) {
+			max-width: none;
+		}
+	}
+
+	/* ── Quote visibility ────────────────────────────────────────────────────── */
+	.article__quote-mobile {
+		display: block;
+
+		@media (min-width: 1024px) {
+			display: none;
+		}
+	}
+
+	.article__quote-col {
+		display: none;
+
+		@media (min-width: 1024px) {
+			display: block;
+			position: sticky;
+			top: var(--space-4xl);
+		}
+	}
+</style>

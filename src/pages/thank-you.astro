@@ -6,13 +6,13 @@
   CONNECTED TO: src/pages/contact.astro (redirects here after successful form submission)
 */
 import ThankYouSection from "../components/thank-you/ThankYou.astro";
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 import { thankYouContent } from "../config/thank-you";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-	title={`${thankYouContent.seo.title} | ${firm.companyName}`}
+	title={`${thankYouContent.seo.title} | ${studio.name}`}
 	description={thankYouContent.seo.description}
 	noIndex={true}
 	solidNav={true}

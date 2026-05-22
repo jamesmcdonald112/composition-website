@@ -1,5 +1,5 @@
 ---
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import CtaLink from "../ui/CtaLink.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
 ---
@@ -18,19 +18,25 @@ import Eyebrow from "../ui/Eyebrow.astro";
 
 		<nav class="server-error__nav" aria-label="Where would you like to go?">
 			<CtaLink href="/" label="Back to home" variant="primary" icon="arrow" />
-			<CtaLink href="/contact" label="Get in touch" variant="outline-dark" icon="arrow" />
+			<CtaLink
+				href={booking.href}
+				label={booking.label}
+				variant="outline-dark"
+				calLink={booking.calLink}
+				calNamespace={booking.calNamespace}
+				calConfig={booking.calConfig}
+			/>
 		</nav>
 
 		<p class="server-error__contact">
-			If the problem keeps happening, please call the firm on
-			<a href={`tel:${firm.phone.phoneHref}`}>{firm.phone.display}</a> and we'll help you directly.
+			If the problem keeps happening, please try again in a few minutes.
 		</p>
 	</div>
 </div>
 
 <style>
 	.server-error {
-		min-height: 100vh;
+		min-height: 100svh;
 		background: var(--color-bg-page);
 		display: flex;
 		align-items: center;
@@ -72,10 +78,18 @@ import Eyebrow from "../ui/Eyebrow.astro";
 
 	.server-error__nav {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		justify-content: center;
+		align-items: stretch;
 		gap: var(--space-md);
 		margin-block-end: var(--space-4xl);
+		width: 100%;
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			align-items: center;
+			width: auto;
+		}
 	}
 
 	.server-error__contact {
@@ -83,15 +97,5 @@ import Eyebrow from "../ui/Eyebrow.astro";
 		font-size: var(--font-size-sm);
 		line-height: var(--line-height-relaxed);
 		color: var(--color-fg-muted);
-
-		a {
-			color: var(--color-fg-accent);
-			text-decoration: none;
-			border-block-end: 1px solid currentColor;
-
-			&:hover {
-				color: var(--color-fg-default);
-			}
-		}
 	}
 </style>

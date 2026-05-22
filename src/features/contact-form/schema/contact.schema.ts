@@ -1,16 +1,5 @@
 import { z } from "astro/zod";
-import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
-import {
-	CONTACT_SERVICES,
-	type ContactService,
-} from "../config/contact-services";
-
-const IE_DEFAULT_REGION = "IE";
-const PHONE_PARSE_OPTIONS = {
-	defaultCountry: IE_DEFAULT_REGION,
-	extract: false,
-} as const;
 
 export const contactSchema = z.object({
 	name: z
@@ -56,43 +45,6 @@ export const contactSchema = z.object({
 					}
 				}),
 		),
-	phone: z
-		.string()
-		.nullable()
-		.transform((v) => v ?? "")
-		.pipe(
-			z
-				.string()
-				.trim()
-				.superRefine((val, ctx) => {
-					if (val.length === 0) {
-						ctx.addIssue({
-							code: "custom",
-							message: "Phone is required.",
-							fatal: true,
-						});
-						return z.NEVER;
-					}
-					const parsed = parsePhoneNumberFromString(val, PHONE_PARSE_OPTIONS);
-					if (!parsed?.isValid()) {
-						ctx.addIssue({
-							code: "custom",
-							message: "Enter a valid phone number.",
-							fatal: true,
-						});
-					}
-				})
-				.transform((value) => {
-					const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
-					return phone?.number ?? value; // E.164 e.g. +353567765829
-				}),
-		),
-	service: z.enum(
-		CONTACT_SERVICES as unknown as [ContactService, ...ContactService[]],
-		{
-			message: "Please choose a service.",
-		},
-	),
 	message: z
 		.string()
 		.nullable()

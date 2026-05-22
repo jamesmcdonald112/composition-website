@@ -1,0 +1,17 @@
+---
+// Used inside MDX bio chapters to set off a sidenote from the main narrative.
+---
+
+<aside class="bio-aside">
+	<slot />
+</aside>
+
+<style>
+	.bio-aside {
+		border-inline-start: 2px solid var(--fg-accent, currentColor);
+		padding-inline-start: var(--space-4, 1rem);
+		margin-block: var(--space-6, 2rem);
+		font-style: italic;
+		color: var(--fg-muted, inherit);
+	}
+</style>

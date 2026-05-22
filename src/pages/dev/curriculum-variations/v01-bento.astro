@@ -1,0 +1,97 @@
+---
+/*
+  V01 — Bento grid
+  Mixed-size cards. Module I is the featured large card; remaining seven
+  occupy a tight asymmetric grid. Reads like a curated shelf rather than
+  a uniform menu.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const [featured, ...rest] = curriculum;
+---
+
+<BaseLayout title="V01 — Bento grid" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="bento">
+				<article class="bento__card bento__card--feature">
+					<span class="bento__num">{featured.numeral}</span>
+					<h3 class="bento__name">{featured.name}</h3>
+					<p class="bento__sub">{featured.subtitle}</p>
+					<p class="bento__body">{featured.body}</p>
+					<p class="bento__out">{featured.outcome}</p>
+				</article>
+				{rest.map((m) => (
+					<article class="bento__card">
+						<span class="bento__num bento__num--sm">{m.numeral}</span>
+						<h3 class="bento__name bento__name--sm">{m.name}</h3>
+						<p class="bento__sub">{m.subtitle}</p>
+						<p class="bento__body bento__body--sm">{m.body}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; color: var(--color-fg-default); }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+	.dev-back a:hover { color: var(--color-fg-accent); }
+
+	.bento {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(4, 1fr);
+			grid-auto-rows: minmax(180px, auto);
+			gap: var(--space-md);
+		}
+	}
+	.bento__card {
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		padding: var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+	.bento__card--feature {
+		@media (min-width: 768px) {
+			grid-column: span 2;
+			grid-row: span 2;
+			padding: var(--space-2xl);
+			background-color: var(--color-bg-brand);
+			color: var(--color-fg-on-brand);
+			border-color: var(--color-bg-brand);
+		}
+	}
+	.bento__num {
+		font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light);
+		font-size: var(--font-size-4xl); line-height: 1;
+		color: var(--color-fg-accent);
+	}
+	.bento__card--feature .bento__num { color: var(--color-fg-accent-on-brand); font-size: var(--font-size-5xl); }
+	.bento__num--sm { font-size: var(--font-size-2xl); }
+	.bento__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; color: inherit; }
+	.bento__name--sm { font-size: var(--font-size-lg); }
+	.bento__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; }
+	.bento__card--feature .bento__sub { color: var(--color-fg-on-brand-muted); }
+	.bento__body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.bento__card--feature .bento__body { color: var(--color-fg-on-brand-muted); font-size: var(--font-size-base); }
+	.bento__body--sm { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+	.bento__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-on-brand-subtle); margin: var(--space-sm) 0 0; padding-block-start: var(--space-sm); border-block-start: 1px solid color-mix(in oklch, var(--color-fg-on-brand) 20%, transparent); }
+</style>

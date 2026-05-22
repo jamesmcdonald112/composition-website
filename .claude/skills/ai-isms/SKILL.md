@@ -1,8 +1,7 @@
-# AI-ISMs Skill — Mary Molloy Solicitor
+# AI-ISMs Skill — Pozdnyakov Composition Studio
 
-Distilled from `.claude/skills/ai-isms/research/ai-isms-research.md`.
 Apply this skill whenever writing, reviewing, or editing any copy for this site.
-Run alongside `.claude/skills/copy/SKILL.md` and `.claude/skills/irish-legal-compliance/SKILL.md`.
+Run alongside `.claude/skills/copy/SKILL.md` — that one covers structure and persuasion; this one covers voice and avoiding AI patterns.
 
 ---
 
@@ -10,7 +9,9 @@ Run alongside `.claude/skills/copy/SKILL.md` and `.claude/skills/irish-legal-com
 
 AI writing is detectable through overlapping patterns — not a single smoking gun. The goal is not to fool a detector. The goal is to write copy that sounds like it came from a specific person who knows what they are talking about, not from a system generating statistically likely sentences.
 
-**The read-aloud test is the most reliable single check.** If it sounds like a report being read by a monotone speaker, it needs editing. If it sounds like a knowledgeable person talking, it's working.
+For this site that "specific person" is a conservatoire-trained composer who has spent two decades teaching. The copy should sound like a teacher writing to a future student — not like a marketing department writing about a course.
+
+**The read-aloud test is the most reliable single check.** If it sounds like a press release being read by a monotone speaker, it needs editing. If it sounds like a teacher talking through what they're about to teach, it's working.
 
 ---
 
@@ -26,19 +27,19 @@ When reviewing any copy, scan for these. Three or more present in the same piece
 6. **Banned word clusters** — three or more from the master list in the same page
 7. **Template conclusion** — ends with "In conclusion," "In summary," "Overall," then repeats what was already said
 8. **Zero contractions** — complete absence of "it's," "you'll," "can't," "we'll" in conversational copy
-9. **No specificity** — no concrete numbers, names, dates, places, or examples; everything could apply to anyone
-10. **Formal tone with no position** — overly positive, avoids all criticism, takes no stance on anything
+9. **No specificity** — no concrete works, composers, techniques, dates, or examples; everything could apply to anyone
+10. **Formal tone with no position** — overly positive, avoids all aesthetic preference, takes no stance on the music
 11. **Rhetorical question pattern** — "What does this mean? It means that X..." (mechanical; humans don't do this)
 12. **Perfect grammar throughout** — no natural variation; a document that is too clean looks machine-made
 13. **Repetitive formatting** — every list item uses bolded header + colon + description (AI's default list format)
-14. **Emotional disconnect** — discusses divorce, bereavement, accidents with no acknowledgement that these are hard; clinical throughout
-15. **Generic examples only** — nothing specific to Kilkenny, Irish law, or Mary's practice; could have been written by any solicitor anywhere in the English-speaking world
+14. **No aesthetic conviction** — discusses Bach, Stravinsky, Rachmaninoff with no preference, no opinion, no view of what makes the music great; clinical throughout
+15. **Generic musical examples only** — references "classical music," "great composers," "complex harmonies" rather than naming specific works, voice-leading problems, or orchestrational decisions
 16. **Hedging clusters** — "typically," "generally," "tends to," "often," "may" appear three or more times in the same piece
 17. **Perfect punctuation** — no natural comma splices, dashes for thinking, or structural irregularities
 18. **Em dash overuse** — AI defaults to the em dash (—) as a clause connector; more than one or two per page is a giveaway. Use a period, comma, or restructure the sentence instead.
-19. **Corporate consultant tone** — sounds like a management consultant, not a solicitor; uses business strategy vocabulary in a legal context
+19. **Course-sales tone** — sounds like a Udemy landing page; uses "unlock," "transform," "master," "level up" in a context where a real teacher would say "learn" or "understand"
 20. **Qualifier overload** — "very," "quite," "rather," "somewhat" cluster together without adding meaning
-21. **No cultural anchoring** — could have been written in Dublin, London, or New York; no sign of Irish context, Irish law, or Irish client expectations
+21. **No musical anchoring** — could have been written by someone who has never opened a score; no sign of inside-the-music thinking, no concrete reference to actual repertoire
 
 ---
 
@@ -50,7 +51,7 @@ These appear disproportionately in AI text. Finding three or more in a paragraph
 
 | Word | Replace with |
 |---|---|
-| **delve** | explore, investigate, examine |
+| **delve** | explore, examine, look at |
 | **tapestry** | mix, range, variety, collection |
 | **leverage** | use, apply, employ |
 | **utilize** | use |
@@ -67,7 +68,7 @@ These appear disproportionately in AI text. Finding three or more in a paragraph
 | **innovative** | [describe what's actually new] |
 | **seamless** | smooth, easy, simple |
 | **cutting-edge** | current, latest, advanced |
-| **unlock** | reveal, access, enable |
+| **unlock** | reveal, access, enable, learn |
 | **empower** | enable, support, help |
 | **realm** | field, area, domain |
 | **landscape** | field, environment, situation, context |
@@ -80,6 +81,21 @@ These appear disproportionately in AI text. Finding three or more in a paragraph
 | **beacon** | guide, model, leader |
 | **testament** | proof, evidence, sign |
 | **quintessential** | typical, ideal, classic |
+
+### Course-sales vocabulary — always replace
+This is especially toxic for the studio's register. A real conservatoire teacher would never use these:
+
+| Avoid | Prefer |
+|---|---|
+| **master** (as verb — "master fugue") | learn, understand, write fluently in |
+| **transform** | develop, change, deepen |
+| **unlock** | learn, discover, work through |
+| **level up** | progress, advance, take the next step |
+| **game-changer** | [delete; describe what actually changes] |
+| **next-level** | [delete] |
+| **deep dive** | study, examine in detail |
+| **secrets** | techniques, methods, principles |
+| **hacks / tips and tricks** | techniques, exercises |
 
 ### Additional Overused Intensifiers (Delete or Rephrase)
 "Significantly," "Substantially," "Dramatically," "Considerably," "Remarkably," "Notably" — these add drama without adding information. Replace with specific evidence or delete.
@@ -124,7 +140,7 @@ These appear disproportionately in AI text. Finding three or more in a paragraph
 - "It's not just X. It's Y."
 - "Whether X or Y"
 - "No X. No Y. Just Z."
-- "Organisations that embrace X..."
+- "Composers who embrace X..."
 - "In an era where X..."
 - "As we move forward..."
 - "The key to success lies in..."
@@ -164,54 +180,54 @@ Use this framework when editing AI-generated drafts in sequence:
 Scan the full piece for signals from the list above before touching anything. Note how many are present. This tells you how much work is needed.
 
 **U — Update vocabulary**
-Do the find-and-replace pass on banned words first. This is mechanical and fast. Do it before the other passes so you're not polishing AI prose that will be rewritten anyway.
+Do the find-and-replace pass on banned words first. This is mechanical and fast.
 
 **M — Mix sentence structures**
 Read through and deliberately vary rhythm. Add a short sentence after a long one. Add a fragment for emphasis. Break any paragraph where every sentence is the same length.
 
 **A — Add authentic voice**
-This is the most important pass. Ask: what would Mary actually say about this? Add:
-- Contractions ("It's" not "It is," "You'll" not "You will")
-- A specific example, name, number, or place
-- A genuine position or opinion (within professional bounds)
-- Something that reveals understanding of the client's actual situation
+The most important pass. Ask: what would a conservatoire teacher actually say about this? Add:
+- Contractions ("it's" not "it is")
+- A specific work, composer, technique, or musical example
+- A genuine aesthetic preference or position
+- Something that reveals inside-the-music thinking — a real teacher's perspective, not a summariser's
 
 **N — Natural imperfection**
-Read aloud. Listen for monotone cadence. A document that is too clean — perfect grammar, perfect structure, perfectly balanced paragraphs — sounds machine-made. Controlled variation and the occasional conversational aside signals a human behind the writing.
+Read aloud. Listen for monotone cadence. A document that is too clean — perfect grammar, perfect structure, perfectly balanced paragraphs — sounds machine-made.
 
 ---
 
 ## BEFORE AND AFTER EXAMPLES
 
-### Example 1: Professional/Business
+### Example 1 — Curriculum description
 
 **Before (AI):**
-> "In today's rapidly evolving landscape, organisations must leverage cutting-edge technologies to streamline their operations and enhance their competitive advantage. It is crucial for companies to implement comprehensive strategies that facilitate growth and maximise efficiency."
+> "Our comprehensive counterpoint module empowers students to master the intricacies of polyphonic writing. Through a robust curriculum that delves into the rich tapestry of historical techniques, learners will unlock the secrets of independent voice-leading."
 
 **After (human):**
-> "Every business owner I know is scrambling to figure out which new tools actually help versus which ones just create more work. After testing dozens of platforms last year, I've learned that the best technology choices are usually the boring, practical ones that solve specific problems."
+> "Counterpoint is where most self-taught composers stall. We begin with two voices in the strict style, note against note, and work outwards from there. By the end you will write fluently in three and four voices, and — more importantly — hear why each voice moves where it does."
 
-What changed: 7 banned words removed, vague claim replaced with specific experience, first person added, sentence rhythm varied.
+What changed: 7 banned words removed, marketing tone replaced with a real teacher's framing, specific pedagogical claim made.
 
-### Example 2: Formal/Professional
+### Example 2 — About / method page
 
 **Before (AI):**
-> "Furthermore, the research indicates that there is a significant correlation between the variables under consideration."
+> "Alex is a world-class composer who has dedicated his career to nurturing the next generation of musical talent. His innovative teaching methodology has transformed countless students into accomplished composers."
 
 **After (human):**
-> "The data surprised me — I expected a weak relationship, but the correlation was much stronger than anticipated."
+> "Alex trained at the Gnesin Russian Academy and the Université de Montréal, and has taught composition, orchestration, and music theory at conservatoire level since 1996. He teaches the way he was taught — by assignment, with detailed individual feedback on every exercise."
 
-What changed: "Furthermore" opener removed, passive "the research indicates" replaced with active personal reaction, emotional honesty ("surprised me") signals a human.
+What changed: marketing superlatives removed; replaced with verifiable biographical facts and a concrete description of *how* he teaches.
 
-### Example 3: Service Page Description
+### Example 3 — Lessons page
 
 **Before (AI):**
-> "This comprehensive solution facilitates seamless integration and enables organisations to optimise their workflow efficiency."
+> "Unlock your full potential as a composer with our cutting-edge one-on-one lessons designed to empower you on your creative journey."
 
 **After (human):**
-> "The API connects with our existing tools without breaking anything, which honestly was my biggest worry during implementation."
+> "Hour-long lessons, online. Individually shaped to what you are working on — your own pieces, exercises from the curriculum, or analysis of repertoire you want to understand better."
 
-What changed: comprehensive, facilitates, seamless, optimise all removed; replaced with specific technical detail and honest admission of concern. "Honestly" signals a real person.
+What changed: every word of marketing copy replaced with a concrete description of what the lessons actually are.
 
 ---
 
@@ -219,49 +235,47 @@ What changed: comprehensive, facilitates, seamless, optimise all removed; replac
 
 Rather than just removing AI patterns, add these:
 
-**Specificity:** Concrete numbers, names, dates, places. "A client came to me three months into a disputed estate matter" beats "clients often face challenges with estate administration."
+**Specificity:** Concrete works, composers, techniques, dates. "The first eight bars of the Bach G-minor English Suite prelude" beats "examples from the Baroque repertoire."
 
 **Sentence rhythm variation:** Short sentences for emphasis. Then a longer sentence that develops the idea more fully and allows the reader to settle into the complexity of what you're actually saying. Then short again.
 
 **Contractions:** "It's," "you'll," "can't," "we'll" in conversational copy. Complete absence is suspicious.
 
-**A genuine position:** Takes a view. Acknowledges a trade-off. Admits something is difficult. AI never commits; humans do.
+**A genuine position:** Takes a view on what works musically and what doesn't. Acknowledges a trade-off. Admits something is difficult. AI never commits; humans do. A real teacher has aesthetic preferences and is willing to state them.
 
 **Parenthetical asides:** A thought in brackets (or with dashes) that feels like it was added mid-sentence because it was. This is how people actually think.
 
-**Emotional honesty:** Not performed warmth ("we truly care about our clients"), but genuine acknowledgement of stakes ("Separation is hard. The paperwork shouldn't make it harder.").
+**Inside-the-music thinking:** A real composer-teacher writes from inside the music — references specific voice-leading problems, instrument-pairing decisions, formal turning points. AI writes about music from the outside.
 
 ---
 
-## IRISH SOLICITOR SPECIFIC NOTES
+## CLASSICAL-MUSIC SPECIFIC NOTES
 
-**Legal writing looks like AI to detectors even when it isn't.** Formal tone + technical vocabulary + professional language = low perplexity. The fix is not to make legal writing informal. The fix is to add specific human markers within the formal register:
-- Specific reference to local courts, local procedures, local cases
-- Evidence of first-hand experience ("In my practice..." / "I handle these matters regularly...")
-- Genuine understanding of what the client is going through — not scripted empathy
-- Kilkenny-specific detail (the town, the courts, the community) that AI cannot fake
+**Conservatoire writing can look like AI to detectors even when it isn't.** Formal tone + technical vocabulary + scholarly register = low perplexity. The fix is not to make the writing informal. The fix is to add specific human markers within the formal register:
+- Specific reference to actual works, bar numbers, voicings, instrumentations
+- Evidence of first-hand musical experience ("When I teach this, the most common mistake is...")
+- Aesthetic position — what Alex thinks works, what doesn't, why
+- A teacher's sensibility — knowing what students stumble on, and saying so
 
-**Never perform warmth.** "We truly care about our clients" is an AI phrase. Real empathy is specific: "Buying a house is stressful enough without legal uncertainty on top of it. That's why I explain every step before we take it."
+**Never perform warmth.** "We are passionate about your musical journey" is an AI phrase. Real warmth is specific: "Counterpoint is the part most self-taught composers find hardest, and the part that pays off most when you stick with it."
 
-**The attribution block is both an E-E-A-T signal and a human signal.** "Written by Mary Molloy, Solicitor, admitted 2005, specialist in family law" tells Google and tells readers that a real, named, verifiable person wrote this. AI-generated content doesn't have that.
+**The lineage block is both a credibility signal and a human signal.** "Studied with Tigran Chernoff at the Gnesin Academy and Alan Belkin at the Université de Montréal" tells the reader that a real, named, traceable person teaches here. AI-generated content cannot fake a verifiable teaching lineage.
 
-**Irish English vs American legal terminology.** AI defaults to American English and American legal concepts. Watch for:
-- "attorney" → "solicitor"
-- "lawsuit" → "legal proceedings" or "action"
-- "filing" → "lodging"
-- "real estate" → "property" or "conveyancing"
-- "cell phone" → "mobile"
-- References to US courts, US statutes, or US legal processes that have no Irish equivalent
+**Watch for course-sales drift.** AI defaults toward Udemy/Skillshare register the moment "teaching online" is mentioned. The studio is not an online course; it is a private studio that happens to teach online. Watch for and replace:
+
+- "course" → "module" or "the curriculum"
+- "students will be able to" → "you will be able to" (or describe outcomes directly)
+- "by the end of this course" → "by the end of the module"
+- "master / unlock / transform" → "learn / understand / write fluently in"
 
 **Concept-level replacement — not just word-level.** The most effective humanisation replaces whole concepts, not just individual words:
 
 | AI version | Human version |
 |---|---|
-| "We provide comprehensive legal services" | "I handle the legal work so you can focus on everything else" |
-| "Our experienced team delivers results" | "I've been practising in Kilkenny since [year] — I know the local courts" |
-| "We understand your unique needs" | "Buying your first house shouldn't feel like learning a foreign language" |
-| "We are committed to achieving the best outcome" | "My job is to make sure you know exactly where you stand at every step" |
-| "Our holistic approach ensures client satisfaction" | "I take on a limited number of matters — so your case gets my full attention" |
+| "Our comprehensive composition program empowers students to find their voice" | "Composition cannot be taught — but the craft underneath it can. We teach the craft, and your voice grows from doing the work" |
+| "Master the art of orchestration with our innovative teaching methodology" | "Orchestration is learned by writing for instruments and hearing what comes back. The module is built around exactly that" |
+| "Unlock the secrets of counterpoint with world-class instruction" | "Counterpoint, beginning with Fux's species writing and working through to free counterpoint in the style of Bach" |
+| "Transform your understanding of music theory" | "Harmony as it is taught in the conservatoire — figured bass, voice-leading, chorale writing, with exercises that build on each other" |
 
 ---
 
@@ -276,32 +290,32 @@ Run through this on every piece before it's finalised:
 - [ ] All concluding clichés
 - [ ] Rhetorical questions that immediately answer themselves
 - [ ] Em dashes used as clause connectors — more than one or two per page; replace with a period, comma, or restructured sentence
+- [ ] All course-sales vocabulary (master, unlock, transform, level up, hacks, secrets)
 
 **REPLACE:**
 - [ ] All words from the Notorious Thirty
 - [ ] Intensity modifiers without supporting evidence
 - [ ] Generic descriptor clusters
 - [ ] Predictable sentence constructions
+- [ ] "Course" → "module" / "curriculum" wherever it appears
 
 **ADD:**
 - [ ] At least one contraction per paragraph (in conversational copy)
-- [ ] At least one specific concrete detail per section
-- [ ] At least one genuine position or opinion
+- [ ] At least one specific musical detail per section (a work, a composer, a technique, a bar number)
+- [ ] At least one genuine aesthetic position or pedagogical observation
 - [ ] Sentence length variation — deliberately mix short and long
 
 **CHECK:**
-- [ ] Read aloud — does it sound like a person or a report?
-- [ ] Specificity test — could this apply to 100 other firms? If yes, rewrite.
+- [ ] Read aloud — does it sound like a teacher or a brochure?
+- [ ] Specificity test — could this apply to 100 other composition courses? If yes, rewrite.
 - [ ] Contraction check — are there any? Should there be?
 - [ ] Transition check — do three or more paragraphs open with transition words?
 - [ ] Run through GPTZero as a checkpoint (aim for <30% AI score)
-- [ ] Voice test — would Mary's existing clients recognise this as her voice, or could it be from any solicitor?
-- [ ] Irish English test — any American legal terminology, American spellings, or American legal references?
+- [ ] Voice test — would Alex recognise this as something he'd write, or could it be from any music course anywhere?
+- [ ] Register test — does it read as a conservatoire studio, not a Skillshare landing page?
 
 ---
 
 ## REFERENCE
 
-Full research with sources: `.claude/skills/ai-isms/research/ai-isms-research.md`
 Copywriting rules: `.claude/skills/copy/SKILL.md`
-Compliance rules: `.claude/skills/irish-legal-compliance/SKILL.md`

@@ -1,6 +1,6 @@
 ---
 import { defaultCtaPanel } from "../../config/ctas";
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import type { Heading } from "../../types/heading";
 import CtaLink from "../ui/CtaLink.astro";
 import SectionHeader from "../ui/SectionHeader/SectionHeader.astro";
@@ -17,7 +17,6 @@ const {
 	body = defaultCtaPanel.body,
 } = Astro.props;
 
-const phone = firm.phone;
 ---
 
 <section class="cta-panel" data-cta-panel>
@@ -35,10 +34,12 @@ const phone = firm.phone;
 
 		<div class="cta-panel__ctas" data-cta-ctas>
 			<CtaLink
-				href={`tel:${phone.phoneHref}`}
-				label={phone.display}
+				href={booking.href}
+				label={booking.label}
 				variant="primary"
-				icon="phone"
+				calLink={booking.calLink}
+				calNamespace={booking.calNamespace}
+				calConfig={booking.calConfig}
 			/>
 			<CtaLink href="/contact" label="Contact Us" variant="outline-dark" icon="arrow" />
 		</div>

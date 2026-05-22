@@ -1,5 +1,5 @@
 ---
-import { firm } from "../../config/firm";
+import { booking } from "../../config/booking";
 import CtaLink from "../ui/CtaLink.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
 ---
@@ -17,21 +17,26 @@ import Eyebrow from "../ui/Eyebrow.astro";
 		</p>
 
 		<nav class="not-found__nav" aria-label="Where would you like to go?">
-			<CtaLink href="/" label="Back to home" variant="primary" icon="arrow" />
-			<CtaLink href="/services" label="View all services" variant="outline-dark" icon="arrow" />
-			<CtaLink href="/contact" label="Get in touch" variant="outline-dark" icon="arrow" />
+			<CtaLink href="/" label="Back to Home" variant="primary" icon="arrow" />
+			<CtaLink
+				href={booking.href}
+				label={booking.label}
+				variant="outline-dark"
+				calLink={booking.calLink}
+				calNamespace={booking.calNamespace}
+				calConfig={booking.calConfig}
+			/>
 		</nav>
 
 		<p class="not-found__contact">
-			If you reached this page from a link elsewhere on the web, please let us know and we'll fix it. You can call the firm on
-			<a href={`tel:${firm.phone.phoneHref}`}>{firm.phone.display}</a>.
+			If you reached this page from a link elsewhere on the web, please <a href="/contact">let us know</a> and we'll fix it.
 		</p>
 	</div>
 </div>
 
 <style>
 	.not-found {
-		min-height: 100vh;
+		min-height: 100svh;
 		background: var(--color-bg-page);
 		display: flex;
 		align-items: center;
@@ -73,10 +78,18 @@ import Eyebrow from "../ui/Eyebrow.astro";
 
 	.not-found__nav {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		justify-content: center;
+		align-items: stretch;
 		gap: var(--space-md);
 		margin-block-end: var(--space-4xl);
+		width: 100%;
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			align-items: center;
+			width: auto;
+		}
 	}
 
 	.not-found__contact {

@@ -1,0 +1,75 @@
+---
+/*
+  V37 — Bracketed pairs
+  Modules grouped two-by-two under a brand-coloured kicker (Foundations,
+  Advanced craft, Composition, Reviewing). Each pair sits as two adjacent
+  cards under its grouping label. Makes the eight legible as four phases.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const pairs = [
+	{ label: "Foundations — the grammar", modules: curriculum.slice(0, 2) },
+	{ label: "Advanced contrapuntal craft", modules: curriculum.slice(2, 4) },
+	{ label: "Structure and colour", modules: curriculum.slice(4, 6) },
+	{ label: "Composition and review", modules: curriculum.slice(6, 8) },
+];
+---
+
+<BaseLayout title="V37 — Bracketed pairs" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, four phases</h1>
+				<p class="intro">Pairs of related modules grouped together — read the four phases first, then the eight modules within them.</p>
+			</header>
+
+			{pairs.map((pair) => (
+				<section class="phase">
+					<header class="phase__head">
+						<span class="phase__bracket">{pair.modules[0].numeral}–{pair.modules[1].numeral}</span>
+						<h2 class="phase__label">{pair.label}</h2>
+					</header>
+					<div class="phase__grid">
+						{pair.modules.map((m) => (
+							<article class="phase__card">
+								<header class="phase__card-head">
+									<span class="phase__card-num">{m.numeral}</span>
+									<h3 class="phase__card-name">{m.name}</h3>
+								</header>
+								<p class="phase__card-sub">{m.subtitle}</p>
+								<p class="phase__card-body">{m.body}</p>
+								<p class="phase__card-out">{m.outcome}</p>
+							</article>
+						))}
+					</div>
+				</section>
+			))}
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.intro { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); margin: var(--space-sm) 0 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.phase { margin-block-end: var(--space-2xl); }
+	.phase__head { display: flex; align-items: baseline; gap: var(--space-lg); padding-block-end: var(--space-md); margin-block-end: var(--space-lg); border-block-end: 2px solid var(--color-fg-accent); }
+	.phase__bracket { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-3xl); line-height: 1; color: var(--color-fg-accent); }
+	.phase__label { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.phase__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); @media (min-width: 768px) { grid-template-columns: 1fr 1fr; } }
+	.phase__card { background-color: var(--color-bg-surface); border: 1px solid var(--color-border-default); padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm); }
+	.phase__card-head { display: flex; align-items: baseline; gap: var(--space-md); }
+	.phase__card-num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-3xl); line-height: 1; color: var(--color-fg-accent); }
+	.phase__card-name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-xl); margin: 0; line-height: var(--line-height-tight); }
+	.phase__card-sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.phase__card-body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.phase__card-out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: auto 0 0; padding-block-start: var(--space-md); border-block-start: 1px solid var(--color-border-default); }
+</style>

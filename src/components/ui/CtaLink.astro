@@ -1,9 +1,8 @@
 ---
 import arrowIcon from "../../assets/icons/chevronRightIcon.svg?raw";
-import phoneIcon from "../../assets/icons/phoneIcon.svg?raw";
 
 type Variant = "primary" | "outline-light" | "outline-dark";
-type Icon = "phone" | "arrow";
+type Icon = "arrow";
 
 interface Props {
 	href: string;
@@ -11,17 +10,31 @@ interface Props {
 	variant?: Variant;
 	icon?: Icon;
 	ariaLabel?: string;
+	calLink?: string;
+	calNamespace?: string;
+	calConfig?: string;
 }
 
-const { href, label, variant = "primary", icon, ariaLabel } = Astro.props;
+const {
+	href,
+	label,
+	variant = "primary",
+	icon,
+	ariaLabel,
+	calLink,
+	calNamespace,
+	calConfig,
+} = Astro.props;
 ---
 
-<a href={href} class:list={["cta-link", `cta-link--${variant}`]} aria-label={ariaLabel}>
-	{
-		icon === "phone" && (
-			<span class="cta-link__icon cta-link__icon--phone" set:html={phoneIcon} aria-hidden="true" />
-		)
-	}
+<a
+	href={href}
+	class:list={["cta-link", `cta-link--${variant}`]}
+	aria-label={ariaLabel}
+	data-cal-link={calLink}
+	data-cal-namespace={calNamespace}
+	data-cal-config={calConfig}
+>
 	<span>{label}</span>
 	{
 		icon === "arrow" && (
@@ -35,7 +48,14 @@ const { href, label, variant = "primary", icon, ariaLabel } = Astro.props;
 		--cta-glow: 0 0 0 0 color-mix(in srgb, var(--color-fg-accent) 0%, transparent);
 		--cta-glow-active: 0 0 var(--space-xl) var(--space-xs) color-mix(in srgb, var(--color-fg-accent) 35%, transparent);
 
-		display: inline-flex;
+		/*
+		  Mobile: flex (block-level) + width: 100% so the button fills its
+		  parent column in a stacked button group. From 640px up the
+		  button returns to inline-flex / content width so siblings in a
+		  row sit at their natural label widths, not stretched.
+		*/
+		display: flex;
+		width: 100%;
 		justify-content: center;
 		align-items: center;
 		font-family: var(--font-sans);
@@ -53,6 +73,11 @@ const { href, label, variant = "primary", icon, ariaLabel } = Astro.props;
 			color var(--duration-normal) var(--ease-smooth),
 			border-color var(--duration-normal) var(--ease-smooth),
 			box-shadow var(--duration-slow) var(--ease-smooth);
+
+		@media (min-width: 640px) {
+			display: inline-flex;
+			width: auto;
+		}
 
 		@media (min-width: 1024px) {
 			justify-content: flex-start;
@@ -108,23 +133,6 @@ const { href, label, variant = "primary", icon, ariaLabel } = Astro.props;
 	.cta-link__icon--arrow {
 		margin-inline-end: 0;
 		margin-inline-start: var(--space-sm);
-	}
-
-	.cta-link__icon--phone {
-		display: inline-flex;
-	}
-
-	.cta-link__icon--phone :global(svg) {
-		width: 100%;
-		height: 100%;
-	}
-
-	.cta-link__icon--phone {
-		@media (prefers-reduced-motion: no-preference) {
-			.cta-link:hover & {
-				animation: phone-shake var(--duration-slow) var(--ease-smooth);
-			}
-		}
 	}
 
 	.cta-link__icon--arrow {

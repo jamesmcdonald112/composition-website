@@ -119,8 +119,8 @@ Structure:
     </div>
 
     <div class="intro__text">
-      <p data-intro-name class="intro__name">Mary Molloy</p>
-      <p data-intro-sub class="intro__sub">Solicitor · Kerry</p>
+      <p data-intro-name class="intro__name">Studio Name</p>
+      <p data-intro-sub class="intro__sub">Tagline · Location</p>
     </div>
   </div>
 </div>

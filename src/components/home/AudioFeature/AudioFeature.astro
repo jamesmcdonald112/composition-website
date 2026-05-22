@@ -1,0 +1,135 @@
+---
+/*
+  COMPONENT: AudioFeature
+  PURPOSE:   Renders the "a taste of the music" section on the homepage
+             as a single YouTube embed. If youtubeId is null, the entire
+             section is omitted from the page — no placeholder, no
+             empty container, no chrome.
+  REGISTER:  Single embed, framed simply — recital programme, not media carousel.
+*/
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	youtubeId: string | null;
+	caption: string;
+}
+
+const { eyebrow, title, youtubeId, caption } = Astro.props;
+---
+
+{youtubeId && (
+	<section class="audio-feature" data-audio-feature>
+		<div class="audio-feature__inner wrapper wrapper--wide">
+
+			<SectionHeader eyebrow={eyebrow} heading={title} gsapAttr="audio-feature-header" />
+
+			<figure class="audio-feature__embed" data-audio-feature-figure>
+				{/*
+				  Production: Cookiebot-gated embed. The iframe stays inert
+				  until the visitor accepts the Marketing category.
+				  data-cookieblock-src holds the URL; data-cookieconsent
+				  declares the category. On consent, Cookiebot rewrites
+				  data-cookieblock-src to src and the iframe loads.
+				  Ref: support.cookiebot.com → "Iframe cookie consent with YouTube example"
+
+				  Dev: plain src so the embed is visible while working.
+				  Cookiebot is also skipped in dev (BaseLayout) because the
+				  dev CBID isn't authorised against localhost; without this
+				  twin gate, the iframe would stay forever blank in dev with
+				  nothing to rewrite the placeholder back to src.
+				*/}
+				<div class="audio-feature__frame">
+					{import.meta.env.PROD ? (
+						<iframe
+							class="audio-feature__iframe"
+							data-cookieconsent="marketing"
+							data-cookieblock-src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+							title={`${title} — performance recording`}
+							loading="lazy"
+							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					) : (
+						<iframe
+							class="audio-feature__iframe"
+							src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+							title={`${title} — performance recording`}
+							loading="lazy"
+							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					)}
+				</div>
+				{caption && (
+					<figcaption class="audio-feature__caption">{caption}</figcaption>
+				)}
+			</figure>
+
+		</div>
+	</section>
+)}
+
+<script>
+	import { initAudioFeature } from "./audio-feature.gsap";
+	initAudioFeature();
+</script>
+
+<style>
+	.audio-feature {
+		background-color: var(--color-bg-page);
+		padding-block: var(--space-section);
+	}
+
+	.audio-feature__inner {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* ── Figure (the iframe frame + its caption) ───────────────────────────── */
+	.audio-feature__embed {
+		width: 100%;
+		max-width: 56rem;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		/* Hidden initially — the GSAP timeline reveals it on scroll.
+		   Reduced-motion users see the @media override below (immediate visible). */
+		visibility: hidden;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.audio-feature__embed {
+			visibility: visible;
+		}
+	}
+
+	/* The frame that actually holds the iframe — keeps the 16:9 aspect ratio
+	   so the iframe inside sizes correctly. The caption sits below the frame,
+	   not constrained by the aspect-ratio container. */
+	.audio-feature__frame {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+	}
+
+	.audio-feature__iframe {
+		width: 100%;
+		height: 100%;
+		border: 0;
+		display: block;
+	}
+
+	.audio-feature__caption {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		text-align: center;
+		margin: 0;
+	}
+</style>

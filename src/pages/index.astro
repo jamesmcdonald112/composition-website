@@ -1,30 +1,46 @@
 ---
-import heroImage from "../assets/images/new/kilkenny-castle-from-johns-bridge.webp";
-import CTAPanel from "../components/CTAPanel/CTAPanel.astro";
+/*
+  PAGE: index.astro — Pozdnyakov Composition Studio homepage.
+
+  Structure: a single quiet scroll, seven movements.
+    1. HeroHome       — name, tagline, primary CTA
+    2. TrustStrip     — credentials + 4 stats (first credibility moment)
+    3. LeadMagnet     — free resource for visitors not yet ready to enquire
+    4. CurriculumPath — the eight-module training path
+    5. Pricing        — two offers (lesson, homework correction)
+    6. TeacherIntro   — Alex's portrait + compressed bio
+    7. AudioFeature   — featured recording (placeholder until Alex picks one)
+
+  Order rationale:
+    Pricing sits *between* curriculum and teacher — once the visitor has
+    seen what's taught, they can read the cost as a courtesy rather than
+    a sales push. Lead magnet sits high (after credibility, before depth)
+    so visitors who aren't yet ready to enquire have a soft conversion
+    point. See pricing.ts header note for context.
+
+  All content reads from src/config/home.ts and its dependencies.
+*/
+import heroImage from "../assets/images/antique-score-on-desk-hero.webp";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
-import FeaturedService from "../components/home/FeaturedService/FeaturedService.astro";
-import ServiceCardsGrid from "../components/services/ServiceCards/ServiceCardsGrid/ServiceCardsGrid.astro";
 import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
-import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
-import TeamSection from "../components/team/TeamSection/TeamSection.astro";
-import AttributionBlock from "../components/ui/AttributionBlock/AttributionBlock.astro";
-import SectionHeader from "../components/ui/SectionHeader/SectionHeader.astro";
-import { firm } from "../config/firm";
+import AudioFeature from "../components/home/AudioFeature/AudioFeature.astro";
+import CurriculumPath from "../components/home/CurriculumPath/CurriculumPath.astro";
+import LeadMagnet from "../components/home/LeadMagnet/LeadMagnet.astro";
+import Pricing from "../components/home/Pricing/Pricing.astro";
+import TeacherIntro from "../components/home/TeacherIntro/TeacherIntro.astro";
 import { homePageContent } from "../config/home";
-import { services } from "../config/services/index";
-import { getLawFirmStructuredData } from "../config/structured-data";
+import { studio } from "../config/studio";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const structuredData = getLawFirmStructuredData();
-const { hero, supportingServices, trustStrip, attribution } = homePageContent;
-const { solicitor, reviewDate } = attribution;
+const { hero, trustStrip, curriculum, teacher, music } = homePageContent;
 ---
 
 <BaseLayout
-	title={`Solicitors in Kilkenny | ${firm.companyName}`}
+	title={studio.seo.defaultTitle}
 	description={homePageContent.seo.description}
 	canonicalPath={homePageContent.seo.canonicalPath}
-	structuredData={structuredData}
+	ogImage={studio.seo.defaultOgImage}
+	ogImageAlt={studio.seo.defaultOgImageAlt}
 >
 	<HeroHome
 		eyebrow={hero.eyebrow}
@@ -34,7 +50,7 @@ const { solicitor, reviewDate } = attribution;
 		primaryCta={hero.ctas.primary}
 		secondaryCta={hero.ctas.secondary}
 		image={heroImage}
-		imageAlt="View of Kilkenny Castle from John's Bridge"
+		imageAlt="An antique music manuscript, open at page 25, resting on a wooden writing desk."
 	/>
 
 	<TrustStrip
@@ -44,21 +60,28 @@ const { solicitor, reviewDate } = attribution;
 		stats={trustStrip.stats}
 	/>
 
-	<FeaturedService />
+	<LeadMagnet />
 
-	<section class="section">
-		<div class="wrapper wrapper--wide home-services__header">
-			<SectionHeader
-				eyebrow={supportingServices.eyebrow}
-				heading={supportingServices.title}
-				intro={supportingServices.intro}
-			/>
-		</div>
-		<ServiceCardsGrid services={services.slice(1, 4)} />
-	</section>
+	<CurriculumPath
+		eyebrow={curriculum.eyebrow}
+		title={curriculum.title}
+		intro={curriculum.intro}
+	/>
 
-	{/* <TestimonialBlock /> */}
-	<TeamSection />
-	<AttributionBlock solicitor={solicitor} reviewDate={reviewDate} />
-	<CTAPanel />
+	<Pricing />
+
+	<TeacherIntro
+		eyebrow={teacher.eyebrow}
+		title={teacher.title}
+		paragraphs={teacher.paragraphs}
+		linkLabel={teacher.linkLabel}
+		linkHref={teacher.linkHref}
+	/>
+
+	<AudioFeature
+		eyebrow={music.eyebrow}
+		title={music.title}
+		youtubeId={music.youtubeId}
+		caption={music.caption}
+	/>
 </BaseLayout>

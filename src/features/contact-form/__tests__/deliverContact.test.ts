@@ -16,8 +16,6 @@ const { deliverContact } = await import("../service/deliverContact");
 const validInput: ContactInput = {
 	name: "John Smith",
 	email: "john@example.com",
-	phone: "+353871234567" as ContactInput["phone"],
-	service: "Employment Law",
 	message: "I need help.",
 	website: "",
 };
@@ -34,25 +32,20 @@ describe("deliverContact", () => {
 		expect(mockSend).toHaveBeenCalledOnce();
 		const [call] = mockSend.mock.calls;
 		expect(call[0]).toMatchObject({
-			subject: "New contact form submission — Employment Law",
+			subject: "New contact form submission — John Smith",
 		});
 		expect(call[0].html).toContain("Name:");
 		expect(call[0].html).toContain("John Smith");
 		expect(call[0].html).toContain("john@example.com");
-		expect(call[0].html).toContain("+353871234567");
-		expect(call[0].html).toContain("Employment Law");
 		expect(call[0].html).toContain("I need help.");
 	});
 
-	it("includes the service in the subject line", async () => {
-		await deliverContact({
-			...validInput,
-			service: "Family & Childcare Law" as const,
-		});
+	it("includes the sender name in the subject line", async () => {
+		await deliverContact({ ...validInput, name: "Jane Doe" });
 
 		const [call] = mockSend.mock.calls;
 		expect(call[0].subject).toBe(
-			"New contact form submission — Family & Childcare Law",
+			"New contact form submission — Jane Doe",
 		);
 	});
 

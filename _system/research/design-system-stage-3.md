@@ -290,7 +290,7 @@ Check before using any placeholder.
 
 ```
 src/assets/    ← team photos, icons, logo, SVGs
-public/        ← hero images, marble/leather textures, Kilkenny location photography
+public/        ← hero images, textures, location photography
 ```
 
 - Use `<Image>` from `astro:assets` for all images

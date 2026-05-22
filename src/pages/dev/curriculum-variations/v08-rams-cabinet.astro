@@ -1,0 +1,72 @@
+---
+/*
+  V08 — Dieter Rams cabinet
+  Quiet, gridded, industrial-catalogue restraint. Modular box with labelled
+  rows (numeral, name, subtitle, body as separate data fields). Braun
+  catalogue / Vitsoe shelving aesthetic — function as form.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V08 — Dieter Rams cabinet" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="cabinet">
+				{curriculum.map((m) => (
+					<article class="cabinet__cell">
+						<dl class="cabinet__data">
+							<div class="cabinet__row">
+								<dt class="cabinet__label">No.</dt>
+								<dd class="cabinet__value cabinet__value--num">{m.numeral}</dd>
+							</div>
+							<div class="cabinet__row">
+								<dt class="cabinet__label">Module</dt>
+								<dd class="cabinet__value cabinet__value--name">{m.name}</dd>
+							</div>
+							<div class="cabinet__row">
+								<dt class="cabinet__label">Topic</dt>
+								<dd class="cabinet__value cabinet__value--sub">{m.subtitle}</dd>
+							</div>
+							<div class="cabinet__row cabinet__row--full">
+								<dt class="cabinet__label">Outline</dt>
+								<dd class="cabinet__value cabinet__value--body">{m.body}</dd>
+							</div>
+						</dl>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.cabinet { display: grid; grid-template-columns: 1fr; gap: 1px; background-color: var(--color-border-strong); border: 1px solid var(--color-border-strong); @media (min-width: 640px) { grid-template-columns: 1fr 1fr; } @media (min-width: 1024px) { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+	.cabinet__cell { background-color: var(--color-bg-surface); padding: var(--space-lg); }
+	.cabinet__data { margin: 0; display: grid; gap: var(--space-md); }
+	.cabinet__row { display: grid; grid-template-columns: 60px 1fr; gap: var(--space-sm); align-items: baseline; }
+	.cabinet__row--full { grid-template-columns: 60px 1fr; align-items: start; padding-block-start: var(--space-sm); border-block-start: 1px solid var(--color-border-default); }
+	.cabinet__label {
+		font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-subtle); margin: 0;
+	}
+	.cabinet__value { margin: 0; }
+	.cabinet__value--num { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-2xl); color: var(--color-fg-accent); line-height: 1; }
+	.cabinet__value--name { font-family: var(--font-serif); font-size: var(--font-size-lg); color: var(--color-fg-default); }
+	.cabinet__value--sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); }
+	.cabinet__value--body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); }
+</style>

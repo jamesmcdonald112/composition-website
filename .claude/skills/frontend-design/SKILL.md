@@ -1,9 +1,9 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces for premium Irish solicitor websites. Loads design thinking, token constraints, and motion principles for every component build session.
+description: Create distinctive, production-grade frontend interfaces for the Pozdnyakov Composition Studio site. Loads design thinking, token constraints, and motion principles for every component build session.
 ---
 
-This skill guides creation of premium solicitor website components that avoid generic AI aesthetics. Every component built with this skill should make a potential client feel they are in expert, expensive, trustworthy hands before reading a single word.
+This skill guides the creation of components for a serious classical-music studio website. The brief is **editorial-classical**: it should feel closer to a published score, a small European conservatoire site, or a literary monograph than to a SaaS landing page. Every component should make a serious composer feel they are looking at a real studio with a real curriculum — before reading a single word.
 
 ## Priority Order — Read This First
 
@@ -24,22 +24,33 @@ Commit to that answer. Then build it.
 
 Before touching any code, commit to answers for these four questions:
 
-- **Purpose**: What job does this component do for a stressed person making a significant legal decision?
-- **Tone**: This project lives at the intersection of authoritative and warm. Not cold corporate. Not approachable casual. Think: a Michelin-starred restaurant run by people who genuinely care. Premium without arrogance.
+- **Purpose**: What job does this component do for a serious composer evaluating whether this studio is worth their time and money?
+- **Tone**: This project lives at the intersection of *maestro* and *generous teacher*. Not academic-cold. Not creator-casual. Think: a small European conservatoire that takes its tradition seriously and its students personally. Confident without being grand. Warm without being chummy.
 - **Constraints**: Astro 6, plain CSS in `<style>` blocks, GSAP for animation, token system already built — no raw values anywhere.
-- **Differentiation**: What is the one thing about this component that will make someone stop and notice the quality?
+- **Differentiation**: What is the one thing about this component that will make a serious composer stop and notice the quality?
 
 **CRITICAL**: The token system is your vocabulary. Your job is to compose it beautifully — not to invent new values. The creative work happens in layout, proportion, rhythm, and motion. Not in colour or typeface choices.
 
+## The Visual Register — Editorial-Classical
+
+The site should feel like a *published edition*, not a *web product*. Specific cues:
+
+- **Typography does almost all the work.** Serifs throughout. A refined display serif (Newsreader, EB Garamond, Cormorant) for headings; a clean humanist serif for body. Small-caps for section labels. Avoid sans-serif except where unavoidable for form inputs.
+- **Warm cream paper, deep ink, one restrained accent.** Manuscript-paper background. Fountain-pen-ink foreground. A single muted accent — burgundy or aged brass — used sparingly for links, key highlights, primary CTAs.
+- **Generous whitespace, especially around headings.** The space around a phrase signals how much weight that phrase carries. Treat headings like they're set in a programme note.
+- **Numbered sequences over icon grids.** When showing the curriculum or a process, use roman numerals (I, II, III) or paginated numbering. Avoid icon cards — they read SaaS, not studio.
+- **Left-aligned long-form prose.** The site has things worth reading. Bios, programme-note-style descriptions, lesson outlines. Don't break them into bullet soup.
+- **Single audio or video embed per page, framed simply.** When music is featured, it should feel like a recital programme, not a media carousel.
+
 ## Reference Studios — Apply Training Knowledge
 
-These are verified Awwwards winners. Apply what you know about them:
+Useful references for the editorial-classical register:
 
-- **Obys Agency** (obys.agency) — Studio of the Year 2023. Swiss grid logic, typographic precision, nothing random.
-- **Akaru** (akaru.fr) — SOTM April 2024. GSAP scroll architecture, cohesive identity across sections.
-- **The Line Studio** (thelinestudio.com) — SOTM November 2024. Professional services that won design awards. Study this most carefully.
-- **Garden Eight** (garden-eight.com) — Multiple SOTD. Warmth and precision coexisting. Refined spatial composition.
-- **Unseen Studio** (unseenstudio.com) — Multiple SOTD. Immediate premium feel. Transitions that feel considered.
+- **Craig Mod's writing site** (craigmod.com) — generous typographic respect for the reader; quiet long-form pages.
+- **Stripe Press** (press.stripe.com) — modern serif editorial with restrained accent colour and confident layout.
+- **Notation editions** (Henle, Bärenreiter websites) — quiet typographic confidence, scholarly framing without being austere.
+- **The Line Studio** (thelinestudio.com) — professional-services restraint at award-winning standard. Still relevant as a *layout* reference even though their colour palette differs.
+- **Small European conservatoires** (Conservatoire de Paris, Royal Academy of Music) — institutional but human; how a serious music school presents itself online.
 
 Ask yourself: would this component be at home on one of these sites? If not, keep working.
 
@@ -64,10 +75,13 @@ Rules:
 - Typography does the heavy lifting — composition before decoration
 - Asymmetry feels considered; perfect symmetry reads as template
 - One focal point per screen section — nothing competes for attention
-- Left-align for authority; centre only for isolated, intentional statements
+- Left-align for authority; centre only for isolated, intentional statements (a single epigraph; the studio name in the masthead)
 - Real photography always beats placeholder — check `src/assets/` and `public/`
+- For numbered sequences (curriculum, lesson process), use roman numerals or hairline numerals set in the display serif — not icon badges
 
 ## Motion — GSAP Principles
+
+The motion vocabulary is **slow and deliberate** — the visual equivalent of a conductor's downbeat. Nothing bouncy, nothing playful, nothing flashy. Everything settles.
 
 ```ts
 // Always import from this path only
@@ -120,20 +134,23 @@ Every section component must follow this three-layer pattern:
 
 All CSS classes follow BEM: `block__element--modifier`
 
-- Block = the component name: `.service-hero`, `.cta-panel`, `.quote-card`
-- Element = a part of the block: `.service-hero__title`, `.cta-panel__inner`
-- Modifier = a variant: `.cta-panel--dark`, `.quote-card--compact`
+- Block = the component name: `.studio-hero`, `.curriculum-path`, `.programme-note`
+- Element = a part of the block: `.studio-hero__title`, `.curriculum-path__movement`
+- Modifier = a variant: `.curriculum-path--compact`, `.programme-note--epigraph`
 - `data-` attributes are for JS/GSAP hooks only — never for styling
 
 ## What to Avoid
 
 - Raw values of any kind — hex, px, named colours, unitless numbers
-- Generic AI patterns — card grids with equal gutters, centred hero
-  with gradient overlay, pill buttons, stock photo card treatments,
-  dark badge overlays on images, equal-weight stat rows
-- Anything that would look at home on a WordPress solicitor template
+- Generic AI/SaaS patterns — feature cards with icon + heading + paragraph,
+  centred hero with gradient overlay, pill buttons, stat-row grids,
+  testimonial carousels, "trust badge" rows
+- Anything that would look at home on a Squarespace music-teacher template
 - Centring everything — left-align for authority
 - Carousels and sliders
+- Sans-serif headings — they break the editorial register
+- Sketchy "handmade" decoration meant to signal artisanship —
+  the typography is the craft, not stickers and scribbles
 - Decorating instead of composing — if adding something does not
   improve the hierarchy, remove it
 - Building what is expected — the expected version is always generic
@@ -142,13 +159,15 @@ All CSS classes follow BEM: `block__element--modifier`
 
 A component is not done until you can answer yes to all of these:
 
-1. Would a senior designer at Obys Agency or Garden Eight be
-   satisfied with this? If not — what specifically is wrong?
-2. Is there one clear focal point? Does nothing compete with it?
-3. Is the spacing generous enough to signal quality?
-4. Does every value trace back to a token?
-5. Is the layout system applied — shell → `.wrapper`/`.wrapper--wide` inner container → content, responsive gutters, correct max-width, section vertical spacing?
-6. Is the reduced-motion guard in place on every animation?
-7. Does it read from config — no hardcoded content?
+1. Would a senior designer at Stripe Press, Garden Eight, or The Line
+   Studio be satisfied with this? If not — what specifically is wrong?
+2. Would this look at home on the website of a small European
+   conservatoire or a serious classical-music publisher?
+3. Is there one clear focal point? Does nothing compete with it?
+4. Is the spacing generous enough to signal quality?
+5. Does every value trace back to a token?
+6. Is the layout system applied — shell → `.wrapper`/`.wrapper--wide` inner container → content, responsive gutters, correct max-width, section vertical spacing?
+7. Is the reduced-motion guard in place on every animation?
+8. Does it read from config — no hardcoded content?
 
 If any answer is no, it is not done. Go back and fix it.

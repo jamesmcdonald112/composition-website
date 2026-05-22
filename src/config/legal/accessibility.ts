@@ -1,64 +1,63 @@
-// The accessibility statement was generated using the W3C Accessibility
-// Statement Generator Tool (https://www.w3.org/WAI/planning/statements/) and
-// edited to reflect the firm's specifics and the findings of an automated
-// audit (WAVE) of the live site.
+// Accessibility statement for Pozdnyakov Composition Studio.
 //
-// **Source-of-truth original markdown:**
-// `legal-compliance/accessibility/accessibility-statement_2026-01-11.md`
+// Structure follows the W3C Accessibility Statement Generator
+// (https://www.w3.org/WAI/planning/statements/), kept as a recognisable
+// shape that aligns with how regulators and audit tools expect these
+// statements to read.
 //
-// That file is the dated audit-trail copy. It demonstrates to a regulator
-// that the statement was generated using the recommended W3C tool and was
-// reviewed against an actual audit. **Keep both files in sync.** When this
-// config is updated, the markdown source must also be updated, and the
-// reviewDate field below must be bumped.
+// Conformance status — currently "aim to meet WCAG 2.1 AA". The site has
+// NOT been formally audited. When a full audit is run (see README →
+// Pre-launch checklist and the audit tools in the README's Reusable
+// patterns section), update the Conformance status block to either
+// "fully conformant" or "partially conformant" and list any known
+// limitations that remain.
+//
+// TODO (alex): review the contact email and the response time before
+// launch.
 
 import type { LegalPageContent } from "../../components/ui/LegalPageContent/LegalPageContent.types";
+import { studio } from "../studio";
+
+const lastReviewed = "18 May 2026";
 
 export const accessibilityPageContent = {
 	seo: {
 		title: "Accessibility Statement",
-		description:
-			"Accessibility statement for Mary Molloy Solicitor. We aim to meet WCAG 2.1 Level AA and welcome feedback on accessibility barriers.",
+		description: `Accessibility statement for ${studio.name}. We aim to meet WCAG 2.1 Level AA and welcome feedback on accessibility barriers.`,
 		canonicalPath: "/accessibility",
 	},
-	reviewDate: "May 2026",
-	title: "Accessibility Statement for Mary Molloy Solicitor",
-	intro: "This is an accessibility statement from Mary Molloy Solicitor.",
+	reviewDate: lastReviewed,
+	title: `Accessibility Statement for ${studio.name}`,
+	intro: `This is the accessibility statement for ${studio.name}. The studio is committed to making this website usable by as many people as possible, including those who rely on assistive technologies.`,
 	sections: [
 		{
 			heading: "Measures to support accessibility",
 			blocks: [
 				{
 					type: "paragraph",
-					text: "Mary Molloy Solicitor takes the following measures to ensure accessibility of this website:",
+					text: `${studio.name} takes the following measures to support the accessibility of this website:`,
 				},
 				{
 					type: "list",
 					items: [
-						"Assign clear accessibility goals and responsibilities.",
-						"Accessibility is considered during design, development, and content updates.",
+						"Accessibility is considered during design, development, and content updates — not added as an afterthought.",
+						"The site uses semantic HTML so that content has meaning to assistive technologies, not just visual styling.",
+						"Colour contrast is checked against the WCAG ratio thresholds whenever a colour change is made.",
+						"Keyboard navigation is part of the basic build, not a separate concern.",
 					],
 				},
 			],
 		},
 		{
 			heading: "Conformance status",
-			body: 'The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Mary Molloy Solicitor is partially conformant with WCAG 2.1 level AA. "Partially conformant" means that some parts of the content do not fully conform to the accessibility standard.',
-		},
-		{
-			heading: "Known limitations",
 			blocks: [
 				{
 					type: "paragraph",
-					text: "The following minor issues have been identified via automated audit (WAVE, April 2026). None represent barriers to access — all are informational alerts rather than errors.",
+					text: "The Web Content Accessibility Guidelines (WCAG) define requirements for designers and developers to improve accessibility for people with disabilities. WCAG sets three levels of conformance: Level A, Level AA, and Level AAA.",
 				},
 				{
-					type: "list",
-					items: [
-						'Intro animation text — the firm name displayed during the page loading animation is styled to appear large but is marked as a paragraph element rather than a heading. This element is hidden from screen readers via aria-hidden="true" and is not perceivable by assistive technologies.',
-						'Logo and "Home" navigation link — the site logo and the "Home" link in the navigation bar both link to the homepage. Each has a distinct accessible label ("Mary Molloy Solicitor — home" and "Home" respectively), so screen reader users hear different labels for each link. This is the standard pattern used by accessible sites.',
-						"Phone number links — the phone number appears in both the desktop navigation bar and the mobile navigation (which is visually hidden on desktop). Both instances link to the same tel: URL. The desktop link has a distinct aria-label; the mobile link is not perceivable when hidden.",
-					],
+					type: "paragraph",
+					text: `${studio.name} aims to meet WCAG 2.1 Level AA. The site has not yet been formally audited against the guidelines, so we are unable to assert full or partial conformance with confidence. Once a full audit has been carried out, this statement will be updated to record the audit result and to list any known limitations that remain.`,
 				},
 			],
 		},
@@ -67,20 +66,18 @@ export const accessibilityPageContent = {
 			blocks: [
 				{
 					type: "paragraph",
-					text: "We welcome your feedback on the accessibility of this website. Please let us know if you encounter accessibility barriers:",
+					text: "We welcome your feedback on the accessibility of this website. If you encounter an accessibility barrier — for example, content that does not work with your screen reader, a colour combination that is hard to read, or a form field that is hard to navigate — please let us know so we can address it.",
 				},
 				{
 					type: "list",
 					items: [
-						"Phone: +353 56 7765829",
-						"Visitor address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
-						"Postal address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D",
-						'You may also submit accessibility feedback through our website contact form by selecting "General enquiry" and describing the accessibility issue.',
+						`Email: ${studio.email.primary}`,
+						"You may also submit accessibility feedback through our contact form at /contact — please describe the accessibility issue in the message field.",
 					],
 				},
 				{
 					type: "paragraph",
-					text: "We aim to respond to accessibility feedback within 5 business days.",
+					text: "The studio aims to respond to accessibility feedback within seven days.",
 				},
 			],
 		},
@@ -94,11 +91,13 @@ export const accessibilityPageContent = {
 				{
 					type: "list",
 					items: [
-						"Modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers such as NVDA, VoiceOver, or JAWS on current operating systems.",
+						"Recent versions of modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers such as NVDA, JAWS, VoiceOver, or TalkBack on current operating systems.",
 					],
 				},
-				{ type: "paragraph", text: "This website is not compatible with:" },
-				{ type: "list", items: ["Browsers older than 3 major versions."] },
+				{
+					type: "paragraph",
+					text: "This website is not actively tested against browsers more than three major versions out of date.",
+				},
 			],
 		},
 		{
@@ -106,7 +105,7 @@ export const accessibilityPageContent = {
 			blocks: [
 				{
 					type: "paragraph",
-					text: "Accessibility of this website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:",
+					text: "Accessibility of this website relies on the following technologies to work with the combination of web browser and any assistive technologies installed on your device:",
 				},
 				{
 					type: "list",
@@ -123,18 +122,26 @@ export const accessibilityPageContent = {
 			blocks: [
 				{
 					type: "paragraph",
-					text: "Mary Molloy Solicitor assessed the accessibility of this website by the following approaches:",
+					text: `${studio.name} has so far assessed the accessibility of this website by the following approaches:`,
 				},
-				{ type: "list", items: ["Self-evaluation"] },
+				{
+					type: "list",
+					items: [
+						"Self-evaluation during development against the WCAG 2.1 Level AA criteria.",
+					],
+				},
+				{
+					type: "paragraph",
+					text: "A formal independent audit has not yet been carried out. When one is, this section will be updated to describe the approach and the result.",
+				},
 			],
 		},
 		{
 			heading: "Formal complaints",
-			body: "If you are not satisfied with our response, you may contact us using the details above and we will review your concerns.",
+			body: "If you are not satisfied with the studio's response to an accessibility report, you may contact us again using the email above. We will review your concerns. If you are based in a jurisdiction with a statutory accessibility regulator and wish to escalate further, you may also contact that regulator — for example, in the European Union, complaints can be raised with the national supervisory authority responsible for digital accessibility under the EU Web Accessibility Directive.",
 		},
 	],
-	footerNote:
-		"This statement was created on 10 February 2026 using the W3C Accessibility Statement Generator Tool.",
+	footerNote: `This statement was last reviewed on ${lastReviewed} and follows the structure of the W3C Accessibility Statement Generator tool.`,
 } as const satisfies LegalPageContent;
 
 export type AccessibilityPageContent = typeof accessibilityPageContent;

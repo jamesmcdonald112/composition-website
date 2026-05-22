@@ -14,9 +14,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && footer) {
 	const bottom = footer.querySelector<HTMLElement>(
 		'[data-footer-animate="bottom"]',
 	);
-	const legalNotice = footer.querySelector<HTMLElement>(
-		'[data-footer-animate="legal-notice"]',
-	);
 
 	/* ─ Shared ScrollTrigger config ─ */
 	const trigger = {
@@ -51,22 +48,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && footer) {
 				ease: "power3.out",
 				stagger: 0.12,
 				delay: 0.18,
-				scrollTrigger: trigger,
-			},
-		);
-	}
-
-	/* ─ Legal notice: fades up after columns ─ */
-	if (legalNotice) {
-		gsap.fromTo(
-			legalNotice,
-			{ opacity: 0, y: 20 },
-			{
-				opacity: 1,
-				y: 0,
-				duration: 0.7,
-				ease: "power3.out",
-				delay: 0.35,
 				scrollTrigger: trigger,
 			},
 		);

@@ -1,0 +1,294 @@
+---
+/*
+  COMPONENT: Pricing
+  PURPOSE:   Homepage pricing block — two equal benefit-led cards
+             (private lesson + harmony exercise correction). Reads data
+             from src/config/pricing.ts.
+  LAYOUT:    Section header above; footnote sits directly under the
+             intro (before the cards). Two-column grid on tablet+,
+             stacked on mobile. Centred CTA below the grid.
+  HOVER:     Cards lift, the top accent rule thickens, the price colour
+             warms toward the accent — restrained, premium-feeling.
+  MOTION:    GSAP ScrollTrigger reveal mirrors CTAPanel — header staggers
+             in, cards stagger in with a 0.1s offset, CTA reveals last.
+             Guarded by prefers-reduced-motion. See pricing.gsap.ts.
+*/
+import { booking } from "../../../config/booking";
+import { pricing } from "../../../config/pricing";
+import CtaLink from "../../ui/CtaLink.astro";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+---
+
+<section class="pricing" data-pricing>
+	<div class="pricing__inner wrapper wrapper--wide">
+		<div class="pricing__header" data-pricing-header>
+			<SectionHeader
+				eyebrow={pricing.eyebrow}
+				heading={pricing.title}
+				intro={pricing.intro}
+				level={2}
+				gsapAttr="pricing-header"
+				noMargin
+			/>
+			{
+				pricing.footnote && (
+					<p class="pricing__footnote">{pricing.footnote}</p>
+				)
+			}
+		</div>
+
+		<div class="pricing__grid" data-pricing-grid>
+			{
+				pricing.offers.map((offer) => (
+					<article class="pricing__card" data-pricing-card>
+						<header class="pricing__head">
+							<h3 class="pricing__name">{offer.name}</h3>
+							<p class="pricing__subtitle">{offer.subtitle}</p>
+						</header>
+
+						<p class="pricing__body">{offer.body}</p>
+
+						{offer.bullets && (
+							<ul class="pricing__benefits" role="list">
+								{offer.bullets.map((b) => (
+									<li class="pricing__benefit">{b}</li>
+								))}
+							</ul>
+						)}
+
+						<footer class="pricing__price-row">
+							<span class="pricing__price">{offer.price}</span>
+							{offer.priceFootnote && (
+								<span class="pricing__price-note">{offer.priceFootnote}</span>
+							)}
+						</footer>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="pricing__cta" data-pricing-cta>
+			<CtaLink
+				href={booking.href}
+				label={booking.label}
+				variant="primary"
+				icon="arrow"
+				calLink={booking.calLink}
+				calNamespace={booking.calNamespace}
+				calConfig={booking.calConfig}
+			/>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initPricing } from "./pricing.gsap";
+	initPricing();
+</script>
+
+<style>
+	.pricing {
+		padding-block: var(--space-section);
+		background-color: var(--color-bg-page);
+	}
+
+	/* ── Header block — title + intro + footnote, stacked tight ───────── */
+	.pricing__header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.pricing__footnote {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		max-width: 60ch;
+		margin: 0;
+	}
+
+	/* ── Card grid ────────────────────────────────────────────────────── */
+	.pricing__grid {
+		margin-block-start: var(--space-3xl);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-2xl);
+		}
+	}
+
+	/* ── Card — hover lifts, accent rule thickens, price warms ────────── */
+	.pricing__card {
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		border-block-start: 2px solid var(--color-fg-accent);
+		padding: var(--space-2xl);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		position: relative;
+		isolation: isolate;
+		transition:
+			transform var(--duration-normal) var(--ease-smooth),
+			border-color var(--duration-normal) var(--ease-smooth),
+			box-shadow var(--duration-normal) var(--ease-smooth);
+		will-change: transform;
+	}
+
+	/* The accent rule sits over the top border so we can thicken/glow
+	   it on hover without nudging the card's layout. */
+	.pricing__card::before {
+		content: "";
+		position: absolute;
+		inset: -2px 0 auto 0;
+		height: 2px;
+		background-color: var(--color-fg-accent);
+		transform-origin: center;
+		transform: scaleY(1);
+		transition: transform var(--duration-normal) var(--ease-smooth);
+		z-index: 1;
+	}
+
+	@media (hover: hover) {
+		.pricing__card:hover,
+		.pricing__card:focus-within {
+			transform: translateY(-4px);
+			border-color: var(--color-fg-accent);
+			box-shadow: var(--shadow-lg);
+		}
+
+		.pricing__card:hover::before,
+		.pricing__card:focus-within::before {
+			transform: scaleY(2);
+		}
+
+		.pricing__card:hover .pricing__price,
+		.pricing__card:focus-within .pricing__price {
+			color: var(--color-fg-accent);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.pricing__card,
+		.pricing__card::before {
+			transition: none;
+		}
+
+		.pricing__card:hover,
+		.pricing__card:focus-within {
+			transform: none;
+		}
+	}
+
+	.pricing__head {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.pricing__name {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-2xl);
+		line-height: var(--line-height-tight);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	.pricing__subtitle {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-snug);
+		color: var(--color-fg-muted);
+		margin: 0;
+	}
+
+	.pricing__body {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	.pricing__benefits {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.pricing__benefit {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		padding-inline-start: var(--space-lg);
+		position: relative;
+	}
+
+	.pricing__benefit::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.85em;
+		width: var(--space-sm);
+		height: 1px;
+		background-color: var(--color-fg-accent);
+	}
+
+	/* ── Price row — bottom-right anchored, transitions on card hover ─── */
+	.pricing__price-row {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-xs);
+		margin: auto 0 0;
+		padding-block-start: var(--space-lg);
+		border-block-start: 1px solid var(--color-border-default);
+	}
+
+	.pricing__price {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: var(--font-size-4xl);
+		line-height: 1;
+		color: var(--color-fg-default);
+		font-variant-numeric: lining-nums;
+		transition: color var(--duration-normal) var(--ease-smooth);
+	}
+
+	.pricing__price-note {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-fg-muted);
+	}
+
+	/* ── CTA — centred under the grid ─────────────────────────────────── */
+	.pricing__cta {
+		margin-block-start: var(--space-3xl);
+		display: flex;
+		justify-content: center;
+	}
+
+	/* ── GSAP — hide pre-animation elements until JS runs (visible on
+	   reduced-motion via the @media block below). */
+	[data-pricing-card],
+	[data-pricing-cta] {
+		visibility: hidden;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-pricing-card],
+		[data-pricing-cta] {
+			visibility: visible;
+		}
+	}
+</style>

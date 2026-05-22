@@ -1,0 +1,80 @@
+---
+/*
+  V40 — Ticket strip refined
+  V07 idea, tighter. Dark-brand ticket stub on the left holds the numeral
+  and an "outcome" line (the promise of the module); the main body to the
+  right holds the prose. Strong reading flow.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V40 — Ticket strip refined" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="tickets">
+				{curriculum.map((m) => (
+					<article class="ticket">
+						<div class="ticket__stub">
+							<span class="ticket__num">{m.numeral}</span>
+							<p class="ticket__stub-label">By the end of the module</p>
+							<p class="ticket__stub-out">{m.outcome}</p>
+						</div>
+						<div class="ticket__body">
+							<p class="ticket__kicker">Module {m.numeral} of VIII</p>
+							<h3 class="ticket__name">{m.name}</h3>
+							<p class="ticket__sub">{m.subtitle}</p>
+							<p class="ticket__desc">{m.body}</p>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.tickets { display: flex; flex-direction: column; gap: var(--space-md); max-width: 72rem; }
+	.ticket {
+		display: grid;
+		grid-template-columns: 1fr;
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+
+		@media (min-width: 768px) { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+	}
+	.ticket__stub {
+		background-color: var(--color-bg-brand);
+		color: var(--color-fg-on-brand);
+		padding: var(--space-xl);
+		display: flex; flex-direction: column; gap: var(--space-sm);
+		position: relative;
+	}
+	.ticket__stub::after {
+		content: ""; position: absolute; right: -2px; top: 8%; bottom: 8%;
+		border-inline-end: 2px dashed var(--color-bg-page);
+		display: none;
+		@media (min-width: 768px) { display: block; }
+	}
+	.ticket__num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-5xl); line-height: 0.9; color: var(--color-fg-accent-on-brand); }
+	.ticket__stub-label { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-on-brand-subtle); margin: var(--space-md) 0 0; }
+	.ticket__stub-out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand); margin: 0; }
+	.ticket__body { padding: var(--space-xl) var(--space-2xl); display: flex; flex-direction: column; gap: var(--space-sm); }
+	.ticket__kicker { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-subtle); margin: 0; }
+	.ticket__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.ticket__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.ticket__desc { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: var(--space-xs) 0 0; }
+</style>

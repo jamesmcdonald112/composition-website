@@ -2,12 +2,12 @@ export const contactPageContent = {
 	seo: {
 		title: "Contact",
 		description:
-			"Contact Mary Molloy Solicitor in Kilkenny to arrange a legal consultation.",
+			"Contact Pozdnyakov Composition Studio to arrange a free introductory composition consultation.",
 		canonicalPath: "/contact",
 	},
 	title: "Get in touch",
 	intro:
-		"Get in touch with us in Kilkenny to discuss the matter in confidence. We'll explain how the relevant area of law applies to the specific circumstances and what the practical options are.",
+		"Tell us a little about your musical background and what you want to work on. The introductory consultation is free and the right place to find out whether the studio is the right fit.",
 } as const;
 
 export type ContactPageContent = typeof contactPageContent;

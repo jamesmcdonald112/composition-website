@@ -1,6 +1,6 @@
 ---
 import LegalPageContent from "../components/ui/LegalPageContent/LegalPageContent.astro";
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 import { accessibilityPageContent } from "../config/legal/accessibility";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -9,7 +9,7 @@ const { seo, title, intro, sections, footerNote, reviewDate } =
 ---
 
 <BaseLayout
-	title={`${seo.title} | ${firm.companyName}`}
+	title={`${seo.title} | ${studio.name}`}
 	description={seo.description}
 	canonicalPath={seo.canonicalPath}
 	solidNav={true}

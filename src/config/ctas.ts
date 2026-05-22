@@ -1,19 +1,16 @@
-import { firm } from "./firm";
+import { booking } from "./booking";
 
 export const defaultCtaPanel = {
 	eyebrow: "Get in touch",
 	title: [
-		{ text: "A clear assessment of your " },
-		{ text: "legal matter", em: true },
+		{ text: "A free first call about your " },
+		{ text: "composition study", em: true },
 	],
-	body: "Get in touch with us in Kilkenny and we'll explain how the relevant area of law applies to the specific circumstances.",
+	body: "Tell us a little about your background and what you'd like to work on. The introductory consultation is a free fifteen-minute video call — the right place to find out whether the studio is the right fit.",
 } as const;
 
 export const globalCtas = {
-	call: {
-		label: firm.phone.display,
-		href: `tel:${firm.phone.phoneHref}`,
-	},
+	booking,
 	email: {
 		label: "Contact Us",
 		href: "/contact",

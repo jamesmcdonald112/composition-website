@@ -339,7 +339,7 @@
    These are not custom properties — CSS media queries cannot use var().
    Document them here for reference. Always use literal px values in @media.
 
-   --bp-sm:  640px   (landscape phone)
+   --bp-sm:  640px   (small viewport)
    --bp-md:  768px   (tablet)
    --bp-lg:  1024px  (small desktop)
    --bp-xl:  1280px  (standard desktop)

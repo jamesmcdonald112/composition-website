@@ -3,8 +3,8 @@ import { actions } from "astro:actions";
 import ContactPanel from "../components/contact/ContactPanel.astro";
 import SplitPage from "../components/layout/SplitPage.astro";
 import { contactPageContent } from "../config/contact";
-import { firm } from "../config/firm";
-import { getLawFirmStructuredData } from "../config/structured-data";
+import { studio } from "../config/studio";
+import { getStructuredData } from "../config/structured-data";
 import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -16,11 +16,11 @@ if (result && !result.error) {
 	return Astro.redirect("/thank-you");
 }
 
-const structuredData = getLawFirmStructuredData();
+const structuredData = getStructuredData();
 ---
 
 <BaseLayout
-	title={`${contactPageContent.seo.title} | ${firm.companyName}`}
+	title={`${contactPageContent.seo.title} | ${studio.name}`}
 	description={contactPageContent.seo.description}
 	canonicalPath={contactPageContent.seo.canonicalPath}
 	structuredData={structuredData}

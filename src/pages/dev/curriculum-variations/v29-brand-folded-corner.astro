@@ -1,0 +1,79 @@
+---
+/*
+  V29 — Brand folded corner
+  Dark-brand card with a "page-fold" triangle in the top-right corner
+  revealing a lighter tone underneath. Subtle but distinctive — a small
+  paper trick that signals craft.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V29 — Brand folded corner" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="cards">
+				{curriculum.map((m) => (
+					<article class="card">
+						<div class="card__fold" aria-hidden="true"></div>
+						<span class="card__numeral-bg" aria-hidden="true">{m.numeral}</span>
+						<div class="card__body-block">
+							<p class="card__kicker">Module {m.numeral}</p>
+							<h3 class="card__name">{m.name}</h3>
+							<p class="card__sub">{m.subtitle}</p>
+							<p class="card__body">{m.body}</p>
+							<p class="card__out">{m.outcome}</p>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.cards { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); @media (min-width: 768px) { grid-template-columns: 1fr 1fr; } @media (min-width: 1280px) { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+	.card {
+		position: relative;
+		background-color: var(--color-bg-brand);
+		color: var(--color-fg-on-brand);
+		padding: var(--space-xl);
+		overflow: hidden;
+		min-height: 360px;
+	}
+	.card__fold {
+		position: absolute; top: 0; right: 0;
+		width: 40px; height: 40px;
+		background:
+			linear-gradient(to bottom left, var(--color-bg-page) 50%, transparent 50%),
+			linear-gradient(to bottom left, transparent 0, var(--color-bg-brand-muted) 100%);
+		background-blend-mode: normal;
+	}
+	.card__numeral-bg {
+		position: absolute; right: 12px; bottom: -28px;
+		font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light);
+		font-size: 12rem; line-height: 0.85;
+		color: var(--color-fg-accent-on-brand);
+		opacity: 0.12;
+		pointer-events: none;
+	}
+	.card__body-block { position: relative; display: flex; flex-direction: column; gap: var(--space-sm); height: 100%; }
+	.card__kicker { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent-on-brand); margin: 0; }
+	.card__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.card__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-on-brand-muted); margin: 0; }
+	.card__body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-on-brand-muted); margin: var(--space-xs) 0 0; }
+	.card__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-on-brand-subtle); margin: auto 0 0; padding-block-start: var(--space-md); border-block-start: 1px solid color-mix(in oklch, var(--color-fg-on-brand) 20%, transparent); }
+</style>

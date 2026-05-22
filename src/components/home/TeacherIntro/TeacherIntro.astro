@@ -1,0 +1,174 @@
+---
+/*
+  COMPONENT: TeacherIntro
+  PURPOSE:   The "teacher, lightly worn" homepage section — Alex's portrait
+             alongside a compressed paragraph that names the pedigree without
+             listing it like a CV.
+  LAYOUT:    Two-column on tablet+. Portrait left, prose right.
+             Single column on mobile, portrait first.
+*/
+import { Image } from "astro:assets";
+import portrait from "../../../assets/images/alexander-pozdnyakov-portrait.webp";
+import Eyebrow from "../../ui/Eyebrow.astro";
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	paragraphs: readonly string[];
+	linkLabel: string;
+	linkHref: string;
+}
+
+const { eyebrow, title, paragraphs, linkLabel, linkHref } = Astro.props;
+---
+
+<section class="teacher-intro" data-teacher-intro>
+	<div class="teacher-intro__inner wrapper wrapper--wide">
+
+		<figure class="teacher-intro__portrait" data-teacher-intro-portrait>
+			<Image
+				src={portrait}
+				alt={`${title}, photographed in three-quarter view`}
+				class="teacher-intro__image"
+				widths={[280, 420, 560, 720]}
+				sizes="(min-width: 1024px) 360px, (min-width: 768px) 40vw, 100vw"
+				loading="lazy"
+			/>
+		</figure>
+
+		<div class="teacher-intro__body" data-teacher-intro-body>
+			<Eyebrow text={eyebrow} colorToken="--color-fg-accent" />
+			<h2 class="teacher-intro__title">{title}</h2>
+			{paragraphs.map((p) => (
+				<p class="teacher-intro__paragraph">{p}</p>
+			))}
+			<a class="teacher-intro__link" href={linkHref}>
+				{linkLabel}
+				<span class="teacher-intro__link-arrow" aria-hidden="true">→</span>
+			</a>
+		</div>
+
+	</div>
+</section>
+
+<script>
+	import { initTeacherIntro } from "./teacher-intro.gsap";
+	initTeacherIntro();
+</script>
+
+<style>
+	.teacher-intro {
+		background-color: var(--color-bg-subtle);
+		padding-block: var(--space-section);
+	}
+
+	.teacher-intro__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-2xl);
+
+		@media (min-width: 768px) {
+			grid-template-columns: minmax(0, 320px) 1fr;
+			gap: var(--space-3xl);
+			align-items: start;
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: minmax(0, 360px) 1fr;
+			gap: var(--space-4xl);
+		}
+	}
+
+	/* ── Portrait ──────────────────────────────────────────────────────────── */
+	.teacher-intro__portrait {
+		margin: 0;
+		max-width: 320px;
+		/* Center on mobile, left-align on tablet+ */
+		margin-inline: auto;
+		/* Hidden initially — GSAP timeline reveals on scroll. */
+		visibility: hidden;
+
+		@media (min-width: 768px) {
+			max-width: none;
+			margin-inline: 0;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.teacher-intro__portrait,
+		.teacher-intro__body {
+			visibility: visible;
+		}
+	}
+
+	.teacher-intro__image {
+		width: 100%;
+		height: auto;
+		display: block;
+		/* Framed like a published portrait — a thin rule, not a heavy border */
+		border: 1px solid var(--color-border-strong);
+		/* Subtle warmth — paper-like rather than card-like */
+		background-color: var(--color-bg-surface);
+		padding: var(--space-xs);
+	}
+
+	/* ── Body column ───────────────────────────────────────────────────────── */
+	.teacher-intro__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		max-width: 60ch;
+		/* Hidden initially — GSAP timeline reveals on scroll. */
+		visibility: hidden;
+	}
+
+	.teacher-intro__title {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+		line-height: var(--line-height-tight);
+		letter-spacing: var(--letter-spacing-tight);
+		color: var(--color-fg-default);
+		margin: 0;
+		margin-block-end: var(--space-sm);
+	}
+
+	.teacher-intro__paragraph {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	/* ── "Full biography →" link ───────────────────────────────────────────── */
+	.teacher-intro__link {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-wide);
+		text-transform: uppercase;
+		color: var(--color-fg-accent);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		margin-block-start: var(--space-md);
+		transition: color var(--duration-fast) var(--ease-out);
+		align-self: flex-start;
+	}
+
+	.teacher-intro__link:hover,
+	.teacher-intro__link:focus-visible {
+		color: var(--color-fg-link-hover);
+	}
+
+	.teacher-intro__link-arrow {
+		transition: transform var(--duration-fast) var(--ease-out);
+	}
+
+	.teacher-intro__link:hover .teacher-intro__link-arrow,
+	.teacher-intro__link:focus-visible .teacher-intro__link-arrow {
+		transform: translateX(var(--space-2xs));
+	}
+</style>

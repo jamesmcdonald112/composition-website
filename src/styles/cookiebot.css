@@ -10,7 +10,10 @@
     - This file ONLY controls when the banner appears (timing/visibility).
     - It does NOT restyle the banner. All colours, fonts, button styling and
       layout are owned by the Cookiebot admin dashboard. Do not add visual
-      overrides here — see commit fec7dd0 for why (DPC equal-prominence rule).
+      overrides here — the Accept and Reject buttons must remain equally
+      prominent (EDPB guidance on consent; mirrored under Québec Law 25 and
+      most major privacy regimes). Restyling one button to look less
+      attractive than the other invalidates the consent.
 
   Cookiebot element IDs we touch:
     #CybotCookiebotDialog              — main banner container
@@ -48,13 +51,13 @@ html.intro-done #CybotCookiebotDialogBodyUnderlay {
   Why: Cookiebot's default behaviour on these pages obscures or overlaps the
   policy text — at small viewports as a full-screen modal, at mid-size
   viewports as a centred dialog. Both block the visitor from reading the
-  policy and making an informed consent decision (DPC April 2020 cookie
-  guidance, page 12).
+  policy and making an informed consent decision. Consent must be informed,
+  and a banner that hides the policy it asks consent for does not meet that
+  bar (a principle consistent across the EDPB, the Québec CAI, the UK ICO,
+  and the IAB Europe transparency framework).
 
   This override applies at every viewport size on policy pages only. All
   other pages keep Cookiebot's default behaviour untouched.
-
-  See: legal-compliance/cookies/dpc-guidance-walkthrough.md, Section 18.
   ─────────────────────────────────────────────────────────────────────────────
 */
 

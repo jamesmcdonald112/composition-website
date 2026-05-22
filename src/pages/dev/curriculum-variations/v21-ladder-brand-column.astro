@@ -1,0 +1,93 @@
+---
+/*
+  V21 — Ladder with brand-tinted left column
+  V04 base. The leftmost column (numeral + kicker) sits on a dark brand
+  surface; the rest of the row sits on white. Strong typographic anchor
+  without overwhelming the prose. Pro-grade clarity: every field readable.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V21 — Ladder, brand column" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+				<p class="intro">The curriculum runs as a single sequence — read top to bottom.</p>
+			</header>
+
+			<ol class="ladder">
+				{curriculum.map((m) => (
+					<li class="ladder__rung">
+						<div class="ladder__numcol">
+							<span class="ladder__num">{m.numeral}</span>
+							<span class="ladder__kicker">Module {m.numeral}</span>
+						</div>
+						<div class="ladder__namecol">
+							<h3 class="ladder__name">{m.name}</h3>
+							<p class="ladder__sub">{m.subtitle}</p>
+						</div>
+						<div class="ladder__bodycol">
+							<p class="ladder__body">{m.body}</p>
+							<p class="ladder__out"><span class="ladder__out-label">By the end —</span> {m.outcome}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.intro { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-muted); margin: var(--space-sm) 0 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.ladder { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+	.ladder__rung {
+		display: grid;
+		grid-template-columns: 1fr;
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		overflow: hidden;
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 180px minmax(0, 1fr) minmax(0, 2fr);
+		}
+	}
+	.ladder__numcol {
+		background-color: var(--color-bg-brand);
+		color: var(--color-fg-on-brand);
+		padding: var(--space-lg) var(--space-xl);
+		display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center;
+	}
+	.ladder__num {
+		font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light);
+		font-size: var(--font-size-5xl); line-height: 0.9;
+		color: var(--color-fg-accent-on-brand);
+	}
+	.ladder__kicker {
+		font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-on-brand-subtle);
+	}
+	.ladder__namecol {
+		padding: var(--space-xl);
+		display: flex; flex-direction: column; gap: var(--space-2xs); justify-content: center;
+		border-block-start: 1px solid var(--color-border-default);
+		@media (min-width: 1024px) { border-block-start: 0; border-inline-end: 1px solid var(--color-border-default); }
+	}
+	.ladder__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.ladder__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.ladder__bodycol { padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); }
+	.ladder__body { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.ladder__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; padding-block-start: var(--space-md); border-block-start: 1px solid var(--color-border-default); }
+	.ladder__out-label { font-family: var(--font-sans); font-style: normal; font-weight: var(--font-weight-medium); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-wide); text-transform: uppercase; color: var(--color-fg-accent); }
+</style>

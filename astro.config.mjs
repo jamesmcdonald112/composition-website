@@ -1,35 +1,31 @@
 // @ts-check
 // ── ASTRO CONFIG ──────────────────────────────────────────────────────────────
-// TEMPLATE: Solicitor website
-// ADAPTER: Vercel — region pinned to Dublin (dub1) in the Vercel dashboard for
-//   EU data residency. See DEPLOYMENT.md.
-// ENV: RESEND_API_KEY (contact form), GOOGLE_PLACES_API_KEY (reviews) — both server-only secrets
+// PROJECT: Pozdnyakov Composition Studio
+// ADAPTER: Vercel.
+// ENV: RESEND_API_KEY (contact form) — server-only secret.
 // VITE: No Tailwind. Plain CSS only. Do not add CSS framework plugins here.
 // SITEMAP: @astrojs/sitemap reads the `site` value below to generate canonical
-//   URLs in /sitemap-index.xml. To reuse this template for a new client, update
-//   `siteUrl` in src/config/firm.ts and the sitemap will follow automatically.
+//   URLs in /sitemap-index.xml. Update `siteUrl` in src/config/studio.ts and
+//   the sitemap will follow automatically.
 // ──────────────────────────────────────────────────────────────────────────────
 
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 import { defineConfig, envField } from "astro/config";
-import { firm } from "./src/config/firm.ts";
+import { studio } from "./src/config/studio.ts";
 
 // https://astro.build/config
 export default defineConfig({
-	site: firm.siteUrl,
+	site: studio.siteUrl,
 	adapter: vercel({
 		webAnalytics: { enabled: false },
 	}),
 	output: "server",
-	integrations: [sitemap()],
+	integrations: [mdx(), sitemap()],
 	env: {
 		schema: {
 			RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
-			GOOGLE_PLACES_API_KEY: envField.string({
-				context: "server",
-				access: "secret",
-			}),
 		},
 	},
 });

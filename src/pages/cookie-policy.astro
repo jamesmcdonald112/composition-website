@@ -1,5 +1,5 @@
 ---
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 import { cookiePolicyPageContent } from "../config/legal/cookie-policy";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -7,7 +7,7 @@ const { seo } = cookiePolicyPageContent;
 ---
 
 <BaseLayout
-	title={`${seo.title} | ${firm.companyName}`}
+	title={`${seo.title} | ${studio.name}`}
 	description={seo.description}
 	canonicalPath={seo.canonicalPath}
 	solidNav={true}
@@ -16,10 +16,11 @@ const { seo } = cookiePolicyPageContent;
 	<section class="cookie-policy">
 		<div class="cookie-policy__inner wrapper wrapper--wide">
 			<h1 class="cookie-policy__title">Cookie Policy</h1>
-			<!-- TODO: Replace data-cbid in the script src below with the client's own CBID once
-			     Mary creates her Cookiebot account and her live domain is scanned.
-			     Current CBID (292ce5a8-ad47-4072-bf60-aebbe085521d) is the development account — must be swapped before launch.
-			     Get the replacement script from: Cookiebot dashboard → Implementation → Cookie Declaration -->
+			<!-- TODO (james): replace the CBID in the script src below with the studio's
+			     production CBID once Alex has created the Cookiebot account and the
+			     live domain is scanned. The current value is the inherited
+			     development CBID and must not ship. Get the replacement script
+			     from the Cookiebot dashboard → Implementation → Cookie Declaration. -->
 			<script
 				is:inline
 				id="CookieDeclaration"

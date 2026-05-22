@@ -1,0 +1,331 @@
+---
+/*
+  COMPONENT: BiographyCv
+  PURPOSE:   Render Alex's structured CV (`alex.ts`) as a stack of
+             conservatoire-programme-style sections — a small-caps section
+             label, a hairline rule, then year-prefixed rows. Sits beneath
+             the narrative biography (Article) on the About page.
+  LAYOUT:    Full-width shell → inner wrapper → stacked sections.
+             Each section is a two-column subgrid: a narrow year column
+             on the left, content on the right.
+  DATA:      Read directly from `../../../config/alex.ts`. The component is
+             intentionally specific to Alex's shape — not a generic CV
+             renderer — so the markup can match the data semantically.
+*/
+import type { Heading } from "../../../types/heading";
+import { alex } from "../../../config/alex/cv";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+
+interface Props {
+	eyebrow: string;
+	title: Heading;
+	intro: string;
+}
+
+const { eyebrow, title, intro } = Astro.props;
+---
+
+<section class="biography-cv">
+	<div class="biography-cv__inner wrapper wrapper--wide">
+		<SectionHeader
+			eyebrow={eyebrow}
+			heading={title}
+			intro={intro}
+			level={2}
+		/>
+
+		<div class="biography-cv__sections">
+
+			<!-- ── Education ───────────────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Education</h3>
+				<dl class="biography-cv__list">
+					{alex.education.map((entry) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{entry.years}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">
+									<span class="biography-cv__primary">{entry.qualification}</span>
+									<span class="biography-cv__divider" aria-hidden="true">·</span>
+									<span class="biography-cv__secondary">{entry.institution}</span>
+								</p>
+								{entry.note && <p class="biography-cv__note">{entry.note}</p>}
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Teaching positions ──────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Teaching positions</h3>
+				<dl class="biography-cv__list">
+					{alex.teachingPositions.map((entry) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{entry.years}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">
+									<span class="biography-cv__primary">{entry.role}</span>
+									<span class="biography-cv__divider" aria-hidden="true">·</span>
+									<span class="biography-cv__secondary">{entry.institution}</span>
+								</p>
+								{entry.note && <p class="biography-cv__note">{entry.note}</p>}
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Major awards ────────────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Selected awards</h3>
+				<dl class="biography-cv__list">
+					{alex.majorAwards.map((award) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{award.year}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">
+									<span class="biography-cv__primary">{award.title}</span>
+									{award.body && (
+										<>
+											<span class="biography-cv__divider" aria-hidden="true">·</span>
+											<span class="biography-cv__secondary">{award.body}</span>
+										</>
+									)}
+								</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Other awards & scholarships ─────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Other awards &amp; scholarships</h3>
+				<dl class="biography-cv__list">
+					{alex.otherAwards.map((award) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{award.year}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">
+									<span class="biography-cv__primary">{award.title}</span>
+									{award.body && (
+										<>
+											<span class="biography-cv__divider" aria-hidden="true">·</span>
+											<span class="biography-cv__secondary">{award.body}</span>
+										</>
+									)}
+								</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Works ───────────────────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Works</h3>
+				<dl class="biography-cv__list">
+					{alex.works.map((group) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__genre">{group.label}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__works">{group.works}</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Selected performances ───────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Selected performances</h3>
+				<dl class="biography-cv__list">
+					{alex.performances.map((performance) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{performance.year}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">{performance.description}</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Publications ────────────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Publications &amp; theses</h3>
+				<dl class="biography-cv__list">
+					{alex.publications.map((publication) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{publication.year}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">{publication.citation}</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Professional activity ───────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Professional activity</h3>
+				<dl class="biography-cv__list">
+					{alex.professionalActivity.map((activity) => (
+						<div class="biography-cv__row">
+							<dt class="biography-cv__year">{activity.years}</dt>
+							<dd class="biography-cv__content">
+								<p class="biography-cv__line">{activity.description}</p>
+							</dd>
+						</div>
+					))}
+				</dl>
+			</section>
+
+			<!-- ── Languages ──────────────────────────────────────────────── -->
+			<section class="biography-cv__section">
+				<h3 class="biography-cv__label">Languages</h3>
+				<p class="biography-cv__languages">{alex.languages.join(", ")}</p>
+			</section>
+
+		</div>
+	</div>
+</section>
+
+<style>
+	/* ── Shell ──────────────────────────────────────────────────────────────── */
+	.biography-cv {
+		padding-block: var(--space-section);
+		background-color: var(--color-bg-page);
+	}
+
+	/* ── Sections stack ─────────────────────────────────────────────────────── */
+	.biography-cv__sections {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3xl);
+		margin-block-start: var(--space-3xl);
+		max-width: var(--width-narrow);
+
+		@media (min-width: 1024px) {
+			max-width: none;
+		}
+	}
+
+	/* ── Section block ──────────────────────────────────────────────────────── */
+	.biography-cv__section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
+	/* ── Section label (small-caps heading) ─────────────────────────────────── */
+	.biography-cv__label {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		line-height: var(--line-height-none);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-fg-accent);
+		margin: 0;
+		padding-block-end: var(--space-md);
+		border-block-end: 1px solid var(--color-border-default);
+	}
+
+	/* ── Row list ───────────────────────────────────────────────────────────── */
+	.biography-cv__list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		margin: 0;
+	}
+
+	.biography-cv__row {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-2xs);
+
+		@media (min-width: 640px) {
+			grid-template-columns: var(--size-32) 1fr;
+			gap: var(--space-lg);
+			align-items: baseline;
+		}
+	}
+
+	/* ── Year column ────────────────────────────────────────────────────────── */
+	.biography-cv__year {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-weight: var(--font-weight-light);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-snug);
+		color: var(--color-fg-muted);
+		white-space: nowrap;
+	}
+
+	/* ── Genre label (used in Works section instead of year) ────────────────── */
+	.biography-cv__genre {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-snug);
+		color: var(--color-fg-default);
+	}
+
+	/* ── Content column ─────────────────────────────────────────────────────── */
+	.biography-cv__content {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.biography-cv__line {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	.biography-cv__primary {
+		color: var(--color-fg-default);
+	}
+
+	.biography-cv__divider {
+		color: var(--color-fg-subtle);
+		margin-inline: var(--space-2xs);
+	}
+
+	.biography-cv__secondary {
+		color: var(--color-fg-muted);
+	}
+
+	.biography-cv__note {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-snug);
+		color: var(--color-fg-muted);
+		margin: 0;
+	}
+
+	/* ── Works prose ────────────────────────────────────────────────────────── */
+	.biography-cv__works {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+
+	/* ── Languages ──────────────────────────────────────────────────────────── */
+	.biography-cv__languages {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-default);
+		margin: 0;
+	}
+</style>

@@ -1,0 +1,83 @@
+---
+/*
+  V13 — Spine binding
+  Each module presented as a book chapter — central spine line down the
+  middle of the page, even-numbered modules on the left page, odd on the
+  right. Open-book / facing-pages aesthetic.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V13 — Spine binding" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<div class="book">
+				<div class="book__spine" aria-hidden="true"></div>
+				<div class="book__pages">
+					{curriculum.map((m, i) => (
+						<article class={`book__chapter ${i % 2 === 0 ? "book__chapter--recto" : "book__chapter--verso"}`}>
+							<header class="book__chapter-header">
+								<span class="book__num">{m.numeral}</span>
+								<span class="book__chapter-label">Chapter {m.numeral}</span>
+							</header>
+							<h3 class="book__name">{m.name}</h3>
+							<p class="book__sub">{m.subtitle}</p>
+							<p class="book__body">{m.body}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-subtle); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.book { position: relative; }
+	.book__spine {
+		display: none;
+		@media (min-width: 1024px) {
+			display: block;
+			position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+			background: linear-gradient(to bottom, transparent, var(--color-fg-muted) 8%, var(--color-fg-muted) 92%, transparent);
+			z-index: 1;
+		}
+	}
+	.book__pages { display: grid; grid-template-columns: 1fr; gap: 0; @media (min-width: 1024px) { grid-template-columns: 1fr 1fr; column-gap: 0; } }
+	.book__chapter {
+		padding: var(--space-2xl);
+		background-color: var(--color-bg-surface);
+		display: flex; flex-direction: column; gap: var(--space-sm);
+		min-height: 320px;
+		border-block-end: 1px solid var(--color-border-default);
+		@media (min-width: 1024px) {
+			padding: var(--space-3xl);
+			border-block-end: 0;
+		}
+	}
+	.book__chapter--recto {
+		@media (min-width: 1024px) { padding-inline-end: var(--space-4xl); border-inline-end: 1px solid var(--color-border-default); border-block-end: 1px solid var(--color-border-default); }
+	}
+	.book__chapter--verso {
+		@media (min-width: 1024px) { padding-inline-start: var(--space-4xl); border-block-end: 1px solid var(--color-border-default); }
+	}
+	.book__chapter-header { display: flex; align-items: baseline; gap: var(--space-md); margin-block-end: var(--space-sm); }
+	.book__num { font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light); font-size: var(--font-size-3xl); line-height: 1; color: var(--color-fg-accent); }
+	.book__chapter-label { font-family: var(--font-sans); font-size: var(--font-size-xs); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-subtle); }
+	.book__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; }
+	.book__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.book__body { font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: var(--space-sm) 0 0; }
+</style>

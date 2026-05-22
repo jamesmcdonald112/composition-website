@@ -1,83 +1,78 @@
-// Source-of-truth original markdown:
-// `legal-compliance/disclaimer/disclaimer.md`
+// Disclaimer for Pozdnyakov Composition Studio.
 //
-// Research and Stage 3 Law Society template comparison live in
-// `legal-compliance/disclaimer/disclaimer-research-and-audit-trail.md`. The Reg 9
-// (LSRA 2020 Advertising Regulations) rationale for Section 5's external-links
-// policy lives there too. Keep markdown and TS in sync — when this config
-// changes, the markdown must be updated and the reviewDate bumped.
+// Scope: educational content + tuition outcomes. The studio teaches
+// composition online; this disclaimer makes explicit what that means and
+// does not promise. It is not a solicitor's disclaimer and does not need
+// the LSRA / AML / limitation-period framing that the original (Mary
+// Molloy) version carried.
 //
-// Reuse: this disclaimer is firm-agnostic apart from the firm name. The
-// content is built from a `firm` argument so the same disclaimer config can
-// render correctly for any Irish solicitor's firm — pass that firm's
-// `firm.companyName` and the document interpolates it into the relevant
-// sections. The Irish statutory anchors (Statute of Limitations 1957, Civil
-// Liability and Courts Act 2004, AML Act 2010, LSRA 2020 Regulations,
-// Copyright and Related Rights Act 2000) apply equally to any Irish firm.
+// TODO (alex): review the contact email and the response time. Confirm
+// governing-law jurisdiction (currently set to Québec).
 
 import type { LegalPageContent } from "../../components/ui/LegalPageContent/LegalPageContent.types";
-import { firm } from "../firm";
+import { studio } from "../studio";
+
+const lastReviewed = "18 May 2026";
 
 export const disclaimerPageContent = {
 	seo: {
 		title: "Disclaimer",
-		description: `Website disclaimer for ${firm.companyName}. The information on this site is general and not legal advice; reading it does not create a solicitor-client relationship.`,
+		description: `Website disclaimer for ${studio.name}. The information on this site is for educational purposes; outcomes from tuition depend on individual student effort and circumstances.`,
 		canonicalPath: "/disclaimer",
 	},
-	reviewDate: "May 2026",
+	reviewDate: lastReviewed,
 	title: "Website Disclaimer",
-	intro:
-		"This page sets out the basis on which information is published on this website. By using the site you are taken to have read and accepted this disclaimer.",
+	intro: "This page sets out the basis on which the studio publishes content on this website and offers composition tuition through it. By using the site you are taken to have read and accepted this disclaimer.",
 	sections: [
 		{
-			heading: "1. The information on this site is general, not legal advice",
+			heading: "1. Educational content, not a guarantee of outcome",
 			blocks: [
 				{
 					type: "paragraph",
-					text: "The content of this website is published for general information purposes only. It is not a substitute for professional legal advice. Every case turns on its own facts, and the law changes. You should not act, or refrain from acting, on the basis of anything you read on this site without first taking proper legal advice from a solicitor about your specific situation.",
+					text: `The content of this website — including descriptions of the curriculum, the studio's teaching method, the teacher's background, and any free guides or sample materials — is published for general informational and educational purposes. It describes what the studio teaches and how, so that prospective students can make an informed decision about whether to enrol.`,
 				},
 				{
 					type: "paragraph",
-					text: "If you are dealing with a legal issue, please contact us — or another solicitor of your choosing — to arrange an appointment so that your circumstances can be considered properly.",
-				},
-			],
-		},
-		{
-			heading:
-				"2. No solicitor-client relationship is created by use of this site",
-			blocks: [
-				{
-					type: "paragraph",
-					text: `Reading this website, contacting us through the contact form, or sending us an email does not create a solicitor-client relationship between you and ${firm.companyName}. A solicitor-client relationship is created only when:`,
+					text: "Composition is a craft that depends on sustained personal practice. The studio does not promise — and no website page should be read as promising — that following the curriculum, completing the exercises, or working with the teacher will produce any particular musical, academic, or professional outcome. In particular, the studio does not guarantee:",
 				},
 				{
 					type: "list",
 					items: [
-						"the firm has confirmed that it is willing to act for you;",
-						"a written letter of engagement (or equivalent retainer) is in place between you and the firm;",
-						"and any necessary client identification under the Criminal Justice (Money Laundering and Terrorist Financing) Act 2010 has been completed.",
+						"admission to any conservatoire, university, or graduate programme;",
+						"success in any competition, audition, jury, or examination;",
+						"a career as a composer, teacher, or performing musician;",
+						"any specific rate of progress in compositional skill, theoretical understanding, or technical fluency.",
 					],
 				},
 				{
 					type: "paragraph",
-					text: "Until those steps are complete, the firm is not acting for you, no advice given through the site or in pre-engagement correspondence may be relied upon as advice given in a retainer, and the firm has no duty to take any step on your behalf — including no duty to lodge proceedings or take any other step before a limitation period or other deadline expires.",
-				},
-				{
-					type: "paragraph",
-					text: "If your matter is time-sensitive — for example, a personal injuries claim subject to the two-year limitation period under the Civil Liability and Courts Act 2004, or a contract or tort claim subject to the six-year period under the Statute of Limitations 1957 — you must take advice promptly and not assume that sending us a contact-form message stops time running.",
+					text: "Outcomes depend on factors the studio does not control — most obviously the student's background, prior training, time available for sustained practice, persistence with feedback, and the wider circumstances in which they study and submit their work. Two students working through the same curriculum will arrive at different places; that is the nature of compositional study.",
 				},
 			],
 		},
 		{
-			heading: "3. Confidentiality of pre-engagement communications",
+			heading: "2. Feedback on student work is professional judgement",
 			blocks: [
 				{
 					type: "paragraph",
-					text: "Any information you send to the firm before a retainer is in place is treated confidentially in the ordinary course of professional handling. However, solicitor-client privilege applies only once a solicitor-client relationship exists (see Section 2 above). Until then, communications attract the firm's professional duty of confidentiality but do not enjoy the legal privilege that protects later, retained-relationship communications. If your communication is sensitive, we recommend that you do not include detailed factual content in a contact-form message until you have an engagement letter in place.",
+					text: `Where the teacher comments on student work submitted for correction — whether harmony exercises, counterpoint, chorale settings, fugue, orchestration drafts, or original composition — the comments represent the teacher's considered professional judgement in the conservatoire tradition in which he was trained. They are an informed opinion, not an absolute pronouncement.`,
 				},
 				{
 					type: "paragraph",
-					text: "This point is also covered in our Privacy Policy, Section 8.",
+					text: "Compositional decisions often have more than one defensible answer. Where the teacher marks a passage with a suggested correction, that is the correction he would make and the reasoning he would give for it; another teacher in another tradition might suggest something different. Students are encouraged to engage with corrections critically, to ask why a change is suggested, and to bring their own questions to lessons rather than accepting feedback without thinking it through.",
+				},
+			],
+		},
+		{
+			heading: "3. The studio is not a substitute for institutional study",
+			blocks: [
+				{
+					type: "paragraph",
+					text: `${studio.name} is a private one-person studio. Where students intend to apply to a conservatoire, university, or other institution, the studio can help build the technical foundation that such institutions expect — but the studio is not affiliated with any institution and cannot speak to any institution's specific admissions requirements. Students intending to apply somewhere should always check that institution's published requirements directly.`,
+				},
+				{
+					type: "paragraph",
+					text: "The studio does not award qualifications, diplomas, or transferable academic credit. A record of which modules a student has worked through can be provided on request, but it does not function as a formal academic transcript.",
 				},
 			],
 		},
@@ -86,23 +81,23 @@ export const disclaimerPageContent = {
 			blocks: [
 				{
 					type: "paragraph",
-					text: "We take care to make sure that the information on this site is accurate and up to date at the date of publication. However:",
+					text: "The studio takes care to make sure the information on this site is accurate at the date of publication. However:",
 				},
 				{
 					type: "list",
 					items: [
-						"the law changes — what was correct when an article or page was written may not still be correct today;",
-						"summaries are simplified — anything written here is necessarily a summary of a more detailed area of law and may omit qualifications, exceptions, and case-by-case nuances that would matter in your situation;",
-						"no warranty — we make no representation or warranty, express or implied, that the content of this site is accurate, complete, current, or fit for any particular purpose.",
+						"summaries are simplified — any description of the curriculum, of a musical tradition, or of a particular concept is necessarily a short summary and omits qualifications a longer treatment would include;",
+						"the studio reserves the right to refine the curriculum, pricing, lesson format, or scheduling arrangements as the practice evolves;",
+						"no warranty — the studio makes no representation or warranty, express or implied, that the content of this site is accurate, complete, current, or fit for any particular purpose.",
 					],
 				},
 				{
 					type: "paragraph",
-					text: "Any reliance you place on the content of this site is therefore strictly at your own risk. To the fullest extent permitted by Irish law, we accept no liability for any loss or damage — including, without limitation, indirect or consequential loss or damage — suffered by anyone who relies on the content of this site. This exclusion does not apply to liability that cannot lawfully be excluded — in particular, liability for fraud, fraudulent misrepresentation, or for death or personal injury caused by negligence.",
+					text: "Any reliance you place on the content of this site is at your own risk. To the fullest extent permitted by applicable law, the studio accepts no liability for any loss or damage suffered by anyone who relies on the content of this site. This exclusion does not apply to liability that cannot lawfully be excluded — for example, liability for fraud or for death or personal injury caused by negligence.",
 				},
 				{
 					type: "paragraph",
-					text: "Every effort is made to keep the website running smoothly. However, we accept no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.",
+					text: "Every effort is made to keep the website running smoothly. However, the studio accepts no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues outside the studio's control (hosting outages, scheduled maintenance, network failures, etc.).",
 				},
 			],
 		},
@@ -111,24 +106,11 @@ export const disclaimerPageContent = {
 			blocks: [
 				{
 					type: "paragraph",
-					text: "This site contains a small number of links to external websites operated by third parties. The destinations are limited to informational and regulatory sources — for example, the Law Society of Ireland, the Legal Services Regulatory Authority, the Data Protection Commission, the Courts Service of Ireland, the Irish Statute Book, and Google Maps for directions to the office. The firm chooses these destinations carefully and audits each link before publication. The firm does not link to:",
-				},
-				{
-					type: "list",
-					items: [
-						"directory listings, review sites, or aggregator pages that promote the firm;",
-						"press articles that name the firm;",
-						"referral or partner websites that promote the firm;",
-						"the firm's own Google Business Profile.",
-					],
+					text: "This site links to a small number of external websites — for example, the scheduling provider for booking an introductory consultation (Cal.com), and any references to public musical resources, scores, or recordings. The studio does not control these sites and does not endorse the entirety of their content. When you follow such a link you leave the studio's site, and your use of the destination site is governed by that site's own terms and privacy policy.",
 				},
 				{
 					type: "paragraph",
-					text: "This is a deliberate choice driven by Regulation 9 of the Legal Services Regulation Act 2015 (Advertising) Regulations 2020, which deems a solicitor personally responsible for content on any external page linked from the solicitor's website that can reasonably be construed as promoting the solicitor.",
-				},
-				{
-					type: "paragraph",
-					text: "We provide the informational links for convenience only. We do not endorse the content of any external site, and we accept no responsibility for the accuracy, content, privacy practices, or availability of any external site you reach through a link from this site, except to the extent the firm cannot lawfully exclude such responsibility under the LSRA Regulations or otherwise. When you follow such a link you leave our site, and your use of the destination site is subject to that site's own terms.",
+					text: "The studio accepts no responsibility for the accuracy, content, privacy practices, or availability of any external site reached through a link from this site.",
 				},
 			],
 		},
@@ -142,33 +124,46 @@ export const disclaimerPageContent = {
 				{
 					type: "list",
 					items: [
-						"copy, republish, or distribute substantial parts of the site's content for commercial purposes without our written permission;",
+						"copy, republish, or redistribute substantial parts of the site's content for commercial purposes without the studio's written permission;",
 						"use any automated tool to harvest, scrape, or extract content or data from the site;",
 						"attempt to gain unauthorised access to any part of the site or its underlying systems;",
-						"use the site in any way that breaches Irish law or that could damage, disable, or impair the site's operation for other users.",
+						"use the site in any way that breaches applicable law or that could damage, disable, or impair the site's operation for other users.",
 					],
 				},
 				{
 					type: "paragraph",
-					text: "We reserve the right to suspend access to the site if we reasonably believe these conditions have been breached.",
+					text: "The studio reserves the right to suspend access if it reasonably believes these conditions have been breached.",
 				},
 			],
 		},
 		{
 			heading: "7. Intellectual property",
-			body: `All content on this site — including text, images, page layout, and design — is owned by ${firm.companyName} or used with permission, and is protected by trade mark, copyright, and other intellectual property laws. The firm name "${firm.companyName}" and any associated identifiers are protected. None of this content may be reproduced without our prior written consent. Nothing on this site grants you any right or licence to use any of the content, name, or marks except for the personal-use purposes set out in Section 6.`,
+			blocks: [
+				{
+					type: "paragraph",
+					text: `All content on this site — including text, images, page layout, design, and any teaching materials, study guides, or sample exercises published or distributed by the studio — is owned by ${studio.name} (or its teacher) or used with permission, and is protected by copyright and other intellectual-property laws. None of this content may be reproduced, redistributed, or used to train any machine-learning model without the studio's prior written consent. The studio's name and any associated identifiers are likewise protected.`,
+				},
+				{
+					type: "paragraph",
+					text: "Where the studio provides teaching materials to enrolled students, those materials are licensed for the student's personal study and use. They may not be shared, redistributed, or used to teach others, whether for fee or not, without the studio's written permission.",
+				},
+				{
+					type: "paragraph",
+					text: "Work submitted to the studio by students for correction remains the student's intellectual property. The teacher's marked-up corrections and written feedback are the teacher's intellectual property; they are provided for the student's personal study and are not for redistribution.",
+				},
+			],
 		},
 		{
 			heading: "8. The site may change without notice",
-			body: 'We may change, add to, remove from, or discontinue any part of this website at any time and without notice. We may also change this disclaimer from time to time. The "Last reviewed" date at the foot of this page shows when it was last revised. Please check this page periodically — your continued use of the site after a change indicates your acceptance of the updated disclaimer.',
+			body: 'The studio may change, add to, remove from, or discontinue any part of this website at any time without notice, and may update this disclaimer from time to time. The "Last reviewed" date at the foot of this page shows when it was last revised. Please check this page periodically — your continued use of the site after a change indicates your acceptance of the updated disclaimer.',
 		},
 		{
-			heading: "9. Governing law and jurisdiction",
-			body: "This disclaimer, your use of this site, and any dispute arising out of or in connection with either of them is governed by the laws of Ireland. The courts of Ireland have exclusive jurisdiction over any such dispute.",
+			heading: "9. Governing law",
+			body: `This disclaimer, your use of this site, and any dispute arising out of or in connection with either is governed by the laws of the Province of Québec, Canada, and the federal laws of Canada applicable there. The courts of the Province of Québec have jurisdiction over any such dispute, without prejudice to any non-waivable rights you may have under the law of your habitual residence.`,
 		},
 		{
 			heading: "10. Contact",
-			body: `If you have any question about this disclaimer, please contact the firm at the address on the contact page, or by email to ${firm.email.primary}.`,
+			body: `If you have any question about this disclaimer, please contact the studio by email at ${studio.email.primary}.`,
 		},
 	],
 } as const satisfies LegalPageContent;

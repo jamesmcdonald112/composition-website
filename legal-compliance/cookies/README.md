@@ -1,73 +1,66 @@
-# Cookie Compliance
+# Cookie compliance — reference library
 
-All cookie-related documentation, evidence, setup playbooks, and regulator source material for this project.
+A working reference for cookie consent compliance across European jurisdictions, plus the operational documents this project uses (or has used) to set up Cookiebot.
+
+The active operational document is `banner-copy-playbook.md`. Everything else here is regulator source material or jurisdiction-specific case study.
 
 ---
 
 ## What's in this folder
 
-| File | Purpose | When to read it |
-|---|---|---|
-| `DPC-guidance-cookies-and-tracking-2020-04.pdf` | The Data Protection Commission's official guidance on cookies and tracking technologies (April 2020). The regulator's plain-English interpretation of S.I. No. 336/2011. | **Start here** if you are trying to understand Irish cookie law. 45 minutes well spent. |
-| `EDPB-cookie-banner-taskforce-report-2023-01.pdf` | The European Data Protection Board's January 2023 report on cookie banner design. Sharpens specific banner rules (reject button on the first layer, equal prominence, no pre-ticked boxes, no deceptive patterns) that post-date the DPC's 2020 guidance. Used by all EU regulators including the DPC. | One-time pre-launch skim — 11 pages. Verify Mary's banner against each rule in it before going live. Do not rely on the DPC PDF alone for banner design rules. |
-| `SI-336-2011-irish-eprivacy-regulations.pdf` | The actual Irish statute — S.I. No. 336/2011. The binding legal text on cookies and electronic marketing in Ireland. Regulation 5 covers cookie consent; Regulation 13 covers email marketing. | When you need to verify what the law itself says (not just the regulator's interpretation). Open this when checking any specific Reg 5 wording in `reg-5-compliance-evidence.md` or in the EDPB walkthrough. |
-| `EDPB-guidelines-on-consent-2020-05.pdf` | EDPB Guidelines 05/2020 on consent under Regulation 2016/679. The deepest authoritative source on what counts as valid consent (freely given, specific, informed, unambiguous, withdrawable). Cited by the EDPB cookie banner report. | When verifying any claim about valid GDPR consent — particularly the five conditions imported into ePrivacy compliance via Para 3 of the EDPB cookie banner report. |
-| `reg-5-compliance-evidence.md` | Maps each element of Regulation 5(3) to how this specific site satisfies it, with verification steps. | When someone asks *"is this site compliant?"* or *"how do you know?"*. |
-| `banner-copy-playbook.md` | The **reusable template** for writing compliant banner copy on any client site. Includes a decision checklist and field-by-field templates for no-ads sites and ads-active sites. | When setting up Cookiebot for a new client. |
-| `banner-copy-mary-molloy.md` | The **paste-ready copy** currently live on this site. Applied from the playbook with site-specific values filled in. | When updating this site's Cookiebot admin, or when auditing what the banner says today. |
-| `client-onboarding-checklist.md` | Step-by-step runbook for deploying Cookiebot on a new client site. Covers account setup, admin configuration, cookie inventory, privacy policy alignment, and pre-launch verification. | When onboarding the next client. |
+### Operational
+
+| File | What it is |
+|---|---|
+| **`banner-copy-playbook.md`** | The reusable, jurisdiction-neutral template for writing compliant Cookiebot banner copy. Field-by-field templates for every Cookiebot admin field (dialog heading, body, button text, category introductions). Capability-based copy so the wording survives changes in the site's tool stack without rewrites. Open this when configuring a Cookiebot dashboard. |
+
+### EU-wide reference (applies in every EU jurisdiction, and as background anywhere)
+
+| File | What it is |
+|---|---|
+| `EU-eprivacy-directive-2002-58-EC-consolidated-2009-12.pdf` | The EU ePrivacy Directive — the base text every EU member state transposes into national law. Article 5(3) is the cookie consent rule. |
+| `EDPB-cookie-banner-taskforce-report-2023-01.pdf` | European Data Protection Board, January 2023. The agreed minimum threshold every EU regulator applies to cookie banner design (reject button on the first layer, equal prominence, no pre-ticked boxes, no deceptive patterns). One-time pre-launch skim — 11 pages. |
+| `EDPB-guidelines-on-consent-2020-05.pdf` | EDPB Guidelines 05/2020 on consent under the GDPR. The authoritative source on what counts as valid consent (freely given, specific, informed, unambiguous, withdrawable). Cited by the cookie banner taskforce report. |
+
+### Ireland-specific (case study; kept in case the site launches in Ireland)
+
+| File | What it is |
+|---|---|
+| `SI-336-2011-irish-eprivacy-regulations.pdf` | The binding Irish statute — S.I. No. 336/2011. The Irish transposition of the ePrivacy Directive. Regulation 5 covers cookie consent; Regulation 13 covers email marketing. |
+| `DPC-guidance-cookies-and-tracking-2020-04.pdf` | Ireland's Data Protection Commission, April 2020. The DPC's plain-English interpretation of S.I. 336/2011. The most likely document an Irish regulator would compare a site's behaviour against. |
 
 ---
 
-## If you only have 10 minutes
+## When to use what
 
-Read these in this order:
+**Configuring Cookiebot for this site** → `banner-copy-playbook.md` is the only document you need to open. Pick the multi-jurisdiction General introduction template since the studio's audience is international.
 
-1. `reg-5-compliance-evidence.md` — gives you the current compliance state of this site.
-2. `banner-copy-mary-molloy.md` — shows you what the banner currently says.
-3. Skim the `DPC-guidance-cookies-and-tracking-2020-04.pdf` table of contents to know what's in it if you need to go deeper later.
-4. Skim the `EDPB-cookie-banner-taskforce-report-2023-01.pdf` summary section — the 2023 EU-wide banner design rules that the DPC PDF predates.
+**Verifying banner design before launch** → skim `EDPB-cookie-banner-taskforce-report-2023-01.pdf` and check the banner against each rule.
 
-## If you're onboarding a new client
-
-Read in this order:
-
-1. `client-onboarding-checklist.md` — the step-by-step.
-2. `banner-copy-playbook.md` — the reusable template.
-3. Copy `banner-copy-mary-molloy.md` → `banner-copy-[NEW_CLIENT].md` as your starting point, then fill in the new client's specifics following the playbook's decision checklist.
-
-## If you're preparing for a DPC audit or compliance review
-
-1. `reg-5-compliance-evidence.md` — the mapping of rule to site.
-2. `banner-copy-mary-molloy.md` — evidence of what was being disclosed on which date.
-3. The dated screenshots in `../compliance-records/` — visual evidence of the banner as it appeared on audit dates.
-4. `DPC-guidance-cookies-and-tracking-2020-04.pdf` — the exact interpretation you were working from.
-5. `EDPB-cookie-banner-taskforce-report-2023-01.pdf` — the EU-wide banner design rules referenced when verifying Mary's banner before launch.
+**Researching a fresh consent question** → start with the EDPB consent guidelines, then the relevant national law (the Irish PDFs if Ireland is one of your target jurisdictions; otherwise research the local equivalent).
 
 ---
 
-## Source law reference
+## Source URLs
 
-Local PDFs (preferred — verifiable, audit-ready):
+Authoritative online copies of the regulator documents, in case the local PDFs need refreshing:
 
-- **Primary Irish law:** `SI-336-2011-irish-eprivacy-regulations.pdf` (this folder) — the binding Irish statute that transposes the ePrivacy Directive
-- **EU ePrivacy Directive — consolidated 2002 + 2009:** `EU-eprivacy-directive-2002-58-EC-consolidated-2009-12.pdf` (this folder — the EU directive that S.I. 336/2011 transposes; the 2009 amendments are already merged in, so this is the current operative text including the cookie consent rule in Article 5(3))
-- **GDPR — official journal version with all 173 recitals:** `../gdpr/regulation-2016-679-official-journal-with-recitals-2016-05.pdf` (one folder up — preferred when citing recitals; the EDPB cookie banner report cites Recitals 32, 42, 43, 47)
-- **GDPR — consolidated articles only:** `../gdpr/regulation-2016-679-consolidated-2016-05.pdf` (one folder up — articles only, post-2018 corrigendum applied; preferred when citing binding article numbers)
-
-Online sources (for fresh copies if the local PDFs need updating):
-
-- [S.I. No. 336/2011 — European Communities (Electronic Communications Networks and Services)(Privacy and Electronic Communications) Regulations 2011](https://www.irishstatutebook.ie/eli/2011/si/336/)
-- [ePrivacy Directive 2002/58/EC](https://eur-lex.europa.eu/eli/dir/2002/58/oj) (as amended by 2009/136/EC) — the EU directive that S.I. 336/2011 transposes
+- [ePrivacy Directive 2002/58/EC (as amended by 2009/136/EC)](https://eur-lex.europa.eu/eli/dir/2002/58/oj)
 - [GDPR — EUR-Lex authoritative text](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
-- [Data Protection Commission (DPC) — dataprotection.ie](https://www.dataprotection.ie) — the Irish regulator
+- [EDPB Cookie Banner Taskforce Report (Jan 2023)](https://www.edpb.europa.eu/system/files/2023-01/edpb_20230118_report_cookie_banner_taskforce_en.pdf)
+- [EDPB Guidelines 05/2020 on consent](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en)
+- [S.I. No. 336/2011 (Irish Statute Book)](https://www.irishstatutebook.ie/eli/2011/si/336/)
+- [Data Protection Commission (Ireland) — dataprotection.ie](https://www.dataprotection.ie)
+
+Equivalents for other jurisdictions you may want bookmarks for:
+- [Commission d'accès à l'information du Québec (CAI)](https://www.cai.gouv.qc.ca) — Québec Law 25 regulator
+- [Office of the Privacy Commissioner of Canada (OPC)](https://www.priv.gc.ca) — federal PIPEDA regulator
+- [Information Commissioner's Office (UK)](https://ico.org.uk)
+- [CNIL (France)](https://www.cnil.fr)
 
 ---
 
 ## Maintenance
 
-- **Annually:** re-verify every file in this folder. Check whether the DPC has published updated guidance and whether the local PDF is still the current version.
-- **When Cookiebot updates its admin UI:** walk through `client-onboarding-checklist.md` and correct any settings path that has moved.
-- **When any cookie-setting tool is added or removed on this site:** update `banner-copy-mary-molloy.md` (and the live Cookiebot admin values) using the change-control rules in `banner-copy-playbook.md`. Run the compliance screenshot script immediately afterwards.
-
-_Last reviewed: April 2026._
+- **Annually** — check whether the EDPB has updated either of the two reference guidelines. Refresh local PDFs if so.
+- **When the site adds or removes any tool that sets cookies** — update the live Cookiebot dashboard configuration following the change-control rules in `banner-copy-playbook.md`.

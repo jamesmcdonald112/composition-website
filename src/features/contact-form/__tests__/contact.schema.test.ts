@@ -4,8 +4,6 @@ import { contactSchema } from "../schema/contact.schema";
 const validInput = {
 	name: "John Smith",
 	email: "john@example.com",
-	phone: "0871234567",
-	service: "Employment Law",
 	message: "I need help with a work issue.",
 	website: "",
 };
@@ -76,72 +74,6 @@ describe("contactSchema", () => {
 			});
 			expect(result.success).toBe(true);
 			if (result.success) expect(result.data.email).toBe("john@example.com");
-		});
-	});
-
-	describe("phone", () => {
-		it("accepts a valid Irish mobile number", () => {
-			const result = contactSchema.safeParse(validInput);
-			expect(result.success).toBe(true);
-			if (result.success) expect(result.data.phone).toMatch(/^\+353/);
-		});
-
-		it("normalises the number to E.164 format", () => {
-			const result = contactSchema.safeParse({
-				...validInput,
-				phone: "0871234567",
-			});
-			expect(result.success).toBe(true);
-			if (result.success) expect(result.data.phone).toBe("+353871234567");
-		});
-
-		it("accepts a number already in E.164 format", () => {
-			const result = contactSchema.safeParse({
-				...validInput,
-				phone: "+353871234567",
-			});
-			expect(result.success).toBe(true);
-		});
-
-		it("rejects an empty phone string", () => {
-			const result = contactSchema.safeParse({ ...validInput, phone: "" });
-			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe("Phone is required.");
-		});
-
-		it("rejects a non-numeric phone string", () => {
-			const result = contactSchema.safeParse({
-				...validInput,
-				phone: "not-a-number",
-			});
-			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe(
-				"Enter a valid phone number.",
-			);
-		});
-
-		it("rejects a too-short number", () => {
-			const result = contactSchema.safeParse({ ...validInput, phone: "123" });
-			expect(result.success).toBe(false);
-		});
-	});
-
-	describe("service", () => {
-		it("accepts a valid service", () => {
-			const result = contactSchema.safeParse({
-				...validInput,
-				service: "Other",
-			});
-			expect(result.success).toBe(true);
-		});
-
-		it("rejects an invalid service", () => {
-			const result = contactSchema.safeParse({
-				...validInput,
-				service: "Rocket Science",
-			});
-			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe("Please choose a service.");
 		});
 	});
 

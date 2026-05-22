@@ -1,0 +1,218 @@
+---
+/*
+  DEV PAGE: Curriculum-path variations index
+  Listing of all 20 layout variations for the eight-module curriculum.
+  Each link opens a self-contained page rendering the same data with a
+  different composition.
+*/
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const variations = [
+	// Grid systems — how the eight modules sit in space
+	{ slug: "v01-bento", name: "Bento grid", family: "Grid systems", note: "Mixed sizes; one large featured card, rest smaller." },
+	{ slug: "v02-strict-grid", name: "Strict 4×2 grid", family: "Grid systems", note: "Perfect symmetry; chocolate-box discipline." },
+	{ slug: "v03-magazine-spread", name: "Magazine spread", family: "Grid systems", note: "One hero plus an asymmetric companion grid." },
+	{ slug: "v04-vertical-ladder", name: "Vertical ladder", family: "Grid systems", note: "Full-width cards stacked, each broken into columns." },
+	{ slug: "v05-staggered-zigzag", name: "Staggered zigzag", family: "Grid systems", note: "Two-column zigzag down the page." },
+
+	// Card composition — what's inside each card
+	{ slug: "v06-index-card", name: "Index card", family: "Card composition", note: "Library catalogue card; hand-stamped numeral." },
+	{ slug: "v07-ticket-card", name: "Ticket card", family: "Card composition", note: "Perforated edge, ticket-stub numbering." },
+	{ slug: "v08-rams-cabinet", name: "Dieter Rams cabinet", family: "Card composition", note: "Quiet geometry, gridded info blocks." },
+	{ slug: "v09-stamp-card", name: "Stamp / passport", family: "Card composition", note: "Dotted border, embossed numeral." },
+	{ slug: "v10-postcard-back", name: "Postcard back", family: "Card composition", note: "Divider line, address-side typography." },
+
+	// Sequencing — how the cards relate to one another
+	{ slug: "v11-connected-timeline", name: "Connected timeline", family: "Sequencing", note: "Vertical line linking modules, dot markers." },
+	{ slug: "v12-staircase", name: "Numbered staircase", family: "Sequencing", note: "Each card offset down-right from the previous." },
+	{ slug: "v13-spine-binding", name: "Spine binding", family: "Sequencing", note: "Cards as book chapters, central spine line." },
+	{ slug: "v14-monument-numerals", name: "Roman monument numerals", family: "Sequencing", note: "Huge italic numerals as the visual anchor." },
+	{ slug: "v15-annotation-strip", name: "Annotation strip", family: "Sequencing", note: "Marginalia column on the left, cards on the right." },
+
+	// Typographic-led — typography as composition
+	{ slug: "v16-editorial-spread", name: "Editorial spread", family: "Typographic-led", note: "Heading, lead, body columns; New Yorker register." },
+	{ slug: "v17-stack-of-records", name: "Stack of records", family: "Typographic-led", note: "Minimal stacked cards, hover reveals." },
+	{ slug: "v18-hairline-grid", name: "Hairline grid", family: "Typographic-led", note: "Pure rules, no card shapes; content held by lines." },
+	{ slug: "v19-manuscript-page", name: "Manuscript page", family: "Typographic-led", note: "Illuminated initial letters, monkish layout." },
+	{ slug: "v20-awards-plinth", name: "Awards plinth", family: "Typographic-led", note: "Each module on a plinth with bold numeral above." },
+
+	// Round 2 — refined for reading clarity + brand-colour confidence
+	{ slug: "v21-ladder-brand-column", name: "Ladder, brand-tinted left column", family: "Round 2 — ladder family", note: "V04 base with a brand-tinted leftmost column holding the numeral." },
+	{ slug: "v22-ladder-featured-first", name: "Ladder, featured first row", family: "Round 2 — ladder family", note: "First row goes full dark-brand; rows II–VIII follow as light." },
+	{ slug: "v23-ladder-alternating", name: "Ladder, alternating bands", family: "Round 2 — ladder family", note: "Alternating dark/light row backgrounds; high visual rhythm." },
+	{ slug: "v24-ladder-numeral-capsule", name: "Ladder, numeral capsule", family: "Round 2 — ladder family", note: "Each numeral sits in a brand-coloured capsule to anchor the row." },
+	{ slug: "v25-ladder-rail-outcome", name: "Ladder, outcome on rail", family: "Round 2 — ladder family", note: "Body in main column; outcome on its own right rail." },
+
+	{ slug: "v26-brand-all-cards", name: "All-brand cards", family: "Round 2 — brand-panel cards", note: "Every card dark teal with gold numeral; collector-card energy." },
+	{ slug: "v27-brand-split-card", name: "Brand split card", family: "Round 2 — brand-panel cards", note: "Top half dark brand (numeral); bottom half light (prose)." },
+	{ slug: "v28-brand-bar-right", name: "Brand bar right", family: "Round 2 — brand-panel cards", note: "Two-tone vertical split — light card, brand bar on the right." },
+	{ slug: "v29-brand-folded-corner", name: "Brand folded corner", family: "Round 2 — brand-panel cards", note: "Brand card with a corner-folded page-turn detail." },
+	{ slug: "v30-brand-inner-frame", name: "Brand inner frame", family: "Round 2 — brand-panel cards", note: "Brand card with a hairline gold frame inside the padding." },
+
+	{ slug: "v31-newspaper-columns", name: "Newspaper columns", family: "Round 2 — editorial-pro", note: "Three-column body with brand-coloured bylines and rules." },
+	{ slug: "v32-stripe-press-list", name: "Stripe-Press list", family: "Round 2 — editorial-pro", note: "Two-up chapter list — meta column left, prose column right." },
+	{ slug: "v33-specimen-sheet", name: "Specimen sheet", family: "Round 2 — editorial-pro", note: "Typographic catalogue — each module a labelled specimen." },
+	{ slug: "v34-programme-note", name: "Programme note", family: "Round 2 — editorial-pro", note: "Recital-programme aesthetic with a brand header strip." },
+	{ slug: "v35-footnoted-academic", name: "Footnoted academic", family: "Round 2 — editorial-pro", note: "Numeral + outcome as footnotes at the bottom of each entry." },
+
+	{ slug: "v36-numbered-rail", name: "Numbered rail", family: "Round 2 — strong sequencing", note: "Vertical brand rail on the left with 8 numerals stacked." },
+	{ slug: "v37-bracketed-pairs", name: "Bracketed pairs", family: "Round 2 — strong sequencing", note: "Modules grouped two-by-two under brand kicker headings." },
+	{ slug: "v38-curriculum-table", name: "Curriculum table", family: "Round 2 — strong sequencing", note: "True tabular layout with brand-coloured header row." },
+	{ slug: "v39-index-card-clean", name: "Index card, clean", family: "Round 2 — strong sequencing", note: "V06 refresh — stamped numeral, paper feel, no floating rule." },
+	{ slug: "v40-ticket-strip", name: "Ticket strip refined", family: "Round 2 — strong sequencing", note: "V07 idea, tighter — outcome printed on the brand stub." },
+
+	// Round 3 — twenty variations on v37 bracketed-pairs.
+	// All use the 3 + 2 + 2 + 1 phase split from src/config/curriculum.ts.
+	// Phase header carries the phase name only — numerals live on the cards.
+	{ slug: "v41-phase-sticky-label", name: "Sticky phase label", family: "Round 3 — layout structure", note: "Phase name as a vertical sticky label on the left edge of each phase row." },
+	{ slug: "v42-phase-top-label", name: "Phase label on top", family: "Round 3 — layout structure", note: "Phase label sits on top, cards span full width below." },
+	{ slug: "v43-phase-inset-card", name: "Phase inset as first card", family: "Round 3 — layout structure", note: "The phase header IS the first card in the row." },
+	{ slug: "v44-phase-banner", name: "Phase banner", family: "Round 3 — layout structure", note: "Phase as a wide horizontal banner with a thin rule." },
+	{ slug: "v45-phase-caption-below", name: "Phase caption below", family: "Round 3 — layout structure", note: "Cards first, phase label as caption below — magazine-style." },
+
+	{ slug: "v46-autofit-grid", name: "Auto-fit grid", family: "Round 3 — card composition", note: "Cards take equal width regardless of phase count (1 stretches, 3 compresses)." },
+	{ slug: "v47-fixed-card-width", name: "Fixed card width", family: "Round 3 — card composition", note: "Each card is the same width; phases with more cards run wider." },
+	{ slug: "v48-lead-card-larger", name: "Lead card larger", family: "Round 3 — card composition", note: "First card of each phase is featured-size; others smaller." },
+	{ slug: "v49-horizontal-scroll", name: "Horizontal scroll cards", family: "Round 3 — card composition", note: "Phases use a horizontal scroll for their cards on narrow screens." },
+	{ slug: "v50-list-rows", name: "Cards as list rows", family: "Round 3 — card composition", note: "Inside each phase, modules are full-width list rows rather than cards." },
+
+	{ slug: "v51-brass-rule", name: "Brass rule above phase", family: "Round 3 — colour deployment", note: "Brass-coloured rule + small caps phase name; cards stay neutral." },
+	{ slug: "v52-phase-on-brand", name: "Phase header on brand", family: "Round 3 — colour deployment", note: "Phase header sits on dark teal; cards on light." },
+	{ slug: "v53-cards-on-brand", name: "Cards on brand", family: "Round 3 — colour deployment", note: "Cards sit on dark teal; phase header on light." },
+	{ slug: "v54-hover-brass", name: "Hover brass tint", family: "Round 3 — colour deployment", note: "Cards take a brass tint on hover/focus; rest stay neutral." },
+	{ slug: "v55-tertiary-accent", name: "Tertiary accent", family: "Round 3 — colour deployment", note: "Terracotta used to mark phase headers; brass reserved for card numerals." },
+
+	{ slug: "v56-name-in-rule", name: "Name set into rule", family: "Round 3 — composition refinements", note: "Phase name set into a horizontal rule that crosses the page." },
+	{ slug: "v57-sidebar-phase", name: "Sidebar phase summary", family: "Round 3 — composition refinements", note: "Phase summary in a left sidebar, cards in the right column." },
+	{ slug: "v58-numbered-phases", name: "Numbered phases", family: "Round 3 — composition refinements", note: "Phases get lowercase Roman numerals (i, ii, iii, iv) as their counter." },
+	{ slug: "v59-prose-phase", name: "Prose-led phase", family: "Round 3 — composition refinements", note: "Phase intro is a substantial prose paragraph; cards underneath." },
+	{ slug: "v60-condensed-bands", name: "Condensed bands", family: "Round 3 — composition refinements", note: "Compact phase bands — everything visible on one screen." },
+];
+
+const families = [...new Set(variations.map((v) => v.family))];
+---
+
+<BaseLayout title="Curriculum variations — dev" noIndex={true}>
+	<main class="dev-index">
+		<div class="dev-index__inner wrapper wrapper--wide">
+			<header class="dev-index__header">
+				<p class="dev-index__eyebrow">Dev / curriculum variations</p>
+				<h1 class="dev-index__title">Twenty card layouts for the training path</h1>
+				<p class="dev-index__intro">
+					Each variation renders the same eight-module data with a different composition.
+					Click any title to view the page in full. All variations use the project's design
+					tokens — colour, type, and spacing are consistent. The differences are in layout,
+					proportion, and how the cards relate to one another.
+				</p>
+			</header>
+
+			{families.map((family) => (
+				<section class="dev-index__family">
+					<h2 class="dev-index__family-title">{family}</h2>
+					<ol class="dev-index__list">
+						{variations
+							.filter((v) => v.family === family)
+							.map((v) => (
+								<li class="dev-index__item">
+									<a class="dev-index__link" href={`/dev/curriculum-variations/${v.slug}`}>
+										<span class="dev-index__name">{v.name}</span>
+										<span class="dev-index__note">{v.note}</span>
+									</a>
+								</li>
+							))}
+					</ol>
+				</section>
+			))}
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.dev-index {
+		background-color: var(--color-bg-page);
+		padding-block: var(--space-4xl);
+		min-height: 100svh;
+	}
+	.dev-index__header {
+		max-width: 60ch;
+		margin-block-end: var(--space-4xl);
+	}
+	.dev-index__eyebrow {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest);
+		text-transform: uppercase;
+		color: var(--color-fg-accent);
+		margin: 0 0 var(--space-md);
+	}
+	.dev-index__title {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-light);
+		font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-4xl));
+		line-height: var(--line-height-tight);
+		color: var(--color-fg-default);
+		margin: 0 0 var(--space-lg);
+	}
+	.dev-index__intro {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		margin: 0;
+	}
+	.dev-index__family {
+		margin-block-end: var(--space-3xl);
+	}
+	.dev-index__family-title {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-xl);
+		color: var(--color-fg-muted);
+		margin: 0 0 var(--space-lg);
+		padding-block-end: var(--space-sm);
+		border-block-end: 1px solid var(--color-border-default);
+	}
+	.dev-index__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-xs);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-sm);
+		}
+	}
+	.dev-index__item {
+		margin: 0;
+	}
+	.dev-index__link {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-2xs);
+		padding: var(--space-md) var(--space-lg);
+		text-decoration: none;
+		border: 1px solid var(--color-border-default);
+		background-color: var(--color-bg-surface);
+		transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+	}
+	.dev-index__link:hover {
+		border-color: var(--color-fg-accent);
+		background-color: var(--color-bg-subtle);
+	}
+	.dev-index__name {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-lg);
+		color: var(--color-fg-default);
+	}
+	.dev-index__note {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-normal);
+		color: var(--color-fg-muted);
+	}
+</style>

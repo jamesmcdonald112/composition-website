@@ -1,0 +1,82 @@
+---
+/*
+  V24 — Ladder with numeral capsule
+  Each numeral sits in a small dark-brand capsule (badge) at the start of
+  the row. Lighter, cleaner than V21 — same readable structure but the
+  brand colour is concentrated in a single anchor point.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="V24 — Ladder, numeral capsule" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<ol class="ladder">
+				{curriculum.map((m) => (
+					<li class="ladder__rung">
+						<div class="ladder__capsule" aria-hidden="true">
+							<span class="ladder__num">{m.numeral}</span>
+						</div>
+						<div class="ladder__head">
+							<h3 class="ladder__name">{m.name}</h3>
+							<p class="ladder__sub">{m.subtitle}</p>
+						</div>
+						<div class="ladder__body-wrap">
+							<p class="ladder__body">{m.body}</p>
+							<p class="ladder__out">{m.outcome}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.ladder { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+	.ladder__rung {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-lg);
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		padding: var(--space-xl);
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 80px minmax(220px, 1.2fr) minmax(0, 2.5fr);
+			gap: var(--space-2xl);
+			align-items: start;
+			padding: var(--space-xl) var(--space-2xl);
+		}
+	}
+	.ladder__capsule {
+		background-color: var(--color-bg-brand);
+		color: var(--color-fg-accent-on-brand);
+		min-width: 64px; height: 64px;
+		display: flex; align-items: center; justify-content: center;
+		font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light);
+		font-size: var(--font-size-2xl); line-height: 1;
+		padding: 0 var(--space-md);
+		@media (min-width: 1024px) { width: 64px; height: 80px; font-size: var(--font-size-3xl); }
+	}
+	.ladder__head { display: flex; flex-direction: column; gap: var(--space-2xs); grid-column: 2 / 3; @media (min-width: 1024px) { grid-column: auto; } }
+	.ladder__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.ladder__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.ladder__body-wrap { display: flex; flex-direction: column; gap: var(--space-md); grid-column: 1 / -1; @media (min-width: 1024px) { grid-column: auto; } }
+	.ladder__body { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.ladder__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; padding-block-start: var(--space-md); border-block-start: 1px solid var(--color-border-default); }
+</style>

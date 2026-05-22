@@ -1,6 +1,6 @@
 # Cookie Banner Copy — Reusable Playbook
 
-_The reusable template for writing compliant Cookiebot banner copy on any solicitor, barrister, or professional-services site. Capability-based by default — write once, no maintenance as tools are added or removed._
+_The reusable template for writing compliant Cookiebot banner copy on any small / professional-services site. Jurisdiction-agnostic framework; the few law citations in this document can be swapped for the citations that apply to the client's primary jurisdiction. Capability-based by default — write once, no maintenance as tools are added or removed._
 
 ---
 
@@ -8,7 +8,7 @@ _The reusable template for writing compliant Cookiebot banner copy on any solici
 
 **Describe each consent category by what it is capable of doing, not by what specific tools are active today.**
 
-The DPC's "clear and comprehensive information" test (Reg 5(3)(b), guidance note April 2020 p.10) requires the user to understand **what they are consenting to** before they click. That means the purposes of each category must be plain. It does *not* require every third-party platform to be named in the banner itself — specific platform names are satisfied by the Cookie Declaration on `/cookie-policy`, which Cookiebot populates automatically from its domain scan.
+Every major cookie-consent regime — GDPR / UK GDPR, Québec Law 25, the EU ePrivacy Directive transpositions (e.g. Irish S.I. 336/2011, UK PECR), and the EDPB / national-regulator guidance built on them — requires the user to understand **what they are consenting to** before they click. That means the purposes of each category must be plain. It does *not* require every third-party platform to be named in the banner itself — specific platform names are satisfied by the Cookie Declaration on `/cookie-policy`, which Cookiebot populates automatically from its domain scan.
 
 This matters because sites change. A solicitor site that launches with no ads may add Google Ads retargeting six months later, drop it a year after that, add a Meta pixel for a conference campaign, then remove it again. If the banner copy names specific platforms, it has to be rewritten every time those tools toggle — and any missed update is a transparency breach.
 
@@ -128,12 +128,28 @@ Use Strategy B only if the client explicitly wants the negative disclosure and c
 
 ### General cookie introduction (shown on the "About" tab of the banner)
 
+**Template (jurisdiction-neutral / multi-jurisdiction site):**
+
+```
+Cookies are small text files saved to your device by websites you visit. They can make a site work properly, remember your choices, or help the site owner understand how the site is being used.
+
+We are required to get your consent before setting any cookie that is not strictly necessary to run this site. The exact source of that requirement depends on where you are — for visitors in [PRIMARY_JURISDICTION, e.g. "Québec, Canada"] it is [PRIMARY_LAW, e.g. "Law 25 read with PIPEDA"]; for visitors in the European Union or United Kingdom, it is the ePrivacy Directive (as transposed locally) read with the GDPR / UK GDPR.
+
+This website is operated from [CITY, COUNTRY, e.g. "Montréal, Canada"]. The sections below describe each category of cookie this site may use. The Cookie Declaration at the bottom of this page lists every specific cookie currently set — that declaration is kept up to date automatically, so it always reflects what is really being set.
+
+You can change or withdraw your consent at any time from the Cookie Declaration at the bottom of this page.
+
+To learn how we handle your personal data more broadly, see our Privacy Policy.
+```
+
+**Template (single-jurisdiction site, Ireland — the original):**
+
 ```
 Cookies are small text files saved to your device by websites you visit. They can make a site work properly, remember your choices, or help the site owner understand how the site is being used.
 
 Irish law (S.I. No. 336/2011 — the ePrivacy Regulations — and the General Data Protection Regulation) requires us to get your consent before setting any cookie that is not strictly necessary to run this site.
 
-This website is operated from [CITY, COUNTRY, e.g. "Kilkenny, Ireland"]. The sections below describe each category of cookie this site may use. The Cookie Declaration at the bottom of this page lists every specific cookie currently set on this site — that declaration is kept up to date automatically, so it always reflects what is really being set.
+This website is operated from [CITY, COUNTRY, e.g. "Kilkenny, Ireland"]. The sections below describe each category of cookie this site may use. The Cookie Declaration at the bottom of this page lists every specific cookie currently set — that declaration is kept up to date automatically.
 
 You can change or withdraw your consent at any time from the Cookie Declaration at the bottom of this page.
 
@@ -141,8 +157,8 @@ To learn how we handle your personal data more broadly, see our Privacy Policy.
 ```
 
 **Why:**
-- **Explicit reference to Irish law by name** — demonstrates jurisdictional awareness. Swap for UK PECR if the client is UK-based.
-- **"Operated from [City, Country]"** — establishes governing law. Critical for regulated professions.
+- **Explicit reference to applicable law** — demonstrates jurisdictional awareness. Use the single-jurisdiction template if the site's audience is overwhelmingly in one country; use the multi-jurisdiction template if the site reaches students/clients in several.
+- **"Operated from [City, Country]"** — establishes the controller's location.
 - **"The Cookie Declaration … is kept up to date automatically"** — points the user to the always-current source rather than relying on the banner copy being current.
 
 ---
@@ -150,12 +166,12 @@ To learn how we handle your personal data more broadly, see our Privacy Policy.
 ### Necessary cookies introduction
 
 ```
-Necessary cookies are required to make the website work properly. They record your cookie consent choice, support secure page loading and form submissions, and in some cases remember one-time dismissals of introductory elements so they do not replay on every page. These cookies do not track you and are exempt from the consent requirement under Regulation 5(5) of S.I. No. 336/2011.
+Necessary cookies are required to make the website work properly. They record your cookie consent choice, support secure page loading and form submissions, and in some cases remember one-time dismissals of introductory elements so they do not replay on every page. These cookies do not track you, and they are exempt from the consent requirement under the strictly-necessary exemption recognised in every major privacy regime (e.g. Article 5(3) of the ePrivacy Directive as transposed locally; the operationally-necessary carve-out under Québec Law 25; equivalent provisions under PIPEDA and the UK PECR).
 ```
 
 **Why:**
 - Describes the purpose generically — works whether the site has an intro animation, a contact form, or neither.
-- Cites the statute (Reg 5(5)) so the exemption is visibly grounded.
+- Names the strictly-necessary exemption without binding to one specific statute, so the wording survives across jurisdictions. For a single-jurisdiction client, you can swap the parenthetical for a single citation (the original Irish version cited Regulation 5(5) of S.I. No. 336/2011).
 - "Do not track you" — separates them cleanly from analytics and marketing.
 
 ---
@@ -238,6 +254,6 @@ Compare to Strategy B which also requires updates on every tool change — Strat
 
 ## What this playbook is not
 
-A substitute for reading the DPC guidance at `legal-compliance/cookies/DPC-guidance-cookies-and-tracking-2020-04.pdf`. A substitute for a qualified data protection advisor on complex sites. A substitute for running a fresh Cookiebot scan on every client's production domain — the scan is the source of truth for what cookies actually exist; this playbook tells you how to describe the *categories* those cookies belong to.
+A substitute for reading the primary regulator guidance that applies to your client's jurisdiction (DPC in Ireland, ICO in the UK, CNIL in France, CAI in Québec, OPC federally in Canada, EDPB at EU level). A substitute for a qualified data-protection advisor on complex sites. A substitute for running a fresh Cookiebot scan on every client's production domain — the scan is the source of truth for what cookies actually exist; this playbook tells you how to describe the *categories* those cookies belong to.
 
-_Last reviewed: April 2026. Re-verify against the latest DPC guidance annually._
+_Re-verify against the latest applicable regulator guidance annually._

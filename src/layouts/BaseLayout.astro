@@ -2,7 +2,7 @@
 /*
   LAYOUT: BaseLayout
   PURPOSE: Root HTML shell for every page. Handles <head>, meta, OG, structured data.
-  IMPORTS: global.css (which chains all other CSS), firm config for SEO defaults.
+  IMPORTS: global.css (which chains all other CSS), studio config for SEO defaults.
   FONTS: Font imports go here (e.g. @fontsource imports) — loaded once, globally.
   SLOTS: Default slot wraps in <main>. Navbar and Footer are rendered outside the slot.
   SEO: All meta/OG/Twitter/structured data is handled via typed props.
@@ -28,7 +28,7 @@ import Footer from "../components/footer/Footer.astro";
 import Intro from "../components/Intro/Intro.astro";
 import Navbar from "../components/navbar/Navbar.astro";
 import SkipLink from "../components/ui/SkipLink.astro";
-import { firm } from "../config/firm";
+import { studio } from "../config/studio";
 
 interface BaseLayoutProps {
 	title?: string;
@@ -49,12 +49,12 @@ interface BaseLayoutProps {
 }
 
 const {
-	title = firm.seo.defaultTitle,
-	description = firm.seo.defaultDescription,
+	title = studio.seo.defaultTitle,
+	description = studio.seo.defaultDescription,
 	noIndex = false,
 	canonicalPath,
-	ogImage = firm.seo.defaultOgImage,
-	ogImageAlt = firm.seo.defaultOgImageAlt,
+	ogImage = studio.seo.defaultOgImage,
+	ogImageAlt = studio.seo.defaultOgImageAlt,
 	ogType = "website",
 	structuredData,
 	publishedTime,
@@ -66,28 +66,43 @@ const {
 	pageId,
 } = Astro.props as BaseLayoutProps;
 
-const canonical = firm.siteUrl
-	? new URL(canonicalPath ?? Astro.url.pathname, firm.siteUrl).toString()
+const canonical = studio.siteUrl
+	? new URL(canonicalPath ?? Astro.url.pathname, studio.siteUrl).toString()
 	: undefined;
 
 const ogImageUrl =
-	firm.siteUrl && ogImage
-		? new URL(ogImage, firm.siteUrl).toString()
+	studio.siteUrl && ogImage
+		? new URL(ogImage, studio.siteUrl).toString()
 		: undefined;
 
 const isArticle = ogType === "article";
 ---
 
 <!doctype html>
-<html lang="en-IE">
+<html lang="en">
 	<head>
-		<script
-			is:inline
-			id="Cookiebot"
-			src="https://consent.cookiebot.com/uc.js"
-			data-cbid="292ce5a8-ad47-4072-bf60-aebbe085521d"
-			data-blockingmode="auto"
-			type="text/javascript"></script>
+		{/*
+		  TODO (james): swap data-cbid to the studio's production CBID once
+		  Alex has created the Cookiebot account and the live domain is scanned.
+		  The current value is the inherited development CBID and must not ship.
+		  See README → Pre-launch checklist → Cookiebot.
+
+		  Cookiebot is gated to production builds only. The dev CBID is not
+		  authorised against localhost, so in dev it fails partway through
+		  initialisation and ends up blocking consent-gated iframes (the
+		  YouTube embed in particular) with no consent banner ever appearing
+		  to unblock them. Skipping the script in dev keeps the page readable
+		  while you work; the full consent flow runs on the live deployment.
+		*/}
+		{import.meta.env.PROD && (
+			<script
+				is:inline
+				id="Cookiebot"
+				src="https://consent.cookiebot.com/uc.js"
+				data-cbid="292ce5a8-ad47-4072-bf60-aebbe085521d"
+				data-blockingmode="auto"
+				type="text/javascript"></script>
+		)}
 		<script is:inline>
 			if (sessionStorage.getItem("intro-seen")) {
 				document.documentElement.classList.add("intro-done");
@@ -95,18 +110,18 @@ const isArticle = ogType === "article";
 		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="format-detection" content="telephone=no, address=no, email=no" />
+		<meta name="format-detection" content="address=no, email=no" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="icon" href="/images/favicon/favicon.svg" type="image/svg+xml" />
 		{canonical && <link rel="canonical" href={canonical} />}
 		{noIndex && <meta name="robots" content="noindex, nofollow" />}
-		<meta property="og:site_name" content={firm.companyName} />
+		<meta property="og:site_name" content={studio.name} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		{canonical && <meta property="og:url" content={canonical} />}
 		<meta property="og:type" content={ogType} />
-		<meta property="og:locale" content="en_IE" />
+		<meta property="og:locale" content="en" />
 		{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
 		{ogImageUrl && <meta property="og:image:secure_url" content={ogImageUrl} />}
 		{ogImageUrl && <meta property="og:image:type" content="image/webp" />}
@@ -143,5 +158,44 @@ const isArticle = ogType === "article";
 		</header>
 		<main id="main-content"><slot /></main>
 		<Footer />
+		<script type="text/javascript">
+			(function (C, A, L) {
+				let p = function (a, ar) {
+					a.q.push(ar);
+				};
+				let d = C.document;
+				C.Cal =
+					C.Cal ||
+					function () {
+						let cal = C.Cal;
+						let ar = arguments;
+						if (!cal.loaded) {
+							cal.ns = {};
+							cal.q = cal.q || [];
+							d.head.appendChild(d.createElement("script")).src = A;
+							cal.loaded = true;
+						}
+						if (ar[0] === L) {
+							const api = function () {
+								p(api, arguments);
+							};
+							const namespace = ar[1];
+							api.q = api.q || [];
+							if (typeof namespace === "string") {
+								cal.ns[namespace] = cal.ns[namespace] || api;
+								p(cal.ns[namespace], ar);
+								p(cal, ["initNamespace", namespace]);
+							} else p(cal, ar);
+							return;
+						}
+						p(cal, ar);
+					};
+			})(window, "https://app.cal.eu/embed/embed.js", "init");
+			Cal("init", "introductory-composition-consultation", { origin: "https://app.cal.eu" });
+			Cal.ns["introductory-composition-consultation"]("ui", {
+				hideEventTypeDetails: false,
+				layout: "month_view",
+			});
+		</script>
 	</body>
 </html>

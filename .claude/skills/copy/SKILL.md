@@ -1,8 +1,7 @@
-# Copywriting Skill — Mary Molloy Solicitor
+# Copywriting Skill — Pozdnyakov Composition Studio
 
-Distilled from `.claude/skills/copy/research/copywriting-research.md`.
 Apply this skill whenever writing or reviewing copy for any page, config file, or component on this site.
-Run alongside `.claude/skills/irish-legal-compliance/SKILL.md` — this skill covers quality; the compliance skill covers legality.
+Run alongside `.claude/skills/ai-isms/SKILL.md` — this skill covers structure and persuasion; that one covers voice and avoiding AI patterns.
 
 ---
 
@@ -11,214 +10,192 @@ Run alongside `.claude/skills/irish-legal-compliance/SKILL.md` — this skill co
 Every sentence must earn its place. Ask: **"So what? What does this do for the reader?"**
 If you cannot answer, cut it.
 
-- ❌ "We are passionate about helping our clients."
-- ✅ "We handle your conveyancing so you understand every step, avoiding costly mistakes that could delay your purchase."
+- ❌ "We are passionate about helping composers reach their full potential."
+- ✅ "By the end of the harmony module you will have written a four-voice chorale in the style of Bach and know exactly why each voice moves where it does."
 
 ---
 
-## WHO THE CLIENT IS
+## WHO THE READER IS
 
-Mary's clients arrive **stressed, time-poor, and risk-averse**. They are not reading for pleasure. They want to know:
+The studio's audience is **serious composers** — not curious beginners, not casual hobbyists, not theory-explainer fans. Three rough segments:
 
-1. Is this the right solicitor for my situation?
-2. Can I trust them?
-3. What happens next?
+1. **Conservatoire students or recent graduates** wanting to fill gaps the institution didn't cover, or wanting a real teacher rather than YouTube fragments.
+2. **Self-taught composers** who have hit the ceiling of free resources and want a structured curriculum with feedback.
+3. **Working composers and arrangers** wanting to deepen a specific area — orchestration, counterpoint, fugue, analysis.
 
-Answer these three questions as fast as possible on every page. Everything else is secondary.
+Common attributes: they can already read music, they already love the repertoire, they have written *something*, they are sceptical of marketing, and they will judge the site against Alan Belkin's, ScoreClub's, and Berklee Online's.
 
-**Emotional states by service area:**
+Three questions to answer fast on every page:
 
-| Service | Client emotional state |
-|---|---|
-| Family law / separation | Fear, grief, uncertainty about the future |
-| Conveyancing | Anxiety about a large financial decision |
-| Wills / probate | Discomfort with mortality, grief, family complexity |
-| Personal injury | Physical pain, financial worry, feeling wronged |
-| Employment law | Anger, fear of reprisal, uncertainty |
-| Debt collection | Frustration, concern about relationships |
+1. Is this teacher real, and serious?
+2. Is this a real curriculum, or a loose collection of lessons?
+3. What will I actually be able to do that I cannot do now?
 
-Acknowledge the emotional reality. Do not exploit it. Do not ignore it.
+Answer those, in that order, on every page that matters. Everything else is secondary.
 
 ---
 
 ## TONE
 
-**Standard:** Professional but human. Authoritative but approachable. Plain language throughout.
+**Standard:** Maestro and generous teacher. Authoritative because the credentials are real; warm because Alex actually loves teaching. Closer to a conservatoire professor writing to a prospective student than to a course-sales page.
 
-**The test:** Would this copy appear in the Irish Times without causing offence or looking undignified?
+**The test:** Would this copy appear in the programme notes of a chamber-music concert, or in a letter from a conservatoire to a prospective student, without sounding out of place?
 
 **What this sounds like in practice:**
-- ❌ Too formal: "The undersigned solicitor begs to inform prospective clients of the availability of services."
-- ❌ Too casual: "Got a messy divorce? We can sort it."
-- ✅ Correct: "Divorce is challenging. We handle the legal side so you can focus on what matters most."
+- ❌ Too academic: "The student will undertake a systematic study of species counterpoint in accordance with the methodology of Fux."
+- ❌ Too casual: "Counterpoint is honestly so fun once it clicks — let's get into it."
+- ✅ Correct: "We begin where Fux began: two voices, note against note. The point is not to memorise rules but to hear why each rule exists. By the end of the module you will write fluently in two, three, and four voices."
 
 **Rules:**
-- No legalese — define any legal term the moment you use it
-- No jargon — write as you would explain to a friend
+- Define any technical term the moment you use it. Assume the reader can read music, but do not assume they know what "Schenkerian reduction" or "Neapolitan sixth" means without a brief gloss.
+- No marketing-speak — no "unlock," "transform," "elevate," "master in 30 days"
 - No clever wordplay — clarity over wit, always
-- Short sentences. Short paragraphs (2–3 sentences max).
-- Use "you" and "we" — never "the client" or "the firm"
-- Contractions are fine ("we'll", "you'll", "it's") — they reduce formality without losing professionalism
-
-**Sensitive topics (bereavement, family breakdown, accidents):**
-- Acknowledge the difficulty without dwelling on it
-- Use dignified, respectful language
-- Move from acknowledgement → practical help quickly
-- Never use these topics as emotional hooks to pressure action
+- Sentence rhythm should vary. Short. Then longer. Then short again.
+- Use "you" for the reader and "we" when describing what happens in the lessons. Avoid "the student" and "the studio" except in the masthead.
+- Contractions are fine ("you'll," "we'll," "it's") — they reduce stiffness without losing seriousness
+- Roman numerals for movements of a curriculum (I, II, III) signal classical lineage; arabic numbers signal product-feature lists. Pick the right one for the context.
 
 ---
 
 ## CONTENT PRINCIPLES
 
-### Features → Benefits
-Always translate features into outcomes using "which means" or "so you can":
-
-- ❌ "30 years of experience in probate law"
-- ✅ "30 years of probate experience, which means we handle the complexity so your family can grieve without legal worry"
-
 ### Specificity beats vague claims
 Be concrete. Vague claims are ignored; specific claims are believed.
 
-- ❌ "We provide excellent family law services"
-- ✅ "We handle contested divorces involving complex assets and help parents establish fair custody arrangements"
+- ❌ "Comprehensive training in classical composition"
+- ✅ "Eight modules: harmony, counterpoint, chorale writing, fugue, form and analysis, orchestration, composition, and student-work reviews. Each module builds on the previous one."
 
-### Loss aversion framing
-People respond more strongly to what they stand to lose than what they might gain. Use this ethically — and always pair a risk statement immediately with a solution.
+### Features → Outcomes
+Translate features into what the student will actually be able to do.
 
-- ❌ "We'll get you the best outcome" (gain framing, unverifiable)
-- ✅ "Buying property without a solicitor's review exposes you to hidden defects, unclear title, and missing protections. Our conveyancing service ensures your interests are protected from offer to completion." (loss + immediate solution)
+- ❌ "Twenty years of teaching experience"
+- ✅ "Twenty years teaching composition at conservatoire level — which means the lessons are paced for someone who is already reading scores, not someone learning what a key signature is."
 
-### Plain language is more persuasive, not less professional
-Cognitive fluency research shows that easier-to-read copy is perceived as more credible. Legalese actively undermines trust.
+### The lineage matters — but show, don't claim
+Alex studied with Chernoff at the Gnesin Academy and with Alan Belkin at the Université de Montréal. That is a genuine line back into the Russian-Soviet composition tradition and into one of the most respected living theory-and-orchestration teachers in the world. State it as a fact. Do not call it "world-class" or "elite" — let the names do the work.
 
-### The client is always the hero
-Mary is the guide. The client is the hero of the story.
+- ❌ "Trained by world-class composers in elite institutions."
+- ✅ "Studied composition with Tigran Chernoff at the Gnesin Russian Academy, and with Alan Belkin at the Université de Montréal."
 
-- ❌ "We secured the best outcome for the family"
-- ✅ "The family reached a fair settlement and moved forward"
+### Conservatoire framing, not course-sales framing
+The studio is not a "course." It is closer to a *programme of study*. Language choices follow:
+
+| Avoid | Prefer |
+|---|---|
+| Course | Module / curriculum / programme of study |
+| Lesson plan | Syllabus |
+| Lecture | Lesson / session |
+| Homework | Exercises / assignments |
+| Beginner / intermediate / advanced | First-year / second-year (only if accurate); otherwise describe by subject |
+| Student journey | The path of study |
+| Unlock / master | Learn / understand / write |
+
+### The Russian conservatoire tradition — lead with it
+This is the studio's main differentiator versus Belkin (Canadian-French tradition), ScoreClub (film-orchestration focus), and Berklee (American contemporary). The framing should be present in the tagline, on the homepage, and on the Method page. Do not hide it; do not overdo it. The phrase to use, more or less verbatim:
+
+> *Russian conservatoire training in harmony, counterpoint, fugue, orchestration, and composition.*
+
+### The reader is the student-to-be, not a customer
+Address them as a future student of the studio, not as a buyer of a product. The implicit question to answer is "what will I learn?" — not "what am I paying for?"
 
 ---
 
-## SERVICE PAGE STRUCTURE
+## PAGE STRUCTURES
 
-Every service page follows this order. Do not deviate.
+### Homepage
+The homepage is a single quiet scroll, five movements:
 
-1. **Hook (The Pain)** — Acknowledge the client's situation and emotional state in 1–2 sentences
-2. **Solution (The Relief)** — What Mary does about it, in plain terms
-3. **How It Works (The Process)** — Step-by-step what the client can expect. Removes fear of the unknown.
-4. **Social Proof** — Testimonials, credentials, experience signals (within compliance rules)
-5. **CTA** — One clear next step
+1. **Hero** — Studio name, tagline, single primary CTA (the free PDF). Alex's portrait, framed simply.
+2. **The training path** — The eight-module curriculum as a numbered sequence. This is the page's centre of gravity.
+3. **The teacher, lightly worn** — Three or four sentences compressing Alex's pedigree. End with a discreet "Full biography →" link.
+4. **A taste of the music** — One audio embed or YouTube clip of a performance. Placeholder for now.
+5. **Free resource** — Email capture for the PDF. Framed as a gift, not a funnel.
 
-**CTA placement:** Above the fold (top), mid-page, and bottom. Never just one at the bottom.
+No testimonials section yet (none exist). No feature-card grid. No FAQ on the homepage.
 
-**CTA copy:** Specific and low-friction.
-- ❌ "Contact us"
-- ✅ "Get in touch to discuss your situation" / "Book a consultation" / "Call us today"
+### Curriculum page
+The full eight-module curriculum, each one given a paragraph or two. Each module entry follows the same shape:
+
+- **Roman numeral + module name** (e.g. *II. Counterpoint*)
+- **One-sentence definition** of what the module covers
+- **What you will be able to do by the end** — concrete, not aspirational
+- **Brief mention of what comes before and after**, so the path through the curriculum is visible from any individual module page
+
+### Method page
+The most differentiated page on the site. Covers:
+
+- The conservatoire model — assignment-based, individual feedback, lineage of teacher-to-student
+- How a lesson actually works
+- What the studio is *not* (theory-explainer videos, "tips and tricks," 30-day courses)
+- The Russian conservatoire tradition, briefly: what it emphasises, what it values, what makes it distinct
+
+Write this page as prose, not bullets. It is a position statement.
+
+### Lessons page
+Three sections:
+
+- **What's on offer** — Private lessons (one-hour, online, individually shaped); homework/exercise correction service. Two products, no tiers, no upsell ladder.
+- **How it works** — How to start, what a lesson is like, what students leave with.
+- **Pricing + booking** — Honest pricing in plain text. Email link or simple contact form. No Calendly until demand justifies it.
+
+### About page
+Long-form bio. Prose, not bullets. The full CV details belong here, presented as a narrative: Penza → Gnesin → Moscow → Montreal → present work. End with a short personal section.
+
+The about page headline should be a real, specific fact — not a positioning statement.
+
+- ❌ "Where rigorous training meets personal mentorship"
+- ✅ "Composer-in-residence with the Orchestre Interculturel de Montréal"
+
+### Resources page
+The free PDF at the top, with email capture. Below it, a curated list of recommended reading, scores Alex admires, listening lists. Even one or two entries makes the page feel alive. Grow it over time.
+
+### Contact
+Tiny page. Email, response-time note, optional simple form.
 
 ---
 
-## SOLE PRACTITIONER POSITIONING
+## CTAs
 
-Mary's genuine advantages over large firms — use these, they are defensible and true:
+CTAs are specific and low-pressure. The reader is making a considered decision, not an impulse purchase.
 
-- **Continuity**: The same solicitor from first contact to completion. No handoffs, no junior solicitors.
-- **Personal attention**: A limited number of matters means full focus on each client.
-- **Local knowledge**: Specific familiarity with local courts, local property practice, local procedures — demonstrated through specifics, not claimed with the phrase "local knowledge".
-- **Accessibility**: Easier to reach than a large firm.
+- ❌ "Get started today" / "Sign up now" / "Unlock the studio"
+- ✅ "Download the free harmony exercises" / "Begin with the curriculum" / "Write to Alex"
 
-**Copy that only a small family firm can honestly say:**
-- "Many of our clients have been coming to us for years — some through more than one chapter of their lives."
-- "We're a small team. When you call, someone who knows your case answers."
-- "You'll always know who's handling your matter, and you'll hear from them directly when anything changes."
-
-**Do not** frame small size as a deliberate strategic choice or spin it as a virtue — it reads as defensive. Instead, show the client what they actually experience as a result: continuity, accessibility, being known by name. Let them draw the conclusion.
-
-**Do not** compete on size. Do not imply the firm is larger than it is.
+**The primary CTA on the homepage is the free PDF**, not "book a lesson." Trust is the bigger barrier than friction. Capture the email; let the next step happen at the reader's pace.
 
 ---
 
 ## HEADLINES
 
-Strong headlines for **service pages** follow the pattern: **What + For Whom + Outcome**
+Headlines should sound like programme notes, chapter titles, or section headings from a treatise — not marketing one-liners.
 
-- ❌ "Family Law Services"
-- ✅ "Family Law in Kilkenny: Protecting What Matters Most Through Separation and Divorce"
+- ❌ "Transform your composition skills"
+- ✅ "The training path"
 
-- ❌ "Conveyancing"
-- ✅ "Property Purchase in Kilkenny: Expert Guidance From Offer to Keys"
+- ❌ "Master orchestration in eight weeks"
+- ✅ "Orchestration — writing for the instruments of the orchestra"
 
-- ❌ "Wills and Estates"
-- ✅ "Wills and Estate Administration: Protecting Your Family's Future With Clarity and Care"
+- ❌ "Get the foundations right"
+- ✅ "I. Harmony — the grammar of tonal music"
 
-**Quality check — the 4 U's:**
-Score each headline against: Urgent, Unique, Useful, Ultra-specific. Aim for at least 3 of 4.
-
-**The about page headline is different.** Do not apply the What + For Whom + Outcome formula to the about page — it produces generic positioning statements. The about page headline should come from a real, specific fact about the firm: a number, a place, a true thing clients experience. If you don't have a specific fact, ask before writing.
-
-- ❌ "A Kilkenny Law Firm Built on Straight Answers" — competency claim, could be any firm
-- ❌ "Solicitors You Can Actually Talk To" — accessibility claim, not specific enough
-- ✅ "Helping Kilkenny Families Since 1979" — true, specific, warm without performing warmth
-
----
-
-## PSYCHOLOGY — WHAT TO APPLY
-
-**System 1 first, System 2 second:**
-Clients make initial decisions on gut feel (System 1) — visual trust signals, first impression, credentials. Then they deliberate (System 2) — reading detail, comparing, checking. Design for both: credentials and trust signals lead, detail follows.
-
-**Primacy and recency:**
-The most remembered content is what comes first and last. Put the strongest differentiator at the top. Repeat the CTA at the bottom.
-
-**Cognitive fluency:**
-Easy to read = perceived as more credible. Short sentences, clear headings, white space. Research on legal sites shows traditional readable layouts outconvert slick modern ones.
-
-**Pratfall Effect (sole practitioner use):**
-Honest acknowledgement of limits builds more trust than projecting perfection.
-- "I focus on a specific range of services — this means you get a solicitor who knows your type of case, not a generalist."
+Where a longer descriptive subtitle is useful, use it. Two-line headlines (title + descriptive subhead) read as editorial and slow the eye.
 
 ---
 
 ## WHAT NOT TO WRITE
 
-These undermine trust or violate compliance — never use them:
+These undermine credibility with this audience — never use them:
 
 | Phrase type | Example | Why |
 |---|---|---|
-| Vague passion claims | "We are passionate about our clients" | Every firm says this — means nothing |
-| Unverifiable superlatives | "Leading solicitor in Kilkenny" | Prohibited under Reg 4(a)(iv) and unbelievable |
-| Outcome guarantees | "We'll get you the best result" | Prohibited and erodes trust |
-| Clever wordplay on serious topics | Any pun on wills, death, accidents | Undignified — fails the newspaper test |
-| Feature lists without benefits | "We offer conveyancing, wills, family law..." | Tells the reader nothing useful |
-| We-focused copy | "We have been serving Kilkenny since..." | Flip to client benefit immediately |
-| Success rate claims | "We win X% of cases" | Absolutely prohibited under Reg 8 |
-
----
-
-## E-E-A-T ATTRIBUTION
-
-Legal content is YMYL (Your Money Your Life) — Google holds it to higher standards. Every practice area page must show clear solicitor authorship.
-
-**Required on every service page:**
-- Mary's name as author or reviewer
-- Qualification and year of admission (e.g. "Admitted to the Roll of Solicitors 2005")
-- Practice area match — the person writing family law content practises family law
-- A "last reviewed" date showing the content is current
-
-**Example attribution block:**
-```
-Written by Mary Molloy, Solicitor
-LLB [University], Admitted [Year], Law Society of Ireland
-Specialist in [Practice Area]
-Last reviewed: [Month Year]
-
-Questions about your [practice area] matter? Contact Mary directly at [phone/email]
-```
-
-**What this signals to Google:**
-- **Experience**: Content written by a practising solicitor in that area
-- **Expertise**: Verifiable qualifications
-- **Authoritativeness**: Named professional with traceable credentials
-- **Trustworthiness**: Real person, real firm, reviewable content
+| Marketing superlatives | "World-class composition training" | Reads as advertising, not authority |
+| Aspirational vagueness | "Reach your full creative potential" | Tells the reader nothing they can act on |
+| Course-sales urgency | "Limited spaces — enrol now" | Out of register; the studio is not a webinar |
+| Outcome guarantees | "You will become a master composer" | Unbelievable, and a real teacher would never claim it |
+| Tutor-as-celebrity framing | "Learn the secrets of a top Canadian composer" | Cheap; the credentials speak for themselves |
+| Hustle-coded verbs | "Unlock," "level up," "crush," "dominate" | Breaks the register completely |
+| Generic warmth | "We're passionate about your journey" | Performed warmth; means nothing |
+| "Easy" or "quick" framing | "Master fugue in 30 days" | The audience knows it is not, and will distrust anyone who says it is |
 
 ---
 
@@ -226,90 +203,17 @@ Questions about your [practice area] matter? Contact Mary directly at [phone/ema
 
 Before finalising any copy, run through:
 
-- [ ] Does the first sentence answer "Is this for me?" for the right client?
-- [ ] Is every feature translated into a benefit?
+- [ ] Does the first sentence answer "Is this for me?" for a serious composer?
+- [ ] Is every claim concrete — specific names, numbers, modules, outcomes?
 - [ ] Does every sentence pass the "So what?" test?
-- [ ] Is the emotional state of the client acknowledged without being exploited?
-- [ ] Is there a clear process shown (so the client knows what to expect)?
-- [ ] Is there one clear CTA — not multiple competing actions?
-- [ ] Does the tone pass the Irish Times test?
-- [ ] Is the copy free of legalese, jargon, and vague claims?
-- [ ] Is there solicitor attribution with name, credentials, and review date?
-- [ ] Are all compliance rules met? (run compliance skill)
-
----
-
-## PAGE-SPECIFIC GUIDANCE
-
-### Homepage Hero
-The hero has one job: tell the right person they are in the right place, immediately.
-
-**Formula:** Who Mary helps + where + what they get
-- ❌ "Mary Molloy Solicitor — Legal Services in Kilkenny"
-- ✅ "Practical legal advice for individuals and families in Kilkenny and the South East"
-
-The hero is not the place for a service list. One clear statement, then a CTA.
-
-### About Page
-The about page is the most-read page after the homepage — clients use it to decide if they trust the person, not just the firm.
-
-**What to include:**
-- Mary as a person — not a CV bullet list
-- Why she practises law / what drives her approach
-- Her connection to Kilkenny and the community
-- Qualifications and admission year (E-E-A-T signal)
-- A real photo — not a stock image
-
-**Tone:** Warmer than service pages. First person ("I") throughout.
-- ❌ "Mary Molloy has over 20 years of experience..."
-- ✅ "I've been practising law in Kilkenny for over 20 years. My focus has always been..."
-
-**Do not:** List every service area. That belongs on the services pages. The about page is about trust, not scope.
-
-**Warmth must be demonstrated, not claimed.** Describing the firm as "caring," "trustworthy," or "warm" as a brief produces performed warmth — phrases like "we look after our clients the way we'd look after our own" that every firm could say and none mean. Instead, supply a specific fact and let the copy demonstrate the quality:
-- The firm has many returning clients — some helped through more than one chapter of their lives
-- Clients know Mary by name
-- It is a genuine family firm — Mary practises alongside her sons Nicholas and Richard O'Shea
-
-State the fact plainly. The reader draws the conclusion. That is more persuasive than stating the conclusion yourself.
-
-- ❌ "We truly care about every client who walks through our door."
-- ✅ "Many of our clients are people we've known for years. Some we've helped through more than one chapter of their lives."
-
-### FAQ Sections
-FAQs are a primary trust and SEO tool. Write them as real questions clients actually ask — not questions that happen to show off the service.
-
-**Format rules:**
-- Heading: conversational question, as a client would speak it
-  - ❌ "Conveyancing duration considerations"
-  - ✅ "How long does buying a house in Ireland usually take?"
-- Answer: direct, 50–80 words, plain language
-- Define any legal term used in the answer immediately
-- End with a soft CTA where appropriate: "If you have questions about your specific situation, get in touch."
-
-**Voice search:** FAQ headings written as natural spoken questions capture both voice search and Google featured snippets.
-
-### Social Proof — Compliant Formats
-Given Reg 5 consent requirements, these are the safe formats for social proof:
-
-**Compliant:**
-- Years of practice in a specific area ("Over 15 years handling Kilkenny conveyancing")
-- Volume of work without outcome claims ("We handle estate matters for families across the South East")
-- Named testimonials with written consent from the client — consent must cover the exact wording and placement
-- Professional credentials and Law Society membership
-- Process descriptions that show depth of expertise
-
-**Not compliant without consent:**
-- Any named client quote
-- Any case outcome reference — even anonymised if identifiable
-- Google reviews republished on the site without individual written consent from each reviewer
-
-When in doubt, use experience and process signals rather than outcome claims.
+- [ ] Is the conservatoire register held throughout — no marketing-speak slipping in?
+- [ ] Is there one clear CTA per page — not multiple competing actions?
+- [ ] Would a conservatoire-trained composer read this and think "yes, this is a real studio"?
+- [ ] Is the copy free of marketing superlatives, hustle verbs, and aspirational vagueness?
+- [ ] Run the ai-isms skill — any AI patterns to clean up?
 
 ---
 
 ## REFERENCE
 
-Full copywriting research with sources: `.claude/skills/copy/research/copywriting-research.md`
-Full SEO research with sources: `.claude/skills/seo/research/seo-research.md`
-Compliance rules: `.claude/skills/irish-legal-compliance/SKILL.md`
+Voice and anti-AI rules: `.claude/skills/ai-isms/SKILL.md`

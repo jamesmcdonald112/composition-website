@@ -1,106 +1,109 @@
-import homeModernIcon from "../assets/icons/homeModernIcon.svg?raw";
-import propertyImage from "../assets/images/new/house-key-and-figurine.webp";
-import { firm, yearsInPractice } from "./firm";
-import { solicitors } from "./team";
+/**
+ * Homepage content for the Pozdnyakov Composition Studio.
+ *
+ * Composed from the studio.ts, alex/bio.ts, curriculum.ts, pricing.ts and
+ * lead-magnet.ts configs.
+ *
+ * The homepage is a single quiet scroll, five movements:
+ *   1. Hero               — name, tagline, primary CTA (free guide)
+ *   2. Curriculum path    — the eight-module sequence
+ *   3. Teacher, lightly worn — short bio compressing the pedigree
+ *   4. A taste of the music — audio/video embed placeholder
+ *   5. Free resource      — email capture for the PDF
+ */
+
+import { bio } from "./alex/bio";
+import { booking } from "./booking";
+import { curriculum } from "./curriculum";
+import { leadMagnet } from "./lead-magnet";
+import { studio } from "./studio";
 
 export const homePageContent = {
 	seo: {
-		title: firm.companyName,
-		description: `Solicitors in Kilkenny since ${firm.established}. We advise on conveyancing, wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery — for clients across County Kilkenny and the surrounding counties.`,
+		title: studio.name,
+		description: studio.seo.defaultDescription,
 		canonicalPath: "/",
 	},
 
 	hero: {
-		eyebrow: "Solicitors in Kilkenny",
-		title: "Solicitors for Buying & Selling Property",
-		titleEmphasis: "Buying & Selling",
-		// TODO: Update subtitle once fee structure is confirmed with Mary.
-		// If fixed-fee conveyancing is offered, add a line here.
-		subtitle: `Conveyancing matters handled in Kilkenny since ${firm.established} — alongside extensive knowledge in wills and probate, family law, personal injury, employment law, leases and tenancies, and debt recovery.`,
+		eyebrow: "Studio",
+		// The "emphasis" word renders in italic per HeroHome's titleEmphasis prop.
+		// Splitting at "Composition" gives the studio name a quiet typographic
+		// inflection without dramatising it.
+		title: "Pozdnyakov Composition Studio",
+		titleEmphasis: "Composition",
+		subtitle:
+			"Russian conservatoire training in harmony, counterpoint, fugue, orchestration, and composition — taught one student at a time, online from Montréal.",
 		ctas: {
-			primary: { label: "Our services", href: "/services" },
-			secondary: { label: "Get in touch", href: "/contact" },
+			primary: booking,
+			secondary: { label: "See the curriculum", href: "#curriculum" },
 		},
 	},
 
-	featuredService: {
-		eyebrow: "Conveyancing in Kilkenny",
-		card: {
-			tag: "Buying & Selling Property",
-			title: "Conveyancing in Kilkenny",
-			body: "We act on residential conveyancing — contract review, investigation of title at the Property Registration Authority, planning and building control checks, dealings with mortgage lenders, payment of stamp duty under the Stamp Duties Consolidation Act 1999, and registration of ownership.",
-			points: [
-				"Contracts reviewed in full before signing",
-				"Title investigated at the Property Registration Authority",
-				"Planning and Building Regulations compliance checks",
-				"Mortgage and lender requirements handled",
-				"Stamp duty calculated and filed with Revenue",
-				"Ownership registered after completion",
-			],
-			cta: {
-				label: "More on conveyancing",
-				href: "/services/buying-and-selling-property",
-			},
-			icon: homeModernIcon,
-			image: propertyImage,
-		},
-		aside: {
-			title: [{ text: "Property handled with " }, { text: "care", em: true }],
-			intro:
-				"On a residential conveyance, the firm acts on the title investigation, the contractual stage, the lender requirements where there is a mortgage, completion, and the post-completion steps with the Property Registration Authority and Revenue.",
-			keyPoints: [
-				{
-					heading: "Contracts reviewed in full",
-					body: "We read the contract in full and raise pre-contract and requisition enquiries with the seller's solicitor where needed before contracts are signed.",
-				},
-				{
-					heading: "Title investigated against the PRA",
-					body: "We investigate the title and confirm it is a legally marketable title and registered with the Property Registration Authority — confirming the seller's ownership, identifying any judgment mortgages or registered burdens, and checking that the boundaries match the ground.",
-				},
-				{
-					heading: "Lender and stamp-duty work handled",
-					body: "We act for the borrower on a mortgage transaction, manage the drawdown of funds in time for completion, and calculate and file the stamp duty return with the Revenue Commissioners.",
-				},
-				{
-					heading: "Costs discussed at the outset",
-					// TODO: update if fixed-fee conveyancing is confirmed
-					body: "We discuss our fees with each client at the outset, including the basis on which we charge and the third-party outlays (Land Registry fees, search fees, stamp duty) involved in the matter.",
-				},
-			],
-		},
-	},
-
-	supportingServices: {
-		eyebrow: "Other services",
-		title: [
-			{ text: "Other " },
-			{ text: "practice areas", em: true },
-			{ text: " at the firm" },
-		],
-		intro:
-			"Beyond conveyancing, the firm advises on wills and probate, family and childcare law, personal injury and litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery — for clients across Kilkenny and the surrounding counties.",
-	},
-
+	// ── Homepage trust strip ──────────────────────────────────────────────
+	// Position: directly under the hero. First credibility moment on the
+	// page; high SEO weight (heading + ~250 words of body); designed to
+	// convert visitors who didn't yet know who Alex is.
+	//
+	// Conversion levers, paragraph by paragraph:
+	//   1. Authority anchoring — names the lineage (Chernoff, Belkin) and
+	//      the institutions. Searchers looking for "Belkin student" or
+	//      "Gnesin composition" land on real specifics, not adjectives.
+	//   2. Specificity over claims — names the curriculum subjects in the
+	//      order they're taught. Carries SEO weight for the subject
+	//      searches (harmony, counterpoint, fugue, orchestration) without
+	//      reading as a keyword list.
+	//   3. Self-selection — names who the studio is for, in the language
+	//      that audience uses about itself ("composers serious about
+	//      writing", not "ambitious learners").
+	//   4. Risk reversal — names the free introductory consultation and
+	//      what it costs (nothing) so a first-time visitor sees the path
+	//      to the next step before they've left this section.
 	trustStrip: {
-		eyebrow: "About the practice",
-		title: `A family practice in Kilkenny since ${firm.established}`,
+		eyebrow: "Why this studio",
+		title: [
+			{ text: "Russian conservatoire training " },
+			{ text: "in composition", em: true },
+			{ text: ", taught one student at a time, online from Montréal" },
+		],
 		paragraphs: [
-			`Mary Molloy Solicitor has practised continuously on Rose Inn Street, Kilkenny since ${firm.established}. The firm is a family practice — Mary Molloy is the principal solicitor; her sons Nicholas O'Shea and Richard O'Shea are also solicitors at the firm.`,
-			"The firm acts for clients across County Kilkenny and the surrounding counties on residential and commercial conveyancing, wills and probate, family law, personal injury and civil litigation, road traffic accidents, employment law, leases and tenancies, and debt recovery.",
-			"Conveyancing is the largest area of the firm's practice, but the work covers each of the eight practice areas listed above. The legal and procedural rules differ by area; the underlying approach to client work — clarity about the law, careful preparation, and respect for the people involved — does not.",
-			"All solicitors at the firm are admitted to the Roll of Solicitors of Ireland and regulated by the Law Society of Ireland and the Legal Services Regulatory Authority.",
+			`Alexander Pozdnyakov trained at the Gnesin Russian Academy of Music in Moscow under Tigran Chernoff, then completed his Master's and Doctorate in composition at the Université de Montréal under Alan Belkin. He has taught composition, harmony, counterpoint, and orchestration at conservatoire level since ${studio.established} — first at the Gnesin Academy itself, then at the Université de Montréal — and is composer-in-residence with the Orchestre Interculturel de Montréal.`,
+			"The studio teaches the full conservatoire curriculum, in order: harmony, counterpoint, four-part chorale writing in the style of Bach, fugue, form and analysis, orchestration, and original composition. Every exercise you submit is read in full and answered with detailed written feedback — corrections, the reasoning behind each correction, and the repertoire passage the principle is drawn from. That is the part of online composition study that most courses leave out, and it is the part that does the work.",
+			"This is one-to-one online composition tuition for students who already write and want to improve — conservatoire-prep students, self-taught composers ready to commit, working composers wanting depth in a specific subject. It is not a beginners' course in music theory. The studio assumes you can already read music; what it adds is the second pair of ears that hears what you don't yet hear in your own writing.",
+			"The introductory consultation is a fifteen-minute video call. It is free, and there is no obligation afterwards. Bring your background, your questions, and — if you have one — a recent piece of your writing. We'll figure out together where in the curriculum you would start and whether the studio is the right fit. If it isn't, the consultation is the right place to find that out.",
 		],
 		stats: [
-			{ label: "Years in practice", value: `${yearsInPractice}+` },
-			{ label: "Established", value: String(firm.established) },
-			{ label: "Local base", value: "Kilkenny" },
-			{ label: "Core focus", value: "Conveyancing" },
+			{ label: "Teaching", value: `Since ${studio.established}` },
+			{ label: "Degree", value: "Doctor of Music" },
+			{ label: "Format", value: "One-to-one" },
+			{ label: "First call", value: "Free, 15 min" },
 		],
 	},
-	attribution: {
-		solicitor: solicitors.mary,
-		reviewDate: "May 2026",
+
+	curriculum: {
+		eyebrow: "The training path",
+		title: "Eight modules, one programme of study",
+		intro:
+			"The curriculum runs as a single sequence — harmony through to composition, with student-work review threaded through every module. Each module builds on the previous one. Read top to bottom.",
+		modules: curriculum,
 	},
+
+	teacher: {
+		eyebrow: "The teacher",
+		title: "Alexander Pozdnyakov",
+		paragraphs: bio.short,
+		linkLabel: "Full biography",
+		linkHref: "/about",
+	},
+
+	music: {
+		eyebrow: "A taste of the music",
+		title: "Listen",
+		youtubeId: "AxvV5wgrsKk" as string | null,
+		caption: "Da Capo In Aeternum — Alexander Pozdnyakov",
+	},
+
+	leadMagnet,
 } as const;
 
 export type HomePageContent = typeof homePageContent;

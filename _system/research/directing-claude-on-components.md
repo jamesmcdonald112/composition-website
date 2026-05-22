@@ -87,8 +87,8 @@ Result: Editorial numbered list, exactly as specified.
 Build a TrustStrip with our stats. Make it elegant.
 Large numbers, small labels. No card boxes.
 ```
-Result: Four equal boxes, all items same visual weight,
-"Kilkenny" and "46+" rendered identically.
+Result: Four equal boxes, all items same visual weight —
+a location name and a numeric stat rendered identically.
 
 ### Good prompt:
 ```

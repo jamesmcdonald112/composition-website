@@ -2,7 +2,6 @@
 import { actions, isInputError } from "astro:actions";
 import arrowIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
-import { CONTACT_SERVICES } from "../config/contact-services";
 
 const result = Astro.getActionResult(actions.contact);
 const error = result?.error;
@@ -36,10 +35,10 @@ if (error && Astro.request.method === "POST") {
 			)
 		}
 
-		<!-- Row 1: Name + Phone -->
-		<div class="contact-form__row contact-form__row--split" data-cf-animate="row">
+		<!-- Row 1: Name -->
+		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
-				<label class="contact-form__label" for="name">Full name</label>
+				<label class="contact-form__label" for="name">Your name</label>
 				<input
 					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.name }]}
 					id="name"
@@ -58,33 +57,12 @@ if (error && Astro.request.method === "POST") {
 					)
 				}
 			</div>
-
-			<div class="contact-form__field">
-				<label class="contact-form__label" for="phone">Phone number</label>
-				<input
-					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.phone }]}
-					id="phone"
-					type="tel"
-					name="phone"
-					autocomplete="tel"
-					value={prev?.phone}
-					aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
-					required
-				/>
-				{
-					fieldErrors.phone && (
-						<p class="contact-form__field-error" id="phone-error" role="alert">
-							{fieldErrors.phone.join(", ")}
-						</p>
-					)
-				}
-			</div>
 		</div>
 
 		<!-- Row 2: Email -->
 		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
-				<label class="contact-form__label" for="email">Email address</label>
+				<label class="contact-form__label" for="email">Your email</label>
 				<input
 					class:list={["contact-form__input", { "contact-form__input--error": fieldErrors.email }]}
 					id="email"
@@ -105,52 +83,7 @@ if (error && Astro.request.method === "POST") {
 			</div>
 		</div>
 
-		<!-- Row 3: Service area select -->
-		<div class="contact-form__row" data-cf-animate="row">
-			<div class="contact-form__field">
-				<label class="contact-form__label" for="service">Area of enquiry</label>
-				<div class="contact-form__select-wrap">
-					<select
-						class:list={[
-							"contact-form__select",
-							{ "contact-form__input--error": fieldErrors.service },
-						]}
-						id="service"
-						name="service"
-						aria-describedby={fieldErrors.service ? "service-error" : undefined}
-						required
-					>
-						<option value="" disabled selected>Select a service area</option>
-						{
-							CONTACT_SERVICES.map((area: string) => (
-								<option value={area} selected={prev?.service === area}>
-									{area}
-								</option>
-							))
-						}
-					</select>
-					<svg
-						class="contact-form__select-arrow"
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						aria-hidden="true"
-					>
-						<path d="M7 10l5 5 5-5z" fill="currentColor"></path>
-					</svg>
-				</div>
-				{
-					fieldErrors.service && (
-						<p class="contact-form__field-error" id="service-error" role="alert">
-							{fieldErrors.service.join(", ")}
-						</p>
-					)
-				}
-			</div>
-		</div>
-
-		<!-- Row 4: Message -->
+		<!-- Row 3: Message -->
 		<div class="contact-form__row" data-cf-animate="row">
 			<div class="contact-form__field">
 				<div class="contact-form__label-row">
@@ -168,6 +101,7 @@ if (error && Astro.request.method === "POST") {
 					name="message"
 					rows="5"
 					maxlength={CONTACT_FIELD_LIMITS.message.max}
+					placeholder="A few lines about your background and what you'd like to work on — or just say hello."
 					aria-describedby={`message-count${fieldErrors.message ? " message-error" : ""}`}
 					>{prev?.message}</textarea
 				>
@@ -190,9 +124,8 @@ if (error && Astro.request.method === "POST") {
 		<!-- Bottom row: small print + submit -->
 		<div class="contact-form__bottom" data-cf-animate="bottom">
 			<p class="contact-form__small-print">
-				All enquiries are treated in strict confidence.<br />
-				We aim to respond within one business day.<br />
-				We will use the details you provide to respond to your enquiry. See our <a class="contact-form__small-print-link" href="/privacy">Privacy Policy</a> for how we handle your information.
+				The studio usually replies within three days.<br />
+				See our <a class="contact-form__small-print-link" href="/privacy">Privacy Policy</a>.
 			</p>
 			<button class="contact-form__submit" type="submit">
 					Send Enquiry

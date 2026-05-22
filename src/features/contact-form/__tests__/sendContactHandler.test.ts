@@ -20,8 +20,6 @@ const handler = (contact as any).handler as (
 const validInput: ContactInput = {
 	name: "Jane Doe",
 	email: "jane@example.com",
-	phone: "+353871234567" as ContactInput["phone"],
-	service: "Wills and Estate Administration",
 	message: "I need help with a will.",
 	website: "",
 };

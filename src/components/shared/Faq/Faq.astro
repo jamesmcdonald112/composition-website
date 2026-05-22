@@ -1,0 +1,160 @@
+---
+/*
+  COMPONENT: Faq
+  PURPOSE:   A list of question/answer pairs rendered as native <details>
+             accordion. Lives in shared/ so it can also be used on the
+             contact page, pricing page, or any future blog post.
+  LAYOUT:    Single-column list, max-width readable. Each item is a
+             <details> with a chevron that rotates on open. No JS needed.
+*/
+import type { Heading } from "../../../types/heading";
+import SectionHeader from "../../ui/SectionHeader/SectionHeader.astro";
+
+interface FaqItem {
+	question: string;
+	answer: string | readonly string[];
+}
+
+interface Props {
+	eyebrow: string;
+	title: Heading;
+	intro?: string;
+	items: readonly FaqItem[];
+}
+
+const { eyebrow, title, intro, items } = Astro.props;
+
+const normalised = items.map((item) => ({
+	question: item.question,
+	paragraphs: typeof item.answer === "string" ? [item.answer] : [...item.answer],
+}));
+---
+
+<section class="faq">
+	<div class="faq__inner wrapper wrapper--wide">
+		<SectionHeader
+			eyebrow={eyebrow}
+			heading={title}
+			intro={intro}
+			level={2}
+		/>
+
+		<div class="faq__list">
+			{
+				normalised.map((item) => (
+					<details class="faq__item">
+						<summary class="faq__summary">
+							<span class="faq__question">{item.question}</span>
+							<span class="faq__icon" aria-hidden="true">
+								<svg viewBox="0 0 16 16" width="14" height="14">
+									<path
+										d="M4 6l4 4 4-4"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.25"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
+							</span>
+						</summary>
+						<div class="faq__answer">
+							{item.paragraphs.map((para) => (
+								<p class="faq__para">{para}</p>
+							))}
+						</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.faq {
+		padding-block: var(--space-section);
+		background-color: var(--color-bg-subtle);
+	}
+
+	.faq__list {
+		margin-block-start: var(--space-3xl);
+		max-width: var(--width-content);
+		border-block-start: 1px solid var(--color-border-default);
+	}
+
+	.faq__item {
+		border-block-end: 1px solid var(--color-border-default);
+	}
+
+	.faq__summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-lg);
+		padding-block: var(--space-xl);
+		cursor: pointer;
+		list-style: none;
+		transition: color var(--duration-fast) var(--ease-out);
+	}
+
+	/* Suppress default disclosure triangle in WebKit + Firefox. */
+	.faq__summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq__summary::marker {
+		display: none;
+		content: "";
+	}
+
+	.faq__summary:hover .faq__question {
+		color: var(--color-fg-accent);
+	}
+
+	.faq__question {
+		font-family: var(--font-serif);
+		font-weight: var(--font-weight-normal);
+		font-size: var(--font-size-lg);
+		line-height: var(--line-height-snug);
+		color: var(--color-fg-default);
+		transition: color var(--duration-fast) var(--ease-out);
+	}
+
+	.faq__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: var(--space-xl);
+		height: var(--space-xl);
+		color: var(--color-fg-accent);
+		transition: transform var(--duration-normal) var(--ease-inout);
+		flex-shrink: 0;
+	}
+
+	.faq__item[open] .faq__icon {
+		transform: rotate(180deg);
+	}
+
+	.faq__answer {
+		padding-block: 0 var(--space-xl);
+		padding-inline-end: var(--space-3xl);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		max-width: 70ch;
+	}
+
+	.faq__para {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+		margin: 0;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.faq__icon {
+			transition: none;
+		}
+	}
+</style>

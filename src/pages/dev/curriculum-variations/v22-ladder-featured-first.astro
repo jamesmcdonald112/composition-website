@@ -1,0 +1,121 @@
+---
+/*
+  V22 — Ladder with featured first row
+  Module I gets a full dark-brand featured row (numeral + name + body all
+  on the dark surface). Modules II–VIII are light ladder rows. Visual
+  hierarchy: the first step matters most.
+*/
+import { curriculum } from "../../../config/curriculum";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const [featured, ...rest] = curriculum;
+---
+
+<BaseLayout title="V22 — Ladder, featured first" noIndex={true}>
+	<main class="page">
+		<div class="page__inner wrapper wrapper--wide">
+			<p class="dev-back"><a href="/dev/curriculum-variations">← All variations</a></p>
+			<header class="page__header">
+				<p class="eyebrow">The training path</p>
+				<h1>Eight modules, one programme of study</h1>
+			</header>
+
+			<ol class="ladder">
+				<li class="ladder__rung ladder__rung--feature">
+					<div class="ladder__numcol">
+						<p class="ladder__kicker">Begin here</p>
+						<span class="ladder__num">{featured.numeral}</span>
+					</div>
+					<div class="ladder__namecol">
+						<h3 class="ladder__name">{featured.name}</h3>
+						<p class="ladder__sub">{featured.subtitle}</p>
+					</div>
+					<div class="ladder__bodycol">
+						<p class="ladder__body">{featured.body}</p>
+						<p class="ladder__out">{featured.outcome}</p>
+					</div>
+				</li>
+				{rest.map((m) => (
+					<li class="ladder__rung">
+						<div class="ladder__numcol">
+							<span class="ladder__num">{m.numeral}</span>
+						</div>
+						<div class="ladder__namecol">
+							<h3 class="ladder__name">{m.name}</h3>
+							<p class="ladder__sub">{m.subtitle}</p>
+						</div>
+						<div class="ladder__bodycol">
+							<p class="ladder__body">{m.body}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.page { background-color: var(--color-bg-page); padding-block: var(--space-3xl); min-height: 100svh; }
+	.page__header { margin-block-end: var(--space-2xl); max-width: 60ch; }
+	.page__header h1 { font-family: var(--font-serif); font-weight: var(--font-weight-light); font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl)); margin: var(--space-sm) 0; }
+	.eyebrow { font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); letter-spacing: var(--letter-spacing-widest); text-transform: uppercase; color: var(--color-fg-accent); margin: 0; }
+	.dev-back { margin-block-end: var(--space-lg); font-family: var(--font-sans); font-size: var(--font-size-sm); }
+	.dev-back a { color: var(--color-fg-muted); text-decoration: none; }
+
+	.ladder { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+	.ladder__rung {
+		display: grid;
+		grid-template-columns: 1fr;
+		background-color: var(--color-bg-surface);
+		border: 1px solid var(--color-border-default);
+		overflow: hidden;
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 140px minmax(0, 1fr) minmax(0, 2fr);
+		}
+	}
+	.ladder__rung--feature {
+		background-color: var(--color-bg-brand);
+		color: var(--color-fg-on-brand);
+		border-color: var(--color-bg-brand);
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 200px minmax(0, 1fr) minmax(0, 2fr);
+		}
+	}
+	.ladder__rung--feature .ladder__name,
+	.ladder__rung--feature .ladder__body { color: var(--color-fg-on-brand); }
+	.ladder__rung--feature .ladder__sub { color: var(--color-fg-on-brand-muted); }
+	.ladder__rung--feature .ladder__out { color: var(--color-fg-on-brand-subtle); border-color: color-mix(in oklch, var(--color-fg-on-brand) 20%, transparent); }
+	.ladder__rung--feature .ladder__num { color: var(--color-fg-accent-on-brand); }
+
+	.ladder__numcol {
+		padding: var(--space-lg) var(--space-xl);
+		display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center;
+		border-block-end: 1px solid var(--color-border-default);
+		@media (min-width: 1024px) { border-block-end: 0; border-inline-end: 1px solid var(--color-border-default); }
+	}
+	.ladder__rung--feature .ladder__numcol { border-color: color-mix(in oklch, var(--color-fg-on-brand) 15%, transparent); }
+	.ladder__num {
+		font-family: var(--font-serif); font-style: italic; font-weight: var(--font-weight-light);
+		font-size: var(--font-size-4xl); line-height: 0.9; color: var(--color-fg-accent);
+	}
+	.ladder__rung--feature .ladder__num { font-size: var(--font-size-6xl); }
+	.ladder__kicker {
+		font-family: var(--font-sans); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);
+		letter-spacing: var(--letter-spacing-widest); text-transform: uppercase;
+		color: var(--color-fg-on-brand-subtle);
+	}
+	.ladder__namecol {
+		padding: var(--space-xl);
+		display: flex; flex-direction: column; gap: var(--space-2xs); justify-content: center;
+		border-block-end: 1px solid var(--color-border-default);
+		@media (min-width: 1024px) { border-block-end: 0; border-inline-end: 1px solid var(--color-border-default); }
+	}
+	.ladder__rung--feature .ladder__namecol { border-color: color-mix(in oklch, var(--color-fg-on-brand) 15%, transparent); }
+	.ladder__name { font-family: var(--font-serif); font-weight: var(--font-weight-normal); font-size: var(--font-size-2xl); margin: 0; line-height: var(--line-height-tight); }
+	.ladder__sub { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-base); color: var(--color-fg-muted); margin: 0; }
+	.ladder__bodycol { padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); }
+	.ladder__body { font-family: var(--font-sans); font-size: var(--font-size-base); line-height: var(--line-height-relaxed); color: var(--color-fg-default); margin: 0; }
+	.ladder__out { font-family: var(--font-serif); font-style: italic; font-size: var(--font-size-sm); color: var(--color-fg-muted); margin: 0; padding-block-start: var(--space-md); border-block-start: 1px solid var(--color-border-default); }
+</style>
