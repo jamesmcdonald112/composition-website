@@ -1,3 +1,0 @@
-make the newsllter form work with astro action, 
-
-strt fomr here - src/components/home/AudioFeature
