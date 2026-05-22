@@ -14,9 +14,10 @@ interface Props {
 	title: string;
 	youtubeId: string | null;
 	caption: string;
+	watchUrl: string;
 }
 
-const { eyebrow, title, youtubeId, caption } = Astro.props;
+const { eyebrow, title, youtubeId, caption, watchUrl } = Astro.props;
 ---
 
 {youtubeId && (
@@ -34,6 +35,12 @@ const { eyebrow, title, youtubeId, caption } = Astro.props;
 				  data-cookieblock-src to src and the iframe loads.
 				  Ref: support.cookiebot.com → "Iframe cookie consent with YouTube example"
 
+				  Alongside it sits a fallback panel for visitors who decline
+				  marketing cookies: a plain link out to YouTube, where the
+				  recording plays with no consent required on this site.
+				  audio-feature.gsap hides the fallback once marketing consent
+				  is granted, so the two are never both visible.
+
 				  Dev: plain src so the embed is visible while working.
 				  Cookiebot is also skipped in dev (BaseLayout) because the
 				  dev CBID isn't authorised against localhost; without this
@@ -42,15 +49,32 @@ const { eyebrow, title, youtubeId, caption } = Astro.props;
 				*/}
 				<div class="audio-feature__frame">
 					{import.meta.env.PROD ? (
-						<iframe
-							class="audio-feature__iframe"
-							data-cookieconsent="marketing"
-							data-cookieblock-src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
-							title={`${title} — performance recording`}
-							loading="lazy"
-							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						></iframe>
+						<>
+							<iframe
+								class="audio-feature__iframe"
+								data-cookieconsent="marketing"
+								data-cookieblock-src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+								title={`${title} — performance recording`}
+								loading="lazy"
+								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+							<div class="audio-feature__fallback" data-audio-feature-fallback>
+								<p class="audio-feature__fallback-text">
+									Playing the recording here requires marketing cookies,
+									which embed it from YouTube. If you would rather not
+									accept those, you can watch it on YouTube instead.
+								</p>
+								<a
+									class="audio-feature__fallback-link"
+									href={watchUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Watch on YouTube
+								</a>
+							</div>
+						</>
 					) : (
 						<iframe
 							class="audio-feature__iframe"
@@ -110,6 +134,7 @@ const { eyebrow, title, youtubeId, caption } = Astro.props;
 	   so the iframe inside sizes correctly. The caption sits below the frame,
 	   not constrained by the aspect-ratio container. */
 	.audio-feature__frame {
+		position: relative;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		background-color: var(--color-bg-surface);
@@ -121,6 +146,47 @@ const { eyebrow, title, youtubeId, caption } = Astro.props;
 		height: 100%;
 		border: 0;
 		display: block;
+	}
+
+	/* ── Fallback (declined / no marketing consent) ────────────────────────── */
+	/* Shown by default; covers the inert iframe. audio-feature.gsap sets the
+	   --consented modifier once marketing consent is granted, which hides it. */
+	.audio-feature__fallback {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-md);
+		padding: var(--space-lg);
+		text-align: center;
+		background-color: var(--color-bg-surface);
+	}
+
+	.audio-feature--consented .audio-feature__fallback {
+		display: none;
+	}
+
+	.audio-feature__fallback-text {
+		max-width: 36ch;
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-relaxed);
+		color: var(--color-fg-muted);
+	}
+
+	.audio-feature__fallback-link {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-base);
+		color: var(--color-accent-fg);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+
+	.audio-feature__fallback-link:hover {
+		color: var(--color-interactive-bg-hover);
 	}
 
 	.audio-feature__caption {

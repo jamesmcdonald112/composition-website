@@ -1,14 +1,43 @@
 /*
-  AudioFeature — scroll-triggered reveal.
+  AudioFeature — scroll-triggered reveal + consent-gated embed handling.
 
-  Mirrors Pricing's pattern: ScrollTrigger fires once at top-75%, header
-  children stagger in, then the figure (iframe frame + caption) fades up.
-  Quiet and short — the video should not compete with itself.
+  Reveal: mirrors Pricing's pattern — ScrollTrigger fires once at top-75%,
+  header children stagger in, then the figure (iframe frame + caption) fades
+  up. Quiet and short — the video should not compete with itself.
   Reduced-motion users skip the animation entirely.
+
+  Consent: in production the iframe is Cookiebot-gated and a fallback panel
+  (link out to YouTube) covers it until marketing consent is granted. When
+  consent is present the section gets the --consented modifier, which hides
+  the fallback and reveals the now-loaded iframe.
 */
 import { gsap, ScrollTrigger } from "../../../scripts/gsap";
 
+interface CookiebotApi {
+	consent?: { marketing?: boolean };
+}
+
+/* Add the --consented modifier once marketing consent is granted, so the CSS
+   hides the YouTube-link fallback. Runs on load and on Cookiebot's consent
+   events; if Cookiebot is absent (dev), the fallback isn't rendered anyway. */
+function syncConsentState(): void {
+	const apply = (): void => {
+		const cookiebot = (window as unknown as { Cookiebot?: CookiebotApi })
+			.Cookiebot;
+		if (!cookiebot?.consent?.marketing) return;
+		for (const section of document.querySelectorAll("[data-audio-feature]")) {
+			section.classList.add("audio-feature--consented");
+		}
+	};
+
+	apply();
+	window.addEventListener("CookiebotOnAccept", apply);
+	window.addEventListener("CookiebotOnConsentReady", apply);
+}
+
 export function initAudioFeature(): void {
+	syncConsentState();
+
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
 	const sections = document.querySelectorAll<HTMLElement>("[data-audio-feature]");

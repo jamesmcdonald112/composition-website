@@ -101,6 +101,7 @@ export const homePageContent = {
 		title: "Listen",
 		youtubeId: "AxvV5wgrsKk" as string | null,
 		caption: "Da Capo In Aeternum — Alexander Pozdnyakov",
+		watchUrl: "https://youtu.be/AxvV5wgrsKk",
 	},
 
 	leadMagnet,

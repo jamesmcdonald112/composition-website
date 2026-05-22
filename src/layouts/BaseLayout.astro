@@ -82,24 +82,23 @@ const isArticle = ogType === "article";
 <html lang="en">
 	<head>
 		{/*
-		  TODO (james): swap data-cbid to the studio's production CBID once
-		  Alex has created the Cookiebot account and the live domain is scanned.
-		  The current value is the inherited development CBID and must not ship.
-		  See README → Pre-launch checklist → Cookiebot.
-
-		  Cookiebot is gated to production builds only. The dev CBID is not
+		  Cookiebot is gated to production builds only. The CBID is not
 		  authorised against localhost, so in dev it fails partway through
 		  initialisation and ends up blocking consent-gated iframes (the
 		  YouTube embed in particular) with no consent banner ever appearing
 		  to unblock them. Skipping the script in dev keeps the page readable
 		  while you work; the full consent flow runs on the live deployment.
+
+		  The CBID is also authorised per-domain in the Cookiebot Manager —
+		  the live deployment domain must be added to the domain group there
+		  or the banner config 404s.
 		*/}
 		{import.meta.env.PROD && (
 			<script
 				is:inline
 				id="Cookiebot"
 				src="https://consent.cookiebot.com/uc.js"
-				data-cbid="292ce5a8-ad47-4072-bf60-aebbe085521d"
+				data-cbid="b1d7f9e4-c04f-43cf-a9a8-84377af4ffd8"
 				data-blockingmode="auto"
 				type="text/javascript"></script>
 		)}
