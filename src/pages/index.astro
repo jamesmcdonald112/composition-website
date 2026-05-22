@@ -22,12 +22,13 @@
 */
 import heroImage from "../assets/images/antique-score-on-desk-hero.webp";
 import HeroHome from "../components/HeroHome/HeroHome.astro";
-import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
 import AudioFeature from "../components/home/AudioFeature/AudioFeature.astro";
 import CurriculumPath from "../components/home/CurriculumPath/CurriculumPath.astro";
 import LeadMagnet from "../components/home/LeadMagnet/LeadMagnet.astro";
 import Pricing from "../components/home/Pricing/Pricing.astro";
 import TeacherIntro from "../components/home/TeacherIntro/TeacherIntro.astro";
+import TrustStrip from "../components/shared/TrustStrip/TrustStrip.astro";
+import TestimonialBlock from "../components/TestimonialBlock/TestimonialBlock.astro";
 import { homePageContent } from "../config/home";
 import { studio } from "../config/studio";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -77,6 +78,8 @@ const { hero, trustStrip, curriculum, teacher, music } = homePageContent;
 		linkLabel={teacher.linkLabel}
 		linkHref={teacher.linkHref}
 	/>
+
+	<TestimonialBlock />
 
 	<AudioFeature
 		eyebrow={music.eyebrow}
