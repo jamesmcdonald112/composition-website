@@ -6,8 +6,8 @@
  * the teacher intro — answers "what does this cost" once the visitor
  * has seen what's taught, before they're asked to do anything.
  *
- * TODO (alex): confirm both numbers before launch. Lessons set at €60/hr
- * as agreed; harmony exercise correction set deliberately low at €5 to
+ * TODO (alex): confirm both numbers before launch. Lessons set at €75/hr
+ * as agreed; harmony exercise correction set deliberately low at €10 to
  * encourage the homework-only on-ramp. Tune as the volume of submissions
  * shows what's sustainable.
  */
@@ -44,7 +44,7 @@ export const pricing: PricingContent = {
 		{
 			name: "Private lesson",
 			subtitle: "Live, one-to-one, by video call",
-			price: "€60",
+			price: "€75",
 			priceFootnote: "per hour",
 			body: "A live one-hour video call. Work through your writing in real time with a Doctor of Music in composition, in the conservatoire tradition that produced him.",
 			bullets: [
@@ -59,7 +59,7 @@ export const pricing: PricingContent = {
 		{
 			name: "Harmony exercise correction",
 			subtitle: "Written feedback on a single exercise",
-			price: "€5",
+			price: "€10",
 			priceFootnote: "per exercise",
 			body: "Send a harmony exercise — a chorale, a figured bass, a four-voice writing study — and receive it back annotated in Dorico with corrections and notes. The most affordable way to have a serious teacher hear what you've written.",
 			bullets: [
