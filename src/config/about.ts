@@ -58,7 +58,7 @@ export const aboutPageContent = {
 			{ label: "Teaching", value: `Since ${studio.established}` },
 			{ label: "Recognition", value: "15 awards" },
 			{ label: "Degree", value: "Doctor of Music" },
-			{ label: "Lineage", value: "Chernoff · Belkin" },
+			{ label: "Based", value: "Online" },
 		],
 	},
 
