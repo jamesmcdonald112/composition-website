@@ -10,7 +10,7 @@
 export const studio = {
 	// Production site URL. Used as the base for canonical tags, OG image URLs,
 	// the sitemap, robots.txt, and structured data.
-	// TODO (james): swap to the production domain once it's chosen and pointed at Vercel.
+	// TODO (james): swap to the production domain once it's chosen and pointed at Netlify.
 	siteUrl: "https://pozdnyakov-studio.com/",
 
 	name: "Pozdnyakov Composition Studio",

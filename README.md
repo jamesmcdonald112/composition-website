@@ -88,13 +88,16 @@ Items required before the site can ship.
 - [ ] **Produce the PDF** and place at `/public/resources/pozdnyakov-how-to-choose-a-composition-teacher.pdf` (the path `lead-magnet.ts` advertises).
 - [ ] **Wire the lead-magnet form submit** to an API route or Resend audience endpoint (see TODO at the top of `src/config/lead-magnet.ts`).
 
-## Hosting (Vercel)
+## Hosting (Netlify)
 
-- [ ] **Register the Vercel account** under a studio-owned email (same controller/processor logic — Vercel processes form submissions server-side).
-- [ ] **Transfer this project** from James's account to the studio's Vercel team: **Project → Settings → General → Transfer Project**. Environment variables, deployments, and build history move across cleanly. No rebuild needed.
-- [ ] **Re-add environment variables** if Vercel doesn't copy them automatically (it usually does): at minimum `RESEND_API_KEY` under Project → Settings → Environment Variables (scope: Production + Preview).
-- [ ] **Point the production domain** under Project → Settings → Domains. Add both `pozdnyakov-studio.com` and the `www` variant. Vercel provides the DNS records (CNAME or A) to add at the registrar. **These are separate from the Resend DNS records** — Resend authorises sending email *from* the domain; Vercel points the *website* at the domain.
-- [ ] **Function region** — Vercel defaults SSR functions to a US region (`iad1`). If the studio's privacy policy commits to processing inside a specific region, set Function Region under Project → Settings → Functions accordingly. Verify the change took effect by checking the `x-vercel-id:` response header in DevTools — the prefix (`dub1::`, `cdg1::`, `iad1::`) tells you where the function actually ran. Region change only applies to new deployments — push a commit or trigger a redeploy after saving.
+The site deploys to Netlify as an Astro SSR app via the `@astrojs/netlify` adapter. Build config and security headers live in `netlify.toml` at the project root.
+
+- [ ] **Register the Netlify account** under a studio-owned email (same controller/processor logic — Netlify processes form submissions server-side as a sub-processor named in the privacy policy).
+- [ ] **Connect the Git repository** — Netlify builds on push. New site → Import from Git → select this repo. The build command (`npm run build`) is already set in `netlify.toml`; Netlify auto-detects the Astro adapter output, so no publish directory needs to be set manually.
+- [ ] **Transfer the site** to the studio's Netlify team once it exists: **Site configuration → General → Transfer site**. Environment variables and deploy history move with it.
+- [ ] **Add environment variables** — at minimum `RESEND_API_KEY` under Site configuration → Environment variables (scope: all deploy contexts, or Production + Deploy Previews).
+- [ ] **Point the production domain** under Domain management. Add both `pozdnyakov-studio.com` and the `www` variant. Netlify provides the DNS records (CNAME or the apex A/ALIAS) to add at the registrar. **These are separate from the Resend DNS records** — Resend authorises sending email *from* the domain; Netlify points the *website* at the domain.
+- [ ] **Function region** — Netlify Functions run in a US region by default (`us-east-2`). If the studio's privacy policy commits to processing inside a specific region, this is harder to control on Netlify than on some hosts; confirm the privacy-policy wording matches what Netlify actually offers on the studio's plan before launch.
 
 ## Legal pages
 
@@ -126,30 +129,30 @@ Actual launch blockers in this category:
 
 Items the studio has decided it wants but that are not yet wired up. None of these block launch.
 
-- [ ] **Google Reviews + Google Business Profile.** Once Alex has a verified Google Business Profile for the studio, embedding the review feed will require: (1) a Google Cloud project with the Places API enabled; (2) an API key stored in Vercel as `GOOGLE_PLACES_API_KEY` (Production + Preview scopes); (3) HTTP-referrer restrictions on the key set to the production domain (and any preview `*.vercel.app` host you want to allow). Free quota is generous for a low-traffic site.
+- [ ] **Google Reviews + Google Business Profile.** Once Alex has a verified Google Business Profile for the studio, embedding the review feed will require: (1) a Google Cloud project with the Places API enabled; (2) an API key stored in Netlify as `GOOGLE_PLACES_API_KEY` (all deploy contexts); (3) HTTP-referrer restrictions on the key set to the production domain (and any preview `*.netlify.app` host you want to allow). Free quota is generous for a low-traffic site.
 - [ ] **`/lectures` hub page** — referenced in early planning. Worth building only when Alex has YouTube content to embed; an empty hub page is worse than no hub page.
 - [ ] **Per-module curriculum sub-pages** — e.g. `/curriculum/harmony`, `/curriculum/counterpoint`. Each module gets a deep page with repertoire studied and sample exercises. Long-tail SEO play; not needed for launch.
 - [ ] **`Course` structured data** — Schema.org `Course` entry per curriculum module, added to `src/config/structured-data.ts` once the per-module pages exist.
 - [ ] **Replace the fabricated `TestimonialBlock` quotes — DO NOT SHIP AS REAL.** `TestimonialBlock` is live on the homepage, but the six testimonials in `src/config/testimonials.ts` are **fabricated placeholders** written only to demonstrate the section's look. They name invented students and must not go live as genuine client quotes. Before launch, either replace them with real, consented student quotes or remove the `<TestimonialBlock />` instance from `src/pages/index.astro`. The config file carries the same warning in a header comment.
 - [ ] **Audio gallery on `/music`** — `AudioFeature` currently shows one YouTube embed on the homepage. Could grow into a small dedicated media page once Alex selects more pieces to feature.
-- [ ] **Analytics decision** — currently no analytics. If/when Alex wants visitor data, choose between Vercel Analytics (built-in, privacy-respecting, no cookies) and Plausible (paid, more featureful). Either will require adding the new processor to the privacy policy and (for Plausible) configuring Cookiebot to gate it.
+- [ ] **Analytics decision** — currently no analytics. If/when Alex wants visitor data, choose between Netlify Analytics (server-side, no cookies, paid add-on) and Plausible (paid, more featureful). Either will require adding the new processor to the privacy policy and (for Plausible) configuring Cookiebot to gate it.
 - [ ] **Per-page image-focus tuning** — `imageFocus` on each PageHero is currently a guess. Eyeball each page once content is final and adjust if the focal point is off.
 
 ## Security headers
 
-Configured in `vercel.json` at the project root: six baseline headers plus a CSP whitelisting the third parties the site loads (Cookiebot, Cal.com, YouTube). See **Security headers reference** below for the full list and why each one matters. **Before adding new third-party scripts** (analytics, fonts from a CDN, additional embeds), extend the matching CSP directive in `vercel.json` or those resources will be silently blocked.
+Configured in `netlify.toml` at the project root: six baseline headers plus a CSP whitelisting the third parties the site loads (Cookiebot, Cal.com, YouTube). See **Security headers reference** below for the full list and why each one matters. **Before adding new third-party scripts** (analytics, fonts from a CDN, additional embeds), extend the matching CSP directive in `netlify.toml` or those resources will be silently blocked.
 
 `CSP-AUDIT.md` at the project root is the portable audit guide — walks through how to verify the CSP empirically (DevTools → Console → look for `Refused to` errors after exercising every feature) and includes worked examples for common stacks. Re-run that audit whenever a new third party is added.
 
 After deploy: scan the production URL via [securityheaders.com](https://securityheaders.com) — aim for an A rating.
 
-- [ ] **Submit the production domain to the HSTS preload list** at [hstspreload.org](https://hstspreload.org) once the site has been live on HTTPS for at least a few weeks. The HSTS header in `vercel.json` is currently *without* the `preload` directive — that keyword is a public commitment that takes months to reverse if submitted prematurely. Adding it back and submitting is the right move once you're confident the production domain will keep serving HTTPS indefinitely. Process: update `vercel.json` to add `; preload` to the HSTS value, redeploy, then submit at hstspreload.org. ~5 min to do, but inclusion in the list takes weeks.
+- [ ] **Submit the production domain to the HSTS preload list** at [hstspreload.org](https://hstspreload.org) once the site has been live on HTTPS for at least a few weeks. The HSTS header in `netlify.toml` is currently *without* the `preload` directive — that keyword is a public commitment that takes months to reverse if submitted prematurely. Adding it back and submitting is the right move once you're confident the production domain will keep serving HTTPS indefinitely. Process: update `netlify.toml` to add `; preload` to the HSTS value, redeploy, then submit at hstspreload.org. ~5 min to do, but inclusion in the list takes weeks.
 
 ---
 
 # Post-launch verification — first hour after DNS cutover
 
-Run this checklist the moment the production domain resolves to the live Vercel deployment. Most of these can't be validated before launch because canonical URLs, OG tags, and the sitemap all reference the production domain — they only become meaningful once it's live.
+Run this checklist the moment the production domain resolves to the live Netlify deployment. Most of these can't be validated before launch because canonical URLs, OG tags, and the sitemap all reference the production domain — they only become meaningful once it's live.
 
 Total time: ~20 minutes.
 
@@ -180,7 +183,7 @@ Paste the production URL into each tool. First time, hit Scrape Again / Inspect 
 ### Security and headers
 
 - [securityheaders.com](https://securityheaders.com/) — scan production URL. Aim for an A rating.
-- [ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) — TLS configuration scan. Vercel's default cert handling is already A-grade so this is a quick confirmation.
+- [ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) — TLS configuration scan. Netlify's default cert handling (Let's Encrypt) is already A-grade so this is a quick confirmation.
 
 ### Search engines
 
@@ -205,7 +208,7 @@ This section captures the project-agnostic patterns from this codebase that appl
 
 ## Why client-owned accounts matter
 
-**Every third-party service must be registered under a client-owned email, not the developer's.** Cookiebot, Resend, Vercel, Cal.com, any analytics — all of it. Three reasons:
+**Every third-party service must be registered under a client-owned email, not the developer's.** Cookiebot, Resend, Netlify, Cal.com, any analytics — all of it. Three reasons:
 
 1. **Legal.** Most of these services process personal data (consent records, form submissions, server logs). The client is the data controller; the service is the processor. Records must sit in the client's account so the client can produce them if audited or asked under a GDPR Article 15 / PIPEDA / Law 25 access request.
 2. **Practical.** The Data Processing Addendum (DPA) signed with each provider is structured as a client-to-provider agreement, not an agency-to-provider one. The legal relationship has to match the technical setup.
@@ -216,12 +219,12 @@ This section captures the project-agnostic patterns from this codebase that appl
 1. During development — use your own account with a development domain. Fine.
 2. Before launch — ask the client to sign up for a free account using a client-owned email.
 3. Client adds you as a team member with admin access (cleaner than sharing passwords; uses your own credentials).
-4. You configure everything from your own logged-in session, swap any dev IDs (Cookiebot CBID, Resend domain, Vercel project) to the client's, then verify.
+4. You configure everything from your own logged-in session, swap any dev IDs (Cookiebot CBID, Resend domain, Netlify site) to the client's, then verify.
 5. Document the handoff in the client's operational notes.
 
 ## Security headers reference
 
-Configured in `vercel.json` at the project root. Six baseline headers + a minimal CSP.
+Configured in `netlify.toml` at the project root. Six baseline headers + a minimal CSP.
 
 | Header | What it does | Why it matters |
 |---|---|---|
@@ -232,7 +235,7 @@ Configured in `vercel.json` at the project root. Six baseline headers + a minima
 | **COOP (Cross-Origin-Opener-Policy)** | Prevents other sites from holding a reference to your window when opened via popup or link. | Closes a class of cross-site attacks. |
 | **HSTS (Strict-Transport-Security)** | Forces the browser to always use HTTPS for your domain. | After first visit, the browser refuses to connect over plain HTTP. Only works once the site serves correctly over HTTPS. |
 
-**Active values** (in `vercel.json`):
+**Active values** (in `netlify.toml`):
 
 ```txt
 X-Frame-Options: DENY
@@ -244,7 +247,7 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains
 Content-Security-Policy: default-src 'self'; script-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://app.cal.com; img-src 'self' data: https:; font-src 'self' data: https://app.cal.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://consent.cookiebot.com https://app.cal.com https://cal.com; connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://app.cal.com https://cal.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'
 ```
 
-**CSP — when to extend.** CSP is the most powerful header but also the most complex. Any source not listed in the relevant directive is blocked. Before adding a new third-party script or embed, update the matching directive in `vercel.json` — otherwise the resource silently fails. Common updates:
+**CSP — when to extend.** CSP is the most powerful header but also the most complex. Any source not listed in the relevant directive is blocked. Before adding a new third-party script or embed, update the matching directive in `netlify.toml` — otherwise the resource silently fails. Common updates:
 
 - **Analytics / tag managers** — usually need `script-src` and `connect-src`.
 - **Cookie consent tools** — usually need `script-src`, `style-src`, and sometimes `connect-src`.
@@ -260,7 +263,7 @@ Before adding any new third-party script or embed (analytics, ad pixel, social w
 1. **Written assessment** — paragraph somewhere in your project notes describing the data flow. What data is sent to whom, under what legal basis, for what purpose.
 2. **Privacy policy update** — add the vendor under the "third parties we share data with" / "sub-processors" section, with what's shared and why.
 3. **Consent gating** — if the vendor is a tracker/marketing tool, tag the embed with `data-cookieconsent="marketing"` (or the relevant Cookiebot category) so it's blocked until consent. Verify in DevTools Network panel that the third-party request does **not** fire before consent.
-4. **CSP update** — extend the relevant directive in `vercel.json` (see Security headers above).
+4. **CSP update** — extend the relevant directive in `netlify.toml` (see Security headers above).
 5. **Test on the live URL** in a fresh incognito session — both the pre-consent and post-consent states.
 6. **For sensitive-topic sites** (mental health, legal, medical, etc.): the calculus is different. Trackers can leak special-category inference data. Default to refusing trackers entirely on those sites and document the reason.
 
@@ -274,7 +277,7 @@ The contact form uses [Resend](https://resend.com) to send email. During develop
 2. **Domains → Add Domain.** Enter the site's domain.
 3. Add the DNS records Resend provides (SPF, DKIM, DMARC, optionally tracking) at the domain registrar. Click Verify in Resend once they're added. DNS propagation can take up to 24 hours but is usually faster.
 4. Update `FROM` in `src/features/contact-form/service/deliverContact.ts` from `onboarding@resend.dev` to a verified address (e.g. `noreply@[client-domain]`). The `TO` is already driven from `studio.email.formTo`.
-5. Set the production `RESEND_API_KEY` env var in Vercel (or whichever host). Never commit the key.
+5. Set the production `RESEND_API_KEY` env var in Netlify (or whichever host). Never commit the key.
 6. Send a test submission and confirm it arrives in the client's inbox (and not in spam).
 
 **Why this can't stay on `onboarding@resend.dev` at launch:**
@@ -284,19 +287,19 @@ The contact form uses [Resend](https://resend.com) to send email. During develop
 - Resend's own terms restrict production use of the test sender.
 - Once a domain is verified, the email looks like it came from the client (it did), passes spam filters, and is rate-limited per the client's account.
 
-## Vercel project transfer
+## Netlify site transfer
 
-When the client's Vercel account is ready:
+When the client's Netlify account is ready:
 
-1. Client signs up at [vercel.com](https://vercel.com) with a client-owned email.
-2. Client creates a team (Vercel auto-creates one on signup) and invites you as team member with admin access.
-3. **Transfer the project:** Project → Settings → General → Transfer Project. Environment variables, deployments, and build history all move across cleanly. No rebuild needed.
-4. **Verify env vars** transferred: Project → Settings → Environment Variables.
-5. **Point the domain:** Project → Settings → Domains. Add the apex and `www` variants. Vercel provides the CNAME or A record to add at the DNS registrar.
-6. **Trigger a production deployment** from the client's team to confirm everything builds and serves correctly.
+1. Client signs up at [netlify.com](https://netlify.com) with a client-owned email.
+2. Client creates a team (Netlify auto-creates one on signup) and invites you as a team member with the appropriate role.
+3. **Transfer the site:** Site configuration → General → Transfer site to the client's team. Environment variables and deploy history move with it.
+4. **Verify env vars** transferred: Site configuration → Environment variables. Re-add `RESEND_API_KEY` if it did not copy.
+5. **Point the domain:** Domain management. Add the apex and `www` variants. Netlify provides the CNAME (or apex A/ALIAS) record to add at the DNS registrar.
+6. **Trigger a production deploy** from the client's team to confirm everything builds and serves correctly.
 7. **Update the site's `siteUrl`** config so canonical URLs, sitemap, OG, and JSON-LD all reference the live domain.
 
-**Function region.** Vercel defaults SSR functions to a US region (`iad1`). If the privacy policy commits to processing in a specific region (EU, Canada, etc.), set Function Region under Project → Settings → Functions. The change only takes effect on new deployments — push a commit or trigger a redeploy. Verify by checking the `x-vercel-id:` response header in DevTools — the prefix tells you where the function actually ran.
+**Function region.** Netlify Functions run in a US region by default. Region control is limited compared with some hosts; if the privacy policy commits to processing in a specific region (EU, Canada, etc.), confirm what the studio's Netlify plan actually offers and align the policy wording before launch.
 
 ## Adding new pages
 
@@ -320,7 +323,7 @@ Two layers in place:
 - **Honeypot field** — a visually-hidden input that bots tend to fill. Submissions with it filled are silently dropped (the handler returns success so the bot moves on).
 - **Zod validation** — all fields are validated server-side before the email is sent.
 
-Sufficient for a low-traffic site. If spam becomes an issue, the recommended upgrade is **rate limiting** via [Upstash Redis](https://upstash.com) (free tier covers thousands of requests per day, works with Vercel). Limit submissions to e.g. 3 per hour per IP.
+Sufficient for a low-traffic site. If spam becomes an issue, the recommended upgrade is **rate limiting** via [Upstash Redis](https://upstash.com) (free tier covers thousands of requests per day, works fine from a Netlify Function). Limit submissions to e.g. 3 per hour per IP.
 
 ## Testing & auditing tools
 

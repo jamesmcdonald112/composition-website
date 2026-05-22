@@ -32,3 +32,6 @@ pnpm-debug.log*
 src/pages/practice.astro
 # Local Vercel folder (build output + project link)
 .vercel
+
+# Local Netlify folder
+.netlify

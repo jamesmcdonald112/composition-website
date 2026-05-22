@@ -47,8 +47,8 @@ const emailDelivery = {
 } as const;
 
 const hosting = {
-	name: "Vercel",
-	legalEntity: "Vercel Inc.",
+	name: "Netlify",
+	legalEntity: "Netlify, Inc.",
 	country: "United States",
 } as const;
 

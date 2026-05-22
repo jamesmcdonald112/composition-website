@@ -1,0 +1,27 @@
+# ── NETLIFY CONFIG ────────────────────────────────────────────────────────────
+# PROJECT: Pozdnyakov Composition Studio
+#
+# Astro SSR via the @astrojs/netlify adapter. The adapter emits the Netlify
+# Functions output during `astro build`; Netlify serves it automatically — no
+# `publish` or `functions` directory needs to be set here.
+#
+# The [[headers]] block below mirrors the six baseline security headers and the
+# Content-Security-Policy. Before adding a new third-party script or embed,
+# extend the matching CSP directive or the resource will be silently blocked.
+# ──────────────────────────────────────────────────────────────────────────────
+
+[build]
+  command = "npm run build"
+
+# Security headers — applied to every response.
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline' https://consent.cookiebot.com https://app.cal.com; img-src 'self' data: https:; font-src 'self' data: https://app.cal.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://consent.cookiebot.com https://app.cal.com https://cal.com; connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://app.cal.com https://cal.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
