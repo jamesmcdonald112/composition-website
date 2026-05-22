@@ -53,24 +53,23 @@ export const homePageContent = {
 	//      order they're taught. Carries SEO weight for the subject
 	//      searches (harmony, counterpoint, fugue, orchestration) without
 	//      reading as a keyword list.
-	//   3. Self-selection — names who the studio is for, in the language
-	//      that audience uses about itself ("composers serious about
-	//      writing", not "ambitious learners").
+	//   3. Self-selection — names who the studio is for in warm, aspirational
+	//      terms ("composers who already write and want to go further"),
+	//      not gatekeeping language ("not for beginners").
 	//   4. Risk reversal — names the free introductory consultation and
 	//      what it costs (nothing) so a first-time visitor sees the path
 	//      to the next step before they've left this section.
 	trustStrip: {
 		eyebrow: "Why this studio",
 		title: [
-			{ text: "Russian conservatoire training " },
-			{ text: "in composition", em: true },
-			{ text: ", taught one student at a time, online from Montréal" },
+			{ text: "A composition studio, " },
+			{ text: "not a course", em: true },
 		],
 		paragraphs: [
-			`Alexander Pozdnyakov trained at the Gnesin Russian Academy of Music in Moscow under Tigran Chernoff, then completed his Master's and Doctorate in composition at the Université de Montréal under Alan Belkin. He has taught composition, harmony, counterpoint, and orchestration at conservatoire level since ${studio.established} — first at the Gnesin Academy itself, then at the Université de Montréal — and is composer-in-residence with the Orchestre Interculturel de Montréal.`,
-			"The studio teaches the full conservatoire curriculum, in order: harmony, counterpoint, four-part chorale writing in the style of Bach, fugue, form and analysis, orchestration, and original composition. Every exercise you submit is read in full and answered with detailed written feedback — corrections, the reasoning behind each correction, and the repertoire passage the principle is drawn from. That is the part of online composition study that most courses leave out, and it is the part that does the work.",
-			"This is one-to-one online composition tuition for students who already write and want to improve — conservatoire-prep students, self-taught composers ready to commit, working composers wanting depth in a specific subject. It is not a beginners' course in music theory. The studio assumes you can already read music; what it adds is the second pair of ears that hears what you don't yet hear in your own writing.",
-			"The introductory consultation is a fifteen-minute video call. It is free, and there is no obligation afterwards. Bring your background, your questions, and — if you have one — a recent piece of your writing. We'll figure out together where in the curriculum you would start and whether the studio is the right fit. If it isn't, the consultation is the right place to find that out.",
+			`Alexander Pozdnyakov trained at the Gnesin Russian Academy of Music in Moscow and took his Doctorate in composition at the Université de Montréal under Alan Belkin. He has taught composition, harmony, counterpoint, and orchestration at conservatoire level since ${studio.established}, and is composer-in-residence with the Orchestre Interculturel de Montréal.`,
+			"You work through the full curriculum in order — harmony, counterpoint, chorale writing, fugue, form, orchestration, and your own composition. Every exercise you send is read in full and answered: the corrections, the reasoning behind them, and the passage in the repertoire each principle comes from.",
+			"It's one-to-one teaching, online, for composers who already write and want to go further. You bring the music you're working on; the studio brings the second pair of ears that hears what you don't yet hear in your own writing.",
+			"The first step is a free fifteen-minute call. Bring your questions, your background, and a recent piece if you have one. We'll talk about where you'd start and whether the studio is right for you — and if it isn't, that's a good thing to find out early.",
 		],
 		stats: [
 			{ label: "Teaching", value: `Since ${studio.established}` },
@@ -81,10 +80,10 @@ export const homePageContent = {
 	},
 
 	curriculum: {
-		eyebrow: "The training path",
+		eyebrow: "The path of study",
 		title: "Eight modules, one programme of study",
 		intro:
-			"The curriculum runs as a single sequence — harmony through to composition, with student-work review threaded through every module. Each module builds on the previous one. Read top to bottom.",
+			"One sequence, harmony through to composition, each module built on the one before. Your written work is reviewed at every stage. Read it top to bottom.",
 		modules: curriculum,
 	},
 

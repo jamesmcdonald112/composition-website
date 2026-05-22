@@ -6,7 +6,7 @@ export const defaultCtaPanel = {
 		{ text: "A free first call about your " },
 		{ text: "composition study", em: true },
 	],
-	body: "Tell us a little about your background and what you'd like to work on. The introductory consultation is a free fifteen-minute video call — the right place to find out whether the studio is the right fit.",
+	body: "Tell us a little about your background and what you'd like to work on. The first call is free — fifteen minutes by video, the right place to find out whether the studio is for you.",
 } as const;
 
 export const globalCtas = {

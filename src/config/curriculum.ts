@@ -31,58 +31,58 @@ export const curriculum: readonly CurriculumModule[] = [
 	{
 		name: "Harmony",
 		subtitle: "The grammar of tonal music",
-		body: "Triadic harmony from figured bass through to the chromatic harmony of the late nineteenth century. Voice-leading, modulation, chorale writing in the style of Bach, and harmonic analysis of repertoire from Corelli to Brahms.",
+		body: "Triadic harmony, from figured bass to the chromatic writing of the late nineteenth century. Voice-leading, modulation, chorale writing, and the analysis of real scores from Corelli to Brahms — so harmony becomes something you hear, not a set of rules.",
 		outcome:
-			"By the end of the module you will read figured bass fluently, harmonise a chorale melody in four parts, and analyse harmonic structure in any tonal score.",
+			"You'll read figured bass fluently, harmonise a chorale in four parts, and hear the harmonic structure of any tonal score you open.",
 	},
 	{
 		name: "Counterpoint",
 		subtitle: "Independent voices in motion",
-		body: "Begins with the strict species counterpoint of Fux — two voices, note against note — and works outwards through three and four voices, free counterpoint, and the contrapuntal procedures of the Baroque.",
+		body: "This is where most self-taught composers stall. We start with two voices in Fux's strict style, note against note, then work outwards to three and four, and on to free counterpoint. The aim is to hear each line as a melody in its own right.",
 		outcome:
-			"By the end of the module you will write fluently in two, three, and four voices, and hear independent voices as melodic lines rather than as harmonic verticals.",
+			"You'll write fluently in two, three, and four voices, and hear independent lines instead of stacked chords.",
 	},
 	{
 		name: "Chorales",
 		subtitle: "Bach's four-voice writing as the foundation",
-		body: "The chorale as the central study object of the conservatoire tradition. Detailed work on Bach's 371 chorales — analysis, harmonisation of given melodies, and original chorale writing in the style.",
+		body: "The chorale sits at the centre of the whole tradition. We work closely through Bach's 371 chorales — analysing them, harmonising given melodies, writing your own in the style — until their logic becomes second nature.",
 		outcome:
-			"By the end of the module you will harmonise a chorale melody in the Bach style with idiomatic voice-leading, cadential patterns, and harmonic rhythm.",
+			"You'll harmonise a chorale melody in the Bach style with idiomatic voice-leading, cadences, and harmonic rhythm.",
 	},
 	{
 		name: "Fugue",
 		subtitle: "Strict imitative counterpoint",
-		body: "The fugue as the highest discipline of contrapuntal writing. Subject and answer, countersubject, exposition, episode and stretto, examined through Bach's Well-Tempered Clavier and the Art of Fugue.",
+		body: "The most demanding contrapuntal writing there is, and the most rewarding to get right. Subject and answer, countersubject, exposition, episode, stretto — studied through the Well-Tempered Clavier and the Art of Fugue, then written yourself.",
 		outcome:
-			"By the end of the module you will write a complete three- or four-voice fugue with a coherent subject, a well-formed exposition, and structurally meaningful episodes and stretti.",
+			"You'll write a complete three- or four-voice fugue with a coherent subject, a sound exposition, and episodes that mean something.",
 	},
 	{
 		name: "Form and Analysis",
 		subtitle: "How a piece is built",
-		body: "The forms of common-practice composition — binary, ternary, sonata, rondo, variation, fugue — studied through analysis of repertoire from Haydn through to Shostakovich. Schenkerian reduction introduced where it clarifies structure.",
+		body: "How whole pieces hold together — binary, ternary, sonata, rondo, variation — studied by taking real works apart, from Haydn to Shostakovich. A little Schenkerian reduction where it makes the structure clearer.",
 		outcome:
-			"By the end of the module you will analyse the formal structure of any common-practice work, and write coherent movements in sonata, rondo, and variation form.",
+			"You'll see how any common-practice work is built, and write coherent movements in sonata, rondo, and variation form.",
 	},
 	{
 		name: "Orchestration",
 		subtitle: "Writing for the instruments of the orchestra",
-		body: "The orchestra as a working instrument — the ranges, transpositions, timbres, and idiomatic writing of strings, woodwinds, brass, and percussion. Score reading, instrumental balance, and the orchestration of piano works as a primary exercise.",
+		body: "The orchestra as a working instrument — what each section can do, how it sounds, how to write for it idiomatically. You'll read scores, weigh balance, and orchestrate piano works to hear what comes back.",
 		outcome:
-			"By the end of the module you will orchestrate a Romantic-era piano work for full orchestra with idiomatic part-writing, balanced voicing, and structural use of timbre.",
+			"You'll orchestrate a Romantic piano work for full orchestra, writing idiomatically and using timbre to shape the structure.",
 	},
 	{
 		name: "Composition",
 		subtitle: "Your own voice, on the foundation of the craft",
-		body: "Composition assignments shaped to your own direction. Short forms first — a piano miniature, a song, a string quartet movement — then larger forms as the craft consolidates. Style is not prescribed; the rigour of the underlying writing is.",
+		body: "Now the craft goes to work on your own music. Short forms first — a piano miniature, a song, a quartet movement — then larger ones as your instincts settle. Style is yours to find; the rigour underneath it is what we build.",
 		outcome:
-			"By the end of the module you will have completed several finished works in your own voice, with the technical foundation to take on any compositional problem ahead of you.",
+			"You'll finish several pieces in your own voice, with the technique to take on whatever you write next.",
 	},
 	{
 		name: "Student Reviews",
 		subtitle: "Detailed feedback on your written work",
-		body: "Across every module, the work you write is reviewed individually. Each exercise comes back with detailed corrections, alternative solutions, and the reasoning behind every change — the part most online courses leave out.",
+		body: "Less a module than the thread running through all of them. Every exercise you write comes back marked — corrections, alternatives, and the reasoning behind each one. It's the slow part, and it's the part that teaches.",
 		outcome:
-			"This is not a separate module so much as the substance of the studio. Every exercise you write is read and answered.",
+			"Every exercise you write is read and answered. This is the substance of the studio.",
 	},
 ] as const;
 
@@ -126,7 +126,7 @@ export const phases: readonly CurriculumPhase[] = [
 	{
 		label: "Throughout the path",
 		intro:
-			"Every exercise you write is read and answered with detailed individual feedback. This is what separates the studio from a self-paced course.",
+			"Every exercise you write is read and answered with detailed individual feedback — the steady conversation that carries you through the whole curriculum.",
 		modules: curriculum.slice(7, 8), // VIII
 	},
 ] as const;

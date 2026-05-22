@@ -4,7 +4,7 @@ export const thankYouContent = {
 		description: "Thank you for your enquiry.",
 	},
 	heading: "Message received",
-	body: "We'll review your message and respond in due course.",
+	body: "Thank you for writing. Alex will read your message and reply personally, usually within a few days.",
 	href: "/",
 } as const;
 

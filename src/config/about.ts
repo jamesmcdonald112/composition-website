@@ -31,7 +31,7 @@ export const aboutPageContent = {
 			{ text: "passed on", em: true },
 		],
 		subtitle:
-			"Alexander Pozdnyakov is a Russian-Canadian composer based in Montréal. He has taught harmony, counterpoint, orchestration, and composition at conservatoire level since 1996 — first at the Gnesin Russian Academy of Music in Moscow, then at the Université de Montréal.",
+			"Alexander Pozdnyakov is a Russian-Canadian composer in Montréal. He has taught harmony, counterpoint, orchestration, and composition at conservatoire level since 1996 — first at the Gnesin Academy in Moscow, then at the Université de Montréal.",
 		image: aboutImage,
 		imageAlt: "An antique musical score open on a wooden writing desk.",
 		imageFocus: "center 40%",
@@ -45,14 +45,14 @@ export const aboutPageContent = {
 	trustStrip: {
 		eyebrow: "The teaching record",
 		title: [
-			{ text: "Conservatoire training, " },
-			{ text: "taught at conservatoire level", em: true },
+			{ text: "A teacher worth " },
+			{ text: "studying with", em: true },
 		],
 		paragraphs: [
-			`Alexander Pozdnyakov trained at the Gnesin Russian Academy of Music in Moscow under Tigran Chernoff, then completed his Master's and Doctorate at the Université de Montréal under Alan Belkin. He has taught at conservatoire level since ${studio.established}.`,
-			"The curriculum the studio teaches — harmony, counterpoint, chorale writing, fugue, form, orchestration, and original composition — is the curriculum a conservatoire student would work through, taught one student at a time and at the pace each student needs.",
-			"His own catalogue runs from chamber miniatures to full orchestra: a symphony, three concertos, a string quartet, chamber and vocal works performed across Europe, Asia, and the Americas. Fifteen competition wins and scholarships across his career, including the UNESCO Jubilee Scholarship and the personal Myaskovsky Scholarship of the Rostropovich Fund.",
-			"Every exercise you submit is read and answered with detailed individual feedback. That is the part that takes the time; it is also the part that separates the studio from a self-paced course.",
+			`Alexander trained at the Gnesin Academy in Moscow under Tigran Chernoff, then took his Master's and Doctorate at the Université de Montréal under Alan Belkin. He has taught at conservatoire level since ${studio.established}.`,
+			"The curriculum the studio teaches is the one a conservatoire student would work through — harmony, counterpoint, chorale writing, fugue, form, orchestration, composition — taught one student at a time, at the pace each one needs.",
+			"His own music runs from chamber miniatures to full orchestra: a symphony, three concertos, a string quartet, vocal works, performed across Europe, Asia, and the Americas. Fifteen competition wins and scholarships along the way, the UNESCO Jubilee Scholarship and the Myaskovsky Scholarship of the Rostropovich Fund among them.",
+			"Every exercise you send is read and answered with detailed feedback. It's the slow part of the work, and the part that does the teaching.",
 		],
 		stats: [
 			{ label: "Teaching", value: `Since ${studio.established}` },
@@ -72,7 +72,7 @@ export const aboutPageContent = {
 			{ text: "Montréal", em: true },
 		],
 		intro:
-			"The biography below is the long version — written for someone considering studying composition seriously and wanting to know whom they would be studying with.",
+			"The long version — for anyone weighing up studying here and wanting to know who they'd be working with.",
 
 		// The pull-quote anchors the right column on desktop. Written in
 		// Alex's voice — a single line that captures the teaching position
@@ -103,8 +103,8 @@ export const aboutPageContent = {
 
 	// ── Closing CTA ───────────────────────────────────────────────────────────
 	cta: {
-		title: "Considering composition study?",
-		body: "Book a free introductory consultation. We'll talk about your background, what you want to write, and whether the studio is the right fit.",
+		title: "Thinking about where to take your writing?",
+		body: "Book a free first call. We'll talk about your background, the music you want to write, and whether the studio is right for you.",
 	},
 } as const;
 

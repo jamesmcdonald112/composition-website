@@ -16,7 +16,7 @@ export const studio = {
 	name: "Pozdnyakov Composition Studio",
 	shortName: "Pozdnyakov Studio",
 	teacher: "Alexander Pozdnyakov",
-	tagline: "Russian conservatoire training in harmony",
+	tagline: "Russian conservatoire training in classical composition",
 
 	// Lineage — Chernoff (Gnesin Academy, Moscow) → Belkin (Université de Montréal).
 	// Used in the "teacher, lightly worn" section and on the About page.

@@ -37,16 +37,16 @@ export const pricing: PricingContent = {
 		{ text: "to study", em: true },
 	],
 	intro:
-		"Composition study at the studio runs on two formats — a live one-to-one lesson, or a single harmony exercise sent in for written feedback. Most students start with one and add the other as they go.",
+		"Two ways to study — a live one-to-one lesson, or a single exercise sent in for written feedback. Most students start with one and add the other as they go.",
 	footnote:
-		"Lessons and harmony exercise correction can be combined freely. The free introductory consultation is the place to decide which to start with.",
+		"The two combine freely. The free first call is the place to decide where to begin.",
 	offers: [
 		{
 			name: "Private lesson",
 			subtitle: "Live, one-to-one, by video call",
 			price: "€75",
 			priceFootnote: "per hour",
-			body: "A live one-hour video call. Work through your writing in real time with a Doctor of Music in composition, in the conservatoire tradition that produced him.",
+			body: "A live one-hour video call. We work through your music in real time — your questions, your writing, at the keyboard together.",
 			bullets: [
 				"One full hour, one student — no group, no shared lectures",
 				"Tuition in any subject of the curriculum, paced to you",
@@ -61,7 +61,7 @@ export const pricing: PricingContent = {
 			subtitle: "Written feedback on a single exercise",
 			price: "€10",
 			priceFootnote: "per exercise",
-			body: "Send a harmony exercise — a chorale, a figured bass, a four-voice writing study — and receive it back annotated in Dorico with corrections and notes. The most affordable way to have a serious teacher hear what you've written.",
+			body: "Send a harmony exercise — a chorale, a figured bass, a four-voice study — and get it back annotated in Dorico, with corrections and notes. The simplest way to have a teacher hear what you've written.",
 			bullets: [
 				"Corrections marked directly on the score",
 				"Reasoning written out for each correction",

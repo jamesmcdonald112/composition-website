@@ -7,7 +7,7 @@ export const contactPageContent = {
 	},
 	title: "Get in touch",
 	intro:
-		"Tell us a little about your musical background and what you want to work on. The introductory consultation is free and the right place to find out whether the studio is the right fit.",
+		"Tell us a little about your musical background and the music you want to write. The first call is free — a good place to find out whether the studio is right for you.",
 } as const;
 
 export type ContactPageContent = typeof contactPageContent;

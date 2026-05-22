@@ -71,9 +71,9 @@ export const bio = {
 		{
 			heading: "What I teach, and how",
 			paragraphs: [
-				"The studio teaches the curriculum a conservatoire student would work through: harmony, counterpoint, chorale writing in the Bach style, fugue, form and analysis, orchestration, and original composition — with detailed individual feedback as the through-line. It is a single programme, not a menu of courses, and the modules build on each other in the order a real conservatoire training would take them.",
-				"The model is master-apprentice. One student at a time, taught online, paced to the student. You write; the work is read and answered; the corrections come back with the reasoning behind every change, alternative solutions where they exist, and the repertoire the principle is drawn from. This is the part that takes the time and the part that does the work.",
-				"It is not a beginners' course and it is not a casual course. The students who get most from the studio are those who have already decided composition is what they want to do and who want the technical foundation done properly — conservatoire students, self-taught composers ready to commit, and working composers wanting depth in a specific area.",
+				"The studio teaches the curriculum a conservatoire student would work through: harmony, counterpoint, chorale writing in the Bach style, fugue, form and analysis, orchestration, and original composition — with detailed individual feedback running through all of it. It is a single programme of study, and the modules build on each other in the order a real conservatoire training would take them.",
+				"The model is master and apprentice. One student at a time, taught online, paced to the student. You write; the work is read and answered; the corrections come back with the reasoning behind every change, alternative solutions where they exist, and the passage in the repertoire the principle is drawn from. This is the slow part, and the part that teaches.",
+				"The studio is for composers who already write and want the craft underneath their music done properly — conservatoire students, self-taught composers ready to go deeper, working composers wanting real depth in a particular area. If you have decided composition is what you want to do, this is the place to build the technique that lets you do it well.",
 			],
 		},
 		{
